@@ -1,0 +1,11 @@
+{
+  "name": "aurora-security-report",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "node scripts/generate-report.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.0"
+  }
+}

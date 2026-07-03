@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>資安事件監控台</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans+TC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0E13;--panel:#121821;--panel-alt:#1A222C;--border:#232D39;
+    --text:#E8EDF2;--text-dim:#8B98A5;--text-faint:#4A5568;
+    --accent:#4C8DFF;--accent-dim:#2A5CAF;
+    --sev-high:#FF4D5E;--sev-high-bg:rgba(255,77,94,0.12);
+    --sev-medium:#FFB020;--sev-medium-bg:rgba(255,176,32,0.12);
+    --sev-low:#34D399;--sev-low-bg:rgba(52,211,153,0.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:radial-gradient(ellipse 900px 500px at 15% -10%, rgba(76,141,255,0.08), transparent), var(--bg);
+    color:var(--text);font-family:'IBM Plex Sans TC','Noto Sans TC',sans-serif;
+    min-height:100vh;padding:28px 20px 60px;
+  }
+  .wrap{max-width:980px;margin:0 auto;}
+  .header{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:14px;padding-bottom:18px;margin-bottom:18px;border-bottom:1px solid var(--border);}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand-icon{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#2A5CAF);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+  .brand h1{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;letter-spacing:0.3px;}
+  .brand .sub{font-size:11.5px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;margin-top:2px;}
+  .status{display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-dim);}
+  .pulse-dot{width:8px;height:8px;border-radius:50%;background:var(--sev-low);animation:pulse 2s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(52,211,153,0.5);}70%{box-shadow:0 0 0 7px rgba(52,211,153,0);}100%{box-shadow:0 0 0 0 rgba(52,211,153,0);}}
+  .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:22px;}
+  input[type=text], select{background:var(--panel);border:1px solid var(--border);color:var(--text);font-family:'IBM Plex Sans TC',sans-serif;font-size:13px;padding:9px 12px;border-radius:7px;outline:none;}
+  input[type=text]{flex:1;min-width:180px;}
+  input[type=text]:focus, select:focus{border-color:var(--accent-dim);}
+  select{font-family:'JetBrains Mono',monospace;cursor:pointer;}
+  .meta-line{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--text-dim);margin-bottom:16px;display:flex;gap:16px;flex-wrap:wrap;}
+  .meta-line b{color:var(--text);}
+  .list{display:flex;flex-direction:column;gap:10px;}
+  .card{background:var(--panel);border:1px solid var(--border);border-left-width:4px;border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;animation:fadeIn .35s ease both;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:translateY(0);}}
+  .card.sev-高{border-left-color:var(--sev-high);}
+  .card.sev-中{border-left-color:var(--sev-medium);}
+  .card.sev-低{border-left-color:var(--sev-low);}
+  .card-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;}
+  .card-title{font-size:14.5px;font-weight:600;line-height:1.4;}
+  .card-date{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--text-dim);white-space:nowrap;flex-shrink:0;padding-top:2px;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;}
+  .tag{font-family:'JetBrains Mono',monospace;font-size:10.5px;padding:2px 8px;border-radius:20px;border:1px solid var(--border);color:var(--text-dim);}
+  .tag.sev-高{color:var(--sev-high);background:var(--sev-high-bg);border-color:transparent;}
+  .tag.sev-中{color:var(--sev-medium);background:var(--sev-medium-bg);border-color:transparent;}
+  .tag.sev-低{color:var(--sev-low);background:var(--sev-low-bg);border-color:transparent;}
+  .card-summary{font-size:13px;color:var(--text-dim);line-height:1.6;}
+  .card-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:2px;}
+  .card-org{font-size:12px;color:var(--text-dim);}
+  .card-org b{color:var(--text);font-weight:500;}
+  .card-link{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--accent);text-decoration:none;white-space:nowrap;}
+  .card-link:hover{text-decoration:underline;}
+  .state{text-align:center;padding:60px 20px;color:var(--text-dim);}
+  .state .big{font-size:32px;margin-bottom:10px;}
+  .footer-note{text-align:center;font-size:11px;color:var(--text-faint);margin-top:30px;font-family:'JetBrains Mono',monospace;}
+  @media (max-width:600px){.header{flex-direction:column;align-items:flex-start;}.toolbar{flex-direction:column;align-items:stretch;}select{width:100%;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <div class="brand">
+      <div class="brand-icon">🛡</div>
+      <div><h1>資安事件監控台</h1><div class="sub">GLOBAL THREAT INTEL FEED</div></div>
+    </div>
+    <div class="status"><span class="pulse-dot"></span><span>每日自動更新</span></div>
+  </div>
+  <div class="toolbar">
+    <input type="text" id="searchInput" placeholder="搜尋標題、廠商、關鍵字...">
+    <select id="categoryFilter"><option value="">所有類別</option></select>
+    <select id="severityFilter">
+      <option value="">所有嚴重度</option><option value="高">高</option><option value="中">中</option><option value="低">低</option>
+    </select>
+  </div>
+  <div class="meta-line">共 <b id="totalCount">0</b> 筆事件　·　最後更新：<b>__UPDATED_AT__</b></div>
+  <div id="content"></div>
+  <div class="footer-note">資料由 AI 每日自動搜尋整理，內容可能不完整或有時間差，重大決策請以原始來源為準。</div>
+</div>
+
+<script>
+const INCIDENTS = __INCIDENTS_JSON__;
+
+const contentEl = document.getElementById('content');
+const totalCount = document.getElementById('totalCount');
+const searchInput = document.getElementById('searchInput');
+const categoryFilter = document.getElementById('categoryFilter');
+const severityFilter = document.getElementById('severityFilter');
+
+function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
+
+function populateCategoryFilter(items){
+  const cats = [...new Set(items.map(i => i.category).filter(Boolean))];
+  categoryFilter.innerHTML = '<option value="">所有類別</option>' + cats.map(c => `<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join('');
+}
+
+function renderState(icon, text){
+  contentEl.innerHTML = `<div class="state"><div class="big">${icon}</div><p>${text}</p></div>`;
+}
+
+function renderCards(items){
+  if (!items.length){ renderState('🔍', '沒有符合篩選條件的事件。'); return; }
+  const sevRank = {'高':0,'中':1,'低':2};
+  const sorted = [...items].sort((a,b) => {
+    const sa = sevRank[a.severity] ?? 3, sb = sevRank[b.severity] ?? 3;
+    if (sa !== sb) return sa - sb;
+    return (b.date || '').localeCompare(a.date || '');
+  });
+  contentEl.innerHTML = `<div class="list">${sorted.map(item => `
+    <div class="card sev-${escapeHtml(item.severity || '')}">
+      <div class="card-top">
+        <div class="card-title">${escapeHtml(item.title)}</div>
+        <div class="card-date">${escapeHtml(item.date || '')}</div>
+      </div>
+      <div class="tags">
+        ${item.severity ? `<span class="tag sev-${escapeHtml(item.severity)}">嚴重度：${escapeHtml(item.severity)}</span>` : ''}
+        ${item.category ? `<span class="tag">${escapeHtml(item.category)}</span>` : ''}
+        ${item.region ? `<span class="tag">${escapeHtml(item.region)}</span>` : ''}
+      </div>
+      ${item.summary ? `<div class="card-summary">${escapeHtml(item.summary)}</div>` : ''}
+      <div class="card-bottom">
+        <div class="card-org">${item.affected_org ? `受影響：<b>${escapeHtml(item.affected_org)}</b>` : ''}</div>
+        ${item.source_url ? `<a class="card-link" href="${escapeHtml(item.source_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.source_name || '來源')} ↗</a>` : ''}
+      </div>
+    </div>`).join('')}</div>`;
+}
+
+function applyFilters(){
+  const q = searchInput.value.trim().toLowerCase();
+  const cat = categoryFilter.value;
+  const sev = severityFilter.value;
+  const filtered = INCIDENTS.filter(item => {
+    if (cat && item.category !== cat) return false;
+    if (sev && item.severity !== sev) return false;
+    if (q){
+      const hay = [item.title, item.affected_org, item.summary, item.region].filter(Boolean).join(' ').toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+  renderCards(filtered);
+}
+
+populateCategoryFilter(INCIDENTS);
+totalCount.textContent = INCIDENTS.length;
+applyFilters();
+searchInput.addEventListener('input', applyFilters);
+categoryFilter.addEventListener('change', applyFilters);
+severityFilter.addEventListener('change', applyFilters);
+</script>
+</body>
+</html>
