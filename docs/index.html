@@ -79,7 +79,7 @@
       <option value="">所有嚴重度</option><option value="高">高</option><option value="中">中</option><option value="低">低</option>
     </select>
   </div>
-  <div class="meta-line">共 <b id="totalCount">0</b> 筆事件　·　最後更新：<b>2026-07-02 08:00:00（台灣時間，初始資料）</b></div>
+  <div class="meta-line">共 <b id="totalCount">0</b> 筆事件　·　最後更新：<b>2026/7/6 08:53:49（台灣時間）</b></div>
   <div id="content"></div>
   <div class="footer-note">資料由 AI 每日自動搜尋整理，內容可能不完整或有時間差，重大決策請以原始來源為準。</div>
 </div>
@@ -87,92 +87,114 @@
 <script>
 const INCIDENTS = [
   {
-    "date": "2026-07-01",
-    "title": "Adobe 釋出 ColdFusion 與 Campaign Classic 重大安全更新",
-    "category": "漏洞",
-    "affected_org": "Adobe ColdFusion / Campaign Classic 用戶",
-    "region": "全球",
-    "severity": "中",
-    "summary": "Adobe修補多項最高等級安全漏洞，可能導致任意程式碼執行、權限提升與檔案系統讀取，建議儘速更新。",
-    "source_name": "The Hacker News",
-    "source_url": "https://thehackernews.com/"
-  },
-  {
-    "date": "2026-07-01",
-    "title": "研究揭露首例 AI 模型自主產生瀏覽器勒索軟體攻擊鏈",
-    "category": "AI資安風險",
-    "affected_org": "瀏覽器使用者（研究案例）",
-    "region": "全球",
-    "severity": "中",
-    "summary": "Check Point發現以DeepSeek生成的惡意程式範本，首次展示前沿AI模型獨立串接出可行的瀏覽器勒索軟體攻擊路徑。",
-    "source_name": "The Hacker News",
-    "source_url": "https://thehackernews.com/"
-  },
-  {
-    "date": "2026-07-01",
-    "title": "「幻影搶註」：攻擊者搶先註冊 AI 幻覺網域用於釣魚",
-    "category": "網路釣魚",
-    "affected_org": "多產業品牌（技術、金融、醫療等）",
-    "region": "全球",
-    "severity": "中",
-    "summary": "Unit 42研究顯示，攻擊者搶先註冊AI模型憑空捏造的網域名稱架設釣魚頁面，攔截使用者對AI建議連結的信任。",
-    "source_name": "Palo Alto Networks Unit 42",
-    "source_url": "https://thehackernews.com/"
-  },
-  {
-    "date": "2026-06-29",
-    "title": "Progress LoadMaster 高危漏洞遭鎖定攻擊（CVSS 9.6）",
-    "category": "漏洞",
-    "affected_org": "Progress LoadMaster 負載平衡器用戶",
-    "region": "全球",
-    "severity": "高",
-    "summary": "CVE-2026-8037作業系統指令注入漏洞遭鎖定攻擊，攻擊者可在未驗證情況下執行任意指令，廠商已釋出修補建議。",
-    "source_name": "The Hacker News",
-    "source_url": "https://thehackernews.com/"
-  },
-  {
-    "date": "2026-06-23",
-    "title": "KDDI 電子郵件系統遭入侵，逾 1,422 萬組帳密可能外洩",
+    "date": "2026-06-22",
+    "title": "Tata Electronics遭World Leaks勒索攻擊，外洩Apple與Tesla機密文件",
     "category": "資料外洩",
-    "affected_org": "KDDI（日本電信業者）",
-    "region": "日本",
-    "severity": "高",
-    "summary": "KDDI旗下代管6家日本ISP的郵件系統遭入侵，攻擊者利用第三方軟體漏洞，公司已要求受影響用戶更改密碼。",
-    "source_name": "綜合報導",
-    "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/"
-  },
-  {
-    "date": "2026-06-18",
-    "title": "德州公園暨野生動物局第三方廠商外洩事件",
-    "category": "資料外洩",
-    "affected_org": "Texas Parks and Wildlife Department",
-    "region": "美國",
-    "severity": "中",
-    "summary": "德州網路安全指揮部偵測到第三方授權證照廠商系統遭未授權存取，可能影響民眾申請資料。",
-    "source_name": "Bright Defense",
-    "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/"
-  },
-  {
-    "date": "2026-06-05",
-    "title": "ServiceNow API 未授權存取漏洞遭利用",
-    "category": "漏洞",
-    "affected_org": "ServiceNow（受影響客戶實例）",
-    "region": "全球",
-    "severity": "高",
-    "summary": "攻擊者利用未驗證的API端點漏洞查詢客戶實例中的工單、員工資料等內容，廠商已修補並通知受影響客戶。",
-    "source_name": "Bright Defense",
-    "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/"
-  },
-  {
-    "date": "2026-06-01",
-    "title": "Tata Electronics 遭 World Leaks 勒索組織攻擊，逾 20 萬份檔案外洩",
-    "category": "勒索軟體",
-    "affected_org": "Tata Electronics",
+    "affected_org": "Tata Electronics（Apple/Tesla供應商）",
     "region": "亞太",
     "severity": "高",
-    "summary": "World Leaks勒索軟體組織聲稱入侵Tata Electronics，並在網路上公開逾20萬份公司內部檔案。",
-    "source_name": "Bright Defense",
-    "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/"
+    "summary": "World Leaks勒索集團將竊自Tata Electronics的630GB資料（逾20萬份）發布於暗網，涵蓋iPhone 18 Pro零件規格、Tesla商業機密文件及員工護照，Apple與Tesla展開調查。",
+    "source_name": "TechCrunch",
+    "source_url": "https://techcrunch.com/2026/06/22/tata-electronics-a-major-tech-supplier-to-apple-and-tesla-confirms-data-breach/"
+  },
+  {
+    "date": "2026-06-11",
+    "title": "Klue SaaS供應鏈攻擊：OAuth Token被竊，195家企業Salesforce CRM資料外洩",
+    "category": "供應鏈攻擊",
+    "affected_org": "Klue / Huntress / Recorded Future / LastPass等近200家企業",
+    "region": "全球",
+    "severity": "高",
+    "summary": "駭客組織Icarus利用Klue平台一個2022年遺留未撤銷的舊憑證入侵，竊取OAuth Token後批次查詢195家企業的Salesforce CRM資料，受害者包含多家知名資安公司。",
+    "source_name": "SecurityWeek",
+    "source_url": "https://www.securityweek.com/cybersecurity-firms-impacted-by-klue-supply-chain-attack/"
+  },
+  {
+    "date": "2026-06-11",
+    "title": "Novo Nordisk遭FulcrumSec等駭客勒索，1.3TB數據含AI藥物研發模型外洩",
+    "category": "資料外洩",
+    "affected_org": "Novo Nordisk",
+    "region": "歐洲",
+    "severity": "高",
+    "summary": "丹麥製藥巨頭Novo Nordisk確認遭網路攻擊，FulcrumSec聲稱竊取1.3TB資料含臨床試驗資訊及AI藥物模型，索贖2,500萬美元，另一駭客索贖5,000萬美元，Novo Nordisk均拒絕支付。",
+    "source_name": "HIPAA Journal",
+    "source_url": "https://www.hipaajournal.com/novo-nordisk-cyberattack/"
+  },
+  {
+    "date": "2026-06-13",
+    "title": "Nintendo疑遭第三方資料外洩，員工內部資料及財務文件被竊",
+    "category": "資料外洩",
+    "affected_org": "Nintendo",
+    "region": "亞太",
+    "severity": "中",
+    "summary": "駭客組織SHADOWBYT3$聲稱入侵與Nintendo合作的TINYpulse員工調查平台，竊取859MB資料，含員工姓名、調查記錄、銀行對帳單及W-9表格，Nintendo尚未正式確認。",
+    "source_name": "TechRepublic",
+    "source_url": "https://www.techrepublic.com/article/news-nintendo-alleged-data-leak-third-party-risk/"
+  },
+  {
+    "date": "2026-06-02",
+    "title": "ServiceNow API漏洞遭利用，攻擊者未經授權查詢客戶實例資料",
+    "category": "漏洞",
+    "affected_org": "ServiceNow",
+    "region": "全球",
+    "severity": "高",
+    "summary": "ServiceNow API端點存在未授權存取漏洞，惡意活動自6月2日開始，攻擊者可在特定條件下查詢客戶實例資料表，ServiceNow於6月5日緊急修補，惟部分客戶資料已遭查詢洩露。",
+    "source_name": "The Hacker News",
+    "source_url": "https://thehackernews.com/2026/06/servicenow-flaw-exploited-to-gain.html"
+  },
+  {
+    "date": "2026-03-23",
+    "title": "中國駭客入侵FBI監聽系統DCS-3000，竊取監控目標電話元數據",
+    "category": "國家級攻擊",
+    "affected_org": "美國聯邦調查局（FBI）",
+    "region": "美國",
+    "severity": "高",
+    "summary": "疑為Salt Typhoon的中國國家級駭客透過第三方ISP入侵FBI數位監聽系統DCS-3000（Red Hook），竊取通話元數據與監控目標身份資訊，FBI將此事件依FISMA定性為「重大事件」並通報國會。",
+    "source_name": "CPO Magazine",
+    "source_url": "https://www.cpomagazine.com/cyber-security/fbi-surveillance-system-security-breach-declared-a-major-cyber-incident/"
+  },
+  {
+    "date": "2025-07-18",
+    "title": "Microsoft SharePoint ToolShell零日漏洞遭中國APT大規模利用",
+    "category": "漏洞",
+    "affected_org": "全球使用On-Premises SharePoint的政府、醫療與企業組織",
+    "region": "全球",
+    "severity": "高",
+    "summary": "中國駭客組織Linen Typhoon（APT27）、Violet Typhoon（APT31）等積極利用SharePoint零日漏洞（CVE-2025-53770，CVSS 9.8），無需認證即可執行遠端程式碼，至少396個系統被入侵，CISA緊急發布警告。",
+    "source_name": "CISA",
+    "source_url": "https://www.cisa.gov/news-events/alerts/2025/07/20/update-microsoft-releases-guidance-exploitation-sharepoint-vulnerabilities"
+  },
+  {
+    "date": "2025-07-02",
+    "title": "Qantas航空遭Scattered Spider攻擊，570萬名旅客資料外洩",
+    "category": "資料外洩",
+    "affected_org": "Qantas Airways",
+    "region": "亞太",
+    "severity": "高",
+    "summary": "Scattered Spider駭客組織攻擊Qantas航空第三方聯絡中心平台，導致570萬名客戶的姓名、生日、電話及常旅客資料外洩，FBI同期警告該組織正大規模鎖定航空業。",
+    "source_name": "PKWARE",
+    "source_url": "https://www.pkware.com/blog/recent-data-breaches"
+  },
+  {
+    "date": "2025-07-20",
+    "title": "美國明尼蘇達州聖保羅市遭Interlock勒索軟體攻擊，宣布進入緊急狀態",
+    "category": "勒索軟體",
+    "affected_org": "美國聖保羅市政府（St. Paul, Minnesota）",
+    "region": "美國",
+    "severity": "高",
+    "summary": "Interlock勒索軟體透過後門入侵聖保羅市政網路，加密帳單、緊急協調及市民服務系統，市政廳關閉逾兩週，宣布緊急狀態並請求美國國民警衛隊網路部隊協助。",
+    "source_name": "Integrity360",
+    "source_url": "https://insights.integrity360.com/the-biggest-cyber-attacks-of-2025-and-what-they-mean-for-2026"
+  },
+  {
+    "date": "2026-06-12",
+    "title": "法國政府通訊App Tchap遭駭，7.3萬用戶帳號與64萬則訊息外洩",
+    "category": "資料外洩",
+    "affected_org": "Tchap（法國政府專用通訊平台）",
+    "region": "歐洲",
+    "severity": "高",
+    "summary": "法國政府專用通訊應用程式Tchap遭駭，攻擊者宣稱竊取13.5GB資料，含73,467名用戶帳號（包括各部會人員）及643,459則訊息，法國已於2025年禁止使用Signal等外國App改用Tchap。",
+    "source_name": "SharkStriker",
+    "source_url": "https://sharkstriker.com/blog/june-2026-data-breaches/"
   }
 ];
 
