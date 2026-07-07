@@ -79,7 +79,7 @@
       <option value="">所有嚴重度</option><option value="高">高</option><option value="中">中</option><option value="低">低</option>
     </select>
   </div>
-  <div class="meta-line">共 <b id="totalCount">0</b> 筆事件　·　最後更新：<b>2026/7/6 08:53:49（台灣時間）</b></div>
+  <div class="meta-line">共 <b id="totalCount">0</b> 筆事件　·　最後更新：<b>2026/7/7 08:03:20（台灣時間）</b></div>
   <div id="content"></div>
   <div class="footer-note">資料由 AI 每日自動搜尋整理，內容可能不完整或有時間差，重大決策請以原始來源為準。</div>
 </div>
@@ -87,114 +87,114 @@
 <script>
 const INCIDENTS = [
   {
-    "date": "2026-06-22",
-    "title": "Tata Electronics遭World Leaks勒索攻擊，外洩Apple與Tesla機密文件",
+    "date": "2026-07-03",
+    "title": "Oracle PeopleSoft 零日漏洞波及逾百組織（含日產、NAIC、Aflac）",
+    "category": "漏洞",
+    "affected_org": "Oracle PeopleSoft（Nissan、NAIC、Kubota、Aflac等逾百家企業）",
+    "region": "全球",
+    "severity": "高",
+    "summary": "ShinyHunters利用CVE-2026-35273零日漏洞，於5月27日至6月9日攻擊逾百家使用Oracle PeopleSoft的企業，竊取員工HR、薪資及個人識別資料。",
+    "source_name": "BleepingComputer",
+    "source_url": "https://www.bleepingcomputer.com/news/security/nissan-discloses-employee-data-breach-linked-to-oracle-zero-day-attacks/"
+  },
+  {
+    "date": "2026-06-25",
+    "title": "NAIC遭ShinyHunters入侵，3.1TB保險監管資料外洩",
     "category": "資料外洩",
-    "affected_org": "Tata Electronics（Apple/Tesla供應商）",
+    "affected_org": "美國全國保險監管協會（NAIC）",
+    "region": "美國",
+    "severity": "高",
+    "summary": "ShinyHunters藉Oracle PeopleSoft零日漏洞入侵NAIC，宣稱竊取3.1TB、逾10.5萬筆保險監管檔案，NAIC拒絕支付贖金後資料遭公開。",
+    "source_name": "BleepingComputer",
+    "source_url": "https://www.bleepingcomputer.com/news/security/naic-says-public-data-stolen-in-shinyhunters-peoplesoft-breach/"
+  },
+  {
+    "date": "2026-06-22",
+    "title": "塔塔電子遭World Leaks勒索，蘋果與特斯拉機密文件外洩",
+    "category": "供應鏈攻擊",
+    "affected_org": "Tata Electronics（涉及Apple、Tesla供應鏈）",
     "region": "亞太",
     "severity": "高",
-    "summary": "World Leaks勒索集團將竊自Tata Electronics的630GB資料（逾20萬份）發布於暗網，涵蓋iPhone 18 Pro零件規格、Tesla商業機密文件及員工護照，Apple與Tesla展開調查。",
+    "summary": "勒索組織World Leaks在暗網公開塔塔電子逾63GB共20萬筆檔案，包含蘋果iPhone電路板規格、特斯拉製造文件及員工護照，印度當局已展開調查。",
     "source_name": "TechCrunch",
     "source_url": "https://techcrunch.com/2026/06/22/tata-electronics-a-major-tech-supplier-to-apple-and-tesla-confirms-data-breach/"
   },
   {
-    "date": "2026-06-11",
-    "title": "Klue SaaS供應鏈攻擊：OAuth Token被竊，195家企業Salesforce CRM資料外洩",
-    "category": "供應鏈攻擊",
-    "affected_org": "Klue / Huntress / Recorded Future / LastPass等近200家企業",
-    "region": "全球",
+    "date": "2026-06-26",
+    "title": "日產汽車員工個資因Oracle PeopleSoft漏洞遭竊",
+    "category": "資料外洩",
+    "affected_org": "Nissan Americas",
+    "region": "美國",
     "severity": "高",
-    "summary": "駭客組織Icarus利用Klue平台一個2022年遺留未撤銷的舊憑證入侵，竊取OAuth Token後批次查詢195家企業的Salesforce CRM資料，受害者包含多家知名資安公司。",
+    "summary": "日產美洲確認旗下美國、加拿大、墨西哥及巴西現任與離職員工資料（含SSN、薪資及銀行資訊）遭竊，源自ShinyHunters針對Oracle PeopleSoft的大規模零日攻擊。",
     "source_name": "SecurityWeek",
-    "source_url": "https://www.securityweek.com/cybersecurity-firms-impacted-by-klue-supply-chain-attack/"
+    "source_url": "https://www.securityweek.com/nissan-employee-data-breached-in-oracle-peoplesoft-hack/"
   },
   {
     "date": "2026-06-11",
-    "title": "Novo Nordisk遭FulcrumSec等駭客勒索，1.3TB數據含AI藥物研發模型外洩",
+    "title": "Novo Nordisk遭網路勒索，1.3TB臨床試驗與患者資料外洩",
     "category": "資料外洩",
-    "affected_org": "Novo Nordisk",
+    "affected_org": "Novo Nordisk（諾和諾德）",
     "region": "歐洲",
     "severity": "高",
-    "summary": "丹麥製藥巨頭Novo Nordisk確認遭網路攻擊，FulcrumSec聲稱竊取1.3TB資料含臨床試驗資訊及AI藥物模型，索贖2,500萬美元，另一駭客索贖5,000萬美元，Novo Nordisk均拒絕支付。",
+    "summary": "FulcrumSec及TheUSERS007兩組駭客分別入侵諾和諾德，宣稱竊取含臨床試驗患者假名資料及AI模型，共索討7500萬美元贖金，藥廠拒絕支付後資料遭部分公開。",
     "source_name": "HIPAA Journal",
     "source_url": "https://www.hipaajournal.com/novo-nordisk-cyberattack/"
   },
   {
-    "date": "2026-06-13",
-    "title": "Nintendo疑遭第三方資料外洩，員工內部資料及財務文件被竊",
-    "category": "資料外洩",
-    "affected_org": "Nintendo",
-    "region": "亞太",
-    "severity": "中",
-    "summary": "駭客組織SHADOWBYT3$聲稱入侵與Nintendo合作的TINYpulse員工調查平台，竊取859MB資料，含員工姓名、調查記錄、銀行對帳單及W-9表格，Nintendo尚未正式確認。",
-    "source_name": "TechRepublic",
-    "source_url": "https://www.techrepublic.com/article/news-nintendo-alleged-data-leak-third-party-risk/"
-  },
-  {
     "date": "2026-06-02",
-    "title": "ServiceNow API漏洞遭利用，攻擊者未經授權查詢客戶實例資料",
-    "category": "漏洞",
-    "affected_org": "ServiceNow",
-    "region": "全球",
+    "title": "聯合國世界糧食計劃署加薩援助資料庫遭入侵，60萬戶個資外洩",
+    "category": "資料外洩",
+    "affected_org": "聯合國世界糧食計劃署（WFP）",
+    "region": "中東",
     "severity": "高",
-    "summary": "ServiceNow API端點存在未授權存取漏洞，惡意活動自6月2日開始，攻擊者可在特定條件下查詢客戶實例資料表，ServiceNow於6月5日緊急修補，惟部分客戶資料已遭查詢洩露。",
-    "source_name": "The Hacker News",
-    "source_url": "https://thehackernews.com/2026/06/servicenow-flaw-exploited-to-gain.html"
+    "summary": "駭客於5月14日入侵WFP加薩自助登記平台，外洩約60萬戶巴勒斯坦家庭的姓名、身份證號、電話及位置資料，為有史以來最大人道主義受益人資料外洩事件。",
+    "source_name": "BleepingComputer",
+    "source_url": "https://www.bleepingcomputer.com/news/security/un-world-food-programme-breach-affects-600-000-gaza-households/"
   },
   {
-    "date": "2026-03-23",
-    "title": "中國駭客入侵FBI監聽系統DCS-3000，竊取監控目標電話元數據",
-    "category": "國家級攻擊",
-    "affected_org": "美國聯邦調查局（FBI）",
+    "date": "2026-05-12",
+    "title": "富士康北美工廠遭Nitrogen勒索軟體攻擊，8TB資料被竊",
+    "category": "勒索軟體",
+    "affected_org": "Foxconn（鴻海精密）",
     "region": "美國",
     "severity": "高",
-    "summary": "疑為Salt Typhoon的中國國家級駭客透過第三方ISP入侵FBI數位監聽系統DCS-3000（Red Hook），竊取通話元數據與監控目標身份資訊，FBI將此事件依FISMA定性為「重大事件」並通報國會。",
-    "source_name": "CPO Magazine",
-    "source_url": "https://www.cpomagazine.com/cyber-security/fbi-surveillance-system-security-breach-declared-a-major-cyber-incident/"
+    "summary": "Nitrogen勒索組織攻擊富士康北美製造廠，宣稱竊取8TB、1,100萬筆檔案，含蘋果、輝達、英特爾等客戶機密工程文件，生產線一度中斷。",
+    "source_name": "The Register",
+    "source_url": "https://www.theregister.com/cyber-crime/2026/05/12/foxconn-confirms-cyberattack-after-nitrogen-claims-apple-nvidia-data-theft/5239144"
   },
   {
-    "date": "2025-07-18",
-    "title": "Microsoft SharePoint ToolShell零日漏洞遭中國APT大規模利用",
-    "category": "漏洞",
-    "affected_org": "全球使用On-Premises SharePoint的政府、醫療與企業組織",
-    "region": "全球",
-    "severity": "高",
-    "summary": "中國駭客組織Linen Typhoon（APT27）、Violet Typhoon（APT31）等積極利用SharePoint零日漏洞（CVE-2025-53770，CVSS 9.8），無需認證即可執行遠端程式碼，至少396個系統被入侵，CISA緊急發布警告。",
-    "source_name": "CISA",
-    "source_url": "https://www.cisa.gov/news-events/alerts/2025/07/20/update-microsoft-releases-guidance-exploitation-sharepoint-vulnerabilities"
+    "date": "2026-06-24",
+    "title": "Klue供應鏈入侵事件，Salesforce客戶CRM資料遭存取",
+    "category": "供應鏈攻擊",
+    "affected_org": "Klue（Salesforce整合平台）",
+    "region": "美國",
+    "severity": "中",
+    "summary": "攻擊者利用Klue被盜的遺留憑證及OAuth令牌，於6月11至12日存取多家企業Salesforce CRM資料，Salesforce隨即停用Klue整合功能。",
+    "source_name": "Bright Defense",
+    "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/"
   },
   {
-    "date": "2025-07-02",
-    "title": "Qantas航空遭Scattered Spider攻擊，570萬名旅客資料外洩",
-    "category": "資料外洩",
-    "affected_org": "Qantas Airways",
+    "date": "2026-06-10",
+    "title": "塔塔電子（Tata Electronics）資料被World Leaks公開（Apple/Tesla機密）",
+    "category": "供應鏈攻擊",
+    "affected_org": "Tata Electronics / Apple / Tesla",
     "region": "亞太",
     "severity": "高",
-    "summary": "Scattered Spider駭客組織攻擊Qantas航空第三方聯絡中心平台，導致570萬名客戶的姓名、生日、電話及常旅客資料外洩，FBI同期警告該組織正大規模鎖定航空業。",
-    "source_name": "PKWARE",
-    "source_url": "https://www.pkware.com/blog/recent-data-breaches"
+    "summary": "World Leaks於6月10日在暗網公開疑似塔塔電子63GB資料，包含標示「蘋果機密」的iPhone 18 Pro電路板規格及Tesla Model Y充電控制器設計，印度CERT-In介入調查。",
+    "source_name": "CNBC",
+    "source_url": "https://www.cnbc.com/2026/06/23/indias-tata-electronics-hit-by-cyber-breach-claiming-to-expose-apple-tesla-trade-secrets.html"
   },
   {
-    "date": "2025-07-20",
-    "title": "美國明尼蘇達州聖保羅市遭Interlock勒索軟體攻擊，宣布進入緊急狀態",
-    "category": "勒索軟體",
-    "affected_org": "美國聖保羅市政府（St. Paul, Minnesota）",
-    "region": "美國",
+    "date": "2026-06-08",
+    "title": "微軟Windows Netlogon重大漏洞CVE-2026-41089遭攻擊者積極利用",
+    "category": "漏洞",
+    "affected_org": "Microsoft Windows Server（全球企業）",
+    "region": "全球",
     "severity": "高",
-    "summary": "Interlock勒索軟體透過後門入侵聖保羅市政網路，加密帳單、緊急協調及市民服務系統，市政廳關閉逾兩週，宣布緊急狀態並請求美國國民警衛隊網路部隊協助。",
-    "source_name": "Integrity360",
-    "source_url": "https://insights.integrity360.com/the-biggest-cyber-attacks-of-2025-and-what-they-mean-for-2026"
-  },
-  {
-    "date": "2026-06-12",
-    "title": "法國政府通訊App Tchap遭駭，7.3萬用戶帳號與64萬則訊息外洩",
-    "category": "資料外洩",
-    "affected_org": "Tchap（法國政府專用通訊平台）",
-    "region": "歐洲",
-    "severity": "高",
-    "summary": "法國政府專用通訊應用程式Tchap遭駭，攻擊者宣稱竊取13.5GB資料，含73,467名用戶帳號（包括各部會人員）及643,459則訊息，法國已於2025年禁止使用Signal等外國App改用Tchap。",
-    "source_name": "SharkStriker",
-    "source_url": "https://sharkstriker.com/blog/june-2026-data-breaches/"
+    "summary": "CVE-2026-41089為Windows Netlogon嚴重堆疊溢位漏洞，可讓遠端攻擊者對網域控制器執行任意程式碼並獲得SYSTEM權限，已被確認遭野外積極利用。",
+    "source_name": "Check Point Research",
+    "source_url": "https://research.checkpoint.com/2026/8th-june-threat-intelligence-report/"
   }
 ];
 
