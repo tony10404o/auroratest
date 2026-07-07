@@ -10,7 +10,7 @@ if (!apiKey) {
 
 const anthropic = new Anthropic({ apiKey });
 
-const PROMPT = `請搜尋過去14天內全球發生的重大資安事件（例如：資料外洩、勒索軟體攻擊、重大漏洞、DDoS攻擊、供應鏈攻擊、國家級駭客攻擊等），挑選其中10則最重要、最新的事件。
+const PROMPT = `請搜尋過去14天內全球發生的重大資安事件（例如：資料外洩、勒索軟體攻擊、重大漏洞、DDoS攻擊、供應鏈攻擊、國家級駭客攻擊等），挑選其中10則最重要、最新的事件。請盡量精簡搜尋次數（例如2-3次廣泛的搜尋即可），不需要每個類別都分別搜尋一次。
 
 請「只」回傳一個 JSON 陣列，不要有任何前言、說明文字或 markdown 的 \`\`\` 符號。每個元素格式如下：
 {
@@ -43,10 +43,10 @@ async function main() {
   console.log("正在呼叫 Claude API 搜尋最新資安事件...");
 
   const response = await anthropic.messages.create({
-    model: "claude-sonnet-4-6",
+    model: "claude-haiku-4-5-20251001",
     max_tokens: 4096,
     messages: [{ role: "user", content: PROMPT }],
-    tools: [{ type: "web_search_20250305", name: "web_search" }],
+    tools: [{ type: "web_search_20250305", name: "web_search", max_uses: 5 }],
   });
 
   const textBlocks = response.content
