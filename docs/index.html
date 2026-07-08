@@ -79,7 +79,7 @@
       <option value="">所有嚴重度</option><option value="高">高</option><option value="中">中</option><option value="低">低</option>
     </select>
   </div>
-  <div class="meta-line">共 <b id="totalCount">0</b> 筆事件　·　最後更新：<b>2026/7/8 07:54:02（台灣時間）</b></div>
+  <div class="meta-line">共 <b id="totalCount">0</b> 筆事件　·　最後更新：<b>2026/7/8 08:49:57（台灣時間）</b></div>
   <div id="content"></div>
   <div class="footer-note">資料由 AI 每日自動搜尋整理，內容可能不完整或有時間差，重大決策請以原始來源為準。</div>
 </div>
@@ -87,114 +87,114 @@
 <script>
 const INCIDENTS = [
   {
-    "date": "2026-06-11",
-    "title": "Novo Nordisk遭勒索軟體攻擊，FulcrumSec竊取1.3TB資料",
-    "category": "勒索軟體",
-    "affected_org": "Novo Nordisk（丹麥藥廠）",
-    "region": "歐洲",
+    "date": "2026-06-29",
+    "title": "PChome旗下Pi拍錢包350萬用戶資料外洩",
+    "category": "資料外洩",
+    "affected_org": "PChome電子商務集團",
+    "region": "台灣",
     "severity": "高",
-    "summary": "製藥巨頭Novo Nordisk遭FulcrumSec攻擊，攻擊者從6月初入侵，竊取包括臨床試驗資料、AI模型及醫療資訊，索贖$25M未遂。",
-    "source_name": "HIPAA Journal",
-    "source_url": "https://www.hipaajournal.com/novo-nordisk-cyberattack/"
+    "summary": "駭客聲稱竊得Pi拍錢包350萬用戶資料，涉及個人隱私信息外洩風險",
+    "source_name": "iThome資安週報",
+    "source_url": "https://www.ithome.com.tw/security"
   },
   {
-    "date": "2026-06-01",
-    "title": "Nissan遭ShinyHunters利用Oracle PeopleSoft漏洞攻擊",
-    "category": "資料外洩",
-    "affected_org": "Nissan（日本汽車製造商）",
-    "region": "亞太",
+    "date": "2026-06-24",
+    "title": "FortiBleed憑證外洩導致大規模供應鏈風險",
+    "category": "供應鏈攻擊",
+    "affected_org": "Fortinet及其客戶",
+    "region": "全球",
     "severity": "高",
-    "summary": "ShinyHunters利用Oracle PeopleSoft零日漏洞入侵Nissan，竊取美加墨巴四國員工資料，包括SSN、銀行資訊及稅務文件。",
-    "source_name": "SharkStriker",
+    "summary": "Fortinet VPN憑證外洩，導致多家企業客戶系統面臨入侵風險",
+    "source_name": "iThome資安週報",
+    "source_url": "https://www.ithome.com.tw/security"
+  },
+  {
+    "date": "2026-06-22",
+    "title": "Klue供應鏈攻擊影響多家資安企業",
+    "category": "供應鏈攻擊",
+    "affected_org": "Klue、Salesforce、HackerOne等",
+    "region": "全球",
+    "severity": "高",
+    "summary": "攻擊者通過Klue供應商竊取Salesforce CRM數據，波及多家客戶包括HackerOne、Gong等",
+    "source_name": "SharkStriker資安新聞",
+    "source_url": "https://sharkstriker.com/blog/june-2026-data-breaches/"
+  },
+  {
+    "date": "2026-06-18",
+    "title": "Oracle PeopleSoft零時差漏洞遭大規模利用",
+    "category": "漏洞",
+    "affected_org": "日產汽車、Nissan等企業",
+    "region": "全球",
+    "severity": "高",
+    "summary": "ShinyHunters利用Oracle PeopleSoft零時差漏洞發動攻擊，盜取員工個資及薪資信息",
+    "source_name": "SharkStriker資安新聞",
     "source_url": "https://sharkstriker.com/blog/june-2026-data-breaches/"
   },
   {
     "date": "2026-06-15",
-    "title": "Aflac日本子公司遭入侵，438萬客戶資料外洩",
+    "title": "Kodak遭ShinyHunters竊取220萬筆客戶資料",
     "category": "資料外洩",
-    "affected_org": "Aflac Life Insurance Japan（日本保險公司）",
-    "region": "亞太",
+    "affected_org": "Eastman Kodak",
+    "region": "美國",
     "severity": "高",
-    "summary": "Scattered Spider入侵Aflac Japan客戶入口網站與系統，竊取438萬投保人姓名、地址、電話及230萬人的支付帳戶資訊。",
-    "source_name": "The Record from Recorded Future",
-    "source_url": "https://therecord.media/japan-cyber-breaches-aflac-sapporo-nidec-kddi"
-  },
-  {
-    "date": "2026-06-16",
-    "title": "Nintendo遭ShadowByt3$勒索軟體竊取859MB員工資料",
-    "category": "勒索軟體",
-    "affected_org": "Nintendo（日本遊戲公司）",
-    "region": "亞太",
-    "severity": "高",
-    "summary": "ShadowByt3$勒索軟體組織攻擊Nintendo，竊取859MB員工個資、調查報告及2016-2026年員工分析資料，未公開敏感資訊。",
-    "source_name": "SharkStriker",
-    "source_url": "https://sharkstriker.com/blog/june-2026-data-breaches/"
-  },
-  {
-    "date": "2026-06-11",
-    "title": "Klue供應鏈攻擊導致多家企業Salesforce資料被竊",
-    "category": "供應鏈攻擊",
-    "affected_org": "Klue（市場情報平台）及其客戶",
-    "region": "全球",
-    "severity": "高",
-    "summary": "Icarus威脅組織利用遺棄的第三方整合認證侵入Klue，竊取Salesforce OAuth令牌，影響多家客戶的業務及聯絡資訊。",
-    "source_name": "RH-ISAC",
-    "source_url": "https://rhisac.org/threat-intelligence/icarus-threat-group-claims-salesforce-data-theft-in-klue-supply-chain-breach/"
-  },
-  {
-    "date": "2026-06-02",
-    "title": "ServiceNow API漏洞允許未授權查詢資料表",
-    "category": "漏洞",
-    "affected_org": "ServiceNow（雲端服務平台）",
-    "region": "全球",
-    "severity": "高",
-    "summary": "ServiceNow API端點存在未認證存取漏洞，攻擊者可查詢內部系統資料表，6月2日開始遭利用，6月5日修補，波及各客戶端內部工單與員工記錄。",
-    "source_name": "BrightDefense",
+    "summary": "ShinyHunters在暗網公開Kodak 220萬筆客戶及企業資料，涉及個人信息與商業機密",
+    "source_name": "Bright Defense資安新聞",
     "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/"
   },
   {
-    "date": "2026-06-25",
-    "title": "Nidec台灣子公司遭BlackField勒索軟體攻擊",
-    "category": "勒索軟體",
-    "affected_org": "Nidec Chaun Choung Technology（日本製造商台灣子公司）",
-    "region": "亞太",
+    "date": "2026-06-15",
+    "title": "中國駭客入侵關鍵基礎設施潛伏近十年",
+    "category": "國家級攻擊",
+    "affected_org": "關鍵基礎設施營運商",
+    "region": "全球",
     "severity": "高",
-    "summary": "BlackField勒索軟體組織攻擊Nidec台灣子公司，竊取2TB公司資料含員工、財務及製造記錄，索贖$2M，子公司獨立網路降低整體影響。",
-    "source_name": "The Record from Recorded Future",
-    "source_url": "https://therecord.media/japan-cyber-breaches-aflac-sapporo-nidec-kddi"
+    "summary": "Sygnia揭露中國駭客通過篡改Linux認證組件入侵基礎設施，隱藏近十年未被發現",
+    "source_name": "iThome資安週報",
+    "source_url": "https://www.ithome.com.tw/security"
   },
   {
     "date": "2026-06-13",
-    "title": "One Medical第三方儲存系統遭入侵，資深護理資料外洩",
+    "title": "One Medical第三方存儲系統被入侵",
     "category": "資料外洩",
-    "affected_org": "One Medical（亞馬遜旗下醫療保健提供者）",
+    "affected_org": "One Medical（Amazon旗下）",
     "region": "美國",
     "severity": "中",
-    "summary": "One Medical發現第三方檔案儲存系統遭未授權存取，儲存資深護理部門的存檔記錄，攻擊者於6月8-11日間存取個人健康資訊。",
-    "source_name": "PKware",
+    "summary": "One Medical老年照護部門文件存儲系統被未授權方存取，威脅患者隱私信息安全",
+    "source_name": "PKware資安新聞",
     "source_url": "https://www.pkware.com/blog/2026-data-breaches"
   },
   {
-    "date": "2026-06-30",
-    "title": "SimpleHelp遠端支援軟體漏洞被用於部署TaskWeaver與Djinn Stealer",
-    "category": "漏洞",
-    "affected_org": "SimpleHelp（遠端支援軟體）",
-    "region": "全球",
+    "date": "2026-06-12",
+    "title": "DentaQuest牙科福利管理公司234GB數據外洩",
+    "category": "資料外洩",
+    "affected_org": "DentaQuest",
+    "region": "美國",
     "severity": "高",
-    "summary": "攻擊者利用SimpleHelp CVE-2026-48558漏洞部署TaskWeaver與Djinn Stealer惡意軟體，影響使用該遠端支援軟體的組織，可能導致持久性存取。",
-    "source_name": "Digital Forensics Magazine",
-    "source_url": "https://digitalforensicsmagazine.com/news-roundup-1st-july-2026/"
+    "summary": "ShinyHunters公開DentaQuest 234GB數據，涵蓋客戶個人及健康信息",
+    "source_name": "Bright Defense資安新聞",
+    "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/"
   },
   {
-    "date": "2026-07-01",
-    "title": "CVE-2026-33825（BlueHammer）Windows Defender漏洞遭勒索軟體利用",
-    "category": "漏洞",
-    "affected_org": "Microsoft Windows Defender使用者",
-    "region": "全球",
+    "date": "2026-06-11",
+    "title": "美國德州與倫敦Hydro等政府部門遭DDoS攻擊",
+    "category": "DDoS",
+    "affected_org": "美國德州政府、London Hydro等",
+    "region": "美國、加拿大",
+    "severity": "中",
+    "summary": "多個政府機構和關鍵基礎設施遭遇大規模分散式阻斷服務攻擊",
+    "source_name": "Cyber Management Alliance",
+    "source_url": "https://www.cm-alliance.com/cybersecurity-blog/june-2026-biggest-cyber-attacks-data-breaches-ransomware-attacks"
+  },
+  {
+    "date": "2026-06-10",
+    "title": "NAIC保險委員會遭ShinyHunters入侵信用評級數據",
+    "category": "資料外洩",
+    "affected_org": "美國保險委員會（NAIC）",
+    "region": "美國",
     "severity": "高",
-    "summary": "Microsoft Defender BlueHammer權限提升漏洞（CVE-2026-33825）在補修發佈前即被勒索軟體組織利用，CISA將其列入已知被利用漏洞目錄。",
-    "source_name": "Digital Forensics Magazine",
-    "source_url": "https://digitalforensicsmagazine.com/news-roundup-1st-july-2026/"
+    "summary": "ShinyHunters入侵NAIC系統，竊取穆迪、標普等信用評級機構數據，影響保險資本要求",
+    "source_name": "CSIS戰略技術計劃",
+    "source_url": "https://www.csis.org/programs/strategic-technologies-program/significant-cyber-incidents"
   }
 ];
 
