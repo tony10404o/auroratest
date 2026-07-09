@@ -79,7 +79,7 @@
       <option value="">所有嚴重度</option><option value="高">高</option><option value="中">中</option><option value="低">低</option>
     </select>
   </div>
-  <div class="meta-line">共 <b id="totalCount">0</b> 筆事件　·　最後更新：<b>2026/7/8 09:08:04（台灣時間）</b></div>
+  <div class="meta-line">共 <b id="totalCount">0</b> 筆事件　·　最後更新：<b>2026/7/9 08:05:06（台灣時間）</b></div>
   <div id="content"></div>
   <div class="footer-note">資料由 AI 每日自動搜尋整理，內容可能不完整或有時間差，重大決策請以原始來源為準。</div>
 </div>
@@ -87,114 +87,114 @@
 <script>
 const INCIDENTS = [
   {
-    "date": "2026-07-07",
-    "title": "Adobe ColdFusion漏洞遭利用",
-    "category": "漏洞",
-    "affected_org": "Adobe ColdFusion",
+    "date": "2026-07-08",
+    "title": "Accenture遭駭客竊取35GB原始碼",
+    "category": "資料外洩",
+    "affected_org": "Accenture",
     "region": "全球",
     "severity": "高",
-    "summary": "CVSS 10.0六項漏洞遭駭客利用進行遠端執行任意程式碼攻擊",
-    "source_name": "SecurityWeek",
-    "source_url": "https://www.securityweek.com/critical-adobe-coldfusion-vulnerability-exploited-in-attacks/"
+    "summary": "駭客888聲稱自Accenture竊取35GB原始碼、RSA金鑰與Azure訪問令牌，並在駭客論壇販售。",
+    "source_name": "Help Net Security",
+    "source_url": "https://www.helpnetsecurity.com/2026/07/08/accenture-data-breach-2026/"
   },
   {
-    "date": "2026-07-01",
-    "title": "Microsoft SharePoint伺服器遠端執行漏洞",
+    "date": "2026-07-07",
+    "title": "Gitea Docker漏洞遭快速利用",
     "category": "漏洞",
-    "affected_org": "Microsoft SharePoint Server",
+    "affected_org": "Gitea",
     "region": "全球",
     "severity": "高",
-    "summary": "反序列化漏洞導致遠端執行程式碼，CISA列入已知被利用漏洞清單",
-    "source_name": "CyberInfos",
-    "source_url": "https://www.cyberinfos.in/cybersecurity-weekly-report-june-29-july-5-2026/"
+    "summary": "CVE-2026-20896漏洞揭露後13天內即遭攻擊者探測，顯示開發基礎設施快速成為攻擊目標。",
+    "source_name": "hendryadrian.com",
+    "source_url": "https://www.hendryadrian.com/cybersecurity-news-daily-recap-07-jul-2026/"
   },
   {
     "date": "2026-06-23",
-    "title": "KDDI日本電子郵件系統大規模洩露",
+    "title": "KDDI日本郵件系統重大洩露",
     "category": "資料外洩",
     "affected_org": "KDDI",
     "region": "亞太",
     "severity": "高",
-    "summary": "1,422萬個電子郵件地址和密碼遭洩露，影響日本多家網路服務提供商",
+    "summary": "日本電信商KDDI郵件平台遭入侵，約1422萬電郵地址與密碼外洩，涉及六家ISP。",
+    "source_name": "Bright Defense",
+    "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/"
+  },
+  {
+    "date": "2026-06-18",
+    "title": "德州公園野生動物部門超300萬人資料外洩",
+    "category": "資料外洩",
+    "affected_org": "Texas Parks and Wildlife Department",
+    "region": "美國",
+    "severity": "高",
+    "summary": "第三方獵漁執照廠商遭入侵，300多萬德州用戶駕照、護照及地址資訊外洩。",
     "source_name": "Bright Defense",
     "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/"
   },
   {
     "date": "2026-06-17",
-    "title": "俄羅斯官員手機遭監控",
-    "category": "國家級攻擊",
-    "affected_org": "俄羅斯政府",
-    "region": "歐洲",
-    "severity": "高",
-    "summary": "FSB宣稱發現大規模外國諜報活動，俄羅斯高級官員手機被植入監控軟體",
-    "source_name": "CSIS",
-    "source_url": "https://www.csis.org/programs/strategic-technologies-program/significant-cyber-incidents"
-  },
-  {
-    "date": "2026-06-15",
-    "title": "伊朗銀行卡系統遭攻擊",
-    "category": "其他",
-    "affected_org": "伊朗銀行(Bank Melli等)",
-    "region": "中東",
-    "severity": "高",
-    "summary": "三家伊朗銀行卡相關業務遭中斷，ATM和轉帳功能癱瘓",
-    "source_name": "CSIS",
-    "source_url": "https://www.csis.org/programs/strategic-technologies-program/significant-cyber-incidents"
-  },
-  {
-    "date": "2026-06-12",
-    "title": "Klue供應鏈OAuth令牌洩露",
+    "title": "Klue供應鏈攻擊洩漏客戶Salesforce資料",
     "category": "供應鏈攻擊",
     "affected_org": "Klue",
     "region": "全球",
     "severity": "高",
-    "summary": "駭客盜取OAuth令牌，造成客戶Salesforce CRM資料洩露",
+    "summary": "市場情報平台Klue遭攻擊者竊取OAuth令牌並訪問客戶Salesforce環境，威脅多個企業客戶。",
     "source_name": "Bright Defense",
     "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/"
   },
   {
-    "date": "2026-06-11",
-    "title": "美國保險委員會(NAIC)遭ShinyHunters攻擊",
+    "date": "2026-06-13",
+    "title": "Amazon One Medical長期care部門資料外洩",
     "category": "資料外洩",
-    "affected_org": "NAIC",
+    "affected_org": "One Medical",
     "region": "美國",
-    "severity": "高",
-    "summary": "信用評級資料遭竊，導致評級機構暫停與NAIC的資料分享",
-    "source_name": "CSIS",
-    "source_url": "https://www.csis.org/programs/strategic-technologies-program/significant-cyber-incidents"
+    "severity": "中",
+    "summary": "Amazon旗下One Medical第三方檔案儲存系統遭入侵，長期照護部門存檔記錄外洩。",
+    "source_name": "PKware",
+    "source_url": "https://www.pkware.com/blog/2026-data-breaches"
   },
   {
-    "date": "2026-06-01",
-    "title": "RedHat供應鏈Miasma惡意軟體",
-    "category": "供應鏈攻擊",
-    "affected_org": "Red Hat",
+    "date": "2026-06-10",
+    "title": "FortiGate設備全球洩露超86000台",
+    "category": "漏洞",
+    "affected_org": "Fortinet",
     "region": "全球",
     "severity": "高",
-    "summary": "32個npm套件遭植入Miasma惡意軟體，每週下載量近8萬次",
-    "source_name": "Palo Alto Networks",
-    "source_url": "https://unit42.paloaltonetworks.com/monitoring-npm-supply-chain-attacks/"
+    "summary": "超86000台FortiGate設備登入憑證在全球194國遭外洩，無單一修復方案可用。",
+    "source_name": "Arete",
+    "source_url": "https://areteir.com/resources/ransomware-trends-data-insights-june-2026"
   },
   {
-    "date": "2026-06-01",
-    "title": "Tata電子公司資料大規模洩露",
+    "date": "2026-06-09",
+    "title": "DentaQuest牙科福利管理員234GB資料洩露",
     "category": "資料外洩",
-    "affected_org": "Tata Electronics",
-    "region": "亞太",
-    "severity": "高",
-    "summary": "World Leaks勒索軟體組織洩露630GB資料，含Apple及Tesla相關文件",
-    "source_name": "Bright Defense",
-    "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/"
-  },
-  {
-    "date": "2026-06-01",
-    "title": "牙科福利管理商DentaQuest遭ShinyHunters勒索",
-    "category": "勒索軟體",
     "affected_org": "DentaQuest",
     "region": "美國",
     "severity": "高",
-    "summary": "234GB資料遭盜取並洩露，起源於5月勒索活動談判失敗",
+    "summary": "牙科福利管理員DentaQuest遭ShinyHunters攻擊，260萬郵箱、個人身份證件及保險資訊外洩。",
     "source_name": "Bright Defense",
     "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/"
+  },
+  {
+    "date": "2026-06-02",
+    "title": "ServiceNow API漏洞允許未驗證資料查詢",
+    "category": "漏洞",
+    "affected_org": "ServiceNow",
+    "region": "全球",
+    "severity": "高",
+    "summary": "ServiceNow託管例項API端點存在未驗證存取漏洞，允許未授權使用者查詢客戶資料。",
+    "source_name": "Bright Defense",
+    "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/"
+  },
+  {
+    "date": "2026-06-01",
+    "title": "牛津大學職業平台資料外洩",
+    "category": "資料外洩",
+    "affected_org": "University of Oxford",
+    "region": "歐洲",
+    "severity": "中",
+    "summary": "牛津大學CareerConnect職業服務平台遭入侵，學生名字、郵件與加密密碼外洩。",
+    "source_name": "Security Magazine",
+    "source_url": "https://www.securitymagazine.com/articles/102357-6-data-breaches-to-know-about-june-2026"
   }
 ];
 
