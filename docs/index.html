@@ -79,7 +79,7 @@
       <option value="">所有嚴重度</option><option value="高">高</option><option value="中">中</option><option value="低">低</option>
     </select>
   </div>
-  <div class="meta-line">共 <b id="totalCount">0</b> 筆事件　·　最後更新：<b>2026/7/9 08:05:06（台灣時間）</b></div>
+  <div class="meta-line">共 <b id="totalCount">0</b> 筆事件　·　最後更新：<b>2026/7/10 08:00:10（台灣時間）</b></div>
   <div id="content"></div>
   <div class="footer-note">資料由 AI 每日自動搜尋整理，內容可能不完整或有時間差，重大決策請以原始來源為準。</div>
 </div>
@@ -87,114 +87,114 @@
 <script>
 const INCIDENTS = [
   {
-    "date": "2026-07-08",
-    "title": "Accenture遭駭客竊取35GB原始碼",
+    "date": "2026-06-11",
+    "title": "Novo Nordisk藥廠遭駭客集團攻擊，1.3TB敏感資料外洩",
     "category": "資料外洩",
-    "affected_org": "Accenture",
-    "region": "全球",
+    "affected_org": "Novo Nordisk",
+    "region": "丹麥",
     "severity": "高",
-    "summary": "駭客888聲稱自Accenture竊取35GB原始碼、RSA金鑰與Azure訪問令牌，並在駭客論壇販售。",
-    "source_name": "Help Net Security",
-    "source_url": "https://www.helpnetsecurity.com/2026/07/08/accenture-data-breach-2026/"
+    "summary": "丹麥藥廠Novo Nordisk遭FulcrumSec駭客集團攻擊，超過1.3TB資料外洩，包括臨床試驗資料、AI模型、源代碼和製藥配方。",
+    "source_name": "SharkStriker",
+    "source_url": "https://sharkstriker.com/blog/june-2026-data-breaches/"
   },
   {
-    "date": "2026-07-07",
-    "title": "Gitea Docker漏洞遭快速利用",
-    "category": "漏洞",
-    "affected_org": "Gitea",
-    "region": "全球",
+    "date": "2026-06-15",
+    "title": "理事會駭客竊取297GB歐洲委員會資料",
+    "category": "資料外洩",
+    "affected_org": "Council of Europe（歐洲委員會）",
+    "region": "歐洲",
     "severity": "高",
-    "summary": "CVE-2026-20896漏洞揭露後13天內即遭攻擊者探測，顯示開發基礎設施快速成為攻擊目標。",
-    "source_name": "hendryadrian.com",
-    "source_url": "https://www.hendryadrian.com/cybersecurity-news-daily-recap-07-jul-2026/"
+    "summary": "ShinyHunters駭客集團宣稱攻擊歐洲委員會，竊取297GB資料，包括薪資單、人力資源記錄、簡歷和財務資訊。",
+    "source_name": "SharkStriker",
+    "source_url": "https://sharkstriker.com/blog/june-2026-data-breaches/"
   },
   {
-    "date": "2026-06-23",
-    "title": "KDDI日本郵件系統重大洩露",
-    "category": "資料外洩",
-    "affected_org": "KDDI",
+    "date": "2026-06-11",
+    "title": "Tata Electronics遭World Leaks勒索軟體攻擊，630GB資料外洩",
+    "category": "勒索軟體",
+    "affected_org": "Tata Electronics",
     "region": "亞太",
     "severity": "高",
-    "summary": "日本電信商KDDI郵件平台遭入侵，約1422萬電郵地址與密碼外洩，涉及六家ISP。",
+    "summary": "World Leaks勒索軟體集團公開發佈Tata Electronics超過20萬個檔案，涉及iPhone組件、製造資訊、員工護照掃描等。",
     "source_name": "Bright Defense",
     "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/"
   },
   {
-    "date": "2026-06-18",
-    "title": "德州公園野生動物部門超300萬人資料外洩",
+    "date": "2026-06-11",
+    "title": "Prince George County系統遭未授權存取，居民PII外洩",
     "category": "資料外洩",
-    "affected_org": "Texas Parks and Wildlife Department",
+    "affected_org": "Prince George County",
     "region": "美國",
     "severity": "高",
-    "summary": "第三方獵漁執照廠商遭入侵，300多萬德州用戶駕照、護照及地址資訊外洩。",
-    "source_name": "Bright Defense",
-    "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/"
-  },
-  {
-    "date": "2026-06-17",
-    "title": "Klue供應鏈攻擊洩漏客戶Salesforce資料",
-    "category": "供應鏈攻擊",
-    "affected_org": "Klue",
-    "region": "全球",
-    "severity": "高",
-    "summary": "市場情報平台Klue遭攻擊者竊取OAuth令牌並訪問客戶Salesforce環境，威脅多個企業客戶。",
-    "source_name": "Bright Defense",
-    "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/"
-  },
-  {
-    "date": "2026-06-13",
-    "title": "Amazon One Medical長期care部門資料外洩",
-    "category": "資料外洩",
-    "affected_org": "One Medical",
-    "region": "美國",
-    "severity": "中",
-    "summary": "Amazon旗下One Medical第三方檔案儲存系統遭入侵，長期照護部門存檔記錄外洩。",
-    "source_name": "PKware",
-    "source_url": "https://www.pkware.com/blog/2026-data-breaches"
+    "summary": "美國馬里蘭州Prince George County政府系統遭駭客入侵，暴露居民姓名、地址、出生日期、駕照和社會安全號碼。",
+    "source_name": "SharkStriker",
+    "source_url": "https://sharkstriker.com/blog/june-2026-data-breaches/"
   },
   {
     "date": "2026-06-10",
-    "title": "FortiGate設備全球洩露超86000台",
+    "title": "Microsoft Patch Tuesday創紀錄，206個漏洞包括6個零日攻擊",
     "category": "漏洞",
-    "affected_org": "Fortinet",
+    "affected_org": "Microsoft",
     "region": "全球",
     "severity": "高",
-    "summary": "超86000台FortiGate設備登入憑證在全球194國遭外洩，無單一修復方案可用。",
-    "source_name": "Arete",
-    "source_url": "https://areteir.com/resources/ransomware-trends-data-insights-june-2026"
-  },
-  {
-    "date": "2026-06-09",
-    "title": "DentaQuest牙科福利管理員234GB資料洩露",
-    "category": "資料外洩",
-    "affected_org": "DentaQuest",
-    "region": "美國",
-    "severity": "高",
-    "summary": "牙科福利管理員DentaQuest遭ShinyHunters攻擊，260萬郵箱、個人身份證件及保險資訊外洩。",
-    "source_name": "Bright Defense",
-    "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/"
+    "summary": "Microsoft發佈206個漏洞補丁，包括33個關鍵漏洞和6個零日攻擊，涉及HTTP/2 Bomb和BitLocker繞過等。",
+    "source_name": "Rapid7",
+    "source_url": "https://www.rapid7.com/blog/post/em-patch-tuesday-june-2026/"
   },
   {
     "date": "2026-06-02",
-    "title": "ServiceNow API漏洞允許未驗證資料查詢",
+    "title": "ServiceNow API漏洞遭公開利用，4天未通知客戶",
     "category": "漏洞",
     "affected_org": "ServiceNow",
     "region": "全球",
     "severity": "高",
-    "summary": "ServiceNow託管例項API端點存在未驗證存取漏洞，允許未授權使用者查詢客戶資料。",
-    "source_name": "Bright Defense",
-    "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/"
+    "summary": "ServiceNow API漏洞遭公開利用超過4天才向客戶通知，涉及身份驗證設定不當導致未授權存取。",
+    "source_name": "ReconShield",
+    "source_url": "https://reconshield.in/blog/june-2026-cybersecurity-review"
   },
   {
-    "date": "2026-06-01",
-    "title": "牛津大學職業平台資料外洩",
+    "date": "2026-06-15",
+    "title": "Kodak遭ShinyHunters勒索軟體攻擊，220萬筆記錄外洩",
+    "category": "勒索軟體",
+    "affected_org": "Eastman Kodak",
+    "region": "美國",
+    "severity": "高",
+    "summary": "ShinyHunters勒索軟體集團宣稱攻擊Kodak公司，竊取超過220萬筆客戶和企業內部資料。",
+    "source_name": "SharkStriker",
+    "source_url": "https://sharkstriker.com/blog/june-2026-data-breaches/"
+  },
+  {
+    "date": "2026-06-12",
+    "title": "Shai-Hulud供應鏈蠕蟲攻擊npm和PyPI，超百個套件遭感染",
+    "category": "供應鏈攻擊",
+    "affected_org": "npm和PyPI開發者套件",
+    "region": "全球",
+    "severity": "高",
+    "summary": "Shai-Hulud供應鏈蠕蟲在開源代碼倉庫中傳播，6月期間感染超過100個npm和PyPI套件。",
+    "source_name": "ReconShield",
+    "source_url": "https://reconshield.in/blog/june-2026-cybersecurity-review"
+  },
+  {
+    "date": "2026-06-10",
+    "title": "Windows Defender零日漏洞RoguePlanet曝光，可提權至系統管理員",
+    "category": "漏洞",
+    "affected_org": "Microsoft",
+    "region": "全球",
+    "severity": "高",
+    "summary": "研究員Nightmare Eclipse在Patch Tuesday數小時後揭露Windows Defender零日漏洞RoguePlanet，允許本地攻擊者提權。",
+    "source_name": "ReconShield",
+    "source_url": "https://reconshield.in/blog/june-2026-cybersecurity-review"
+  },
+  {
+    "date": "2026-06-11",
+    "title": "DentaQuest牙科保險公司遭駭，260萬個帳戶資料外洩",
     "category": "資料外洩",
-    "affected_org": "University of Oxford",
-    "region": "歐洲",
+    "affected_org": "DentaQuest",
+    "region": "美國",
     "severity": "中",
-    "summary": "牛津大學CareerConnect職業服務平台遭入侵，學生名字、郵件與加密密碼外洩。",
-    "source_name": "Security Magazine",
-    "source_url": "https://www.securitymagazine.com/articles/102357-6-data-breaches-to-know-about-june-2026"
+    "summary": "牙科福利管理公司DentaQuest遭駭客入侵，260萬個帳戶的敏感個人和健康資訊外洩，增加身份盜竊風險。",
+    "source_name": "AMATAS",
+    "source_url": "https://amatas.com/reports/cybersecurity-news-june-2026-threats-trends-insights-2/"
   }
 ];
 
