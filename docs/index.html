@@ -79,7 +79,7 @@
       <option value="">所有嚴重度</option><option value="高">高</option><option value="中">中</option><option value="低">低</option>
     </select>
   </div>
-  <div class="meta-line">共 <b id="totalCount">0</b> 筆事件　·　最後更新：<b>2026/7/11 07:54:39（台灣時間）</b></div>
+  <div class="meta-line">共 <b id="totalCount">0</b> 筆事件　·　最後更新：<b>2026/7/12 07:49:44（台灣時間）</b></div>
   <div id="content"></div>
   <div class="footer-note">資料由 AI 每日自動搜尋整理，內容可能不完整或有時間差，重大決策請以原始來源為準。</div>
 </div>
@@ -87,114 +87,114 @@
 <script>
 const INCIDENTS = [
   {
-    "date": "2026-07-10",
-    "title": "Ill Bloom加密錢包漏洞導致被攻擊損失310萬美元",
-    "category": "漏洞",
-    "affected_org": "多個加密錢包軟體",
-    "region": "全球",
-    "severity": "高",
-    "summary": "Coinspect發現加密錢包恢復詞組生成過程存在弱隨機性漏洞，攻擊者可推導出錢包控制詞組竊取資金。",
-    "source_name": "The Hacker News / WIU Cybersecurity Center",
-    "source_url": "https://www.wiu.edu/cybersecuritycenter/cybernews.php"
-  },
-  {
-    "date": "2026-07-09",
-    "title": "AssuranceAmerica遭員工帳號被盜導致700萬筆資料外洩",
+    "date": "2026-06-25",
+    "title": "NAIC保險資料庫遭ShinyHunters駭客入侵",
     "category": "資料外洩",
-    "affected_org": "AssuranceAmerica",
+    "affected_org": "National Association of Insurance Commissioners (NAIC)",
     "region": "美國",
     "severity": "高",
-    "summary": "公司員工帳號遭入侵，攻擊者獲得約700萬筆用戶記錄的訪問權限，公司已隔離事件並重置認證資訊。",
-    "source_name": "eSecurity Planet",
-    "source_url": "https://www.esecurityplanet.com/weekly-roundup/ai-driven-attacks-critical-exploits-and-global-breaches-define-this-week-in-july-2026-in-cybersecurity/"
+    "summary": "ShinyHunters駭客組織入侵NAIC系統，竊取信用評級資料，導致評級機構暫停資料分享，影響保險資本計算。",
+    "source_name": "CSIS",
+    "source_url": "https://www.csis.org/programs/strategic-technologies-program/significant-cyber-incidents"
   },
   {
-    "date": "2026-07-08",
-    "title": "Adobe ColdFusion等4個漏洞被列為主動利用危險",
-    "category": "漏洞",
-    "affected_org": "Adobe、Joomla、Langflow",
+    "date": "2026-06-13",
+    "title": "One Medical遭ShinyHunters資料外洩攻擊",
+    "category": "資料外洩",
+    "affected_org": "One Medical (Amazon子公司)",
+    "region": "美國",
+    "severity": "高",
+    "summary": "One Medical老年照護部門遭駭，ShinyHunters聲稱竊取8.8TB資料，涉及數十萬患者病歷和個人資料。",
+    "source_name": "PKware",
+    "source_url": "https://www.pkware.com/blog/2026-data-breaches"
+  },
+  {
+    "date": "2026-06-11",
+    "title": "Novo Nordisk內部系統遭入侵",
+    "category": "資料外洩",
+    "affected_org": "Novo Nordisk (丹麥製藥公司)",
+    "region": "歐洲",
+    "severity": "中",
+    "summary": "Novo Nordisk披露駭客入侵內部IT系統，竊取非公開資料包括個人資訊，影響Ozempic與Wegovy製造商。",
+    "source_name": "PKware",
+    "source_url": "https://www.pkware.com/blog/2026-data-breaches"
+  },
+  {
+    "date": "2026-06-12",
+    "title": "Klue供應鏈攻擊導致Salesforce客戶資料外洩",
+    "category": "供應鏈攻擊",
+    "affected_org": "Klue",
     "region": "全球",
     "severity": "高",
-    "summary": "CISA將CVE-2026-48282等4個漏洞列入已知利用漏洞目錄，其中Adobe ColdFusion路徑遍歷漏洞CVSS評分滿分10.0。",
-    "source_name": "WIU Cybersecurity Center",
-    "source_url": "https://www.wiu.edu/cybersecuritycenter/cybernews.php"
-  },
-  {
-    "date": "2026-07-07",
-    "title": "中國駭客利用Roundcube漏洞攻擊大學郵件伺服器",
-    "category": "國家級攻擊",
-    "affected_org": "多間美國及加拿大大學",
-    "region": "北美",
-    "severity": "高",
-    "summary": "疑似中國駭客組織利用Roundcube漏洞攻擊物理和工程系郵件伺服器，以竊取憑據並建立後門進行持續存取。",
-    "source_name": "eSecurity Planet",
-    "source_url": "https://www.esecurityplanet.com/weekly-roundup/ai-driven-attacks-critical-exploits-and-global-breaches-define-this-week-in-july-2026-in-cybersecurity/"
-  },
-  {
-    "date": "2026-07-03",
-    "title": "Nidec台灣子公司遭BlackField勒索軟體攻擊損失2TB數據",
-    "category": "勒索軟體",
-    "affected_org": "Nidec Chaun Choung Technology（台灣）",
-    "region": "亞太",
-    "severity": "高",
-    "summary": "日本電動馬達製造商Nidec台灣子公司遭BlackField勒索軟體攻擊，損失超2TB公司數據含員工及財務記錄。",
-    "source_name": "Check Point Research",
-    "source_url": "https://research.checkpoint.com/2026/6th-july-threat-intelligence-report-2/"
-  },
-  {
-    "date": "2026-06-28",
-    "title": "KDDI郵件系統遭大規模入侵1422萬電子郵件密碼外洩",
-    "category": "資料外洩",
-    "affected_org": "KDDI及6家日本網路服務商",
-    "region": "亞太",
-    "severity": "高",
-    "summary": "KDDI郵件系統遭第三方軟體漏洞利用，致1422萬電子郵件地址及密碼外洩，影響多家日本主要ISP服務商。",
+    "summary": "駭客利用舊憑證入侵Klue整合環境，竊取OAuth令牌後存取多個客戶Salesforce CRM資料。",
     "source_name": "Bright Defense",
     "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/"
   },
   {
-    "date": "2026-06-25",
-    "title": "Aflac日本營運遭入侵440萬客戶個資外洩",
+    "date": "2026-06-11",
+    "title": "DentaQuest保險資料大規模洩露",
     "category": "資料外洩",
-    "affected_org": "Aflac日本營運",
+    "affected_org": "DentaQuest",
+    "region": "美國",
+    "severity": "高",
+    "summary": "ShinyHunters發布260萬人紀錄，包含Medicaid ID、醫療資料、SSN及銀行資訊。",
+    "source_name": "PKware",
+    "source_url": "https://www.pkware.com/blog/2026-data-breaches"
+  },
+  {
+    "date": "2026-06-02",
+    "title": "Tata Electronics供應鏈遭WorldLeaks駭客竊取",
+    "category": "供應鏈攻擊",
+    "affected_org": "Tata Electronics",
     "region": "亞太",
     "severity": "高",
-    "summary": "美國保險公司Aflac日本保單客戶入口網站遭入侵，導致約440萬客戶個人及財務資料洩露。",
-    "source_name": "Check Point Research",
-    "source_url": "https://research.checkpoint.com/2026/6th-july-threat-intelligence-report-2/"
+    "summary": "WorldLeaks發布63GB資料含20萬+ Tata檔案，涉及Apple、Tesla零件資訊與供應鏈文件。",
+    "source_name": "Bright Defense",
+    "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/"
+  },
+  {
+    "date": "2026-06-02",
+    "title": "Red Hat Cloud Services GitHub帳號遭入侵",
+    "category": "供應鏈攻擊",
+    "affected_org": "Red Hat",
+    "region": "全球",
+    "severity": "高",
+    "summary": "駭客入侵Red Hat Cloud Services GitHub帳號，發布惡意npm套件至@redhat-cloud-services命名空間。",
+    "source_name": "Cyberint",
+    "source_url": "https://cyberint.com/blog/research/recent-supply-chain-attacks-examined/"
+  },
+  {
+    "date": "2026-05-12",
+    "title": "Foxconn北美工廠遭Nitrogen勒索軟體攻擊",
+    "category": "勒索軟體",
+    "affected_org": "Foxconn",
+    "region": "北美",
+    "severity": "高",
+    "summary": "Nitrogen勒索組織聲稱竊取8TB資料，涉及Apple、Dell、Google、Nvidia客戶文件與設計圖紙。",
+    "source_name": "Bright Defense",
+    "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/"
   },
   {
     "date": "2026-06-20",
-    "title": "Klue OAuth攻擊導致多家企業Salesforce數據外洩",
-    "category": "供應鏈攻擊",
-    "affected_org": "Klue及HackerOne、Gong、OneTrust等多家企業",
+    "title": "Cisco Unified Communications Manager零日漏洞被利用",
+    "category": "漏洞",
+    "affected_org": "Cisco",
     "region": "全球",
     "severity": "高",
-    "summary": "Icarus勒索軟體組織通過OAuth攻擊Klue，竊取五家安全及企業軟體公司的Salesforce CRM數據與內部溝通紀錄。",
-    "source_name": "SharkStriker",
-    "source_url": "https://sharkstriker.com/blog/june-2026-data-breaches/"
+    "summary": "CVE-2026-20230 SSRF漏洞被公開利用，允許未認證攻擊者達成根權限，企業級通訊系統風險高。",
+    "source_name": "DIESEC",
+    "source_url": "https://diesec.com/2026/07/june-2026-cybersecurity-roundup/"
   },
   {
     "date": "2026-06-15",
-    "title": "ServiceNow API漏洞遭利用允許未授權查詢客戶數據",
+    "title": "Check Point VPN零日漏洞遭勒索軟體組織利用",
     "category": "漏洞",
-    "affected_org": "ServiceNow及其客戶",
+    "affected_org": "Check Point",
     "region": "全球",
     "severity": "高",
-    "summary": "ServiceNow API端點未認證存取漏洞遭利用，攻擊自6月2日開始，允許攻擊者查詢客戶實例表中的數據。",
-    "source_name": "Bright Defense",
-    "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/"
-  },
-  {
-    "date": "2026-06-03",
-    "title": "TVING韓國串流平台用戶數據遭未授權外洩",
-    "category": "資料外洩",
-    "affected_org": "TVING（韓國視頻串流服務）",
-    "region": "亞太",
-    "severity": "中",
-    "summary": "南韓串流平台TVING確認遭未授權外部訪問，用戶帳號ID、姓名、生日、電話、郵箱、密碼等個資外洩。",
-    "source_name": "SharkStriker",
-    "source_url": "https://sharkstriker.com/blog/june-2026-data-breaches/"
+    "summary": "CVE-2026-50751零日漏洞被勒索軟體組織主動利用，CISA發布緊急指令要求立即修補。",
+    "source_name": "eSecurity Planet",
+    "source_url": "https://www.esecurityplanet.com/weekly-roundup/zero-days-ai-exploits-and-supply-chain-risks-define-this-week-in-cybersecurity-in-june-2026/"
   }
 ];
 
