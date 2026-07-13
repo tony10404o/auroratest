@@ -1,0 +1,236 @@
+import Anthropic from "@anthropic-ai/sdk";
+import fs from "node:fs";
+import path from "node:path";
+import { fetchFeed } from "./lib/rss-utils.mjs";
+
+const apiKey = process.env.ANTHROPIC_API_KEY;
+if (!apiKey) {
+  console.error("缺少 ANTHROPIC_API_KEY 環境變數（請在 GitHub Secrets 設定）");
+  process.exit(1);
+}
+const anthropic = new Anthropic({ apiKey });
+
+const DAYS_BACK = 14;
+
+function daysAgo(n) {
+  const d = new Date();
+  d.setDate(d.getDate() - n);
+  return d;
+}
+
+// ---------- 1. 抓取官方免費 Feed（不花 AI 錢） ----------
+
+async function fetchCisaKev() {
+  console.log("抓取 CISA KEV（已知遭實際利用漏洞）...");
+  try {
+    const res = await fetch("https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json", {
+      headers: { "User-Agent": "Mozilla/5.0 (compatible; aurora-security-report/1.0)" },
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    const cutoff = daysAgo(DAYS_BACK);
+    const recent = (data.vulnerabilities || [])
+      .filter((v) => new Date(v.dateAdded) >= cutoff)
+      .slice(0, 15)
+      .map((v) => ({
+        cve_id: v.cveID,
+        vendor: v.vendorProject,
+        product: v.product,
+        name: v.vulnerabilityName,
+        date_added: v.dateAdded,
+        description: v.shortDescription,
+        known_ransomware_use: v.knownRansomwareCampaignUse === "Known",
+      }));
+    console.log(`  ✓ CISA KEV：近${DAYS_BACK}天內新增 ${recent.length} 筆`);
+    return recent;
+  } catch (err) {
+    console.error(`  ✗ CISA KEV 抓取失敗：${err.message}`);
+    return [];
+  }
+}
+
+async function fetchVendorAdvisories() {
+  console.log("抓取廠商安全公告 RSS...");
+  const [msrc, cisco, fortinet] = await Promise.all([
+    fetchFeed("https://api.msrc.microsoft.com/update-guide/rss", 8, "Microsoft MSRC"),
+    fetchFeed("https://tools.cisco.com/security/center/psirtrss20/CiscoSecurityAdvisory.xml", 8, "Cisco PSIRT"),
+    fetchFeed("https://filestore.fortinet.com/fortiguard/rss/ir.xml", 8, "Fortinet PSIRT"),
+  ]);
+  return {
+    microsoft: msrc,
+    cisco: cisco,
+    fortinet: fortinet,
+  };
+}
+
+async function fetchIntlNews() {
+  console.log("抓取國際資安新聞 RSS...");
+  const [bleeping, krebs] = await Promise.all([
+    fetchFeed("https://www.bleepingcomputer.com/feed/", 8, "BleepingComputer"),
+    fetchFeed("https://krebsonsecurity.com/feed/", 8, "Krebs on Security"),
+  ]);
+  return { bleeping, krebs };
+}
+
+// ---------- 2. AI 分類與摘要（不用web_search，成本低） ----------
+
+function extractJsonObject(text) {
+  const cleaned = text
+    .trim()
+    .replace(/^```json/i, "")
+    .replace(/^```/, "")
+    .replace(/```$/, "")
+    .trim();
+  const match = cleaned.match(/\{[\s\S]*\}/);
+  if (!match) throw new Error("回應內容中找不到 JSON 物件:\n" + text.slice(0, 500));
+  return JSON.parse(match[0]);
+}
+
+async function classifyRawData({ kev, vendorAdvisories, intlNews }) {
+  console.log("呼叫 Claude 分析分類（CVE/廠商公告/國際新聞）...");
+
+  const prompt = `你是資安分析師，以下是自動抓取的原始資料（JSON），請幫我整理分類成繁體中文報告。
+
+【CISA KEV 已知遭實際利用漏洞】
+${JSON.stringify(kev, null, 2)}
+
+【廠商安全公告標題（RSS，未經處理）】
+Microsoft: ${JSON.stringify(vendorAdvisories.microsoft, null, 2)}
+Cisco: ${JSON.stringify(vendorAdvisories.cisco, null, 2)}
+Fortinet: ${JSON.stringify(vendorAdvisories.fortinet, null, 2)}
+
+【國際資安新聞標題（RSS，未經處理）】
+BleepingComputer: ${JSON.stringify(intlNews.bleeping, null, 2)}
+Krebs on Security: ${JSON.stringify(intlNews.krebs, null, 2)}
+
+請「只」回傳一個 JSON 物件，不要有任何前言、說明文字或 markdown 的 \`\`\` 符號，格式如下：
+
+{
+  "kev_vulnerabilities": [
+    {
+      "cve_id": "CVE編號",
+      "vendor_product": "廠商/產品名稱",
+      "title": "用繁體中文簡潔說明這個漏洞（可根據name/description改寫）",
+      "date_added": "YYYY-MM-DD",
+      "known_ransomware_use": true或false,
+      "summary": "40字以內繁體中文摘要"
+    }
+  ],
+  "vendor_advisories": [
+    {
+      "vendor": "Microsoft、Cisco 或 Fortinet",
+      "title": "繁體中文標題（可保留原文品名/CVE編號，其餘翻譯）",
+      "severity_guess": "高、中或低（根據標題內容合理推測，例如RCE/認證繞過等關鍵字通常較高）",
+      "url": "原始連結網址（若RSS項目沒有網址可留空字串）"
+    }
+  ],
+  "international_news": [
+    {
+      "title": "繁體中文標題（改寫，不要直接翻譯逐字對照）",
+      "source": "BleepingComputer 或 Krebs on Security",
+      "summary": "40字以內繁體中文摘要，用自己的話說明重點",
+      "url": "原始連結網址"
+    }
+  ]
+}
+
+注意事項：
+- kev_vulnerabilities 最多列出前10筆，依date_added新到舊排序
+- vendor_advisories 每家廠商最多列出前5則，優先列出看起來較嚴重（RCE、權限提升、認證繞過等）的項目
+- international_news 挑選最重要的6-8則，摘要必須用自己的話改寫，不要照抄原文標題字句
+- 如果某類別原始資料是空的，該欄位回傳空陣列即可`;
+
+  const response = await anthropic.messages.create({
+    model: "claude-haiku-4-5-20251001",
+    max_tokens: 4096,
+    messages: [{ role: "user", content: prompt }],
+  });
+
+  const textBlocks = response.content.filter((b) => b.type === "text").map((b) => b.text).join("\n");
+  return extractJsonObject(textBlocks);
+}
+
+// ---------- 3. AI 搜尋（web_search，用在沒有乾淨API的類別） ----------
+
+async function searchRemainingCategories() {
+  console.log("呼叫 Claude 搜尋（國內CERT/政府公告、IOC情資、勒索軟體與APT活動）...");
+
+  const prompt = `請完成以下三項任務，並回傳單一 JSON 物件（不要有任何前言、說明文字或 markdown 的 \`\`\` 符號）。請盡量精簡搜尋次數（6次以內廣泛搜尋）。
+
+【任務一】國內 CERT 與政府資安公告
+搜尋台灣 TWCERT/CC（https://www.twcert.org.tw）與數位發展部資安署（ACS）過去14天內發布的資安公告、預警或新聞，列出5-8則。
+
+【任務二】IOC 情資重點
+搜尋過去7天內公開報導中，資安業者/研究單位揭露的重要IOC（惡意IP、網域、檔案雜湊、URL）相關情資重點，例如新型惡意程式的C2網域、釣魚網域、勒索軟體樣本雜湊等，列出4-6則有公開來源可查證的重點（不需要列出完整IOC清單，重點是說明「哪個攻擊行動/惡意程式」關聯到什麼類型的IOC，並附來源連結）。
+
+【任務三】勒索軟體與APT活動
+搜尋過去14天內全球重大勒索軟體攻擊事件、勒索軟體集團動態、以及APT（國家級駭客組織）活動相關新聞，列出5-8則。
+
+回傳格式：
+{
+  "gov_announcements": [
+    { "date": "YYYY-MM-DD", "source": "TWCERT/CC 或 資安署", "title": "公告標題", "summary": "40字以內摘要", "url": "來源網址" }
+  ],
+  "ioc_highlights": [
+    { "campaign": "攻擊行動/惡意程式名稱", "ioc_types": ["IP","Domain","Hash","URL"]（列出這則情資涉及的IOC類型即可，陣列）, "summary": "50字以內說明", "source_name": "來源名稱", "source_url": "來源網址" }
+  ],
+  "ransomware_apt": [
+    { "date": "YYYY-MM-DD", "type": "勒索軟體 或 APT", "title": "事件/組織名稱", "summary": "50字以內摘要", "source_name": "來源名稱", "source_url": "來源網址" }
+  ]
+}
+
+注意：summary務必用自己的話改寫，不要照抄原文字句。若某類別找不到足夠資料，回傳較少筆數也沒關係，但陣列格式要維持。`;
+
+  const response = await anthropic.messages.create({
+    model: "claude-haiku-4-5-20251001",
+    max_tokens: 4096,
+    messages: [{ role: "user", content: prompt }],
+    tools: [{ type: "web_search_20250305", name: "web_search", max_uses: 6 }],
+  });
+
+  const textBlocks = response.content.filter((b) => b.type === "text").map((b) => b.text).join("\n");
+  return extractJsonObject(textBlocks);
+}
+
+// ---------- 4. 主流程 ----------
+
+async function main() {
+  const [kev, vendorAdvisories, intlNews] = await Promise.all([
+    fetchCisaKev(),
+    fetchVendorAdvisories(),
+    fetchIntlNews(),
+  ]);
+
+  const classified = await classifyRawData({ kev, vendorAdvisories, intlNews });
+  const searched = await searchRemainingCategories();
+
+  const result = {
+    kev_vulnerabilities: classified.kev_vulnerabilities || [],
+    vendor_advisories: classified.vendor_advisories || [],
+    international_news: classified.international_news || [],
+    gov_announcements: searched.gov_announcements || [],
+    ioc_highlights: searched.ioc_highlights || [],
+    ransomware_apt: searched.ransomware_apt || [],
+  };
+
+  console.log(
+    `彙整完成：KEV ${result.kev_vulnerabilities.length} / 廠商公告 ${result.vendor_advisories.length} / 國際新聞 ${result.international_news.length} / 政府公告 ${result.gov_announcements.length} / IOC ${result.ioc_highlights.length} / 勒索軟體APT ${result.ransomware_apt.length}`
+  );
+
+  const templatePath = path.join(process.cwd(), "templates", "threat-intel-template.html");
+  let html = fs.readFileSync(templatePath, "utf-8");
+
+  const updatedAt = new Date().toLocaleString("zh-TW", { timeZone: "Asia/Taipei", hour12: false });
+
+  html = html.replace("__THREAT_INTEL_JSON__", JSON.stringify(result, null, 2));
+  html = html.replace("__UPDATED_AT__", updatedAt + "（台灣時間）");
+
+  fs.mkdirSync("docs", { recursive: true });
+  fs.writeFileSync(path.join("docs", "threat-intel.html"), html, "utf-8");
+  console.log("已寫入 docs/threat-intel.html");
+}
+
+main().catch((err) => {
+  console.error("產生威脅情資報告失敗：", err);
+  process.exit(1);
+});

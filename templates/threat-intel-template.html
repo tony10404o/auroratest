@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>威脅情資彙整</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans+TC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0E13;--panel:#121821;--panel-alt:#1A222C;--border:#232D39;
+    --text:#E8EDF2;--text-dim:#8B98A5;--text-faint:#4A5568;
+    --accent:#4C8DFF;--accent-dim:#2A5CAF;
+    --sev-high:#FF4D5E;--sev-high-bg:rgba(255,77,94,0.12);
+    --sev-medium:#FFB020;--sev-medium-bg:rgba(255,176,32,0.12);
+    --sev-low:#34D399;--sev-low-bg:rgba(52,211,153,0.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:radial-gradient(ellipse 900px 500px at 15% -10%, rgba(76,141,255,0.08), transparent), var(--bg);
+    color:var(--text);font-family:'IBM Plex Sans TC','Noto Sans TC',sans-serif;
+    min-height:100vh;padding:28px 20px 60px;
+  }
+  .wrap{max-width:1040px;margin:0 auto;}
+  .header{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:14px;padding-bottom:18px;margin-bottom:6px;border-bottom:1px solid var(--border);}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand-icon{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#2A5CAF);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+  .brand h1{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;letter-spacing:0.3px;}
+  .brand .sub{font-size:11.5px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;margin-top:2px;}
+  .nav{display:flex;gap:14px;font-family:'JetBrains Mono',monospace;font-size:12px;margin-bottom:14px;}
+  .nav a{color:var(--text-dim);text-decoration:none;padding:5px 0;border-bottom:2px solid transparent;}
+  .nav a.active{color:var(--text);border-bottom-color:var(--accent);}
+  .nav a:hover{color:var(--text);}
+  .meta-line{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--text-dim);margin:10px 0 24px;}
+  .meta-line b{color:var(--text);}
+
+  .section{margin-bottom:28px;}
+  .section-header{display:flex;align-items:center;gap:8px;margin-bottom:12px;}
+  .section-icon{font-size:15px;}
+  .section-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;}
+  .section-count{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-dim);background:var(--panel);border:1px solid var(--border);padding:2px 8px;border-radius:20px;}
+
+  .list{display:flex;flex-direction:column;gap:8px;}
+  .card{background:var(--panel);border:1px solid var(--border);border-left-width:4px;border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:6px;animation:fadeIn .35s ease both;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:translateY(0);}}
+  .card.sev-高{border-left-color:var(--sev-high);}
+  .card.sev-中{border-left-color:var(--sev-medium);}
+  .card.sev-低{border-left-color:var(--sev-low);}
+  .card.plain{border-left-color:var(--accent);}
+  .card-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;}
+  .card-title{font-size:13.5px;font-weight:600;line-height:1.4;}
+  .card-date{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-dim);white-space:nowrap;flex-shrink:0;padding-top:1px;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;}
+  .tag{font-family:'JetBrains Mono',monospace;font-size:10px;padding:2px 7px;border-radius:20px;border:1px solid var(--border);color:var(--text-dim);}
+  .tag.sev-高{color:var(--sev-high);background:var(--sev-high-bg);border-color:transparent;}
+  .tag.sev-中{color:var(--sev-medium);background:var(--sev-medium-bg);border-color:transparent;}
+  .tag.sev-低{color:var(--sev-low);background:var(--sev-low-bg);border-color:transparent;}
+  .tag.ransomware{color:var(--sev-high);background:var(--sev-high-bg);border-color:transparent;font-weight:600;}
+  .card-summary{font-size:12.5px;color:var(--text-dim);line-height:1.6;}
+  .card-bottom{display:flex;justify-content:space-between;align-items:center;gap:10px;}
+  .card-link{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);text-decoration:none;white-space:nowrap;}
+  .card-link:hover{text-decoration:underline;}
+  .empty-note{color:var(--text-faint);font-size:12px;padding:10px 0;font-family:'JetBrains Mono',monospace;}
+
+  .footer-note{text-align:center;font-size:11px;color:var(--text-faint);margin-top:30px;font-family:'JetBrains Mono',monospace;}
+  @media (max-width:600px){.header{flex-direction:column;align-items:flex-start;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <div class="brand">
+      <div class="brand-icon">🧭</div>
+      <div><h1>威脅情資彙整</h1><div class="sub">THREAT INTELLIGENCE DIGEST</div></div>
+    </div>
+  </div>
+  <div class="nav">
+    <a href="index.html">事件監控台</a>
+    <a href="yuqing.html">輿情監控</a>
+    <a href="threat-intel.html" class="active">威脅情資</a>
+  </div>
+  <div class="meta-line">最後更新：<b>__UPDATED_AT__</b>　·　CVE聚焦於CISA KEV(已知遭實際利用漏洞)，非全量NVD資料</div>
+
+  <div id="content"></div>
+
+  <div class="footer-note">CVE/廠商公告來自官方Feed；國內公告/IOC/勒索軟體與APT活動由AI搜尋整理，僅供參考，正式應變請以原廠與官方公告為準。</div>
+</div>
+
+<script>
+const DATA = __THREAT_INTEL_JSON__;
+
+function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
+
+function section(icon, title, countLabel, bodyHtml){
+  return `<div class="section">
+    <div class="section-header">
+      <span class="section-icon">${icon}</span>
+      <span class="section-title">${title}</span>
+      <span class="section-count">${countLabel}</span>
+    </div>
+    ${bodyHtml}
+  </div>`;
+}
+
+function emptyNote(){
+  return `<div class="empty-note">目前沒有資料</div>`;
+}
+
+function renderKev(items){
+  if (!items || !items.length) return emptyNote();
+  return `<div class="list">${items.map(v => `
+    <div class="card ${v.known_ransomware_use ? 'sev-高' : 'plain'}">
+      <div class="card-top">
+        <div class="card-title">${escapeHtml(v.cve_id || '')} － ${escapeHtml(v.title || '')}</div>
+        <div class="card-date">${escapeHtml(v.date_added || '')}</div>
+      </div>
+      <div class="tags">
+        <span class="tag">${escapeHtml(v.vendor_product || '')}</span>
+        ${v.known_ransomware_use ? `<span class="tag ransomware">⚠ 已知遭勒索軟體利用</span>` : ''}
+      </div>
+      ${v.summary ? `<div class="card-summary">${escapeHtml(v.summary)}</div>` : ''}
+    </div>`).join('')}</div>`;
+}
+
+function renderVendorAdvisories(items){
+  if (!items || !items.length) return emptyNote();
+  return `<div class="list">${items.map(v => `
+    <div class="card sev-${escapeHtml(v.severity_guess || '')}">
+      <div class="card-top">
+        <div class="card-title">${escapeHtml(v.title || '')}</div>
+      </div>
+      <div class="tags">
+        <span class="tag">${escapeHtml(v.vendor || '')}</span>
+        ${v.severity_guess ? `<span class="tag sev-${escapeHtml(v.severity_guess)}">研判嚴重度：${escapeHtml(v.severity_guess)}</span>` : ''}
+      </div>
+      ${v.url ? `<div class="card-bottom"><span></span><a class="card-link" href="${escapeHtml(v.url)}" target="_blank" rel="noopener noreferrer">查看公告 ↗</a></div>` : ''}
+    </div>`).join('')}</div>`;
+}
+
+function renderNews(items){
+  if (!items || !items.length) return emptyNote();
+  return `<div class="list">${items.map(n => `
+    <div class="card plain">
+      <div class="card-top"><div class="card-title">${escapeHtml(n.title || '')}</div></div>
+      <div class="tags"><span class="tag">${escapeHtml(n.source || '')}</span></div>
+      ${n.summary ? `<div class="card-summary">${escapeHtml(n.summary)}</div>` : ''}
+      ${n.url ? `<div class="card-bottom"><span></span><a class="card-link" href="${escapeHtml(n.url)}" target="_blank" rel="noopener noreferrer">閱讀原文 ↗</a></div>` : ''}
+    </div>`).join('')}</div>`;
+}
+
+function renderGov(items){
+  if (!items || !items.length) return emptyNote();
+  return `<div class="list">${items.map(g => `
+    <div class="card plain">
+      <div class="card-top">
+        <div class="card-title">${escapeHtml(g.title || '')}</div>
+        <div class="card-date">${escapeHtml(g.date || '')}</div>
+      </div>
+      <div class="tags"><span class="tag">${escapeHtml(g.source || '')}</span></div>
+      ${g.summary ? `<div class="card-summary">${escapeHtml(g.summary)}</div>` : ''}
+      ${g.url ? `<div class="card-bottom"><span></span><a class="card-link" href="${escapeHtml(g.url)}" target="_blank" rel="noopener noreferrer">查看公告 ↗</a></div>` : ''}
+    </div>`).join('')}</div>`;
+}
+
+function renderIoc(items){
+  if (!items || !items.length) return emptyNote();
+  return `<div class="list">${items.map(i => `
+    <div class="card plain">
+      <div class="card-top"><div class="card-title">${escapeHtml(i.campaign || '')}</div></div>
+      <div class="tags">${(i.ioc_types || []).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}</div>
+      ${i.summary ? `<div class="card-summary">${escapeHtml(i.summary)}</div>` : ''}
+      ${i.source_url ? `<div class="card-bottom"><span style="font-size:11px;color:var(--text-faint);">${escapeHtml(i.source_name || '')}</span><a class="card-link" href="${escapeHtml(i.source_url)}" target="_blank" rel="noopener noreferrer">來源 ↗</a></div>` : ''}
+    </div>`).join('')}</div>`;
+}
+
+function renderRansomwareApt(items){
+  if (!items || !items.length) return emptyNote();
+  return `<div class="list">${items.map(r => `
+    <div class="card ${r.type === '勒索軟體' ? 'sev-高' : 'plain'}">
+      <div class="card-top">
+        <div class="card-title">${escapeHtml(r.title || '')}</div>
+        <div class="card-date">${escapeHtml(r.date || '')}</div>
+      </div>
+      <div class="tags"><span class="tag ${r.type === '勒索軟體' ? 'ransomware' : ''}">${escapeHtml(r.type || '')}</span></div>
+      ${r.summary ? `<div class="card-summary">${escapeHtml(r.summary)}</div>` : ''}
+      ${r.source_url ? `<div class="card-bottom"><span style="font-size:11px;color:var(--text-faint);">${escapeHtml(r.source_name || '')}</span><a class="card-link" href="${escapeHtml(r.source_url)}" target="_blank" rel="noopener noreferrer">來源 ↗</a></div>` : ''}
+    </div>`).join('')}</div>`;
+}
+
+const html = [
+  section('🇹🇼', '國內 CERT 與政府資安公告', (DATA.gov_announcements||[]).length + ' 則', renderGov(DATA.gov_announcements)),
+  section('🎯', 'CISA KEV 已知遭實際利用漏洞', (DATA.kev_vulnerabilities||[]).length + ' 筆', renderKev(DATA.kev_vulnerabilities)),
+  section('🏢', '廠商安全公告（Microsoft／Cisco／Fortinet）', (DATA.vendor_advisories||[]).length + ' 則', renderVendorAdvisories(DATA.vendor_advisories)),
+  section('🌐', '國際資安新聞', (DATA.international_news||[]).length + ' 則', renderNews(DATA.international_news)),
+  section('🔬', 'IOC 情資重點', (DATA.ioc_highlights||[]).length + ' 則', renderIoc(DATA.ioc_highlights)),
+  section('🕵️', '勒索軟體與 APT 活動', (DATA.ransomware_apt||[]).length + ' 則', renderRansomwareApt(DATA.ransomware_apt)),
+].join('');
+
+document.getElementById('content').innerHTML = html;
+</script>
+</body>
+</html>

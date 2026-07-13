@@ -72,6 +72,11 @@
     </div>
     <div class="status"><span class="pulse-dot"></span><span>每日自動更新</span></div>
   </div>
+  <div class="nav" style="display:flex;gap:14px;font-family:'JetBrains Mono',monospace;font-size:12px;margin-bottom:14px;">
+    <a href="index.html" style="color:var(--text);border-bottom:2px solid var(--accent);text-decoration:none;padding:5px 0;">事件監控台</a>
+    <a href="yuqing.html" style="color:var(--text-dim);border-bottom:2px solid transparent;text-decoration:none;padding:5px 0;">輿情監控</a>
+    <a href="threat-intel.html" style="color:var(--text-dim);border-bottom:2px solid transparent;text-decoration:none;padding:5px 0;">威脅情資</a>
+  </div>
   <div class="toolbar">
     <input type="text" id="searchInput" placeholder="搜尋標題、廠商、關鍵字...">
     <select id="categoryFilter"><option value="">所有類別</option></select>
@@ -79,7 +84,7 @@
       <option value="">所有嚴重度</option><option value="高">高</option><option value="中">中</option><option value="低">低</option>
     </select>
   </div>
-  <div class="meta-line">共 <b id="totalCount">0</b> 筆事件　·　最後更新：<b>2026/7/13 07:46:56（台灣時間）</b></div>
+  <div class="meta-line">共 <b id="totalCount">0</b> 筆事件　·　最後更新：<b>2026-07-13 12:00:00（台灣時間，手動更新）</b></div>
   <div id="content"></div>
   <div class="footer-note">資料由 AI 每日自動搜尋整理，內容可能不完整或有時間差，重大決策請以原始來源為準。</div>
 </div>
@@ -87,114 +92,92 @@
 <script>
 const INCIDENTS = [
   {
-    "date": "2026-07-10",
-    "title": "Accenture遭駭客竊取35GB原始碼與Azure憑證",
-    "category": "資料外洩",
-    "affected_org": "Accenture",
+    "date": "2026-07-01",
+    "title": "Adobe 釋出 ColdFusion 與 Campaign Classic 重大安全更新",
+    "category": "漏洞",
+    "affected_org": "Adobe ColdFusion / Campaign Classic 用戶",
     "region": "全球",
-    "severity": "高",
-    "summary": "駭客「888」聲稱竊取Accenture約35GB原始碼、RSA/SSH金鑰與Azure存取令牌，Accenture確認為孤立事件已修復。",
-    "source_name": "Cybersecurity News",
-    "source_url": "https://cybersecuritynews.com/cyber-security-news-bulletin-weekly-july/"
+    "severity": "中",
+    "summary": "Adobe修補多項最高等級安全漏洞，可能導致任意程式碼執行、權限提升與檔案系統讀取，建議儘速更新。",
+    "source_name": "The Hacker News",
+    "source_url": "https://thehackernews.com/"
   },
   {
-    "date": "2026-07-08",
-    "title": "Injective Labs SDK供應鏈攻擊竊取加密錢包私鑰",
-    "category": "供應鏈攻擊",
-    "affected_org": "Injective Labs",
+    "date": "2026-07-01",
+    "title": "研究揭露首例 AI 模型自主產生瀏覽器勒索軟體攻擊鏈",
+    "category": "AI資安風險",
+    "affected_org": "瀏覽器使用者（研究案例）",
+    "region": "全球",
+    "severity": "中",
+    "summary": "Check Point發現以DeepSeek生成的惡意程式範本，首次展示前沿AI模型獨立串接出可行的瀏覽器勒索軟體攻擊路徑。",
+    "source_name": "The Hacker News",
+    "source_url": "https://thehackernews.com/"
+  },
+  {
+    "date": "2026-07-01",
+    "title": "「幻影搶註」：攻擊者搶先註冊 AI 幻覺網域用於釣魚",
+    "category": "網路釣魚",
+    "affected_org": "多產業品牌（技術、金融、醫療等）",
+    "region": "全球",
+    "severity": "中",
+    "summary": "Unit 42研究顯示，攻擊者搶先註冊AI模型憑空捏造的網域名稱架設釣魚頁面，攔截使用者對AI建議連結的信任。",
+    "source_name": "Palo Alto Networks Unit 42",
+    "source_url": "https://thehackernews.com/"
+  },
+  {
+    "date": "2026-06-29",
+    "title": "Progress LoadMaster 高危漏洞遭鎖定攻擊（CVSS 9.6）",
+    "category": "漏洞",
+    "affected_org": "Progress LoadMaster 負載平衡器用戶",
     "region": "全球",
     "severity": "高",
-    "summary": "惡意npm套件版本1.20.21嵌入假遙測竊取加密錢包私鑰與助記詞，已從註冊表刪除但原始工件仍可下載。",
+    "summary": "CVE-2026-8037作業系統指令注入漏洞遭鎖定攻擊，攻擊者可在未驗證情況下執行任意指令，廠商已釋出修補建議。",
     "source_name": "The Hacker News",
     "source_url": "https://thehackernews.com/"
   },
   {
     "date": "2026-06-23",
-    "title": "KDDI電郵系統遭駭擊致1422萬帳戶外洩",
+    "title": "KDDI 電子郵件系統遭入侵，逾 1,422 萬組帳密可能外洩",
     "category": "資料外洩",
-    "affected_org": "KDDI及五家日本ISP",
-    "region": "亞太",
+    "affected_org": "KDDI（日本電信業者）",
+    "region": "日本",
     "severity": "高",
-    "summary": "KDDI電郵系統遭駭客利用第三方軟體漏洞入侵，影響日本五家ISP的1422萬郵箱地址與密碼，部分密碼未加密。",
-    "source_name": "Privacy Guides",
-    "source_url": "https://www.privacyguides.org/news/2026/07/03/data-breach-roundup-june-26-july-2-2026/"
-  },
-  {
-    "date": "2026-06-25",
-    "title": "Aflac日本子公司遭駭竊438萬客戶個資與銀行資訊",
-    "category": "資料外洩",
-    "affected_org": "Aflac Japan",
-    "region": "亞太",
-    "severity": "高",
-    "summary": "Aflac日本子公司遭駭客於6月15-25日入侵，438萬客戶保單資訊、個人資料與銀行帳戶詳情被竊，僅限日本系統。",
-    "source_name": "Kaseya",
-    "source_url": "https://www.kaseya.com/blog/the-week-in-breach-news-07-08-26/"
-  },
-  {
-    "date": "2026-06-19",
-    "title": "Klue市場情報平台遭駭導致多家安全公司受害",
-    "category": "供應鏈攻擊",
-    "affected_org": "Klue及多家安全公司客戶",
-    "region": "北美",
-    "severity": "高",
-    "summary": "Klue遭駭客利用過期認證與OAuth令牌入侵其Salesforce整合，導致HackerOne、Huntress等安全公司客戶資料外洩。",
-    "source_name": "Kaseya",
-    "source_url": "https://www.kaseya.com/blog/the-week-in-breach-news-06-24-26/"
-  },
-  {
-    "date": "2026-06-01",
-    "title": "Red Hat npm套件供應鏈攻擊含Miasma憑證竊取器",
-    "category": "供應鏈攻擊",
-    "affected_org": "Red Hat (32個npm套件)",
-    "region": "全球",
-    "severity": "高",
-    "summary": "駭客入侵Red Hat員工GitHub帳號，利用OIDC令牌發布含Miasma惡意載荷的32個套件，共約8萬週下載量，竊取npm與雲端憑證。",
-    "source_name": "Palo Alto Networks Unit 42",
-    "source_url": "https://unit42.paloaltonetworks.com/monitoring-npm-supply-chain-attacks/"
-  },
-  {
-    "date": "2026-06-05",
-    "title": "厄瓜多選舉登記簿遭駭客控制威脅大規模選舉詐騙",
-    "category": "國家級攻擊",
-    "affected_org": "厄瓜多選舉登記系統(CNE.GOB.EC)",
-    "region": "南美洲",
-    "severity": "高",
-    "summary": "駭客「GordonFreeman」聲稱掌控厄瓜多選舉登記資料庫，竊取1350萬選民記錄，威脅竄改數據、製造「幽靈選民」，索要4 BTC贖金。",
-    "source_name": "PurpleOps",
-    "source_url": "https://purple-ops.io/blog/threat-overview-supply-chain-vulnerabilities-ransomware"
-  },
-  {
-    "date": "2026-06-02",
-    "title": "ServiceNow API漏洞遭利用致客戶資料外洩",
-    "category": "漏洞利用",
-    "affected_org": "ServiceNow及其客戶",
-    "region": "全球",
-    "severity": "高",
-    "summary": "駭客自6月2日起利用ServiceNow API未認證存取漏洞查詢客戶實例表格，可能存取內部工單、員工記錄與營運文件，6月5日應用修補程式。",
-    "source_name": "BrightDefense",
+    "summary": "KDDI旗下代管6家日本ISP的郵件系統遭入侵，攻擊者利用第三方軟體漏洞，公司已要求受影響用戶更改密碼。",
+    "source_name": "綜合報導",
     "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/"
   },
   {
-    "date": "2026-05-07",
-    "title": "Canvas學習平台遭ShinyHunters駭客二次攻擊與勒索",
-    "category": "勒索軟體",
-    "affected_org": "Instructure Canvas (全球8000+教育機構)",
-    "region": "全球",
-    "severity": "高",
-    "summary": "ShinyHunters於4月25日首次入侵Canvas，5月6日宣稱修復後於5月7日二次攻擊並篡改登入頁面，330家機構受影響含哈佛、普林斯頓等，Instructure支付贖金。",
-    "source_name": "PKWARE",
-    "source_url": "https://www.pkware.com/blog/2026-data-breaches"
+    "date": "2026-06-18",
+    "title": "德州公園暨野生動物局第三方廠商外洩事件",
+    "category": "資料外洩",
+    "affected_org": "Texas Parks and Wildlife Department",
+    "region": "美國",
+    "severity": "中",
+    "summary": "德州網路安全指揮部偵測到第三方授權證照廠商系統遭未授權存取，可能影響民眾申請資料。",
+    "source_name": "Bright Defense",
+    "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/"
   },
   {
-    "date": "2026-06-15",
-    "title": "Ubiquiti UniFi發現25個高危漏洞含完美評分命令注入",
+    "date": "2026-06-05",
+    "title": "ServiceNow API 未授權存取漏洞遭利用",
     "category": "漏洞",
-    "affected_org": "Ubiquiti UniFi產品",
+    "affected_org": "ServiceNow（受影響客戶實例）",
     "region": "全球",
     "severity": "高",
-    "summary": "Ubiquiti安全公告066披露25個漏洞，CVE-2026-50746為10.0評分未認證命令注入，CVE-2026-20230為9.9分SSRF漏洞，涉及UniFi Connect、Talk、Access、Protect。",
-    "source_name": "Cybersecurity News",
-    "source_url": "https://cybersecuritynews.com/cyber-security-news-bulletin-weekly-july/"
+    "summary": "攻擊者利用未驗證的API端點漏洞查詢客戶實例中的工單、員工資料等內容，廠商已修補並通知受影響客戶。",
+    "source_name": "Bright Defense",
+    "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/"
+  },
+  {
+    "date": "2026-06-01",
+    "title": "Tata Electronics 遭 World Leaks 勒索組織攻擊，逾 20 萬份檔案外洩",
+    "category": "勒索軟體",
+    "affected_org": "Tata Electronics",
+    "region": "亞太",
+    "severity": "高",
+    "summary": "World Leaks勒索軟體組織聲稱入侵Tata Electronics，並在網路上公開逾20萬份公司內部檔案。",
+    "source_name": "Bright Defense",
+    "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/"
   }
 ];
 
