@@ -193,7 +193,29 @@ async function searchRemainingCategories() {
   return extractJsonObject(textBlocks);
 }
 
-// ---------- 4. 主流程 ----------
+// ---------- 4. AI 綜合摘要 ----------
+
+async function generateSummary(result) {
+  console.log("呼叫 Claude 產生今日綜合摘要...");
+
+  const prompt = `你是資安分析師，以下是今天彙整好的威脅情資（JSON），請用繁體中文寫一段150字以內的「今日摘要」，給IT／資安管理人員快速掌握重點。內容請綜合六大類別，點出最值得優先關注的1-3件事（例如高風險漏洞、正在延燒的攻擊、值得留意的趨勢），語氣專業精簡，不要條列式，直接寫成一段完整的話。若資料很少或都是低風險項目，也可以誠實反映「今日威脅情勢相對平緩」之類的說法，不要誇大。
+
+資料：
+${JSON.stringify(result, null, 2)}
+
+請只回傳摘要文字本身，不要有任何前言、標題或引號。`;
+
+  const response = await anthropic.messages.create({
+    model: "claude-haiku-4-5-20251001",
+    max_tokens: 500,
+    messages: [{ role: "user", content: prompt }],
+  });
+
+  const text = response.content.filter((b) => b.type === "text").map((b) => b.text).join("\n").trim();
+  return text;
+}
+
+// ---------- 5. 主流程 ----------
 
 async function main() {
   const [kev, vendorAdvisories, intlNews] = await Promise.all([
@@ -217,6 +239,9 @@ async function main() {
   console.log(
     `彙整完成：KEV ${result.kev_vulnerabilities.length} / 廠商公告 ${result.vendor_advisories.length} / 國際新聞 ${result.international_news.length} / 政府公告 ${result.gov_announcements.length} / IOC ${result.ioc_highlights.length} / 勒索軟體APT ${result.ransomware_apt.length}`
   );
+
+  result.ai_summary = await generateSummary(result);
+  console.log("AI摘要：", result.ai_summary);
 
   const templatePath = path.join(process.cwd(), "templates", "threat-intel-template.html");
   let html = fs.readFileSync(templatePath, "utf-8");
