@@ -130,7 +130,8 @@ Krebs on Security: ${JSON.stringify(intlNews.krebs, null, 2)}
       "title": "繁體中文標題（改寫，不要直接翻譯逐字對照）",
       "source": "BleepingComputer 或 Krebs on Security",
       "summary": "40字以內繁體中文摘要，用自己的話說明重點",
-      "url": "原始連結網址"
+      "url": "原始連結網址",
+      "is_awareness_case": true或false（這則新聞是否適合用來做員工資安宣導/教育訓練，例如常見詐騙手法、釣魚郵件、社交工程等一般員工容易遇到的情境；純技術性漏洞公告通常填false）
     }
   ]
 }
@@ -170,13 +171,13 @@ async function searchRemainingCategories() {
 回傳格式：
 {
   "gov_announcements": [
-    { "date": "YYYY-MM-DD", "source": "TWCERT/CC 或 資安署", "title": "公告標題", "summary": "40字以內摘要", "url": "來源網址" }
+    { "date": "YYYY-MM-DD", "source": "TWCERT/CC 或 資安署", "title": "公告標題", "summary": "40字以內摘要", "url": "來源網址", "is_awareness_case": true或false（是否適合做員工資安宣導教育） }
   ],
   "ioc_highlights": [
     { "campaign": "攻擊行動/惡意程式名稱", "ioc_types": ["IP","Domain","Hash","URL"]（列出這則情資涉及的IOC類型即可，陣列）, "summary": "50字以內說明", "source_name": "來源名稱", "source_url": "來源網址" }
   ],
   "ransomware_apt": [
-    { "date": "YYYY-MM-DD", "type": "勒索軟體 或 APT", "title": "事件/組織名稱", "summary": "50字以內摘要", "source_name": "來源名稱", "source_url": "來源網址" }
+    { "date": "YYYY-MM-DD", "type": "勒索軟體 或 APT", "title": "事件/組織名稱", "summary": "50字以內摘要", "source_name": "來源名稱", "source_url": "來源網址", "is_awareness_case": true或false（是否適合做員工資安宣導教育） }
   ]
 }
 

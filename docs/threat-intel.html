@@ -94,6 +94,17 @@
   @media (max-width:800px){.stat-grid{grid-template-columns:repeat(2,1fr);}}
   @media (max-width:480px){.stat-grid{grid-template-columns:1fr;}}
 
+  .ai-summary{
+    background:linear-gradient(135deg, rgba(37,99,235,0.05), rgba(37,99,235,0.01));
+    border:1px solid var(--border);border-left:4px solid var(--accent);
+    border-radius:10px;padding:16px 18px;margin-bottom:26px;
+  }
+  .ai-summary-header{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+  .ai-summary-icon{font-size:15px;}
+  .ai-summary-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;}
+  .ai-summary-badge{font-family:'JetBrains Mono',monospace;font-size:9.5px;color:var(--accent);background:rgba(37,99,235,0.1);padding:2px 8px;border-radius:20px;}
+  .ai-summary-text{font-size:13.5px;line-height:1.8;color:var(--text);}
+
   .footer-note{text-align:center;font-size:11px;color:var(--text-faint);margin-top:30px;font-family:'JetBrains Mono',monospace;}
   @media (max-width:600px){.header{flex-direction:column;align-items:flex-start;}}
 </style>
@@ -122,6 +133,15 @@
 
   <div class="stat-grid" id="statGrid"></div>
 
+  <div class="ai-summary">
+    <div class="ai-summary-header">
+      <span class="ai-summary-icon">🤖</span>
+      <span class="ai-summary-title">AI 今日摘要</span>
+      <span class="ai-summary-badge">AI GENERATED</span>
+    </div>
+    <div class="ai-summary-text" id="aiSummaryText">摘要產生中...</div>
+  </div>
+
   <div id="content" class="content-columns"></div>
 
   <div class="footer-note">CVE/廠商公告來自官方Feed；國內公告/IOC/勒索軟體與APT活動由AI搜尋整理，僅供參考，正式應變請以原廠與官方公告為準。</div>
@@ -129,34 +149,39 @@
 
 <script>
 const DATA = {
+  "ai_summary": "Microsoft Defender的RoguePlanet權限提升漏洞（CVE-2026-50656）與Progress LoadMaster的高危指令注入漏洞（CVE-2026-8037）是本期最需優先處理的兩項0-day，兩者皆已遭鎖定攻擊，建議立即確認修補狀態。同時KDDI電子郵件外洩事件與World Leaks針對Tata Electronics的勒索攻擊顯示供應鏈與第三方廠商仍是主要破口，建議盤點內部類似暴露面。整體而言本期威脅情勢偏緊，需優先關注漏洞修補與供應鏈風險。",
   "gov_announcements": [
     {
       "date": "2026-06-30",
       "source": "TWCERT/CC",
       "title": "TWCERT/CC 2026年6月份資安情資電子報發布",
       "summary": "彙整六月份重大資安事件、漏洞與威脅趨勢，提供企業資安參考。",
-      "url": "https://epaper.twcert.org.tw/2026_06/"
+      "url": "https://epaper.twcert.org.tw/2026_06/",
+      "is_awareness_case": false
     },
     {
       "date": "2026-06-26",
       "source": "TWCERT/CC",
       "title": "旅遊eSIM資安風險提醒",
       "summary": "提醒出差人員使用旅遊eSIM時,流量路徑不透明可能導致連線資料暴露境外的風險。",
-      "url": "https://www.twcert.org.tw/tw/mp-1.html"
+      "url": "https://www.twcert.org.tw/tw/mp-1.html",
+      "is_awareness_case": true
     },
     {
       "date": "2026-06-26",
       "source": "TWCERT/CC",
       "title": "開源框架TanStack供應鏈攻擊警示",
       "summary": "知名開源框架TanStack遭「Mini Shai-Hulud」供應鏈攻擊，提醒開發者檢查相依套件。",
-      "url": "https://www.twcert.org.tw/tw/mp-1.html"
+      "url": "https://www.twcert.org.tw/tw/mp-1.html",
+      "is_awareness_case": false
     },
     {
       "date": "2026-05-29",
       "source": "TWCERT/CC",
       "title": "裝置碼釣魚攻擊新興威脅預警",
       "summary": "裝置碼(device code)釣魚攻擊手法成為新興威脅，企業與組織成主要鎖定目標。",
-      "url": "https://www.twcert.org.tw/tw/mp-1.html"
+      "url": "https://www.twcert.org.tw/tw/mp-1.html",
+      "is_awareness_case": true
     }
   ],
   "kev_vulnerabilities": [
@@ -252,25 +277,29 @@ const DATA = {
       "title": "研究揭露首例AI Agent自主執行勒索軟體攻擊鏈",
       "source": "綜合報導",
       "summary": "雲端安全業者Sysdig發現完全由LLM驅動的AI Agent自主發動勒索軟體攻擊案例，資安圈熱議防禦難度。",
-      "url": "https://thehackernews.com/"
+      "url": "https://thehackernews.com/",
+      "is_awareness_case": true
     },
     {
       "title": "Google聯合FBI打擊全球最大惡意住宅代理網路",
       "source": "綜合報導",
       "summary": "威脅情報團隊與執法單位聯手清除數百萬台遭感染裝置組成的代理網路NetNut。",
-      "url": "https://thehackernews.com/"
+      "url": "https://thehackernews.com/",
+      "is_awareness_case": false
     },
     {
       "title": "「幻影搶註」攻擊者搶先註冊AI幻覺網域用於釣魚",
       "source": "綜合報導",
       "summary": "研究顯示攻擊者搶先註冊AI模型憑空捏造的網域架設釣魚頁面，攔截使用者對AI建議連結的信任。",
-      "url": "https://thehackernews.com/"
+      "url": "https://thehackernews.com/",
+      "is_awareness_case": true
     },
     {
       "title": "Adobe釋出ColdFusion與Campaign Classic重大安全更新",
       "source": "綜合報導",
       "summary": "修補多項最高等級安全漏洞，可能導致任意程式碼執行與權限提升，建議儘速更新。",
-      "url": "https://thehackernews.com/"
+      "url": "https://thehackernews.com/",
+      "is_awareness_case": false
     }
   ],
   "ioc_highlights": [
@@ -310,7 +339,8 @@ const DATA = {
       "title": "World Leaks攻擊Tata Electronics，逾20萬份檔案外洩",
       "summary": "勒索軟體組織World Leaks聲稱入侵Tata Electronics並公開大量內部檔案。",
       "source_name": "綜合報導",
-      "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/"
+      "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/",
+      "is_awareness_case": false
     },
     {
       "date": "2026-06-23",
@@ -318,7 +348,8 @@ const DATA = {
       "title": "KDDI郵件系統遭入侵，逾1,422萬組帳密可能外洩",
       "summary": "日本電信業者KDDI代管的郵件系統遭入侵，攻擊者利用第三方軟體漏洞取得帳密資料。",
       "source_name": "綜合報導",
-      "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/"
+      "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/",
+      "is_awareness_case": false
     },
     {
       "date": "2026-05-29",
@@ -326,16 +357,17 @@ const DATA = {
       "title": "駭客組織UAT-8616鎖定Cisco Catalyst SD-WAN",
       "summary": "疑似國家級駭客組織針對Cisco SD-WAN設備發動鎖定式攻擊，利用目錄穿越等漏洞滲透。",
       "source_name": "TWCERT/CC",
-      "source_url": "https://www.twcert.org.tw/tw/mp-1.html"
+      "source_url": "https://www.twcert.org.tw/tw/mp-1.html",
+      "is_awareness_case": false
     }
-  ],
-  "ai_summary": "Microsoft Defender的RoguePlanet權限提升漏洞（CVE-2026-50656）與Progress LoadMaster的高危指令注入漏洞（CVE-2026-8037）是本期最需優先處理的兩項0-day，兩者皆已遭鎖定攻擊，建議立即確認修補狀態。同時KDDI電子郵件外洩事件與World Leaks針對Tata Electronics的勒索攻擊顯示供應鏈與第三方廠商仍是主要破口，建議盤點內部類似暴露面。整體而言本期威脅情勢偏緊，需優先關注漏洞修補與供應鏈風險。"
+  ]
 };
 const UPDATED_AT = "2026-07-13 12:00:00（台灣時間）";
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
 
 document.getElementById('badgeDate').textContent = UPDATED_AT;
+document.getElementById('aiSummaryText').textContent = DATA.ai_summary || '（本次無摘要資料）';
 
 function statCard({icon, label, tone, number, unit, badgeText, desc}){
   return `<div class="stat-card ${tone ? 'tone-'+tone : ''}">
@@ -353,39 +385,62 @@ function buildStats(data){
   const vendor = data.vendor_advisories || [];
   const news = data.international_news || [];
   const gov = data.gov_announcements || [];
-  const ioc = data.ioc_highlights || [];
   const ransomwareApt = data.ransomware_apt || [];
 
-  const totalCount = kev.length + vendor.length + news.length + gov.length + ioc.length + ransomwareApt.length;
-  const kevRansomware = kev.filter(v => v.known_ransomware_use).length;
   const vendorHigh = vendor.filter(v => v.severity_guess === '高').length;
+  const cveCount = kev.filter(v => v.cve_id && v.cve_id.trim()).length;
   const ransomwareCount = ransomwareApt.filter(r => r.type === '勒索軟體').length;
-  const aptCount = ransomwareApt.filter(r => r.type === 'APT').length;
+  const majorIncidents = kev.length + ransomwareApt.length;
+  const awarenessCount = [...news, ...gov, ...ransomwareApt].filter(i => i.is_awareness_case).length;
 
   const cards = [
     statCard({
-      icon:'📊', label:'本日彙整訊號', tone:null,
-      number: totalCount, unit:'則',
-      badgeText: '六大類別',
-      desc: `KEV ${kev.length}・廠商公告 ${vendor.length}・國際新聞 ${news.length}・政府公告 ${gov.length}・IOC ${ioc.length}・勒索/APT ${ransomwareApt.length}`
+      icon:'🔴', label:'今日重大資安事件數', tone: majorIncidents > 0 ? '高' : '低',
+      number: majorIncidents, unit:'件',
+      badgeText: 'KEV + 勒索/APT',
+      desc: '涵蓋已知遭實際利用漏洞、勒索軟體與APT活動事件。'
     }),
     statCard({
-      icon:'🎯', label:'高風險漏洞', tone: kevRansomware > 0 ? '高' : '中',
-      number: kev.length, unit:'筆KEV',
-      badgeText: kevRansomware > 0 ? `${kevRansomware}筆已知遭勒索利用` : '無已知勒索利用',
-      desc: `另有 ${vendorHigh} 則廠商公告研判為高嚴重度，建議優先檢視是否影響內部資產。`
+      icon:'🎯', label:'Critical／High漏洞數', tone: (kev.length + vendorHigh) > 0 ? '高' : '低',
+      number: kev.length + vendorHigh, unit:'筆',
+      badgeText: `KEV${kev.length}＋廠商高危${vendorHigh}`,
+      desc: '建議優先確認內部是否有相關產品曝險。'
     }),
     statCard({
-      icon:'🕵️', label:'勒索軟體與APT活動', tone: ransomwareCount > 0 ? '高' : '中',
-      number: ransomwareApt.length, unit:'則',
-      badgeText: `勒索${ransomwareCount}／APT${aptCount}`,
-      desc: '追蹤全球重大勒索軟體攻擊事件與APT組織動態，供研判是否有相關手法或目標產業重疊。'
+      icon:'🆕', label:'新增CVE數', tone:null,
+      number: cveCount, unit:'筆',
+      badgeText:'本期新增',
+      desc: '本次彙整中出現的具名CVE編號數量。'
     }),
     statCard({
-      icon:'🛡️', label:'資料來源涵蓋範圍', tone:null,
-      number:'官方Feed', unit:'+ AI搜尋',
-      badgeText:'Guarded',
-      desc:'KEV／廠商公告／國際新聞來自官方JSON或RSS；國內公告、IOC重點、勒索/APT活動由AI搜尋整理，正式應變請以原廠公告為準。'
+      icon:'⚠️', label:'已知遭利用漏洞（KEV）', tone: kev.length > 0 ? '高' : '低',
+      number: kev.length, unit:'筆',
+      badgeText:'CISA KEV',
+      desc: '來自CISA官方Feed，代表已被實際利用、需優先處理。'
+    }),
+    statCard({
+      icon:'🦠', label:'勒索病毒事件數', tone: ransomwareCount > 0 ? '高' : '低',
+      number: ransomwareCount, unit:'件',
+      badgeText:'全球案例',
+      desc: '過去14天內公開報導的勒索軟體攻擊事件。'
+    }),
+    statCard({
+      icon:'🏢', label:'本公司受影響產品數', tone:null,
+      number:'—', unit:'',
+      badgeText:'需資產清單',
+      desc: '目前無公司內部資產資料可比對，提供資產清單後可自動計算。'
+    }),
+    statCard({
+      icon:'🔧', label:'待修補漏洞數', tone:null,
+      number:'—', unit:'',
+      badgeText:'需修補狀態資料',
+      desc: '目前無公司內部修補狀態資料，提供資產/修補清單後可自動計算。'
+    }),
+    statCard({
+      icon:'📢', label:'今日可宣導案例數', tone:null,
+      number: awarenessCount, unit:'則',
+      badgeText:'適合員工教育',
+      desc: 'AI研判適合用於內部資安宣導、教育訓練的案例（如釣魚手法、詐騙趨勢等）。'
     }),
   ];
 

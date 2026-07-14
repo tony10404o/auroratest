@@ -172,39 +172,62 @@ function buildStats(data){
   const vendor = data.vendor_advisories || [];
   const news = data.international_news || [];
   const gov = data.gov_announcements || [];
-  const ioc = data.ioc_highlights || [];
   const ransomwareApt = data.ransomware_apt || [];
 
-  const totalCount = kev.length + vendor.length + news.length + gov.length + ioc.length + ransomwareApt.length;
-  const kevRansomware = kev.filter(v => v.known_ransomware_use).length;
   const vendorHigh = vendor.filter(v => v.severity_guess === '高').length;
+  const cveCount = kev.filter(v => v.cve_id && v.cve_id.trim()).length;
   const ransomwareCount = ransomwareApt.filter(r => r.type === '勒索軟體').length;
-  const aptCount = ransomwareApt.filter(r => r.type === 'APT').length;
+  const majorIncidents = kev.length + ransomwareApt.length;
+  const awarenessCount = [...news, ...gov, ...ransomwareApt].filter(i => i.is_awareness_case).length;
 
   const cards = [
     statCard({
-      icon:'📊', label:'本日彙整訊號', tone:null,
-      number: totalCount, unit:'則',
-      badgeText: '六大類別',
-      desc: `KEV ${kev.length}・廠商公告 ${vendor.length}・國際新聞 ${news.length}・政府公告 ${gov.length}・IOC ${ioc.length}・勒索/APT ${ransomwareApt.length}`
+      icon:'🔴', label:'今日重大資安事件數', tone: majorIncidents > 0 ? '高' : '低',
+      number: majorIncidents, unit:'件',
+      badgeText: 'KEV + 勒索/APT',
+      desc: '涵蓋已知遭實際利用漏洞、勒索軟體與APT活動事件。'
     }),
     statCard({
-      icon:'🎯', label:'高風險漏洞', tone: kevRansomware > 0 ? '高' : '中',
-      number: kev.length, unit:'筆KEV',
-      badgeText: kevRansomware > 0 ? `${kevRansomware}筆已知遭勒索利用` : '無已知勒索利用',
-      desc: `另有 ${vendorHigh} 則廠商公告研判為高嚴重度，建議優先檢視是否影響內部資產。`
+      icon:'🎯', label:'Critical／High漏洞數', tone: (kev.length + vendorHigh) > 0 ? '高' : '低',
+      number: kev.length + vendorHigh, unit:'筆',
+      badgeText: `KEV${kev.length}＋廠商高危${vendorHigh}`,
+      desc: '建議優先確認內部是否有相關產品曝險。'
     }),
     statCard({
-      icon:'🕵️', label:'勒索軟體與APT活動', tone: ransomwareCount > 0 ? '高' : '中',
-      number: ransomwareApt.length, unit:'則',
-      badgeText: `勒索${ransomwareCount}／APT${aptCount}`,
-      desc: '追蹤全球重大勒索軟體攻擊事件與APT組織動態，供研判是否有相關手法或目標產業重疊。'
+      icon:'🆕', label:'新增CVE數', tone:null,
+      number: cveCount, unit:'筆',
+      badgeText:'本期新增',
+      desc: '本次彙整中出現的具名CVE編號數量。'
     }),
     statCard({
-      icon:'🛡️', label:'資料來源涵蓋範圍', tone:null,
-      number:'官方Feed', unit:'+ AI搜尋',
-      badgeText:'Guarded',
-      desc:'KEV／廠商公告／國際新聞來自官方JSON或RSS；國內公告、IOC重點、勒索/APT活動由AI搜尋整理，正式應變請以原廠公告為準。'
+      icon:'⚠️', label:'已知遭利用漏洞（KEV）', tone: kev.length > 0 ? '高' : '低',
+      number: kev.length, unit:'筆',
+      badgeText:'CISA KEV',
+      desc: '來自CISA官方Feed，代表已被實際利用、需優先處理。'
+    }),
+    statCard({
+      icon:'🦠', label:'勒索病毒事件數', tone: ransomwareCount > 0 ? '高' : '低',
+      number: ransomwareCount, unit:'件',
+      badgeText:'全球案例',
+      desc: '過去14天內公開報導的勒索軟體攻擊事件。'
+    }),
+    statCard({
+      icon:'🏢', label:'本公司受影響產品數', tone:null,
+      number:'—', unit:'',
+      badgeText:'需資產清單',
+      desc: '目前無公司內部資產資料可比對，提供資產清單後可自動計算。'
+    }),
+    statCard({
+      icon:'🔧', label:'待修補漏洞數', tone:null,
+      number:'—', unit:'',
+      badgeText:'需修補狀態資料',
+      desc: '目前無公司內部修補狀態資料，提供資產/修補清單後可自動計算。'
+    }),
+    statCard({
+      icon:'📢', label:'今日可宣導案例數', tone:null,
+      number: awarenessCount, unit:'則',
+      badgeText:'適合員工教育',
+      desc: 'AI研判適合用於內部資安宣導、教育訓練的案例（如釣魚手法、詐騙趨勢等）。'
     }),
   ];
 
