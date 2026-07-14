@@ -90,17 +90,6 @@
   @media (max-width:800px){.stat-grid{grid-template-columns:repeat(2,1fr);}}
   @media (max-width:480px){.stat-grid{grid-template-columns:1fr;}}
 
-  /* Terminal stat bar */
-  .term-stats{
-    font-family:'JetBrains Mono',monospace;background:var(--panel);
-    border-top:1px dashed var(--border);border-bottom:1px dashed var(--border);
-    padding:12px 18px;margin-bottom:22px;
-  }
-  .term-line{display:flex;justify-content:space-between;align-items:center;padding:3px 0;font-size:13px;}
-  .term-line .term-label{color:var(--text);}
-  .term-line .term-value{font-weight:700;color:var(--text);}
-  .term-line .term-value.na{color:var(--text-faint);font-weight:500;}
-
   .footer-note{text-align:center;font-size:11px;color:var(--text-faint);margin-top:30px;font-family:'JetBrains Mono',monospace;}
   @media (max-width:600px){.header{flex-direction:column;align-items:flex-start;}}
 </style>
@@ -119,8 +108,6 @@
     <a href="yuqing.html">輿情監控</a>
     <a href="threat-intel.html" class="active">威脅情資</a>
   </div>
-
-  <div class="term-stats" id="termStats"></div>
 
   <div class="badge-row">
     <div class="badge"><span class="badge-label">Report date</span><span class="badge-value" id="badgeDate">--</span></div>
@@ -199,35 +186,6 @@ function buildStats(data){
   document.getElementById('statGrid').innerHTML = cards.join('');
 }
 
-function termLine(icon, label, value, opts={}){
-  const valClass = opts.na ? 'term-value na' : 'term-value';
-  return `<div class="term-line"><span class="term-label">${icon} ${label}</span><span class="${valClass}">${value}</span></div>`;
-}
-
-function buildTermStats(data){
-  const kev = data.kev_vulnerabilities || [];
-  const vendor = data.vendor_advisories || [];
-  const news = data.international_news || [];
-  const gov = data.gov_announcements || [];
-  const ioc = data.ioc_highlights || [];
-
-  const newsCount = news.length + gov.length;
-  const criticalCount = kev.length + vendor.filter(v => v.severity_guess === '高').length;
-  const iocCount = ioc.length;
-  const zeroDayCount = kev.filter(v => v.is_zero_day).length;
-
-  const lines = [
-    termLine('📰', '今日新聞', newsCount),
-    termLine('🚨', 'Critical漏洞', criticalCount),
-    termLine('🌏', 'IOC情資主題', iocCount),
-    termLine('🛡', '修補率', '—（無資產資料）', { na: true }),
-    termLine('🔥', 'Zero-Day', zeroDayCount),
-  ];
-
-  document.getElementById('termStats').innerHTML = lines.join('');
-}
-
-buildTermStats(DATA);
 buildStats(DATA);
 
 function section(icon, title, countLabel, bodyHtml){
