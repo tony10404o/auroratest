@@ -62,6 +62,45 @@
   .card-link:hover{text-decoration:underline;}
   .empty-note{color:var(--text-faint);font-size:12px;padding:10px 0;font-family:'JetBrains Mono',monospace;}
 
+  /* Executive header badges */
+  .exec-tagline{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--accent);letter-spacing:0.5px;margin:2px 0 10px;}
+  .badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px;}
+  .badge{
+    background:var(--panel);border:1px solid var(--border);border-radius:8px;
+    padding:7px 12px;display:flex;flex-direction:column;gap:1px;
+  }
+  .badge .badge-label{font-family:'JetBrains Mono',monospace;font-size:9.5px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.5px;}
+  .badge .badge-value{font-size:12.5px;font-weight:600;color:var(--text);}
+
+  /* Stat cards */
+  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:30px;}
+  .stat-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px 16px 14px;border-top:3px solid var(--accent);}
+  .stat-card.tone-高{border-top-color:var(--sev-high);}
+  .stat-card.tone-中{border-top-color:var(--sev-medium);}
+  .stat-card.tone-低{border-top-color:var(--sev-low);}
+  .stat-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;}
+  .stat-label{font-size:12px;font-weight:600;color:var(--text-dim);}
+  .stat-badge{font-family:'JetBrains Mono',monospace;font-size:10px;padding:2px 8px;border-radius:20px;background:var(--panel-alt);color:var(--text-dim);white-space:nowrap;}
+  .stat-badge.tone-高{color:var(--sev-high);background:var(--sev-high-bg);}
+  .stat-badge.tone-中{color:var(--sev-medium);background:var(--sev-medium-bg);}
+  .stat-badge.tone-低{color:var(--sev-low);background:var(--sev-low-bg);}
+  .stat-number{font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700;color:var(--text);line-height:1;margin-bottom:8px;}
+  .stat-number span{font-size:14px;color:var(--text-dim);font-weight:500;margin-left:2px;}
+  .stat-desc{font-size:11.5px;color:var(--text-dim);line-height:1.6;}
+  @media (max-width:800px){.stat-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:480px){.stat-grid{grid-template-columns:1fr;}}
+
+  /* Terminal stat bar */
+  .term-stats{
+    font-family:'JetBrains Mono',monospace;background:var(--panel);
+    border-top:1px dashed var(--border);border-bottom:1px dashed var(--border);
+    padding:12px 18px;margin-bottom:22px;
+  }
+  .term-line{display:flex;justify-content:space-between;align-items:center;padding:3px 0;font-size:13px;}
+  .term-line .term-label{color:var(--text);}
+  .term-line .term-value{font-weight:700;color:var(--text);}
+  .term-line .term-value.na{color:var(--text-faint);font-weight:500;}
+
   .footer-note{text-align:center;font-size:11px;color:var(--text-faint);margin-top:30px;font-family:'JetBrains Mono',monospace;}
   @media (max-width:600px){.header{flex-direction:column;align-items:flex-start;}}
 </style>
@@ -74,12 +113,23 @@
       <div><h1>威脅情資彙整</h1><div class="sub">THREAT INTELLIGENCE DIGEST</div></div>
     </div>
   </div>
+  <div class="exec-tagline">CYBER THREAT INTELLIGENCE ｜ 官方Feed + AI搜尋分析 ｜ 每日自動更新</div>
   <div class="nav">
     <a href="index.html">事件監控台</a>
     <a href="yuqing.html">輿情監控</a>
     <a href="threat-intel.html" class="active">威脅情資</a>
   </div>
-  <div class="meta-line">最後更新：<b>2026-07-13 12:00:00（台灣時間，白色主題更新）</b>　·　CVE聚焦於CISA KEV(已知遭實際利用漏洞)，非全量NVD資料</div>
+
+  <div class="term-stats" id="termStats"></div>
+
+  <div class="badge-row">
+    <div class="badge"><span class="badge-label">Report date</span><span class="badge-value" id="badgeDate">--</span></div>
+    <div class="badge"><span class="badge-label">Update mode</span><span class="badge-value">每日自動更新</span></div>
+    <div class="badge"><span class="badge-label">Primary audience</span><span class="badge-value">IT／資安管理人員</span></div>
+    <div class="badge"><span class="badge-label">Core module</span><span class="badge-value">六大類別彙整</span></div>
+  </div>
+
+  <div class="stat-grid" id="statGrid"></div>
 
   <div id="content"></div>
 
@@ -125,6 +175,7 @@ const DATA = {
       "title": "使用者可控金鑰授權繞過漏洞，已遭實際利用",
       "date_added": "2026-06",
       "known_ransomware_use": false,
+      "is_zero_day": false,
       "summary": "Langflow存在授權繞過漏洞，已通過驗證的攻擊者可藉由指定他人流程ID執行任意流程。"
     },
     {
@@ -133,6 +184,7 @@ const DATA = {
       "title": "OS指令注入漏洞，可致未驗證遠端程式碼執行",
       "date_added": "2026-06",
       "known_ransomware_use": false,
+      "is_zero_day": false,
       "summary": "Ivanti Sentry存在OS指令注入漏洞，未受管理且對外暴露的設備恐遭遠端取得root權限。"
     },
     {
@@ -141,6 +193,7 @@ const DATA = {
       "title": "危險類型檔案上傳限制不當漏洞",
       "date_added": "2026-06",
       "known_ransomware_use": false,
+      "is_zero_day": false,
       "summary": "未驗證使用者可上傳任意檔案，最終導致PHP程式碼上傳並執行。"
     },
     {
@@ -149,6 +202,7 @@ const DATA = {
       "title": "危險類型檔案上傳限制不當漏洞",
       "date_added": "2026-06",
       "known_ransomware_use": false,
+      "is_zero_day": false,
       "summary": "附件上傳功能存在檔案類型限制不當問題，可能遭利用上傳並執行PHP程式碼。"
     },
     {
@@ -157,6 +211,7 @@ const DATA = {
       "title": "高危OS指令注入漏洞(CVSS 9.6)遭鎖定攻擊",
       "date_added": "2026-06-29",
       "known_ransomware_use": false,
+      "is_zero_day": true,
       "summary": "負載平衡器存在未驗證OS指令注入漏洞，攻擊者可執行任意指令，廠商已釋出修補建議。"
     },
     {
@@ -165,6 +220,7 @@ const DATA = {
       "title": "Defender核心引擎權限提升漏洞RoguePlanet",
       "date_added": "2026-07-09",
       "known_ransomware_use": false,
+      "is_zero_day": true,
       "summary": "研究員公開揭露後微軟緊急修補的權限提升漏洞，揭露方式引發研究員與微軟間爭議。"
     }
   ],
@@ -283,8 +339,97 @@ const DATA = {
     }
   ]
 };
+const UPDATED_AT = "2026-07-13 12:00:00（台灣時間）";
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
+
+document.getElementById('badgeDate').textContent = UPDATED_AT;
+
+function statCard({icon, label, tone, number, unit, badgeText, desc}){
+  return `<div class="stat-card ${tone ? 'tone-'+tone : ''}">
+    <div class="stat-top">
+      <span class="stat-label">${icon ? icon+' ' : ''}${label}</span>
+      ${badgeText ? `<span class="stat-badge ${tone ? 'tone-'+tone : ''}">${badgeText}</span>` : ''}
+    </div>
+    <div class="stat-number">${number}${unit ? `<span>${unit}</span>` : ''}</div>
+    <div class="stat-desc">${desc}</div>
+  </div>`;
+}
+
+function buildStats(data){
+  const kev = data.kev_vulnerabilities || [];
+  const vendor = data.vendor_advisories || [];
+  const news = data.international_news || [];
+  const gov = data.gov_announcements || [];
+  const ioc = data.ioc_highlights || [];
+  const ransomwareApt = data.ransomware_apt || [];
+
+  const totalCount = kev.length + vendor.length + news.length + gov.length + ioc.length + ransomwareApt.length;
+  const kevRansomware = kev.filter(v => v.known_ransomware_use).length;
+  const vendorHigh = vendor.filter(v => v.severity_guess === '高').length;
+  const ransomwareCount = ransomwareApt.filter(r => r.type === '勒索軟體').length;
+  const aptCount = ransomwareApt.filter(r => r.type === 'APT').length;
+
+  const cards = [
+    statCard({
+      icon:'📊', label:'本日彙整訊號', tone:null,
+      number: totalCount, unit:'則',
+      badgeText: '六大類別',
+      desc: `KEV ${kev.length}・廠商公告 ${vendor.length}・國際新聞 ${news.length}・政府公告 ${gov.length}・IOC ${ioc.length}・勒索/APT ${ransomwareApt.length}`
+    }),
+    statCard({
+      icon:'🎯', label:'高風險漏洞', tone: kevRansomware > 0 ? '高' : '中',
+      number: kev.length, unit:'筆KEV',
+      badgeText: kevRansomware > 0 ? `${kevRansomware}筆已知遭勒索利用` : '無已知勒索利用',
+      desc: `另有 ${vendorHigh} 則廠商公告研判為高嚴重度，建議優先檢視是否影響內部資產。`
+    }),
+    statCard({
+      icon:'🕵️', label:'勒索軟體與APT活動', tone: ransomwareCount > 0 ? '高' : '中',
+      number: ransomwareApt.length, unit:'則',
+      badgeText: `勒索${ransomwareCount}／APT${aptCount}`,
+      desc: '追蹤全球重大勒索軟體攻擊事件與APT組織動態，供研判是否有相關手法或目標產業重疊。'
+    }),
+    statCard({
+      icon:'🛡️', label:'資料來源涵蓋範圍', tone:null,
+      number:'官方Feed', unit:'+ AI搜尋',
+      badgeText:'Guarded',
+      desc:'KEV／廠商公告／國際新聞來自官方JSON或RSS；國內公告、IOC重點、勒索/APT活動由AI搜尋整理，正式應變請以原廠公告為準。'
+    }),
+  ];
+
+  document.getElementById('statGrid').innerHTML = cards.join('');
+}
+
+function termLine(icon, label, value, opts={}){
+  const valClass = opts.na ? 'term-value na' : 'term-value';
+  return `<div class="term-line"><span class="term-label">${icon} ${label}</span><span class="${valClass}">${value}</span></div>`;
+}
+
+function buildTermStats(data){
+  const kev = data.kev_vulnerabilities || [];
+  const vendor = data.vendor_advisories || [];
+  const news = data.international_news || [];
+  const gov = data.gov_announcements || [];
+  const ioc = data.ioc_highlights || [];
+
+  const newsCount = news.length + gov.length;
+  const criticalCount = kev.length + vendor.filter(v => v.severity_guess === '高').length;
+  const iocCount = ioc.length;
+  const zeroDayCount = kev.filter(v => v.is_zero_day).length;
+
+  const lines = [
+    termLine('📰', '今日新聞', newsCount),
+    termLine('🚨', 'Critical漏洞', criticalCount),
+    termLine('🌏', 'IOC情資主題', iocCount),
+    termLine('🛡', '修補率', '—（無資產資料）', { na: true }),
+    termLine('🔥', 'Zero-Day', zeroDayCount),
+  ];
+
+  document.getElementById('termStats').innerHTML = lines.join('');
+}
+
+buildTermStats(DATA);
+buildStats(DATA);
 
 function section(icon, title, countLabel, bodyHtml){
   return `<div class="section">

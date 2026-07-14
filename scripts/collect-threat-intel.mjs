@@ -113,6 +113,7 @@ Krebs on Security: ${JSON.stringify(intlNews.krebs, null, 2)}
       "title": "用繁體中文簡潔說明這個漏洞（可根據name/description改寫）",
       "date_added": "YYYY-MM-DD",
       "known_ransomware_use": true或false,
+      "is_zero_day": true或false（若description或name中提到這是在廠商發布修補之前就已經被利用的0-day漏洞，填true；不確定則填false）,
       "summary": "40字以內繁體中文摘要"
     }
   ],
