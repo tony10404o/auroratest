@@ -77,7 +77,7 @@
   .badge .badge-value{font-size:12.5px;font-weight:600;color:var(--text);}
 
   /* Stat cards */
-  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:30px;}
+  .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:30px;}
   .stat-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px 16px 14px;border-top:3px solid var(--accent);}
   .stat-card.tone-高{border-top-color:var(--sev-high);}
   .stat-card.tone-中{border-top-color:var(--sev-medium);}
@@ -210,18 +210,6 @@ function buildStats(data){
       number: ransomwareCount, unit:'件',
       badgeText:'全球案例',
       desc: '過去14天內公開報導的勒索軟體攻擊事件。'
-    }),
-    statCard({
-      icon:'🏢', label:'本公司受影響產品數', tone:null,
-      number:'—', unit:'',
-      badgeText:'需資產清單',
-      desc: '目前無公司內部資產資料可比對，提供資產清單後可自動計算。'
-    }),
-    statCard({
-      icon:'🔧', label:'待修補漏洞數', tone:null,
-      number:'—', unit:'',
-      badgeText:'需修補狀態資料',
-      desc: '目前無公司內部修補狀態資料，提供資產/修補清單後可自動計算。'
     }),
     statCard({
       icon:'📢', label:'今日可宣導案例數', tone:null,
