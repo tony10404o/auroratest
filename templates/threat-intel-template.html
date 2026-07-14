@@ -21,7 +21,7 @@
     color:var(--text);font-family:'IBM Plex Sans TC','Noto Sans TC',sans-serif;
     min-height:100vh;padding:28px 20px 60px;
   }
-  .wrap{max-width:1040px;margin:0 auto;}
+  .wrap{max-width:1400px;margin:0 auto;}
   .header{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:14px;padding-bottom:18px;margin-bottom:6px;border-bottom:1px solid var(--border);}
   .brand{display:flex;align-items:center;gap:10px;}
   .brand-icon{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#2A5CAF);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
@@ -34,7 +34,11 @@
   .meta-line{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--text-dim);margin:10px 0 24px;}
   .meta-line b{color:var(--text);}
 
-  .section{margin-bottom:28px;}
+  .section{margin-bottom:0;break-inside:avoid;width:100%;}
+  .content-columns{column-count:2;column-gap:20px;}
+  .content-columns .section{margin-bottom:20px;}
+  @media (max-width:900px){.content-columns{column-count:1;}}
+  @media (min-width:1300px){.content-columns{column-count:3;}}
   .section-header{display:flex;align-items:center;gap:8px;margin-bottom:12px;}
   .section-icon{font-size:15px;}
   .section-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;}
@@ -118,7 +122,7 @@
 
   <div class="stat-grid" id="statGrid"></div>
 
-  <div id="content"></div>
+  <div id="content" class="content-columns"></div>
 
   <div class="footer-note">CVE/廠商公告來自官方Feed；國內公告/IOC/勒索軟體與APT活動由AI搜尋整理，僅供參考，正式應變請以原廠與官方公告為準。</div>
 </div>
