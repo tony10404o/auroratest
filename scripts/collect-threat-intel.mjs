@@ -31,7 +31,7 @@ async function fetchCisaKev() {
     const cutoff = daysAgo(DAYS_BACK);
     const recent = (data.vulnerabilities || [])
       .filter((v) => new Date(v.dateAdded) >= cutoff)
-      .slice(0, 15)
+      .slice(0, 10)
       .map((v) => ({
         cve_id: v.cveID,
         vendor: v.vendorProject,
@@ -52,9 +52,9 @@ async function fetchCisaKev() {
 async function fetchVendorAdvisories() {
   console.log("抓取廠商安全公告 RSS...");
   const [msrc, cisco, fortinet] = await Promise.all([
-    fetchFeed("https://api.msrc.microsoft.com/update-guide/rss", 8, "Microsoft MSRC"),
-    fetchFeed("https://tools.cisco.com/security/center/psirtrss20/CiscoSecurityAdvisory.xml", 8, "Cisco PSIRT"),
-    fetchFeed("https://filestore.fortinet.com/fortiguard/rss/ir.xml", 8, "Fortinet PSIRT"),
+    fetchFeed("https://api.msrc.microsoft.com/update-guide/rss", 5, "Microsoft MSRC"),
+    fetchFeed("https://tools.cisco.com/security/center/psirtrss20/CiscoSecurityAdvisory.xml", 5, "Cisco PSIRT"),
+    fetchFeed("https://filestore.fortinet.com/fortiguard/rss/ir.xml", 5, "Fortinet PSIRT"),
   ]);
   return {
     microsoft: msrc,
@@ -66,8 +66,8 @@ async function fetchVendorAdvisories() {
 async function fetchIntlNews() {
   console.log("抓取國際資安新聞 RSS...");
   const [bleeping, krebs] = await Promise.all([
-    fetchFeed("https://www.bleepingcomputer.com/feed/", 8, "BleepingComputer"),
-    fetchFeed("https://krebsonsecurity.com/feed/", 8, "Krebs on Security"),
+    fetchFeed("https://www.bleepingcomputer.com/feed/", 5, "BleepingComputer"),
+    fetchFeed("https://krebsonsecurity.com/feed/", 5, "Krebs on Security"),
   ]);
   return { bleeping, krebs };
 }
@@ -84,6 +84,46 @@ function extractJsonObject(text) {
   const match = cleaned.match(/\{[\s\S]*\}/);
   if (!match) throw new Error("回應內容中找不到 JSON 物件:\n" + text.slice(0, 500));
   return JSON.parse(match[0]);
+}
+
+function extractJsonArray(text) {
+  const cleaned = text
+    .trim()
+    .replace(/^```json/i, "")
+    .replace(/^```/, "")
+    .replace(/```$/, "")
+    .trim();
+  const match = cleaned.match(/\[[\s\S]*\]/);
+  if (!match) throw new Error("回應內容中找不到 JSON 陣列:\n" + text.slice(0, 500));
+  return JSON.parse(match[0]);
+}
+
+const JSON_SAFETY_NOTE = `
+
+【重要格式規則】回傳內容中絕對不要使用直引號雙引號（"）來標示引用語句或強調文字，一律使用中文的「」或『』符號代替，避免破壞JSON字串格式。確保整份回應是可以被JSON.parse()正確解析的合法JSON，陣列與物件的每個元素之間都要有逗號分隔，最後一個元素後面不要有多餘的逗號。`;
+
+/**
+ * 呼叫Claude並解析JSON（物件或陣列），若解析失敗會自動重試一次
+ * （AI輸出偶爾會有引號跳脫或格式問題，重試通常就能修正）
+ */
+async function callClaudeForJson({ prompt, tools, maxTokens = 4096, label, parseAs = "object" }) {
+  const parser = parseAs === "array" ? extractJsonArray : extractJsonObject;
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    try {
+      const response = await anthropic.messages.create({
+        model: "claude-haiku-4-5-20251001",
+        max_tokens: maxTokens,
+        messages: [{ role: "user", content: prompt + JSON_SAFETY_NOTE }],
+        ...(tools ? { tools } : {}),
+      });
+      const textBlocks = response.content.filter((b) => b.type === "text").map((b) => b.text).join("\n");
+      return parser(textBlocks);
+    } catch (err) {
+      console.error(`  ✗ ${label} 第${attempt}次嘗試失敗：${err.message}`);
+      if (attempt === 2) throw err;
+      console.log(`  ↻ ${label} 重試中...`);
+    }
+  }
 }
 
 async function classifyRawData({ kev, vendorAdvisories, intlNews }) {
@@ -142,14 +182,7 @@ Krebs on Security: ${JSON.stringify(intlNews.krebs, null, 2)}
 - international_news 挑選最重要的6-8則，摘要必須用自己的話改寫，不要照抄原文標題字句
 - 如果某類別原始資料是空的，該欄位回傳空陣列即可`;
 
-  const response = await anthropic.messages.create({
-    model: "claude-haiku-4-5-20251001",
-    max_tokens: 4096,
-    messages: [{ role: "user", content: prompt }],
-  });
-
-  const textBlocks = response.content.filter((b) => b.type === "text").map((b) => b.text).join("\n");
-  return extractJsonObject(textBlocks);
+  return await callClaudeForJson({ prompt, maxTokens: 8000, label: "分析分類" });
 }
 
 // ---------- 3. AI 搜尋（web_search，用在沒有乾淨API的類別） ----------
@@ -183,15 +216,12 @@ async function searchRemainingCategories() {
 
 注意：summary務必用自己的話改寫，不要照抄原文字句。若某類別找不到足夠資料，回傳較少筆數也沒關係，但陣列格式要維持。`;
 
-  const response = await anthropic.messages.create({
-    model: "claude-haiku-4-5-20251001",
-    max_tokens: 4096,
-    messages: [{ role: "user", content: prompt }],
+  return await callClaudeForJson({
+    prompt,
+    maxTokens: 8000,
+    label: "搜尋分類",
     tools: [{ type: "web_search_20250305", name: "web_search", max_uses: 6 }],
   });
-
-  const textBlocks = response.content.filter((b) => b.type === "text").map((b) => b.text).join("\n");
-  return extractJsonObject(textBlocks);
 }
 
 // ---------- 4. AI 綜合摘要 ----------
@@ -218,17 +248,7 @@ async function generateSummary(result) {
 資料：
 ${JSON.stringify(result, null, 2)}`;
 
-  const response = await anthropic.messages.create({
-    model: "claude-haiku-4-5-20251001",
-    max_tokens: 1500,
-    messages: [{ role: "user", content: prompt }],
-  });
-
-  const text = response.content.filter((b) => b.type === "text").map((b) => b.text).join("\n").trim();
-  const cleaned = text.replace(/^```json/i, "").replace(/^```/, "").replace(/```$/, "").trim();
-  const match = cleaned.match(/\[[\s\S]*\]/);
-  if (!match) throw new Error("AI摘要回應找不到JSON陣列:\n" + text.slice(0, 300));
-  return JSON.parse(match[0]);
+  return await callClaudeForJson({ prompt, maxTokens: 1500, label: "AI摘要", parseAs: "array" });
 }
 
 // ---------- 5. 主流程 ----------
