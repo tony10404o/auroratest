@@ -437,6 +437,33 @@ function buildStats(data){
 
 buildStats(DATA);
 
+function renderAwareness(items){
+  if (!items || !items.length) return emptyNote();
+  return `<div class="list">${items.map(a => `
+    <div class="card plain">
+      <div class="card-top">
+        <div class="card-title">${escapeHtml(a.title || '')}</div>
+        ${a.date ? `<div class="card-date">${escapeHtml(a.date)}</div>` : ''}
+      </div>
+      <div class="tags"><span class="tag">${escapeHtml(a.category || '')}</span></div>
+      ${a.summary ? `<div class="card-summary">${escapeHtml(a.summary)}</div>` : ''}
+      ${a.url ? `<div class="card-bottom"><span></span><a class="card-link" href="${escapeHtml(a.url)}" target="_blank" rel="noopener noreferrer">查看 ↗</a></div>` : ''}
+    </div>`).join('')}</div>`;
+}
+
+function collectAwarenessCases(data){
+  const news = (data.international_news || []).filter(n => n.is_awareness_case).map(n => ({
+    title: n.title, summary: n.summary, url: n.url, category: '國際新聞'
+  }));
+  const gov = (data.gov_announcements || []).filter(g => g.is_awareness_case).map(g => ({
+    title: g.title, summary: g.summary, url: g.url, date: g.date, category: g.source
+  }));
+  const ransomwareApt = (data.ransomware_apt || []).filter(r => r.is_awareness_case).map(r => ({
+    title: r.title, summary: r.summary, url: r.source_url, date: r.date, category: r.type
+  }));
+  return [...gov, ...news, ...ransomwareApt];
+}
+
 function section(icon, title, countLabel, bodyHtml){
   return `<div class="section">
     <div class="section-header">
@@ -533,7 +560,9 @@ function renderRansomwareApt(items){
     </div>`).join('')}</div>`;
 }
 
+const awarenessCases = collectAwarenessCases(DATA);
 const html = [
+  section('📢', '今日可宣導案例', awarenessCases.length + ' 則', renderAwareness(awarenessCases)),
   section('🇹🇼', '國內 CERT 與政府資安公告', (DATA.gov_announcements||[]).length + ' 則', renderGov(DATA.gov_announcements)),
   section('🎯', 'CISA KEV 已知遭實際利用漏洞', (DATA.kev_vulnerabilities||[]).length + ' 筆', renderKev(DATA.kev_vulnerabilities)),
   section('🏢', '廠商安全公告（Microsoft／Cisco／Fortinet）', (DATA.vendor_advisories||[]).length + ' 則', renderVendorAdvisories(DATA.vendor_advisories)),
