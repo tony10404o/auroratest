@@ -147,8 +147,6 @@
     <div class="ai-summary-blocks" id="aiSummaryText">摘要產生中...</div>
   </div>
 
-  <div class="full-width-section" id="fullWidthSection"></div>
-
   <div class="content-columns">
     <div class="content-col" id="contentColLeft"></div>
     <div class="content-col" id="contentColRight"></div>
@@ -362,11 +360,9 @@ function renderRansomwareApt(items){
     </div>`).join('')}</div>`;
 }
 
-document.getElementById('fullWidthSection').innerHTML =
-  section('🎯', 'CISA KEV 已知遭實際利用漏洞', (DATA.kev_vulnerabilities||[]).length + ' 筆', renderKev(DATA.kev_vulnerabilities));
-
 const leftHtml = [
   section('🇹🇼', '國內 CERT 與政府資安公告', (DATA.gov_announcements||[]).length + ' 則', renderGov(DATA.gov_announcements)),
+  section('🎯', 'CISA KEV 已知遭實際利用漏洞', (DATA.kev_vulnerabilities||[]).length + ' 筆', renderKev(DATA.kev_vulnerabilities)),
   section('🏢', '廠商安全公告（Microsoft／Cisco／Fortinet）', (DATA.vendor_advisories||[]).length + ' 則', renderVendorAdvisories(DATA.vendor_advisories)),
 ].join('');
 
