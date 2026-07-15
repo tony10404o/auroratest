@@ -253,8 +253,8 @@ async function main() {
   html = html.replace("__UPDATED_AT__", updatedAt + "（台灣時間）");
 
   fs.mkdirSync("docs", { recursive: true });
-  fs.writeFileSync(path.join("docs", "threat-intel.html"), html, "utf-8");
-  console.log("已寫入 docs/threat-intel.html");
+  fs.writeFileSync(path.join("docs", "index.html"), html, "utf-8");
+  console.log("已寫入 docs/index.html");
 }
 
 main().catch((err) => {

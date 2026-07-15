@@ -97,9 +97,8 @@
       <div><h1>資安輿情監控</h1><div class="sub">GLOBAL SECURITY BUZZ TRACKER</div></div>
     </div>
     <div class="nav">
-      <a href="index.html">事件監控台</a>
+      <a href="index.html">威脅情資</a>
       <a href="yuqing.html" class="active">輿情監控</a>
-      <a href="threat-intel.html">威脅情資</a>
     </div>
   </div>
 
@@ -137,7 +136,7 @@
     </select>
   </div>
 
-  <div class="meta-line">共 <b id="totalCount">0</b> 個議題　·　最後更新：<b>2026/7/15 07:47:50（台灣時間）</b></div>
+  <div class="meta-line">共 <b id="totalCount">0</b> 個議題　·　最後更新：<b>2026-07-13 12:00:00（台灣時間）</b></div>
   <div id="content"></div>
   <div class="footer-note">資料由 AI 每日自動搜尋整理，實際聲量請以各平台官方數據或輿情監測服務為準。</div>
 </div>
@@ -145,158 +144,124 @@
 <script>
 const TOPICS = [
   {
-    "topic": "Joomla CMS漏洞遭大規模攻擊",
+    "topic": "Microsoft Defender「RoguePlanet」零時差漏洞掀研究員對抗風波",
     "buzz_level": "高",
-    "sentiment": "負面",
+    "sentiment": "兩極",
     "trend": "上升",
     "is_zero_day": true,
-    "cve_id": "CVE-2026-48939,CVE-2026-56291",
-    "summary": "iCagenda和Balbooa Forms擴充套件存在任意檔案上傳漏洞，攻擊者可上傳PHP程式碼達成遠端程式執行。CISA已列入已知被利用漏洞目錄，評分達滿分10.0，自6月15日起遭大規模自動化攻擊。",
+    "cve_id": "CVE-2026-50656",
+    "summary": "資安研究員Nightmare-Eclipse六月中公開揭露Defender核心引擎權限提升漏洞RoguePlanet，微軟7月9日搶先修補；雙方長期針對揭露方式的爭執持續延燒，研究員並揚言7月14日還有後續動作，資安圈高度關注發展。",
     "sources": [
       {
-        "name": "The Hacker News",
-        "url": "https://thehackernews.com/"
+        "name": "BleepingComputer",
+        "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-patches-rogueplanet-defender-zero-day-vulnerability/"
       },
       {
-        "name": "SecurityWeek",
-        "url": "https://www.securityweek.com/"
+        "name": "Dark Reading",
+        "url": "https://www.darkreading.com/vulnerabilities-threats/microsoft-rogueplanet-zero-day-threat"
       }
     ]
   },
   {
-    "topic": "俄羅斯駭客攻擊全球關鍵基礎設施",
+    "topic": "AI Agent首例自主執行勒索軟體攻擊(JADEPUFFER)",
     "buzz_level": "高",
     "sentiment": "負面",
     "trend": "上升",
     "is_zero_day": false,
-    "summary": "美國及8國聯合警告俄羅斯國家駭客正瞄準配置不當的路由器，入侵關鍵基礎設施網路。攻擊目標涵蓋電力系統、供水設施等關鍵部門，對各國國家安全構成重大威脅。",
+    "summary": "雲端安全業者Sysdig揭露一起完全由大型語言模型驅動的AI Agent自主發動勒索軟體攻擊案例,資安圈熱議AI自主攻擊的可行性與防禦難度。",
     "sources": [
       {
-        "name": "BleepingComputer",
-        "url": "https://www.bleepingcomputer.com/"
-      },
-      {
-        "name": "SecurityWeek",
-        "url": "https://www.securityweek.com/"
+        "name": "TechNews科技新報",
+        "url": "https://infosecu.technews.tw/"
       }
     ]
   },
   {
-    "topic": "Apple iPhone 18供應鏈資料外洩",
-    "buzz_level": "高",
+    "topic": "Pegasus間諜軟體再爆爭議,調查者自身遭監控",
+    "buzz_level": "中",
     "sentiment": "負面",
     "trend": "持平",
     "is_zero_day": false,
-    "summary": "蘋果印度代工廠塔塔電子遭勒索駭客集團入侵，iPhone 18 Pro機密文件與諜照被竊取並公開於暗網。洩露內容包含零件規格與供應商清單，對蘋果供應鏈議價權造成重大影響。",
+    "summary": "一名負責調查Pegasus濫用情況的歐洲政治人物,被證實自己的手機也遭同款間諜軟體入侵,網路上對政府濫用監控工具的疑慮再度升溫。",
     "sources": [
       {
-        "name": "PTT Stock板",
-        "url": "https://www.ptt.cc/bbs/Stock/"
-      },
-      {
-        "name": "Storm Media",
-        "url": "https://www.storm.mg/"
+        "name": "TechNews科技新報",
+        "url": "https://infosecu.technews.tw/"
       }
     ]
   },
   {
-    "topic": "Microsoft July重大安全更新",
+    "topic": "Google聯合FBI打擊全球最大惡意代理網路NetNut",
+    "buzz_level": "中",
+    "sentiment": "正面",
+    "trend": "上升",
+    "is_zero_day": false,
+    "summary": "Google威脅情報團隊與FBI、Lumen等單位聯手,大規模清除數百萬台遭感染裝置組成的惡意住宅代理網路,資安社群普遍正面看待此次執法行動。",
+    "sources": [
+      {
+        "name": "TechNews科技新報",
+        "url": "https://infosecu.technews.tw/"
+      }
+    ]
+  },
+  {
+    "topic": "2026年AI詐騙浪潮成主流話題",
     "buzz_level": "高",
+    "sentiment": "負面",
+    "trend": "上升",
+    "is_zero_day": false,
+    "summary": "趨勢科技發布年度預測指出AI詐騙已成全球主流手法,討論焦點集中在詐騙手法將更快速、更客製化,一般民眾與企業普遍表達擔憂。",
+    "sources": [
+      {
+        "name": "趨勢科技",
+        "url": "https://www.trendmicro.com/zh_tw/security-intelligence/threat-report.html"
+      }
+    ]
+  },
+  {
+    "topic": "歐盟CRA網路韌性法案合規壓力延燒",
+    "buzz_level": "中",
+    "sentiment": "兩極",
+    "trend": "持平",
+    "is_zero_day": false,
+    "summary": "隨歐盟《網路韌性法案》上路時程逼近,產業界討論如何因應SBOM、供應鏈安全等新規要求,部分認同必要性、部分則反映合規成本與時程壓力大。",
+    "sources": [
+      {
+        "name": "經濟日報",
+        "url": "https://money.udn.com/money/story/5612/9484657"
+      }
+    ]
+  },
+  {
+    "topic": "台灣政府強調國家級資安韌性與跨機關聯防",
+    "buzz_level": "中",
+    "sentiment": "中立",
+    "trend": "持平",
+    "is_zero_day": false,
+    "summary": "數位發展部與資安署召開資安長共識營,強調台灣每天面對逾260萬次網路攻擊,討論聚焦於代理式AI風險與跨機關資安聯防機制的強化。",
+    "sources": [
+      {
+        "name": "聯合新聞網",
+        "url": "https://udn.com/news/story/7240/9486277"
+      }
+    ]
+  },
+  {
+    "topic": "後量子加密(PQC)遷移期限逼近引發討論",
+    "buzz_level": "中",
     "sentiment": "中立",
     "trend": "上升",
     "is_zero_day": false,
-    "cve_id": "CVE-2026-57092,CVE-2026-50522",
-    "summary": "微軟7月修補超過50個漏洞，包含Windows VMSwitch提權漏洞(CVSS 9.9)、SharePoint遠端程式執行漏洞(CVSS 9.8)，以及Exchange儲存型XSS漏洞。部分漏洞已有野外利用證據。",
+    "summary": "美方行政命令明定2030年為後量子加密遷移最後期限,資安社群開始討論企業因應時程、技術門檻與轉換成本等實務挑戰。",
     "sources": [
       {
-        "name": "Zero Day Initiative",
-        "url": "https://www.zerodayinitiative.com/"
-      },
-      {
-        "name": "SecurityWeek",
-        "url": "https://www.securityweek.com/"
-      }
-    ]
-  },
-  {
-    "topic": "NPM套件供應鏈被入侵",
-    "buzz_level": "中",
-    "sentiment": "負面",
-    "trend": "上升",
-    "is_zero_day": false,
-    "summary": "Jscrambler NPM套件8.14.0版本遭駭客投毒，植入惡意信息竊取程式。安裝該版本會執行預安裝鉤子，針對Windows、macOS和Linux分別下載並執行原生二進制檔案。",
-    "sources": [
-      {
-        "name": "The Hacker News",
-        "url": "https://thehackernews.com/"
-      },
-      {
-        "name": "SecurityWeek",
-        "url": "https://www.securityweek.com/"
-      }
-    ]
-  },
-  {
-    "topic": "AI記憶隱形注入攻擊",
-    "buzz_level": "中",
-    "sentiment": "負面",
-    "trend": "上升",
-    "is_zero_day": true,
-    "summary": "研究人員揭露「隱形記憶注入」攻擊方式，單一封郵件可欺騙AI助手儲存虛假資訊並隱匿修改紀錄。此類代理程式可被悄悄篡改而使用者毫不知情，威脅個人資料安全與決策準確性。",
-    "sources": [
-      {
-        "name": "The Hacker News",
-        "url": "https://thehackernews.com/"
-      },
-      {
-        "name": "SecurityWeek",
-        "url": "https://www.securityweek.com/"
-      }
-    ]
-  },
-  {
-    "topic": "RedHook Android惡意軟體演進",
-    "buzz_level": "中",
-    "sentiment": "負面",
-    "trend": "上升",
-    "is_zero_day": false,
-    "summary": "RedHook Android惡意軟體新版本利用無線ADB機制以創新方式獲得Shell層級權限，毋需電腦連線。此演進使攻擊者能從遠端完整控制受感染設備，威脅大量Android用戶。",
-    "sources": [
-      {
-        "name": "BleepingComputer",
-        "url": "https://www.bleepingcomputer.com/"
-      },
-      {
-        "name": "SecurityWeek",
-        "url": "https://www.securityweek.com/"
-      }
-    ]
-  },
-  {
-    "topic": "CMS與Joomla外掛大規模攻擊活動",
-    "buzz_level": "中",
-    "sentiment": "負面",
-    "trend": "上升",
-    "is_zero_day": false,
-    "summary": "澳洲網安中心發布警告，針對易受攻擊的內容管理系統與外掛進行全球性大規模攻擊活動。攻擊目標廣泛分布全球，利用已知漏洞進行入侵，企業應立即評估自身風險並進行修補。",
-    "sources": [
-      {
-        "name": "BleepingComputer",
-        "url": "https://www.bleepingcomputer.com/"
-      },
-      {
-        "name": "SecurityWeek",
-        "url": "https://www.securityweek.com/"
+        "name": "iThome",
+        "url": "https://cybersecurenews.com.tw/industry-talk-101/"
       }
     ]
   }
 ];
 const TWCERT_NEWS = [
-  {
-    "date": "2026-06-30",
-    "title": "TWCERT/CC 2026年6月份資安情資電子報",
-    "url": "https://epaper.twcert.org.tw/2026_06/"
-  },
   {
     "date": "2026-05-31",
     "title": "TWCERT/CC 2026年5月份資安情資電子報",
@@ -331,6 +296,11 @@ const TWCERT_NEWS = [
     "date": "2025-11-30",
     "title": "TWCERT/CC 2025年11月份資安情資電子報",
     "url": "https://epaper.twcert.org.tw/2025_11/"
+  },
+  {
+    "date": "2025-10-31",
+    "title": "TWCERT/CC 2025年10月份資安情資電子報",
+    "url": "https://epaper.twcert.org.tw/2025_10/"
   }
 ];
 

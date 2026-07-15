@@ -3,7 +3,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "generate": "node scripts/generate-report.mjs",
     "generate:yuqing": "node scripts/generate-yuqing-report.mjs",
     "generate:threat-intel": "node scripts/collect-threat-intel.mjs"
   },
