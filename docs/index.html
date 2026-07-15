@@ -84,7 +84,7 @@
       <option value="">所有嚴重度</option><option value="高">高</option><option value="中">中</option><option value="低">低</option>
     </select>
   </div>
-  <div class="meta-line">共 <b id="totalCount">0</b> 筆事件　·　最後更新：<b>2026-07-13 12:00:00（台灣時間，白色主題更新）</b></div>
+  <div class="meta-line">共 <b id="totalCount">0</b> 筆事件　·　最後更新：<b>2026/7/15 07:47:24（台灣時間）</b></div>
   <div id="content"></div>
   <div class="footer-note">資料由 AI 每日自動搜尋整理，內容可能不完整或有時間差，重大決策請以原始來源為準。</div>
 </div>
@@ -92,92 +92,125 @@
 <script>
 const INCIDENTS = [
   {
-    "date": "2026-07-01",
-    "title": "Adobe 釋出 ColdFusion 與 Campaign Classic 重大安全更新",
-    "category": "漏洞",
-    "affected_org": "Adobe ColdFusion / Campaign Classic 用戶",
-    "region": "全球",
-    "severity": "中",
-    "summary": "Adobe修補多項最高等級安全漏洞，可能導致任意程式碼執行、權限提升與檔案系統讀取，建議儘速更新。",
-    "source_name": "The Hacker News",
-    "source_url": "https://thehackernews.com/"
-  },
-  {
-    "date": "2026-07-01",
-    "title": "研究揭露首例 AI 模型自主產生瀏覽器勒索軟體攻擊鏈",
-    "category": "AI資安風險",
-    "affected_org": "瀏覽器使用者（研究案例）",
-    "region": "全球",
-    "severity": "中",
-    "summary": "Check Point發現以DeepSeek生成的惡意程式範本，首次展示前沿AI模型獨立串接出可行的瀏覽器勒索軟體攻擊路徑。",
-    "source_name": "The Hacker News",
-    "source_url": "https://thehackernews.com/"
-  },
-  {
-    "date": "2026-07-01",
-    "title": "「幻影搶註」：攻擊者搶先註冊 AI 幻覺網域用於釣魚",
-    "category": "網路釣魚",
-    "affected_org": "多產業品牌（技術、金融、醫療等）",
-    "region": "全球",
-    "severity": "中",
-    "summary": "Unit 42研究顯示，攻擊者搶先註冊AI模型憑空捏造的網域名稱架設釣魚頁面，攔截使用者對AI建議連結的信任。",
-    "source_name": "Palo Alto Networks Unit 42",
-    "source_url": "https://thehackernews.com/"
-  },
-  {
-    "date": "2026-06-29",
-    "title": "Progress LoadMaster 高危漏洞遭鎖定攻擊（CVSS 9.6）",
-    "category": "漏洞",
-    "affected_org": "Progress LoadMaster 負載平衡器用戶",
-    "region": "全球",
-    "severity": "高",
-    "summary": "CVE-2026-8037作業系統指令注入漏洞遭鎖定攻擊，攻擊者可在未驗證情況下執行任意指令，廠商已釋出修補建議。",
-    "source_name": "The Hacker News",
-    "source_url": "https://thehackernews.com/"
-  },
-  {
-    "date": "2026-06-23",
-    "title": "KDDI 電子郵件系統遭入侵，逾 1,422 萬組帳密可能外洩",
+    "date": "2026-07-13",
+    "title": "Arm芯片設計公司遭D1R駭客入侵",
     "category": "資料外洩",
-    "affected_org": "KDDI（日本電信業者）",
-    "region": "日本",
+    "affected_org": "Arm Holdings",
+    "region": "歐洲",
     "severity": "高",
-    "summary": "KDDI旗下代管6家日本ISP的郵件系統遭入侵，攻擊者利用第三方軟體漏洞，公司已要求受影響用戶更改密碼。",
-    "source_name": "綜合報導",
-    "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/"
+    "summary": "英國半導體芯片設計公司Arm遭D1R駭客攻擊，內部數據被洩露。Arm是全球關鍵的芯片架構提供商。",
+    "source_name": "BreachSense",
+    "source_url": "https://www.breachsense.com/breaches/"
   },
   {
-    "date": "2026-06-18",
-    "title": "德州公園暨野生動物局第三方廠商外洩事件",
-    "category": "資料外洩",
-    "affected_org": "Texas Parks and Wildlife Department",
-    "region": "美國",
-    "severity": "中",
-    "summary": "德州網路安全指揮部偵測到第三方授權證照廠商系統遭未授權存取，可能影響民眾申請資料。",
-    "source_name": "Bright Defense",
-    "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/"
-  },
-  {
-    "date": "2026-06-05",
-    "title": "ServiceNow API 未授權存取漏洞遭利用",
-    "category": "漏洞",
-    "affected_org": "ServiceNow（受影響客戶實例）",
-    "region": "全球",
-    "severity": "高",
-    "summary": "攻擊者利用未驗證的API端點漏洞查詢客戶實例中的工單、員工資料等內容，廠商已修補並通知受影響客戶。",
-    "source_name": "Bright Defense",
-    "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/"
-  },
-  {
-    "date": "2026-06-01",
-    "title": "Tata Electronics 遭 World Leaks 勒索組織攻擊，逾 20 萬份檔案外洩",
+    "date": "2026-07-13",
+    "title": "多個組織遭Qilin勒索軟體攻擊",
     "category": "勒索軟體",
-    "affected_org": "Tata Electronics",
-    "region": "亞太",
+    "affected_org": "Chemco、Ford、Allied Plumbing、Carolina Agri-Power",
+    "region": "全球",
     "severity": "高",
-    "summary": "World Leaks勒索軟體組織聲稱入侵Tata Electronics，並在網路上公開逾20萬份公司內部檔案。",
-    "source_name": "Bright Defense",
-    "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/"
+    "summary": "Qilin勒索軟體集團攻擊多家公司，包括加拿大製造商Chemco及美國相關企業，數據遭加密並外洩。",
+    "source_name": "SharkStriker",
+    "source_url": "https://sharkstriker.com/blog/july-2026-data-breaches/"
+  },
+  {
+    "date": "2026-07-10",
+    "title": "JadePuffer：首個完整LLM驅動勒索軟體攻擊",
+    "category": "勒索軟體",
+    "affected_org": "多個組織",
+    "region": "全球",
+    "severity": "高",
+    "summary": "JadePuffer攻擊利用大型語言模型完全自動化執行勒索軟體攻擊，標示AI驅動攻擊的新時代。",
+    "source_name": "Dark Reading",
+    "source_url": "https://www.darkreading.com/cyberattacks-data-breaches"
+  },
+  {
+    "date": "2026-07-06",
+    "title": "Moody聖經學院遭ShinyHunters資料外洩",
+    "category": "資料外洩",
+    "affected_org": "Moody Bible Institute",
+    "region": "美國",
+    "severity": "高",
+    "summary": "ShinyHunters駭客集團洩露Moody聖經學院230萬筆捐贈者、學生和校友記錄。",
+    "source_name": "eSecurity Planet",
+    "source_url": "https://www.esecurityplanet.com/weekly-roundup/ai-driven-attacks-critical-exploits-and-global-breaches-define-this-week-in-july-2026-in-cybersecurity/"
+  },
+  {
+    "date": "2026-07-06",
+    "title": "AssuranceAmerica遭員工帳號洩露攻擊",
+    "category": "資料外洩",
+    "affected_org": "AssuranceAmerica",
+    "region": "美國",
+    "severity": "高",
+    "summary": "保險公司AssuranceAmerica因員工帳號遭入侵，約700萬筆記錄被洩露。",
+    "source_name": "eSecurity Planet",
+    "source_url": "https://www.esecurityplanet.com/weekly-roundup/ai-driven-attacks-critical-exploits-and-global-breaches-define-this-week-in-july-2026-in-cybersecurity/"
+  },
+  {
+    "date": "2026-07-07",
+    "title": "美國國土安全部HSIN網路遭入侵",
+    "category": "國家級攻擊",
+    "affected_org": "美國國土安全部",
+    "region": "美國",
+    "severity": "高",
+    "summary": "駭客攻擊美國國土安全部HSIN網路及SharePoint環境，洩露敏感但未分類資訊。",
+    "source_name": "eSecurity Planet",
+    "source_url": "https://www.esecurityplanet.com/weekly-roundup/ai-driven-attacks-critical-exploits-and-global-breaches-define-this-week-in-july-2026-in-cybersecurity/"
+  },
+  {
+    "date": "2026-07-08",
+    "title": "Adobe ColdFusion關鍵漏洞遭主動利用",
+    "category": "漏洞",
+    "affected_org": "Adobe、聯邦政府系統",
+    "region": "美國",
+    "severity": "高",
+    "summary": "CISA警告CVE-2026-48282：Adobe ColdFusion關鍵漏洞遭聯邦系統主動利用，要求立即修補。",
+    "source_name": "eSecurity Planet",
+    "source_url": "https://www.esecurityplanet.com/weekly-roundup/ai-driven-attacks-critical-exploits-and-global-breaches-define-this-week-in-july-2026-in-cybersecurity/"
+  },
+  {
+    "date": "2026-07-09",
+    "title": "BeyondTrust遠程訪問平台認證繞過漏洞",
+    "category": "漏洞",
+    "affected_org": "BeyondTrust",
+    "region": "全球",
+    "severity": "高",
+    "summary": "BeyondTrust Remote Support及Privileged Remote Access發現認證繞過漏洞，需立即升級。",
+    "source_name": "eSecurity Planet",
+    "source_url": "https://www.esecurityplanet.com/weekly-roundup/ai-driven-attacks-critical-exploits-and-global-breaches-define-this-week-in-july-2026-in-cybersecurity/"
+  },
+  {
+    "date": "2026-07-10",
+    "title": "Red Hat npm套件遭Miasma供應鏈攻擊",
+    "category": "供應鏈攻擊",
+    "affected_org": "Red Hat、開源開發者",
+    "region": "全球",
+    "severity": "高",
+    "summary": "Miasma供應鏈攻擊入侵Red Hat GitHub帳號，發布惡意npm套件植入認證竊取蠕蟲。",
+    "source_name": "Purple Ops",
+    "source_url": "https://purple-ops.io/blog/threat-overview-supply-chain-vulnerabilities-ransomware"
+  },
+  {
+    "date": "2026-07-04",
+    "title": "Microsoft Edge瀏覽器RCE漏洞CVE-2026-57992",
+    "category": "漏洞",
+    "affected_org": "Microsoft Edge用戶",
+    "region": "全球",
+    "severity": "高",
+    "summary": "微軟披露Edge高風險遠程代碼執行漏洞，惡意網頁可控制未修補系統，需立即更新。",
+    "source_name": "GBHackers",
+    "source_url": "https://gbhackers.com/weekly-cybersecurity-newsletter-july-6-10-2026/"
+  },
+  {
+    "date": "2026-07-02",
+    "title": "CitrixBleed 2漏洞遭DragonForce勒索軟體利用",
+    "category": "漏洞",
+    "affected_org": "Citrix用戶、多個組織",
+    "region": "全球",
+    "severity": "高",
+    "summary": "Citrix Bleed 2漏洞從理論利用轉變為DragonForce勒索軟體實際部署，展示0day威脅。",
+    "source_name": "GBHackers",
+    "source_url": "https://gbhackers.com/weekly-cybersecurity-newsletter-july-6-10-2026/"
   }
 ];
 
