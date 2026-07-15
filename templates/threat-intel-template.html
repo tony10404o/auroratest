@@ -149,6 +149,7 @@
 
   <div class="content-columns">
     <div class="content-col" id="contentColLeft"></div>
+    <div class="content-col" id="contentColMiddle"></div>
     <div class="content-col" id="contentColRight"></div>
   </div>
 
@@ -363,16 +364,20 @@ function renderRansomwareApt(items){
 const leftHtml = [
   section('🇹🇼', '國內 CERT 與政府資安公告', (DATA.gov_announcements||[]).length + ' 則', renderGov(DATA.gov_announcements)),
   section('🎯', 'CISA KEV 已知遭實際利用漏洞', (DATA.kev_vulnerabilities||[]).length + ' 筆', renderKev(DATA.kev_vulnerabilities)),
+].join('');
+
+const middleHtml = [
   section('🏢', '廠商安全公告（Microsoft／Cisco／Fortinet）', (DATA.vendor_advisories||[]).length + ' 則', renderVendorAdvisories(DATA.vendor_advisories)),
+  section('🌐', '國際資安新聞', (DATA.international_news||[]).length + ' 則', renderNews(DATA.international_news)),
 ].join('');
 
 const rightHtml = [
-  section('🌐', '國際資安新聞', (DATA.international_news||[]).length + ' 則', renderNews(DATA.international_news)),
   section('🔬', 'IOC 情資重點', (DATA.ioc_highlights||[]).length + ' 則', renderIoc(DATA.ioc_highlights)),
   section('🕵️', '勒索軟體與 APT 活動', (DATA.ransomware_apt||[]).length + ' 則', renderRansomwareApt(DATA.ransomware_apt)),
 ].join('');
 
 document.getElementById('contentColLeft').innerHTML = leftHtml;
+document.getElementById('contentColMiddle').innerHTML = middleHtml;
 document.getElementById('contentColRight').innerHTML = rightHtml;
 </script>
 </body>
