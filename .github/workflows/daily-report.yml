@@ -24,12 +24,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Generate yuqing (buzz) report
-        run: npm run generate:yuqing
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-
-      - name: Generate threat intel digest (as homepage)
+      - name: Generate threat intel digest
         run: npm run generate:threat-intel
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -38,6 +33,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/index.html docs/yuqing.html
-          git diff --staged --quiet || git commit -m "Update security reports $(date -u +%Y-%m-%d)"
+          git add docs/index.html
+          git diff --staged --quiet || git commit -m "Update security report $(date -u +%Y-%m-%d)"
           git push
