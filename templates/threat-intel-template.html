@@ -34,11 +34,10 @@
   .meta-line{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--text-dim);margin:10px 0 24px;}
   .meta-line b{color:var(--text);}
 
-  .section{margin-bottom:0;break-inside:avoid;width:100%;}
-  .content-columns{column-count:2;column-gap:20px;}
-  .content-columns .section{margin-bottom:20px;}
-  @media (max-width:900px){.content-columns{column-count:1;}}
-  @media (min-width:1300px){.content-columns{column-count:3;}}
+  .section{margin-bottom:20px;width:100%;}
+  .content-columns{display:flex;gap:20px;align-items:flex-start;}
+  .content-col{flex:1;min-width:0;}
+  @media (max-width:900px){.content-columns{flex-direction:column;}}
   .section-header{display:flex;align-items:center;gap:8px;margin-bottom:12px;}
   .section-icon{font-size:15px;}
   .section-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;}
@@ -142,7 +141,10 @@
     <div class="ai-summary-text" id="aiSummaryText">摘要產生中...</div>
   </div>
 
-  <div id="content" class="content-columns"></div>
+  <div class="content-columns">
+    <div class="content-col" id="contentColLeft"></div>
+    <div class="content-col" id="contentColRight"></div>
+  </div>
 
   <div class="footer-note">CVE/廠商公告來自官方Feed；國內公告/IOC/勒索軟體與APT活動由AI搜尋整理，僅供參考，正式應變請以原廠與官方公告為準。</div>
 </div>
@@ -339,16 +341,20 @@ function renderRansomwareApt(items){
     </div>`).join('')}</div>`;
 }
 
-const html = [
+const leftHtml = [
   section('🇹🇼', '國內 CERT 與政府資安公告', (DATA.gov_announcements||[]).length + ' 則', renderGov(DATA.gov_announcements)),
   section('🎯', 'CISA KEV 已知遭實際利用漏洞', (DATA.kev_vulnerabilities||[]).length + ' 筆', renderKev(DATA.kev_vulnerabilities)),
   section('🏢', '廠商安全公告（Microsoft／Cisco／Fortinet）', (DATA.vendor_advisories||[]).length + ' 則', renderVendorAdvisories(DATA.vendor_advisories)),
+].join('');
+
+const rightHtml = [
   section('🌐', '國際資安新聞', (DATA.international_news||[]).length + ' 則', renderNews(DATA.international_news)),
   section('🔬', 'IOC 情資重點', (DATA.ioc_highlights||[]).length + ' 則', renderIoc(DATA.ioc_highlights)),
   section('🕵️', '勒索軟體與 APT 活動', (DATA.ransomware_apt||[]).length + ' 則', renderRansomwareApt(DATA.ransomware_apt)),
 ].join('');
 
-document.getElementById('content').innerHTML = html;
+document.getElementById('contentColLeft').innerHTML = leftHtml;
+document.getElementById('contentColRight').innerHTML = rightHtml;
 </script>
 </body>
 </html>
