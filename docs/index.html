@@ -60,6 +60,7 @@
   .tag.sev-中{color:var(--sev-medium);background:var(--sev-medium-bg);border-color:transparent;}
   .tag.sev-低{color:var(--sev-low);background:var(--sev-low-bg);border-color:transparent;}
   .tag.ransomware{color:var(--sev-high);background:var(--sev-high-bg);border-color:transparent;font-weight:600;}
+  .tag.kpi{color:var(--accent);background:rgba(37,99,235,0.08);border-color:transparent;}
   .card-summary{font-size:12.5px;color:var(--text-dim);line-height:1.6;}
   .card-bottom{display:flex;justify-content:space-between;align-items:center;gap:10px;}
   .card-link{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);text-decoration:none;white-space:nowrap;}
@@ -478,6 +479,12 @@ function emptyNote(){
   return `<div class="empty-note">目前沒有資料</div>`;
 }
 
+function kevKpiTags(v){
+  const tags = ['📊今日重大事件', '🎯Critical/High漏洞', '⚠️KEV'];
+  if (v.cve_id && v.cve_id.trim()) tags.push('🆕新增CVE');
+  return tags.map(t => `<span class="tag kpi">計入：${t}</span>`).join('');
+}
+
 function renderKev(items){
   if (!items || !items.length) return emptyNote();
   return `<div class="list">${items.map(v => `
@@ -489,6 +496,7 @@ function renderKev(items){
       <div class="tags">
         <span class="tag">${escapeHtml(v.vendor_product || '')}</span>
         ${v.known_ransomware_use ? `<span class="tag ransomware">⚠ 已知遭勒索軟體利用</span>` : ''}
+        ${kevKpiTags(v)}
       </div>
       ${v.summary ? `<div class="card-summary">${escapeHtml(v.summary)}</div>` : ''}
     </div>`).join('')}</div>`;
@@ -504,6 +512,7 @@ function renderVendorAdvisories(items){
       <div class="tags">
         <span class="tag">${escapeHtml(v.vendor || '')}</span>
         ${v.severity_guess ? `<span class="tag sev-${escapeHtml(v.severity_guess)}">研判嚴重度：${escapeHtml(v.severity_guess)}</span>` : ''}
+        ${v.severity_guess === '高' ? `<span class="tag kpi">計入：🎯Critical/High漏洞</span>` : ''}
       </div>
       ${v.url ? `<div class="card-bottom"><span></span><a class="card-link" href="${escapeHtml(v.url)}" target="_blank" rel="noopener noreferrer">查看公告 ↗</a></div>` : ''}
     </div>`).join('')}</div>`;
@@ -514,7 +523,10 @@ function renderNews(items){
   return `<div class="list">${items.map(n => `
     <div class="card plain">
       <div class="card-top"><div class="card-title">${escapeHtml(n.title || '')}</div></div>
-      <div class="tags"><span class="tag">${escapeHtml(n.source || '')}</span></div>
+      <div class="tags">
+        <span class="tag">${escapeHtml(n.source || '')}</span>
+        ${n.is_awareness_case ? `<span class="tag kpi">計入：📢可宣導案例</span>` : ''}
+      </div>
       ${n.summary ? `<div class="card-summary">${escapeHtml(n.summary)}</div>` : ''}
       ${n.url ? `<div class="card-bottom"><span></span><a class="card-link" href="${escapeHtml(n.url)}" target="_blank" rel="noopener noreferrer">閱讀原文 ↗</a></div>` : ''}
     </div>`).join('')}</div>`;
@@ -528,7 +540,10 @@ function renderGov(items){
         <div class="card-title">${escapeHtml(g.title || '')}</div>
         <div class="card-date">${escapeHtml(g.date || '')}</div>
       </div>
-      <div class="tags"><span class="tag">${escapeHtml(g.source || '')}</span></div>
+      <div class="tags">
+        <span class="tag">${escapeHtml(g.source || '')}</span>
+        ${g.is_awareness_case ? `<span class="tag kpi">計入：📢可宣導案例</span>` : ''}
+      </div>
       ${g.summary ? `<div class="card-summary">${escapeHtml(g.summary)}</div>` : ''}
       ${g.url ? `<div class="card-bottom"><span></span><a class="card-link" href="${escapeHtml(g.url)}" target="_blank" rel="noopener noreferrer">查看公告 ↗</a></div>` : ''}
     </div>`).join('')}</div>`;
@@ -553,7 +568,12 @@ function renderRansomwareApt(items){
         <div class="card-title">${escapeHtml(r.title || '')}</div>
         <div class="card-date">${escapeHtml(r.date || '')}</div>
       </div>
-      <div class="tags"><span class="tag ${r.type === '勒索軟體' ? 'ransomware' : ''}">${escapeHtml(r.type || '')}</span></div>
+      <div class="tags">
+        <span class="tag ${r.type === '勒索軟體' ? 'ransomware' : ''}">${escapeHtml(r.type || '')}</span>
+        <span class="tag kpi">計入：📊今日重大事件</span>
+        ${r.type === '勒索軟體' ? `<span class="tag kpi">計入：🦠勒索病毒事件</span>` : ''}
+        ${r.is_awareness_case ? `<span class="tag kpi">計入：📢可宣導案例</span>` : ''}
+      </div>
       ${r.summary ? `<div class="card-summary">${escapeHtml(r.summary)}</div>` : ''}
       ${r.source_url ? `<div class="card-bottom"><span style="font-size:11px;color:var(--text-faint);">${escapeHtml(r.source_name || '')}</span><a class="card-link" href="${escapeHtml(r.source_url)}" target="_blank" rel="noopener noreferrer">來源 ↗</a></div>` : ''}
     </div>`).join('')}</div>`;
