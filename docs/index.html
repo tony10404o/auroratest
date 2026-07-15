@@ -104,6 +104,11 @@
   .ai-summary-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;}
   .ai-summary-badge{font-family:'JetBrains Mono',monospace;font-size:9.5px;color:var(--accent);background:rgba(37,99,235,0.1);padding:2px 8px;border-radius:20px;}
   .ai-summary-text{font-size:13.5px;line-height:1.8;color:var(--text);}
+  .ai-summary-blocks{display:flex;flex-direction:column;gap:12px;}
+  .ai-summary-block{padding-top:10px;border-top:1px dashed var(--border);}
+  .ai-summary-block:first-child{padding-top:0;border-top:none;}
+  .ai-summary-block-heading{font-size:12.5px;font-weight:700;color:var(--accent);margin-bottom:4px;}
+  .ai-summary-block-text{font-size:13.5px;line-height:1.8;color:var(--text);}
 
   .footer-note{text-align:center;font-size:11px;color:var(--text-faint);margin-top:30px;font-family:'JetBrains Mono',monospace;}
   @media (max-width:600px){.header{flex-direction:column;align-items:flex-start;}}
@@ -138,7 +143,7 @@
       <span class="ai-summary-title">AI 今日摘要</span>
       <span class="ai-summary-badge">AI GENERATED</span>
     </div>
-    <div class="ai-summary-text" id="aiSummaryText">摘要產生中...</div>
+    <div class="ai-summary-blocks" id="aiSummaryText">摘要產生中...</div>
   </div>
 
   <div class="content-columns">
@@ -151,7 +156,24 @@
 
 <script>
 const DATA = {
-  "ai_summary": "Microsoft Defender的RoguePlanet權限提升漏洞（CVE-2026-50656）與Progress LoadMaster的高危指令注入漏洞（CVE-2026-8037）是本期最需優先處理的兩項0-day，兩者皆已遭鎖定攻擊，建議立即確認修補狀態。同時KDDI電子郵件外洩事件與World Leaks針對Tata Electronics的勒索攻擊顯示供應鏈與第三方廠商仍是主要破口，建議盤點內部類似暴露面。整體而言本期威脅情勢偏緊，需優先關注漏洞修補與供應鏈風險。",
+  "ai_summary": [
+    {
+      "heading": "高風險漏洞與0-day",
+      "text": "Microsoft Defender核心引擎的RoguePlanet權限提升漏洞（CVE-2026-50656）於7月9日由微軟緊急修補，研究員稱漏洞在揭露前已存在遭利用跡象；Progress LoadMaster的高危OS指令注入漏洞（CVE-2026-8037，CVSS 9.6）同樣屬於先遭鎖定攻擊才修補的0-day，兩者皆建議立即確認內部設備修補狀態。"
+    },
+    {
+      "heading": "重大攻擊與資料外洩",
+      "text": "日本電信業者KDDI代管的郵件系統遭入侵，最多1,422萬組帳密可能外洩，凸顯第三方代管服務的曝險；勒索軟體組織World Leaks則聲稱入侵Tata Electronics並公開逾20萬份內部檔案，供應鏈廠商仍是攻擊者主要突破口。"
+    },
+    {
+      "heading": "勒索軟體與APT動態",
+      "text": "疑似國家級駭客組織UAT-8616鎖定Cisco Catalyst SD-WAN設備，利用目錄穿越等漏洞滲透，顯示網路邊界設備持續是APT組織偏好的入侵路徑，建議檢視相關設備的修補與存取控制狀態。"
+    },
+    {
+      "heading": "建議優先行動",
+      "text": "優先確認Microsoft Defender與Progress LoadMaster是否已完成修補；盤點是否有使用KDDI或類似第三方郵件代管服務；檢視Cisco SD-WAN設備的修補版本與對外暴露面，降低類似攻擊路徑的風險。"
+    }
+  ],
   "gov_announcements": [
     {
       "date": "2026-06-30",
@@ -369,7 +391,20 @@ const UPDATED_AT = "2026-07-13 12:00:00（台灣時間）";
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
 
 document.getElementById('badgeDate').textContent = UPDATED_AT;
-document.getElementById('aiSummaryText').textContent = DATA.ai_summary || '（本次無摘要資料）';
+
+function renderAiSummary(summary){
+  const el = document.getElementById('aiSummaryText');
+  if (!summary || !Array.isArray(summary) || !summary.length){
+    el.textContent = '（本次無摘要資料）';
+    return;
+  }
+  el.innerHTML = summary.map(block => `
+    <div class="ai-summary-block">
+      <div class="ai-summary-block-heading">${escapeHtml(block.heading || '')}</div>
+      <div class="ai-summary-block-text">${escapeHtml(block.text || '')}</div>
+    </div>`).join('');
+}
+renderAiSummary(DATA.ai_summary);
 
 function statCard({icon, label, tone, number, unit, badgeText, desc}){
   return `<div class="stat-card ${tone ? 'tone-'+tone : ''}">

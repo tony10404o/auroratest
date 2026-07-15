@@ -104,6 +104,11 @@
   .ai-summary-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;}
   .ai-summary-badge{font-family:'JetBrains Mono',monospace;font-size:9.5px;color:var(--accent);background:rgba(37,99,235,0.1);padding:2px 8px;border-radius:20px;}
   .ai-summary-text{font-size:13.5px;line-height:1.8;color:var(--text);}
+  .ai-summary-blocks{display:flex;flex-direction:column;gap:12px;}
+  .ai-summary-block{padding-top:10px;border-top:1px dashed var(--border);}
+  .ai-summary-block:first-child{padding-top:0;border-top:none;}
+  .ai-summary-block-heading{font-size:12.5px;font-weight:700;color:var(--accent);margin-bottom:4px;}
+  .ai-summary-block-text{font-size:13.5px;line-height:1.8;color:var(--text);}
 
   .footer-note{text-align:center;font-size:11px;color:var(--text-faint);margin-top:30px;font-family:'JetBrains Mono',monospace;}
   @media (max-width:600px){.header{flex-direction:column;align-items:flex-start;}}
@@ -138,7 +143,7 @@
       <span class="ai-summary-title">AI 今日摘要</span>
       <span class="ai-summary-badge">AI GENERATED</span>
     </div>
-    <div class="ai-summary-text" id="aiSummaryText">摘要產生中...</div>
+    <div class="ai-summary-blocks" id="aiSummaryText">摘要產生中...</div>
   </div>
 
   <div class="content-columns">
@@ -156,7 +161,20 @@ const UPDATED_AT = "__UPDATED_AT__";
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
 
 document.getElementById('badgeDate').textContent = UPDATED_AT;
-document.getElementById('aiSummaryText').textContent = DATA.ai_summary || '（本次無摘要資料）';
+
+function renderAiSummary(summary){
+  const el = document.getElementById('aiSummaryText');
+  if (!summary || !Array.isArray(summary) || !summary.length){
+    el.textContent = '（本次無摘要資料）';
+    return;
+  }
+  el.innerHTML = summary.map(block => `
+    <div class="ai-summary-block">
+      <div class="ai-summary-block-heading">${escapeHtml(block.heading || '')}</div>
+      <div class="ai-summary-block-text">${escapeHtml(block.text || '')}</div>
+    </div>`).join('');
+}
+renderAiSummary(DATA.ai_summary);
 
 function statCard({icon, label, tone, number, unit, badgeText, desc}){
   return `<div class="stat-card ${tone ? 'tone-'+tone : ''}">

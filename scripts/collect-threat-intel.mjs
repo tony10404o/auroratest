@@ -197,23 +197,38 @@ async function searchRemainingCategories() {
 // ---------- 4. AI 綜合摘要 ----------
 
 async function generateSummary(result) {
-  console.log("呼叫 Claude 產生今日綜合摘要...");
+  console.log("呼叫 Claude 產生今日綜合摘要（分段版）...");
 
-  const prompt = `你是資安分析師，以下是今天彙整好的威脅情資（JSON），請用繁體中文寫一段150字以內的「今日摘要」，給IT／資安管理人員快速掌握重點。內容請綜合六大類別，點出最值得優先關注的1-3件事（例如高風險漏洞、正在延燒的攻擊、值得留意的趨勢），語氣專業精簡，不要條列式，直接寫成一段完整的話。若資料很少或都是低風險項目，也可以誠實反映「今日威脅情勢相對平緩」之類的說法，不要誇大。
+  const prompt = `你是資安分析師，以下是今天彙整好的威脅情資（JSON），請用繁體中文寫一份「今日摘要」，給IT／資安管理人員快速掌握重點，但要比一般摘要更詳細一些。
+
+請將摘要拆成 3-5 個獨立段落，每個段落聚焦一個面向，例如（依實際資料調整，不用完全照抄）：
+- 高風險漏洞與0-day動態
+- 重大攻擊事件／資料外洩
+- 勒索軟體與APT組織動態
+- 趨勢觀察或需留意的攻擊手法
+- 建議優先行動
+
+每段請給一個簡短標題（4-8字），內文60-100字，具體點出關鍵事實（例如CVE編號、廠商、公司名稱），不要空泛。若某面向今天沒有值得寫的內容，可以省略該段落，不用硬湊。
+
+請「只」回傳一個 JSON 陣列，不要有任何前言、說明文字或 markdown 的 \`\`\` 符號，格式如下：
+[
+  { "heading": "段落標題", "text": "段落內文" }
+]
 
 資料：
-${JSON.stringify(result, null, 2)}
-
-請只回傳摘要文字本身，不要有任何前言、標題或引號。`;
+${JSON.stringify(result, null, 2)}`;
 
   const response = await anthropic.messages.create({
     model: "claude-haiku-4-5-20251001",
-    max_tokens: 500,
+    max_tokens: 1500,
     messages: [{ role: "user", content: prompt }],
   });
 
   const text = response.content.filter((b) => b.type === "text").map((b) => b.text).join("\n").trim();
-  return text;
+  const cleaned = text.replace(/^```json/i, "").replace(/^```/, "").replace(/```$/, "").trim();
+  const match = cleaned.match(/\[[\s\S]*\]/);
+  if (!match) throw new Error("AI摘要回應找不到JSON陣列:\n" + text.slice(0, 300));
+  return JSON.parse(match[0]);
 }
 
 // ---------- 5. 主流程 ----------
