@@ -157,19 +157,15 @@ const DATA = {
   "ai_summary": [
     {
       "heading": "高風險漏洞與0-day",
-      "text": "Microsoft Defender核心引擎的RoguePlanet權限提升漏洞（CVE-2026-50656）於7月9日由微軟緊急修補，研究員稱漏洞在揭露前已存在遭利用跡象；Progress LoadMaster的高危OS指令注入漏洞（CVE-2026-8037，CVSS 9.6）同樣屬於先遭鎖定攻擊才修補的0-day，兩者皆建議立即確認內部設備修補狀態。"
+      "text": "Microsoft Defender核心引擎的RoguePlanet權限提升漏洞（CVE-2026-50656）於7月9日由微軟緊急修補，研究員稱漏洞在揭露前已存在遭利用跡象；Progress LoadMaster的高危OS指令注入漏洞（CVE-2026-8037，CVSS 9.6）同樣屬於先遭鎖定攻擊才修補的0-day。建議立即確認內部Defender與LoadMaster設備是否已完成對應修補。"
     },
     {
       "heading": "重大攻擊與資料外洩",
-      "text": "日本電信業者KDDI代管的郵件系統遭入侵，最多1,422萬組帳密可能外洩，凸顯第三方代管服務的曝險；勒索軟體組織World Leaks則聲稱入侵Tata Electronics並公開逾20萬份內部檔案，供應鏈廠商仍是攻擊者主要突破口。"
+      "text": "日本電信業者KDDI代管的郵件系統遭入侵，最多1,422萬組帳密可能外洩，凸顯第三方代管服務的曝險；勒索軟體組織World Leaks則聲稱入侵Tata Electronics並公開逾20萬份內部檔案。建議盤點是否有使用類似第三方郵件代管或供應鏈廠商，並檢視其資安控管狀況。"
     },
     {
       "heading": "勒索軟體與APT動態",
-      "text": "疑似國家級駭客組織UAT-8616鎖定Cisco Catalyst SD-WAN設備，利用目錄穿越等漏洞滲透，顯示網路邊界設備持續是APT組織偏好的入侵路徑，建議檢視相關設備的修補與存取控制狀態。"
-    },
-    {
-      "heading": "建議優先行動",
-      "text": "優先確認Microsoft Defender與Progress LoadMaster是否已完成修補；盤點是否有使用KDDI或類似第三方郵件代管服務；檢視Cisco SD-WAN設備的修補版本與對外暴露面，降低類似攻擊路徑的風險。"
+      "text": "疑似國家級駭客組織UAT-8616鎖定Cisco Catalyst SD-WAN設備，利用目錄穿越等漏洞滲透，顯示網路邊界設備持續是APT組織偏好的入侵路徑。建議檢視公司內部Cisco SD-WAN設備的修補版本與對外暴露面，必要時限制管理介面的存取來源。"
     }
   ],
   "gov_announcements": [
