@@ -154,6 +154,7 @@
 
 <script>
 const DATA = {
+<<<<<<< HEAD
   "ai_summary": [
     {
       "heading": "高風險漏洞與0-day",
@@ -202,185 +203,443 @@ const DATA = {
       "is_awareness_case": true
     }
   ],
+=======
+>>>>>>> 009fa0e2dc0f99eb48632ecf3aa8c11281f28c48
   "kev_vulnerabilities": [
     {
-      "cve_id": "",
-      "vendor_product": "Langflow",
-      "title": "使用者可控金鑰授權繞過漏洞，已遭實際利用",
-      "date_added": "2026-06",
+      "cve_id": "CVE-2026-46817",
+      "vendor_product": "Oracle/E-Business Suite",
+      "title": "Oracle E-Business Suite 權限管理不當漏洞允許未認證攻擊者接管支付系統",
+      "date_added": "2026-07-15",
       "known_ransomware_use": false,
       "is_zero_day": false,
-      "summary": "Langflow存在授權繞過漏洞，已通過驗證的攻擊者可藉由指定他人流程ID執行任意流程。"
+      "summary": "Oracle E-Business Suite 權限管理不當，未認證攻擊者可透過HTTP接管付款服務。"
     },
     {
-      "cve_id": "",
-      "vendor_product": "Ivanti Sentry",
-      "title": "OS指令注入漏洞，可致未驗證遠端程式碼執行",
-      "date_added": "2026-06",
+      "cve_id": "CVE-2023-4346",
+      "vendor_product": "KNX Association/KNX Protocol Connection Authorization Option 1",
+      "title": "KNX Protocol 帳號鎖定機制過度限制允許攻擊者清除所有設備",
+      "date_added": "2026-07-15",
       "known_ransomware_use": false,
       "is_zero_day": false,
-      "summary": "Ivanti Sentry存在OS指令注入漏洞，未受管理且對外暴露的設備恐遭遠端取得root權限。"
+      "summary": "KNX Protocol 帳號鎖定機制缺陷，攻擊者可清除全部設備並鎖定BCU金鑰。"
     },
     {
-      "cve_id": "",
-      "vendor_product": "JoomShaper SP Page Builder",
-      "title": "危險類型檔案上傳限制不當漏洞",
-      "date_added": "2026-06",
+      "cve_id": "CVE-2026-56155",
+      "vendor_product": "Microsoft/Active Directory Federation Services",
+      "title": "Microsoft ADFS 存取控制粒度不足導致認證用戶本地權限提升",
+      "date_added": "2026-07-14",
       "known_ransomware_use": false,
       "is_zero_day": false,
-      "summary": "未驗證使用者可上傳任意檔案，最終導致PHP程式碼上傳並執行。"
+      "summary": "ADFS 存取控制粒度不足，認證攻擊者可在本地提升權限。"
     },
     {
-      "cve_id": "",
-      "vendor_product": "iCagenda",
-      "title": "危險類型檔案上傳限制不當漏洞",
-      "date_added": "2026-06",
+      "cve_id": "CVE-2026-56164",
+      "vendor_product": "Microsoft/SharePoint Server",
+      "title": "Microsoft SharePoint 關鍵功能認證缺失導致未授權網路權限提升",
+      "date_added": "2026-07-14",
       "known_ransomware_use": false,
       "is_zero_day": false,
-      "summary": "附件上傳功能存在檔案類型限制不當問題，可能遭利用上傳並執行PHP程式碼。"
+      "summary": "SharePoint 關鍵功能缺少認證機制，未授權攻擊者可透過網路提升權限。"
     },
     {
-      "cve_id": "CVE-2026-8037",
-      "vendor_product": "Progress LoadMaster",
-      "title": "高危OS指令注入漏洞(CVSS 9.6)遭鎖定攻擊",
-      "date_added": "2026-06-29",
+      "cve_id": "CVE-2026-15409",
+      "vendor_product": "SonicWall/SMA1000 Appliances",
+      "title": "SonicWall SMA1000 伺服器端請求偽造漏洞允許遠端攻擊者誘導非預期請求",
+      "date_added": "2026-07-14",
       "known_ransomware_use": false,
-      "is_zero_day": true,
-      "summary": "負載平衡器存在未驗證OS指令注入漏洞，攻擊者可執行任意指令，廠商已釋出修補建議。"
+      "is_zero_day": false,
+      "summary": "SMA1000 存在SSRF漏洞，未認證遠端攻擊者可誘導設備發起非預期請求。"
     },
     {
-      "cve_id": "CVE-2026-50656",
-      "vendor_product": "Microsoft Defender",
-      "title": "Defender核心引擎權限提升漏洞RoguePlanet",
-      "date_added": "2026-07-09",
+      "cve_id": "CVE-2026-15410",
+      "vendor_product": "SonicWall/SMA1000 Appliances",
+      "title": "SonicWall SMA1000 程式碼注入漏洞允許管理員執行任意OS命令",
+      "date_added": "2026-07-14",
       "known_ransomware_use": false,
-      "is_zero_day": true,
-      "summary": "研究員公開揭露後微軟緊急修補的權限提升漏洞，揭露方式引發研究員與微軟間爭議。"
+      "is_zero_day": false,
+      "summary": "SMA1000 存在程式碼注入漏洞，認證管理員可執行任意作業系統命令。"
+    },
+    {
+      "cve_id": "CVE-2008-4128",
+      "vendor_product": "Cisco/IOS",
+      "title": "Cisco IOS 12.4 跨網站請求偽造漏洞允許遠端執行任意命令",
+      "date_added": "2026-07-13",
+      "known_ransomware_use": false,
+      "is_zero_day": false,
+      "summary": "IOS 12.4 存在CSRF漏洞，遠端攻擊者可透過特定URI執行任意命令。"
+    },
+    {
+      "cve_id": "CVE-2026-56291",
+      "vendor_product": "Balbooa/Forms",
+      "title": "Balbooa Forms 危險類型檔案上傳不受限制漏洞導致RCE",
+      "date_added": "2026-07-10",
+      "known_ransomware_use": false,
+      "is_zero_day": false,
+      "summary": "Balbooa Forms 檔案上傳驗證不足，未認證攻擊者可上傳可執行檔案實現RCE。"
+    },
+    {
+      "cve_id": "CVE-2026-48939",
+      "vendor_product": "iCagenda/iCagenda",
+      "title": "iCagenda 危險類型檔案上傳不受限制漏洞允許PHP程式碼執行",
+      "date_added": "2026-07-10",
+      "known_ransomware_use": false,
+      "is_zero_day": false,
+      "summary": "iCagenda 檔案上傳驗證缺陷，攻擊者可在附件功能上傳PHP程式碼執行。"
+    },
+    {
+      "cve_id": "CVE-2026-48908",
+      "vendor_product": "JoomShaper/SP Page Builder",
+      "title": "JoomShaper SP Page Builder 危險類型檔案上傳不受限制漏洞允許PHP執行",
+      "date_added": "2026-07-07",
+      "known_ransomware_use": false,
+      "is_zero_day": false,
+      "summary": "SP Page Builder 檔案上傳無驗證，未認證用戶可上傳PHP程式碼執行。"
     }
   ],
   "vendor_advisories": [
     {
       "vendor": "Microsoft",
-      "title": "Defender核心引擎權限提升漏洞（CVE-2026-50656）修補公告",
+      "title": "CVE-2026-58644 Microsoft SharePoint 遠端程式碼執行漏洞",
       "severity_guess": "高",
-      "url": "https://msrc.microsoft.com/update-guide/"
+      "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58644"
+    },
+    {
+      "vendor": "Microsoft",
+      "title": "CVE-2026-50375 DirectX Graphics Kernel 權限提升漏洞",
+      "severity_guess": "高",
+      "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50375"
+    },
+    {
+      "vendor": "Microsoft",
+      "title": "CVE-2026-56182 Windows NTFS 權限提升漏洞",
+      "severity_guess": "高",
+      "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-56182"
+    },
+    {
+      "vendor": "Microsoft",
+      "title": "CVE-2026-45637 Microsoft DWM Core Library 權限提升漏洞",
+      "severity_guess": "高",
+      "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-45637"
+    },
+    {
+      "vendor": "Microsoft",
+      "title": "CVE-2026-50341 Windows NTFS 資訊洩露漏洞",
+      "severity_guess": "中",
+      "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50341"
     },
     {
       "vendor": "Cisco",
-      "title": "Cisco Catalyst SD-WAN Manager目錄穿越漏洞公告",
+      "title": "Cisco Catalyst SD-WAN Controller/Manager/Validator 認證權限提升漏洞",
       "severity_guess": "高",
-      "url": "https://sec.cloudapps.cisco.com/security/center/publicationListing.x"
+      "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-privesc-4uxFrdzx?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Controller,%20Catalyst%20SD-WAN%20Manager,%20and%20Catalyst%20SD-WAN%20Validator%20Authenticated%20Privilege%20Escalation%20Vulnerability%26vs_k=1"
     },
     {
       "vendor": "Cisco",
-      "title": "Cisco Identity Services Engine(ISE)多項漏洞修補",
-      "severity_guess": "中",
-      "url": "https://sec.cloudapps.cisco.com/security/center/publicationListing.x"
-    },
-    {
-      "vendor": "Fortinet",
-      "title": "FortiOS SSL-VPN敏感資訊洩漏漏洞修補",
-      "severity_guess": "中",
-      "url": "https://www.fortiguard.com/psirt"
-    },
-    {
-      "vendor": "Fortinet",
-      "title": "FortiOS fnbamd身分驗證繞過漏洞修補",
+      "title": "Cisco Identity Services Engine 遠端程式碼執行及資訊洩露漏洞",
       "severity_guess": "高",
-      "url": "https://www.fortiguard.com/psirt"
+      "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ise-multi-G5WP8vv?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Identity%20Services%20Engine%20Remote%20Code%20Execution%20and%20Information%20Disclosure%20Vulnerabilities%26vs_k=1"
+    },
+    {
+      "vendor": "Cisco",
+      "title": "Cisco Identity Services Engine 路徑遍歷漏洞",
+      "severity_guess": "中",
+      "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ise-traversal-xNt7wb2Y?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Identity%20Services%20Engine%20Path%20Traversal%20Vulnerability%26vs_k=1"
+    },
+    {
+      "vendor": "Cisco",
+      "title": "Cisco RoomOS 2026年7月安全強化版本",
+      "severity_guess": "中",
+      "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-hardening-roomos-AqNMbEq?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20RoomOS%20Security%20Hardening%20Release:%20July%202026%26vs_k=1"
+    },
+    {
+      "vendor": "Fortinet",
+      "title": "Fortinet authd 與 wad 守護程序緩衝區超讀漏洞",
+      "severity_guess": "中",
+      "url": "https://fortiguard.fortinet.com/psirt/FG-IR-26-154"
+    },
+    {
+      "vendor": "Fortinet",
+      "title": "Fortinet 網頁過濾警告頁面標頭注入漏洞",
+      "severity_guess": "中",
+      "url": "https://fortiguard.fortinet.com/psirt/FG-IR-26-152"
+    },
+    {
+      "vendor": "Fortinet",
+      "title": "Fortinet 驗證表單標頭注入漏洞",
+      "severity_guess": "中",
+      "url": "https://fortiguard.fortinet.com/psirt/FG-IR-26-153"
+    },
+    {
+      "vendor": "Fortinet",
+      "title": "Fortinet Domain 參數跨網站指令碼漏洞",
+      "severity_guess": "中",
+      "url": "https://fortiguard.fortinet.com/psirt/FG-IR-26-149"
+    },
+    {
+      "vendor": "Fortinet",
+      "title": "Fortinet AD Connector 與 FortiClient EMS 通訊憑證驗證遺漏",
+      "severity_guess": "中",
+      "url": "https://fortiguard.fortinet.com/psirt/FG-IR-26-147"
     }
   ],
   "international_news": [
     {
-      "title": "研究揭露首例AI Agent自主執行勒索軟體攻擊鏈",
-      "source": "綜合報導",
-      "summary": "雲端安全業者Sysdig發現完全由LLM驅動的AI Agent自主發動勒索軟體攻擊案例，資安圈熱議防禦難度。",
-      "url": "https://thehackernews.com/",
-      "is_awareness_case": true
-    },
-    {
-      "title": "Google聯合FBI打擊全球最大惡意住宅代理網路",
-      "source": "綜合報導",
-      "summary": "威脅情報團隊與執法單位聯手清除數百萬台遭感染裝置組成的代理網路NetNut。",
-      "url": "https://thehackernews.com/",
+      "title": "微軟創紀錄一次修補570個安全漏洞",
+      "source": "Krebs on Security",
+      "summary": "微軟公布歷年最多的漏洞修補，共570個安全問題待修復，包括多個關鍵漏洞。",
+      "url": "https://krebsonsecurity.com/2026/07/microsoft-patches-a-record-570-security-flaws/",
       "is_awareness_case": false
     },
     {
-      "title": "「幻影搶註」攻擊者搶先註冊AI幻覺網域用於釣魚",
-      "source": "綜合報導",
-      "summary": "研究顯示攻擊者搶先註冊AI模型憑空捏造的網域架設釣魚頁面，攔截使用者對AI建議連結的信任。",
-      "url": "https://thehackernews.com/",
+      "title": "Zoom 警示帳號接管關鍵漏洞",
+      "source": "BleepingComputer",
+      "summary": "Zoom 發現重大帳號接管漏洞，攻擊者可能利用此漏洞完全控制用戶帳號。",
+      "url": "https://www.bleepingcomputer.com/news/security/zoom-warns-of-critical-account-takeover-vulnerability/",
       "is_awareness_case": true
     },
     {
-      "title": "Adobe釋出ColdFusion與Campaign Classic重大安全更新",
-      "source": "綜合報導",
-      "summary": "修補多項最高等級安全漏洞，可能導致任意程式碼執行與權限提升，建議儘速更新。",
-      "url": "https://thehackernews.com/",
+      "title": "Google Gemini CLI 遭濫用成駭客工具與僵屍網路運營平台",
+      "source": "BleepingComputer",
+      "summary": "研究人員發現攻擊者利用Google Gemini命令列工具執行駭客活動及運營惡意軟體僵屍網路。",
+      "url": "https://www.bleepingcomputer.com/news/security/google-gemini-cli-abused-as-a-hacking-agent-malware-botnet-operator/",
       "is_awareness_case": false
+    },
+    {
+      "title": "AsyncAPI npm 套件遭感染憑證竊取惡意軟體",
+      "source": "BleepingComputer",
+      "summary": "多個AsyncAPI npm 套件被惡意軟體污染，可竊取開發人員的登入憑證與機密資訊。",
+      "url": "https://www.bleepingcomputer.com/news/-asyncapi-npm-packages-infected-with-credential-stealing-malware/",
+      "is_awareness_case": false
+    },
+    {
+      "title": "荷蘭警方破獲投資詐騙集團涉案超1億歐元",
+      "source": "BleepingComputer",
+      "summary": "荷蘭執法部隊成功瓦解大規模投資詐騙圈，涉及金額超過1億歐元，數百名受害者遭騙。",
+      "url": "https://www.bleepingcomputer.com/news/security/dutch-police-bust-investment-fraud-ring-stealing-over-100-million/",
+      "is_awareness_case": true
+    },
+    {
+      "title": "FBI 查獲 NetNut 代理服務平台與 Popa 僵屍網路",
+      "source": "Krebs on Security",
+      "summary": "美國聯邦調查局成功查獲知名代理服務NetNut平台及Popa僵屍網路，逮捕多名幕後成員。",
+      "url": "https://krebsonsecurity.com/2026/07/fbi-seizes-netnut-proxy-platform-popa-botnet/",
+      "is_awareness_case": false
+    },
+    {
+      "title": "Scattered Spider 駭客集團庭審首日認罪",
+      "source": "Krebs on Security",
+      "summary": "臭名昭著的Scattered Spider 駭客組織成員在法庭首日即選擇認罪，認可多項嚴重網路犯罪指控。",
+      "url": "https://krebsonsecurity.com/2026/06/scattered-spider-hackers-plead-guilty-on-day-1-of-trial/",
+      "is_awareness_case": false
+    },
+    {
+      "title": "CISA GitHub 洩露事件後的重要安全教訓",
+      "source": "Krebs on Security",
+      "summary": "分析CISA機構GitHub帳號洩露事件，探討政府機構應如何強化程式碼倉庫與認証安全管理。",
+      "url": "https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/",
+      "is_awareness_case": false
+    }
+  ],
+  "gov_announcements": [
+    {
+      "date": "2026-06-15",
+      "source": "TWCERT/CC",
+      "title": "Check Point Security Gateways與Spark Firewalls存在重大資安漏洞(CVE-2026-50751)",
+      "summary": "Check Point旗下安全網關與防火牆存在重大漏洞，攻擊者可能進行未授權存取，建議企業儘速驗證並修補",
+      "url": "https://www.twcert.org.tw/tw/lp-169-1.html",
+      "is_awareness_case": true
+    },
+    {
+      "date": "2026-06-12",
+      "source": "TWCERT/CC",
+      "title": "SAP針對旗下多款產品發布重大資安公告",
+      "summary": "SAP產品存在多個重大安全漏洞，攻擊者可能利用進行遠端程式碼執行，企業應優先修補受影響系統",
+      "url": "https://www.twcert.org.tw/tw/lp-169-1.html",
+      "is_awareness_case": true
+    },
+    {
+      "date": "2026-06-12",
+      "source": "TWCERT/CC",
+      "title": "Fortinet FortiSandbox存在重大資安漏洞(CVE-2026-25089)",
+      "summary": "Fortinet沙箱及雲端版本存在重大漏洞，允許遠端程式碼執行，建議立即檢查並部署修補程式",
+      "url": "https://www.twcert.org.tw/tw/lp-169-1.html",
+      "is_awareness_case": true
+    },
+    {
+      "date": "2026-06-12",
+      "source": "TWCERT/CC",
+      "title": "Oracle PeopleSoft PeopleTools存在重大資安漏洞(CVE-2026-35273)",
+      "summary": "Oracle人資管理系統存在重大漏洞，可導致資料外洩與系統破壞，建議優先修補",
+      "url": "https://www.twcert.org.tw/tw/lp-169-1.html",
+      "is_awareness_case": true
+    },
+    {
+      "date": "2026-06-12",
+      "source": "TWCERT/CC",
+      "title": "Veeam Backup & Replication備份軟體存在重大資安漏洞(CVE-2026-44963)",
+      "summary": "Veeam備份解決方案存在遠端執行程式碼漏洞，備份系統可能遭入侵，需立即修補避免資料風險",
+      "url": "https://www.twcert.org.tw/tw/lp-169-1.html",
+      "is_awareness_case": true
+    },
+    {
+      "date": "2026-06-02",
+      "source": "TWCERT/CC",
+      "title": "Palo Alto Networks PAN-OS存在重大資安漏洞(CVE-2026-0257)",
+      "summary": "Palo Alto防火牆核心系統存在重大漏洞，可導致認證繞過與遠端存取，企業應儘速修補",
+      "url": "https://www.twcert.org.tw/tw/lp-169-1.html",
+      "is_awareness_case": true
+    },
+    {
+      "date": "2026-05-29",
+      "source": "TWCERT/CC",
+      "title": "PostgreSQL存在11個高風險安全漏洞",
+      "summary": "PostgreSQL資料庫多個版本存在高風險漏洞，可導致提權與程式碼執行，使用者應立即更新",
+      "url": "https://www.twcert.org.tw/tw/lp-169-1.html",
+      "is_awareness_case": true
     }
   ],
   "ioc_highlights": [
     {
-      "campaign": "RoguePlanet／Defender權限提升漏洞利用",
-      "ioc_types": [
-        "Hash"
-      ],
-      "summary": "研究員揭露之概念性驗證程式碼與相關惡意樣本雜湊已在資安社群流傳，建議比對EDR/防毒偵測記錄。",
-      "source_name": "BleepingComputer",
-      "source_url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-patches-rogueplanet-defender-zero-day-vulnerability/"
-    },
-    {
-      "campaign": "AI Agent自主勒索軟體(JADEPUFFER)攻擊鏈",
+      "campaign": "AI代理人自動化勒索軟體攻擊",
       "ioc_types": [
         "Domain",
-        "Hash"
+        "URL"
       ],
-      "summary": "Sysdig報告指出此攻擊鏈涉及特定C2網域與惡意payload雜湊，詳細IOC建議參考原廠報告。",
-      "source_name": "Sysdig",
-      "source_url": "https://thehackernews.com/"
+      "summary": "駭客利用LLM驅動的AI代理與Langflow平台自動化執行多階段勒索攻擊，結合已知漏洞進行初始滲透、橫向移動、特權提升與資料竊取",
+      "source_name": "ICSDA資通安全發展協會",
+      "source_url": "https://icsda.org.tw/security-news-vulnerability-data-breach-20260706/"
     },
     {
-      "campaign": "NetNut惡意住宅代理網路",
+      "campaign": "勒索軟體集團與TeamPCP合作",
       "ioc_types": [
+        "IP",
+        "Domain"
+      ],
+      "summary": "勒索軟體集團與專業入侵團隊TeamPCP結盟，形成工業化攻擊供應鏈，由TeamPCP負責初始入侵與漏洞利用，勒索集團負責加密與勒索作業",
+      "source_name": "ICSDA資通安全發展協會",
+      "source_url": "https://icsda.org.tw/security-news-vulnerability-data-breach-20260706/"
+    },
+    {
+      "campaign": "Microsoft 2026年7月過往最多漏洞修補",
+      "ioc_types": [
+        "Hash",
+        "URL"
+      ],
+      "summary": "Microsoft7月修補622個漏洞，創歷史新高，包含多個已被惡意利用的零日漏洞，涉及Active Directory、SharePoint等關鍵系統",
+      "source_name": "日本IPA",
+      "source_url": "https://www.ipa.go.jp/security/security-alert/2026/0715-ms.html"
+    },
+    {
+      "campaign": "中國國家級駭客鹽颱風(Salt Typhoon)滲透基礎設施",
+      "ioc_types": [
+        "Domain",
         "IP"
       ],
-      "summary": "Google GTIG與執法單位查獲的惡意代理節點IP範圍，已建議ISP與企業防火牆更新黑名單。",
-      "source_name": "Google GTIG",
-      "source_url": "https://thehackernews.com/"
+      "summary": "中國政府支持的駭客利用已知漏洞與設定不備滲透全球電信、政府、交通、軍事基礎設施，與三家中國企業關聯，進行長期情報蒐集",
+      "source_name": "資安署",
+      "source_url": "https://moda.gov.tw/ACS/press/report/17402"
+    },
+    {
+      "campaign": "RansomHub勒索集團全球擴張",
+      "ioc_types": [
+        "Domain",
+        "IP"
+      ],
+      "summary": "RansomHub勒索軟體半年內攻擊超過200家企業組織，包括能源、金融等關鍵產業，美國CISA、FBI等機構聯合發布防禦指引",
+      "source_name": "iThome",
+      "source_url": "https://www.ithome.com.tw/news/164821"
     }
   ],
   "ransomware_apt": [
     {
-      "date": "2026-06-01",
+      "date": "2026-07-03",
       "type": "勒索軟體",
-      "title": "World Leaks攻擊Tata Electronics，逾20萬份檔案外洩",
-      "summary": "勒索軟體組織World Leaks聲稱入侵Tata Electronics並公開大量內部檔案。",
-      "source_name": "綜合報導",
-      "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/",
-      "is_awareness_case": false
+      "title": "AI驅動的自動化勒索軟體攻擊威脅升級",
+      "summary": "研究人員警告AI代理人可利用Langflow平臺進行高度自動化的多階段勒索攻擊，大幅降低駭客成本與偵測機率，對企業防禦構成前所未有的威脅",
+      "source_name": "ICSDA資通安全發展協會",
+      "source_url": "https://icsda.org.tw/security-news-vulnerability-data-breach-20260706/",
+      "is_awareness_case": true
     },
     {
-      "date": "2026-06-23",
-      "type": "勒索軟體",
-      "title": "KDDI郵件系統遭入侵，逾1,422萬組帳密可能外洩",
-      "summary": "日本電信業者KDDI代管的郵件系統遭入侵，攻擊者利用第三方軟體漏洞取得帳密資料。",
-      "source_name": "綜合報導",
-      "source_url": "https://www.brightdefense.com/resources/recent-data-breaches/",
-      "is_awareness_case": false
+      "date": "2026-07-15",
+      "type": "漏洞利用",
+      "title": "Microsoft歷史性月度622個漏洞修補",
+      "summary": "Microsoft7月修補創史上最多的622個漏洞，包含多個零日漏洞已被駭客利用，涉及Active Directory、SharePoint等核心系統，企業應立即更新",
+      "source_name": "日本IPA",
+      "source_url": "https://www.ipa.go.jp/security/security-alert/2026/0715-ms.html",
+      "is_awareness_case": true
     },
     {
-      "date": "2026-05-29",
+      "date": "2026-07-01",
       "type": "APT",
-      "title": "駭客組織UAT-8616鎖定Cisco Catalyst SD-WAN",
-      "summary": "疑似國家級駭客組織針對Cisco SD-WAN設備發動鎖定式攻擊，利用目錄穿越等漏洞滲透。",
+      "title": "鹽颱風(Salt Typhoon)中國國家級駭客滲透全球基礎設施",
+      "summary": "美英日等13國聯合警告中國國家級駭客鹽颱風利用已知漏洞與配置不備入侵全球電信、政府、交通、軍事基礎設施，建立後門進行長期情報蒐集",
+      "source_name": "資安署",
+      "source_url": "https://moda.gov.tw/ACS/press/report/17402",
+      "is_awareness_case": true
+    },
+    {
+      "date": "2026-06-15",
+      "type": "勒索軟體",
+      "title": "RansomHub勒索集團攻擊超過200家企業",
+      "summary": "RansomHub勒索軟體從2月出現至今，已成功攻擊至少210家企業組織，涵蓋石油天然氣、科技等多個產業，美國聯邦政府發布詳細防禦指引",
+      "source_name": "iThome",
+      "source_url": "https://www.ithome.com.tw/news/164821",
+      "is_awareness_case": true
+    },
+    {
+      "date": "2026-03-31",
+      "type": "勒索軟體",
+      "title": "CrazyHunter勒索軟體集團鎖定台灣醫療機構",
+      "summary": "CrazyHunter勒索軟體集團採用極速滲透策略與AI技術，針對台灣醫療機構頻繁發動攻擊，結合BYOVD手法繞過防護機制進行橫向移動與加密",
       "source_name": "TWCERT/CC",
-      "source_url": "https://www.twcert.org.tw/tw/mp-1.html",
-      "is_awareness_case": false
+      "source_url": "https://www.twcert.org.tw/tw/cp-104-10043-5f54b-1.html",
+      "is_awareness_case": true
+    },
+    {
+      "date": "2026-01-20",
+      "type": "勒索軟體",
+      "title": "台灣7家企業同時遭勒索軟體攻擊",
+      "summary": "包括昭輝、億力光電、永擎等台灣企業及代工廠商接連遭Everest、Qilin等勒索軟體集團入侵，部分伺服器資料遭加密，顯示台灣企業成為駭客高價值目標",
+      "source_name": "iThome",
+      "source_url": "https://www.ithome.com.tw/news/173574",
+      "is_awareness_case": true
+    },
+    {
+      "date": "2026-01-20",
+      "type": "勒索軟體",
+      "title": "立訊精密遭RansomHub駭客入侵威脅洩露蘋果資料",
+      "summary": "中國代工巨頭立訊精密(為蘋果、Tesla、Nvidia代工)遭RansomHub入侵，駭客揚言洩露與客戶相關的機密設計與生產資料，引發全球關注",
+      "source_name": "iThome",
+      "source_url": "https://www.ithome.com.tw/news/173574",
+      "is_awareness_case": true
+    }
+  ],
+  "ai_summary": [
+    {
+      "heading": "Microsoft漏洞修補創紀錄",
+      "text": "微軟7月發布622個安全漏洞修補，創歷史新高。涉及CVE-2026-58644 SharePoint遠端程式碼執行、CVE-2026-56182 Windows NTFS權限提升、CVE-2026-56155 ADFS權限提升等多個關鍵漏洞，部分零日已遭惡意利用。Active Directory、SharePoint等核心系統風險最高，應列為優先修補目標。"
+    },
+    {
+      "heading": "企業關鍵系統漏洞風險",
+      "text": "Oracle E-Business Suite（CVE-2026-46817）允許未認證攻擊者接管支付系統、Microsoft SharePoint（CVE-2026-56164）認證缺失導致未授權權限提升、SonicWall SMA1000存在SSRF（CVE-2026-15409）與程式碼注入（CVE-2026-15410）漏洞。Joomla外掛（Balbooa Forms、iCagenda、SP Page Builder）均存在檔案上傳驗證缺陷導致RCE風險。這些漏洞影響廣泛，應優先排查部署情況。"
+    },
+    {
+      "heading": "AI自動化勒索攻擊升級",
+      "text": "研究人員警告駭客利用LLM驅動的AI代理與Langflow平臺自動化執行多階段勒索攻擊，大幅降低攻擊成本與偵測難度。RansomHub勒索集團半年內攻擊超過210家企業，涵蓋能源、金融等關鍵產業。駭客亦與專業入侵團隊TeamPCP結盟，形成工業化攻擊供應鏈，構成前所未有的威脅。"
+    },
+    {
+      "heading": "APT與供應鏈攻擊",
+      "text": "中國國家級駭客鹽颱風（Salt Typhoon）利用已知漏洞與配置不備滲透全球電信、政府、交通、軍事基礎設施，與三家中國企業關聯進行長期情報蒐集。AsyncAPI npm套件遭惡意軟體污染竊取開發者憑證，Google Gemini CLI遭濫用作為駭客工具與僵屍網路平台。供應鏈風險已成為新攻擊向量。"
+    },
+    {
+      "heading": "建議優先行動",
+      "text": "立即盤點環境中SharePoint、ADFS、NTFS、SonicWall SMA1000等漏洞受影響系統並部署微軟7月補丁。檢查Joomla外掛與Oracle E-Business Suite部署情況。強化檔案上傳驗證、多因素認證與特權帳號監控以防止AI自動化攻擊。監控供應鏈依賴（npm套件、開源專案）並審視開發人員存取權限與憑證安全。"
     }
   ]
 };
-const UPDATED_AT = "2026-07-13 12:00:00（台灣時間）";
+const UPDATED_AT = "2026/7/16 07:55:26（台灣時間）";
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
 
