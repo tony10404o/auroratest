@@ -2,8 +2,8 @@ name: Daily Security Report
 
 on:
   schedule:
-    # 每天 UTC 23:00 = 台灣時間隔天早上 07:00
-    - cron: '0 23 * * *'
+    # 每週一到週五 UTC 23:00 = 台灣時間隔天早上 07:00（週末不執行）
+    - cron: '0 23 * * 0-4'
   workflow_dispatch: {}
 
 permissions:
