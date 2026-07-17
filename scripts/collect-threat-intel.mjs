@@ -56,43 +56,29 @@ async function fetchVendorAdvisories() {
     fetchFeed("https://tools.cisco.com/security/center/psirtrss20/CiscoSecurityAdvisory.xml", 5, "Cisco PSIRT"),
     fetchFeed("https://filestore.fortinet.com/fortiguard/rss/ir.xml", 5, "Fortinet PSIRT"),
   ]);
-  return {
-    microsoft: msrc,
-    cisco: cisco,
-    fortinet: fortinet,
-  };
+  return { microsoft: msrc, cisco: cisco, fortinet: fortinet };
 }
 
 async function fetchIntlNews() {
   console.log("抓取國際資安新聞 RSS...");
   const [bleeping, krebs] = await Promise.all([
-    fetchFeed("https://www.bleepingcomputer.com/feed/", 5, "BleepingComputer"),
-    fetchFeed("https://krebsonsecurity.com/feed/", 5, "Krebs on Security"),
+    fetchFeed("https://www.bleepingcomputer.com/feed/", 8, "BleepingComputer"),
+    fetchFeed("https://krebsonsecurity.com/feed/", 8, "Krebs on Security"),
   ]);
   return { bleeping, krebs };
 }
 
-// ---------- 2. AI 分類與摘要（不用web_search，成本低） ----------
+// ---------- 2. JSON 解析與Claude呼叫（含重試機制） ----------
 
 function extractJsonObject(text) {
-  const cleaned = text
-    .trim()
-    .replace(/^```json/i, "")
-    .replace(/^```/, "")
-    .replace(/```$/, "")
-    .trim();
+  const cleaned = text.trim().replace(/^```json/i, "").replace(/^```/, "").replace(/```$/, "").trim();
   const match = cleaned.match(/\{[\s\S]*\}/);
   if (!match) throw new Error("回應內容中找不到 JSON 物件:\n" + text.slice(0, 500));
   return JSON.parse(match[0]);
 }
 
 function extractJsonArray(text) {
-  const cleaned = text
-    .trim()
-    .replace(/^```json/i, "")
-    .replace(/^```/, "")
-    .replace(/```$/, "")
-    .trim();
+  const cleaned = text.trim().replace(/^```json/i, "").replace(/^```/, "").replace(/```$/, "").trim();
   const match = cleaned.match(/\[[\s\S]*\]/);
   if (!match) throw new Error("回應內容中找不到 JSON 陣列:\n" + text.slice(0, 500));
   return JSON.parse(match[0]);
@@ -104,7 +90,6 @@ const JSON_SAFETY_NOTE = `
 
 /**
  * 呼叫Claude並解析JSON（物件或陣列），若解析失敗會自動重試一次
- * （AI輸出偶爾會有引號跳脫或格式問題，重試通常就能修正）
  */
 async function callClaudeForJson({ prompt, tools, maxTokens = 4096, label, parseAs = "object" }) {
   const parser = parseAs === "array" ? extractJsonArray : extractJsonObject;
@@ -185,8 +170,6 @@ Krebs on Security: ${JSON.stringify(intlNews.krebs, null, 2)}
   return await callClaudeForJson({ prompt, maxTokens: 8000, label: "分析分類" });
 }
 
-// ---------- 3. AI 搜尋（web_search，用在沒有乾淨API的類別） ----------
-
 async function searchRemainingCategories() {
   console.log("呼叫 Claude 搜尋（國內CERT/政府公告、IOC情資、勒索軟體與APT活動）...");
 
@@ -196,7 +179,7 @@ async function searchRemainingCategories() {
 搜尋台灣 TWCERT/CC（https://www.twcert.org.tw）與數位發展部資安署（ACS）過去14天內發布的資安公告、預警或新聞，列出5-8則。
 
 【任務二】IOC 情資重點
-搜尋過去7天內公開報導中，資安業者/研究單位揭露的重要IOC（惡意IP、網域、檔案雜湊、URL）相關情資重點，例如新型惡意程式的C2網域、釣魚網域、勒索軟體樣本雜湊等，列出4-6則有公開來源可查證的重點（不需要列出完整IOC清單，重點是說明「哪個攻擊行動/惡意程式」關聯到什麼類型的IOC，並附來源連結）。
+搜尋過去7天內公開報導中，資安業者/研究單位揭露的重要IOC（惡意IP、網域、檔案雜湊、URL）相關情資重點，列出4-6則有公開來源可查證的重點。
 
 【任務三】勒索軟體與APT活動
 搜尋過去14天內全球重大勒索軟體攻擊事件、勒索軟體集團動態、以及APT（國家級駭客組織）活動相關新聞，列出5-8則。
@@ -207,7 +190,7 @@ async function searchRemainingCategories() {
     { "date": "YYYY-MM-DD", "source": "TWCERT/CC 或 資安署", "title": "公告標題", "summary": "40字以內摘要", "url": "來源網址", "is_awareness_case": true或false（是否適合做員工資安宣導教育） }
   ],
   "ioc_highlights": [
-    { "campaign": "攻擊行動/惡意程式名稱", "ioc_types": ["IP","Domain","Hash","URL"]（列出這則情資涉及的IOC類型即可，陣列）, "summary": "50字以內說明", "source_name": "來源名稱", "source_url": "來源網址" }
+    { "campaign": "攻擊行動/惡意程式名稱", "ioc_types": ["IP","Domain","Hash","URL"], "summary": "50字以內說明", "source_name": "來源名稱", "source_url": "來源網址" }
   ],
   "ransomware_apt": [
     { "date": "YYYY-MM-DD", "type": "勒索軟體 或 APT", "title": "事件/組織名稱", "summary": "50字以內摘要", "source_name": "來源名稱", "source_url": "來源網址", "is_awareness_case": true或false（是否適合做員工資安宣導教育） }
@@ -224,24 +207,29 @@ async function searchRemainingCategories() {
   });
 }
 
-// ---------- 4. AI 綜合摘要 ----------
+// ---------- 3. AI 綜合摘要（事件/建議兩欄格式） ----------
 
 async function generateSummary(result) {
-  console.log("呼叫 Claude 產生今日綜合摘要（分段版）...");
+  console.log("呼叫 Claude 產生今日綜合摘要（事件/建議兩欄版）...");
 
-  const prompt = `你是資安分析師，以下是今天彙整好的威脅情資（JSON），請用繁體中文寫一份「今日摘要」，給IT／資安管理人員快速掌握重點，但要比一般摘要更詳細一些。
+  const prompt = `你是資安分析師，以下是今天彙整好的威脅情資（JSON），請用繁體中文寫一份「今日摘要」，給IT／資安管理人員快速掌握重點。
 
-請將摘要拆成 3-5 個獨立段落，每個段落聚焦一個面向，例如（依實際資料調整，不用完全照抄）：
+請將摘要拆成 3-5 個獨立項目，每個項目聚焦一個面向，例如（依實際資料調整，不用完全照抄）：
 - 高風險漏洞與0-day動態
 - 重大攻擊事件／資料外洩
 - 勒索軟體與APT組織動態
 - 趨勢觀察或需留意的攻擊手法
 
-每段請給一個簡短標題（4-8字），內文80-120字：先具體點出關鍵事實（例如CVE編號、廠商、公司名稱），再緊接著在同一段內給出針對這個面向的具體建議行動（例如「建議立即確認XX是否已修補」），不要把建議行動獨立成另一個段落，而是自然融入每段的結尾。若某面向今天沒有值得寫的內容，可以省略該段落，不用硬湊。
+每個項目請給：
+1. 一個簡短標題（4-8字）
+2. 「事件」欄位：50-80字，具體點出關鍵事實（例如CVE編號、廠商、公司名稱）
+3. 「建議」欄位：30-50字，針對這個事件給出具體可執行的建議行動
+
+若某面向今天沒有值得寫的內容，可以省略該項目，不用硬湊。
 
 請「只」回傳一個 JSON 陣列，不要有任何前言、說明文字或 markdown 的 \`\`\` 符號，格式如下：
 [
-  { "heading": "段落標題", "text": "段落內文" }
+  { "heading": "項目標題", "event": "事件描述", "suggestion": "建議行動" }
 ]
 
 資料：
@@ -250,7 +238,7 @@ ${JSON.stringify(result, null, 2)}`;
   return await callClaudeForJson({ prompt, maxTokens: 1500, label: "AI摘要", parseAs: "array" });
 }
 
-// ---------- 5. 主流程 ----------
+// ---------- 4. 主流程 ----------
 
 async function main() {
   const [kev, vendorAdvisories, intlNews] = await Promise.all([
@@ -276,7 +264,7 @@ async function main() {
   );
 
   result.ai_summary = await generateSummary(result);
-  console.log("AI摘要：", result.ai_summary);
+  console.log("AI摘要：", JSON.stringify(result.ai_summary));
 
   const templatePath = path.join(process.cwd(), "templates", "threat-intel-template.html");
   let html = fs.readFileSync(templatePath, "utf-8");

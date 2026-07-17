@@ -30,7 +30,6 @@ function extractAttr(block, tag, attr) {
 export function parseFeed(xmlText, limit = 10) {
   const items = [];
 
-  // RSS 2.0: <item>...</item>
   const rssItems = xmlText.match(/<item[\s\S]*?<\/item>/gi) || [];
   for (const block of rssItems) {
     const title = extractTag(block, "title");
@@ -43,7 +42,6 @@ export function parseFeed(xmlText, limit = 10) {
 
   if (items.length > 0) return items;
 
-  // Atom: <entry>...</entry>
   const atomItems = xmlText.match(/<entry[\s\S]*?<\/entry>/gi) || [];
   for (const block of atomItems) {
     const title = extractTag(block, "title");
