@@ -10,12 +10,22 @@ if (!apiKey) {
 }
 const anthropic = new Anthropic({ apiKey });
 
-const DAYS_BACK = 14;
+const DAYS_BACK = 2;
 
 function daysAgo(n) {
   const d = new Date();
   d.setDate(d.getDate() - n);
   return d;
+}
+
+function filterRecentItems(items, days = DAYS_BACK) {
+  const cutoff = daysAgo(days);
+  return items.filter((item) => {
+    if (!item.pubDate) return true; // 沒有日期資訊時保留，避免誤刪
+    const d = new Date(item.pubDate);
+    if (isNaN(d.getTime())) return true; // 無法解析日期時保留
+    return d >= cutoff;
+  });
 }
 
 // ---------- 1. 抓取官方免費 Feed（不花 AI 錢） ----------
@@ -52,20 +62,27 @@ async function fetchCisaKev() {
 async function fetchVendorAdvisories() {
   console.log("抓取廠商安全公告 RSS...");
   const [msrc, cisco, fortinet] = await Promise.all([
-    fetchFeed("https://api.msrc.microsoft.com/update-guide/rss", 5, "Microsoft MSRC"),
-    fetchFeed("https://tools.cisco.com/security/center/psirtrss20/CiscoSecurityAdvisory.xml", 5, "Cisco PSIRT"),
-    fetchFeed("https://filestore.fortinet.com/fortiguard/rss/ir.xml", 5, "Fortinet PSIRT"),
+    fetchFeed("https://api.msrc.microsoft.com/update-guide/rss", 10, "Microsoft MSRC"),
+    fetchFeed("https://tools.cisco.com/security/center/psirtrss20/CiscoSecurityAdvisory.xml", 10, "Cisco PSIRT"),
+    fetchFeed("https://filestore.fortinet.com/fortiguard/rss/ir.xml", 10, "Fortinet PSIRT"),
   ]);
-  return { microsoft: msrc, cisco: cisco, fortinet: fortinet };
+  return {
+    microsoft: filterRecentItems(msrc),
+    cisco: filterRecentItems(cisco),
+    fortinet: filterRecentItems(fortinet),
+  };
 }
 
 async function fetchIntlNews() {
   console.log("抓取國際資安新聞 RSS...");
   const [bleeping, krebs] = await Promise.all([
-    fetchFeed("https://www.bleepingcomputer.com/feed/", 8, "BleepingComputer"),
-    fetchFeed("https://krebsonsecurity.com/feed/", 8, "Krebs on Security"),
+    fetchFeed("https://www.bleepingcomputer.com/feed/", 15, "BleepingComputer"),
+    fetchFeed("https://krebsonsecurity.com/feed/", 15, "Krebs on Security"),
   ]);
-  return { bleeping, krebs };
+  return {
+    bleeping: filterRecentItems(bleeping),
+    krebs: filterRecentItems(krebs),
+  };
 }
 
 // ---------- 2. JSON 解析與Claude呼叫（含重試機制） ----------
@@ -164,7 +181,7 @@ Krebs on Security: ${JSON.stringify(intlNews.krebs, null, 2)}
 注意事項：
 - kev_vulnerabilities 最多列出前10筆，依date_added新到舊排序
 - vendor_advisories 每家廠商最多列出前5則，優先列出看起來較嚴重（RCE、權限提升、認證繞過等）的項目
-- international_news 挑選最重要的6-8則，摘要必須用自己的話改寫，不要照抄原文標題字句
+- international_news 挑選最重要的3-6則（原始資料已限縮為當天與昨天），摘要必須用自己的話改寫，不要照抄原文標題字句
 - 如果某類別原始資料是空的，該欄位回傳空陣列即可`;
 
   return await callClaudeForJson({ prompt, maxTokens: 8000, label: "分析分類" });
@@ -176,13 +193,13 @@ async function searchRemainingCategories() {
   const prompt = `請完成以下三項任務，並回傳單一 JSON 物件（不要有任何前言、說明文字或 markdown 的 \`\`\` 符號）。請盡量精簡搜尋次數（6次以內廣泛搜尋）。
 
 【任務一】國內 CERT 與政府資安公告
-搜尋台灣 TWCERT/CC（https://www.twcert.org.tw）與數位發展部資安署（ACS）過去14天內發布的資安公告、預警或新聞，列出5-8則。
+搜尋台灣 TWCERT/CC（https://www.twcert.org.tw）與數位發展部資安署（ACS）當天與昨天發布的資安公告、預警或新聞，列出最多5則（若沒有那麼多則資料就列出實際找到的數量，不用湊）。
 
 【任務二】IOC 情資重點
-搜尋過去7天內公開報導中，資安業者/研究單位揭露的重要IOC（惡意IP、網域、檔案雜湊、URL）相關情資重點，列出4-6則有公開來源可查證的重點。
+搜尋當天與昨天公開報導中，資安業者/研究單位揭露的重要IOC（惡意IP、網域、檔案雜湊、URL）相關情資重點，列出最多4則有公開來源可查證的重點。
 
 【任務三】勒索軟體與APT活動
-搜尋過去14天內全球重大勒索軟體攻擊事件、勒索軟體集團動態、以及APT（國家級駭客組織）活動相關新聞，列出5-8則。
+搜尋當天與昨天全球重大勒索軟體攻擊事件、勒索軟體集團動態、以及APT（國家級駭客組織）活動相關新聞，列出最多5則。
 
 回傳格式：
 {
