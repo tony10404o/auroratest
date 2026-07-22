@@ -100,6 +100,24 @@
   .tag.sev-低{color:var(--sev-low);background:var(--sev-low-bg);border-color:transparent;}
   .tag.ransomware{color:var(--sev-high);background:var(--sev-high-bg);border-color:transparent;font-weight:600;}
   .tag.kpi{color:var(--accent);background:rgba(37,99,235,0.08);border-color:transparent;}
+
+  /* KEV 編號列表卡片 */
+  .kev-card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px 18px 6px;margin-bottom:20px;}
+  .kev-card-header{display:flex;align-items:flex-start;gap:10px;margin-bottom:14px;}
+  .kev-card-icon{width:30px;height:30px;border-radius:8px;background:var(--panel-alt);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
+  .kev-card-title{font-size:14px;font-weight:700;color:var(--text);}
+  .kev-card-sub{font-size:11.5px;color:var(--text-dim);margin-top:1px;}
+  .kev-card-badge{margin-left:auto;background:var(--accent);color:#fff;font-size:11px;font-weight:700;padding:3px 11px;border-radius:20px;font-family:'JetBrains Mono',monospace;white-space:nowrap;}
+  .kev-row{display:flex;gap:10px;padding:11px 0;border-top:1px solid var(--border);}
+  .kev-row:first-child{border-top:none;}
+  .kev-num{width:20px;height:20px;border-radius:50%;background:var(--panel-alt);color:var(--text-dim);font-size:10.5px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'JetBrains Mono',monospace;margin-top:1px;}
+  .kev-row-body{flex:1;min-width:0;}
+  .kev-row-title{font-size:13px;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:6px;}
+  .kev-row-title .ext-link{color:var(--accent);font-size:11px;margin-left:2px;text-decoration:none;}
+  .kev-row-meta{display:flex;gap:12px;flex-wrap:wrap;font-size:11px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;margin-bottom:7px;}
+  .kev-row-meta span{display:inline-flex;align-items:center;gap:4px;}
+  .kev-row-tags{display:flex;gap:6px;flex-wrap:wrap;}
+  .kev-row-tags .tag{font-size:10px;}
   .card-summary{font-size:12.5px;color:var(--text-dim);line-height:1.6;}
   .card-bottom{display:flex;justify-content:space-between;align-items:center;gap:10px;}
   .card-link{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);text-decoration:none;white-space:nowrap;}
@@ -474,21 +492,59 @@ function kevKpiTags(v){
   return tags.map(t => `<span class="tag kpi">${t}</span>`).join('');
 }
 
-function renderKev(items){
-  if (!items || !items.length) return emptyNote();
-  return `<div class="list">${items.map(v => `
-    <div class="card ${v.known_ransomware_use ? 'sev-高' : 'plain'}">
-      <div class="card-top">
-        <div class="card-title">${escapeHtml(v.cve_id || '')} － ${escapeHtml(v.title || '')}</div>
-        <div class="card-date">${escapeHtml(v.date_added || '')}</div>
+function daysSince(dateStr){
+  if (!dateStr) return '';
+  const d = new Date(dateStr);
+  if (isNaN(d.getTime())) return '';
+  const diff = Math.floor((Date.now() - d.getTime()) / 86400000);
+  if (diff <= 0) return '今天新增';
+  if (diff === 1) return '昨天新增';
+  return `${diff}天前新增`;
+}
+
+function renderKevCard(items){
+  const count = (items || []).length;
+  if (!items || !items.length){
+    return `<div class="kev-card">
+      <div class="kev-card-header">
+        <div class="kev-card-icon">🎯</div>
+        <div>
+          <div class="kev-card-title">CISA KEV 已知遭實際利用漏洞</div>
+          <div class="kev-card-sub">CISA官方Feed，依新增日期排序</div>
+        </div>
+        <div class="kev-card-badge">0 筆</div>
       </div>
-      <div class="tags">
-        <span class="tag">${escapeHtml(v.vendor_product || '')}</span>
-        ${v.known_ransomware_use ? `<span class="tag ransomware">⚠ 已知遭勒索軟體利用</span>` : ''}
-        ${kevKpiTags(v)}
+      ${emptyNote()}
+    </div>`;
+  }
+  const rows = items.map((v, i) => `
+    <div class="kev-row">
+      <div class="kev-num">${i + 1}</div>
+      <div class="kev-row-body">
+        <div class="kev-row-title">${escapeHtml(v.cve_id || '')} － ${escapeHtml(v.title || '')}</div>
+        <div class="kev-row-meta">
+          <span>🏢 ${escapeHtml(v.vendor_product || '')}</span>
+          <span>📅 ${escapeHtml(v.date_added || '')}（${daysSince(v.date_added)}）</span>
+        </div>
+        <div class="kev-row-tags">
+          ${v.is_zero_day ? `<span class="tag zeroday">🔥 0-day</span>` : ''}
+          ${v.known_ransomware_use ? `<span class="tag ransomware">⚠ 已知遭勒索利用</span>` : `<span class="tag">一般</span>`}
+          ${kevKpiTags(v)}
+        </div>
       </div>
-      ${v.summary ? `<div class="card-summary">${escapeHtml(v.summary)}</div>` : ''}
-    </div>`).join('')}</div>`;
+    </div>`).join('');
+
+  return `<div class="kev-card">
+    <div class="kev-card-header">
+      <div class="kev-card-icon">🎯</div>
+      <div>
+        <div class="kev-card-title">CISA KEV 已知遭實際利用漏洞</div>
+        <div class="kev-card-sub">CISA官方Feed，依新增日期排序</div>
+      </div>
+      <div class="kev-card-badge">${count} 筆</div>
+    </div>
+    ${rows}
+  </div>`;
 }
 
 function renderVendorAdvisories(items){
@@ -568,7 +624,7 @@ function renderRansomwareApt(items){
 
 const leftHtml = [
   section('🇹🇼', '國內 CERT 與政府資安公告', (DATA.gov_announcements||[]).length + ' 則', renderGov(DATA.gov_announcements)),
-  section('🎯', 'CISA KEV 已知遭實際利用漏洞', (DATA.kev_vulnerabilities||[]).length + ' 筆', renderKev(DATA.kev_vulnerabilities)),
+  renderKevCard(DATA.kev_vulnerabilities),
 ].join('');
 
 const middleHtml = [
