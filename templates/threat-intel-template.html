@@ -123,6 +123,12 @@
   .card-link{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);text-decoration:none;white-space:nowrap;}
   .card-link:hover{text-decoration:underline;}
   .empty-note{color:var(--text-faint);font-size:12px;padding:10px 0;font-family:'JetBrains Mono',monospace;}
+  .show-more-btn{
+    width:100%;margin-top:8px;padding:8px;background:var(--panel-alt);border:1px dashed var(--border);
+    border-radius:7px;color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:600;
+    cursor:pointer;transition:background .15s;
+  }
+  .show-more-btn:hover{background:var(--border);}
 
   .footer-note{text-align:center;font-size:11px;color:var(--text-faint);margin-top:30px;font-family:'JetBrains Mono',monospace;}
   @media (max-width:600px){.header{flex-direction:column;align-items:flex-start;}}
@@ -173,6 +179,24 @@ const DATA = __THREAT_INTEL_JSON__;
 const UPDATED_AT = "__UPDATED_AT__";
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
+
+const SHOW_LIMIT = 5;
+
+function toggleMore(btn){
+  const wrapper = btn.previousElementSibling;
+  const isHidden = wrapper.style.display === 'none';
+  wrapper.style.display = isHidden ? '' : 'none';
+  btn.textContent = isHidden ? '收合 ▲' : btn.dataset.moreLabel;
+}
+window.toggleMore = toggleMore;
+
+function withShowMore(itemHtmls){
+  const visible = itemHtmls.slice(0, SHOW_LIMIT).join('');
+  const rest = itemHtmls.slice(SHOW_LIMIT);
+  if (!rest.length) return visible;
+  const label = `查看更多（+${rest.length}） ▼`;
+  return `${visible}<div class="more-items" style="display:none">${rest.join('')}</div><button class="show-more-btn" data-more-label="${label}" onclick="toggleMore(this)">${label}</button>`;
+}
 
 document.getElementById('badgeDate').textContent = UPDATED_AT;
 
@@ -273,7 +297,7 @@ function renderKevCard(items){
       ${emptyNote()}
     </div>`;
   }
-  const rows = items.map((v, i) => `
+  const rowHtmls = items.map((v, i) => `
     <div class="kev-row">
       <div class="kev-num">${i + 1}</div>
       <div class="kev-row-body">
@@ -288,7 +312,7 @@ function renderKevCard(items){
           ${kevKpiTags(v)}
         </div>
       </div>
-    </div>`).join('');
+    </div>`);
 
   return `<div class="kev-card">
     <div class="kev-card-header">
@@ -299,13 +323,13 @@ function renderKevCard(items){
       </div>
       <div class="kev-card-badge">${count} 筆</div>
     </div>
-    ${rows}
+    ${withShowMore(rowHtmls)}
   </div>`;
 }
 
 function renderVendorAdvisories(items){
   if (!items || !items.length) return emptyNote();
-  return `<div class="list">${items.map(v => `
+  const cards = items.map(v => `
     <div class="card sev-${escapeHtml(v.severity_guess || '')}">
       <div class="card-top"><div class="card-title">${escapeHtml(v.title || '')}</div></div>
       <div class="tags">
@@ -314,12 +338,13 @@ function renderVendorAdvisories(items){
         ${v.severity_guess === '高' ? `<span class="tag kpi">🎯Critical/High漏洞</span>` : ''}
       </div>
       ${v.url ? `<div class="card-bottom"><span></span><a class="card-link" href="${escapeHtml(v.url)}" target="_blank" rel="noopener noreferrer">查看公告 ↗</a></div>` : ''}
-    </div>`).join('')}</div>`;
+    </div>`);
+  return `<div class="list">${withShowMore(cards)}</div>`;
 }
 
 function renderNews(items){
   if (!items || !items.length) return emptyNote();
-  return `<div class="list">${items.map(n => `
+  const cards = items.map(n => `
     <div class="card plain">
       <div class="card-top"><div class="card-title">${escapeHtml(n.title || '')}</div></div>
       <div class="tags">
@@ -328,12 +353,13 @@ function renderNews(items){
       </div>
       ${n.summary ? `<div class="card-summary">${escapeHtml(n.summary)}</div>` : ''}
       ${n.url ? `<div class="card-bottom"><span></span><a class="card-link" href="${escapeHtml(n.url)}" target="_blank" rel="noopener noreferrer">閱讀原文 ↗</a></div>` : ''}
-    </div>`).join('')}</div>`;
+    </div>`);
+  return `<div class="list">${withShowMore(cards)}</div>`;
 }
 
 function renderGov(items){
   if (!items || !items.length) return emptyNote();
-  return `<div class="list">${items.map(g => `
+  const cards = items.map(g => `
     <div class="card plain">
       <div class="card-top">
         <div class="card-title">${escapeHtml(g.title || '')}</div>
@@ -345,23 +371,25 @@ function renderGov(items){
       </div>
       ${g.summary ? `<div class="card-summary">${escapeHtml(g.summary)}</div>` : ''}
       ${g.url ? `<div class="card-bottom"><span></span><a class="card-link" href="${escapeHtml(g.url)}" target="_blank" rel="noopener noreferrer">查看公告 ↗</a></div>` : ''}
-    </div>`).join('')}</div>`;
+    </div>`);
+  return `<div class="list">${withShowMore(cards)}</div>`;
 }
 
 function renderIoc(items){
   if (!items || !items.length) return emptyNote();
-  return `<div class="list">${items.map(i => `
+  const cards = items.map(i => `
     <div class="card plain">
       <div class="card-top"><div class="card-title">${escapeHtml(i.campaign || '')}</div></div>
       <div class="tags">${(i.ioc_types || []).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}</div>
       ${i.summary ? `<div class="card-summary">${escapeHtml(i.summary)}</div>` : ''}
       ${i.source_url ? `<div class="card-bottom"><span style="font-size:11px;color:var(--text-faint);">${escapeHtml(i.source_name || '')}</span><a class="card-link" href="${escapeHtml(i.source_url)}" target="_blank" rel="noopener noreferrer">來源 ↗</a></div>` : ''}
-    </div>`).join('')}</div>`;
+    </div>`);
+  return `<div class="list">${withShowMore(cards)}</div>`;
 }
 
 function renderRansomwareApt(items){
   if (!items || !items.length) return emptyNote();
-  return `<div class="list">${items.map(r => `
+  const cards = items.map(r => `
     <div class="card ${r.type === '勒索軟體' ? 'sev-高' : 'plain'}">
       <div class="card-top">
         <div class="card-title">${escapeHtml(r.title || '')}</div>
@@ -375,7 +403,8 @@ function renderRansomwareApt(items){
       </div>
       ${r.summary ? `<div class="card-summary">${escapeHtml(r.summary)}</div>` : ''}
       ${r.source_url ? `<div class="card-bottom"><span style="font-size:11px;color:var(--text-faint);">${escapeHtml(r.source_name || '')}</span><a class="card-link" href="${escapeHtml(r.source_url)}" target="_blank" rel="noopener noreferrer">來源 ↗</a></div>` : ''}
-    </div>`).join('')}</div>`;
+    </div>`);
+  return `<div class="list">${withShowMore(cards)}</div>`;
 }
 
 const leftHtml = [
