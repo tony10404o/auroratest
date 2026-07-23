@@ -35,7 +35,8 @@
   .badge .badge-value{font-size:12.5px;font-weight:600;color:var(--text);}
 
   .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:30px;}
-  .stat-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px 16px 14px;border-top:3px solid var(--accent);}
+  .stat-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px 16px 14px;border-top:3px solid var(--accent);min-height:150px;display:flex;flex-direction:column;}
+  .stat-desc{flex:1;}
   .stat-card.tone-高{border-top-color:var(--sev-high);}
   .stat-card.tone-中{border-top-color:var(--sev-medium);}
   .stat-card.tone-低{border-top-color:var(--sev-low);}
