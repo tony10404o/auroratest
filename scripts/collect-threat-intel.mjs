@@ -226,33 +226,107 @@ async function searchRemainingCategories() {
 
 // ---------- 3. AI 綜合摘要（事件/建議兩欄格式） ----------
 
-async function generateSummary(result) {
-  console.log("呼叫 Claude 產生今日綜合摘要（事件/建議兩欄版）...");
+async function buildDashboard(result) {
+  console.log("呼叫 Claude 產生儀表板六大面板資料...");
 
-  const prompt = `你是資安分析師，以下是今天彙整好的威脅情資（JSON），請用繁體中文寫一份「今日摘要」，給IT／資安管理人員快速掌握重點。
+  const prompt = `你是資安分析師，以下是今天彙整好的原始威脅情資（JSON）。請根據這些資料，產生一份給IT／資安管理人員看的儀表板資料。
 
-請將摘要拆成 3-5 個獨立項目，每個項目聚焦一個面向，例如（依實際資料調整，不用完全照抄）：
-- 高風險漏洞與0-day動態
-- 重大攻擊事件／資料外洩
-- 勒索軟體與APT組織動態
-- 趨勢觀察或需留意的攻擊手法
+原始資料：
+${JSON.stringify(result, null, 2)}
 
-每個項目請給：
-1. 一個簡短標題（4-8字）
-2. 「事件」欄位：50-80字，具體點出關鍵事實（例如CVE編號、廠商、公司名稱）
-3. 「建議」欄位：30-50字，針對這個事件給出具體可執行的建議行動
+請「只」回傳一個 JSON 物件，不要有任何前言、說明文字或 markdown 的 \`\`\` 符號，格式如下：
 
-若某面向今天沒有值得寫的內容，可以省略該項目，不用硬湊。
+{
+  "headlines": [
+    {
+      "icon": "一個表情符號，代表這則的類型（例如🦠勒索病毒、🎯漏洞、🕵️APT、📰新聞）",
+      "title": "簡潔標題（可参考原始資料的title/topic欄位）",
+      "subtitle": "10-20字補充說明",
+      "impact": "高、中或低（對一般企業的潛在影響程度）",
+      "stars": 1到5的整數（重要程度評分，5最重要）,
+      "url": "來源網址（從原始資料對應項目取得，若無可省略）"
+    }
+  ],
+  "vendor_impact": [
+    {
+      "icon": "廠商對應表情符號，例如Microsoft用🪟、Cisco用🔀、Fortinet用🛡️，其餘用🏢",
+      "title": "廠商公告標題（可参考原始資料）",
+      "impact": "高、中或低",
+      "key_asset": "這則公告主要涉及的關鍵設備/軟體名稱（例如：FortiGate防火牆、Windows Server、SharePoint等），15字以內",
+      "ai_suggestion": "20-40字的具體建議行動"
+    }
+  ],
+  "cve_radar": [
+    {
+      "cve_id": "CVE編號",
+      "title": "漏洞簡短說明，20字以內",
+      "cvss_estimate": 0.0到10.0的數字（根據漏洞描述研判的CVSS分數估計值，越嚴重分數越高，保留1位小數）,
+      "exploited": true或false（是否已知遭實際利用，KEV清單裡的項目一律為true）,
+      "action": "立即更新、一週內更新、持續觀察 或 暫不處理 其中一個（根據嚴重度與是否已遭利用判斷）"
+    }
+  ],
+  "daily_learning": {
+    "icon": "一個表情符號",
+    "title": "今天的資安知識小主題標題（8-15字，可從今天資料中挑一個值得員工認識的名詞或攻擊手法，例如MFA Fatigue、釣魚郵件辨識等）",
+    "description": "60-100字的淺顯說明，用一般員工看得懂的語言解釋這個主題是什麼、為什麼要注意",
+    "reading_time": "1到5之間的數字（預估閱讀分鐘數）",
+    "url": "若這個主題有對應的今日新聞來源網址可放，沒有則省略"
+  },
+  "global_events": [
+    {
+      "category": "勒索病毒、APT攻擊、資料外洩、零時差漏洞 或 政府公告 其中一個",
+      "title": "事件標題",
+      "date": "YYYY-MM-DD（依原始資料的date/date_added欄位）",
+      "url": "來源網址"
+    }
+  ]
+}
 
-請「只」回傳一個 JSON 陣列，不要有任何前言、說明文字或 markdown 的 \`\`\` 符號，格式如下：
-[
-  { "heading": "項目標題", "event": "事件描述", "suggestion": "建議行動" }
-]
+規則：
+- headlines 從所有原始資料中，挑選今天最重要的5則（跨類別挑選，不限單一類別）
+- vendor_impact 從 vendor_advisories 轉換，保留原本筆數
+- cve_radar 從 kev_vulnerabilities 轉換，保留原本筆數，依cvss_estimate高到低排序
+- global_events 從 kev_vulnerabilities（挑is_zero_day或known_ransomware_use的）、ransomware_apt、gov_announcements 轉換彙整，最多12則，依日期新到舊排序
+- 所有評分（impact、stars、cvss_estimate）都是AI研判的參考值，請根據資料內容合理判斷，不要每個都給一樣的分數`;
 
-資料：
-${JSON.stringify(result, null, 2)}`;
+  return await callClaudeForJson({ prompt, maxTokens: 8000, label: "儀表板資料" });
+}
 
-  return await callClaudeForJson({ prompt, maxTokens: 1500, label: "AI摘要", parseAs: "array" });
+function computeRiskScore(result) {
+  const kev = result.kev_vulnerabilities || [];
+  const vendor = result.vendor_advisories || [];
+  const ransomwareApt = result.ransomware_apt || [];
+
+  const zeroDayCount = kev.filter((v) => v.is_zero_day).length;
+  const kevRansomwareCount = kev.filter((v) => v.known_ransomware_use).length;
+  const vendorHighCount = vendor.filter((v) => v.severity_guess === "高").length;
+  const ransomwareCount = ransomwareApt.filter((r) => r.type === "勒索軟體").length;
+  const aptCount = ransomwareApt.filter((r) => r.type === "APT").length;
+  const aiRelatedCount = [...(result.international_news || []), ...ransomwareApt].filter(
+    (i) => (i.title || "").toLowerCase().includes("ai") || (i.summary || "").toLowerCase().includes("ai")
+  ).length;
+
+  const clamp = (n) => Math.max(0, Math.min(100, Math.round(n)));
+
+  const vulnRisk = clamp(kev.length * 12 + zeroDayCount * 15 + vendorHighCount * 8);
+  const aptRisk = clamp(aptCount * 30);
+  const ransomwareRisk = clamp(ransomwareCount * 22 + kevRansomwareCount * 15);
+  const identityRisk = clamp(
+    kev.filter((v) => /AD FS|Active Directory|身分|認證|授權/.test(v.title || "")).length * 25
+  );
+  const aiRisk = clamp(aiRelatedCount * 20);
+
+  const breakdown = [
+    { label: "漏洞風險", score: vulnRisk },
+    { label: "APT攻擊", score: aptRisk },
+    { label: "勒索病毒", score: ransomwareRisk },
+    { label: "身份風險", score: identityRisk },
+    { label: "AI風險", score: aiRisk },
+  ];
+
+  const total = clamp(breakdown.reduce((sum, b) => sum + b.score, 0) / breakdown.length);
+
+  return { total, breakdown };
 }
 
 // ---------- 4. 主流程 ----------
@@ -280,15 +354,18 @@ async function main() {
     `彙整完成：KEV ${result.kev_vulnerabilities.length} / 廠商公告 ${result.vendor_advisories.length} / 國際新聞 ${result.international_news.length} / 政府公告 ${result.gov_announcements.length} / IOC ${result.ioc_highlights.length} / 勒索軟體APT ${result.ransomware_apt.length}`
   );
 
-  result.ai_summary = await generateSummary(result);
-  console.log("AI摘要：", JSON.stringify(result.ai_summary));
+  const dashboard = await buildDashboard(result);
+  dashboard.risk_score = computeRiskScore(result);
+  console.log(
+    `儀表板產生完成：頭條${(dashboard.headlines||[]).length} / 全球事件${(dashboard.global_events||[]).length} / CVE雷達${(dashboard.cve_radar||[]).length} / 廠商影響${(dashboard.vendor_impact||[]).length} / 風險分數${dashboard.risk_score.total}`
+  );
 
   const templatePath = path.join(process.cwd(), "templates", "threat-intel-template.html");
   let html = fs.readFileSync(templatePath, "utf-8");
 
   const updatedAt = new Date().toLocaleString("zh-TW", { timeZone: "Asia/Taipei", hour12: false });
 
-  html = html.replace("__THREAT_INTEL_JSON__", JSON.stringify(result, null, 2));
+  html = html.replace("__DASHBOARD_JSON__", JSON.stringify(dashboard, null, 2));
   html = html.replace("__UPDATED_AT__", updatedAt + "（台灣時間）");
 
   fs.mkdirSync("docs", { recursive: true });

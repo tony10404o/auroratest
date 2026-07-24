@@ -19,120 +19,115 @@
   body{
     background:radial-gradient(ellipse 900px 500px at 15% -10%, rgba(37,99,235,0.04), transparent), var(--bg);
     color:var(--text);font-family:'IBM Plex Sans TC','Noto Sans TC',sans-serif;
-    min-height:100vh;padding:28px 20px 60px;
+    min-height:100vh;padding:24px 20px 60px;
   }
   .wrap{max-width:1300px;margin:0 auto;}
-  .header{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:14px;padding-bottom:18px;margin-bottom:6px;border-bottom:1px solid var(--border);}
+
+  /* header */
+  .header{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:14px;padding-bottom:16px;margin-bottom:4px;border-bottom:1px solid var(--border);}
   .brand{display:flex;align-items:center;gap:10px;}
-  .brand-icon{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#2A5CAF);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
-  .brand h1{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;letter-spacing:0.3px;}
-  .brand .sub{font-size:11.5px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;margin-top:2px;}
-  .exec-tagline{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--accent);letter-spacing:0.5px;margin:10px 0 16px;}
+  .brand-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#2A5CAF);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
+  .brand h1{font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:700;letter-spacing:0.3px;}
+  .brand .sub{font-size:11px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;margin-top:1px;}
+  .meta-line{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-dim);}
 
-  .badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px;}
-  .badge{background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:7px 12px;display:flex;flex-direction:column;gap:1px;}
-  .badge .badge-label{font-family:'JetBrains Mono',monospace;font-size:9.5px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.5px;}
-  .badge .badge-value{font-size:12.5px;font-weight:600;color:var(--text);}
+  .dashboard-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px;}
+  @media (max-width:1000px){.dashboard-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+  @media (max-width:640px){.dashboard-grid{grid-template-columns:1fr;}}
 
-  .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:30px;}
-  .stat-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px 16px 14px;border-top:3px solid var(--accent);min-height:150px;display:flex;flex-direction:column;}
-  .stat-desc{flex:1;}
-  .stat-card.tone-高{border-top-color:var(--sev-high);}
-  .stat-card.tone-中{border-top-color:var(--sev-medium);}
-  .stat-card.tone-低{border-top-color:var(--sev-low);}
-  .stat-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;}
-  .stat-label{font-size:12px;font-weight:600;color:var(--text-dim);}
-  .stat-badge{font-family:'JetBrains Mono',monospace;font-size:10px;padding:2px 8px;border-radius:20px;background:var(--panel-alt);color:var(--text-dim);white-space:nowrap;}
-  .stat-badge.tone-高{color:var(--sev-high);background:var(--sev-high-bg);}
-  .stat-badge.tone-中{color:var(--sev-medium);background:var(--sev-medium-bg);}
-  .stat-badge.tone-低{color:var(--sev-low);background:var(--sev-low-bg);}
-  .stat-number{font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700;color:var(--text);line-height:1;margin-bottom:8px;}
-  .stat-number span{font-size:14px;color:var(--text-dim);font-weight:500;margin-left:2px;}
-  .stat-desc{font-size:11.5px;color:var(--text-dim);line-height:1.6;}
-  @media (max-width:800px){.stat-grid{grid-template-columns:repeat(2,1fr);}}
-  @media (max-width:480px){.stat-grid{grid-template-columns:1fr;}}
-
-  .ai-summary{
-    background:linear-gradient(135deg, rgba(37,99,235,0.05), rgba(37,99,235,0.01));
-    border:1px solid var(--border);border-left:4px solid var(--accent);
-    border-radius:10px;padding:16px 18px;margin-bottom:26px;overflow-x:auto;
-  }
-  .ai-summary-header{display:flex;align-items:center;gap:8px;margin-bottom:12px;}
-  .ai-summary-icon{font-size:15px;}
-  .ai-summary-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;}
-  .ai-summary-badge{font-family:'JetBrains Mono',monospace;font-size:9.5px;color:var(--accent);background:rgba(37,99,235,0.1);padding:2px 8px;border-radius:20px;}
-  .ai-summary-table{width:100%;border-collapse:collapse;}
-  .ai-summary-table th{
-    text-align:left;font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-faint);
-    text-transform:uppercase;letter-spacing:0.5px;padding:0 10px 8px;border-bottom:1px solid var(--border);
-  }
-  .ai-summary-table th.col-event{width:60%;}
-  .ai-summary-table th.col-suggestion{width:40%;}
-  .ai-summary-table td{padding:12px 10px;vertical-align:top;font-size:13px;line-height:1.6;border-bottom:1px dashed var(--border);}
-  .ai-summary-table tr:last-child td{border-bottom:none;}
-  .ai-summary-heading{font-weight:700;color:var(--accent);font-size:12.5px;margin-bottom:4px;}
-  .ai-summary-event-text{color:var(--text);}
-  .ai-summary-suggestion-text{color:var(--text-dim);}
-
-  .section{margin-bottom:20px;width:100%;}
-  .content-columns{display:flex;gap:20px;align-items:flex-start;}
-  .content-col{flex:1;min-width:0;}
-  @media (max-width:900px){.content-columns{flex-direction:column;}}
-
-  .section-header{display:flex;align-items:center;gap:8px;margin-bottom:12px;}
-  .section-icon{font-size:15px;}
-  .section-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;}
-  .section-count{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-dim);background:var(--panel);border:1px solid var(--border);padding:2px 8px;border-radius:20px;}
-
-  .list{display:flex;flex-direction:column;gap:8px;}
-  .card{background:var(--panel);border:1px solid var(--border);border-left-width:4px;border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:6px;animation:fadeIn .35s ease both;}
-  @keyframes fadeIn{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:translateY(0);}}
-  .card.sev-高{border-left-color:var(--sev-high);}
-  .card.sev-中{border-left-color:var(--sev-medium);}
-  .card.sev-低{border-left-color:var(--sev-low);}
-  .card.plain{border-left-color:var(--accent);}
-  .card-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;}
-  .card-title{font-size:13.5px;font-weight:600;line-height:1.4;}
-  .card-date{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-dim);white-space:nowrap;flex-shrink:0;padding-top:1px;}
-  .tags{display:flex;gap:6px;flex-wrap:wrap;}
-  .tag{font-family:'JetBrains Mono',monospace;font-size:10px;padding:2px 7px;border-radius:20px;border:1px solid var(--border);color:var(--text-dim);}
-  .tag.sev-高{color:var(--sev-high);background:var(--sev-high-bg);border-color:transparent;}
-  .tag.sev-中{color:var(--sev-medium);background:var(--sev-medium-bg);border-color:transparent;}
-  .tag.sev-低{color:var(--sev-low);background:var(--sev-low-bg);border-color:transparent;}
-  .tag.ransomware{color:var(--sev-high);background:var(--sev-high-bg);border-color:transparent;font-weight:600;}
-  .tag.kpi{color:var(--accent);background:rgba(37,99,235,0.08);border-color:transparent;}
-
-  /* KEV 編號列表卡片 */
-  .kev-card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px 18px 6px;margin-bottom:20px;}
-  .kev-card-header{display:flex;align-items:flex-start;gap:10px;margin-bottom:14px;}
-  .kev-card-icon{width:30px;height:30px;border-radius:8px;background:var(--panel-alt);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
-  .kev-card-title{font-size:14px;font-weight:700;color:var(--text);}
-  .kev-card-sub{font-size:11.5px;color:var(--text-dim);margin-top:1px;}
-  .kev-card-badge{margin-left:auto;background:var(--accent);color:#fff;font-size:11px;font-weight:700;padding:3px 11px;border-radius:20px;font-family:'JetBrains Mono',monospace;white-space:nowrap;}
-  .kev-row{display:flex;gap:10px;padding:11px 0;border-top:1px solid var(--border);}
-  .kev-row:first-child{border-top:none;}
-  .kev-num{width:20px;height:20px;border-radius:50%;background:var(--panel-alt);color:var(--text-dim);font-size:10.5px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'JetBrains Mono',monospace;margin-top:1px;}
-  .kev-row-body{flex:1;min-width:0;}
-  .kev-row-title{font-size:13px;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:6px;}
-  .kev-row-title .ext-link{color:var(--accent);font-size:11px;margin-left:2px;text-decoration:none;}
-  .kev-row-meta{display:flex;gap:12px;flex-wrap:wrap;font-size:11px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;margin-bottom:7px;}
-  .kev-row-meta span{display:inline-flex;align-items:center;gap:4px;}
-  .kev-row-tags{display:flex;gap:6px;flex-wrap:wrap;}
-  .kev-row-tags .tag{font-size:10px;}
-  .card-summary{font-size:12.5px;color:var(--text-dim);line-height:1.6;}
-  .card-bottom{display:flex;justify-content:space-between;align-items:center;gap:10px;}
-  .card-link{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);text-decoration:none;white-space:nowrap;}
-  .card-link:hover{text-decoration:underline;}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px;display:flex;flex-direction:column;min-width:0;}
+  .panel-header{display:flex;align-items:center;gap:6px;margin-bottom:12px;}
+  .panel-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-faint);}
+  .panel-icon{font-size:14px;}
+  .panel-title{font-weight:700;font-size:13.5px;color:var(--text);}
+  .panel-viewall{margin-left:auto;font-size:11px;color:var(--accent);text-decoration:none;font-family:'JetBrains Mono',monospace;white-space:nowrap;}
+  .panel-viewall:hover{text-decoration:underline;}
+  .panel-body{flex:1;}
   .empty-note{color:var(--text-faint);font-size:12px;padding:10px 0;font-family:'JetBrains Mono',monospace;}
-  .show-more-btn{
-    width:100%;margin-top:8px;padding:8px;background:var(--panel-alt);border:1px dashed var(--border);
-    border-radius:7px;color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:600;
-    cursor:pointer;transition:background .15s;
-  }
-  .show-more-btn:hover{background:var(--border);}
 
-  .footer-note{text-align:center;font-size:11px;color:var(--text-faint);margin-top:30px;font-family:'JetBrains Mono',monospace;}
-  @media (max-width:600px){.header{flex-direction:column;align-items:flex-start;}}
+  /* impact / tags */
+  .impact-badge{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;white-space:nowrap;}
+  .impact-高{color:var(--sev-high);background:var(--sev-high-bg);}
+  .impact-中{color:var(--sev-medium);background:var(--sev-medium-bg);}
+  .impact-低{color:var(--sev-low);background:var(--sev-low-bg);}
+  .stars{font-size:10.5px;color:#F59E0B;letter-spacing:1px;white-space:nowrap;}
+
+  /* panel 1: 頭條 */
+  .headline-row{display:flex;gap:10px;padding:9px 0;border-top:1px dashed var(--border);}
+  .headline-row:first-child{border-top:none;padding-top:0;}
+  .headline-num{width:18px;height:18px;border-radius:50%;background:var(--panel-alt);color:var(--text-dim);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'JetBrains Mono',monospace;margin-top:1px;}
+  .headline-body{flex:1;min-width:0;}
+  .headline-title{font-size:12.5px;font-weight:600;line-height:1.4;margin-bottom:3px;overflow-wrap:anywhere;}
+  .headline-title a{color:var(--text);text-decoration:none;}
+  .headline-title a:hover{color:var(--accent);}
+  .headline-sub{font-size:10.5px;color:var(--text-dim);margin-bottom:4px;}
+  .headline-meta{display:flex;justify-content:space-between;align-items:center;gap:6px;}
+
+  /* panel 2: 全球重大事件 */
+  .tab-row{display:flex;gap:6px;margin-bottom:10px;}
+  .tab-btn{font-family:'JetBrains Mono',monospace;font-size:10.5px;padding:4px 10px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--text-dim);cursor:pointer;}
+  .tab-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+  .event-row{display:flex;align-items:flex-start;gap:8px;padding:8px 0;border-top:1px dashed var(--border);}
+  .event-row:first-child{border-top:none;padding-top:0;}
+  .event-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:5px;}
+  .event-body{flex:1;min-width:0;}
+  .event-cat{font-size:10px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;}
+  .event-title{font-size:12.5px;font-weight:600;line-height:1.4;overflow-wrap:anywhere;}
+  .event-title a{color:var(--text);text-decoration:none;}
+  .event-title a:hover{color:var(--accent);}
+  .event-time{font-size:10.5px;color:var(--text-faint);white-space:nowrap;font-family:'JetBrains Mono',monospace;margin-top:2px;}
+
+  /* panel 3: CVE 雷達 */
+  .cve-table{width:100%;border-collapse:collapse;font-size:11.5px;}
+  .cve-table th{text-align:left;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-faint);font-weight:600;padding:0 4px 8px;border-bottom:1px solid var(--border);}
+  .cve-table td{padding:8px 4px;border-bottom:1px dashed var(--border);vertical-align:top;}
+  .cve-table tr:last-child td{border-bottom:none;}
+  .cve-id{font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--text);}
+  .cve-title{font-size:10.5px;color:var(--text-dim);margin-top:2px;overflow-wrap:anywhere;}
+  .cvss-num{font-family:'JetBrains Mono',monospace;font-weight:700;}
+  .exploited-yes{color:var(--sev-high);font-weight:700;font-size:10.5px;}
+  .exploited-no{color:var(--text-faint);font-size:10.5px;}
+  .action-badge{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;padding:3px 8px;border-radius:6px;white-space:nowrap;display:inline-block;}
+  .action-立即更新{background:var(--sev-high);color:#fff;}
+  .action-一週內更新{background:var(--sev-medium);color:#fff;}
+  .action-持續觀察{background:var(--panel-alt);color:var(--text-dim);}
+  .action-暫不處理{background:transparent;color:var(--text-faint);border:1px solid var(--border);}
+
+  /* panel 4: 廠商影響 */
+  .vendor-card{display:flex;gap:10px;padding:10px 0;border-top:1px dashed var(--border);}
+  .vendor-card:first-child{border-top:none;padding-top:0;}
+  .vendor-icon{width:30px;height:30px;border-radius:8px;background:var(--panel-alt);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+  .vendor-body{flex:1;min-width:0;}
+  .vendor-top{display:flex;justify-content:space-between;align-items:flex-start;gap:6px;margin-bottom:3px;}
+  .vendor-title{font-size:12.5px;font-weight:600;overflow-wrap:anywhere;}
+  .vendor-asset{font-size:10.5px;color:var(--text-dim);margin-bottom:4px;}
+  .vendor-asset .tag-chip{display:inline-block;background:var(--panel-alt);border-radius:5px;padding:1px 6px;margin-right:4px;font-family:'JetBrains Mono',monospace;font-size:10px;}
+  .vendor-suggestion{font-size:11px;color:var(--text-dim);line-height:1.6;background:var(--panel-alt);border-radius:6px;padding:6px 8px;margin-top:4px;}
+  .vendor-suggestion b{color:var(--accent);}
+
+  /* panel 5: 風險儀表板 */
+  .gauge-wrap{display:flex;flex-direction:column;align-items:center;padding:6px 0 4px;}
+  .gauge-score{font-family:'Space Grotesk',sans-serif;font-size:34px;font-weight:700;margin-top:-8px;}
+  .gauge-level{font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700;margin-bottom:12px;}
+  .risk-bars{display:flex;flex-direction:column;gap:8px;}
+  .risk-bar-row{display:flex;align-items:center;gap:8px;}
+  .risk-bar-label{font-size:11px;color:var(--text-dim);width:76px;flex-shrink:0;}
+  .risk-bar-track{flex:1;height:6px;background:var(--panel-alt);border-radius:4px;overflow:hidden;}
+  .risk-bar-fill{height:100%;border-radius:4px;}
+  .risk-bar-val{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-dim);width:34px;text-align:right;flex-shrink:0;}
+
+  /* panel 6: 每日一題 */
+  .learning-card{background:linear-gradient(135deg, rgba(37,99,235,0.06), rgba(37,99,235,0.01));border:1px solid var(--border);border-radius:10px;padding:14px;}
+  .learning-top{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+  .learning-icon{width:32px;height:32px;border-radius:8px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
+  .learning-title{font-size:13.5px;font-weight:700;}
+  .learning-desc{font-size:12px;color:var(--text-dim);line-height:1.7;margin-bottom:10px;}
+  .learning-bottom{display:flex;justify-content:space-between;align-items:center;}
+  .learning-time{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-faint);}
+  .learning-btn{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:#fff;background:var(--accent);border:none;padding:7px 14px;border-radius:7px;text-decoration:none;cursor:pointer;}
+  .learning-btn:hover{background:var(--accent-dim);}
+
+  .footer-note{text-align:center;font-size:11px;color:var(--text-faint);margin-top:26px;font-family:'JetBrains Mono',monospace;}
 </style>
 </head>
 <body>
@@ -140,292 +135,224 @@
   <div class="header">
     <div class="brand">
       <div class="brand-icon">🧭</div>
-      <div><h1>資安輿情展示</h1><div class="sub">THREAT INTELLIGENCE DIGEST</div></div>
+      <div><h1>資安輿情展示</h1><div class="sub">CYBER THREAT INTELLIGENCE ｜ 官方Feed + AI分析 ｜ 每日自動更新</div></div>
     </div>
-  </div>
-  <div class="exec-tagline">CYBER THREAT INTELLIGENCE ｜ 官方Feed + AI搜尋分析 ｜ 每日自動更新</div>
-
-  <div class="badge-row">
-    <div class="badge"><span class="badge-label">Report date</span><span class="badge-value" id="badgeDate">--</span></div>
-    <div class="badge"><span class="badge-label">Update mode</span><span class="badge-value">每日自動更新</span></div>
-    <div class="badge"><span class="badge-label">Primary audience</span><span class="badge-value">IT／資安管理人員</span></div>
-    <div class="badge"><span class="badge-label">Core module</span><span class="badge-value">六大類別彙整</span></div>
+    <div class="meta-line">最後更新：<span id="updatedAt">--</span></div>
   </div>
 
-  <div class="stat-grid" id="statGrid"></div>
+  <div class="dashboard-grid" id="dashboardGrid"></div>
 
-  <div class="ai-summary">
-    <div class="ai-summary-header">
-      <span class="ai-summary-icon">🤖</span>
-      <span class="ai-summary-title">AI 今日摘要</span>
-      <span class="ai-summary-badge">AI GENERATED</span>
-    </div>
-    <table class="ai-summary-table" id="aiSummaryTable">
-      <thead><tr><th class="col-event">事件</th><th class="col-suggestion">建議</th></tr></thead>
-      <tbody id="aiSummaryBody"></tbody>
-    </table>
-  </div>
-
-  <div class="content-columns">
-    <div class="content-col" id="contentColLeft"></div>
-    <div class="content-col" id="contentColMiddle"></div>
-    <div class="content-col" id="contentColRight"></div>
-  </div>
-
-  <div class="footer-note">CVE/廠商公告來自官方Feed；國內公告/IOC/勒索軟體與APT活動由AI搜尋整理，僅供參考，正式應變請以原廠與官方公告為準。</div>
+  <div class="footer-note">CVSS評分、影響等級、風險分數為AI／演算法研判之參考值，非官方公告數字；正式應變請以原廠公告與CISA KEV為準。</div>
 </div>
 
 <script>
-const DATA = __THREAT_INTEL_JSON__;
+const DATA = __DASHBOARD_JSON__;
 const UPDATED_AT = "__UPDATED_AT__";
+document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
-
-const SHOW_LIMIT = 5;
-
-function toggleMore(btn){
-  const wrapper = btn.previousElementSibling;
-  const isHidden = wrapper.style.display === 'none';
-  wrapper.style.display = isHidden ? '' : 'none';
-  btn.textContent = isHidden ? '收合 ▲' : btn.dataset.moreLabel;
-}
-window.toggleMore = toggleMore;
-
-function withShowMore(itemHtmls){
-  const visible = itemHtmls.slice(0, SHOW_LIMIT).join('');
-  const rest = itemHtmls.slice(SHOW_LIMIT);
-  if (!rest.length) return visible;
-  const label = `查看更多（+${rest.length}） ▼`;
-  return `${visible}<div class="more-items" style="display:none">${rest.join('')}</div><button class="show-more-btn" data-more-label="${label}" onclick="toggleMore(this)">${label}</button>`;
-}
-
-document.getElementById('badgeDate').textContent = UPDATED_AT;
-
-function renderAiSummary(summary){
-  const body = document.getElementById('aiSummaryBody');
-  if (!summary || !Array.isArray(summary) || !summary.length){
-    body.innerHTML = `<tr><td colspan="2" style="color:var(--text-faint);">（本次無摘要資料）</td></tr>`;
-    return;
-  }
-  body.innerHTML = summary.map(item => `
-    <tr>
-      <td>
-        <div class="ai-summary-heading">${escapeHtml(item.heading || '')}</div>
-        <div class="ai-summary-event-text">${escapeHtml(item.event || '')}</div>
-      </td>
-      <td><div class="ai-summary-suggestion-text">${escapeHtml(item.suggestion || '')}</div></td>
-    </tr>`).join('');
-}
-renderAiSummary(DATA.ai_summary);
-
-function statCard({icon, label, tone, number, unit, badgeText, desc}){
-  return `<div class="stat-card ${tone ? 'tone-'+tone : ''}">
-    <div class="stat-top">
-      <span class="stat-label">${icon ? icon+' ' : ''}${label}</span>
-      ${badgeText ? `<span class="stat-badge ${tone ? 'tone-'+tone : ''}">${badgeText}</span>` : ''}
-    </div>
-    <div class="stat-number">${number}${unit ? `<span>${unit}</span>` : ''}</div>
-    <div class="stat-desc">${desc}</div>
-  </div>`;
-}
-
-function buildStats(data){
-  const kev = data.kev_vulnerabilities || [];
-  const vendor = data.vendor_advisories || [];
-  const news = data.international_news || [];
-  const gov = data.gov_announcements || [];
-  const ransomwareApt = data.ransomware_apt || [];
-
-  const vendorHigh = vendor.filter(v => v.severity_guess === '高').length;
-  const cveCount = kev.filter(v => v.cve_id && v.cve_id.trim()).length;
-  const ransomwareCount = ransomwareApt.filter(r => r.type === '勒索軟體').length;
-  const majorIncidents = kev.length + ransomwareApt.length;
-  const awarenessCount = [...news, ...gov, ...ransomwareApt].filter(i => i.is_awareness_case).length;
-
-  const cards = [
-    statCard({ icon:'🔴', label:'今日重大資安事件數', tone: majorIncidents > 0 ? '高' : '低', number: majorIncidents, unit:'件', badgeText: 'KEV + 勒索/APT', desc: '涵蓋已知遭實際利用漏洞、勒索軟體與APT活動事件。' }),
-    statCard({ icon:'🎯', label:'Critical／High漏洞數', tone: (kev.length + vendorHigh) > 0 ? '高' : '低', number: kev.length + vendorHigh, unit:'筆', badgeText: `KEV${kev.length}＋廠商高危${vendorHigh}`, desc: '建議優先確認內部是否有相關產品曝險。' }),
-    statCard({ icon:'🆕', label:'新增CVE數', tone:null, number: cveCount, unit:'筆', badgeText:'本期新增', desc: '本次彙整中出現的具名CVE編號數量。' }),
-    statCard({ icon:'⚠️', label:'已知遭利用漏洞（KEV）', tone: kev.length > 0 ? '高' : '低', number: kev.length, unit:'筆', badgeText:'CISA KEV', desc: '來自CISA官方Feed，代表已被實際利用、需優先處理。' }),
-    statCard({ icon:'🦠', label:'勒索病毒事件數', tone: ransomwareCount > 0 ? '高' : '低', number: ransomwareCount, unit:'件', badgeText:'全球案例', desc: '過去14天內公開報導的勒索軟體攻擊事件。' }),
-    statCard({ icon:'📢', label:'今日可宣導案例數', tone:null, number: awarenessCount, unit:'則', badgeText:'適合員工教育', desc: 'AI研判適合用於內部資安宣導、教育訓練的案例。' }),
-  ];
-
-  document.getElementById('statGrid').innerHTML = cards.join('');
-}
-buildStats(DATA);
-
-function section(icon, title, countLabel, bodyHtml){
-  return `<div class="section">
-    <div class="section-header">
-      <span class="section-icon">${icon}</span>
-      <span class="section-title">${title}</span>
-      <span class="section-count">${countLabel}</span>
-    </div>
-    ${bodyHtml}
-  </div>`;
-}
 function emptyNote(){ return `<div class="empty-note">目前沒有資料</div>`; }
 
-function kevKpiTags(v){
-  const tags = ['📊今日重大事件', '🎯Critical/High漏洞', '⚠️KEV'];
-  if (v.cve_id && v.cve_id.trim()) tags.push('🆕新增CVE');
-  return tags.map(t => `<span class="tag kpi">${t}</span>`).join('');
-}
-
-function daysSince(dateStr){
-  if (!dateStr) return '';
-  const d = new Date(dateStr);
-  if (isNaN(d.getTime())) return '';
-  const diff = Math.floor((Date.now() - d.getTime()) / 86400000);
-  if (diff <= 0) return '今天新增';
-  if (diff === 1) return '昨天新增';
-  return `${diff}天前新增`;
-}
-
-function renderKevCard(items){
-  const count = (items || []).length;
-  if (!items || !items.length){
-    return `<div class="kev-card">
-      <div class="kev-card-header">
-        <div class="kev-card-icon">🎯</div>
-        <div>
-          <div class="kev-card-title">CISA KEV 已知遭實際利用漏洞</div>
-          <div class="kev-card-sub">CISA官方Feed，依新增日期排序</div>
-        </div>
-        <div class="kev-card-badge">0 筆</div>
-      </div>
-      ${emptyNote()}
-    </div>`;
-  }
-  const rowHtmls = items.map((v, i) => `
-    <div class="kev-row">
-      <div class="kev-num">${i + 1}</div>
-      <div class="kev-row-body">
-        <div class="kev-row-title">${escapeHtml(v.cve_id || '')} － ${escapeHtml(v.title || '')}</div>
-        <div class="kev-row-meta">
-          <span>🏢 ${escapeHtml(v.vendor_product || '')}</span>
-          <span>📅 ${escapeHtml(v.date_added || '')}（${daysSince(v.date_added)}）</span>
-        </div>
-        <div class="kev-row-tags">
-          ${v.is_zero_day ? `<span class="tag zeroday">🔥 0-day</span>` : ''}
-          ${v.known_ransomware_use ? `<span class="tag ransomware">⚠ 已知遭勒索利用</span>` : `<span class="tag">一般</span>`}
-          ${kevKpiTags(v)}
-        </div>
-      </div>
-    </div>`);
-
-  return `<div class="kev-card">
-    <div class="kev-card-header">
-      <div class="kev-card-icon">🎯</div>
-      <div>
-        <div class="kev-card-title">CISA KEV 已知遭實際利用漏洞</div>
-        <div class="kev-card-sub">CISA官方Feed，依新增日期排序</div>
-      </div>
-      <div class="kev-card-badge">${count} 筆</div>
+function panelShell(num, icon, title, viewAllUrl, bodyHtml, extraHeaderHtml=''){
+  return `<div class="panel">
+    <div class="panel-header">
+      <span class="panel-num">${num}</span>
+      <span class="panel-icon">${icon}</span>
+      <span class="panel-title">${escapeHtml(title)}</span>
+      ${viewAllUrl ? `<a class="panel-viewall" href="${escapeHtml(viewAllUrl)}" target="_blank" rel="noopener noreferrer">查看全部 →</a>` : ''}
     </div>
-    ${withShowMore(rowHtmls)}
+    ${extraHeaderHtml}
+    <div class="panel-body">${bodyHtml}</div>
   </div>`;
 }
 
-function renderVendorAdvisories(items){
+/* ---------- Panel 1: 今日資安頭條 ---------- */
+function renderHeadlines(items){
   if (!items || !items.length) return emptyNote();
-  const cards = items.map(v => `
-    <div class="card sev-${escapeHtml(v.severity_guess || '')}">
-      <div class="card-top"><div class="card-title">${escapeHtml(v.title || '')}</div></div>
-      <div class="tags">
-        <span class="tag">${escapeHtml(v.vendor || '')}</span>
-        ${v.severity_guess ? `<span class="tag sev-${escapeHtml(v.severity_guess)}">研判嚴重度：${escapeHtml(v.severity_guess)}</span>` : ''}
-        ${v.severity_guess === '高' ? `<span class="tag kpi">🎯Critical/High漏洞</span>` : ''}
+  return items.slice(0,5).map((h, i) => `
+    <div class="headline-row">
+      <div class="headline-num">${i+1}</div>
+      <div class="headline-body">
+        <div class="headline-title">${h.icon ? h.icon + ' ' : ''}${h.url ? `<a href="${escapeHtml(h.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(h.title)}</a>` : escapeHtml(h.title)}</div>
+        ${h.subtitle ? `<div class="headline-sub">${escapeHtml(h.subtitle)}</div>` : ''}
+        <div class="headline-meta">
+          ${h.impact ? `<span class="impact-badge impact-${escapeHtml(h.impact)}">${escapeHtml(h.impact)}影響</span>` : '<span></span>'}
+          ${h.stars ? `<span class="stars">${'★'.repeat(h.stars)}${'☆'.repeat(5-h.stars)}</span>` : ''}
+        </div>
       </div>
-      ${v.url ? `<div class="card-bottom"><span></span><a class="card-link" href="${escapeHtml(v.url)}" target="_blank" rel="noopener noreferrer">查看公告 ↗</a></div>` : ''}
-    </div>`);
-  return `<div class="list">${withShowMore(cards)}</div>`;
+    </div>`).join('');
 }
 
-function renderNews(items){
-  if (!items || !items.length) return emptyNote();
-  const cards = items.map(n => `
-    <div class="card plain">
-      <div class="card-top"><div class="card-title">${escapeHtml(n.title || '')}</div></div>
-      <div class="tags">
-        <span class="tag">${escapeHtml(n.source || '')}</span>
-        ${n.is_awareness_case ? `<span class="tag kpi">📢可宣導案例</span>` : ''}
-      </div>
-      ${n.summary ? `<div class="card-summary">${escapeHtml(n.summary)}</div>` : ''}
-      ${n.url ? `<div class="card-bottom"><span></span><a class="card-link" href="${escapeHtml(n.url)}" target="_blank" rel="noopener noreferrer">閱讀原文 ↗</a></div>` : ''}
-    </div>`);
-  return `<div class="list">${withShowMore(cards)}</div>`;
+/* ---------- Panel 2: 全球重大事件 ---------- */
+const CATEGORY_COLORS = {
+  '勒索病毒': 'var(--sev-high)',
+  'APT攻擊': '#D97706',
+  '資料外洩': '#7C3AED',
+  '零時差漏洞': '#DC2626',
+  '政府公告': 'var(--accent)',
+};
+
+function timeAgoLabel(dateStr){
+  if (!dateStr) return '';
+  const d = new Date(dateStr);
+  if (isNaN(d.getTime())) return dateStr;
+  const diffMs = Date.now() - d.getTime();
+  const diffDays = Math.floor(diffMs / 86400000);
+  if (diffDays <= 0) return '今天';
+  if (diffDays === 1) return '昨天';
+  return `${diffDays}天前`;
 }
 
-function renderGov(items){
-  if (!items || !items.length) return emptyNote();
-  const cards = items.map(g => `
-    <div class="card plain">
-      <div class="card-top">
-        <div class="card-title">${escapeHtml(g.title || '')}</div>
-        <div class="card-date">${escapeHtml(g.date || '')}</div>
+function renderGlobalEvents(items, rangeDays){
+  const cutoff = Date.now() - rangeDays * 86400000;
+  const filtered = (items || []).filter(e => {
+    const d = new Date(e.date);
+    return isNaN(d.getTime()) ? true : d.getTime() >= cutoff;
+  });
+  if (!filtered.length) return emptyNote();
+  return filtered.slice(0, 8).map(e => `
+    <div class="event-row">
+      <div class="event-dot" style="background:${CATEGORY_COLORS[e.category] || 'var(--text-faint)'}"></div>
+      <div class="event-body">
+        <div class="event-cat">${escapeHtml(e.category || '')}</div>
+        <div class="event-title">${e.url ? `<a href="${escapeHtml(e.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(e.title)}</a>` : escapeHtml(e.title)}</div>
       </div>
-      <div class="tags">
-        <span class="tag">${escapeHtml(g.source || '')}</span>
-        ${g.is_awareness_case ? `<span class="tag kpi">📢可宣導案例</span>` : ''}
-      </div>
-      ${g.summary ? `<div class="card-summary">${escapeHtml(g.summary)}</div>` : ''}
-      ${g.url ? `<div class="card-bottom"><span></span><a class="card-link" href="${escapeHtml(g.url)}" target="_blank" rel="noopener noreferrer">查看公告 ↗</a></div>` : ''}
-    </div>`);
-  return `<div class="list">${withShowMore(cards)}</div>`;
+      <div class="event-time">${timeAgoLabel(e.date)}</div>
+    </div>`).join('');
 }
 
-function renderIoc(items){
-  if (!items || !items.length) return emptyNote();
-  const cards = items.map(i => `
-    <div class="card plain">
-      <div class="card-top"><div class="card-title">${escapeHtml(i.campaign || '')}</div></div>
-      <div class="tags">${(i.ioc_types || []).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}</div>
-      ${i.summary ? `<div class="card-summary">${escapeHtml(i.summary)}</div>` : ''}
-      ${i.source_url ? `<div class="card-bottom"><span style="font-size:11px;color:var(--text-faint);">${escapeHtml(i.source_name || '')}</span><a class="card-link" href="${escapeHtml(i.source_url)}" target="_blank" rel="noopener noreferrer">來源 ↗</a></div>` : ''}
-    </div>`);
-  return `<div class="list">${withShowMore(cards)}</div>`;
+function setupGlobalEventsPanel(items){
+  const body = document.getElementById('globalEventsBody');
+  const tabs = document.querySelectorAll('.tab-btn');
+  function render(days){
+    body.innerHTML = renderGlobalEvents(items, days);
+  }
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabs.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      render(parseInt(btn.dataset.days, 10));
+    });
+  });
+  render(1);
 }
 
-function renderRansomwareApt(items){
+/* ---------- Panel 3: 今日漏洞雷達 ---------- */
+function renderCveRadar(items){
   if (!items || !items.length) return emptyNote();
-  const cards = items.map(r => `
-    <div class="card ${r.type === '勒索軟體' ? 'sev-高' : 'plain'}">
-      <div class="card-top">
-        <div class="card-title">${escapeHtml(r.title || '')}</div>
-        <div class="card-date">${escapeHtml(r.date || '')}</div>
-      </div>
-      <div class="tags">
-        <span class="tag ${r.type === '勒索軟體' ? 'ransomware' : ''}">${escapeHtml(r.type || '')}</span>
-        <span class="tag kpi">📊今日重大事件</span>
-        ${r.type === '勒索軟體' ? `<span class="tag kpi">🦠勒索病毒事件</span>` : ''}
-        ${r.is_awareness_case ? `<span class="tag kpi">📢可宣導案例</span>` : ''}
-      </div>
-      ${r.summary ? `<div class="card-summary">${escapeHtml(r.summary)}</div>` : ''}
-      ${r.source_url ? `<div class="card-bottom"><span style="font-size:11px;color:var(--text-faint);">${escapeHtml(r.source_name || '')}</span><a class="card-link" href="${escapeHtml(r.source_url)}" target="_blank" rel="noopener noreferrer">來源 ↗</a></div>` : ''}
-    </div>`);
-  return `<div class="list">${withShowMore(cards)}</div>`;
+  const rows = items.slice(0,8).map(v => `
+    <tr>
+      <td>
+        <div class="cve-id">${escapeHtml(v.cve_id || '')}</div>
+        <div class="cve-title">${escapeHtml(v.title || '')}</div>
+      </td>
+      <td class="cvss-num">${v.cvss_estimate ?? '—'}</td>
+      <td>${v.exploited ? `<span class="exploited-yes">Yes</span>` : `<span class="exploited-no">No</span>`}</td>
+      <td><span class="action-badge action-${escapeHtml(v.action || '持續觀察')}">${escapeHtml(v.action || '持續觀察')}</span></td>
+    </tr>`).join('');
+  return `<table class="cve-table">
+    <thead><tr><th>漏洞編號</th><th>CVSS</th><th>已利用</th><th>建議行動</th></tr></thead>
+    <tbody>${rows}</tbody>
+  </table>`;
 }
 
-const leftHtml = [
-  section('🇹🇼', '國內 CERT 與政府資安公告', (DATA.gov_announcements||[]).length + ' 則', renderGov(DATA.gov_announcements)),
-  renderKevCard(DATA.kev_vulnerabilities),
-].join('');
+/* ---------- Panel 4: AI企業影響分析 ---------- */
+function renderVendorImpact(items){
+  if (!items || !items.length) return emptyNote();
+  return items.slice(0,5).map(v => `
+    <div class="vendor-card">
+      <div class="vendor-icon">${v.icon || '🏢'}</div>
+      <div class="vendor-body">
+        <div class="vendor-top">
+          <div class="vendor-title">${escapeHtml(v.title || '')}</div>
+          ${v.impact ? `<span class="impact-badge impact-${escapeHtml(v.impact)}">${escapeHtml(v.impact)}</span>` : ''}
+        </div>
+        ${v.key_asset ? `<div class="vendor-asset"><span class="tag-chip">${escapeHtml(v.key_asset)}</span></div>` : ''}
+        ${v.ai_suggestion ? `<div class="vendor-suggestion"><b>AI建議：</b>${escapeHtml(v.ai_suggestion)}</div>` : ''}
+      </div>
+    </div>`).join('');
+}
 
-const middleHtml = [
-  section('🏢', '廠商安全公告（Microsoft／Cisco／Fortinet）', (DATA.vendor_advisories||[]).length + ' 則', renderVendorAdvisories(DATA.vendor_advisories)),
-  section('🌐', '國際資安新聞', (DATA.international_news||[]).length + ' 則', renderNews(DATA.international_news)),
-].join('');
+/* ---------- Panel 5: AI風險熱度儀表板 ---------- */
+function gaugeColor(score){
+  if (score >= 70) return 'var(--sev-high)';
+  if (score >= 40) return 'var(--sev-medium)';
+  return 'var(--sev-low)';
+}
+function gaugeLevel(score){
+  if (score >= 70) return '高風險';
+  if (score >= 40) return '中風險';
+  return '低風險';
+}
 
-const rightHtml = [
-  section('🔬', 'IOC 情資重點', (DATA.ioc_highlights||[]).length + ' 則', renderIoc(DATA.ioc_highlights)),
-  section('🕵️', '勒索軟體與 APT 活動', (DATA.ransomware_apt||[]).length + ' 則', renderRansomwareApt(DATA.ransomware_apt)),
-].join('');
+function renderGaugeSvg(score){
+  const cx = 80, cy = 78, r = 62;
+  const needleAngle = Math.PI - (score/100) * Math.PI;
+  const nxF = cx + (r-10) * Math.cos(needleAngle);
+  const nyF = cy - (r-10) * Math.sin(needleAngle);
+  const color = gaugeColor(score);
+  return `<svg width="160" height="92" viewBox="0 0 160 92">
+    <path d="M 18 78 A 62 62 0 0 1 142 78" fill="none" stroke="var(--panel-alt)" stroke-width="12" stroke-linecap="round"/>
+    <path d="M 18 78 A 62 62 0 0 1 142 78" fill="none" stroke="${color}" stroke-width="12" stroke-linecap="round"
+      stroke-dasharray="${Math.PI*62}" stroke-dashoffset="${Math.PI*62*(1-score/100)}"/>
+    <circle cx="${cx}" cy="${cy}" r="5" fill="${color}"/>
+    <line x1="${cx}" y1="${cy}" x2="${nxF}" y2="${nyF}" stroke="${color}" stroke-width="3" stroke-linecap="round"/>
+  </svg>`;
+}
 
-document.getElementById('contentColLeft').innerHTML = leftHtml;
-document.getElementById('contentColMiddle').innerHTML = middleHtml;
-document.getElementById('contentColRight').innerHTML = rightHtml;
+function renderRiskGauge(risk){
+  if (!risk) return emptyNote();
+  const score = risk.total ?? 0;
+  const breakdown = risk.breakdown || [];
+  const bars = breakdown.map(b => `
+    <div class="risk-bar-row">
+      <div class="risk-bar-label">${escapeHtml(b.label)}</div>
+      <div class="risk-bar-track"><div class="risk-bar-fill" style="width:${b.score}%;background:${gaugeColor(b.score)}"></div></div>
+      <div class="risk-bar-val">${b.score}/100</div>
+    </div>`).join('');
+  return `
+    <div class="gauge-wrap">
+      ${renderGaugeSvg(score)}
+      <div class="gauge-score" style="color:${gaugeColor(score)}">${score}<span style="font-size:14px;color:var(--text-dim);">/100</span></div>
+      <div class="gauge-level" style="color:${gaugeColor(score)}">${gaugeLevel(score)}</div>
+    </div>
+    <div class="risk-bars">${bars}</div>`;
+}
+
+/* ---------- Panel 6: 資安知識板 ---------- */
+function renderDailyLearning(item){
+  if (!item) return emptyNote();
+  return `<div class="learning-card">
+    <div class="learning-top">
+      <div class="learning-icon">${item.icon || '🎓'}</div>
+      <div class="learning-title">${escapeHtml(item.title || '')}</div>
+    </div>
+    <div class="learning-desc">${escapeHtml(item.description || '')}</div>
+    <div class="learning-bottom">
+      <span class="learning-time">閱讀時間：約${escapeHtml(item.reading_time || '3')}分鐘</span>
+      ${item.url ? `<a class="learning-btn" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">開始學習</a>` : `<span class="learning-btn" style="opacity:.6;cursor:default;">開始學習</span>`}
+    </div>
+  </div>`;
+}
+
+/* ---------- 組裝 6 宮格 ---------- */
+const grid = document.getElementById('dashboardGrid');
+
+grid.innerHTML =
+  panelShell('①', '📰', '今日資安頭條 (Top 5)', null, renderHeadlines(DATA.headlines)) +
+  panelShell('②', '🌍', '全球重大事件', null,
+    `<div id="globalEventsBody"></div>`,
+    `<div class="tab-row">
+      <button class="tab-btn active" data-days="1">今天</button>
+      <button class="tab-btn" data-days="7">本週</button>
+      <button class="tab-btn" data-days="30">本月</button>
+    </div>`) +
+  panelShell('③', '🎯', '今日漏洞雷達 (CVE)', null, renderCveRadar(DATA.cve_radar)) +
+  panelShell('④', '🏢', 'AI企業影響分析', null, renderVendorImpact(DATA.vendor_impact)) +
+  panelShell('⑤', '📊', 'AI風險熱度儀表板', null, renderRiskGauge(DATA.risk_score)) +
+  panelShell('⑥', '🎓', '資安知識板', null, renderDailyLearning(DATA.daily_learning));
+
+setupGlobalEventsPanel(DATA.global_events);
 </script>
 </body>
 </html>
