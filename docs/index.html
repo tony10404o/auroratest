@@ -85,6 +85,7 @@
   .cve-id{font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--text);}
   .cve-title{font-size:10.5px;color:var(--text-dim);margin-top:2px;overflow-wrap:anywhere;}
   .cvss-num{font-family:'JetBrains Mono',monospace;font-weight:700;}
+  .cvss-source{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:500;color:var(--text-faint);margin-top:1px;}
   .exploited-yes{color:var(--sev-high);font-weight:700;font-size:10.5px;}
   .exploited-no{color:var(--text-faint);font-size:10.5px;}
   .action-badge{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;padding:3px 8px;border-radius:6px;white-space:nowrap;display:inline-block;}
@@ -249,56 +250,64 @@ const DATA = {
     {
       "cve_id": "CVE-2026-56164",
       "title": "SharePoint 0-day，可竊取IIS機器金鑰",
-      "cvss_estimate": 9.8,
+      "cvss": 9.8,
+      "cvss_source": "NVD官方",
       "exploited": true,
       "action": "立即更新"
     },
     {
       "cve_id": "CVE-2026-56155",
       "title": "AD FS存取控制granularity不足0-day",
-      "cvss_estimate": 9.1,
+      "cvss": 9.1,
+      "cvss_source": "AI推估",
       "exploited": true,
       "action": "立即更新"
     },
     {
       "cve_id": "CVE-2026-58644",
       "title": "SharePoint反序列化RCE，6月已修補未列入公告",
-      "cvss_estimate": 8.8,
+      "cvss": 9.8,
+      "cvss_source": "NVD官方",
       "exploited": true,
       "action": "立即更新"
     },
     {
       "cve_id": "CVE-2026-55255",
       "title": "Langflow授權繞過，已遭AI Agent用於自主勒索攻擊",
-      "cvss_estimate": 8.6,
+      "cvss": 8.6,
+      "cvss_source": "AI推估",
       "exploited": true,
       "action": "立即更新"
     },
     {
       "cve_id": "CVE-2026-15409",
       "title": "SonicWall SMA1000 SSRF漏洞",
-      "cvss_estimate": 7.5,
+      "cvss": 7.5,
+      "cvss_source": "AI推估",
       "exploited": true,
       "action": "一週內更新"
     },
     {
       "cve_id": "CVE-2026-15410",
       "title": "SonicWall SMA1000程式碼注入漏洞",
-      "cvss_estimate": 7.2,
+      "cvss": 7.2,
+      "cvss_source": "AI推估",
       "exploited": true,
       "action": "一週內更新"
     },
     {
       "cve_id": "CVE-2026-48939",
       "title": "iCagenda檔案上傳限制不當漏洞",
-      "cvss_estimate": 6.5,
+      "cvss": 6.5,
+      "cvss_source": "AI推估",
       "exploited": true,
       "action": "持續觀察"
     },
     {
       "cve_id": "CVE-2026-56291",
       "title": "Balbooa Forms檔案上傳限制不當漏洞",
-      "cvss_estimate": 6.3,
+      "cvss": 6.3,
+      "cvss_source": "AI推估",
       "exploited": true,
       "action": "持續觀察"
     }
@@ -352,7 +361,7 @@ const DATA = {
     ]
   }
 };
-const UPDATED_AT = "2026-07-21 10:00:00（台灣時間）";
+const UPDATED_AT = "2026-07-23 10:00:00（台灣時間）";
 document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
@@ -451,7 +460,7 @@ function renderCveRadar(items){
         <div class="cve-id">${escapeHtml(v.cve_id || '')}</div>
         <div class="cve-title">${escapeHtml(v.title || '')}</div>
       </td>
-      <td class="cvss-num">${v.cvss_estimate ?? '—'}</td>
+      <td class="cvss-num">${v.cvss ?? '—'}${v.cvss_source ? `<div class="cvss-source">${escapeHtml(v.cvss_source)}</div>` : ''}</td>
       <td>${v.exploited ? `<span class="exploited-yes">Yes</span>` : `<span class="exploited-no">No</span>`}</td>
       <td><span class="action-badge action-${escapeHtml(v.action || '持續觀察')}">${escapeHtml(v.action || '持續觀察')}</span></td>
     </tr>`).join('');

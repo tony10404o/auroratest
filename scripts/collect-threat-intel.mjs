@@ -85,6 +85,97 @@ async function fetchIntlNews() {
   };
 }
 
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+/**
+ * 向 NVD 官方 API 查詢指定 CVE 的真實 CVSS 分數
+ * 未申請API Key時速率限制為5次/30秒，這裡簡單延遲以避免超過限制
+ */
+async function fetchNvdCvss(cveId) {
+  if (!cveId || !cveId.trim()) return null;
+  try {
+    const res = await fetch(
+      `https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=${encodeURIComponent(cveId)}`,
+      { headers: { "User-Agent": "Mozilla/5.0 (compatible; aurora-security-report/1.0)" } }
+    );
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    const cve = data.vulnerabilities?.[0]?.cve;
+    if (!cve) return null;
+
+    const metrics = cve.metrics || {};
+    // 優先採用最新版本的 CVSS（4.0 > 3.1 > 3.0 > 2.0）
+    const source =
+      metrics.cvssMetricV40?.[0] ||
+      metrics.cvssMetricV31?.[0] ||
+      metrics.cvssMetricV30?.[0] ||
+      metrics.cvssMetricV2?.[0];
+    if (!source) return null;
+
+    return {
+      score: source.cvssData.baseScore,
+      version: source.cvssData.version,
+      severity: source.baseSeverity || source.cvssData.baseSeverity || null,
+    };
+  } catch (err) {
+    console.error(`  ✗ NVD查詢失敗（${cveId}）：${err.message}`);
+    return null;
+  }
+}
+
+/**
+ * 為一批KEV漏洞查詢NVD官方CVSS分數，依序查詢並延遲以避免超過速率限制
+ */
+async function enrichKevWithNvdCvss(kevItems) {
+  console.log("查詢 NVD 官方 CVSS 分數...");
+  for (const item of kevItems) {
+    const nvd = await fetchNvdCvss(item.cve_id);
+    if (nvd) {
+      item.nvd_cvss = nvd.score;
+      item.nvd_cvss_version = nvd.version;
+      item.nvd_severity = nvd.severity;
+      console.log(`  ✓ ${item.cve_id}：CVSS ${nvd.score}（v${nvd.version}）`);
+    } else {
+      console.log(`  – ${item.cve_id}：NVD查無資料，將使用AI推估分數`);
+    }
+    await sleep(6500); // 避免超過NVD無金鑰時5次/30秒的速率限制
+  }
+  return kevItems;
+}
+
+/**
+ * 依CVSS分數與利用狀態，決定建議行動（規則式判斷，不依賴AI猜測）
+ */
+function decideAction(cvss, isZeroDay, knownRansomwareUse) {
+  if ((isZeroDay || knownRansomwareUse) && cvss >= 8) return "立即更新";
+  if (cvss >= 9) return "立即更新";
+  if (cvss >= 7) return "一週內更新";
+  if (cvss >= 4) return "持續觀察";
+  return "暫不處理";
+}
+
+/**
+ * 在程式碼中直接組出CVE雷達資料（優先使用NVD官方CVSS，查無資料才退回AI推估值）
+ */
+function buildCveRadar(kevItems) {
+  return (kevItems || [])
+    .map((v) => {
+      const hasOfficial = typeof v.nvd_cvss === "number";
+      const cvss = hasOfficial ? v.nvd_cvss : v.cvss_estimate ?? 5.0;
+      return {
+        cve_id: v.cve_id,
+        title: v.title,
+        cvss: Math.round(cvss * 10) / 10,
+        cvss_source: hasOfficial ? "NVD官方" : "AI推估",
+        exploited: true, // 來自KEV清單，一律視為已知遭實際利用
+        action: decideAction(cvss, v.is_zero_day, v.known_ransomware_use),
+      };
+    })
+    .sort((a, b) => b.cvss - a.cvss);
+}
+
 // ---------- 2. JSON 解析與Claude呼叫（含重試機制） ----------
 
 function extractJsonObject(text) {
@@ -256,15 +347,6 @@ ${JSON.stringify(result, null, 2)}
       "ai_suggestion": "20-40字的具體建議行動"
     }
   ],
-  "cve_radar": [
-    {
-      "cve_id": "CVE編號",
-      "title": "漏洞簡短說明，20字以內",
-      "cvss_estimate": 0.0到10.0的數字（根據漏洞描述研判的CVSS分數估計值，越嚴重分數越高，保留1位小數）,
-      "exploited": true或false（是否已知遭實際利用，KEV清單裡的項目一律為true）,
-      "action": "立即更新、一週內更新、持續觀察 或 暫不處理 其中一個（根據嚴重度與是否已遭利用判斷）"
-    }
-  ],
   "daily_learning": {
     "icon": "一個表情符號",
     "title": "今天的資安知識小主題標題（8-15字，可從今天資料中挑一個值得員工認識的名詞或攻擊手法，例如MFA Fatigue、釣魚郵件辨識等）",
@@ -285,9 +367,9 @@ ${JSON.stringify(result, null, 2)}
 規則：
 - headlines 從所有原始資料中，挑選今天最重要的5則（跨類別挑選，不限單一類別）
 - vendor_impact 從 vendor_advisories 轉換，保留原本筆數
-- cve_radar 從 kev_vulnerabilities 轉換，保留原本筆數，依cvss_estimate高到低排序
 - global_events 從 kev_vulnerabilities（挑is_zero_day或known_ransomware_use的）、ransomware_apt、gov_announcements 轉換彙整，最多12則，依日期新到舊排序
-- 所有評分（impact、stars、cvss_estimate）都是AI研判的參考值，請根據資料內容合理判斷，不要每個都給一樣的分數`;
+- 所有評分（impact、stars）都是AI研判的參考值，請根據資料內容合理判斷，不要每個都給一樣的分數
+- 不需要回傳cve_radar欄位，這部分會用官方NVD資料另外處理`;
 
   return await callClaudeForJson({ prompt, maxTokens: 8000, label: "儀表板資料" });
 }
@@ -354,7 +436,10 @@ async function main() {
     `彙整完成：KEV ${result.kev_vulnerabilities.length} / 廠商公告 ${result.vendor_advisories.length} / 國際新聞 ${result.international_news.length} / 政府公告 ${result.gov_announcements.length} / IOC ${result.ioc_highlights.length} / 勒索軟體APT ${result.ransomware_apt.length}`
   );
 
+  await enrichKevWithNvdCvss(result.kev_vulnerabilities);
+
   const dashboard = await buildDashboard(result);
+  dashboard.cve_radar = buildCveRadar(result.kev_vulnerabilities);
   dashboard.risk_score = computeRiskScore(result);
   console.log(
     `儀表板產生完成：頭條${(dashboard.headlines||[]).length} / 全球事件${(dashboard.global_events||[]).length} / CVE雷達${(dashboard.cve_radar||[]).length} / 廠商影響${(dashboard.vendor_impact||[]).length} / 風險分數${dashboard.risk_score.total}`
