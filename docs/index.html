@@ -77,6 +77,29 @@
   .event-title a:hover{color:var(--accent);}
   .event-time{font-size:10.5px;color:var(--text-faint);white-space:nowrap;font-family:'JetBrains Mono',monospace;margin-top:2px;}
 
+  /* Panel 7: 今日建議行動 */
+  .action-row{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-top:1px solid var(--border);}
+  .action-row:first-child{border-top:none;padding-top:0;}
+  .action-num{width:20px;height:20px;border-radius:50%;background:var(--panel-alt);color:var(--text-dim);font-size:10.5px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'JetBrains Mono',monospace;margin-top:1px;}
+  .action-body{flex:1;min-width:0;}
+  .action-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px;overflow-wrap:anywhere;line-height:1.4;}
+  .action-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .action-cat-tag{font-family:'JetBrains Mono',monospace;font-size:10px;padding:2px 9px;border-radius:20px;background:var(--panel-alt);color:var(--text-dim);}
+  .action-priority{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;}
+  .action-priority-高{color:var(--sev-high);background:var(--sev-high-bg);}
+  .action-priority-中{color:var(--sev-medium);background:var(--sev-medium-bg);}
+  .action-priority-低{color:var(--sev-low);background:var(--sev-low-bg);}
+  .copy-ticket-btn{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--accent);background:none;border:1px solid var(--border);border-radius:20px;padding:3px 10px;cursor:pointer;white-space:nowrap;}
+  .copy-ticket-btn:hover{background:var(--panel-alt);}
+  .copy-ticket-btn.copied{color:var(--sev-low);border-color:var(--sev-low);}
+
+  /* Panel 8: AI新聞摘要 */
+  .digest-tabs{display:flex;gap:6px;margin-bottom:12px;}
+  .digest-tab-btn{font-family:'JetBrains Mono',monospace;font-size:11px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:none;color:var(--text-dim);cursor:pointer;}
+  .digest-tab-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+  .digest-text{font-size:13px;line-height:1.8;color:var(--text);white-space:pre-line;}
+  .digest-meta{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-faint);margin-top:12px;padding-top:10px;border-top:1px dashed var(--border);}
+
   /* panel 3: CVE 雷達 */
   .cve-table{width:100%;border-collapse:collapse;font-size:11.5px;}
   .cve-table th{text-align:left;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-faint);font-weight:600;padding:0 4px 8px;border-bottom:1px solid var(--border);}
@@ -359,6 +382,74 @@ const DATA = {
         "score": 40
       }
     ]
+  },
+  "action_items": [
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-56164：SharePoint 0-day，可竊取IIS機器金鑰",
+      "priority": "高",
+      "detail": "CVSS 9.8（NVD官方），建議立即更新"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-58644：SharePoint反序列化RCE，6月已修補未列入公告",
+      "priority": "高",
+      "detail": "CVSS 9.8（NVD官方），建議立即更新"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-56155：AD FS存取控制granularity不足0-day",
+      "priority": "高",
+      "detail": "CVSS 9.1（AI推估），建議立即更新"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-55255：Langflow授權繞過，已遭AI Agent用於自主勒索攻擊",
+      "priority": "高",
+      "detail": "CVSS 8.6（AI推估），建議立即更新"
+    },
+    {
+      "category": "公告確認",
+      "title": "Microsoft 2026年7月Patch Tuesday：史上最大規模，622個CVE含2個0-day",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-15409：SonicWall SMA1000 SSRF漏洞",
+      "priority": "中",
+      "detail": "CVSS 7.5（AI推估），建議一週內更新"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-15410：SonicWall SMA1000程式碼注入漏洞",
+      "priority": "中",
+      "detail": "CVSS 7.2（AI推估），建議一週內更新"
+    },
+    {
+      "category": "掃描比對",
+      "title": "JADEPUFFER AI自主勒索軟體攻擊鏈相關IOC比對",
+      "priority": "中",
+      "detail": "涉及類型：Domain、Hash。建議比對內部防火牆/EDR日誌。"
+    },
+    {
+      "category": "掃描比對",
+      "title": "FortiBleed憑證竊取活動相關IOC比對",
+      "priority": "中",
+      "detail": "涉及類型：IP。建議比對VPN登入來源IP。"
+    },
+    {
+      "category": "教育宣導",
+      "title": "研究揭露結合GPT-5/6模型與Chrome漏洞的新型攻擊鏈",
+      "priority": "低",
+      "detail": "建議納入員工資安宣導教育素材。"
+    }
+  ],
+  "news_digest": {
+    "exec_summary": "本期最重要的事是微軟本月釋出史上最大規模的安全更新（622個修補項目），其中兩項已被駭客實際利用、須立即處理。同時也出現首例完全由AI自動執行的勒索軟體攻擊案例，顯示攻擊技術持續演進。另外多家國際企業（含Accenture、Deutsche Bank）傳出資料外洩，建議留意供應商與委外廠商的資安控管，並優先完成本期高風險項目的修補確認。",
+    "tech_summary": "Microsoft 2026年7月Patch Tuesday修補約622個CVE，含SharePoint（CVE-2026-56164, CVSS 9.8）與AD FS（CVE-2026-56155）兩個已遭實際利用之0-day；SharePoint另有CVE-2026-58644等多個漏洞持續遭利用竊取IIS機器金鑰，手法類似去年ToolShell事件。資安業者揭露首例AI Agent（JADEPUFFER）透過Langflow授權繞過漏洞（CVE-2026-55255）自主執行勒索軟體攻擊。此外SonicWall SMA1000存在SSRF與程式碼注入漏洞（CVE-2026-15409/15410）。建議優先確認上述CVE修補狀態，並比對JADEPUFFER與FortiBleed相關IOC。",
+    "article_count": 24,
+    "reading_time": 4
   }
 };
 const UPDATED_AT = "2026-07-27 10:00:00（台灣時間）";
@@ -549,7 +640,70 @@ function renderDailyLearning(item){
   </div>`;
 }
 
-/* ---------- 組裝 6 宮格 ---------- */
+/* ---------- Panel 7: 今日建議行動 ---------- */
+function renderActionItems(items){
+  if (!items || !items.length) return emptyNote();
+  window.__ACTION_ITEMS__ = items;
+  return items.map((a, i) => `
+    <div class="action-row">
+      <div class="action-num">${i + 1}</div>
+      <div class="action-body">
+        <div class="action-title">${escapeHtml(a.title || '')}</div>
+        <div class="action-meta">
+          <span class="action-cat-tag">${escapeHtml(a.category || '')}</span>
+          <span class="action-priority action-priority-${escapeHtml(a.priority || '中')}">${escapeHtml(a.priority || '中')}優先</span>
+          <button class="copy-ticket-btn" data-idx="${i}" onclick="copyTicket(this)">📋 複製工單內容</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function copyTicket(btn){
+  const idx = parseInt(btn.dataset.idx, 10);
+  const item = (window.__ACTION_ITEMS__ || [])[idx];
+  if (!item) return;
+  const text = `【資安待辦】${item.category}\n標題：${item.title}\n優先級：${item.priority}\n建議：${item.detail || '請依標題內容評估後處理'}`;
+  const done = () => {
+    const original = btn.textContent;
+    btn.textContent = '✓ 已複製';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done).catch(() => alert(text));
+  } else {
+    alert(text);
+  }
+}
+window.copyTicket = copyTicket;
+
+/* ---------- Panel 8: AI新聞摘要 ---------- */
+function renderNewsDigest(digest){
+  if (!digest) return emptyNote();
+  return `
+    <div class="digest-tabs">
+      <button class="digest-tab-btn active" data-view="exec">主管版</button>
+      <button class="digest-tab-btn" data-view="tech">技術版</button>
+    </div>
+    <div class="digest-text" id="digestText">${escapeHtml(digest.exec_summary || '')}</div>
+    <div class="digest-meta">本次彙整 ${digest.article_count ?? '—'} 篇來源・預估閱讀 ${digest.reading_time ?? '5'} 分鐘</div>`;
+}
+
+function setupNewsDigestPanel(digest){
+  if (!digest) return;
+  const textEl = document.getElementById('digestText');
+  const tabs = document.querySelectorAll('.digest-tab-btn');
+  if (!textEl || !tabs.length) return;
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabs.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      textEl.textContent = btn.dataset.view === 'tech' ? (digest.tech_summary || '') : (digest.exec_summary || '');
+    });
+  });
+}
+
+/* ---------- 組裝 8 宮格 ---------- */
 const grid = document.getElementById('dashboardGrid');
 
 grid.innerHTML =
@@ -564,9 +718,12 @@ grid.innerHTML =
   panelShell('③', '🎯', '今日漏洞雷達 (CVE)', null, renderCveRadar(DATA.cve_radar)) +
   panelShell('④', '🏢', 'AI企業影響分析', null, renderVendorImpact(DATA.vendor_impact)) +
   panelShell('⑤', '📊', 'AI風險熱度儀表板', null, renderRiskGauge(DATA.risk_score)) +
-  panelShell('⑥', '🎓', 'AI宣導建議', null, renderDailyLearning(DATA.daily_learning));
+  panelShell('⑥', '🎓', 'AI宣導建議', null, renderDailyLearning(DATA.daily_learning)) +
+  panelShell('⑦', '✅', '今日建議行動', null, renderActionItems(DATA.action_items)) +
+  panelShell('⑧', '🗞️', 'AI新聞摘要', null, renderNewsDigest(DATA.news_digest));
 
 setupGlobalEventsPanel(DATA.global_events);
+setupNewsDigestPanel(DATA.news_digest);
 </script>
 </body>
 </html>

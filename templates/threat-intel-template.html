@@ -77,6 +77,29 @@
   .event-title a:hover{color:var(--accent);}
   .event-time{font-size:10.5px;color:var(--text-faint);white-space:nowrap;font-family:'JetBrains Mono',monospace;margin-top:2px;}
 
+  /* Panel 7: 今日建議行動 */
+  .action-row{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-top:1px solid var(--border);}
+  .action-row:first-child{border-top:none;padding-top:0;}
+  .action-num{width:20px;height:20px;border-radius:50%;background:var(--panel-alt);color:var(--text-dim);font-size:10.5px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'JetBrains Mono',monospace;margin-top:1px;}
+  .action-body{flex:1;min-width:0;}
+  .action-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px;overflow-wrap:anywhere;line-height:1.4;}
+  .action-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .action-cat-tag{font-family:'JetBrains Mono',monospace;font-size:10px;padding:2px 9px;border-radius:20px;background:var(--panel-alt);color:var(--text-dim);}
+  .action-priority{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;}
+  .action-priority-高{color:var(--sev-high);background:var(--sev-high-bg);}
+  .action-priority-中{color:var(--sev-medium);background:var(--sev-medium-bg);}
+  .action-priority-低{color:var(--sev-low);background:var(--sev-low-bg);}
+  .copy-ticket-btn{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--accent);background:none;border:1px solid var(--border);border-radius:20px;padding:3px 10px;cursor:pointer;white-space:nowrap;}
+  .copy-ticket-btn:hover{background:var(--panel-alt);}
+  .copy-ticket-btn.copied{color:var(--sev-low);border-color:var(--sev-low);}
+
+  /* Panel 8: AI新聞摘要 */
+  .digest-tabs{display:flex;gap:6px;margin-bottom:12px;}
+  .digest-tab-btn{font-family:'JetBrains Mono',monospace;font-size:11px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:none;color:var(--text-dim);cursor:pointer;}
+  .digest-tab-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+  .digest-text{font-size:13px;line-height:1.8;color:var(--text);white-space:pre-line;}
+  .digest-meta{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-faint);margin-top:12px;padding-top:10px;border-top:1px dashed var(--border);}
+
   /* panel 3: CVE 雷達 */
   .cve-table{width:100%;border-collapse:collapse;font-size:11.5px;}
   .cve-table th{text-align:left;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-faint);font-weight:600;padding:0 4px 8px;border-bottom:1px solid var(--border);}
@@ -336,7 +359,70 @@ function renderDailyLearning(item){
   </div>`;
 }
 
-/* ---------- 組裝 6 宮格 ---------- */
+/* ---------- Panel 7: 今日建議行動 ---------- */
+function renderActionItems(items){
+  if (!items || !items.length) return emptyNote();
+  window.__ACTION_ITEMS__ = items;
+  return items.map((a, i) => `
+    <div class="action-row">
+      <div class="action-num">${i + 1}</div>
+      <div class="action-body">
+        <div class="action-title">${escapeHtml(a.title || '')}</div>
+        <div class="action-meta">
+          <span class="action-cat-tag">${escapeHtml(a.category || '')}</span>
+          <span class="action-priority action-priority-${escapeHtml(a.priority || '中')}">${escapeHtml(a.priority || '中')}優先</span>
+          <button class="copy-ticket-btn" data-idx="${i}" onclick="copyTicket(this)">📋 複製工單內容</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function copyTicket(btn){
+  const idx = parseInt(btn.dataset.idx, 10);
+  const item = (window.__ACTION_ITEMS__ || [])[idx];
+  if (!item) return;
+  const text = `【資安待辦】${item.category}\n標題：${item.title}\n優先級：${item.priority}\n建議：${item.detail || '請依標題內容評估後處理'}`;
+  const done = () => {
+    const original = btn.textContent;
+    btn.textContent = '✓ 已複製';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done).catch(() => alert(text));
+  } else {
+    alert(text);
+  }
+}
+window.copyTicket = copyTicket;
+
+/* ---------- Panel 8: AI新聞摘要 ---------- */
+function renderNewsDigest(digest){
+  if (!digest) return emptyNote();
+  return `
+    <div class="digest-tabs">
+      <button class="digest-tab-btn active" data-view="exec">主管版</button>
+      <button class="digest-tab-btn" data-view="tech">技術版</button>
+    </div>
+    <div class="digest-text" id="digestText">${escapeHtml(digest.exec_summary || '')}</div>
+    <div class="digest-meta">本次彙整 ${digest.article_count ?? '—'} 篇來源・預估閱讀 ${digest.reading_time ?? '5'} 分鐘</div>`;
+}
+
+function setupNewsDigestPanel(digest){
+  if (!digest) return;
+  const textEl = document.getElementById('digestText');
+  const tabs = document.querySelectorAll('.digest-tab-btn');
+  if (!textEl || !tabs.length) return;
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabs.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      textEl.textContent = btn.dataset.view === 'tech' ? (digest.tech_summary || '') : (digest.exec_summary || '');
+    });
+  });
+}
+
+/* ---------- 組裝 8 宮格 ---------- */
 const grid = document.getElementById('dashboardGrid');
 
 grid.innerHTML =
@@ -351,9 +437,12 @@ grid.innerHTML =
   panelShell('③', '🎯', '今日漏洞雷達 (CVE)', null, renderCveRadar(DATA.cve_radar)) +
   panelShell('④', '🏢', 'AI企業影響分析', null, renderVendorImpact(DATA.vendor_impact)) +
   panelShell('⑤', '📊', 'AI風險熱度儀表板', null, renderRiskGauge(DATA.risk_score)) +
-  panelShell('⑥', '🎓', 'AI宣導建議', null, renderDailyLearning(DATA.daily_learning));
+  panelShell('⑥', '🎓', 'AI宣導建議', null, renderDailyLearning(DATA.daily_learning)) +
+  panelShell('⑦', '✅', '今日建議行動', null, renderActionItems(DATA.action_items)) +
+  panelShell('⑧', '🗞️', 'AI新聞摘要', null, renderNewsDigest(DATA.news_digest));
 
 setupGlobalEventsPanel(DATA.global_events);
+setupNewsDigestPanel(DATA.news_digest);
 </script>
 </body>
 </html>

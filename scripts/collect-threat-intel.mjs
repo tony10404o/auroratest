@@ -361,13 +361,20 @@ ${JSON.stringify(result, null, 2)}
       "date": "YYYY-MM-DD（依原始資料的date/date_added欄位）",
       "url": "來源網址"
     }
-  ]
+  ],
+  "news_digest": {
+    "exec_summary": "給主管看的版本，120-180字，聚焦「發生什麼事、對公司有什麼潛在影響、需要做什麼決策」，避免技術細節與專有名詞",
+    "tech_summary": "給技術/資安人員看的版本，150-250字，可包含CVE編號、廠商名稱、攻擊手法、技術細節，語氣更專業精簡",
+    "article_count": 本次彙整所依據的原始資料筆數總和（整數，可用kev_vulnerabilities+vendor_advisories+international_news+gov_announcements+ioc_highlights+ransomware_apt的筆數加總）,
+    "reading_time": 1到5之間的整數（技術版預估閱讀分鐘數）
+  }
 }
 
 規則：
 - headlines 從所有原始資料中，挑選今天最重要的5則（跨類別挑選，不限單一類別）
 - vendor_impact 從 vendor_advisories 轉換，保留原本筆數
 - global_events 從 kev_vulnerabilities（挑is_zero_day或known_ransomware_use的）、ransomware_apt、gov_announcements 轉換彙整，最多12則，依日期新到舊排序
+- news_digest 的兩個版本都要根據「全部」原始資料綜合撰寫（不是只看international_news），兩版本內容重點可以相同，但語氣與詳細程度要明顯不同
 - 所有評分（impact、stars）都是AI研判的參考值，請根據資料內容合理判斷，不要每個都給一樣的分數
 - 不需要回傳cve_radar欄位，這部分會用官方NVD資料另外處理`;
 
@@ -411,6 +418,71 @@ function computeRiskScore(result) {
   return { total, breakdown };
 }
 
+/**
+ * 彙整今日建議行動待辦清單（規則式組裝，不靠AI，確保跟其他面板資料一致）
+ */
+function buildActionItems(result, cveRadar) {
+  const items = [];
+
+  (cveRadar || [])
+    .filter((v) => v.action === "立即更新" || v.action === "一週內更新")
+    .forEach((v) => {
+      items.push({
+        category: "漏洞修補",
+        title: `${v.cve_id}：${v.title}`,
+        priority: v.action === "立即更新" ? "高" : "中",
+        detail: `CVSS ${v.cvss}（${v.cvss_source}），建議${v.action}`,
+      });
+    });
+
+  (result.vendor_advisories || [])
+    .filter((v) => v.severity_guess === "高")
+    .forEach((v) => {
+      items.push({
+        category: "公告確認",
+        title: v.title,
+        priority: "高",
+        detail: `${v.vendor}廠商公告，研判嚴重度高，建議儘速確認並評估更新。`,
+      });
+    });
+
+  (result.gov_announcements || []).forEach((g) => {
+    items.push({
+      category: "公告確認",
+      title: g.title,
+      priority: "中",
+      detail: `來源：${g.source}。${g.summary || ""}`,
+    });
+  });
+
+  (result.ioc_highlights || []).forEach((i) => {
+    items.push({
+      category: "掃描比對",
+      title: `${i.campaign}相關IOC比對`,
+      priority: "中",
+      detail: `涉及類型：${(i.ioc_types || []).join("、")}。建議比對內部防火牆/EDR日誌。`,
+    });
+  });
+
+  const awarenessSources = [
+    ...(result.international_news || []),
+    ...(result.gov_announcements || []),
+    ...(result.ransomware_apt || []),
+  ].filter((i) => i.is_awareness_case);
+  awarenessSources.forEach((a) => {
+    items.push({
+      category: "教育宣導",
+      title: a.title,
+      priority: "低",
+      detail: "建議納入員工資安宣導教育素材。",
+    });
+  });
+
+  const priorityRank = { 高: 0, 中: 1, 低: 2 };
+  items.sort((a, b) => (priorityRank[a.priority] ?? 3) - (priorityRank[b.priority] ?? 3));
+  return items.slice(0, 15);
+}
+
 // ---------- 4. 主流程 ----------
 
 async function main() {
@@ -441,8 +513,9 @@ async function main() {
   const dashboard = await buildDashboard(result);
   dashboard.cve_radar = buildCveRadar(result.kev_vulnerabilities);
   dashboard.risk_score = computeRiskScore(result);
+  dashboard.action_items = buildActionItems(result, dashboard.cve_radar);
   console.log(
-    `儀表板產生完成：頭條${(dashboard.headlines||[]).length} / 全球事件${(dashboard.global_events||[]).length} / CVE雷達${(dashboard.cve_radar||[]).length} / 廠商影響${(dashboard.vendor_impact||[]).length} / 風險分數${dashboard.risk_score.total}`
+    `儀表板產生完成：頭條${(dashboard.headlines||[]).length} / 全球事件${(dashboard.global_events||[]).length} / CVE雷達${(dashboard.cve_radar||[]).length} / 廠商影響${(dashboard.vendor_impact||[]).length} / 建議行動${(dashboard.action_items||[]).length} / 風險分數${dashboard.risk_score.total}`
   );
 
   const templatePath = path.join(process.cwd(), "templates", "threat-intel-template.html");
