@@ -151,217 +151,134 @@ const DATA = {
   "headlines": [
     {
       "icon": "🎯",
-      "title": "微軟2026年7月Patch Tuesday創史上最大規模",
-      "subtitle": "約622個CVE，含SharePoint與AD FS兩個0-day",
+      "title": "Chromium 四大高危漏洞集中發佈",
+      "subtitle": "使用已釋放記憶體與越界寫入漏洞，影響所有Chromium核心瀏覽器",
       "impact": "高",
       "stars": 5,
-      "url": "https://msrc.microsoft.com/update-guide/"
+      "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-16804"
     },
     {
       "icon": "🦠",
-      "title": "JADEPUFFER：首例AI Agent自主執行勒索軟體攻擊",
-      "subtitle": "利用Langflow漏洞自主入侵並加密資料庫",
+      "title": "Nicherei日本物流巨頭遭勒索軟體攻擊",
+      "subtitle": "導致全國冷凍食品供應鏈中斷，10日內完成復旧",
       "impact": "高",
       "stars": 5,
-      "url": "https://medium.com/@cyber_securiti/tuesday-morning-threat-report-jul-7-2026-5ad6761ce577"
-    },
-    {
-      "icon": "📰",
-      "title": "Accenture證實原始碼與金鑰資料遭竊",
-      "subtitle": "駭客「888」聲稱竊得35GB原始碼與雲端金鑰",
-      "impact": "中",
-      "stars": 4,
-      "url": "https://blog.senthorus.ch/posts/14_07_2026"
+      "url": "https://crx7601.com/archives/63368738.html"
     },
     {
       "icon": "🕵️",
-      "title": "SharePoint持續遭鎖定攻擊,手法似去年ToolShell",
-      "subtitle": "多個SharePoint漏洞近期陸續列入CISA KEV",
+      "title": "APT-C-36針對南美地區發動釣魚攻擊",
+      "subtitle": "利用偽造銀行文件投遞DcRAT，竊取關鍵資訊",
       "impact": "高",
       "stars": 4,
-      "url": "https://www.cisa.gov/news-events/alerts/2026/07/14/cisa-urges-sharepoint-hardening-after-new-exploitations"
+      "url": "https://www.gm7.org/archives/128430"
     },
     {
-      "icon": "🦠",
-      "title": "Deutsche Bank遭Unsafe勒索組織列入外洩名單",
-      "subtitle": "疑似員工資料庫紀錄遭公開作為證明",
+      "icon": "📰",
+      "title": "Steam論壇ClickFix挖礦木馬感染玩家",
+      "subtitle": "攻擊者透過社群平台傳播XMRig加密貨幣挖礦軟體",
       "impact": "中",
       "stars": 3,
-      "url": "https://blog.senthorus.ch/posts/14_07_2026"
-    }
-  ],
-  "global_events": [
-    {
-      "category": "零時差漏洞",
-      "title": "SharePoint 0-day（CVE-2026-56164）隨Patch Tuesday公告",
-      "date": "2026-07-14",
-      "url": "https://msrc.microsoft.com/update-guide/"
+      "url": "https://www.bleepingcomputer.com/news/security/steam-forum-clickfix-attacks-infect-gamers-with-xmrig-cryptominers/"
     },
     {
-      "category": "零時差漏洞",
-      "title": "AD FS 0-day（CVE-2026-56155）存取控制漏洞",
-      "date": "2026-07-14",
-      "url": "https://msrc.microsoft.com/update-guide/"
-    },
-    {
-      "category": "勒索病毒",
-      "title": "JADEPUFFER AI自主勒索軟體攻擊鏈",
-      "date": "2026-07-07",
-      "url": "https://medium.com/@cyber_securiti/tuesday-morning-threat-report-jul-7-2026-5ad6761ce577"
-    },
-    {
-      "category": "勒索病毒",
-      "title": "Deutsche Bank遭Unsafe勒索組織列入外洩名單",
-      "date": "2026-07-10",
-      "url": "https://blog.senthorus.ch/posts/14_07_2026"
-    },
-    {
-      "category": "勒索病毒",
-      "title": "Fluke Corporation遭ShinyHunters竊取逾100GB資料",
-      "date": "2026-07-10",
-      "url": "https://blog.senthorus.ch/posts/14_07_2026"
-    },
-    {
-      "category": "勒索病毒",
-      "title": "Ford汽車墨西哥廠遭Krybit勒索組織點名",
-      "date": "2026-07-10",
-      "url": "https://sharkstriker.com/blog/july-2026-data-breaches/"
-    },
-    {
-      "category": "勒索病毒",
-      "title": "加拿大Chemco遭Qilin勒索軟體攻擊",
-      "date": "2026-07-01",
-      "url": "https://sharkstriker.com/blog/july-2026-data-breaches/"
-    },
-    {
-      "category": "政府公告",
-      "title": "TWCERT/CC發布Microsoft 2026年7月安全性更新公告",
-      "date": "2026-07-15",
-      "url": "https://www.twcert.org.tw/tw/lp-169-1.html"
-    },
-    {
-      "category": "政府公告",
-      "title": "TWCERT/CC KEV週報（7/13-7/19）",
-      "date": "2026-07-20",
-      "url": "https://www.twcert.org.tw/tw/lp-168-1.html"
-    }
-  ],
-  "cve_radar": [
-    {
-      "cve_id": "CVE-2026-56164",
-      "title": "SharePoint 0-day，可竊取IIS機器金鑰",
-      "cvss": 9.8,
-      "cvss_source": "NVD官方",
-      "exploited": true,
-      "action": "立即更新"
-    },
-    {
-      "cve_id": "CVE-2026-56155",
-      "title": "AD FS存取控制granularity不足0-day",
-      "cvss": 9.1,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "立即更新"
-    },
-    {
-      "cve_id": "CVE-2026-58644",
-      "title": "SharePoint反序列化RCE，6月已修補未列入公告",
-      "cvss": 9.8,
-      "cvss_source": "NVD官方",
-      "exploited": true,
-      "action": "立即更新"
-    },
-    {
-      "cve_id": "CVE-2026-55255",
-      "title": "Langflow授權繞過，已遭AI Agent用於自主勒索攻擊",
-      "cvss": 8.6,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "立即更新"
-    },
-    {
-      "cve_id": "CVE-2026-15409",
-      "title": "SonicWall SMA1000 SSRF漏洞",
-      "cvss": 7.5,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "一週內更新"
-    },
-    {
-      "cve_id": "CVE-2026-15410",
-      "title": "SonicWall SMA1000程式碼注入漏洞",
-      "cvss": 7.2,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "一週內更新"
-    },
-    {
-      "cve_id": "CVE-2026-48939",
-      "title": "iCagenda檔案上傳限制不當漏洞",
-      "cvss": 6.5,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "持續觀察"
-    },
-    {
-      "cve_id": "CVE-2026-56291",
-      "title": "Balbooa Forms檔案上傳限制不當漏洞",
-      "cvss": 6.3,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "持續觀察"
+      "icon": "⚠️",
+      "title": "JavaScript記憶體惡意程式規避磁碟掃描",
+      "subtitle": "新型攻擊在瀏覽器記憶體中組裝木馬，躲避傳統防護",
+      "impact": "中",
+      "stars": 4,
+      "url": "https://www.bleepingcomputer.com/news/security/malicious-sites-use-javascript-to-build-malware-in-browser-memory/"
     }
   ],
   "vendor_impact": [
     {
       "icon": "🪟",
-      "title": "Defender核心引擎與SharePoint/AD FS 0-day修補公告",
+      "title": "Chromium：CVE-2026-16804輸入元件使用已釋放記憶體漏洞",
       "impact": "高",
-      "key_asset": "SharePoint／AD FS／Windows Server",
-      "ai_suggestion": "優先確認SharePoint與AD FS伺服器已完成本次Patch Tuesday更新。"
+      "key_asset": "Edge瀏覽器、Chromium核心應用",
+      "ai_suggestion": "立即檢查Edge瀏覽器版本，部署最新安全補丁，配置自動更新政策確保終端裝置及時防護"
     },
     {
-      "icon": "🛡️",
-      "title": "FortiGuard PSIRT例行公告，修補7項產品線漏洞",
-      "impact": "中",
-      "key_asset": "FortiGate防火牆",
-      "ai_suggestion": "排入例行維護窗口更新，非緊急但建議一週內完成。"
+      "icon": "🪟",
+      "title": "Chromium：CVE-2026-16805 Blink引擎使用已釋放記憶體漏洞",
+      "impact": "高",
+      "key_asset": "Chrome、Edge瀏覽器引擎",
+      "ai_suggestion": "優先更新所有Chromium衍生瀏覽器，檢視員工常用的網頁應用相容性，評估升級排程"
+    },
+    {
+      "icon": "🪟",
+      "title": "Chromium：CVE-2026-16806 WebMCP使用已釋放記憶體漏洞",
+      "impact": "高",
+      "key_asset": "多媒體處理元件、WebCodec",
+      "ai_suggestion": "監控使用多媒體內容的企業應用，確認廠商支援情況，規劃分階段更新策略"
+    },
+    {
+      "icon": "🪟",
+      "title": "Chromium：CVE-2026-16807編碼器越界寫入漏洞",
+      "impact": "高",
+      "key_asset": "音視訊編碼器、媒體引擎",
+      "ai_suggestion": "限制對不可信媒體檔案的處理權限，加強進程隔離設定，推送緊急安全補丁"
     }
   ],
   "daily_learning": {
     "icon": "🎓",
-    "title": "什麼是AI Agent自主攻擊？",
-    "description": "傳統攻擊需要駭客手動操作每個步驟，但JADEPUFFER事件顯示AI Agent可以自己規劃、入侵、竊取憑證、加密資料，全程不需要人即時介入。這代表防禦方需要更快的自動化偵測，因為攻擊速度可能比人類應變更快。",
+    "title": "ClickFix攻擊手法：從社群論壇到端點感染",
+    "description": "ClickFix是一種利用社交工程誘騙用戶點擊惡意鏈結的攻擊方式。駭客先在論壇、留言區製造問題的假象（如「你的電腦有病毒」），引導受害者點擊看似解決方案的連結，實際下載木馬程式。最近Steam論壇案例顯示，即使知名平台也可能被濫用。員工應學會辨識可疑的技術支援訊息，遇到警告要求立即行動時應先向IT部門確認真偽。",
     "reading_time": 3,
-    "url": "https://medium.com/@cyber_securiti/tuesday-morning-threat-report-jul-7-2026-5ad6761ce577"
+    "url": "https://www.bleepingcomputer.com/news/security/steam-forum-clickfix-attacks-infect-gamers-with-xmrig-cryptominers/"
   },
+  "global_events": [
+    {
+      "category": "勒索病毒",
+      "title": "Nicherei日本物流巨頭勒索軟體攻擊事件",
+      "date": "2026-07-26",
+      "url": "https://crx7601.com/archives/63368738.html"
+    },
+    {
+      "category": "APT攻擊",
+      "title": "Jaguar Land Rover俄羅斯駭客破壞攻擊",
+      "date": "2026-06-26",
+      "url": "https://www.ithome.com.tw/news/177011"
+    },
+    {
+      "category": "資料外洩",
+      "title": "日產汽車Oracle PeopleSoft漏洞攻擊",
+      "date": "2026-06-09",
+      "url": "https://www.ithome.com.tw/news/177011"
+    }
+  ],
+  "cve_radar": [],
   "risk_score": {
-    "total": 58,
+    "total": 25,
     "breakdown": [
       {
         "label": "漏洞風險",
-        "score": 100
+        "score": 32
       },
       {
         "label": "APT攻擊",
-        "score": 0
+        "score": 30
       },
       {
         "label": "勒索病毒",
-        "score": 100
+        "score": 44
       },
       {
         "label": "身份風險",
-        "score": 50
+        "score": 0
       },
       {
         "label": "AI風險",
-        "score": 40
+        "score": 20
       }
     ]
   }
 };
+<<<<<<< HEAD
 const UPDATED_AT = "2026-07-27 10:00:00（台灣時間）";
+=======
+const UPDATED_AT = "2026/7/27 08:59:48（台灣時間）";
+>>>>>>> 368d404aca21a42823fe6541accf89da9d07a259
 document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
