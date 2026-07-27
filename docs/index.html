@@ -361,7 +361,7 @@ const DATA = {
     ]
   }
 };
-const UPDATED_AT = "2026-07-23 10:00:00（台灣時間）";
+const UPDATED_AT = "2026-07-27 10:00:00（台灣時間）";
 document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
@@ -564,7 +564,7 @@ grid.innerHTML =
   panelShell('③', '🎯', '今日漏洞雷達 (CVE)', null, renderCveRadar(DATA.cve_radar)) +
   panelShell('④', '🏢', 'AI企業影響分析', null, renderVendorImpact(DATA.vendor_impact)) +
   panelShell('⑤', '📊', 'AI風險熱度儀表板', null, renderRiskGauge(DATA.risk_score)) +
-  panelShell('⑥', '🎓', '資安知識板', null, renderDailyLearning(DATA.daily_learning));
+  panelShell('⑥', '🎓', 'AI宣導建議', null, renderDailyLearning(DATA.daily_learning));
 
 setupGlobalEventsPanel(DATA.global_events);
 </script>
