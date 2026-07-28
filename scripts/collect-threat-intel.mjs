@@ -2,6 +2,7 @@ import Anthropic from "@anthropic-ai/sdk";
 import fs from "node:fs";
 import path from "node:path";
 import { fetchFeed } from "./lib/rss-utils.mjs";
+import { loadEventsHistory, mergeEventsHistory, saveEventsHistory } from "./lib/history-store.mjs";
 
 const apiKey = process.env.ANTHROPIC_API_KEY;
 if (!apiKey) {
@@ -514,8 +515,15 @@ async function main() {
   dashboard.cve_radar = buildCveRadar(result.kev_vulnerabilities);
   dashboard.risk_score = computeRiskScore(result);
   dashboard.action_items = buildActionItems(result, dashboard.cve_radar);
+
+  // 全球重大事件：累積歷史，讓「本週/本月」分頁能篩選出真正的歷史資料
+  const existingHistory = loadEventsHistory();
+  const mergedHistory = mergeEventsHistory(existingHistory, dashboard.global_events || []);
+  saveEventsHistory(mergedHistory);
+  dashboard.global_events = mergedHistory;
+
   console.log(
-    `儀表板產生完成：頭條${(dashboard.headlines||[]).length} / 全球事件${(dashboard.global_events||[]).length} / CVE雷達${(dashboard.cve_radar||[]).length} / 廠商影響${(dashboard.vendor_impact||[]).length} / 建議行動${(dashboard.action_items||[]).length} / 風險分數${dashboard.risk_score.total}`
+    `儀表板產生完成：頭條${(dashboard.headlines||[]).length} / 全球事件${(dashboard.global_events||[]).length}（累積歷史）/ CVE雷達${(dashboard.cve_radar||[]).length} / 廠商影響${(dashboard.vendor_impact||[]).length} / 建議行動${(dashboard.action_items||[]).length} / 風險分數${dashboard.risk_score.total}`
   );
 
   const templatePath = path.join(process.cwd(), "templates", "threat-intel-template.html");

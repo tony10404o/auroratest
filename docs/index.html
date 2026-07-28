@@ -152,6 +152,29 @@
   .learning-btn:hover{background:var(--accent-dim);}
 
   .footer-note{text-align:center;font-size:11px;color:var(--text-faint);margin-top:26px;font-family:'JetBrains Mono',monospace;}
+
+  /* 主管一眼摘要橫幅 */
+  .glance-banner{
+    display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+    background:var(--panel);border:1px solid var(--border);border-left-width:5px;
+    border-radius:10px;padding:14px 18px;margin-bottom:18px;
+  }
+  .glance-banner.level-高{border-left-color:var(--sev-high);}
+  .glance-banner.level-中{border-left-color:var(--sev-medium);}
+  .glance-banner.level-低{border-left-color:var(--sev-low);}
+  .glance-left{display:flex;align-items:center;gap:10px;flex:1;min-width:220px;}
+  .glance-badge{
+    font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;
+    padding:4px 11px;border-radius:20px;white-space:nowrap;flex-shrink:0;
+  }
+  .glance-badge.level-高{color:var(--sev-high);background:var(--sev-high-bg);}
+  .glance-badge.level-中{color:var(--sev-medium);background:var(--sev-medium-bg);}
+  .glance-badge.level-低{color:var(--sev-low);background:var(--sev-low-bg);}
+  .glance-headline{font-size:13.5px;font-weight:600;color:var(--text);overflow-wrap:anywhere;}
+  .glance-stats{display:flex;gap:20px;flex-wrap:wrap;}
+  .glance-stat{text-align:center;}
+  .glance-stat-num{font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:700;color:var(--text);line-height:1.1;}
+  .glance-stat-label{font-family:'JetBrains Mono',monospace;font-size:9.5px;color:var(--text-dim);margin-top:2px;white-space:nowrap;}
 </style>
 </head>
 <body>
@@ -163,6 +186,8 @@
     </div>
     <div class="meta-line">最後更新：<span id="updatedAt">--</span></div>
   </div>
+
+  <div class="glance-banner" id="glanceBanner"></div>
 
   <div class="dashboard-grid" id="dashboardGrid"></div>
 
@@ -215,6 +240,42 @@ const DATA = {
   ],
   "global_events": [
     {
+      "category": "政府公告",
+      "title": "TWCERT/CC KEV週報（7/13-7/19）",
+      "date": "2026-07-20",
+      "url": "https://www.twcert.org.tw/tw/lp-168-1.html"
+    },
+    {
+      "category": "政府公告",
+      "title": "TWCERT/CC發布Microsoft 2026年7月份安全性更新公告",
+      "date": "2026-07-15",
+      "url": "https://www.twcert.org.tw/tw/lp-169-1.html"
+    },
+    {
+      "category": "政府公告",
+      "title": "TWCERT/CC發布Microsoft 2026年7月安全性更新公告",
+      "date": "2026-07-15",
+      "url": "https://www.twcert.org.tw/tw/lp-169-1.html"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "Microsoft SharePoint CVE-2026-56164遭實際利用",
+      "date": "2026-07-14",
+      "url": "https://msrc.microsoft.com/update-guide/"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "Microsoft AD FS CVE-2026-56155遭實際利用",
+      "date": "2026-07-14",
+      "url": "https://msrc.microsoft.com/update-guide/"
+    },
+    {
+      "category": "資料外洩",
+      "title": "Accenture證實原始碼與金鑰資料遭竊",
+      "date": "2026-07-14",
+      "url": "https://blog.senthorus.ch/posts/14_07_2026"
+    },
+    {
       "category": "零時差漏洞",
       "title": "SharePoint 0-day（CVE-2026-56164）隨Patch Tuesday公告",
       "date": "2026-07-14",
@@ -225,12 +286,6 @@ const DATA = {
       "title": "AD FS 0-day（CVE-2026-56155）存取控制漏洞",
       "date": "2026-07-14",
       "url": "https://msrc.microsoft.com/update-guide/"
-    },
-    {
-      "category": "勒索病毒",
-      "title": "JADEPUFFER AI自主勒索軟體攻擊鏈",
-      "date": "2026-07-07",
-      "url": "https://medium.com/@cyber_securiti/tuesday-morning-threat-report-jul-7-2026-5ad6761ce577"
     },
     {
       "category": "勒索病毒",
@@ -252,21 +307,27 @@ const DATA = {
     },
     {
       "category": "勒索病毒",
+      "title": "AI Agent（JADEPUFFER）自主執行勒索軟體攻擊",
+      "date": "2026-07-07",
+      "url": "https://medium.com/@cyber_securiti/tuesday-morning-threat-report-jul-7-2026-5ad6761ce577"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "JADEPUFFER AI自主勒索軟體攻擊鏈",
+      "date": "2026-07-07",
+      "url": "https://medium.com/@cyber_securiti/tuesday-morning-threat-report-jul-7-2026-5ad6761ce577"
+    },
+    {
+      "category": "勒索病毒",
       "title": "加拿大Chemco遭Qilin勒索軟體攻擊",
       "date": "2026-07-01",
       "url": "https://sharkstriker.com/blog/july-2026-data-breaches/"
     },
     {
-      "category": "政府公告",
-      "title": "TWCERT/CC發布Microsoft 2026年7月安全性更新公告",
-      "date": "2026-07-15",
-      "url": "https://www.twcert.org.tw/tw/lp-169-1.html"
-    },
-    {
-      "category": "政府公告",
-      "title": "TWCERT/CC KEV週報（7/13-7/19）",
-      "date": "2026-07-20",
-      "url": "https://www.twcert.org.tw/tw/lp-168-1.html"
+      "category": "零時差漏洞",
+      "title": "Progress LoadMaster CVE-2026-8037遭鎖定攻擊",
+      "date": "2026-06-29",
+      "url": "https://thehackernews.com/"
     }
   ],
   "cve_radar": [
@@ -704,6 +765,41 @@ function setupNewsDigestPanel(digest){
 }
 
 /* ---------- 組裝 8 宮格 ---------- */
+/* ---------- 主管一眼摘要橫幅（純前端組裝，不額外花AI費用） ---------- */
+function riskLevel(total){
+  if (total >= 70) return '高';
+  if (total >= 40) return '中';
+  return '低';
+}
+
+function renderGlanceBanner(data){
+  const el = document.getElementById('glanceBanner');
+  const total = data.risk_score?.total ?? 0;
+  const level = riskLevel(total);
+  const levelLabel = level === '高' ? '高風險' : level === '中' ? '中度留意' : '平穩';
+  const topHeadline = (data.headlines && data.headlines[0]) ? data.headlines[0].title : '今天暫無特別重大訊號';
+
+  const actionItems = data.action_items || [];
+  const highPriorityCount = actionItems.filter(a => a.priority === '高').length;
+  const urgentCveCount = (data.cve_radar || []).filter(v => v.action === '立即更新').length;
+  const majorEventCount = (data.global_events || []).length;
+
+  el.className = `glance-banner level-${level}`;
+  el.innerHTML = `
+    <div class="glance-left">
+      <span class="glance-badge level-${level}">${level === '高' ? '🔴' : level === '中' ? '🟡' : '🟢'} ${levelLabel}</span>
+      <span class="glance-headline">${escapeHtml(topHeadline)}</span>
+    </div>
+    <div class="glance-stats">
+      <div class="glance-stat"><div class="glance-stat-num">${total}</div><div class="glance-stat-label">風險分數/100</div></div>
+      <div class="glance-stat"><div class="glance-stat-num">${actionItems.length}</div><div class="glance-stat-label">待辦事項（高${highPriorityCount}）</div></div>
+      <div class="glance-stat"><div class="glance-stat-num">${urgentCveCount}</div><div class="glance-stat-label">需立即更新漏洞</div></div>
+      <div class="glance-stat"><div class="glance-stat-num">${majorEventCount}</div><div class="glance-stat-label">今日重大事件</div></div>
+    </div>`;
+}
+
+renderGlanceBanner(DATA);
+
 const grid = document.getElementById('dashboardGrid');
 
 grid.innerHTML =

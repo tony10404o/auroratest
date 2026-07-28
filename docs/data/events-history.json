@@ -1,0 +1,92 @@
+[
+  {
+    "category": "政府公告",
+    "title": "TWCERT/CC KEV週報（7/13-7/19）",
+    "date": "2026-07-20",
+    "url": "https://www.twcert.org.tw/tw/lp-168-1.html"
+  },
+  {
+    "category": "政府公告",
+    "title": "TWCERT/CC發布Microsoft 2026年7月份安全性更新公告",
+    "date": "2026-07-15",
+    "url": "https://www.twcert.org.tw/tw/lp-169-1.html"
+  },
+  {
+    "category": "政府公告",
+    "title": "TWCERT/CC發布Microsoft 2026年7月安全性更新公告",
+    "date": "2026-07-15",
+    "url": "https://www.twcert.org.tw/tw/lp-169-1.html"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Microsoft SharePoint CVE-2026-56164遭實際利用",
+    "date": "2026-07-14",
+    "url": "https://msrc.microsoft.com/update-guide/"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Microsoft AD FS CVE-2026-56155遭實際利用",
+    "date": "2026-07-14",
+    "url": "https://msrc.microsoft.com/update-guide/"
+  },
+  {
+    "category": "資料外洩",
+    "title": "Accenture證實原始碼與金鑰資料遭竊",
+    "date": "2026-07-14",
+    "url": "https://blog.senthorus.ch/posts/14_07_2026"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "SharePoint 0-day（CVE-2026-56164）隨Patch Tuesday公告",
+    "date": "2026-07-14",
+    "url": "https://msrc.microsoft.com/update-guide/"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "AD FS 0-day（CVE-2026-56155）存取控制漏洞",
+    "date": "2026-07-14",
+    "url": "https://msrc.microsoft.com/update-guide/"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "Deutsche Bank遭Unsafe勒索組織列入外洩名單",
+    "date": "2026-07-10",
+    "url": "https://blog.senthorus.ch/posts/14_07_2026"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "Fluke Corporation遭ShinyHunters竊取逾100GB資料",
+    "date": "2026-07-10",
+    "url": "https://blog.senthorus.ch/posts/14_07_2026"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "Ford汽車墨西哥廠遭Krybit勒索組織點名",
+    "date": "2026-07-10",
+    "url": "https://sharkstriker.com/blog/july-2026-data-breaches/"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "AI Agent（JADEPUFFER）自主執行勒索軟體攻擊",
+    "date": "2026-07-07",
+    "url": "https://medium.com/@cyber_securiti/tuesday-morning-threat-report-jul-7-2026-5ad6761ce577"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "JADEPUFFER AI自主勒索軟體攻擊鏈",
+    "date": "2026-07-07",
+    "url": "https://medium.com/@cyber_securiti/tuesday-morning-threat-report-jul-7-2026-5ad6761ce577"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "加拿大Chemco遭Qilin勒索軟體攻擊",
+    "date": "2026-07-01",
+    "url": "https://sharkstriker.com/blog/july-2026-data-breaches/"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Progress LoadMaster CVE-2026-8037遭鎖定攻擊",
+    "date": "2026-06-29",
+    "url": "https://thehackernews.com/"
+  }
+]
