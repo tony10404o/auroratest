@@ -174,196 +174,138 @@ const DATA = {
   "headlines": [
     {
       "icon": "🎯",
-      "title": "微軟2026年7月Patch Tuesday創史上最大規模",
-      "subtitle": "約622個CVE，含SharePoint與AD FS兩個0-day",
+      "title": "Arista VeloCloud Orchestrator 零日漏洞遭實際利用",
+      "subtitle": "CVSS 10.0 嚴重漏洞，遠端可執行任意指令，已發布修補",
       "impact": "高",
       "stars": 5,
-      "url": "https://msrc.microsoft.com/update-guide/"
+      "url": "https://www.bleepingcomputer.com/news/security/arista-patches-velocloud-orchestrator-zero-day-exploited-in-attacks/"
+    },
+    {
+      "icon": "🪟",
+      "title": "Microsoft 發布多個高危權限提升漏洞公告",
+      "subtitle": "五大Windows系統漏洞同步發布，涉及DHCP、驅動程式與安裝服務",
+      "impact": "高",
+      "stars": 5
     },
     {
       "icon": "🦠",
-      "title": "JADEPUFFER：首例AI Agent自主執行勒索軟體攻擊",
-      "subtitle": "利用Langflow漏洞自主入侵並加密資料庫",
-      "impact": "高",
-      "stars": 5,
-      "url": "https://medium.com/@cyber_securiti/tuesday-morning-threat-report-jul-7-2026-5ad6761ce577"
-    },
-    {
-      "icon": "📰",
-      "title": "Accenture證實原始碼與金鑰資料遭竊",
-      "subtitle": "駭客「888」聲稱竊得35GB原始碼與雲端金鑰",
+      "title": "Dysphoria DDoS 殭屍網路全球感染20萬台設備",
+      "subtitle": "新型殭屍網路快速擴散，用於大規模分散式阻斷服務攻擊",
       "impact": "中",
       "stars": 4,
-      "url": "https://blog.senthorus.ch/posts/14_07_2026"
+      "url": "https://www.bleepingcomputer.com/news/security/new-dysphoria-ddos-botnet-spreads-to-200k-devices-worldwide/"
     },
     {
       "icon": "🕵️",
-      "title": "SharePoint持續遭鎖定攻擊,手法似去年ToolShell",
-      "subtitle": "多個SharePoint漏洞近期陸續列入CISA KEV",
+      "title": "Certighost 工具可劫持 Windows 域控制器",
+      "subtitle": "新型漏洞利用工具濫用憑證服務，威脅企業域環境安全",
       "impact": "高",
       "stars": 4,
-      "url": "https://www.cisa.gov/news-events/alerts/2026/07/14/cisa-urges-sharepoint-hardening-after-new-exploitations"
+      "url": "https://www.bleepingcomputer.com/news/security/new-certighost-poc-exploit-lets-attackers-hijack-windows-domains/"
     },
     {
-      "icon": "🦠",
-      "title": "Deutsche Bank遭Unsafe勒索組織列入外洩名單",
-      "subtitle": "疑似員工資料庫紀錄遭公開作為證明",
-      "impact": "中",
-      "stars": 3,
-      "url": "https://blog.senthorus.ch/posts/14_07_2026"
-    }
-  ],
-  "global_events": [
-    {
-      "category": "零時差漏洞",
-      "title": "SharePoint 0-day（CVE-2026-56164）隨Patch Tuesday公告",
-      "date": "2026-07-14",
-      "url": "https://msrc.microsoft.com/update-guide/"
-    },
-    {
-      "category": "零時差漏洞",
-      "title": "AD FS 0-day（CVE-2026-56155）存取控制漏洞",
-      "date": "2026-07-14",
-      "url": "https://msrc.microsoft.com/update-guide/"
-    },
-    {
-      "category": "勒索病毒",
-      "title": "JADEPUFFER AI自主勒索軟體攻擊鏈",
-      "date": "2026-07-07",
-      "url": "https://medium.com/@cyber_securiti/tuesday-morning-threat-report-jul-7-2026-5ad6761ce577"
-    },
-    {
-      "category": "勒索病毒",
-      "title": "Deutsche Bank遭Unsafe勒索組織列入外洩名單",
-      "date": "2026-07-10",
-      "url": "https://blog.senthorus.ch/posts/14_07_2026"
-    },
-    {
-      "category": "勒索病毒",
-      "title": "Fluke Corporation遭ShinyHunters竊取逾100GB資料",
-      "date": "2026-07-10",
-      "url": "https://blog.senthorus.ch/posts/14_07_2026"
-    },
-    {
-      "category": "勒索病毒",
-      "title": "Ford汽車墨西哥廠遭Krybit勒索組織點名",
-      "date": "2026-07-10",
-      "url": "https://sharkstriker.com/blog/july-2026-data-breaches/"
-    },
-    {
-      "category": "勒索病毒",
-      "title": "加拿大Chemco遭Qilin勒索軟體攻擊",
-      "date": "2026-07-01",
-      "url": "https://sharkstriker.com/blog/july-2026-data-breaches/"
-    },
-    {
-      "category": "政府公告",
-      "title": "TWCERT/CC發布Microsoft 2026年7月安全性更新公告",
-      "date": "2026-07-15",
-      "url": "https://www.twcert.org.tw/tw/lp-169-1.html"
-    },
-    {
-      "category": "政府公告",
-      "title": "TWCERT/CC KEV週報（7/13-7/19）",
-      "date": "2026-07-20",
-      "url": "https://www.twcert.org.tw/tw/lp-168-1.html"
-    }
-  ],
-  "cve_radar": [
-    {
-      "cve_id": "CVE-2026-56164",
-      "title": "SharePoint 0-day，可竊取IIS機器金鑰",
-      "cvss": 9.8,
-      "cvss_source": "NVD官方",
-      "exploited": true,
-      "action": "立即更新"
-    },
-    {
-      "cve_id": "CVE-2026-56155",
-      "title": "AD FS存取控制granularity不足0-day",
-      "cvss": 9.1,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "立即更新"
-    },
-    {
-      "cve_id": "CVE-2026-58644",
-      "title": "SharePoint反序列化RCE，6月已修補未列入公告",
-      "cvss": 9.8,
-      "cvss_source": "NVD官方",
-      "exploited": true,
-      "action": "立即更新"
-    },
-    {
-      "cve_id": "CVE-2026-55255",
-      "title": "Langflow授權繞過，已遭AI Agent用於自主勒索攻擊",
-      "cvss": 8.6,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "立即更新"
-    },
-    {
-      "cve_id": "CVE-2026-15409",
-      "title": "SonicWall SMA1000 SSRF漏洞",
-      "cvss": 7.5,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "一週內更新"
-    },
-    {
-      "cve_id": "CVE-2026-15410",
-      "title": "SonicWall SMA1000程式碼注入漏洞",
-      "cvss": 7.2,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "一週內更新"
-    },
-    {
-      "cve_id": "CVE-2026-48939",
-      "title": "iCagenda檔案上傳限制不當漏洞",
-      "cvss": 6.5,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "持續觀察"
-    },
-    {
-      "cve_id": "CVE-2026-56291",
-      "title": "Balbooa Forms檔案上傳限制不當漏洞",
-      "cvss": 6.3,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "持續觀察"
+      "icon": "💥",
+      "title": "FastJson 零日漏洞被駭客鎖定美國企業攻擊",
+      "subtitle": "Java 框架遠端程式碼執行漏洞，已被實際利用進行有針對性攻擊",
+      "impact": "高",
+      "stars": 5,
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-target-us-firms-in-fastjson-rce-zero-day-attacks/"
     }
   ],
   "vendor_impact": [
     {
-      "icon": "🪟",
-      "title": "Defender核心引擎與SharePoint/AD FS 0-day修補公告",
+      "icon": "🏢",
+      "title": "Microsoft CVE-2026-56159 DHCP伺服器服務遠端程式碼執行漏洞",
       "impact": "高",
-      "key_asset": "SharePoint／AD FS／Windows Server",
-      "ai_suggestion": "優先確認SharePoint與AD FS伺服器已完成本次Patch Tuesday更新。"
+      "key_asset": "Windows DHCP Server 服務",
+      "ai_suggestion": "優先檢視網路環境中所有 DHCP 伺服器版本，立即規劃並執行 Microsoft 官方修補，臨時可考慮網路隔離"
     },
     {
-      "icon": "🛡️",
-      "title": "FortiGuard PSIRT例行公告，修補7項產品線漏洞",
-      "impact": "中",
-      "key_asset": "FortiGate防火牆",
-      "ai_suggestion": "排入例行維護窗口更新，非緊急但建議一週內完成。"
+      "icon": "🪟",
+      "title": "Microsoft CVE-2026-50333 Windows Spaceport.sys 權限提升漏洞",
+      "impact": "高",
+      "key_asset": "Windows 系統驅動程式 Spaceport.sys",
+      "ai_suggestion": "評估企業內受影響的 Windows 版本數量，部署修補並進行滾動測試，監控系統日誌中的異常權限提升活動"
+    },
+    {
+      "icon": "🪟",
+      "title": "Microsoft CVE-2026-50697 Windows 通用日誌檔案系統驅動程式權限提升漏洞",
+      "impact": "高",
+      "key_asset": "Windows 通用日誌檔案系統驅動程式",
+      "ai_suggestion": "對所有 Windows 工作站與伺服器執行驅動程式版本盤點，排程系統修補更新，強化存取控制政策"
+    },
+    {
+      "icon": "🪟",
+      "title": "Microsoft CVE-2026-50343 Microsoft Install Service 權限提升漏洞",
+      "impact": "高",
+      "key_asset": "Windows Install Service 安裝服務",
+      "ai_suggestion": "限制 Install Service 的存取權限，部署 Microsoft 官方修補程式，監控安裝活動日誌"
+    },
+    {
+      "icon": "🏢",
+      "title": "Microsoft CVE-2026-8450 HTTP::Daemon Perl 模組遠端指令注入漏洞",
+      "impact": "高",
+      "key_asset": "Perl HTTP::Daemon 模組與相關應用",
+      "ai_suggestion": "清查企業內使用 Perl HTTP::Daemon 模組的應用程式，優先更新或替換為安全版本，檢視相關網路服務日誌"
     }
   ],
   "daily_learning": {
-    "icon": "🎓",
-    "title": "什麼是AI Agent自主攻擊？",
-    "description": "傳統攻擊需要駭客手動操作每個步驟，但JADEPUFFER事件顯示AI Agent可以自己規劃、入侵、竊取憑證、加密資料，全程不需要人即時介入。這代表防禦方需要更快的自動化偵測，因為攻擊速度可能比人類應變更快。",
+    "icon": "🔐",
+    "title": "零日漏洞威脅：為何更新與防禦分層很關鍵",
+    "description": "零日漏洞是指駭客未經授權即發現與利用、廠商還未發布修補的安全缺陷。今天發現 Arista VeloCloud 與 FastJson 都遭零日攻擊，這類漏洞防不勝防，因此企業應採用『縱深防禦』：一、盡速更新已知漏洞修補避免連鎖攻擊；二、部署網路隔離、入侵偵測、異常監控等多層防護；三、定期演練應變流程。若公司系統無法立即更新，建議限制高風險系統的網路連線或提升存取認證強度。",
     "reading_time": 3,
-    "url": "https://medium.com/@cyber_securiti/tuesday-morning-threat-report-jul-7-2026-5ad6761ce577"
+    "url": "https://www.bleepingcomputer.com/news/security/arista-patches-velocloud-orchestrator-zero-day-exploited-in-attacks/"
   },
+  "global_events": [
+    {
+      "category": "零時差漏洞",
+      "title": "Arista VeloCloud Orchestrator 遠端指令注入漏洞（CVE-2026-16812）",
+      "date": "2026-07-27",
+      "url": "https://www.bleepingcomputer.com/news/security/arista-patches-velocloud-orchestrator-zero-day-exploited-in-attacks/"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "FastJson 零日漏洞被駭客鎖定美國企業",
+      "date": "2026-07-27",
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-target-us-firms-in-fastjson-rce-zero-day-attacks/"
+    },
+    {
+      "category": "資料外洩",
+      "title": "可口可樂 Fairlife 勒索軟體攻擊致客戶資料外洩",
+      "date": "2026-07-27",
+      "url": "https://www.bleepingcomputer.com/news/security/coca-cola-confirms-data-theft-in-fairlife-ransomware-attack/"
+    }
+  ],
+  "news_digest": {
+    "exec_summary": "本日威脅情資涵蓋五項重大安全事件：Arista VeloCloud 與 FastJson 兩大零日漏洞已被駭客實際利用攻擊企業；Microsoft 同時發布五個高危權限提升漏洞；全球新型 DDoS 殭屍網路感染 20 萬台設備；Windows 域控制器遭新型工具威脅；可口可樂集團證實遭勒索軟體攻擊並資料外洩。建議立即啟動應變機制：優先檢視 Arista 與 FastJson 環境；排程 Microsoft 修補部署；強化網路監控與入侵偵測；檢核域控制器安全設定；並評估內部系統對已知漏洞的暴露風險。",
+    "tech_summary": "今日關鍵威脅包括：(1) CVE-2026-16812—Arista VeloCloud Orchestrator OS 指令注入漏洞（CVSS 10.0），已被實際利用；(2) FastJson Java 框架遠端程式碼執行零日漏洞，駭客進行有針對性攻擊；(3) Microsoft 五項高危公告—CVE-2026-56159 DHCP RCE、CVE-2026-50333/50697 驅動程式提升、CVE-2026-50343 安裝服務提升、CVE-2026-8450 Perl 模組注入；(4) Dysphoria DDoS 殭屍網路全球感染 20 萬台設備；(5) Certighost POC 工具濫用 Windows 憑證服務劫持域環境；(6) CVE-2025-68686—FortiOS 敏感資訊洩露漏洞（需鏈式漏洞利用）。建議立即發起漏洞評估、修補規劃與網路監控強化。",
+    "article_count": 13,
+    "reading_time": 4
+  },
+  "cve_radar": [
+    {
+      "cve_id": "CVE-2026-16812",
+      "title": "Arista VeloCloud Orchestrator 遠端指令注入漏洞",
+      "cvss": 10,
+      "cvss_source": "NVD官方",
+      "exploited": true,
+      "action": "立即更新"
+    },
+    {
+      "cve_id": "CVE-2025-68686",
+      "title": "Fortinet FortiOS 敏感資訊洩露漏洞",
+      "cvss": 5.9,
+      "cvss_source": "NVD官方",
+      "exploited": true,
+      "action": "持續觀察"
+    }
+  ],
   "risk_score": {
-    "total": 58,
+    "total": 20,
     "breakdown": [
       {
         "label": "漏洞風險",
-        "score": 100
+        "score": 79
       },
       {
         "label": "APT攻擊",
@@ -371,88 +313,70 @@ const DATA = {
       },
       {
         "label": "勒索病毒",
-        "score": 100
+        "score": 0
       },
       {
         "label": "身份風險",
-        "score": 50
+        "score": 0
       },
       {
         "label": "AI風險",
-        "score": 40
+        "score": 20
       }
     ]
   },
   "action_items": [
     {
       "category": "漏洞修補",
-      "title": "CVE-2026-56164：SharePoint 0-day，可竊取IIS機器金鑰",
+      "title": "CVE-2026-16812：Arista VeloCloud Orchestrator 遠端指令注入漏洞",
       "priority": "高",
-      "detail": "CVSS 9.8（NVD官方），建議立即更新"
-    },
-    {
-      "category": "漏洞修補",
-      "title": "CVE-2026-58644：SharePoint反序列化RCE，6月已修補未列入公告",
-      "priority": "高",
-      "detail": "CVSS 9.8（NVD官方），建議立即更新"
-    },
-    {
-      "category": "漏洞修補",
-      "title": "CVE-2026-56155：AD FS存取控制granularity不足0-day",
-      "priority": "高",
-      "detail": "CVSS 9.1（AI推估），建議立即更新"
-    },
-    {
-      "category": "漏洞修補",
-      "title": "CVE-2026-55255：Langflow授權繞過，已遭AI Agent用於自主勒索攻擊",
-      "priority": "高",
-      "detail": "CVSS 8.6（AI推估），建議立即更新"
+      "detail": "CVSS 10（NVD官方），建議立即更新"
     },
     {
       "category": "公告確認",
-      "title": "Microsoft 2026年7月Patch Tuesday：史上最大規模，622個CVE含2個0-day",
+      "title": "CVE-2026-56159 DHCP伺服器服務遠端程式碼執行漏洞",
       "priority": "高",
       "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
-      "category": "漏洞修補",
-      "title": "CVE-2026-15409：SonicWall SMA1000 SSRF漏洞",
-      "priority": "中",
-      "detail": "CVSS 7.5（AI推估），建議一週內更新"
+      "category": "公告確認",
+      "title": "CVE-2026-50333 Windows Spaceport.sys 權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
-      "category": "漏洞修補",
-      "title": "CVE-2026-15410：SonicWall SMA1000程式碼注入漏洞",
-      "priority": "中",
-      "detail": "CVSS 7.2（AI推估），建議一週內更新"
+      "category": "公告確認",
+      "title": "CVE-2026-50697 Windows 通用日誌檔案系統驅動程式權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
-      "category": "掃描比對",
-      "title": "JADEPUFFER AI自主勒索軟體攻擊鏈相關IOC比對",
-      "priority": "中",
-      "detail": "涉及類型：Domain、Hash。建議比對內部防火牆/EDR日誌。"
+      "category": "公告確認",
+      "title": "CVE-2026-50343 Microsoft Install Service 權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
-      "category": "掃描比對",
-      "title": "FortiBleed憑證竊取活動相關IOC比對",
-      "priority": "中",
-      "detail": "涉及類型：IP。建議比對VPN登入來源IP。"
+      "category": "公告確認",
+      "title": "CVE-2026-8450 HTTP::Daemon Perl 模組遠端指令注入漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "教育宣導",
-      "title": "研究揭露結合GPT-5/6模型與Chrome漏洞的新型攻擊鏈",
+      "title": "可口可樂證實Fairlife 勒索軟體攻擊致資料外洩",
+      "priority": "低",
+      "detail": "建議納入員工資安宣導教育素材。"
+    },
+    {
+      "category": "教育宣導",
+      "title": "虛擬資產管理公司冒充App Store應用詐騙180萬美元比特幣",
       "priority": "低",
       "detail": "建議納入員工資安宣導教育素材。"
     }
-  ],
-  "news_digest": {
-    "exec_summary": "本期最重要的事是微軟本月釋出史上最大規模的安全更新（622個修補項目），其中兩項已被駭客實際利用、須立即處理。同時也出現首例完全由AI自動執行的勒索軟體攻擊案例，顯示攻擊技術持續演進。另外多家國際企業（含Accenture、Deutsche Bank）傳出資料外洩，建議留意供應商與委外廠商的資安控管，並優先完成本期高風險項目的修補確認。",
-    "tech_summary": "Microsoft 2026年7月Patch Tuesday修補約622個CVE，含SharePoint（CVE-2026-56164, CVSS 9.8）與AD FS（CVE-2026-56155）兩個已遭實際利用之0-day；SharePoint另有CVE-2026-58644等多個漏洞持續遭利用竊取IIS機器金鑰，手法類似去年ToolShell事件。資安業者揭露首例AI Agent（JADEPUFFER）透過Langflow授權繞過漏洞（CVE-2026-55255）自主執行勒索軟體攻擊。此外SonicWall SMA1000存在SSRF與程式碼注入漏洞（CVE-2026-15409/15410）。建議優先確認上述CVE修補狀態，並比對JADEPUFFER與FortiBleed相關IOC。",
-    "article_count": 24,
-    "reading_time": 4
-  }
+  ]
 };
-const UPDATED_AT = "2026-07-27 10:00:00（台灣時間）";
+const UPDATED_AT = "2026/7/28 08:48:16（台灣時間）";
 document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
