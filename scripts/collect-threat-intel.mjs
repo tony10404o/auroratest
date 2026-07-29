@@ -515,6 +515,12 @@ async function main() {
   dashboard.cve_radar = buildCveRadar(result.kev_vulnerabilities);
   dashboard.risk_score = computeRiskScore(result);
   dashboard.action_items = buildActionItems(result, dashboard.cve_radar);
+  dashboard.category_counts = {
+    kev: result.kev_vulnerabilities.length,
+    vendor: result.vendor_advisories.length,
+    news: result.international_news.length,
+    ransomwareApt: result.ransomware_apt.length,
+  };
 
   // 全球重大事件：累積歷史，讓「本週/本月」分頁能篩選出真正的歷史資料
   const existingHistory = loadEventsHistory();

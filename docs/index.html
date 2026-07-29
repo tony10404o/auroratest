@@ -175,6 +175,27 @@
   .glance-stat{text-align:center;}
   .glance-stat-num{font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:700;color:var(--text);line-height:1.1;}
   .glance-stat-label{font-family:'JetBrains Mono',monospace;font-size:9.5px;color:var(--text-dim);margin-top:2px;white-space:nowrap;}
+
+  /* 分類統計字卡（色條風格） */
+  .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px;}
+  .strip-card{background:var(--panel);border:1px solid var(--border);border-left-width:4px;border-radius:8px;padding:14px 16px;}
+  .strip-card.c-blue{border-left-color:#2563EB;}
+  .strip-card.c-green{border-left-color:#059669;}
+  .strip-card.c-orange{border-left-color:#D97706;}
+  .strip-card.c-red{border-left-color:#DC2626;}
+  .strip-label{font-size:12.5px;font-weight:600;margin-bottom:6px;}
+  .strip-card.c-blue .strip-label{color:#2563EB;}
+  .strip-card.c-green .strip-label{color:#059669;}
+  .strip-card.c-orange .strip-label{color:#D97706;}
+  .strip-card.c-red .strip-label{color:#DC2626;}
+  .strip-number{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;line-height:1;margin-bottom:6px;}
+  .strip-card.c-blue .strip-number{color:#2563EB;}
+  .strip-card.c-green .strip-number{color:#059669;}
+  .strip-card.c-orange .strip-number{color:#D97706;}
+  .strip-card.c-red .strip-number{color:#DC2626;}
+  .strip-desc{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-dim);}
+  @media (max-width:800px){.stat-strip{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:480px){.stat-strip{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -188,6 +209,8 @@
   </div>
 
   <div class="glance-banner" id="glanceBanner"></div>
+
+  <div class="stat-strip" id="statStrip"></div>
 
   <div class="dashboard-grid" id="dashboardGrid"></div>
 
@@ -511,6 +534,12 @@ const DATA = {
     "tech_summary": "Microsoft 2026年7月Patch Tuesday修補約622個CVE，含SharePoint（CVE-2026-56164, CVSS 9.8）與AD FS（CVE-2026-56155）兩個已遭實際利用之0-day；SharePoint另有CVE-2026-58644等多個漏洞持續遭利用竊取IIS機器金鑰，手法類似去年ToolShell事件。資安業者揭露首例AI Agent（JADEPUFFER）透過Langflow授權繞過漏洞（CVE-2026-55255）自主執行勒索軟體攻擊。此外SonicWall SMA1000存在SSRF與程式碼注入漏洞（CVE-2026-15409/15410）。建議優先確認上述CVE修補狀態，並比對JADEPUFFER與FortiBleed相關IOC。",
     "article_count": 24,
     "reading_time": 4
+  },
+  "category_counts": {
+    "kev": 8,
+    "vendor": 5,
+    "news": 6,
+    "ransomwareApt": 6
   }
 };
 const UPDATED_AT = "2026-07-27 10:00:00（台灣時間）";
@@ -799,6 +828,24 @@ function renderGlanceBanner(data){
 }
 
 renderGlanceBanner(DATA);
+
+function renderStatStrip(counts){
+  const el = document.getElementById('statStrip');
+  if (!counts) { el.style.display = 'none'; return; }
+  const cards = [
+    { color:'blue', label:'今日漏洞情資', number: counts.kev ?? 0, desc:'KEV新增筆數' },
+    { color:'green', label:'廠商安全公告', number: counts.vendor ?? 0, desc:'Microsoft／Cisco／Fortinet' },
+    { color:'orange', label:'國際資安新聞', number: counts.news ?? 0, desc:'今日彙整則數' },
+    { color:'red', label:'勒索軟體／APT', number: counts.ransomwareApt ?? 0, desc:'近期事件數' },
+  ];
+  el.innerHTML = cards.map(c => `
+    <div class="strip-card c-${c.color}">
+      <div class="strip-label">${escapeHtml(c.label)}</div>
+      <div class="strip-number">${c.number}</div>
+      <div class="strip-desc">${escapeHtml(c.desc)}</div>
+    </div>`).join('');
+}
+renderStatStrip(DATA.category_counts);
 
 const grid = document.getElementById('dashboardGrid');
 
