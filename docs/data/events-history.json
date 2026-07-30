@@ -1,5 +1,29 @@
 [
   {
+    "category": "零時差漏洞",
+    "title": "Cisco防火牆管理中心硬編碼密碼漏洞",
+    "date": "2026-07-29",
+    "url": "https://www.bleepingcomputer.com/news/security/cisco-warns-of-fmc-static-credential-flaw-exploited-in-zero-day-attacks/"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "AI驅動的雙重勒索攻擊威脅升級",
+    "date": "2026-07-27",
+    "url": "https://www.epochtimes.com/b5/26/7/27/n14818296.htm"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "俄駭客利用Exchange OWA零時差漏洞進行長期信箱入侵",
+    "date": "2026-07-27",
+    "url": "https://www.bleepingcomputer.com/news/security/russian-hackers-exploit-exchange-owa-zero-day-for-long-term-mailbox-access/"
+  },
+  {
+    "category": "資料外洩",
+    "title": "明尼蘇達州30家供水公用事業遭協調式OT攻擊",
+    "date": "2026-07-27",
+    "url": "https://www.bleepingcomputer.com/news/security/hackers-target-over-30-minnesota-water-utilities-in-coordinated-ot-attack/"
+  },
+  {
     "category": "政府公告",
     "title": "TWCERT/CC KEV週報（7/13-7/19）",
     "date": "2026-07-20",
@@ -79,14 +103,44 @@
   },
   {
     "category": "勒索病毒",
+    "title": "Safepay、Qilin等集團全球高強度活動",
+    "date": "2026-07-06",
+    "url": "https://00sec.com/daily/7Jb4O58Bp1ppm_bb2FGw"
+  },
+  {
+    "category": "勒索病毒",
     "title": "加拿大Chemco遭Qilin勒索軟體攻擊",
     "date": "2026-07-01",
     "url": "https://sharkstriker.com/blog/july-2026-data-breaches/"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "多個勒索組織保持穩定高位活動",
+    "date": "2026-07-01",
+    "url": "https://00sec.com/daily/SG46Ip8Bp1ppm_bbDptw"
+  },
+  {
+    "category": "政府公告",
+    "title": "FortiBleed大規模憑證竊取行動",
+    "date": "2026-06-30",
+    "url": "https://www.twcert.org.tw/tw/mp-1.html"
   },
   {
     "category": "零時差漏洞",
     "title": "Progress LoadMaster CVE-2026-8037遭鎖定攻擊",
     "date": "2026-06-29",
     "url": "https://thehackernews.com/"
+  },
+  {
+    "category": "政府公告",
+    "title": "知名開源框架TanStack遭供應鏈攻擊",
+    "date": "2026-06-26",
+    "url": "https://www.twcert.org.tw/tw/mp-1.html"
+  },
+  {
+    "category": "政府公告",
+    "title": "旅遊eSIM服務出差人員連線資料外洩風險",
+    "date": "2026-06-26",
+    "url": "https://www.twcert.org.tw/tw/mp-1.html"
   }
 ]
