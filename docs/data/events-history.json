@@ -25,6 +25,48 @@
   },
   {
     "category": "政府公告",
+    "title": "生成式AI助長勒索軟體攻擊，資安署示警雙重勒索成新威脅",
+    "date": "2026-07-27",
+    "url": "https://www.epochtimes.com/b5/26/7/27/n14818296.htm"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "Microsoft Teams語音釣魚攻擊導致勒索軟體感染",
+    "date": "2026-07-27",
+    "url": "https://www.bleepingcomputer.com/news/security/microsoft-teams-vishing-attacks-lead-to-chaos-ransomware-attacks/"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "亞馬遜指控北韓駭客進行NPM供應鏈投毒攻擊",
+    "date": "2026-07-27",
+    "url": "https://www.bleepingcomputer.com/news/security/amazon-links-debug-chalk-npm-supply-chain-attacks-to-north-korean-hackers/"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "俄羅斯駭客利用Exchange OWA零時差漏洞長期竊取信箱",
+    "date": "2026-07-27",
+    "url": "https://www.bleepingcomputer.com/news/security/russian-hackers-exploit-exchange-owa-zero-day-for-long-term-mailbox-access/"
+  },
+  {
+    "category": "資料外洩",
+    "title": "超過30個明尼蘇達州自來水公用事業遭協同OT攻擊",
+    "date": "2026-07-27",
+    "url": "https://www.bleepingcomputer.com/news/security/hackers-target-over-30-minnesota-water-utilities-in-coordinated-ot-attack/"
+  },
+  {
+    "category": "資料外洩",
+    "title": "韓國電信巨頭KT遭罰3,900萬美元，客戶資料外洩事件",
+    "date": "2026-07-27",
+    "url": "https://www.bleepingcomputer.com/news/security/south-korea-fines-telco-giant-kt-39-million-for-customer-data-breach/"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "JetBrains TeamCity爆出重大遠端程式碼執行漏洞",
+    "date": "2026-07-27",
+    "url": "https://www.bleepingcomputer.com/news/security/jetbrains-warns-of-critical-teamcity-remote-code-execution-flaw/"
+  },
+  {
+    "category": "政府公告",
     "title": "TWCERT/CC KEV週報（7/13-7/19）",
     "date": "2026-07-20",
     "url": "https://www.twcert.org.tw/tw/lp-168-1.html"
@@ -130,17 +172,5 @@
     "title": "Progress LoadMaster CVE-2026-8037遭鎖定攻擊",
     "date": "2026-06-29",
     "url": "https://thehackernews.com/"
-  },
-  {
-    "category": "政府公告",
-    "title": "知名開源框架TanStack遭供應鏈攻擊",
-    "date": "2026-06-26",
-    "url": "https://www.twcert.org.tw/tw/mp-1.html"
-  },
-  {
-    "category": "政府公告",
-    "title": "旅遊eSIM服務出差人員連線資料外洩風險",
-    "date": "2026-06-26",
-    "url": "https://www.twcert.org.tw/tw/mp-1.html"
   }
 ]

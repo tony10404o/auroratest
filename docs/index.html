@@ -221,89 +221,108 @@
 const DATA = {
   "headlines": [
     {
-      "icon": "🎯",
-      "title": "Cisco防火牆管理中心零時差漏洞遭大規模利用",
-      "subtitle": "FMC硬編碼密碼漏洞已被攻擊者在官方修補前大規模利用",
-      "impact": "高",
-      "stars": 5,
-      "url": "https://www.bleepingcomputer.com/news/security/cisco-warns-of-fmc-static-credential-flaw-exploited-in-zero-day-attacks/"
-    },
-    {
       "icon": "🦠",
-      "title": "AI驅動的雙重勒索攻擊威脅升級",
-      "subtitle": "生成式AI使勒索軟體攻擊更快更準，國內已5家企業遭攻擊",
+      "title": "雙重勒索模式與AI自動化攻擊升級",
+      "subtitle": "駭客結合生成式AI實現攻擊自動化，國內已有5家企業遭攻擊",
       "impact": "高",
       "stars": 5,
       "url": "https://www.epochtimes.com/b5/26/7/27/n14818296.htm"
     },
     {
-      "icon": "⚠️",
-      "title": "俄駭客利用Exchange OWA零時差漏洞進行長期信箱入侵",
-      "subtitle": "未修補漏洞被長期利用竊取郵件內容，構成企業通訊威脅",
+      "icon": "🎯",
+      "title": "Microsoft多個高危漏洞批量發布",
+      "subtitle": "Windows DHCP、Office、Azure等5項高危漏洞需緊急修補",
       "impact": "高",
-      "stars": 5,
-      "url": "https://www.bleepingcomputer.com/news/security/russian-hackers-exploit-exchange-owa-zero-day-for-long-term-mailbox-access/"
+      "stars": 5
     },
     {
       "icon": "🕵️",
-      "title": "明尼蘇達州30家供水公用事業遭協調式OT攻擊",
-      "subtitle": "關鍵基礎設施遭駭客入侵控制，構成國家安全風險",
+      "title": "JetBrains TeamCity爆出關鍵RCE漏洞",
+      "subtitle": "未授權存取與系統入侵風險，開發工具鏈成攻擊目標",
       "impact": "高",
-      "stars": 4,
-      "url": "https://www.bleepingcomputer.com/news/security/hackers-target-over-30-minnesota-water-utilities-in-coordinated-ot-attack/"
+      "stars": 5,
+      "url": "https://www.bleepingcomputer.com/news/security/jetbrains-warns-of-critical-teamcity-remote-code-execution-flaw/"
     },
     {
-      "icon": "🔓",
-      "title": "24,000臺暴露伺服器因舊漏洞洩露密碼雜湊",
-      "subtitle": "數十年未修補的BMC設備漏洞成為攻擊入口",
+      "icon": "🔀",
+      "title": "Cisco防火牆管理中心多項認證漏洞",
+      "subtitle": "靜態認證與認證繞過漏洞並存，網路基礎設施面臨威脅",
+      "impact": "高",
+      "stars": 5
+    },
+    {
+      "icon": "📰",
+      "title": "NPM供應鏈遭北韓駭客投毒攻擊",
+      "subtitle": "Debug及Chalk套件被利用，開發者生態安全受衝擊",
       "impact": "中",
       "stars": 4,
-      "url": "https://www.bleepingcomputer.com/news/security/over-24-000-exposed-server-bmcs-leak-password-hash-via-decades-old-flaw/"
+      "url": "https://www.bleepingcomputer.com/news/security/amazon-links-debug-chalk-npm-supply-chain-attacks-to-north-korean-hackers/"
     }
   ],
   "vendor_impact": [
     {
-      "icon": "🔀",
-      "title": "Cisco Secure Firewall Management Center 靜態認證漏洞",
+      "icon": "🪟",
+      "title": "CVE-2026-54128 Windows DHCP Client遠端程式碼執行漏洞",
       "impact": "高",
-      "key_asset": "Cisco FMC防火牆管理中心",
-      "ai_suggestion": "立即檢查FMC版本，應用最新安全補丁，限制管理界面網路存取，啟用MFA保護"
+      "key_asset": "Windows DHCP Client",
+      "ai_suggestion": "立即檢查企業內所有Windows系統DHCP版本，優先部署Microsoft安全更新，隔離未更新的關鍵伺服器"
+    },
+    {
+      "icon": "🪟",
+      "title": "CVE-2026-55129 Microsoft Office遠端程式碼執行漏洞",
+      "impact": "高",
+      "key_asset": "Microsoft Office套件",
+      "ai_suggestion": "推送Office更新至所有端點裝置，強化郵件與文件開啟的沙箱隔離，監測可疑文件提交行為"
+    },
+    {
+      "icon": "🪟",
+      "title": "CVE-2026-56197 Windows Admin Center遠端程式碼執行漏洞",
+      "impact": "高",
+      "key_asset": "Windows Admin Center",
+      "ai_suggestion": "限制WAC管理介面存取IP白名單，立即更新至最新版本，增加網路分段隔離管理工具"
+    },
+    {
+      "icon": "🪟",
+      "title": "CVE-2026-66803 Azure Cosmos DB遠端程式碼執行漏洞",
+      "impact": "高",
+      "key_asset": "Azure Cosmos DB",
+      "ai_suggestion": "檢視所有Cosmos DB部署配置，應用最新安全修補，強化API存取控制與身份驗證"
+    },
+    {
+      "icon": "🪟",
+      "title": "CVE-2026-24304 Azure Resource Manager權限提升漏洞",
+      "impact": "高",
+      "key_asset": "Azure Resource Manager",
+      "ai_suggestion": "稽核ARM角色型存取控制設定，移除過度寬鬆的權限，啟用Azure活動日誌詳細監控"
     },
     {
       "icon": "🔀",
-      "title": "Cisco Secure Firewall Management Center 認證繞過漏洞",
+      "title": "Cisco Secure Firewall Management Center靜態認證漏洞",
       "impact": "高",
       "key_asset": "Cisco FMC防火牆管理中心",
-      "ai_suggestion": "緊急評估現有FMC部署安全狀況，優先應用認證補丁，強化存取控制與稽核日誌監控"
+      "ai_suggestion": "立即變更FMC預設認證與靜態密碼，限制管理介面網路存取範圍，部署官方安全更新"
     },
     {
       "icon": "🔀",
-      "title": "Cisco Secure Firewall Management Center 2026年8月5日進階通知",
+      "title": "Cisco Secure Firewall Management Center認證繞過漏洞",
+      "impact": "高",
+      "key_asset": "Cisco FMC防火牆管理中心",
+      "ai_suggestion": "檢查FMC版本並應用修補程式，啟用多因素認證保護管理帳號，監測異常登入嘗試"
+    },
+    {
+      "icon": "🔀",
+      "title": "Cisco安全公告預告（2026年8月5日發布）",
       "impact": "中",
-      "key_asset": "Cisco FMC防火牆管理中心",
-      "ai_suggestion": "關注8月5日公開內容，提前規劃補丁部署窗口，準備應急更新計畫"
-    },
-    {
-      "icon": "🪟",
-      "title": "CVE-2026-59117 Windows Terminal 遠端程式碼執行漏洞",
-      "impact": "高",
-      "key_asset": "Windows Terminal終端機應用程式",
-      "ai_suggestion": "盤點企業內Windows Terminal使用情況，立即推送微軟安全更新，限制非必要使用"
-    },
-    {
-      "icon": "🪟",
-      "title": "CVE-2026-47301 Configuration Manager 權限提升漏洞",
-      "impact": "高",
-      "key_asset": "Microsoft Configuration Manager管理平台",
-      "ai_suggestion": "優先更新ConfigMgr至最新版本，檢視權限提升風險，強化系統存取稽核"
+      "key_asset": "Cisco相關產品",
+      "ai_suggestion": "持續關注8月5日公告內容，預先規劃補丁部署視窗，準備緊急變更控制流程"
     }
   ],
   "daily_learning": {
-    "icon": "🔐",
-    "title": "硬編碼密碼與靜態認證的風險",
-    "description": "硬編碼密碼是指程式設計人員將密碼寫死在代碼或配置中，無法動態變更。這次Cisco FMC漏洞就是如此。一旦被發現，所有使用該產品的企業都會面臨相同風險。防範方法包括：定期檢查採購系統是否有類似問題、要求廠商提供動態認證機制、限制系統網路存取範圍，以及立即應用安全補丁。即使您無法立即更新系統，也要加強監控異常登入活動。",
+    "icon": "🎣",
+    "title": "警惕Teams語音釣魚(Vishing)攻擊",
+    "description": "駭客現在不只寄釣魚郵件，還冒充IT人員用Teams進行語音詐騙，要求員工提供登入帳密。這類攻擊特別危險，因為聲音和團隊溝通習慣容易讓人信任。防範方法：(1)IT部門永遠不會主動要求密碼，有疑問直接找主管確認；(2)接到可疑要求時，掛掉通話後主動撥回確認身份；(3)認識你的同事，陌生人要求敏感資訊立刻警惕。保護自己就是保護公司。",
     "reading_time": 2,
-    "url": "https://www.bleepingcomputer.com/news/security/cisco-warns-of-fmc-static-credential-flaw-exploited-in-zero-day-attacks/"
+    "url": "https://www.bleepingcomputer.com/news/security/microsoft-teams-vishing-attacks-lead-to-chaos-ransomware-attacks/"
   },
   "global_events": [
     {
@@ -329,6 +348,48 @@ const DATA = {
       "title": "明尼蘇達州30家供水公用事業遭協調式OT攻擊",
       "date": "2026-07-27",
       "url": "https://www.bleepingcomputer.com/news/security/hackers-target-over-30-minnesota-water-utilities-in-coordinated-ot-attack/"
+    },
+    {
+      "category": "政府公告",
+      "title": "生成式AI助長勒索軟體攻擊，資安署示警雙重勒索成新威脅",
+      "date": "2026-07-27",
+      "url": "https://www.epochtimes.com/b5/26/7/27/n14818296.htm"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "Microsoft Teams語音釣魚攻擊導致勒索軟體感染",
+      "date": "2026-07-27",
+      "url": "https://www.bleepingcomputer.com/news/security/microsoft-teams-vishing-attacks-lead-to-chaos-ransomware-attacks/"
+    },
+    {
+      "category": "APT攻擊",
+      "title": "亞馬遜指控北韓駭客進行NPM供應鏈投毒攻擊",
+      "date": "2026-07-27",
+      "url": "https://www.bleepingcomputer.com/news/security/amazon-links-debug-chalk-npm-supply-chain-attacks-to-north-korean-hackers/"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "俄羅斯駭客利用Exchange OWA零時差漏洞長期竊取信箱",
+      "date": "2026-07-27",
+      "url": "https://www.bleepingcomputer.com/news/security/russian-hackers-exploit-exchange-owa-zero-day-for-long-term-mailbox-access/"
+    },
+    {
+      "category": "資料外洩",
+      "title": "超過30個明尼蘇達州自來水公用事業遭協同OT攻擊",
+      "date": "2026-07-27",
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-target-over-30-minnesota-water-utilities-in-coordinated-ot-attack/"
+    },
+    {
+      "category": "資料外洩",
+      "title": "韓國電信巨頭KT遭罰3,900萬美元，客戶資料外洩事件",
+      "date": "2026-07-27",
+      "url": "https://www.bleepingcomputer.com/news/security/south-korea-fines-telco-giant-kt-39-million-for-customer-data-breach/"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "JetBrains TeamCity爆出重大遠端程式碼執行漏洞",
+      "date": "2026-07-27",
+      "url": "https://www.bleepingcomputer.com/news/security/jetbrains-warns-of-critical-teamcity-remote-code-execution-flaw/"
     },
     {
       "category": "政府公告",
@@ -437,42 +498,21 @@ const DATA = {
       "title": "Progress LoadMaster CVE-2026-8037遭鎖定攻擊",
       "date": "2026-06-29",
       "url": "https://thehackernews.com/"
-    },
-    {
-      "category": "政府公告",
-      "title": "知名開源框架TanStack遭供應鏈攻擊",
-      "date": "2026-06-26",
-      "url": "https://www.twcert.org.tw/tw/mp-1.html"
-    },
-    {
-      "category": "政府公告",
-      "title": "旅遊eSIM服務出差人員連線資料外洩風險",
-      "date": "2026-06-26",
-      "url": "https://www.twcert.org.tw/tw/mp-1.html"
     }
   ],
   "news_digest": {
-    "exec_summary": "本週資安情勢持續惡化。Cisco防火牆管理中心爆發零時差漏洞正在被全球駭客大規模利用，企業若使用該產品需立即採取行動。同時，AI驅動的勒索軟體攻擊已升級為「雙重勒索」模式—先竊取資料再威脅公開，國內已有5家企業受害。Microsoft也公布多個關鍵漏洞。建議各部門優先檢視是否使用受影響系統，立即安排補丁部署，強化異常行為監控，並提醒員工警惕可疑郵件。",
-    "tech_summary": "威脅情報彙整要點：CVE-2026-20316（Cisco FMC硬編碼密碼漏洞）已被攻擊者零時差利用，CVSS評分5.3但實際危害極高。同時發現俄駭客利用Exchange OWA未修補漏洞進行長期信箱駐留竊取郵件。勒索軟體方面，Qilin、Krybit、Safepay等主流組織保持高產能，採行先竊取資料再威脅公開的雙重勒索模式，並運用AI生成釣魚郵件提升點擊率達54%。Microsoft發布CVE-2026-59117（Windows Terminal RCE）與CVE-2026-47301（ConfigMgr權限提升）兩個高風險漏洞。基礎設施層面，24000臺暴露的伺服器BMC設備因decades舊漏洞洩露密碼雜湊，構成供應鏈與關鍵基礎設施風險。建議優先更新Cisco FMC、Exchange、ConfigMgr與Windows Terminal，強化零信任存取控制與異常行為分析。",
-    "article_count": 31,
+    "exec_summary": "本週威脅態勢嚴峻，Microsoft與Cisco同時發布多項高危漏洞，涉及核心Windows系統、雲端服務與網路基礎設施，需即時修補。更令人擔憂的是駭客已採用「雙重勒索」模式，先竊取資料再威脅公開，結合生成式AI實現攻擊自動化，國內已有5家企業遭害。供應鏈風險亦升高，開發工具(TeamCity、NPM套件)成為新攻擊目標。建議董事會應考量加強備份策略、加速漏洞修補流程、強化員工防社工訓練，評估保險覆蓋範圍。",
+    "tech_summary": "威脅情資顯示多層次攻擊活動：(1)Microsoft批量高危漏洞包括CVE-2026-54128(DHCP RCE)、CVE-2026-55129(Office RCE)、CVE-2026-56197(WAC RCE)、CVE-2026-66803(Cosmos DB RCE)與CVE-2026-24304(ARM權限提升)，Azure雲端基礎設施面臨威脅；(2)Cisco FMC爆靜態認證與認證繞過漏洞(CVE-2026-20182相關)，網路邊界防禦出現缺口；(3)JetBrains TeamCity關鍵RCE漏洞影響CI/CD管道；(4)APT-C-36、OilRig、Rare Werewolf等組織持續活躍，採用QuirkyLoader變體、多階段加載、白加黑技術與DcRAT進行定向攻擊；(5)北韓駭客投毒NPM套件(debug、chalk)進行供應鏈攻擊；(6)勒索軟體攻擊演變為雙重勒索與AI自動化，建議優先順序：Microsoft漏洞修補>Cisco設備安全加固>供應鏈管理政策>威脅狩獵與日誌監控。",
+    "article_count": 28,
     "reading_time": 4
   },
-  "cve_radar": [
-    {
-      "cve_id": "CVE-2026-20316",
-      "title": "Cisco安全防火牆管理中心硬編碼密碼漏洞",
-      "cvss": 5.3,
-      "cvss_source": "NVD官方",
-      "exploited": true,
-      "action": "持續觀察"
-    }
-  ],
+  "cve_radar": [],
   "risk_score": {
-    "total": 49,
+    "total": 40,
     "breakdown": [
       {
         "label": "漏洞風險",
-        "score": 59
+        "score": 56
       },
       {
         "label": "APT攻擊",
@@ -480,7 +520,7 @@ const DATA = {
       },
       {
         "label": "勒索病毒",
-        "score": 66
+        "score": 22
       },
       {
         "label": "身份風險",
@@ -495,6 +535,36 @@ const DATA = {
   "action_items": [
     {
       "category": "公告確認",
+      "title": "CVE-2026-54128 Windows DHCP Client 遠端程式碼執行漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-55129 Microsoft Office 遠端程式碼執行漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-56197 Windows Admin Center (WAC) 遠端程式碼執行漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-66803 Azure Cosmos DB 遠端程式碼執行漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-24304 Azure Resource Manager 權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
       "title": "Cisco Secure Firewall Management Center 靜態認證漏洞",
       "priority": "高",
       "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
@@ -507,91 +577,55 @@ const DATA = {
     },
     {
       "category": "公告確認",
-      "title": "CVE-2026-59117 Windows Terminal 遠端程式碼執行漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-47301 Configuration Manager 權限提升漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "AI助長勒索軟體攻擊，資安署示警雙重勒索威脅",
+      "title": "生成式AI助長勒索軟體攻擊，資安署示警雙重勒索成新威脅",
       "priority": "中",
-      "detail": "來源：資安署。資安署發布預警指出勒索軟體攻擊從單純加密檔案演變為『雙重勒索』模式，透過AI技術變得更加自動化精準。今年至7月22日國內已5家企業遭攻擊。"
-    },
-    {
-      "category": "公告確認",
-      "title": "FortiBleed大規模憑證竊取行動",
-      "priority": "中",
-      "detail": "來源：TWCERT/CC。TWCERT/CC發布資安新聞提醒企業防火牆與VPN設備面臨FortiBleed漏洞風險，該行動對企業據點造成大規模威脅。"
-    },
-    {
-      "category": "公告確認",
-      "title": "知名開源框架TanStack遭供應鏈攻擊",
-      "priority": "中",
-      "detail": "來源：TWCERT/CC。TWCERT/CC發布警訊指出開源框架TanStack遭『Mini Shai-Hulud』供應鏈攻擊，可能影響使用該框架的企業應用系統安全。"
-    },
-    {
-      "category": "公告確認",
-      "title": "旅遊eSIM服務出差人員連線資料外洩風險",
-      "priority": "中",
-      "detail": "來源：TWCERT/CC。TWCERT/CC揭示旅遊eSIM服務由於流量路徑不透明，導致出差人員連線資料恐暴露至境外，對企業資安構成威脅。"
+      "detail": "來源：資安署。資安署指出駭客已演變為先竊取機敏資料再威脅公開外洩的『雙重勒索』模式，今年截至7月22日至少5家企業遭攻擊，呼籲落實備份、更新、強化帳密與防範社交工程四大防護。"
     },
     {
       "category": "掃描比對",
-      "title": "APT-C-36對南美洲目標攻擊相關IOC比對",
+      "title": "OilRig組織關聯樣本相關IOC比對",
       "priority": "中",
-      "detail": "涉及類型：Hash、URL、Domain。建議比對內部防火牆/EDR日誌。"
+      "detail": "涉及類型：Hash。建議比對內部防火牆/EDR日誌。"
     },
     {
       "category": "掃描比對",
-      "title": "OilRig / BRICKSTORM / ToneShell APT樣本相關IOC比對",
+      "title": "APT-C-36攻擊南美地區相關IOC比對",
       "priority": "中",
-      "detail": "涉及類型：Hash、Domain、IP。建議比對內部防火牆/EDR日誌。"
+      "detail": "涉及類型：Hash、Domain。建議比對內部防火牆/EDR日誌。"
     },
     {
       "category": "掃描比對",
-      "title": "Scattered Spider網路犯罪集體相關IOC比對",
+      "title": "Rare Werewolf組織釣魚活動相關IOC比對",
       "priority": "中",
-      "detail": "涉及類型：IP、Domain、URL。建議比對內部防火牆/EDR日誌。"
-    },
-    {
-      "category": "掃描比對",
-      "title": "Qilin、Krybit、Brain Cipher勒索組織活動相關IOC比對",
-      "priority": "中",
-      "detail": "涉及類型：IP、Domain、Hash。建議比對內部防火牆/EDR日誌。"
+      "detail": "涉及類型：Hash、Domain。建議比對內部防火牆/EDR日誌。"
     },
     {
       "category": "教育宣導",
-      "title": "AI助長勒索軟體攻擊，資安署示警雙重勒索威脅",
+      "title": "Microsoft Teams 語音釣魚攻擊導致勒索軟體感染",
       "priority": "低",
       "detail": "建議納入員工資安宣導教育素材。"
     },
     {
       "category": "教育宣導",
-      "title": "FortiBleed大規模憑證竊取行動",
+      "title": "生成式AI助長勒索軟體攻擊，資安署示警雙重勒索成新威脅",
       "priority": "低",
       "detail": "建議納入員工資安宣導教育素材。"
     },
     {
       "category": "教育宣導",
-      "title": "知名開源框架TanStack遭供應鏈攻擊",
+      "title": "雙重勒索模式與AI自動化攻擊升級",
       "priority": "低",
       "detail": "建議納入員工資安宣導教育素材。"
     }
   ],
   "category_counts": {
-    "kev": 1,
-    "vendor": 5,
+    "kev": 0,
+    "vendor": 8,
     "news": 6,
-    "ransomwareApt": 5
+    "ransomwareApt": 3
   }
 };
-const UPDATED_AT = "2026/7/30 08:28:03（台灣時間）";
+const UPDATED_AT = "2026/7/31 08:11:34（台灣時間）";
 document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
