@@ -1,5 +1,17 @@
 [
   {
+    "category": "APT攻擊",
+    "title": "BlueNoroff利用會議網釣進行ClickFix攻擊竊取加密資產",
+    "date": "2026-08-01",
+    "url": "https://www.ithome.com.tw/security"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "APT28利用CVE-2026-21509 Operation Neusploit攻擊東歐",
+    "date": "2026-07-30",
+    "url": "https://thehackernews.com/2026/04/russian-state-linked-apt28-exploits.html"
+  },
+  {
     "category": "零時差漏洞",
     "title": "Cisco防火牆管理中心硬編碼密碼漏洞",
     "date": "2026-07-29",
@@ -64,6 +76,18 @@
     "title": "JetBrains TeamCity爆出重大遠端程式碼執行漏洞",
     "date": "2026-07-27",
     "url": "https://www.bleepingcomputer.com/news/security/jetbrains-warns-of-critical-teamcity-remote-code-execution-flaw/"
+  },
+  {
+    "category": "政府公告",
+    "title": "AI助長勒索軟體攻擊 資安署籲落實四大防護重點",
+    "date": "2026-07-27",
+    "url": "https://tw.stock.yahoo.com/news/ai%E5%8A%A9%E9%95%B7%E5%8B%92%E7%B4%A2%E8%BB%9F%E9%AB%94%E6%94%BB%E6%93%8A-%E8%B3%87%E5%AE%89%E7%BD%B2%E7%B1%B2%E8%90%BD%E5%AF%A6%E5%9B%9B%E5%A4%A7%E9%98%B2%E8%AD%B7%E9%87%8D%E9%BB%9E-054649003.html"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "台灣企業勒索軟體攻擊高居不下",
+    "date": "2026-07-22",
+    "url": "https://news.pchome.com.tw/science/technice/20260727/index-78513497665235338005.html"
   },
   {
     "category": "政府公告",
@@ -162,15 +186,15 @@
     "url": "https://00sec.com/daily/SG46Ip8Bp1ppm_bbDptw"
   },
   {
+    "category": "APT攻擊",
+    "title": "Salt Typhoon中國APT全球布局，已入侵80國以上",
+    "date": "2026-07-01",
+    "url": "https://cybelangel.com/blog/cyber-espionage-apts/"
+  },
+  {
     "category": "政府公告",
     "title": "FortiBleed大規模憑證竊取行動",
     "date": "2026-06-30",
     "url": "https://www.twcert.org.tw/tw/mp-1.html"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "Progress LoadMaster CVE-2026-8037遭鎖定攻擊",
-    "date": "2026-06-29",
-    "url": "https://thehackernews.com/"
   }
 ]

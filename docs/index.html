@@ -221,110 +221,67 @@
 const DATA = {
   "headlines": [
     {
-      "icon": "🦠",
-      "title": "雙重勒索模式與AI自動化攻擊升級",
-      "subtitle": "駭客結合生成式AI實現攻擊自動化，國內已有5家企業遭攻擊",
+      "icon": "🕵️",
+      "title": "APT28發起Operation Neusploit，利用Office漏洞速度驚人",
+      "subtitle": "俄羅斯國家級駭客於漏洞披露3天內即開始利用，威脅東歐多國",
       "impact": "高",
       "stars": 5,
-      "url": "https://www.epochtimes.com/b5/26/7/27/n14818296.htm"
+      "url": "https://thehackernews.com/2026/04/russian-state-linked-apt28-exploits.html"
+    },
+    {
+      "icon": "🦠",
+      "title": "台灣企業遭勒索軟體攻擊頻繁，資料竊取威脅升級",
+      "subtitle": "半導體、生技等五家企業已遭攻擊，先竊資再勒索成新常態",
+      "impact": "高",
+      "stars": 5,
+      "url": "https://news.pchome.com.tw/science/technice/20260727/index-78513497665235338005.html"
     },
     {
       "icon": "🎯",
-      "title": "Microsoft多個高危漏洞批量發布",
-      "subtitle": "Windows DHCP、Office、Azure等5項高危漏洞需緊急修補",
+      "title": "Rails框架Active Storage遠端程式執行漏洞已修補",
+      "subtitle": "開源框架發現嚴重RCE風險，務必立即更新至修補版本",
       "impact": "高",
-      "stars": 5
+      "stars": 4,
+      "url": "https://www.bleepingcomputer.com/news/security/rails-patches-critical-active-storage-flaw-with-rce-potential/"
+    },
+    {
+      "icon": "⚠️",
+      "title": "AI驅動勒索軟體攻擊升溫，資安署籲落實四大防護",
+      "subtitle": "備份、更新、帳密安全與社工防範為核心防禦策略",
+      "impact": "高",
+      "stars": 4,
+      "url": "https://tw.stock.yahoo.com/news/ai%E5%8A%A9%E9%95%B7%E5%8B%92%E7%B4%A2%E8%BB%9F%E9%AB%94%E6%94%BB%E6%93%8A-%E8%B3%87%E5%AE%89%E7%BD%B2%E7%B1%B2%E8%90%BD%E5%AF%A6%E5%9B%9B%E5%A4%A7%E9%98%B2%E8%AD%B7%E9%87%8D%E9%BB%9E-054649003.html"
     },
     {
       "icon": "🕵️",
-      "title": "JetBrains TeamCity爆出關鍵RCE漏洞",
-      "subtitle": "未授權存取與系統入侵風險，開發工具鏈成攻擊目標",
-      "impact": "高",
-      "stars": 5,
-      "url": "https://www.bleepingcomputer.com/news/security/jetbrains-warns-of-critical-teamcity-remote-code-execution-flaw/"
-    },
-    {
-      "icon": "🔀",
-      "title": "Cisco防火牆管理中心多項認證漏洞",
-      "subtitle": "靜態認證與認證繞過漏洞並存，網路基礎設施面臨威脅",
-      "impact": "高",
-      "stars": 5
-    },
-    {
-      "icon": "📰",
-      "title": "NPM供應鏈遭北韓駭客投毒攻擊",
-      "subtitle": "Debug及Chalk套件被利用，開發者生態安全受衝擊",
+      "title": "Qilin勒索軟體利用PAN-OS認證繞過發動攻擊",
+      "subtitle": "先竊資到雲端再部署勒索軟體，2026年6月多起事件集中爆發",
       "impact": "中",
       "stars": 4,
-      "url": "https://www.bleepingcomputer.com/news/security/amazon-links-debug-chalk-npm-supply-chain-attacks-to-north-korean-hackers/"
+      "url": "https://www.telsy.com/en/novel-apt-operations-in-the-wild-exploits-and-new-0-days-high-profile-compromises/"
     }
   ],
-  "vendor_impact": [
-    {
-      "icon": "🪟",
-      "title": "CVE-2026-54128 Windows DHCP Client遠端程式碼執行漏洞",
-      "impact": "高",
-      "key_asset": "Windows DHCP Client",
-      "ai_suggestion": "立即檢查企業內所有Windows系統DHCP版本，優先部署Microsoft安全更新，隔離未更新的關鍵伺服器"
-    },
-    {
-      "icon": "🪟",
-      "title": "CVE-2026-55129 Microsoft Office遠端程式碼執行漏洞",
-      "impact": "高",
-      "key_asset": "Microsoft Office套件",
-      "ai_suggestion": "推送Office更新至所有端點裝置，強化郵件與文件開啟的沙箱隔離，監測可疑文件提交行為"
-    },
-    {
-      "icon": "🪟",
-      "title": "CVE-2026-56197 Windows Admin Center遠端程式碼執行漏洞",
-      "impact": "高",
-      "key_asset": "Windows Admin Center",
-      "ai_suggestion": "限制WAC管理介面存取IP白名單，立即更新至最新版本，增加網路分段隔離管理工具"
-    },
-    {
-      "icon": "🪟",
-      "title": "CVE-2026-66803 Azure Cosmos DB遠端程式碼執行漏洞",
-      "impact": "高",
-      "key_asset": "Azure Cosmos DB",
-      "ai_suggestion": "檢視所有Cosmos DB部署配置，應用最新安全修補，強化API存取控制與身份驗證"
-    },
-    {
-      "icon": "🪟",
-      "title": "CVE-2026-24304 Azure Resource Manager權限提升漏洞",
-      "impact": "高",
-      "key_asset": "Azure Resource Manager",
-      "ai_suggestion": "稽核ARM角色型存取控制設定，移除過度寬鬆的權限，啟用Azure活動日誌詳細監控"
-    },
-    {
-      "icon": "🔀",
-      "title": "Cisco Secure Firewall Management Center靜態認證漏洞",
-      "impact": "高",
-      "key_asset": "Cisco FMC防火牆管理中心",
-      "ai_suggestion": "立即變更FMC預設認證與靜態密碼，限制管理介面網路存取範圍，部署官方安全更新"
-    },
-    {
-      "icon": "🔀",
-      "title": "Cisco Secure Firewall Management Center認證繞過漏洞",
-      "impact": "高",
-      "key_asset": "Cisco FMC防火牆管理中心",
-      "ai_suggestion": "檢查FMC版本並應用修補程式，啟用多因素認證保護管理帳號，監測異常登入嘗試"
-    },
-    {
-      "icon": "🔀",
-      "title": "Cisco安全公告預告（2026年8月5日發布）",
-      "impact": "中",
-      "key_asset": "Cisco相關產品",
-      "ai_suggestion": "持續關注8月5日公告內容，預先規劃補丁部署視窗，準備緊急變更控制流程"
-    }
-  ],
+  "vendor_impact": [],
   "daily_learning": {
     "icon": "🎣",
-    "title": "警惕Teams語音釣魚(Vishing)攻擊",
-    "description": "駭客現在不只寄釣魚郵件，還冒充IT人員用Teams進行語音詐騙，要求員工提供登入帳密。這類攻擊特別危險，因為聲音和團隊溝通習慣容易讓人信任。防範方法：(1)IT部門永遠不會主動要求密碼，有疑問直接找主管確認；(2)接到可疑要求時，掛掉通話後主動撥回確認身份；(3)認識你的同事，陌生人要求敏感資訊立刻警惕。保護自己就是保護公司。",
+    "title": "ClickFix網釣攻擊：假會議誘餌竊取加密資產",
+    "description": "ClickFix是駭客最新的社交工程手法，攻擊者先入侵員工的即時通訊帳號（如Telegram），假借公司開視訊會議為由，誘騙員工點擊惡意連結。一旦中招，電腦就會被安裝竊密軟體，加密錢包、密碼等機敏資訊可能被竊取。防範方法：(1)通過官方內部系統確認會議邀請；(2)避免點擊即時通訊中的陌生連結；(3)啟用MFA增加帳號保護。務必提醒員工保持警覺，遇到可疑連結先問IT部門確認。",
     "reading_time": 2,
-    "url": "https://www.bleepingcomputer.com/news/security/microsoft-teams-vishing-attacks-lead-to-chaos-ransomware-attacks/"
+    "url": "https://www.ithome.com.tw/security"
   },
   "global_events": [
+    {
+      "category": "APT攻擊",
+      "title": "BlueNoroff利用會議網釣進行ClickFix攻擊竊取加密資產",
+      "date": "2026-08-01",
+      "url": "https://www.ithome.com.tw/security"
+    },
+    {
+      "category": "APT攻擊",
+      "title": "APT28利用CVE-2026-21509 Operation Neusploit攻擊東歐",
+      "date": "2026-07-30",
+      "url": "https://thehackernews.com/2026/04/russian-state-linked-apt28-exploits.html"
+    },
     {
       "category": "零時差漏洞",
       "title": "Cisco防火牆管理中心硬編碼密碼漏洞",
@@ -390,6 +347,18 @@ const DATA = {
       "title": "JetBrains TeamCity爆出重大遠端程式碼執行漏洞",
       "date": "2026-07-27",
       "url": "https://www.bleepingcomputer.com/news/security/jetbrains-warns-of-critical-teamcity-remote-code-execution-flaw/"
+    },
+    {
+      "category": "政府公告",
+      "title": "AI助長勒索軟體攻擊 資安署籲落實四大防護重點",
+      "date": "2026-07-27",
+      "url": "https://tw.stock.yahoo.com/news/ai%E5%8A%A9%E9%95%B7%E5%8B%92%E7%B4%A2%E8%BB%9F%E9%AB%94%E6%94%BB%E6%93%8A-%E8%B3%87%E5%AE%89%E7%BD%B2%E7%B1%B2%E8%90%BD%E5%AF%A6%E5%9B%9B%E5%A4%A7%E9%98%B2%E8%AD%B7%E9%87%8D%E9%BB%9E-054649003.html"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "台灣企業勒索軟體攻擊高居不下",
+      "date": "2026-07-22",
+      "url": "https://news.pchome.com.tw/science/technice/20260727/index-78513497665235338005.html"
     },
     {
       "category": "政府公告",
@@ -488,35 +457,35 @@ const DATA = {
       "url": "https://00sec.com/daily/SG46Ip8Bp1ppm_bbDptw"
     },
     {
+      "category": "APT攻擊",
+      "title": "Salt Typhoon中國APT全球布局，已入侵80國以上",
+      "date": "2026-07-01",
+      "url": "https://cybelangel.com/blog/cyber-espionage-apts/"
+    },
+    {
       "category": "政府公告",
       "title": "FortiBleed大規模憑證竊取行動",
       "date": "2026-06-30",
       "url": "https://www.twcert.org.tw/tw/mp-1.html"
-    },
-    {
-      "category": "零時差漏洞",
-      "title": "Progress LoadMaster CVE-2026-8037遭鎖定攻擊",
-      "date": "2026-06-29",
-      "url": "https://thehackernews.com/"
     }
   ],
   "news_digest": {
-    "exec_summary": "本週威脅態勢嚴峻，Microsoft與Cisco同時發布多項高危漏洞，涉及核心Windows系統、雲端服務與網路基礎設施，需即時修補。更令人擔憂的是駭客已採用「雙重勒索」模式，先竊取資料再威脅公開，結合生成式AI實現攻擊自動化，國內已有5家企業遭害。供應鏈風險亦升高，開發工具(TeamCity、NPM套件)成為新攻擊目標。建議董事會應考量加強備份策略、加速漏洞修補流程、強化員工防社工訓練，評估保險覆蓋範圍。",
-    "tech_summary": "威脅情資顯示多層次攻擊活動：(1)Microsoft批量高危漏洞包括CVE-2026-54128(DHCP RCE)、CVE-2026-55129(Office RCE)、CVE-2026-56197(WAC RCE)、CVE-2026-66803(Cosmos DB RCE)與CVE-2026-24304(ARM權限提升)，Azure雲端基礎設施面臨威脅；(2)Cisco FMC爆靜態認證與認證繞過漏洞(CVE-2026-20182相關)，網路邊界防禦出現缺口；(3)JetBrains TeamCity關鍵RCE漏洞影響CI/CD管道；(4)APT-C-36、OilRig、Rare Werewolf等組織持續活躍，採用QuirkyLoader變體、多階段加載、白加黑技術與DcRAT進行定向攻擊；(5)北韓駭客投毒NPM套件(debug、chalk)進行供應鏈攻擊；(6)勒索軟體攻擊演變為雙重勒索與AI自動化，建議優先順序：Microsoft漏洞修補>Cisco設備安全加固>供應鏈管理政策>威脅狩獵與日誌監控。",
-    "article_count": 28,
+    "exec_summary": "本週威脅態勢升溫，多項重大安全事件需關注：(1)俄羅斯國家級駭客APT28已開始利用Office新漏洞攻擊東歐國家，速度極快；(2)台灣企業遭勒索軟體攻擊增加，駭客採用先竊資再勒索的雙重威脅手法；(3)AI驅動的進階攻擊讓傳統防禦效果下降。建議立即行動：更新所有軟體補丁特別是微軟Office、加強備份與復原計畫、強化員工安全意識訓練（尤其是社交工程防範）、檢視雲端儲存的存取控制。同時留意Palo Alto Networks防火牆使用者需立即修補認證繞過漏洞。",
+    "tech_summary": "本週彙整13項威脅情資，關鍵事項包括：(1)CVE-2026-21509：APT28在Office漏洞披露3天內即進行利用，Operation Neusploit目標為烏克蘭、斯洛伐克、羅馬尼亞；(2)Qilin勒索軟體利用Palo Alto Networks PAN-OS認證繞過漏洞（CVE-2026-0257）作為初始存取向量，先竊取資料至AWS等雲端服務再部署加密勒索；(3)Rails框架Active Storage模組存在RCE漏洞已發布修補；(4)APT28 PRISMEX隱蔽式植入物透過合法圖片託管服務傳播C2指令，採用COM劫持確保持久化，針對北約200多個組織；(5)BlueNoroff利用Telegram帳號入侵進行ClickFix網釣攻擊竊取加密資產；(6)Salt Typhoon已入侵80國以上的電信、運輸及政府網路。建議優先處理：PAN-OS認證繞過漏洞補丁、Office漏洞修補、Rails框架升級、提升電子郵件與即時通訊安全控制。",
+    "article_count": 13,
     "reading_time": 4
   },
   "cve_radar": [],
   "risk_score": {
-    "total": 40,
+    "total": 30,
     "breakdown": [
       {
         "label": "漏洞風險",
-        "score": 56
+        "score": 0
       },
       {
         "label": "APT攻擊",
-        "score": 60
+        "score": 90
       },
       {
         "label": "勒索病毒",
@@ -528,104 +497,80 @@ const DATA = {
       },
       {
         "label": "AI風險",
-        "score": 60
+        "score": 40
       }
     ]
   },
   "action_items": [
     {
       "category": "公告確認",
-      "title": "CVE-2026-54128 Windows DHCP Client 遠端程式碼執行漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-55129 Microsoft Office 遠端程式碼執行漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-56197 Windows Admin Center (WAC) 遠端程式碼執行漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-66803 Azure Cosmos DB 遠端程式碼執行漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-24304 Azure Resource Manager 權限提升漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "Cisco Secure Firewall Management Center 靜態認證漏洞",
-      "priority": "高",
-      "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "Cisco Secure Firewall Management Center 認證繞過漏洞",
-      "priority": "高",
-      "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "生成式AI助長勒索軟體攻擊，資安署示警雙重勒索成新威脅",
+      "title": "AI助長勒索軟體攻擊 資安署籲落實四大防護重點",
       "priority": "中",
-      "detail": "來源：資安署。資安署指出駭客已演變為先竊取機敏資料再威脅公開外洩的『雙重勒索』模式，今年截至7月22日至少5家企業遭攻擊，呼籲落實備份、更新、強化帳密與防範社交工程四大防護。"
+      "detail": "來源：資安署。資安署提醒民眾與企業應落實系統備份、保持軟體更新、強化帳密安全並防範社交工程攻擊，以對抗AI驅動的勒索軟體威脅。"
+    },
+    {
+      "category": "公告確認",
+      "title": "政府機關資安長共識營強化跨機關資安聯防",
+      "priority": "中",
+      "detail": "來源：資安署。資安署舉辦政府機關資安長共識營，邀集各部會資安長深化資安治理合作，並透過公私協力構築完善資安防護體系。"
     },
     {
       "category": "掃描比對",
-      "title": "OilRig組織關聯樣本相關IOC比對",
+      "title": "APT28 (Storm-2754) PRISMEX惡意軟體相關IOC比對",
       "priority": "中",
-      "detail": "涉及類型：Hash。建議比對內部防火牆/EDR日誌。"
+      "detail": "涉及類型：IP、Domain、URL。建議比對內部防火牆/EDR日誌。"
     },
     {
       "category": "掃描比對",
-      "title": "APT-C-36攻擊南美地區相關IOC比對",
+      "title": "CVE-2026-0257 Qilin勒索軟體攻擊鏈相關IOC比對",
       "priority": "中",
-      "detail": "涉及類型：Hash、Domain。建議比對內部防火牆/EDR日誌。"
+      "detail": "涉及類型：Hash、URL、IP。建議比對內部防火牆/EDR日誌。"
     },
     {
       "category": "掃描比對",
-      "title": "Rare Werewolf組織釣魚活動相關IOC比對",
+      "title": "Sandman APT LuaDream後門相關IOC比對",
       "priority": "中",
-      "detail": "涉及類型：Hash、Domain。建議比對內部防火牆/EDR日誌。"
+      "detail": "涉及類型：Domain、IP、Hash。建議比對內部防火牆/EDR日誌。"
     },
     {
       "category": "教育宣導",
-      "title": "Microsoft Teams 語音釣魚攻擊導致勒索軟體感染",
+      "title": "Google Chrome計劃預設阻止新分頁劫持擴充程式",
       "priority": "低",
       "detail": "建議納入員工資安宣導教育素材。"
     },
     {
       "category": "教育宣導",
-      "title": "生成式AI助長勒索軟體攻擊，資安署示警雙重勒索成新威脅",
+      "title": "AI助長勒索軟體攻擊 資安署籲落實四大防護重點",
       "priority": "低",
       "detail": "建議納入員工資安宣導教育素材。"
     },
     {
       "category": "教育宣導",
-      "title": "雙重勒索模式與AI自動化攻擊升級",
+      "title": "台灣企業勒索軟體攻擊高居不下",
+      "priority": "低",
+      "detail": "建議納入員工資安宣導教育素材。"
+    },
+    {
+      "category": "教育宣導",
+      "title": "APT28利用CVE-2026-21509 Operation Neusploit",
+      "priority": "低",
+      "detail": "建議納入員工資安宣導教育素材。"
+    },
+    {
+      "category": "教育宣導",
+      "title": "BlueNoroff利用會議網釣進行ClickFix攻擊",
       "priority": "低",
       "detail": "建議納入員工資安宣導教育素材。"
     }
   ],
   "category_counts": {
     "kev": 0,
-    "vendor": 8,
-    "news": 6,
-    "ransomwareApt": 3
+    "vendor": 0,
+    "news": 4,
+    "ransomwareApt": 4
   }
 };
-const UPDATED_AT = "2026/7/31 08:11:34（台灣時間）";
+const UPDATED_AT = "2026/8/3 08:05:27（台灣時間）";
 document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
