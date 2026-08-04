@@ -246,46 +246,210 @@ const DATA = {
   "headlines": [
     {
       "icon": "🎯",
-      "title": "微軟2026年7月Patch Tuesday創史上最大規模",
-      "subtitle": "約622個CVE，含SharePoint與AD FS兩個0-day",
+      "title": "N-central認證繞過漏洞遭駭客主動利用",
+      "subtitle": "遠端管理工具認證機制缺陷已被攻擊者在野外利用進行帳號接管",
       "impact": "高",
       "stars": 5,
-      "url": "https://msrc.microsoft.com/update-guide/"
+      "url": "https://www.bleepingcomputer.com/news/security/n-able-warns-of-n-central-auth-bypass-flaw-exploited-in-attacks/"
     },
     {
       "icon": "🦠",
-      "title": "JADEPUFFER：首例AI Agent自主執行勒索軟體攻擊",
-      "subtitle": "利用Langflow漏洞自主入侵並加密資料庫",
+      "title": "雙重勒索攻擊趨勢升溫",
+      "subtitle": "駭客演變為先竊取資料再威脅公開，2026年已5家企業遭攻擊",
       "impact": "高",
       "stars": 5,
-      "url": "https://medium.com/@cyber_securiti/tuesday-morning-threat-report-jul-7-2026-5ad6761ce577"
+      "url": "https://www.epochtimes.com/b5/26/7/27/n14818296.htm"
     },
     {
-      "icon": "📰",
-      "title": "Accenture證實原始碼與金鑰資料遭竊",
-      "subtitle": "駭客「888」聲稱竊得35GB原始碼與雲端金鑰",
-      "impact": "中",
+      "icon": "🔀",
+      "title": "Cisco防火牆管理中心認證漏洞雙重危機",
+      "subtitle": "FMC軟體存在認證繞過與靜態認證資料雙重漏洞，皆為高風險",
+      "impact": "高",
+      "stars": 5,
+      "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-onprem-fmc-authbypass-5JPp45V2"
+    },
+    {
+      "icon": "⚠️",
+      "title": "WordPress漏洞wp2shell被多個駭客團體利用",
+      "subtitle": "CVE-2026-63030漏洞已成為實際攻擊武器，多個組織已被入侵",
+      "impact": "高",
       "stars": 4,
-      "url": "https://blog.senthorus.ch/posts/14_07_2026"
+      "url": "https://www.ithome.com.tw/security"
     },
     {
       "icon": "🕵️",
-      "title": "SharePoint持續遭鎖定攻擊,手法似去年ToolShell",
-      "subtitle": "多個SharePoint漏洞近期陸續列入CISA KEV",
-      "impact": "高",
-      "stars": 4,
-      "url": "https://www.cisa.gov/news-events/alerts/2026/07/14/cisa-urges-sharepoint-hardening-after-new-exploitations"
-    },
-    {
-      "icon": "🦠",
-      "title": "Deutsche Bank遭Unsafe勒索組織列入外洩名單",
-      "subtitle": "疑似員工資料庫紀錄遭公開作為證明",
+      "title": "中國駭客利用AI進行自主攻擊",
+      "subtitle": "DeepSeek與Hermes被用於自動化入侵Langflow、n8n等平臺",
       "impact": "中",
-      "stars": 3,
-      "url": "https://blog.senthorus.ch/posts/14_07_2026"
+      "stars": 4,
+      "url": "https://www.ithome.com.tw/security"
     }
   ],
+  "vendor_impact": [
+    {
+      "icon": "🔀",
+      "title": "Cisco Secure Firewall Management Center軟體認證繞過漏洞",
+      "impact": "高",
+      "key_asset": "Cisco Secure Firewall Management Center",
+      "ai_suggestion": "立即進行版本盤點、部署廠商安全補丁、強化管理後臺網路隔離與存取控制"
+    },
+    {
+      "icon": "🔀",
+      "title": "Cisco Secure Firewall Management Center軟體靜態認證資料漏洞",
+      "impact": "高",
+      "key_asset": "Cisco Secure Firewall Management Center",
+      "ai_suggestion": "檢查靜態認證資料配置、變更預設憑證、強制金鑰更新、實施密鑰管理方案"
+    },
+    {
+      "icon": "🪟",
+      "title": "CVE-2026-50493 DirectX Graphics Kernel權限提升漏洞",
+      "impact": "高",
+      "key_asset": "Windows DirectX Graphics Kernel",
+      "ai_suggestion": "優先推送Microsoft本月安全更新至所有Windows端點，評估權限提升攻擊面"
+    },
+    {
+      "icon": "🪟",
+      "title": "CVE-2026-50416 Win32k資訊洩露漏洞",
+      "impact": "中",
+      "key_asset": "Windows Win32k子系統",
+      "ai_suggestion": "排程下月補丁周期安裝、評估內部系統是否存在該漏洞利用跡象"
+    },
+    {
+      "icon": "🪟",
+      "title": "CVE-2026-50341 Windows NTFS資訊洩露漏洞",
+      "impact": "中",
+      "key_asset": "Windows NTFS檔案系統",
+      "ai_suggestion": "納入下月補丁計畫、檢查是否有敏感資料被非授權進程讀取的日誌"
+    }
+  ],
+  "daily_learning": {
+    "icon": "🎓",
+    "title": "認識釣魚詐騙新手法：ClickFix與Pass-ta-key",
+    "description": "駭客近期透過虛假的瀏覽器錯誤提示（ClickFix詐騙）誘導使用者點擊安裝惡意軟體，而Pass-ta-key攻擊則竊取儲存於Google帳號的通行密鑰。兩者都瞄準員工帳號安全。防範方式：不要信任螢幕上的彈跳視窗提示、驗證任何要求下載更新的來源是否真實、定期檢查帳號登入裝置清單、不在陌生網站輸入認證資訊。",
+    "reading_time": 2,
+    "url": "https://www.bleepingcomputer.com/news/security/new-pass-ta-key-attacks-let-malware-hijack-google-synced-passkeys/"
+  },
   "global_events": [
+    {
+      "category": "資料外洩",
+      "title": "ExfilSquad駭客集團洩露超過10萬名英國警務人員資訊",
+      "date": "2026-08-03",
+      "url": "https://www.bleepingcomputer.com/news/security/exfilsquad-hackers-leak-info-of-over-100-000-uk-police-officers-staff/"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "N-central認證繞過漏洞導致帳號接管風險",
+      "date": "2026-08-03",
+      "url": "https://www.bleepingcomputer.com/news/security/n-able-warns-of-n-central-auth-bypass-flaw-exploited-in-attacks/"
+    },
+    {
+      "category": "APT攻擊",
+      "title": "BlueNoroff利用會議網釣進行ClickFix攻擊竊取加密資產",
+      "date": "2026-08-01",
+      "url": "https://www.ithome.com.tw/security"
+    },
+    {
+      "category": "政府公告",
+      "title": "資通安全網路月報（114年8月）",
+      "date": "2026-08-01",
+      "url": "https://moda.gov.tw/ACS/press/report/17402"
+    },
+    {
+      "category": "APT攻擊",
+      "title": "APT28利用CVE-2026-21509 Operation Neusploit攻擊東歐",
+      "date": "2026-07-30",
+      "url": "https://thehackernews.com/2026/04/russian-state-linked-apt28-exploits.html"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "Cisco防火牆管理中心硬編碼密碼漏洞",
+      "date": "2026-07-29",
+      "url": "https://www.bleepingcomputer.com/news/security/cisco-warns-of-fmc-static-credential-flaw-exploited-in-zero-day-attacks/"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "AI驅動的雙重勒索攻擊威脅升級",
+      "date": "2026-07-27",
+      "url": "https://www.epochtimes.com/b5/26/7/27/n14818296.htm"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "俄駭客利用Exchange OWA零時差漏洞進行長期信箱入侵",
+      "date": "2026-07-27",
+      "url": "https://www.bleepingcomputer.com/news/security/russian-hackers-exploit-exchange-owa-zero-day-for-long-term-mailbox-access/"
+    },
+    {
+      "category": "資料外洩",
+      "title": "明尼蘇達州30家供水公用事業遭協調式OT攻擊",
+      "date": "2026-07-27",
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-target-over-30-minnesota-water-utilities-in-coordinated-ot-attack/"
+    },
+    {
+      "category": "政府公告",
+      "title": "生成式AI助長勒索軟體攻擊，資安署示警雙重勒索成新威脅",
+      "date": "2026-07-27",
+      "url": "https://www.epochtimes.com/b5/26/7/27/n14818296.htm"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "Microsoft Teams語音釣魚攻擊導致勒索軟體感染",
+      "date": "2026-07-27",
+      "url": "https://www.bleepingcomputer.com/news/security/microsoft-teams-vishing-attacks-lead-to-chaos-ransomware-attacks/"
+    },
+    {
+      "category": "APT攻擊",
+      "title": "亞馬遜指控北韓駭客進行NPM供應鏈投毒攻擊",
+      "date": "2026-07-27",
+      "url": "https://www.bleepingcomputer.com/news/security/amazon-links-debug-chalk-npm-supply-chain-attacks-to-north-korean-hackers/"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "俄羅斯駭客利用Exchange OWA零時差漏洞長期竊取信箱",
+      "date": "2026-07-27",
+      "url": "https://www.bleepingcomputer.com/news/security/russian-hackers-exploit-exchange-owa-zero-day-for-long-term-mailbox-access/"
+    },
+    {
+      "category": "資料外洩",
+      "title": "超過30個明尼蘇達州自來水公用事業遭協同OT攻擊",
+      "date": "2026-07-27",
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-target-over-30-minnesota-water-utilities-in-coordinated-ot-attack/"
+    },
+    {
+      "category": "資料外洩",
+      "title": "韓國電信巨頭KT遭罰3,900萬美元，客戶資料外洩事件",
+      "date": "2026-07-27",
+      "url": "https://www.bleepingcomputer.com/news/security/south-korea-fines-telco-giant-kt-39-million-for-customer-data-breach/"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "JetBrains TeamCity爆出重大遠端程式碼執行漏洞",
+      "date": "2026-07-27",
+      "url": "https://www.bleepingcomputer.com/news/security/jetbrains-warns-of-critical-teamcity-remote-code-execution-flaw/"
+    },
+    {
+      "category": "政府公告",
+      "title": "AI助長勒索軟體攻擊 資安署籲落實四大防護重點",
+      "date": "2026-07-27",
+      "url": "https://tw.stock.yahoo.com/news/ai%E5%8A%A9%E9%95%B7%E5%8B%92%E7%B4%A2%E8%BB%9F%E9%AB%94%E6%94%BB%E6%93%8A-%E8%B3%87%E5%AE%89%E7%BD%B2%E7%B1%B2%E8%90%BD%E5%AF%A6%E5%9B%9B%E5%A4%A7%E9%98%B2%E8%AD%B7%E9%87%8D%E9%BB%9E-054649003.html"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "雙重勒索攻擊趨勢升溫",
+      "date": "2026-07-27",
+      "url": "https://www.epochtimes.com/b5/26/7/27/n14818296.htm"
+    },
+    {
+      "category": "政府公告",
+      "title": "AI助長勒索軟體攻擊升級 資安署示警雙重勒索成新威脅",
+      "date": "2026-07-27",
+      "url": "https://www.epochtimes.com/b5/26/7/27/n14818296.htm"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "台灣企業勒索軟體攻擊高居不下",
+      "date": "2026-07-22",
+      "url": "https://news.pchome.com.tw/science/technice/20260727/index-78513497665235338005.html"
+    },
     {
       "category": "政府公告",
       "title": "TWCERT/CC KEV週報（7/13-7/19）",
@@ -366,207 +530,158 @@ const DATA = {
     },
     {
       "category": "勒索病毒",
+      "title": "Safepay、Qilin等集團全球高強度活動",
+      "date": "2026-07-06",
+      "url": "https://00sec.com/daily/7Jb4O58Bp1ppm_bb2FGw"
+    },
+    {
+      "category": "勒索病毒",
       "title": "加拿大Chemco遭Qilin勒索軟體攻擊",
       "date": "2026-07-01",
       "url": "https://sharkstriker.com/blog/july-2026-data-breaches/"
     },
     {
-      "category": "零時差漏洞",
-      "title": "Progress LoadMaster CVE-2026-8037遭鎖定攻擊",
-      "date": "2026-06-29",
-      "url": "https://thehackernews.com/"
+      "category": "勒索病毒",
+      "title": "多個勒索組織保持穩定高位活動",
+      "date": "2026-07-01",
+      "url": "https://00sec.com/daily/SG46Ip8Bp1ppm_bbDptw"
+    },
+    {
+      "category": "APT攻擊",
+      "title": "Salt Typhoon中國APT全球布局，已入侵80國以上",
+      "date": "2026-07-01",
+      "url": "https://cybelangel.com/blog/cyber-espionage-apts/"
     }
   ],
+  "news_digest": {
+    "exec_summary": "本期威脅情資涵蓋5大關鍵風險：遠端管理工具N-central認證漏洞已被攻擊者利用進行帳號接管；Cisco防火牆管理中心存在雙重認證漏洞；駭客採用『雙重勒索』新模式先竊取資料再威脅公開；Windows系統多個權限提升與資訊洩露漏洞待修補；釣魚詐騙與AI自主攻擊手法日趨複雜。建議優先處理：更新N-central與Cisco設備、部署Windows最新補丁、加強端點監控與員工安全意識訓練。",
+    "tech_summary": "本周情資包含CVE-2026-18577（N-central認證繞過，CVSS 8.2高風險，已被實際利用）、Cisco FMC多個認證類漏洞、Windows DirectX (CVE-2026-50493)權限提升、WordPress wp2shell (CVE-2026-63030)被多組駭客利用、中國駭客以DeepSeek與Hermes進行AI自主代理攻擊Langflow/n8n平臺。資安署公告勒索軟體演變為雙重勒索模式（資料竊取+威脅公開），2026年至7月5家企業受害。國際威脅包含Pass-ta-key攻擊竊取Google同步通行密鑰、DOUBLECUP ClickFix詐騙服務隱藏惡意軟體於瀏覽器快取、英國警務人員大規模資料外洩。建議優先補丁計畫納入DirectX、NTFS、Win32k漏洞。",
+    "article_count": 18,
+    "reading_time": 4
+  },
   "cve_radar": [
     {
-      "cve_id": "CVE-2026-56164",
-      "title": "SharePoint 0-day，可竊取IIS機器金鑰",
-      "cvss": 9.8,
+      "cve_id": "CVE-2026-18577",
+      "title": "N-central認證繞過漏洞導致帳號接管風險",
+      "cvss": 8.2,
       "cvss_source": "NVD官方",
       "exploited": true,
-      "action": "立即更新"
-    },
-    {
-      "cve_id": "CVE-2026-56155",
-      "title": "AD FS存取控制granularity不足0-day",
-      "cvss": 9.1,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "立即更新"
-    },
-    {
-      "cve_id": "CVE-2026-58644",
-      "title": "SharePoint反序列化RCE，6月已修補未列入公告",
-      "cvss": 9.8,
-      "cvss_source": "NVD官方",
-      "exploited": true,
-      "action": "立即更新"
-    },
-    {
-      "cve_id": "CVE-2026-55255",
-      "title": "Langflow授權繞過，已遭AI Agent用於自主勒索攻擊",
-      "cvss": 8.6,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "立即更新"
-    },
-    {
-      "cve_id": "CVE-2026-15409",
-      "title": "SonicWall SMA1000 SSRF漏洞",
-      "cvss": 7.5,
-      "cvss_source": "AI推估",
-      "exploited": true,
       "action": "一週內更新"
-    },
-    {
-      "cve_id": "CVE-2026-15410",
-      "title": "SonicWall SMA1000程式碼注入漏洞",
-      "cvss": 7.2,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "一週內更新"
-    },
-    {
-      "cve_id": "CVE-2026-48939",
-      "title": "iCagenda檔案上傳限制不當漏洞",
-      "cvss": 6.5,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "持續觀察"
-    },
-    {
-      "cve_id": "CVE-2026-56291",
-      "title": "Balbooa Forms檔案上傳限制不當漏洞",
-      "cvss": 6.3,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "持續觀察"
     }
   ],
-  "vendor_impact": [
-    {
-      "icon": "🪟",
-      "title": "Defender核心引擎與SharePoint/AD FS 0-day修補公告",
-      "impact": "高",
-      "key_asset": "SharePoint／AD FS／Windows Server",
-      "ai_suggestion": "優先確認SharePoint與AD FS伺服器已完成本次Patch Tuesday更新。"
-    },
-    {
-      "icon": "🛡️",
-      "title": "FortiGuard PSIRT例行公告，修補7項產品線漏洞",
-      "impact": "中",
-      "key_asset": "FortiGate防火牆",
-      "ai_suggestion": "排入例行維護窗口更新，非緊急但建議一週內完成。"
-    }
-  ],
-  "daily_learning": {
-    "icon": "🎓",
-    "title": "什麼是AI Agent自主攻擊？",
-    "description": "傳統攻擊需要駭客手動操作每個步驟，但JADEPUFFER事件顯示AI Agent可以自己規劃、入侵、竊取憑證、加密資料，全程不需要人即時介入。這代表防禦方需要更快的自動化偵測，因為攻擊速度可能比人類應變更快。",
-    "reading_time": 3,
-    "url": "https://medium.com/@cyber_securiti/tuesday-morning-threat-report-jul-7-2026-5ad6761ce577"
-  },
   "risk_score": {
-    "total": 58,
+    "total": 27,
     "breakdown": [
       {
         "label": "漏洞風險",
-        "score": 100
+        "score": 36
       },
       {
         "label": "APT攻擊",
-        "score": 0
+        "score": 30
       },
       {
         "label": "勒索病毒",
-        "score": 100
+        "score": 22
       },
       {
         "label": "身份風險",
-        "score": 50
+        "score": 25
       },
       {
         "label": "AI風險",
-        "score": 40
+        "score": 20
       }
     ]
   },
   "action_items": [
     {
-      "category": "漏洞修補",
-      "title": "CVE-2026-56164：SharePoint 0-day，可竊取IIS機器金鑰",
+      "category": "公告確認",
+      "title": "Cisco Secure Firewall Management Center軟體認證繞過漏洞",
       "priority": "高",
-      "detail": "CVSS 9.8（NVD官方），建議立即更新"
-    },
-    {
-      "category": "漏洞修補",
-      "title": "CVE-2026-58644：SharePoint反序列化RCE，6月已修補未列入公告",
-      "priority": "高",
-      "detail": "CVSS 9.8（NVD官方），建議立即更新"
-    },
-    {
-      "category": "漏洞修補",
-      "title": "CVE-2026-56155：AD FS存取控制granularity不足0-day",
-      "priority": "高",
-      "detail": "CVSS 9.1（AI推估），建議立即更新"
-    },
-    {
-      "category": "漏洞修補",
-      "title": "CVE-2026-55255：Langflow授權繞過，已遭AI Agent用於自主勒索攻擊",
-      "priority": "高",
-      "detail": "CVSS 8.6（AI推估），建議立即更新"
+      "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "Microsoft 2026年7月Patch Tuesday：史上最大規模，622個CVE含2個0-day",
+      "title": "Cisco Secure Firewall Management Center軟體靜態認證資料漏洞",
+      "priority": "高",
+      "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-50493 DirectX Graphics Kernel權限提升漏洞",
       "priority": "高",
       "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "漏洞修補",
-      "title": "CVE-2026-15409：SonicWall SMA1000 SSRF漏洞",
+      "title": "CVE-2026-18577：N-central認證繞過漏洞導致帳號接管風險",
       "priority": "中",
-      "detail": "CVSS 7.5（AI推估），建議一週內更新"
+      "detail": "CVSS 8.2（NVD官方），建議一週內更新"
     },
     {
-      "category": "漏洞修補",
-      "title": "CVE-2026-15410：SonicWall SMA1000程式碼注入漏洞",
+      "category": "公告確認",
+      "title": "AI助長勒索軟體攻擊升級 資安署示警雙重勒索成新威脅",
       "priority": "中",
-      "detail": "CVSS 7.2（AI推估），建議一週內更新"
+      "detail": "來源：資安署。資安署表示駭客已從單純加密演變為先竊取資料再威脅公開的『雙重勒索』模式，至7月22日已有5家企業公開揭露遭攻擊。"
+    },
+    {
+      "category": "公告確認",
+      "title": "資通安全網路月報（114年8月）",
+      "priority": "中",
+      "detail": "來源：資安署。本月資安事件通報158件，較去年同期減少9.20%，實兵演練攻擊成功案件占53.16%，以注入攻擊為主。"
     },
     {
       "category": "掃描比對",
-      "title": "JADEPUFFER AI自主勒索軟體攻擊鏈相關IOC比對",
+      "title": "WordPress漏洞wp2shell (CVE-2026-63030)相關IOC比對",
       "priority": "中",
-      "detail": "涉及類型：Domain、Hash。建議比對內部防火牆/EDR日誌。"
+      "detail": "涉及類型：URL。建議比對內部防火牆/EDR日誌。"
     },
     {
       "category": "掃描比對",
-      "title": "FortiBleed憑證竊取活動相關IOC比對",
+      "title": "中國駭客利用DeepSeek與Hermes進行AI自主攻擊相關IOC比對",
       "priority": "中",
-      "detail": "涉及類型：IP。建議比對VPN登入來源IP。"
+      "detail": "涉及類型：Domain。建議比對內部防火牆/EDR日誌。"
     },
     {
       "category": "教育宣導",
-      "title": "研究揭露結合GPT-5/6模型與Chrome漏洞的新型攻擊鏈",
+      "title": "新型Pass-ta-key攻擊可劫持Google同步的通行密鑰",
+      "priority": "低",
+      "detail": "建議納入員工資安宣導教育素材。"
+    },
+    {
+      "category": "教育宣導",
+      "title": "DOUBLECUP ClickFix詐騙服務利用瀏覽器快取藏匿惡意軟體",
+      "priority": "低",
+      "detail": "建議納入員工資安宣導教育素材。"
+    },
+    {
+      "category": "教育宣導",
+      "title": "假冒Roblox Xeno腳本啟動器傳播資訊竊取與遠控木馬",
+      "priority": "低",
+      "detail": "建議納入員工資安宣導教育素材。"
+    },
+    {
+      "category": "教育宣導",
+      "title": "AI助長勒索軟體攻擊升級 資安署示警雙重勒索成新威脅",
+      "priority": "低",
+      "detail": "建議納入員工資安宣導教育素材。"
+    },
+    {
+      "category": "教育宣導",
+      "title": "雙重勒索攻擊趨勢升溫",
       "priority": "低",
       "detail": "建議納入員工資安宣導教育素材。"
     }
   ],
-  "news_digest": {
-    "exec_summary": "本期最重要的事是微軟本月釋出史上最大規模的安全更新（622個修補項目），其中兩項已被駭客實際利用、須立即處理。同時也出現首例完全由AI自動執行的勒索軟體攻擊案例，顯示攻擊技術持續演進。另外多家國際企業（含Accenture、Deutsche Bank）傳出資料外洩，建議留意供應商與委外廠商的資安控管，並優先完成本期高風險項目的修補確認。",
-    "tech_summary": "Microsoft 2026年7月Patch Tuesday修補約622個CVE，含SharePoint（CVE-2026-56164, CVSS 9.8）與AD FS（CVE-2026-56155）兩個已遭實際利用之0-day；SharePoint另有CVE-2026-58644等多個漏洞持續遭利用竊取IIS機器金鑰，手法類似去年ToolShell事件。資安業者揭露首例AI Agent（JADEPUFFER）透過Langflow授權繞過漏洞（CVE-2026-55255）自主執行勒索軟體攻擊。此外SonicWall SMA1000存在SSRF與程式碼注入漏洞（CVE-2026-15409/15410）。建議優先確認上述CVE修補狀態，並比對JADEPUFFER與FortiBleed相關IOC。",
-    "article_count": 24,
-    "reading_time": 4
-  },
   "category_counts": {
-    "kev": 8,
+    "kev": 1,
     "vendor": 5,
-    "news": 6,
-    "ransomwareApt": 6
+    "news": 5,
+    "ransomwareApt": 2
   }
 };
-const UPDATED_AT = "2026-07-27 10:00:00（台灣時間）";
+const UPDATED_AT = "2026/8/4 08:13:58（台灣時間）";
 document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
