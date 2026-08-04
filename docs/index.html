@@ -175,6 +175,20 @@
   .glance-stat{text-align:center;}
   .glance-stat-num{font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:700;color:var(--text);line-height:1.1;}
   .glance-stat-label{font-family:'JetBrains Mono',monospace;font-size:9.5px;color:var(--text-dim);margin-top:2px;white-space:nowrap;}
+  .glance-stat.clickable{cursor:pointer;border-radius:8px;padding:4px 8px;transition:background .15s;}
+  .glance-stat.clickable:hover{background:var(--panel-alt);}
+
+  /* 統計彈跳視窗 */
+  .stat-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:100;align-items:center;justify-content:center;padding:20px;}
+  .stat-modal{background:var(--panel);border:1px solid var(--border);border-radius:12px;max-width:560px;width:100%;max-height:70vh;display:flex;flex-direction:column;}
+  .stat-modal-header{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--border);font-weight:700;font-size:14px;}
+  .stat-modal-close{background:none;border:none;color:var(--text-dim);font-size:16px;cursor:pointer;padding:2px 6px;}
+  .stat-modal-close:hover{color:var(--text);}
+  .stat-modal-body{overflow-y:auto;padding:8px 18px 16px;}
+  .stat-modal-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 0;border-top:1px dashed var(--border);font-size:12.5px;}
+  .stat-modal-row:first-child{border-top:none;}
+  .stat-modal-row-label{color:var(--text);flex:1;}
+  .stat-modal-row-value{font-family:'JetBrains Mono',monospace;color:var(--text-dim);white-space:nowrap;}
 
   /* 分類統計字卡（色條風格） */
   .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px;}
@@ -209,6 +223,16 @@
   </div>
 
   <div class="glance-banner" id="glanceBanner"></div>
+
+  <div class="stat-modal-overlay" id="statModal" onclick="if(event.target===this)closeStatModal()">
+    <div class="stat-modal">
+      <div class="stat-modal-header">
+        <span id="statModalTitle"></span>
+        <button class="stat-modal-close" onclick="closeStatModal()">✕</button>
+      </div>
+      <div class="stat-modal-body" id="statModalBody"></div>
+    </div>
+  </div>
 
   <div class="stat-strip" id="statStrip"></div>
 
@@ -810,8 +834,14 @@ function renderGlanceBanner(data){
 
   const actionItems = data.action_items || [];
   const highPriorityCount = actionItems.filter(a => a.priority === '高').length;
-  const urgentCveCount = (data.cve_radar || []).filter(v => v.action === '立即更新').length;
-  const majorEventCount = (data.global_events || []).length;
+  const urgentCve = (data.cve_radar || []).filter(v => v.action === '立即更新');
+
+  // 今日重大事件：只算今天(24小時內)的，而不是全部累積歷史
+  const todayCutoff = Date.now() - 86400000;
+  const todayEvents = (data.global_events || []).filter(e => {
+    const d = new Date(e.date);
+    return isNaN(d.getTime()) ? true : d.getTime() >= todayCutoff;
+  });
 
   el.className = `glance-banner level-${level}`;
   el.innerHTML = `
@@ -820,12 +850,70 @@ function renderGlanceBanner(data){
       <span class="glance-headline">${escapeHtml(topHeadline)}</span>
     </div>
     <div class="glance-stats">
-      <div class="glance-stat"><div class="glance-stat-num">${total}</div><div class="glance-stat-label">風險分數/100</div></div>
-      <div class="glance-stat"><div class="glance-stat-num">${actionItems.length}</div><div class="glance-stat-label">待辦事項（高${highPriorityCount}）</div></div>
-      <div class="glance-stat"><div class="glance-stat-num">${urgentCveCount}</div><div class="glance-stat-label">需立即更新漏洞</div></div>
-      <div class="glance-stat"><div class="glance-stat-num">${majorEventCount}</div><div class="glance-stat-label">今日重大事件</div></div>
+      <div class="glance-stat clickable" onclick="openStatModal('risk')"><div class="glance-stat-num">${total}</div><div class="glance-stat-label">風險分數/100</div></div>
+      <div class="glance-stat clickable" onclick="openStatModal('actions')"><div class="glance-stat-num">${actionItems.length}</div><div class="glance-stat-label">待辦事項（高${highPriorityCount}）</div></div>
+      <div class="glance-stat clickable" onclick="openStatModal('urgentCve')"><div class="glance-stat-num">${urgentCve.length}</div><div class="glance-stat-label">需立即更新漏洞</div></div>
+      <div class="glance-stat clickable" onclick="openStatModal('events')"><div class="glance-stat-num">${todayEvents.length}</div><div class="glance-stat-label">今日重大事件</div></div>
     </div>`;
 }
+
+/* ---------- 統計數字點擊彈跳視窗 ---------- */
+function statModalBody(type){
+  const d = DATA;
+  if (type === 'risk'){
+    const bd = d.risk_score?.breakdown || {};
+    const rows = Object.entries(bd).map(([k, v]) => `
+      <div class="stat-modal-row">
+        <span class="stat-modal-row-label">${escapeHtml(k)}</span>
+        <span class="stat-modal-row-value">${escapeHtml(String(v))}</span>
+      </div>`).join('');
+    return { title: '風險分數細項', body: rows || emptyNote() };
+  }
+  if (type === 'actions'){
+    const items = d.action_items || [];
+    const rows = items.map(a => `
+      <div class="stat-modal-row">
+        <span class="stat-modal-row-label">[${escapeHtml(a.category||'')}] ${escapeHtml(a.title||'')}</span>
+        <span class="action-priority action-priority-${escapeHtml(a.priority||'中')}">${escapeHtml(a.priority||'中')}</span>
+      </div>`).join('');
+    return { title: '今日待辦事項', body: rows || emptyNote() };
+  }
+  if (type === 'urgentCve'){
+    const items = (d.cve_radar || []).filter(v => v.action === '立即更新');
+    const rows = items.map(v => `
+      <div class="stat-modal-row">
+        <span class="stat-modal-row-label">${escapeHtml(v.cve_id||'')}：${escapeHtml(v.title||'')}</span>
+        <span class="stat-modal-row-value">CVSS ${v.cvss ?? '—'}</span>
+      </div>`).join('');
+    return { title: '需立即更新的漏洞', body: rows || emptyNote() };
+  }
+  if (type === 'events'){
+    const todayCutoff = Date.now() - 86400000;
+    const items = (d.global_events || []).filter(e => {
+      const dt = new Date(e.date);
+      return isNaN(dt.getTime()) ? true : dt.getTime() >= todayCutoff;
+    });
+    const rows = items.map(e => `
+      <div class="stat-modal-row">
+        <span class="stat-modal-row-label">[${escapeHtml(e.category||'')}] ${escapeHtml(e.title||'')}</span>
+        <span class="stat-modal-row-value">${escapeHtml(e.date||'')}</span>
+      </div>`).join('');
+    return { title: '今日重大事件', body: rows || emptyNote() };
+  }
+  return { title: '', body: emptyNote() };
+}
+
+function openStatModal(type){
+  const { title, body } = statModalBody(type);
+  document.getElementById('statModalTitle').textContent = title;
+  document.getElementById('statModalBody').innerHTML = body;
+  document.getElementById('statModal').style.display = 'flex';
+}
+function closeStatModal(){
+  document.getElementById('statModal').style.display = 'none';
+}
+window.openStatModal = openStatModal;
+window.closeStatModal = closeStatModal;
 
 renderGlanceBanner(DATA);
 
