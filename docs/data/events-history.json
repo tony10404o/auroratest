@@ -1,125 +1,5 @@
 [
   {
-    "category": "資料外洩",
-    "title": "ExfilSquad駭客集團洩露超過10萬名英國警務人員資訊",
-    "date": "2026-08-03",
-    "url": "https://www.bleepingcomputer.com/news/security/exfilsquad-hackers-leak-info-of-over-100-000-uk-police-officers-staff/"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "N-central認證繞過漏洞導致帳號接管風險",
-    "date": "2026-08-03",
-    "url": "https://www.bleepingcomputer.com/news/security/n-able-warns-of-n-central-auth-bypass-flaw-exploited-in-attacks/"
-  },
-  {
-    "category": "APT攻擊",
-    "title": "BlueNoroff利用會議網釣進行ClickFix攻擊竊取加密資產",
-    "date": "2026-08-01",
-    "url": "https://www.ithome.com.tw/security"
-  },
-  {
-    "category": "政府公告",
-    "title": "資通安全網路月報（114年8月）",
-    "date": "2026-08-01",
-    "url": "https://moda.gov.tw/ACS/press/report/17402"
-  },
-  {
-    "category": "APT攻擊",
-    "title": "APT28利用CVE-2026-21509 Operation Neusploit攻擊東歐",
-    "date": "2026-07-30",
-    "url": "https://thehackernews.com/2026/04/russian-state-linked-apt28-exploits.html"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "Cisco防火牆管理中心硬編碼密碼漏洞",
-    "date": "2026-07-29",
-    "url": "https://www.bleepingcomputer.com/news/security/cisco-warns-of-fmc-static-credential-flaw-exploited-in-zero-day-attacks/"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "AI驅動的雙重勒索攻擊威脅升級",
-    "date": "2026-07-27",
-    "url": "https://www.epochtimes.com/b5/26/7/27/n14818296.htm"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "俄駭客利用Exchange OWA零時差漏洞進行長期信箱入侵",
-    "date": "2026-07-27",
-    "url": "https://www.bleepingcomputer.com/news/security/russian-hackers-exploit-exchange-owa-zero-day-for-long-term-mailbox-access/"
-  },
-  {
-    "category": "資料外洩",
-    "title": "明尼蘇達州30家供水公用事業遭協調式OT攻擊",
-    "date": "2026-07-27",
-    "url": "https://www.bleepingcomputer.com/news/security/hackers-target-over-30-minnesota-water-utilities-in-coordinated-ot-attack/"
-  },
-  {
-    "category": "政府公告",
-    "title": "生成式AI助長勒索軟體攻擊，資安署示警雙重勒索成新威脅",
-    "date": "2026-07-27",
-    "url": "https://www.epochtimes.com/b5/26/7/27/n14818296.htm"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "Microsoft Teams語音釣魚攻擊導致勒索軟體感染",
-    "date": "2026-07-27",
-    "url": "https://www.bleepingcomputer.com/news/security/microsoft-teams-vishing-attacks-lead-to-chaos-ransomware-attacks/"
-  },
-  {
-    "category": "APT攻擊",
-    "title": "亞馬遜指控北韓駭客進行NPM供應鏈投毒攻擊",
-    "date": "2026-07-27",
-    "url": "https://www.bleepingcomputer.com/news/security/amazon-links-debug-chalk-npm-supply-chain-attacks-to-north-korean-hackers/"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "俄羅斯駭客利用Exchange OWA零時差漏洞長期竊取信箱",
-    "date": "2026-07-27",
-    "url": "https://www.bleepingcomputer.com/news/security/russian-hackers-exploit-exchange-owa-zero-day-for-long-term-mailbox-access/"
-  },
-  {
-    "category": "資料外洩",
-    "title": "超過30個明尼蘇達州自來水公用事業遭協同OT攻擊",
-    "date": "2026-07-27",
-    "url": "https://www.bleepingcomputer.com/news/security/hackers-target-over-30-minnesota-water-utilities-in-coordinated-ot-attack/"
-  },
-  {
-    "category": "資料外洩",
-    "title": "韓國電信巨頭KT遭罰3,900萬美元，客戶資料外洩事件",
-    "date": "2026-07-27",
-    "url": "https://www.bleepingcomputer.com/news/security/south-korea-fines-telco-giant-kt-39-million-for-customer-data-breach/"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "JetBrains TeamCity爆出重大遠端程式碼執行漏洞",
-    "date": "2026-07-27",
-    "url": "https://www.bleepingcomputer.com/news/security/jetbrains-warns-of-critical-teamcity-remote-code-execution-flaw/"
-  },
-  {
-    "category": "政府公告",
-    "title": "AI助長勒索軟體攻擊 資安署籲落實四大防護重點",
-    "date": "2026-07-27",
-    "url": "https://tw.stock.yahoo.com/news/ai%E5%8A%A9%E9%95%B7%E5%8B%92%E7%B4%A2%E8%BB%9F%E9%AB%94%E6%94%BB%E6%93%8A-%E8%B3%87%E5%AE%89%E7%BD%B2%E7%B1%B2%E8%90%BD%E5%AF%A6%E5%9B%9B%E5%A4%A7%E9%98%B2%E8%AD%B7%E9%87%8D%E9%BB%9E-054649003.html"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "雙重勒索攻擊趨勢升溫",
-    "date": "2026-07-27",
-    "url": "https://www.epochtimes.com/b5/26/7/27/n14818296.htm"
-  },
-  {
-    "category": "政府公告",
-    "title": "AI助長勒索軟體攻擊升級 資安署示警雙重勒索成新威脅",
-    "date": "2026-07-27",
-    "url": "https://www.epochtimes.com/b5/26/7/27/n14818296.htm"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "台灣企業勒索軟體攻擊高居不下",
-    "date": "2026-07-22",
-    "url": "https://news.pchome.com.tw/science/technice/20260727/index-78513497665235338005.html"
-  },
-  {
     "category": "政府公告",
     "title": "TWCERT/CC KEV週報（7/13-7/19）",
     "date": "2026-07-20",
@@ -199,26 +79,14 @@
   },
   {
     "category": "勒索病毒",
-    "title": "Safepay、Qilin等集團全球高強度活動",
-    "date": "2026-07-06",
-    "url": "https://00sec.com/daily/7Jb4O58Bp1ppm_bb2FGw"
-  },
-  {
-    "category": "勒索病毒",
     "title": "加拿大Chemco遭Qilin勒索軟體攻擊",
     "date": "2026-07-01",
     "url": "https://sharkstriker.com/blog/july-2026-data-breaches/"
   },
   {
-    "category": "勒索病毒",
-    "title": "多個勒索組織保持穩定高位活動",
-    "date": "2026-07-01",
-    "url": "https://00sec.com/daily/SG46Ip8Bp1ppm_bbDptw"
-  },
-  {
-    "category": "APT攻擊",
-    "title": "Salt Typhoon中國APT全球布局，已入侵80國以上",
-    "date": "2026-07-01",
-    "url": "https://cybelangel.com/blog/cyber-espionage-apts/"
+    "category": "零時差漏洞",
+    "title": "Progress LoadMaster CVE-2026-8037遭鎖定攻擊",
+    "date": "2026-06-29",
+    "url": "https://thehackernews.com/"
   }
 ]
