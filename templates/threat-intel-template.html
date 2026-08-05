@@ -415,23 +415,7 @@ function renderRiskGauge(risk){
     <div class="risk-bars">${bars}</div>`;
 }
 
-/* ---------- Panel 6: 資安知識板 ---------- */
-function renderDailyLearning(item){
-  if (!item) return emptyNote();
-  return `<div class="learning-card">
-    <div class="learning-top">
-      <div class="learning-icon">${item.icon || '🎓'}</div>
-      <div class="learning-title">${escapeHtml(item.title || '')}</div>
-    </div>
-    <div class="learning-desc">${escapeHtml(item.description || '')}</div>
-    <div class="learning-bottom">
-      <span class="learning-time">閱讀時間：約${escapeHtml(item.reading_time || '3')}分鐘</span>
-      ${item.url ? `<a class="learning-btn" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">開始學習</a>` : `<span class="learning-btn" style="opacity:.6;cursor:default;">開始學習</span>`}
-    </div>
-  </div>`;
-}
-
-/* ---------- Panel 7: 今日建議行動 ---------- */
+/* ---------- Panel 6: 今日建議行動 ---------- */
 function renderActionItems(items){
   if (!items || !items.length) return emptyNote();
   window.__ACTION_ITEMS__ = items;
@@ -468,33 +452,7 @@ function copyTicket(btn){
 }
 window.copyTicket = copyTicket;
 
-/* ---------- Panel 8: AI新聞摘要 ---------- */
-function renderNewsDigest(digest){
-  if (!digest) return emptyNote();
-  return `
-    <div class="digest-tabs">
-      <button class="digest-tab-btn active" data-view="exec">主管版</button>
-      <button class="digest-tab-btn" data-view="tech">技術版</button>
-    </div>
-    <div class="digest-text" id="digestText">${escapeHtml(digest.exec_summary || '')}</div>
-    <div class="digest-meta">本次彙整 ${digest.article_count ?? '—'} 篇來源・預估閱讀 ${digest.reading_time ?? '5'} 分鐘</div>`;
-}
-
-function setupNewsDigestPanel(digest){
-  if (!digest) return;
-  const textEl = document.getElementById('digestText');
-  const tabs = document.querySelectorAll('.digest-tab-btn');
-  if (!textEl || !tabs.length) return;
-  tabs.forEach(btn => {
-    btn.addEventListener('click', () => {
-      tabs.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      textEl.textContent = btn.dataset.view === 'tech' ? (digest.tech_summary || '') : (digest.exec_summary || '');
-    });
-  });
-}
-
-/* ---------- 組裝 8 宮格 ---------- */
+/* ---------- 組裝 6 宮格 ---------- */
 /* ---------- 主管一眼摘要橫幅（純前端組裝，不額外花AI費用） ---------- */
 function riskLevel(total){
   if (total >= 70) return '高';
@@ -600,7 +558,7 @@ function renderStatStrip(counts){
   const cards = [
     { color:'blue', label:'今日漏洞雷達', number: counts.kev ?? 0, desc:'KEV新增筆數' },
     { color:'green', label:'AI企業影響分析', number: counts.vendor ?? 0, desc:'Microsoft／Cisco／Fortinet' },
-    { color:'orange', label:'AI新聞摘要', number: counts.news ?? 0, desc:'今日彙整則數' },
+    { color:'orange', label:'國際資安新聞', number: counts.news ?? 0, desc:'今日彙整則數' },
     { color:'red', label:'勒索軟體／APT', number: counts.ransomwareApt ?? 0, desc:'近期事件數' },
   ];
   el.innerHTML = cards.map(c => `
@@ -626,12 +584,9 @@ grid.innerHTML =
   panelShell('③', '🎯', '今日漏洞雷達 (CVE)', null, renderCveRadar(DATA.cve_radar)) +
   panelShell('④', '🏢', 'AI企業影響分析', null, renderVendorImpact(DATA.vendor_impact)) +
   panelShell('⑤', '📊', 'AI風險熱度儀表板', null, renderRiskGauge(DATA.risk_score)) +
-  panelShell('⑥', '🎓', 'AI宣導建議', null, renderDailyLearning(DATA.daily_learning)) +
-  panelShell('⑦', '✅', '今日建議行動', null, renderActionItems(DATA.action_items)) +
-  panelShell('⑧', '🗞️', 'AI新聞摘要', null, renderNewsDigest(DATA.news_digest));
+  panelShell('⑥', '✅', '今日建議行動', null, renderActionItems(DATA.action_items));
 
 setupGlobalEventsPanel(DATA.global_events);
-setupNewsDigestPanel(DATA.news_digest);
 </script>
 </body>
 </html>

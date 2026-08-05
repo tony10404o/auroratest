@@ -348,13 +348,6 @@ ${JSON.stringify(result, null, 2)}
       "ai_suggestion": "20-40字的具體建議行動"
     }
   ],
-  "daily_learning": {
-    "icon": "一個表情符號",
-    "title": "今天的AI宣導建議標題（8-15字，可從今天資料中挑一個值得對員工宣導的名詞、攻擊手法或防範觀念，例如MFA Fatigue、釣魚郵件辨識等）",
-    "description": "60-100字的淺顯說明，用一般員工看得懂的語言解釋這個主題是什麼、為什麼要注意、可以怎麼防範，語氣像是給同仁的宣導提醒",
-    "reading_time": "1到5之間的數字（預估閱讀分鐘數）",
-    "url": "若這個主題有對應的今日新聞來源網址可放，沒有則省略"
-  },
   "global_events": [
     {
       "category": "勒索病毒、APT攻擊、資料外洩、零時差漏洞 或 政府公告 其中一個",
@@ -362,20 +355,13 @@ ${JSON.stringify(result, null, 2)}
       "date": "YYYY-MM-DD（依原始資料的date/date_added欄位）",
       "url": "來源網址"
     }
-  ],
-  "news_digest": {
-    "exec_summary": "給主管看的版本，120-180字，聚焦「發生什麼事、對公司有什麼潛在影響、需要做什麼決策」，避免技術細節與專有名詞",
-    "tech_summary": "給技術/資安人員看的版本，150-250字，可包含CVE編號、廠商名稱、攻擊手法、技術細節，語氣更專業精簡",
-    "article_count": 本次彙整所依據的原始資料筆數總和（整數，可用kev_vulnerabilities+vendor_advisories+international_news+gov_announcements+ioc_highlights+ransomware_apt的筆數加總）,
-    "reading_time": 1到5之間的整數（技術版預估閱讀分鐘數）
-  }
+  ]
 }
 
 規則：
 - headlines 從所有原始資料中，挑選今天最重要的5則（跨類別挑選，不限單一類別）
 - vendor_impact 從 vendor_advisories 轉換，保留原本筆數
 - global_events 從 kev_vulnerabilities（挑is_zero_day或known_ransomware_use的）、ransomware_apt、gov_announcements 轉換彙整，最多12則，依日期新到舊排序
-- news_digest 的兩個版本都要根據「全部」原始資料綜合撰寫（不是只看international_news），兩版本內容重點可以相同，但語氣與詳細程度要明顯不同
 - 所有評分（impact、stars）都是AI研判的參考值，請根據資料內容合理判斷，不要每個都給一樣的分數
 - 不需要回傳cve_radar欄位，這部分會用官方NVD資料另外處理`;
 
