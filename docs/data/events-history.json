@@ -1,5 +1,59 @@
 [
   {
+    "category": "零時差漏洞",
+    "title": "Langflow 程式碼注入漏洞允許未認證 RCE（CVSS 9.8 關鍵）",
+    "date": "2026-08-04",
+    "url": "https://www.bleepingcomputer.com"
+  },
+  {
+    "category": "資料外洩",
+    "title": "ChainDrop 大規模 npm 供應鏈攻擊影響數百套件",
+    "date": "2026-08-04",
+    "url": "https://www.bleepingcomputer.com/news/security/massive-chaindrop-npm-supply-chain-attack-infects-hundreds-of-packages/"
+  },
+  {
+    "category": "資料外洩",
+    "title": "77 個 Open VSX 擴充功能竊取開發者資訊與認證憑證",
+    "date": "2026-08-04",
+    "url": "https://www.bleepingcomputer.com/news/security/77-open-vsx-extensions-found-harvesting-developer-info/"
+  },
+  {
+    "category": "APT 攻擊",
+    "title": "新型 XCSSET 木馬變種透過遭破壞 Xcode 專案攻擊 macOS 開發者",
+    "date": "2026-08-04",
+    "url": "https://www.bleepingcomputer.com/news/security/new-xcsset-variant-targets-macos-devs-via-compromised-xcode-projects/"
+  },
+  {
+    "category": "資料外洩",
+    "title": "釣魚服務偽冒 RingCentral 竊取 Microsoft 365 企業帳號",
+    "date": "2026-08-04",
+    "url": "https://www.bleepingcomputer.com/news/security/phishing-service-spoofs-ringcentral-to-steal-microsoft-365-accounts/"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "TP-Link Omada 零接觸部署漏洞允許駭客入侵企業網路",
+    "date": "2026-08-04",
+    "url": "https://www.bleepingcomputer.com/news/security/tp-link-patches-omada-ztp-flaws-allowing-hackers-to-breach-networks/"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "RDP 與資料庫弱點導致大規模 BitLocker 勒索攻擊",
+    "date": "2026-08-03",
+    "url": "https://icsda.org.tw/security-news-vulnerability-data-breach-20260803/"
+  },
+  {
+    "category": "政府公告",
+    "title": "TWCERT/CC 2026 年 7 月份資安情資電子報",
+    "date": "2026-07-31",
+    "url": "https://www.twcert.org.tw/tw/cp-106-11070-54f76-1.html"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "AI 助長勒索軟體攻擊 資安署警示防護重點",
+    "date": "2026-07-30",
+    "url": "https://tw.stock.yahoo.com/news/ai%E5%8A%A9%E9%95%B2%E5%8B%92%E7%B4%A2%E8%BB%9F%E9%AB%94%E6%94%BB%E6%93%8A-%E8%B3%87%E5%AE%89%E7%BD%B2%E7%B1%B2%E8%90%BD%E5%AF%A6%E5%9B%9B%E5%A4%A7%E9%98%B2%E8%AD%B7%E9%87%8D%E9%BB%9E-054649003.html"
+  },
+  {
     "category": "政府公告",
     "title": "TWCERT/CC KEV週報（7/13-7/19）",
     "date": "2026-07-20",
@@ -76,17 +130,5 @@
     "title": "JADEPUFFER AI自主勒索軟體攻擊鏈",
     "date": "2026-07-07",
     "url": "https://medium.com/@cyber_securiti/tuesday-morning-threat-report-jul-7-2026-5ad6761ce577"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "加拿大Chemco遭Qilin勒索軟體攻擊",
-    "date": "2026-07-01",
-    "url": "https://sharkstriker.com/blog/july-2026-data-breaches/"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "Progress LoadMaster CVE-2026-8037遭鎖定攻擊",
-    "date": "2026-06-29",
-    "url": "https://thehackernews.com/"
   }
 ]
