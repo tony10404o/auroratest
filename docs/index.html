@@ -246,144 +246,46 @@ const DATA = {
   "headlines": [
     {
       "icon": "🎯",
-      "title": "Langflow 程式碼注入漏洞允許未認證 RCE，CVSS 9.8 關鍵等級",
-      "subtitle": "IBM Langflow 存在遠端程式碼執行漏洞，未認證攻擊者可完全入侵系統",
+      "title": "微軟2026年7月Patch Tuesday創史上最大規模",
+      "subtitle": "約622個CVE，含SharePoint與AD FS兩個0-day",
       "impact": "高",
       "stars": 5,
-      "url": "https://www.bleepingcomputer.com"
+      "url": "https://msrc.microsoft.com/update-guide/"
     },
     {
       "icon": "🦠",
-      "title": "RDP 與資料庫弱點導致大規模 BitLocker 勒索攻擊",
-      "subtitle": "駭客利用外露服務入侵能源電信等關鍵基礎設施，進行磁碟加密勒索",
+      "title": "JADEPUFFER：首例AI Agent自主執行勒索軟體攻擊",
+      "subtitle": "利用Langflow漏洞自主入侵並加密資料庫",
       "impact": "高",
       "stars": 5,
-      "url": "https://icsda.org.tw/security-news-vulnerability-data-breach-20260803/"
-    },
-    {
-      "icon": "🕵️",
-      "title": "ChainDrop 大規模 npm 供應鏈攻擊影響數百套件",
-      "subtitle": "開發者生態受到供應鏈污染，npm 依賴套件遭植入惡意程式碼",
-      "impact": "高",
-      "stars": 5,
-      "url": "https://www.bleepingcomputer.com/news/security/massive-chaindrop-npm-supply-chain-attack-infects-hundreds-of-packages/"
-    },
-    {
-      "icon": "🔀",
-      "title": "Cisco Secure Firewall Management Center 認證繞過及硬編碼密碼漏洞",
-      "subtitle": "防火牆管理中心存在兩個高危認證機制缺陷，允許未授權存取核心設備",
-      "impact": "高",
-      "stars": 5,
-      "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-onprem-fmc-authbypass-5JPp45V2"
+      "url": "https://medium.com/@cyber_securiti/tuesday-morning-threat-report-jul-7-2026-5ad6761ce577"
     },
     {
       "icon": "📰",
-      "title": "釣魚服務偽冒 RingCentral 大規模竊取 Microsoft 365 帳號",
-      "subtitle": "企業用戶遭社交工程攻擊，雲端帳號認證憑證被盜取，需強化員工警覺",
+      "title": "Accenture證實原始碼與金鑰資料遭竊",
+      "subtitle": "駭客「888」聲稱竊得35GB原始碼與雲端金鑰",
       "impact": "中",
       "stars": 4,
-      "url": "https://www.bleepingcomputer.com/news/security/phishing-service-spoofs-ringcentral-to-steal-microsoft-365-accounts/"
+      "url": "https://blog.senthorus.ch/posts/14_07_2026"
+    },
+    {
+      "icon": "🕵️",
+      "title": "SharePoint持續遭鎖定攻擊,手法似去年ToolShell",
+      "subtitle": "多個SharePoint漏洞近期陸續列入CISA KEV",
+      "impact": "高",
+      "stars": 4,
+      "url": "https://www.cisa.gov/news-events/alerts/2026/07/14/cisa-urges-sharepoint-hardening-after-new-exploitations"
+    },
+    {
+      "icon": "🦠",
+      "title": "Deutsche Bank遭Unsafe勒索組織列入外洩名單",
+      "subtitle": "疑似員工資料庫紀錄遭公開作為證明",
+      "impact": "中",
+      "stars": 3,
+      "url": "https://blog.senthorus.ch/posts/14_07_2026"
     }
   ],
-  "vendor_impact": [
-    {
-      "icon": "🪟",
-      "title": "CVE-2026-50493 DirectX Graphics Kernel 權限提升漏洞",
-      "impact": "高",
-      "key_asset": "Windows DirectX Graphics 圖形渲染引擎",
-      "ai_suggestion": "優先更新 Windows 系統安全補丁，檢查企業內部圖形相關應用程式的運作狀況"
-    },
-    {
-      "icon": "🪟",
-      "title": "CVE-2026-50416 Win32k 資訊洩露漏洞",
-      "impact": "中",
-      "key_asset": "Windows Win32k 視窗管理核心元件",
-      "ai_suggestion": "排程進行 Windows 系統更新，監控敏感系統資訊是否被非法存取"
-    },
-    {
-      "icon": "🪟",
-      "title": "CVE-2026-50341 Windows NTFS 資訊洩露漏洞",
-      "impact": "中",
-      "key_asset": "Windows NTFS 檔案系統存取控制機制",
-      "ai_suggestion": "檢視磁碟存取日誌，確認檔案權限設定妥當，補上最新 Windows KB 更新"
-    },
-    {
-      "icon": "🔀",
-      "title": "Cisco Secure Firewall Management Center 認證繞過漏洞",
-      "impact": "高",
-      "key_asset": "Cisco Secure Firewall Management Center 管理平台",
-      "ai_suggestion": "立即檢查管理中心存取記錄，更新至修補版本，強化管理介面網路隔離"
-    },
-    {
-      "icon": "🔀",
-      "title": "Cisco Secure Firewall Management Center 硬編碼認證漏洞",
-      "impact": "高",
-      "key_asset": "Cisco Secure Firewall Management Center 預設帳號認證",
-      "ai_suggestion": "立即變更預設帳號密碼，檢查日誌中是否有異常登入，升級至最新修補版本"
-    }
-  ],
-  "daily_learning": {
-    "icon": "🎣",
-    "title": "認識釣魚攻擊：虛假登入頁面如何竊取企業雲端帳號",
-    "description": "釣魚是駭客最常用的社交工程手法。攻擊者會製作看似合法的登入頁面（例如仿冒 Microsoft 365 或協作工具），誘騙員工輸入帳號密碼。一旦認證遭竊，駭客可存取企業機密資料、發動進階攻擊或安裝後門。防範方法：檢查登入網址是否正確、啟用多因素認證（MFA）、警惕突然要求重新登入的訊息、參加資安培訓認識常見釣魚跡象。",
-    "reading_time": 2,
-    "url": "https://www.bleepingcomputer.com/news/security/phishing-service-spoofs-ringcentral-to-steal-microsoft-365-accounts/"
-  },
   "global_events": [
-    {
-      "category": "零時差漏洞",
-      "title": "Langflow 程式碼注入漏洞允許未認證 RCE（CVSS 9.8 關鍵）",
-      "date": "2026-08-04",
-      "url": "https://www.bleepingcomputer.com"
-    },
-    {
-      "category": "資料外洩",
-      "title": "ChainDrop 大規模 npm 供應鏈攻擊影響數百套件",
-      "date": "2026-08-04",
-      "url": "https://www.bleepingcomputer.com/news/security/massive-chaindrop-npm-supply-chain-attack-infects-hundreds-of-packages/"
-    },
-    {
-      "category": "資料外洩",
-      "title": "77 個 Open VSX 擴充功能竊取開發者資訊與認證憑證",
-      "date": "2026-08-04",
-      "url": "https://www.bleepingcomputer.com/news/security/77-open-vsx-extensions-found-harvesting-developer-info/"
-    },
-    {
-      "category": "APT 攻擊",
-      "title": "新型 XCSSET 木馬變種透過遭破壞 Xcode 專案攻擊 macOS 開發者",
-      "date": "2026-08-04",
-      "url": "https://www.bleepingcomputer.com/news/security/new-xcsset-variant-targets-macos-devs-via-compromised-xcode-projects/"
-    },
-    {
-      "category": "資料外洩",
-      "title": "釣魚服務偽冒 RingCentral 竊取 Microsoft 365 企業帳號",
-      "date": "2026-08-04",
-      "url": "https://www.bleepingcomputer.com/news/security/phishing-service-spoofs-ringcentral-to-steal-microsoft-365-accounts/"
-    },
-    {
-      "category": "零時差漏洞",
-      "title": "TP-Link Omada 零接觸部署漏洞允許駭客入侵企業網路",
-      "date": "2026-08-04",
-      "url": "https://www.bleepingcomputer.com/news/security/tp-link-patches-omada-ztp-flaws-allowing-hackers-to-breach-networks/"
-    },
-    {
-      "category": "勒索病毒",
-      "title": "RDP 與資料庫弱點導致大規模 BitLocker 勒索攻擊",
-      "date": "2026-08-03",
-      "url": "https://icsda.org.tw/security-news-vulnerability-data-breach-20260803/"
-    },
-    {
-      "category": "政府公告",
-      "title": "TWCERT/CC 2026 年 7 月份資安情資電子報",
-      "date": "2026-07-31",
-      "url": "https://www.twcert.org.tw/tw/cp-106-11070-54f76-1.html"
-    },
-    {
-      "category": "勒索病毒",
-      "title": "AI 助長勒索軟體攻擊 資安署警示防護重點",
-      "date": "2026-07-30",
-      "url": "https://tw.stock.yahoo.com/news/ai%E5%8A%A9%E9%95%B2%E5%8B%92%E7%B4%A2%E8%BB%9F%E9%AB%94%E6%94%BB%E6%93%8A-%E8%B3%87%E5%AE%89%E7%BD%B2%E7%B1%B2%E8%90%BD%E5%AF%A6%E5%9B%9B%E5%A4%A7%E9%98%B2%E8%AD%B7%E9%87%8D%E9%BB%9E-054649003.html"
-    },
     {
       "category": "政府公告",
       "title": "TWCERT/CC KEV週報（7/13-7/19）",
@@ -461,46 +363,115 @@ const DATA = {
       "title": "JADEPUFFER AI自主勒索軟體攻擊鏈",
       "date": "2026-07-07",
       "url": "https://medium.com/@cyber_securiti/tuesday-morning-threat-report-jul-7-2026-5ad6761ce577"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "加拿大Chemco遭Qilin勒索軟體攻擊",
+      "date": "2026-07-01",
+      "url": "https://sharkstriker.com/blog/july-2026-data-breaches/"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "Progress LoadMaster CVE-2026-8037遭鎖定攻擊",
+      "date": "2026-06-29",
+      "url": "https://thehackernews.com/"
     }
   ],
-  "news_digest": {
-    "exec_summary": "本週情資顯示企業面臨多層次威脅：(1) 關鍵防火牆設備（Cisco）存在認證繞過漏洞，直接威脅網路邊界安全；(2) 大型勒索軟體攻擊利用遠端存取服務入侵能源與電信產業；(3) 開發工具鏈遭污染（npm、VSX、Xcode），影響軟體供應安全；(4) 新漏洞（Langflow、N-central）允許未認證遠端控制。建議優先行動：(a) 立即檢查與修補 Cisco 防火牆、Windows 系統與開發工具；(b) 加強員工釣魚警覺與多因素認證；(c) 檢核外露 RDP 與資料庫服務；(d) 審視軟體依賴管理與供應鏈安全。",
-    "tech_summary": "今日威脅情資涉及多個高風險漏洞與攻擊事件。關鍵漏洞包括：CVE-2026-9198（Langflow 未認證 RCE，CVSS 9.8）、CVE-2026-18556（N-central 認證繞過）、CVE-2026-34486（Tomcat 加密繞過）；Cisco Secure Firewall Management Center 存在認證繞過與硬編碼密碼漏洞；Microsoft 系統漏洞（DirectX Kernel 權限提升、Win32k 資訊洩露、NTFS 資訊洩露）。攻擊事件方面，ChainDrop 供應鏈攻擊在 npm 生態植入惡意套件，Open VSX 與 Xcode 也遭污染；大規模 BitLocker 勒索攻擊利用外露 RDP 與資料庫漏洞入侵關鍵基礎設施；釣魚服務冒充 RingCentral 竊取 Microsoft 365 認證。建議立即清點易受攻擊資產、部署安全補丁、強化軟體供應鏈管理、加強端點檢測與威脅狩獵。",
-    "article_count": 16,
-    "reading_time": 3
-  },
   "cve_radar": [
     {
-      "cve_id": "CVE-2026-9198",
-      "title": "Langflow 程式碼注入漏洞，允許未認證攻擊者遠端執行程式碼",
+      "cve_id": "CVE-2026-56164",
+      "title": "SharePoint 0-day，可竊取IIS機器金鑰",
       "cvss": 9.8,
       "cvss_source": "NVD官方",
       "exploited": true,
       "action": "立即更新"
     },
     {
-      "cve_id": "CVE-2026-18556",
-      "title": "N-central 認證繞過漏洞，允許通過替代路徑或通道進行未授權存取",
-      "cvss": 5,
+      "cve_id": "CVE-2026-56155",
+      "title": "AD FS存取控制granularity不足0-day",
+      "cvss": 9.1,
+      "cvss_source": "AI推估",
+      "exploited": true,
+      "action": "立即更新"
+    },
+    {
+      "cve_id": "CVE-2026-58644",
+      "title": "SharePoint反序列化RCE，6月已修補未列入公告",
+      "cvss": 9.8,
+      "cvss_source": "NVD官方",
+      "exploited": true,
+      "action": "立即更新"
+    },
+    {
+      "cve_id": "CVE-2026-55255",
+      "title": "Langflow授權繞過，已遭AI Agent用於自主勒索攻擊",
+      "cvss": 8.6,
+      "cvss_source": "AI推估",
+      "exploited": true,
+      "action": "立即更新"
+    },
+    {
+      "cve_id": "CVE-2026-15409",
+      "title": "SonicWall SMA1000 SSRF漏洞",
+      "cvss": 7.5,
+      "cvss_source": "AI推估",
+      "exploited": true,
+      "action": "一週內更新"
+    },
+    {
+      "cve_id": "CVE-2026-15410",
+      "title": "SonicWall SMA1000程式碼注入漏洞",
+      "cvss": 7.2,
+      "cvss_source": "AI推估",
+      "exploited": true,
+      "action": "一週內更新"
+    },
+    {
+      "cve_id": "CVE-2026-48939",
+      "title": "iCagenda檔案上傳限制不當漏洞",
+      "cvss": 6.5,
       "cvss_source": "AI推估",
       "exploited": true,
       "action": "持續觀察"
     },
     {
-      "cve_id": "CVE-2026-34486",
-      "title": "Tomcat 敏感資料加密缺失漏洞，允許繞過 EncryptInterceptor",
-      "cvss": 5,
+      "cve_id": "CVE-2026-56291",
+      "title": "Balbooa Forms檔案上傳限制不當漏洞",
+      "cvss": 6.3,
       "cvss_source": "AI推估",
       "exploited": true,
       "action": "持續觀察"
     }
   ],
+  "vendor_impact": [
+    {
+      "icon": "🪟",
+      "title": "Defender核心引擎與SharePoint/AD FS 0-day修補公告",
+      "impact": "高",
+      "key_asset": "SharePoint／AD FS／Windows Server",
+      "ai_suggestion": "優先確認SharePoint與AD FS伺服器已完成本次Patch Tuesday更新。"
+    },
+    {
+      "icon": "🛡️",
+      "title": "FortiGuard PSIRT例行公告，修補7項產品線漏洞",
+      "impact": "中",
+      "key_asset": "FortiGate防火牆",
+      "ai_suggestion": "排入例行維護窗口更新，非緊急但建議一週內完成。"
+    }
+  ],
+  "daily_learning": {
+    "icon": "🎓",
+    "title": "什麼是AI Agent自主攻擊？",
+    "description": "傳統攻擊需要駭客手動操作每個步驟，但JADEPUFFER事件顯示AI Agent可以自己規劃、入侵、竊取憑證、加密資料，全程不需要人即時介入。這代表防禦方需要更快的自動化偵測，因為攻擊速度可能比人類應變更快。",
+    "reading_time": 3,
+    "url": "https://medium.com/@cyber_securiti/tuesday-morning-threat-report-jul-7-2026-5ad6761ce577"
+  },
   "risk_score": {
-    "total": 39,
+    "total": 58,
     "breakdown": [
       {
         "label": "漏洞風險",
-        "score": 60
+        "score": 100
       },
       {
         "label": "APT攻擊",
@@ -508,7 +479,7 @@ const DATA = {
       },
       {
         "label": "勒索病毒",
-        "score": 44
+        "score": 100
       },
       {
         "label": "身份風險",
@@ -523,79 +494,79 @@ const DATA = {
   "action_items": [
     {
       "category": "漏洞修補",
-      "title": "CVE-2026-9198：Langflow 程式碼注入漏洞，允許未認證攻擊者遠端執行程式碼",
+      "title": "CVE-2026-56164：SharePoint 0-day，可竊取IIS機器金鑰",
       "priority": "高",
       "detail": "CVSS 9.8（NVD官方），建議立即更新"
     },
     {
+      "category": "漏洞修補",
+      "title": "CVE-2026-58644：SharePoint反序列化RCE，6月已修補未列入公告",
+      "priority": "高",
+      "detail": "CVSS 9.8（NVD官方），建議立即更新"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-56155：AD FS存取控制granularity不足0-day",
+      "priority": "高",
+      "detail": "CVSS 9.1（AI推估），建議立即更新"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-55255：Langflow授權繞過，已遭AI Agent用於自主勒索攻擊",
+      "priority": "高",
+      "detail": "CVSS 8.6（AI推估），建議立即更新"
+    },
+    {
       "category": "公告確認",
-      "title": "CVE-2026-50493 DirectX Graphics Kernel 權限提升漏洞",
+      "title": "Microsoft 2026年7月Patch Tuesday：史上最大規模，622個CVE含2個0-day",
       "priority": "高",
       "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
-      "category": "公告確認",
-      "title": "Cisco Secure Firewall Management Center 認證繞過漏洞",
-      "priority": "高",
-      "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "Cisco Secure Firewall Management Center 硬編碼認證漏洞",
-      "priority": "高",
-      "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "TWCERT/CC 2026年7月份資安情資電子報",
+      "category": "漏洞修補",
+      "title": "CVE-2026-15409：SonicWall SMA1000 SSRF漏洞",
       "priority": "中",
-      "detail": "來源：TWCERT/CC。每月發行的資安情資電子報，整理本月資安政策、駭客攻擊事件、軟硬體漏洞等重要資訊"
+      "detail": "CVSS 7.5（AI推估），建議一週內更新"
     },
     {
-      "category": "公告確認",
-      "title": "TWCERT/CC官網系統更新維護公告(07/23)",
+      "category": "漏洞修補",
+      "title": "CVE-2026-15410：SonicWall SMA1000程式碼注入漏洞",
       "priority": "中",
-      "detail": "來源：TWCERT/CC。官網系統進行定期維護更新，提醒用戶留意服務異動"
+      "detail": "CVSS 7.2（AI推估），建議一週內更新"
+    },
+    {
+      "category": "掃描比對",
+      "title": "JADEPUFFER AI自主勒索軟體攻擊鏈相關IOC比對",
+      "priority": "中",
+      "detail": "涉及類型：Domain、Hash。建議比對內部防火牆/EDR日誌。"
+    },
+    {
+      "category": "掃描比對",
+      "title": "FortiBleed憑證竊取活動相關IOC比對",
+      "priority": "中",
+      "detail": "涉及類型：IP。建議比對VPN登入來源IP。"
     },
     {
       "category": "教育宣導",
-      "title": "77 個 Open VSX 擴充功能發現竊取開發者資訊",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
-    },
-    {
-      "category": "教育宣導",
-      "title": "釣魚服務偽冒 RingCentral 竊取 Microsoft 365 帳號",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
-    },
-    {
-      "category": "教育宣導",
-      "title": "TWCERT/CC 2026年7月份資安情資電子報",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
-    },
-    {
-      "category": "教育宣導",
-      "title": "RDP與資料庫弱點導致大規模BitLocker勒索攻擊",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
-    },
-    {
-      "category": "教育宣導",
-      "title": "AI助長勒索軟體攻擊 資安署警示防護重點",
+      "title": "研究揭露結合GPT-5/6模型與Chrome漏洞的新型攻擊鏈",
       "priority": "低",
       "detail": "建議納入員工資安宣導教育素材。"
     }
   ],
+  "news_digest": {
+    "exec_summary": "本期最重要的事是微軟本月釋出史上最大規模的安全更新（622個修補項目），其中兩項已被駭客實際利用、須立即處理。同時也出現首例完全由AI自動執行的勒索軟體攻擊案例，顯示攻擊技術持續演進。另外多家國際企業（含Accenture、Deutsche Bank）傳出資料外洩，建議留意供應商與委外廠商的資安控管，並優先完成本期高風險項目的修補確認。",
+    "tech_summary": "Microsoft 2026年7月Patch Tuesday修補約622個CVE，含SharePoint（CVE-2026-56164, CVSS 9.8）與AD FS（CVE-2026-56155）兩個已遭實際利用之0-day；SharePoint另有CVE-2026-58644等多個漏洞持續遭利用竊取IIS機器金鑰，手法類似去年ToolShell事件。資安業者揭露首例AI Agent（JADEPUFFER）透過Langflow授權繞過漏洞（CVE-2026-55255）自主執行勒索軟體攻擊。此外SonicWall SMA1000存在SSRF與程式碼注入漏洞（CVE-2026-15409/15410）。建議優先確認上述CVE修補狀態，並比對JADEPUFFER與FortiBleed相關IOC。",
+    "article_count": 24,
+    "reading_time": 4
+  },
   "category_counts": {
-    "kev": 3,
+    "kev": 8,
     "vendor": 5,
-    "news": 5,
-    "ransomwareApt": 2
+    "news": 6,
+    "ransomwareApt": 6
   }
 };
-const UPDATED_AT = "2026/8/5 08:12:10（台灣時間）";
+const UPDATED_AT = "2026-07-27 10:00:00（台灣時間）";
 document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
