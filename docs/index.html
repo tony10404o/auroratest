@@ -174,6 +174,9 @@
   .glance-stats{display:flex;gap:20px;flex-wrap:wrap;}
   .glance-stat{text-align:center;}
   .glance-stat-num{font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:700;color:var(--text);line-height:1.1;}
+  .glance-stat-num.risk-高{color:var(--sev-high);}
+  .glance-stat-num.risk-中{color:var(--sev-medium);}
+  .glance-stat-num.risk-低{color:var(--sev-low);}
   .glance-stat-label{font-family:'JetBrains Mono',monospace;font-size:9.5px;color:var(--text-dim);margin-top:2px;white-space:nowrap;}
   .glance-stat.clickable{cursor:pointer;border-radius:8px;padding:4px 8px;transition:background .15s;}
   .glance-stat.clickable:hover{background:var(--panel-alt);}
@@ -808,7 +811,7 @@ function renderGlanceBanner(data){
       <span class="glance-headline">${escapeHtml(topHeadline)}</span>
     </div>
     <div class="glance-stats">
-      <div class="glance-stat clickable" onclick="openStatModal('risk')"><div class="glance-stat-num">${total}</div><div class="glance-stat-label">風險分數/100</div></div>
+      <div class="glance-stat clickable" onclick="openStatModal('risk')"><div class="glance-stat-num risk-${level}">${total}</div><div class="glance-stat-label">風險分數/100</div></div>
       <div class="glance-stat clickable" onclick="openStatModal('actions')"><div class="glance-stat-num">${actionItems.length}</div><div class="glance-stat-label">待辦事項（高${highPriorityCount}）</div></div>
       <div class="glance-stat clickable" onclick="openStatModal('urgentCve')"><div class="glance-stat-num">${urgentCve.length}</div><div class="glance-stat-label">需立即更新漏洞</div></div>
       <div class="glance-stat clickable" onclick="openStatModal('events')"><div class="glance-stat-num">${todayEvents.length}</div><div class="glance-stat-label">今日重大事件</div></div>
