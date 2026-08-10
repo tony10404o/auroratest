@@ -577,17 +577,17 @@ const grid = document.getElementById('dashboardGrid');
 
 grid.innerHTML =
   panelShell('①', '📰', '今日資安頭條 (Top 5)', null, renderHeadlines(DATA.headlines)) +
-  panelShell('②', '🌍', '全球重大事件', null,
+  panelShell('②', '🎯', '今日漏洞雷達 (CVE)', null, renderCveRadar(DATA.cve_radar)) +
+  panelShell('③', '🏢', 'AI企業影響分析', null, renderVendorImpact(DATA.vendor_impact)) +
+  panelShell('④', '📊', 'AI風險熱度儀表板', null, renderRiskGauge(DATA.risk_score)) +
+  panelShell('⑤', '✅', '今日建議行動', null, renderActionItems(DATA.action_items)) +
+  panelShell('⑥', '🌍', '全球重大事件', null,
     `<div id="globalEventsBody"></div>`,
     `<div class="tab-row">
       <button class="tab-btn active" data-days="1">今天</button>
       <button class="tab-btn" data-days="7">本週</button>
       <button class="tab-btn" data-days="30">本月</button>
-    </div>`) +
-  panelShell('③', '🎯', '今日漏洞雷達 (CVE)', null, renderCveRadar(DATA.cve_radar)) +
-  panelShell('④', '🏢', 'AI企業影響分析', null, renderVendorImpact(DATA.vendor_impact)) +
-  panelShell('⑤', '📊', 'AI風險熱度儀表板', null, renderRiskGauge(DATA.risk_score)) +
-  panelShell('⑥', '✅', '今日建議行動', null, renderActionItems(DATA.action_items));
+    </div>`);
 
 setupGlobalEventsPanel(DATA.global_events);
 </script>
