@@ -57,7 +57,8 @@
   .headline-row:first-child{border-top:none;padding-top:0;}
   .headline-num{width:18px;height:18px;border-radius:50%;background:var(--panel-alt);color:var(--text-dim);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'JetBrains Mono',monospace;margin-top:1px;}
   .headline-body{flex:1;min-width:0;}
-  .headline-title{font-size:12.5px;font-weight:600;line-height:1.4;margin-bottom:3px;overflow-wrap:anywhere;}
+  .headline-title-row{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;}
+  .headline-title{font-size:12.5px;font-weight:600;line-height:1.4;margin-bottom:3px;overflow-wrap:anywhere;flex:1;min-width:60%;}
   .headline-title a{color:var(--text);text-decoration:none;}
   .headline-title a:hover{color:var(--accent);}
   .headline-sub{font-size:10.5px;color:var(--text-dim);margin-bottom:4px;}
@@ -596,12 +597,12 @@ function renderHeadlines(items){
     <div class="headline-row">
       <div class="headline-num">${i+1}</div>
       <div class="headline-body">
-        <div class="headline-title">${h.icon ? h.icon + ' ' : ''}${h.url ? `<a href="${escapeHtml(h.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(h.title)}</a>` : escapeHtml(h.title)}</div>
-        ${h.subtitle ? `<div class="headline-sub">${escapeHtml(h.subtitle)}</div>` : ''}
-        <div class="headline-meta">
-          ${h.impact ? `<span class="impact-badge impact-${escapeHtml(h.impact)}">${escapeHtml(h.impact)}影響</span>` : '<span></span>'}
+        <div class="headline-title-row">
+          <div class="headline-title">${h.icon ? h.icon + ' ' : ''}${h.url ? `<a href="${escapeHtml(h.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(h.title)}</a>` : escapeHtml(h.title)}</div>
           ${h.stars ? `<span class="stars">${'★'.repeat(h.stars)}${'☆'.repeat(5-h.stars)}</span>` : ''}
         </div>
+        ${h.subtitle ? `<div class="headline-sub">${escapeHtml(h.subtitle)}</div>` : ''}
+        ${h.impact ? `<div class="headline-meta"><span class="impact-badge impact-${escapeHtml(h.impact)}">${escapeHtml(h.impact)}影響</span></div>` : ''}
       </div>
     </div>`).join('');
 }
