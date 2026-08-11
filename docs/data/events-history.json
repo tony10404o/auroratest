@@ -1,5 +1,47 @@
 [
   {
+    "category": "零時差漏洞",
+    "title": "SharePoint CVE-2026-50522遭實際利用",
+    "date": "2026-08-07",
+    "url": "https://www.cisa.gov/"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Langflow漏洞CVE-2026-9198大規模掃描攻擊",
+    "date": "2026-08-05",
+    "url": "https://thehackernews.com/"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "新興勒索集團以英國10萬名警員資料首秀",
+    "date": "2026-08-03",
+    "url": "https://therecord.media/"
+  },
+  {
+    "category": "資料外洩",
+    "title": "ShinyHunters攻擊Questal，外洩2,100萬筆Salesforce紀錄",
+    "date": "2026-08-01",
+    "url": "https://sharkstriker.com/"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "Krybit攻擊ProHealth Medical Group，114GB資料外洩",
+    "date": "2026-08-01",
+    "url": "https://sharkstriker.com/"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "CRPx0點名Hyundai Motor土耳其分公司",
+    "date": "2026-07-30",
+    "url": "https://sharkstriker.com/"
+  },
+  {
+    "category": "政府公告",
+    "title": "TWCERT/CC示警SharePoint CVE-2026-50522高風險漏洞",
+    "date": "2026-07-30",
+    "url": "https://www.twcert.org.tw/tw/lp-169-1.html"
+  },
+  {
     "category": "政府公告",
     "title": "TWCERT/CC KEV週報（7/13-7/19）",
     "date": "2026-07-20",
@@ -64,29 +106,5 @@
     "title": "Ford汽車墨西哥廠遭Krybit勒索組織點名",
     "date": "2026-07-10",
     "url": "https://sharkstriker.com/blog/july-2026-data-breaches/"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "AI Agent（JADEPUFFER）自主執行勒索軟體攻擊",
-    "date": "2026-07-07",
-    "url": "https://medium.com/@cyber_securiti/tuesday-morning-threat-report-jul-7-2026-5ad6761ce577"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "JADEPUFFER AI自主勒索軟體攻擊鏈",
-    "date": "2026-07-07",
-    "url": "https://medium.com/@cyber_securiti/tuesday-morning-threat-report-jul-7-2026-5ad6761ce577"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "加拿大Chemco遭Qilin勒索軟體攻擊",
-    "date": "2026-07-01",
-    "url": "https://sharkstriker.com/blog/july-2026-data-breaches/"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "Progress LoadMaster CVE-2026-8037遭鎖定攻擊",
-    "date": "2026-06-29",
-    "url": "https://thehackernews.com/"
   }
 ]

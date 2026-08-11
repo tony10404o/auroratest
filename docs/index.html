@@ -21,7 +21,7 @@
     color:var(--text);font-family:'IBM Plex Sans TC','Noto Sans TC',sans-serif;
     min-height:100vh;padding:24px 20px 60px;
   }
-  .wrap{max-width:1300px;margin:0 auto;}
+  .wrap{max-width:1560px;margin:0 auto;}
 
   /* header */
   .header{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:14px;padding-bottom:16px;margin-bottom:4px;border-bottom:1px solid var(--border);}
@@ -258,46 +258,83 @@ const DATA = {
   "headlines": [
     {
       "icon": "🎯",
-      "title": "微軟2026年7月Patch Tuesday創史上最大規模",
-      "subtitle": "約622個CVE，含SharePoint與AD FS兩個0-day",
+      "title": "SharePoint CVE-2026-50522遭實際利用，攻擊者竊取IIS機器金鑰",
+      "url": "https://www.cisa.gov/",
       "impact": "高",
-      "stars": 5,
-      "url": "https://msrc.microsoft.com/update-guide/"
+      "stars": 5
+    },
+    {
+      "icon": "🤖",
+      "title": "Langflow漏洞遭大規模自動化掃描，244個IP橫跨41國發動650次攻擊",
+      "url": "https://thehackernews.com/",
+      "impact": "高",
+      "stars": 5
     },
     {
       "icon": "🦠",
-      "title": "JADEPUFFER：首例AI Agent自主執行勒索軟體攻擊",
-      "subtitle": "利用Langflow漏洞自主入侵並加密資料庫",
+      "title": "新興勒索集團以英國10萬名警員資料作為攻擊首秀",
+      "url": "https://therecord.media/",
       "impact": "高",
-      "stars": 5,
-      "url": "https://medium.com/@cyber_securiti/tuesday-morning-threat-report-jul-7-2026-5ad6761ce577"
+      "stars": 4
     },
     {
       "icon": "📰",
-      "title": "Accenture證實原始碼與金鑰資料遭竊",
-      "subtitle": "駭客「888」聲稱竊得35GB原始碼與雲端金鑰",
+      "title": "ShinyHunters將Questal列為受害者，外洩逾2,100萬筆Salesforce紀錄",
+      "url": "https://sharkstriker.com/",
       "impact": "中",
-      "stars": 4,
-      "url": "https://blog.senthorus.ch/posts/14_07_2026"
+      "stars": 4
     },
     {
-      "icon": "🕵️",
-      "title": "SharePoint持續遭鎖定攻擊,手法似去年ToolShell",
-      "subtitle": "多個SharePoint漏洞近期陸續列入CISA KEV",
-      "impact": "高",
-      "stars": 4,
-      "url": "https://www.cisa.gov/news-events/alerts/2026/07/14/cisa-urges-sharepoint-hardening-after-new-exploitations"
-    },
-    {
-      "icon": "🦠",
-      "title": "Deutsche Bank遭Unsafe勒索組織列入外洩名單",
-      "subtitle": "疑似員工資料庫紀錄遭公開作為證明",
+      "icon": "🛡️",
+      "title": "N-able N-central漏洞修補不完整，駭客持續繞過利用",
+      "url": "https://thehackernews.com/",
       "impact": "中",
-      "stars": 3,
-      "url": "https://blog.senthorus.ch/posts/14_07_2026"
+      "stars": 3
     }
   ],
   "global_events": [
+    {
+      "category": "零時差漏洞",
+      "title": "SharePoint CVE-2026-50522遭實際利用",
+      "date": "2026-08-07",
+      "url": "https://www.cisa.gov/"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "Langflow漏洞CVE-2026-9198大規模掃描攻擊",
+      "date": "2026-08-05",
+      "url": "https://thehackernews.com/"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "新興勒索集團以英國10萬名警員資料首秀",
+      "date": "2026-08-03",
+      "url": "https://therecord.media/"
+    },
+    {
+      "category": "資料外洩",
+      "title": "ShinyHunters攻擊Questal，外洩2,100萬筆Salesforce紀錄",
+      "date": "2026-08-01",
+      "url": "https://sharkstriker.com/"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "Krybit攻擊ProHealth Medical Group，114GB資料外洩",
+      "date": "2026-08-01",
+      "url": "https://sharkstriker.com/"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "CRPx0點名Hyundai Motor土耳其分公司",
+      "date": "2026-07-30",
+      "url": "https://sharkstriker.com/"
+    },
+    {
+      "category": "政府公告",
+      "title": "TWCERT/CC示警SharePoint CVE-2026-50522高風險漏洞",
+      "date": "2026-07-30",
+      "url": "https://www.twcert.org.tw/tw/lp-169-1.html"
+    },
     {
       "category": "政府公告",
       "title": "TWCERT/CC KEV週報（7/13-7/19）",
@@ -363,123 +400,177 @@ const DATA = {
       "title": "Ford汽車墨西哥廠遭Krybit勒索組織點名",
       "date": "2026-07-10",
       "url": "https://sharkstriker.com/blog/july-2026-data-breaches/"
-    },
-    {
-      "category": "勒索病毒",
-      "title": "AI Agent（JADEPUFFER）自主執行勒索軟體攻擊",
-      "date": "2026-07-07",
-      "url": "https://medium.com/@cyber_securiti/tuesday-morning-threat-report-jul-7-2026-5ad6761ce577"
-    },
-    {
-      "category": "勒索病毒",
-      "title": "JADEPUFFER AI自主勒索軟體攻擊鏈",
-      "date": "2026-07-07",
-      "url": "https://medium.com/@cyber_securiti/tuesday-morning-threat-report-jul-7-2026-5ad6761ce577"
-    },
-    {
-      "category": "勒索病毒",
-      "title": "加拿大Chemco遭Qilin勒索軟體攻擊",
-      "date": "2026-07-01",
-      "url": "https://sharkstriker.com/blog/july-2026-data-breaches/"
-    },
-    {
-      "category": "零時差漏洞",
-      "title": "Progress LoadMaster CVE-2026-8037遭鎖定攻擊",
-      "date": "2026-06-29",
-      "url": "https://thehackernews.com/"
     }
   ],
   "cve_radar": [
     {
-      "cve_id": "CVE-2026-56164",
-      "title": "SharePoint 0-day，可竊取IIS機器金鑰",
+      "cve_id": "CVE-2026-50522",
+      "title": "SharePoint RCE漏洞，攻擊者竊取IIS機器金鑰建立持久存取",
       "cvss": 9.8,
-      "cvss_source": "NVD官方",
-      "exploited": true,
-      "action": "立即更新"
-    },
-    {
-      "cve_id": "CVE-2026-56155",
-      "title": "AD FS存取控制granularity不足0-day",
-      "cvss": 9.1,
       "cvss_source": "AI推估",
       "exploited": true,
       "action": "立即更新"
     },
     {
-      "cve_id": "CVE-2026-58644",
-      "title": "SharePoint反序列化RCE，6月已修補未列入公告",
+      "cve_id": "CVE-2026-9198",
+      "title": "程式碼注入漏洞，已遭大規模自動化掃描利用",
       "cvss": 9.8,
-      "cvss_source": "NVD官方",
+      "cvss_source": "AI推估",
       "exploited": true,
       "action": "立即更新"
     },
     {
-      "cve_id": "CVE-2026-55255",
-      "title": "Langflow授權繞過，已遭AI Agent用於自主勒索攻擊",
+      "cve_id": "CVE-2026-16812",
+      "title": "OS指令注入漏洞",
       "cvss": 8.6,
       "cvss_source": "AI推估",
       "exploited": true,
-      "action": "立即更新"
+      "action": "一週內更新"
     },
     {
-      "cve_id": "CVE-2026-15409",
-      "title": "SonicWall SMA1000 SSRF漏洞",
+      "cve_id": "CVE-2026-18556",
+      "title": "身分驗證繞過漏洞，初次修補未完全解決後遭持續利用",
+      "cvss": 8.2,
+      "cvss_source": "AI推估",
+      "exploited": true,
+      "action": "一週內更新"
+    },
+    {
+      "cve_id": "CVE-2026-18577",
+      "title": "身分驗證繞過漏洞（與18556同批公告）",
+      "cvss": 8.2,
+      "cvss_source": "AI推估",
+      "exploited": true,
+      "action": "一週內更新"
+    },
+    {
+      "cve_id": "CVE-2026-34486",
+      "title": "缺少加密保護敏感資料漏洞",
       "cvss": 7.5,
       "cvss_source": "AI推估",
       "exploited": true,
       "action": "一週內更新"
     },
     {
-      "cve_id": "CVE-2026-15410",
-      "title": "SonicWall SMA1000程式碼注入漏洞",
-      "cvss": 7.2,
+      "cve_id": "CVE-2025-68686",
+      "title": "敏感資訊洩漏漏洞",
+      "cvss": 7.5,
       "cvss_source": "AI推估",
       "exploited": true,
       "action": "一週內更新"
-    },
-    {
-      "cve_id": "CVE-2026-48939",
-      "title": "iCagenda檔案上傳限制不當漏洞",
-      "cvss": 6.5,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "持續觀察"
-    },
-    {
-      "cve_id": "CVE-2026-56291",
-      "title": "Balbooa Forms檔案上傳限制不當漏洞",
-      "cvss": 6.3,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "持續觀察"
     }
   ],
   "vendor_impact": [
     {
       "icon": "🪟",
-      "title": "Defender核心引擎與SharePoint/AD FS 0-day修補公告",
+      "title": "Microsoft SharePoint CVE-2026-50522 RCE漏洞，8月Patch Tuesday前已遭實際利用",
       "impact": "高",
-      "key_asset": "SharePoint／AD FS／Windows Server",
-      "ai_suggestion": "優先確認SharePoint與AD FS伺服器已完成本次Patch Tuesday更新。"
+      "key_asset": "SharePoint Server",
+      "ai_suggestion": "建議立即確認修補狀態並檢查IIS機器金鑰是否需輪替"
     },
     {
       "icon": "🛡️",
-      "title": "FortiGuard PSIRT例行公告，修補7項產品線漏洞",
+      "title": "Fortinet FortiOS敏感資訊洩漏漏洞已列入CISA KEV",
       "impact": "中",
-      "key_asset": "FortiGate防火牆",
-      "ai_suggestion": "排入例行維護窗口更新，非緊急但建議一週內完成。"
+      "key_asset": "FortiGate 防火牆",
+      "ai_suggestion": "建議確認FortiOS版本並儘速更新"
+    },
+    {
+      "icon": "📡",
+      "title": "Cisco Unified Communications Manager安全公告",
+      "impact": "中",
+      "key_asset": "Cisco UCM",
+      "ai_suggestion": "建議檢視公告內容評估是否影響內部通訊系統"
     }
   ],
-  "daily_learning": {
-    "icon": "🎓",
-    "title": "什麼是AI Agent自主攻擊？",
-    "description": "傳統攻擊需要駭客手動操作每個步驟，但JADEPUFFER事件顯示AI Agent可以自己規劃、入侵、竊取憑證、加密資料，全程不需要人即時介入。這代表防禦方需要更快的自動化偵測，因為攻擊速度可能比人類應變更快。",
-    "reading_time": 3,
-    "url": "https://medium.com/@cyber_securiti/tuesday-morning-threat-report-jul-7-2026-5ad6761ce577"
-  },
+  "action_items": [
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-50522：SharePoint RCE漏洞，攻擊者竊取IIS機器金鑰建立持久存取",
+      "priority": "高",
+      "detail": "CVSS 9.8（AI推估），建議立即更新"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-9198：程式碼注入漏洞，已遭大規模自動化掃描利用",
+      "priority": "高",
+      "detail": "CVSS 9.8（AI推估），建議立即更新"
+    },
+    {
+      "category": "公告確認",
+      "title": "SharePoint CVE-2026-50522遠端程式碼執行漏洞，8月Patch Tuesday前已遭實際利用",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-16812：OS指令注入漏洞",
+      "priority": "中",
+      "detail": "CVSS 8.6（AI推估），建議一週內更新"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-18556：身分驗證繞過漏洞，初次修補未完全解決後遭持續利用",
+      "priority": "中",
+      "detail": "CVSS 8.2（AI推估），建議一週內更新"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-18577：身分驗證繞過漏洞（與18556同批公告）",
+      "priority": "中",
+      "detail": "CVSS 8.2（AI推估），建議一週內更新"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-34486：缺少加密保護敏感資料漏洞",
+      "priority": "中",
+      "detail": "CVSS 7.5（AI推估），建議一週內更新"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2025-68686：敏感資訊洩漏漏洞",
+      "priority": "中",
+      "detail": "CVSS 7.5（AI推估），建議一週內更新"
+    },
+    {
+      "category": "公告確認",
+      "title": "Microsoft SharePoint存在高風險安全漏洞(CVE-2026-50522)",
+      "priority": "中",
+      "detail": "來源：TWCERT/CC。提醒企業儘速確認SharePoint環境修補狀態，該漏洞已有實際攻擊案例。"
+    },
+    {
+      "category": "公告確認",
+      "title": "TWCERT/CC 2026年7月份資安情資電子報發布",
+      "priority": "中",
+      "detail": "來源：TWCERT/CC。彙整七月份重大資安事件、漏洞與威脅趨勢。"
+    },
+    {
+      "category": "公告確認",
+      "title": "「Friendly Fire」攻擊手法：AI防禦工具遭誘導成為攻擊武器",
+      "priority": "中",
+      "detail": "來源：TWCERT/CC。研究揭露攻擊者可誘導企業內部AI資安工具反過來執行惡意操作，提醒留意AI工具權限控管。"
+    },
+    {
+      "category": "掃描比對",
+      "title": "Langflow漏洞(CVE-2026-9198)大規模掃描攻擊相關IOC比對",
+      "priority": "中",
+      "detail": "涉及類型：IP。建議比對內部防火牆/EDR日誌。"
+    },
+    {
+      "category": "掃描比對",
+      "title": "SharePoint機器金鑰竊取活動(CVE-2026-50522)相關IOC比對",
+      "priority": "中",
+      "detail": "涉及類型：Hash。建議比對內部防火牆/EDR日誌。"
+    },
+    {
+      "category": "教育宣導",
+      "title": "「Friendly Fire」攻擊手法：AI防禦工具遭誘導成為攻擊武器",
+      "priority": "低",
+      "detail": "建議納入員工資安宣導教育素材。"
+    }
+  ],
   "risk_score": {
-    "total": 58,
+    "total": 60,
     "breakdown": [
       {
         "label": "漏洞風險",
@@ -491,7 +582,7 @@ const DATA = {
       },
       {
         "label": "勒索病毒",
-        "score": 100
+        "score": 88
       },
       {
         "label": "身份風險",
@@ -499,86 +590,18 @@ const DATA = {
       },
       {
         "label": "AI風險",
-        "score": 40
+        "score": 60
       }
     ]
   },
-  "action_items": [
-    {
-      "category": "漏洞修補",
-      "title": "CVE-2026-56164：SharePoint 0-day，可竊取IIS機器金鑰",
-      "priority": "高",
-      "detail": "CVSS 9.8（NVD官方），建議立即更新"
-    },
-    {
-      "category": "漏洞修補",
-      "title": "CVE-2026-58644：SharePoint反序列化RCE，6月已修補未列入公告",
-      "priority": "高",
-      "detail": "CVSS 9.8（NVD官方），建議立即更新"
-    },
-    {
-      "category": "漏洞修補",
-      "title": "CVE-2026-56155：AD FS存取控制granularity不足0-day",
-      "priority": "高",
-      "detail": "CVSS 9.1（AI推估），建議立即更新"
-    },
-    {
-      "category": "漏洞修補",
-      "title": "CVE-2026-55255：Langflow授權繞過，已遭AI Agent用於自主勒索攻擊",
-      "priority": "高",
-      "detail": "CVSS 8.6（AI推估），建議立即更新"
-    },
-    {
-      "category": "公告確認",
-      "title": "Microsoft 2026年7月Patch Tuesday：史上最大規模，622個CVE含2個0-day",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "漏洞修補",
-      "title": "CVE-2026-15409：SonicWall SMA1000 SSRF漏洞",
-      "priority": "中",
-      "detail": "CVSS 7.5（AI推估），建議一週內更新"
-    },
-    {
-      "category": "漏洞修補",
-      "title": "CVE-2026-15410：SonicWall SMA1000程式碼注入漏洞",
-      "priority": "中",
-      "detail": "CVSS 7.2（AI推估），建議一週內更新"
-    },
-    {
-      "category": "掃描比對",
-      "title": "JADEPUFFER AI自主勒索軟體攻擊鏈相關IOC比對",
-      "priority": "中",
-      "detail": "涉及類型：Domain、Hash。建議比對內部防火牆/EDR日誌。"
-    },
-    {
-      "category": "掃描比對",
-      "title": "FortiBleed憑證竊取活動相關IOC比對",
-      "priority": "中",
-      "detail": "涉及類型：IP。建議比對VPN登入來源IP。"
-    },
-    {
-      "category": "教育宣導",
-      "title": "研究揭露結合GPT-5/6模型與Chrome漏洞的新型攻擊鏈",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
-    }
-  ],
-  "news_digest": {
-    "exec_summary": "本期最重要的事是微軟本月釋出史上最大規模的安全更新（622個修補項目），其中兩項已被駭客實際利用、須立即處理。同時也出現首例完全由AI自動執行的勒索軟體攻擊案例，顯示攻擊技術持續演進。另外多家國際企業（含Accenture、Deutsche Bank）傳出資料外洩，建議留意供應商與委外廠商的資安控管，並優先完成本期高風險項目的修補確認。",
-    "tech_summary": "Microsoft 2026年7月Patch Tuesday修補約622個CVE，含SharePoint（CVE-2026-56164, CVSS 9.8）與AD FS（CVE-2026-56155）兩個已遭實際利用之0-day；SharePoint另有CVE-2026-58644等多個漏洞持續遭利用竊取IIS機器金鑰，手法類似去年ToolShell事件。資安業者揭露首例AI Agent（JADEPUFFER）透過Langflow授權繞過漏洞（CVE-2026-55255）自主執行勒索軟體攻擊。此外SonicWall SMA1000存在SSRF與程式碼注入漏洞（CVE-2026-15409/15410）。建議優先確認上述CVE修補狀態，並比對JADEPUFFER與FortiBleed相關IOC。",
-    "article_count": 24,
-    "reading_time": 4
-  },
   "category_counts": {
-    "kev": 8,
-    "vendor": 5,
-    "news": 6,
-    "ransomwareApt": 6
+    "kev": 7,
+    "vendor": 3,
+    "news": 4,
+    "ransomwareApt": 4
   }
 };
-const UPDATED_AT = "2026-07-30 10:00:00（台灣時間）";
+const UPDATED_AT = "2026-08-10 10:00:00（台灣時間）";
 document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
