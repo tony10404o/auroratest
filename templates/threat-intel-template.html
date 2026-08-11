@@ -559,11 +559,11 @@ function renderGlanceBanner(data){
 function statModalBody(type){
   const d = DATA;
   if (type === 'risk'){
-    const bd = d.risk_score?.breakdown || {};
-    const rows = Object.entries(bd).map(([k, v]) => `
+    const bd = d.risk_score?.breakdown || [];
+    const rows = bd.map(item => `
       <div class="stat-modal-row">
-        <span class="stat-modal-row-label">${escapeHtml(k)}</span>
-        <span class="stat-modal-row-value">${escapeHtml(String(v))}</span>
+        <span class="stat-modal-row-label">${escapeHtml(item.label || '')}</span>
+        <span class="stat-modal-row-value">${escapeHtml(String(item.score ?? '—'))}</span>
       </div>`).join('');
     return { title: '風險分數細項', body: rows || emptyNote() };
   }
