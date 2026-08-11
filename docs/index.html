@@ -983,9 +983,9 @@ const grid = document.getElementById('dashboardGrid');
 grid.innerHTML =
   panelShell('①', '📰', '今日資安頭條 (Top 5)', null, renderHeadlines(DATA.headlines)) +
   panelShell('②', '🎯', '今日漏洞雷達 (CVE)', null, renderCveRadar(DATA.cve_radar)) +
-  panelShell('③', '🏢', 'AI企業影響分析', null, renderVendorImpact(DATA.vendor_impact)) +
+  panelShell('③', '✅', '今日建議行動', null, renderActionItems(DATA.action_items)) +
   panelShell('④', '📊', 'AI風險熱度儀表板', null, renderRiskGauge(DATA.risk_score)) +
-  panelShell('⑤', '✅', '今日建議行動', null, renderActionItems(DATA.action_items)) +
+  panelShell('⑤', '🏢', 'AI企業影響分析', null, renderVendorImpact(DATA.vendor_impact)) +
   panelShell('⑥', '🌍', '全球重大事件', null,
     `<div id="globalEventsBody"></div>`,
     `<div class="tab-row">
