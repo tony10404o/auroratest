@@ -23,6 +23,31 @@
   }
   .wrap{max-width:1560px;margin:0 auto;}
 
+  /* 頂部跑馬燈 */
+  .ticker-bar{
+    background:#0F172A;color:#E2E8F0;overflow:hidden;position:relative;
+    white-space:nowrap;padding:9px 0;font-family:'JetBrains Mono',monospace;font-size:12.5px;
+  }
+  .ticker-label{
+    position:absolute;left:0;top:0;bottom:0;display:flex;align-items:center;gap:6px;
+    background:#DC2626;color:#fff;padding:0 14px;font-weight:700;font-size:11.5px;z-index:2;
+    white-space:nowrap;
+  }
+  .ticker-track{display:inline-block;padding-left:100%;animation:ticker-scroll 45s linear infinite;}
+  .ticker-track:hover{animation-play-state:paused;}
+  .ticker-item{display:inline-flex;align-items:center;margin-right:48px;}
+  .ticker-item a{color:#E2E8F0;text-decoration:none;}
+  .ticker-item a:hover{text-decoration:underline;color:#60A5FA;}
+  .ticker-sep{color:#475569;margin-right:48px;}
+  @keyframes ticker-scroll{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-100%);}
+  }
+  @media (max-width:640px){
+    .ticker-label{position:static;}
+    .ticker-bar{white-space:normal;}
+  }
+
   /* header */
   .header{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:14px;padding-bottom:16px;margin-bottom:4px;border-bottom:1px solid var(--border);}
   .brand{display:flex;align-items:center;gap:10px;}
@@ -225,6 +250,10 @@
 </style>
 </head>
 <body>
+<div class="ticker-bar">
+  <span class="ticker-label">📰 今日資安新聞</span>
+  <div class="ticker-track" id="tickerTrack" style="padding-left:120px;"></div>
+</div>
 <div class="wrap">
   <div class="header">
     <div class="brand">
@@ -259,6 +288,39 @@ const UPDATED_AT = "__UPDATED_AT__";
 document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
+
+/* ---------- 頂部跑馬燈：今日資安新聞標題 ---------- */
+function renderTicker(data){
+  const track = document.getElementById('tickerTrack');
+  if (!track) return;
+
+  // 來源：今日頭條 + 全球重大事件(今天的) 的標題，去重後串接
+  const headlineTitles = (data.headlines || []).map(h => ({ title: h.title, url: h.url }));
+  const todayCutoff = Date.now() - 86400000;
+  const eventTitles = (data.global_events || [])
+    .filter(e => { const d = new Date(e.date); return isNaN(d.getTime()) ? true : d.getTime() >= todayCutoff; })
+    .map(e => ({ title: e.title, url: e.url }));
+
+  const seen = new Set();
+  const items = [...headlineTitles, ...eventTitles].filter(i => {
+    if (!i.title || seen.has(i.title)) return false;
+    seen.add(i.title);
+    return true;
+  });
+
+  if (!items.length){
+    track.textContent = '目前沒有今日新聞資料';
+    track.style.animation = 'none';
+    return;
+  }
+
+  const itemHtml = items.map(i =>
+    `<span class="ticker-item">${i.url ? `<a href="${escapeHtml(i.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(i.title)}</a>` : escapeHtml(i.title)}</span><span class="ticker-sep">•</span>`
+  ).join('');
+
+  // 重複一次內容，讓跑馬燈可以無縫循環
+  track.innerHTML = itemHtml + itemHtml;
+}
 
 const SHOW_LIMIT = 5;
 
@@ -613,6 +675,7 @@ function closeStatModal(){
 window.openStatModal = openStatModal;
 window.closeStatModal = closeStatModal;
 
+renderTicker(DATA);
 renderGlanceBanner(DATA);
 
 function renderStatStrip(counts){
