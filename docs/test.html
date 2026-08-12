@@ -48,7 +48,22 @@
   .layout-row{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;}
   .box-big{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px;height:100%;min-height:400px;}
   .box-right-group{display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr);gap:12px;height:100%;}
-  .box-small{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px;height:100%;}
+  .box-small{background:var(--panel);border:1px solid var(--border);border-left-width:4px;border-radius:10px;padding:16px;height:100%;}
+  .box-small.c-blue{border-left-color:#2563EB;}
+  .box-small.c-green{border-left-color:#059669;}
+  .box-small.c-orange{border-left-color:#D97706;}
+  .box-small.c-red{border-left-color:#DC2626;}
+  .strip-label{font-size:12.5px;font-weight:600;margin-bottom:8px;}
+  .box-small.c-blue .strip-label{color:#2563EB;}
+  .box-small.c-green .strip-label{color:#059669;}
+  .box-small.c-orange .strip-label{color:#D97706;}
+  .box-small.c-red .strip-label{color:#DC2626;}
+  .strip-label-sub{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;color:var(--text-faint);}
+  .strip-number{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;line-height:1;}
+  .box-small.c-blue .strip-number{color:#2563EB;}
+  .box-small.c-green .strip-number{color:#059669;}
+  .box-small.c-orange .strip-number{color:#D97706;}
+  .box-small.c-red .strip-number{color:#DC2626;}
   .box-label{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;color:var(--text-dim);}
   @media (max-width:1100px){
     .layout-row{grid-template-columns:1fr;}
@@ -72,10 +87,10 @@
       <div class="box-label">大欄位</div>
     </div>
     <div class="box-right-group">
-      <div class="box-small"><div class="box-label">欄位1</div></div>
-      <div class="box-small"><div class="box-label">欄位2</div></div>
-      <div class="box-small"><div class="box-label">欄位3</div></div>
-      <div class="box-small"><div class="box-label">欄位4</div></div>
+      <div class="box-small c-blue"><div class="strip-label">今日漏洞雷達 <span class="strip-label-sub">KEV新增筆數</span></div><div class="strip-number" id="numKev">--</div></div>
+      <div class="box-small c-green"><div class="strip-label">AI企業影響分析 <span class="strip-label-sub">Microsoft／Cisco／Fortinet</span></div><div class="strip-number" id="numVendor">--</div></div>
+      <div class="box-small c-orange"><div class="strip-label">國際資安新聞 <span class="strip-label-sub">今日彙整則數</span></div><div class="strip-number" id="numNews">--</div></div>
+      <div class="box-small c-red"><div class="strip-label">勒索軟體／APT <span class="strip-label-sub">近期事件數</span></div><div class="strip-number" id="numRansom">--</div></div>
     </div>
   </div>
 </div>
@@ -462,6 +477,16 @@ function renderTicker(data){
 }
 
 renderTicker(DATA);
+
+function renderCategoryCounts(counts){
+  if (!counts) return;
+  const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val ?? 0; };
+  set('numKev', counts.kev);
+  set('numVendor', counts.vendor);
+  set('numNews', counts.news);
+  set('numRansom', counts.ransomwareApt);
+}
+renderCategoryCounts(DATA.category_counts);
 </script>
 </body>
 </html>
