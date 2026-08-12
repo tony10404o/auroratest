@@ -45,6 +45,18 @@
     .ticker-label{position:static;flex-shrink:0;margin-right:10px;}
     .ticker-track{animation:none !important;padding-left:0;display:inline-flex;}
   }
+  .layout-row{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;align-items:start;}
+  .box-big{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px;min-height:400px;}
+  .box-right-group{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+  .box-small{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px;min-height:400px;}
+  .box-label{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;color:var(--text-dim);}
+  @media (max-width:1100px){
+    .layout-row{grid-template-columns:1fr;}
+    .box-right-group{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:560px){
+    .box-right-group{grid-template-columns:1fr;}
+  }
 </style>
 </head>
 <body>
@@ -55,7 +67,17 @@
 </div>
 
 <div class="wrap">
-  <!-- 之後在這裡繼續加新內容 -->
+  <div class="layout-row">
+    <div class="box-big">
+      <div class="box-label">大欄位</div>
+    </div>
+    <div class="box-right-group">
+      <div class="box-small"><div class="box-label">欄位1</div></div>
+      <div class="box-small"><div class="box-label">欄位2</div></div>
+      <div class="box-small"><div class="box-label">欄位3</div></div>
+      <div class="box-small"><div class="box-label">欄位4</div></div>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -433,12 +455,10 @@ function renderTicker(data){
   }
 
   const itemHtml = items.map(i =>
-    `<span class="ticker-item">${i.url ? `<a href="${escapeHtml(i.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(i.title)}</a>` : escapeHtml(i.title)}</span><span class="ticker-sep">•</span>`
+    `<span class="ticker-item">${escapeHtml(i.title)}</span><span class="ticker-sep">•</span>`
   ).join('');
 
   track.innerHTML = itemHtml + itemHtml;
-  track.addEventListener('mouseenter', () => track.classList.add('paused'));
-  track.addEventListener('mouseleave', () => track.classList.remove('paused'));
 }
 
 renderTicker(DATA);
