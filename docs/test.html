@@ -33,19 +33,21 @@
     background:#DC2626;color:#fff;padding:0 14px;font-weight:700;font-size:11.5px;z-index:2;
     white-space:nowrap;
   }
-  .ticker-track{display:inline-block;padding-left:100%;animation:ticker-scroll 45s linear infinite;}
-  .ticker-track:hover{animation-play-state:paused;}
-  .ticker-item{display:inline-flex;align-items:center;margin-right:48px;}
-  .ticker-item a{color:#E2E8F0;text-decoration:none;}
+  .ticker-track{display:inline-flex;padding-left:100%;animation:ticker-scroll 45s linear infinite;}
+  .ticker-track.paused{animation-play-state:paused;}
+  .ticker-item{display:inline-flex;align-items:center;margin-right:48px;flex-shrink:0;}
+  .ticker-item a{color:#E2E8F0;text-decoration:none;position:relative;z-index:3;}
   .ticker-item a:hover{text-decoration:underline;color:#60A5FA;}
-  .ticker-sep{color:#475569;margin-right:48px;}
+  .ticker-sep{color:#475569;margin-right:48px;flex-shrink:0;}
   @keyframes ticker-scroll{
     0%{transform:translateX(0);}
-    100%{transform:translateX(-100%);}
+    100%{transform:translateX(-50%);}
   }
   @media (max-width:640px){
-    .ticker-label{position:static;}
-    .ticker-bar{white-space:normal;}
+    .ticker-bar{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+    .ticker-label{position:static;flex-shrink:0;margin-right:10px;}
+    .ticker-bar{display:flex;align-items:center;white-space:nowrap;}
+    .ticker-track{animation:none !important;padding-left:0;display:inline-flex;}
   }
 
   /* header */
@@ -252,7 +254,7 @@
 <body>
 <div class="ticker-bar">
   <span class="ticker-label">📰 今日資安新聞</span>
-  <div class="ticker-track" id="tickerTrack" style="padding-left:120px;"></div>
+  <div class="ticker-track" id="tickerTrack"></div>
 </div>
 <div class="wrap">
   <div class="header">
@@ -666,6 +668,8 @@ function renderTicker(data){
 
   // 重複一次內容，讓跑馬燈可以無縫循環
   track.innerHTML = itemHtml + itemHtml;
+  track.addEventListener('mouseenter', () => track.classList.add('paused'));
+  track.addEventListener('mouseleave', () => track.classList.remove('paused'));
 }
 
 const SHOW_LIMIT = 5;
