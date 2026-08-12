@@ -45,10 +45,10 @@
     .ticker-label{position:static;flex-shrink:0;margin-right:10px;}
     .ticker-track{animation:none !important;padding-left:0;display:inline-flex;}
   }
-  .layout-row{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;align-items:start;}
-  .box-big{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px;min-height:400px;}
-  .box-right-group{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
-  .box-small{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px;min-height:400px;}
+  .layout-row{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;}
+  .box-big{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px;height:100%;min-height:400px;}
+  .box-right-group{display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr);gap:12px;height:100%;}
+  .box-small{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px;height:100%;}
   .box-label{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;color:var(--text-dim);}
   @media (max-width:1100px){
     .layout-row{grid-template-columns:1fr;}
