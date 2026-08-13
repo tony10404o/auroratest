@@ -64,6 +64,21 @@
   .box-small.c-green .strip-number{color:#059669;}
   .box-small.c-orange .strip-number{color:#D97706;}
   .box-small.c-red .strip-number{color:#DC2626;}
+  .box-small.clickable{cursor:pointer;transition:box-shadow .15s;}
+  .box-small.clickable:hover{box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+
+  /* 統計彈跳視窗 */
+  .stat-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:100;align-items:center;justify-content:center;padding:20px;}
+  .stat-modal{background:var(--panel);border:1px solid var(--border);border-radius:12px;max-width:560px;width:100%;max-height:70vh;display:flex;flex-direction:column;}
+  .stat-modal-header{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--border);font-weight:700;font-size:14px;}
+  .stat-modal-close{background:none;border:none;color:var(--text-dim);font-size:16px;cursor:pointer;padding:2px 6px;}
+  .stat-modal-close:hover{color:var(--text);}
+  .stat-modal-body{overflow-y:auto;padding:8px 18px 16px;}
+  .stat-modal-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 0;border-top:1px dashed var(--border);font-size:12.5px;}
+  .stat-modal-row:first-child{border-top:none;}
+  .stat-modal-row-label{color:var(--text);flex:1;}
+  .stat-modal-row-value{font-family:'JetBrains Mono',monospace;color:var(--text-dim);white-space:nowrap;}
+  .empty-note{color:var(--text-faint);font-size:12px;padding:10px 0;font-family:'JetBrains Mono',monospace;}
   .box-label{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;color:var(--text-dim);}
   @media (max-width:1100px){
     .layout-row{grid-template-columns:1fr;}
@@ -87,10 +102,10 @@
       <div class="box-label">大欄位</div>
     </div>
     <div class="box-right-group">
-      <div class="box-small c-blue"><div class="strip-label">今日漏洞雷達 <span class="strip-label-sub">KEV新增筆數</span></div><div class="strip-number" id="numKev">--</div></div>
-      <div class="box-small c-green"><div class="strip-label">AI企業影響分析 <span class="strip-label-sub">Microsoft／Cisco／Fortinet</span></div><div class="strip-number" id="numVendor">--</div></div>
-      <div class="box-small c-orange"><div class="strip-label">國際資安新聞 <span class="strip-label-sub">今日彙整則數</span></div><div class="strip-number" id="numNews">--</div></div>
-      <div class="box-small c-red"><div class="strip-label">勒索軟體／APT <span class="strip-label-sub">近期事件數</span></div><div class="strip-number" id="numRansom">--</div></div>
+      <div class="box-small c-blue clickable" onclick="openStatModal('kev')"><div class="strip-label">今日漏洞雷達 <span class="strip-label-sub">KEV新增筆數</span></div><div class="strip-number" id="numKev">--</div></div>
+      <div class="box-small c-green clickable" onclick="openStatModal('vendor')"><div class="strip-label">AI企業影響分析 <span class="strip-label-sub">Microsoft／Cisco／Fortinet</span></div><div class="strip-number" id="numVendor">--</div></div>
+      <div class="box-small c-orange clickable" onclick="openStatModal('news')"><div class="strip-label">國際資安新聞 <span class="strip-label-sub">今日彙整則數</span></div><div class="strip-number" id="numNews">--</div></div>
+      <div class="box-small c-red clickable" onclick="openStatModal('ransomApt')"><div class="strip-label">勒索軟體／APT <span class="strip-label-sub">近期事件數</span></div><div class="strip-number" id="numRansom">--</div></div>
     </div>
   </div>
 </div>
@@ -487,6 +502,71 @@ function renderCategoryCounts(counts){
   set('numRansom', counts.ransomwareApt);
 }
 renderCategoryCounts(DATA.category_counts);
+
+function emptyNote(){ return '<div class="empty-note">目前沒有資料</div>'; }
+
+function statModalBody(type){
+  const d = DATA;
+  if (type === 'kev'){
+    const items = d.cve_radar || [];
+    const rows = items.map(v => `
+      <div class="stat-modal-row">
+        <span class="stat-modal-row-label">${escapeHtml(v.cve_id||'')}：${escapeHtml(v.title||'')}</span>
+        <span class="stat-modal-row-value">CVSS ${v.cvss ?? '—'}</span>
+      </div>`).join('');
+    return { title: '今日漏洞雷達（KEV）', body: rows || emptyNote() };
+  }
+  if (type === 'vendor'){
+    const items = d.vendor_impact || [];
+    const rows = items.map(v => `
+      <div class="stat-modal-row">
+        <span class="stat-modal-row-label">${escapeHtml(v.title||'')}</span>
+        <span class="stat-modal-row-value">${escapeHtml(v.impact||'')}</span>
+      </div>`).join('');
+    return { title: 'AI企業影響分析', body: rows || emptyNote() };
+  }
+  if (type === 'news'){
+    const items = d.headlines || [];
+    const rows = items.map(h => `
+      <div class="stat-modal-row">
+        <span class="stat-modal-row-label">${escapeHtml(h.title||'')}</span>
+        <span class="stat-modal-row-value">${escapeHtml(h.impact||'')}</span>
+      </div>`).join('');
+    return { title: '今日資安新聞（今日頭條）', body: rows || emptyNote() };
+  }
+  if (type === 'ransomApt'){
+    const items = (d.global_events || []).filter(e => e.category === '勒索病毒' || e.category === 'APT攻擊');
+    const rows = items.map(e => `
+      <div class="stat-modal-row">
+        <span class="stat-modal-row-label">[${escapeHtml(e.category||'')}] ${escapeHtml(e.title||'')}</span>
+        <span class="stat-modal-row-value">${escapeHtml(e.date||'')}</span>
+      </div>`).join('');
+    return { title: '勒索軟體／APT事件', body: rows || emptyNote() };
+  }
+  return { title: '', body: emptyNote() };
+}
+
+function openStatModal(type){
+  const { title, body } = statModalBody(type);
+  document.getElementById('statModalTitle').textContent = title;
+  document.getElementById('statModalBody').innerHTML = body;
+  document.getElementById('statModal').style.display = 'flex';
+}
+function closeStatModal(){
+  document.getElementById('statModal').style.display = 'none';
+}
+window.openStatModal = openStatModal;
+window.closeStatModal = closeStatModal;
 </script>
+<div class="stat-modal-overlay" id="statModal" onclick="if(event.target===this)closeStatModal()">
+  <div class="stat-modal">
+    <div class="stat-modal-header">
+      <span id="statModalTitle"></span>
+      <button class="stat-modal-close" onclick="closeStatModal()">✕</button>
+    </div>
+    <div class="stat-modal-body" id="statModalBody"></div>
+  </div>
+</div>
+
 </body>
 </html>
