@@ -456,7 +456,59 @@ const DATA = {
     "vendor": 3,
     "news": 4,
     "ransomwareApt": 4
-  }
+  },
+  "international_news_list": [
+    {
+      "title": "研究人員以近乎零人力介入完成AI自主端到端網路攻擊",
+      "source": "綜合報導",
+      "url": "https://www.wired.com/"
+    },
+    {
+      "title": "英國10萬名警員個資疑遭駭客集團首次勒索攻擊外洩",
+      "source": "綜合報導",
+      "url": "https://therecord.media/"
+    },
+    {
+      "title": "CISA示警Langflow、Tomcat、N-central多項漏洞已遭實際利用",
+      "source": "CISA",
+      "url": "https://www.cisa.gov/"
+    },
+    {
+      "title": "N-able N-central漏洞修補不完整，駭客持續繞過利用",
+      "source": "綜合報導",
+      "url": "https://thehackernews.com/"
+    }
+  ],
+  "ransomware_apt_list": [
+    {
+      "date": "2026-08-03",
+      "type": "勒索軟體",
+      "title": "新興勒索集團以英國10萬名警員資料作為攻擊首秀",
+      "source": "The Record",
+      "url": "https://therecord.media/"
+    },
+    {
+      "date": "2026-08-01",
+      "type": "勒索軟體",
+      "title": "ShinyHunters將Questal列為受害者，外洩逾2,100萬筆Salesforce紀錄",
+      "source": "綜合報導",
+      "url": "https://sharkstriker.com/"
+    },
+    {
+      "date": "2026-08-01",
+      "type": "勒索軟體",
+      "title": "Krybit勒索集團攻擊ProHealth Medical Group",
+      "source": "綜合報導",
+      "url": "https://sharkstriker.com/"
+    },
+    {
+      "date": "2026-07-30",
+      "type": "勒索軟體",
+      "title": "CRPx0勒索組織點名Hyundai Motor土耳其分公司",
+      "source": "綜合報導",
+      "url": "https://sharkstriker.com/"
+    }
+  ]
 };
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
@@ -526,20 +578,20 @@ function statModalBody(type){
     return { title: 'AI企業影響分析', body: rows || emptyNote() };
   }
   if (type === 'news'){
-    const items = d.headlines || [];
-    const rows = items.map(h => `
+    const items = d.international_news_list || [];
+    const rows = items.map(n => `
       <div class="stat-modal-row">
-        <span class="stat-modal-row-label">${escapeHtml(h.title||'')}</span>
-        <span class="stat-modal-row-value">${escapeHtml(h.impact||'')}</span>
+        <span class="stat-modal-row-label">${n.url ? `<a href="${escapeHtml(n.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(n.title||'')}</a>` : escapeHtml(n.title||'')}</span>
+        <span class="stat-modal-row-value">${escapeHtml(n.source||'')}</span>
       </div>`).join('');
-    return { title: '今日資安新聞（今日頭條）', body: rows || emptyNote() };
+    return { title: '國際資安新聞', body: rows || emptyNote() };
   }
   if (type === 'ransomApt'){
-    const items = (d.global_events || []).filter(e => e.category === '勒索病毒' || e.category === 'APT攻擊');
-    const rows = items.map(e => `
+    const items = d.ransomware_apt_list || [];
+    const rows = items.map(r => `
       <div class="stat-modal-row">
-        <span class="stat-modal-row-label">[${escapeHtml(e.category||'')}] ${escapeHtml(e.title||'')}</span>
-        <span class="stat-modal-row-value">${escapeHtml(e.date||'')}</span>
+        <span class="stat-modal-row-label">[${escapeHtml(r.type||'')}] ${r.url ? `<a href="${escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(r.title||'')}</a>` : escapeHtml(r.title||'')}</span>
+        <span class="stat-modal-row-value">${escapeHtml(r.date||'')}</span>
       </div>`).join('');
     return { title: '勒索軟體／APT事件', body: rows || emptyNote() };
   }
