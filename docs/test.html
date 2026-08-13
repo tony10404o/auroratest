@@ -11,6 +11,7 @@
     --bg:#FFFFFF;--panel:#F8FAFC;--panel-alt:#F1F5F9;--border:#E2E8F0;
     --text:#1E293B;--text-dim:#64748B;--text-faint:#94A3B8;
     --accent:#2563EB;--accent-dim:#1D4ED8;
+    --sev-high:#DC2626;--sev-medium:#D97706;--sev-low:#059669;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   body{
@@ -79,6 +80,16 @@
   .stat-modal-row-label{color:var(--text);flex:1;}
   .stat-modal-row-value{font-family:'JetBrains Mono',monospace;color:var(--text-dim);white-space:nowrap;}
   .empty-note{color:var(--text-faint);font-size:12px;padding:10px 0;font-family:'JetBrains Mono',monospace;}
+
+  .gauge-wrap{display:flex;flex-direction:column;align-items:center;padding:10px 0 4px;}
+  .gauge-score{font-family:'Space Grotesk',sans-serif;font-size:40px;font-weight:700;margin-top:-8px;}
+  .gauge-level{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;margin-bottom:16px;}
+  .risk-bars{display:flex;flex-direction:column;gap:10px;max-width:340px;margin:0 auto;}
+  .risk-bar-row{display:flex;align-items:center;gap:10px;}
+  .risk-bar-label{font-size:12px;color:var(--text-dim);width:110px;flex-shrink:0;}
+  .risk-bar-track{flex:1;height:7px;background:var(--panel-alt);border-radius:4px;overflow:hidden;}
+  .risk-bar-fill{height:100%;border-radius:4px;}
+  .risk-bar-val{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-dim);width:36px;text-align:right;flex-shrink:0;}
   .box-label{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;color:var(--text-dim);}
   @media (max-width:1100px){
     .layout-row{grid-template-columns:1fr;}
@@ -99,7 +110,8 @@
 <div class="wrap">
   <div class="layout-row">
     <div class="box-big">
-      <div class="box-label">大欄位</div>
+      <div class="box-label">今日風險儀表板</div>
+      <div id="riskGaugeBody"></div>
     </div>
     <div class="box-right-group">
       <div class="box-small c-blue clickable" onclick="openStatModal('kev')"><div class="strip-label">今日漏洞雷達 <span class="strip-label-sub">KEV新增筆數</span></div><div class="strip-number" id="numKev">--</div></div>
@@ -554,6 +566,65 @@ function renderCategoryCounts(counts){
   set('numRansom', counts.ransomwareApt);
 }
 renderCategoryCounts(DATA.category_counts);
+
+/* ---------- 依欄位1234(KEV/廠商/新聞/勒索APT)數字算出風險儀表板 ---------- */
+function gaugeColor(score){
+  if (score >= 70) return 'var(--sev-high)';
+  if (score >= 40) return 'var(--sev-medium)';
+  return 'var(--sev-low)';
+}
+function gaugeLevel(score){
+  if (score >= 70) return '高風險';
+  if (score >= 40) return '中風險';
+  return '低風險';
+}
+function renderGaugeSvg(score){
+  const cx = 100, cy = 95, r = 76;
+  const needleAngle = Math.PI - (score/100) * Math.PI;
+  const nxF = cx + (r-12) * Math.cos(needleAngle);
+  const nyF = cy - (r-12) * Math.sin(needleAngle);
+  const color = gaugeColor(score);
+  return `<svg width="200" height="112" viewBox="0 0 200 112">
+    <path d="M 22 95 A 76 76 0 0 1 178 95" fill="none" stroke="var(--panel-alt)" stroke-width="14" stroke-linecap="round"/>
+    <path d="M 22 95 A 76 76 0 0 1 178 95" fill="none" stroke="${color}" stroke-width="14" stroke-linecap="round"
+      stroke-dasharray="${Math.PI*76}" stroke-dashoffset="${Math.PI*76*(1-score/100)}"/>
+    <circle cx="${cx}" cy="${cy}" r="6" fill="${color}"/>
+    <line x1="${cx}" y1="${cy}" x2="${nxF}" y2="${nyF}" stroke="${color}" stroke-width="3.5" stroke-linecap="round"/>
+  </svg>`;
+}
+
+function buildRiskFromCategoryCounts(counts){
+  const c = counts || {};
+  const clamp = n => Math.max(0, Math.min(100, Math.round(n)));
+  const items = [
+    { label:'今日漏洞雷達', color:'#2563EB', score: clamp((c.kev||0) * 12) },
+    { label:'AI企業影響分析', color:'#059669', score: clamp((c.vendor||0) * 15) },
+    { label:'國際資安新聞', color:'#D97706', score: clamp((c.news||0) * 10) },
+    { label:'勒索軟體／APT', color:'#DC2626', score: clamp((c.ransomwareApt||0) * 18) },
+  ];
+  const total = clamp(items.reduce((sum, it) => sum + it.score, 0) / items.length);
+  return { total, items };
+}
+
+function renderRiskGaugeFromCounts(counts){
+  const el = document.getElementById('riskGaugeBody');
+  if (!el) return;
+  const { total, items } = buildRiskFromCategoryCounts(counts);
+  const bars = items.map(it => `
+    <div class="risk-bar-row">
+      <div class="risk-bar-label">${escapeHtml(it.label)}</div>
+      <div class="risk-bar-track"><div class="risk-bar-fill" style="width:${it.score}%;background:${it.color}"></div></div>
+      <div class="risk-bar-val">${it.score}/100</div>
+    </div>`).join('');
+  el.innerHTML = `
+    <div class="gauge-wrap">
+      ${renderGaugeSvg(total)}
+      <div class="gauge-score" style="color:${gaugeColor(total)}">${total}<span style="font-size:15px;color:var(--text-dim);">/100</span></div>
+      <div class="gauge-level" style="color:${gaugeColor(total)}">${gaugeLevel(total)}</div>
+    </div>
+    <div class="risk-bars">${bars}</div>`;
+}
+renderRiskGaugeFromCounts(DATA.category_counts);
 
 function emptyNote(){ return '<div class="empty-note">目前沒有資料</div>'; }
 
