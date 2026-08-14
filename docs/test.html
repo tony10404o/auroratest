@@ -126,37 +126,37 @@
 const DATA = {
   "headlines": [
     {
-      "icon": "🎯",
-      "title": "SharePoint CVE-2026-50522遭實際利用，攻擊者竊取IIS機器金鑰",
-      "url": "https://www.bleepingcomputer.com/news/security/critical-sharepoint-rce-flaw-exploited-to-steal-machine-keys/",
+      "icon": "🛡️",
+      "title": "Defender「ShieldBreak」新零時差漏洞曝光，繞過RoguePlanet修補且尚無官方修復",
+      "url": "https://www.bleepingcomputer.com/news/security/new-microsoft-defender-shieldbreak-zero-day-grants-system-privileges/",
       "impact": "高",
       "stars": 5
     },
     {
-      "icon": "🤖",
-      "title": "Langflow漏洞遭大規模自動化掃描，244個IP橫跨41國發動650次攻擊",
-      "url": "https://thehackernews.com/2026/08/cisa-flags-langflow-rce-tomcat-and-n.html",
+      "icon": "🎯",
+      "title": "CISA新增Metabase(CVSS 10.0)、Windows AFD.sys、Cisco ASA/FTD三項已遭利用漏洞",
+      "url": "https://cyberexperts.com/2026-08-12-cisa-adds-three-known-exploited-vulnerabilities-to-catalog/",
       "impact": "高",
       "stars": 5
     },
     {
       "icon": "🦠",
-      "title": "新興勒索集團以英國10萬名警員資料作為攻擊首秀",
-      "url": "https://www.bleepingcomputer.com/news/security/exfilsquad-hackers-leak-info-of-over-100-000-uk-police-officers-staff/",
+      "title": "Gunra勒索集團利用Fortinet舊漏洞繞過MFA，鎖定醫療/金融/政府關鍵基礎設施",
+      "url": "https://www.darkreading.com/cyberattacks-data-breaches/gunra-ransomware-gang-fortinet-flaws-bypasses-mfa",
       "impact": "高",
       "stars": 4
     },
     {
-      "icon": "📰",
-      "title": "ShinyHunters將Questel SAS列為受害者，聲稱竊得逾2,100萬筆CRM紀錄",
-      "url": "https://cypro.co.uk/insights/cyber-bulletins/shinyhunters-ransomware-claims-data-breach-at-questel-sas/",
+      "icon": "🪟",
+      "title": "微軟2026年8月Patch Tuesday修補約400個CVE，含1個已遭實際利用0-day",
+      "url": "https://www.securityweek.com/august-2026-patch-tuesday-microsoft-fixes-421-cves-one-exploited-zero-day/",
       "impact": "中",
       "stars": 4
     },
     {
-      "icon": "🛡️",
-      "title": "N-able N-central漏洞修補不完整，駭客持續繞過利用",
-      "url": "https://www.securityweek.com/cisa-warns-of-exploited-langflow-n-central-and-tomcat-vulnerabilities/",
+      "icon": "📰",
+      "title": "Qilin勒索組織點名加拿大營造業者B Wright Drywall",
+      "url": "https://www.dexpose.io/category/ransomware-attacks/",
       "impact": "中",
       "stars": 3
     }
@@ -164,45 +164,63 @@ const DATA = {
   "global_events": [
     {
       "category": "零時差漏洞",
-      "title": "SharePoint CVE-2026-50522遭實際利用",
-      "date": "2026-08-07",
-      "url": "https://www.cisa.gov/"
+      "title": "Defender「ShieldBreak」零時差漏洞曝光，尚無官方修補",
+      "date": "2026-08-13",
+      "url": "https://www.bleepingcomputer.com/news/security/new-microsoft-defender-shieldbreak-zero-day-grants-system-privileges/"
     },
     {
       "category": "零時差漏洞",
-      "title": "Langflow漏洞CVE-2026-9198大規模掃描攻擊",
-      "date": "2026-08-05",
-      "url": "https://thehackernews.com/"
+      "title": "CISA新增Metabase SQL注入漏洞(CVSS 10.0)至KEV",
+      "date": "2026-08-11",
+      "url": "https://www.runzero.com/blog/metabase/"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "CISA新增Windows AFD.sys已遭利用0-day至KEV",
+      "date": "2026-08-11",
+      "url": "https://cyberexperts.com/2026-08-12-cisa-adds-three-known-exploited-vulnerabilities-to-catalog/"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "CISA新增Cisco ASA/FTD堆積檢查漏洞至KEV",
+      "date": "2026-08-11",
+      "url": "https://cyberexperts.com/2026-08-12-cisa-adds-three-known-exploited-vulnerabilities-to-catalog/"
     },
     {
       "category": "勒索病毒",
-      "title": "新興勒索集團以英國10萬名警員資料首秀",
-      "date": "2026-08-03",
-      "url": "https://therecord.media/"
-    },
-    {
-      "category": "資料外洩",
-      "title": "ShinyHunters攻擊Questal，外洩2,100萬筆Salesforce紀錄",
-      "date": "2026-08-01",
-      "url": "https://sharkstriker.com/"
+      "title": "Gunra勒索集團持續利用Fortinet舊漏洞繞過MFA攻擊關鍵基礎設施",
+      "date": "2026-08-11",
+      "url": "https://www.darkreading.com/cyberattacks-data-breaches/gunra-ransomware-gang-fortinet-flaws-bypasses-mfa"
     },
     {
       "category": "勒索病毒",
-      "title": "Krybit攻擊ProHealth Medical Group，114GB資料外洩",
-      "date": "2026-08-01",
-      "url": "https://sharkstriker.com/"
+      "title": "Presentations.AI遭Unsafe勒索組織攻擊",
+      "date": "2026-08-12",
+      "url": "https://www.dexpose.io/category/ransomware-attacks/"
     },
     {
       "category": "勒索病毒",
-      "title": "CRPx0點名Hyundai Motor土耳其分公司",
-      "date": "2026-07-30",
-      "url": "https://sharkstriker.com/"
+      "title": "Qilin勒索組織點名加拿大B Wright Drywall",
+      "date": "2026-08-11",
+      "url": "https://www.dexpose.io/category/ransomware-attacks/"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "Storm勒索組織攻擊Southern Metals Company",
+      "date": "2026-08-11",
+      "url": "https://www.dexpose.io/category/ransomware-attacks/"
     },
     {
       "category": "政府公告",
-      "title": "TWCERT/CC示警SharePoint CVE-2026-50522高風險漏洞",
+      "title": "TWCERT/CC示警Microsoft SharePoint CVE-2026-50522高風險漏洞",
       "date": "2026-07-30",
       "url": "https://www.twcert.org.tw/tw/lp-169-1.html"
+    },
+    {
+      "category": "政府公告",
+      "title": "TWCERT/CC 2026年7月份資安情資電子報發布",
+      "date": "2026-07-31",
+      "url": "https://www.twcert.org.tw/tw/cp-106-11070-54f76-1.html"
     },
     {
       "category": "政府公告",
@@ -273,57 +291,25 @@ const DATA = {
   ],
   "cve_radar": [
     {
-      "cve_id": "CVE-2026-50522",
-      "title": "SharePoint RCE漏洞，攻擊者竊取IIS機器金鑰建立持久存取",
-      "cvss": 9.8,
-      "cvss_source": "AI推估",
+      "cve_id": "CVE-2026-72898",
+      "title": "Metabase SQL注入漏洞，攻擊者可取得管理員權限",
+      "cvss": 10,
+      "cvss_source": "NVD官方",
       "exploited": true,
       "action": "立即更新"
     },
     {
-      "cve_id": "CVE-2026-9198",
-      "title": "程式碼注入漏洞，已遭大規模自動化掃描利用",
-      "cvss": 9.8,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "立即更新"
-    },
-    {
-      "cve_id": "CVE-2026-16812",
-      "title": "OS指令注入漏洞",
+      "cve_id": "CVE-2026-20349",
+      "title": "Cisco ASA/FTD堆積檢查漏洞",
       "cvss": 8.6,
       "cvss_source": "AI推估",
       "exploited": true,
-      "action": "一週內更新"
+      "action": "立即更新"
     },
     {
-      "cve_id": "CVE-2026-18556",
-      "title": "身分驗證繞過漏洞，初次修補未完全解決後遭持續利用",
-      "cvss": 8.2,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "一週內更新"
-    },
-    {
-      "cve_id": "CVE-2026-18577",
-      "title": "身分驗證繞過漏洞（與18556同批公告）",
-      "cvss": 8.2,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "一週內更新"
-    },
-    {
-      "cve_id": "CVE-2026-34486",
-      "title": "缺少加密保護敏感資料漏洞",
-      "cvss": 7.5,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "一週內更新"
-    },
-    {
-      "cve_id": "CVE-2025-68686",
-      "title": "敏感資訊洩漏漏洞",
-      "cvss": 7.5,
+      "cve_id": "CVE-2026-68820",
+      "title": "Windows AFD.sys已遭實際利用的0-day，可取得SYSTEM權限",
+      "cvss": 7,
       "cvss_source": "AI推估",
       "exploited": true,
       "action": "一週內更新"
@@ -331,25 +317,25 @@ const DATA = {
   ],
   "vendor_impact": [
     {
-      "icon": "🪟",
-      "title": "Microsoft SharePoint CVE-2026-50522 RCE漏洞，8月Patch Tuesday前已遭實際利用",
+      "icon": "🛡️",
+      "title": "Microsoft Defender「ShieldBreak」零時差漏洞，繞過RoguePlanet修補",
       "impact": "高",
-      "key_asset": "SharePoint Server",
-      "ai_suggestion": "建議立即確認修補狀態並檢查IIS機器金鑰是否需輪替"
+      "key_asset": "Windows 10／11／Server 2025",
+      "ai_suggestion": "目前無官方修補，建議留意Microsoft後續更新並加強端點監控"
     },
     {
-      "icon": "🛡️",
-      "title": "Fortinet FortiOS敏感資訊洩漏漏洞已列入CISA KEV",
-      "impact": "中",
-      "key_asset": "FortiGate 防火牆",
-      "ai_suggestion": "建議確認FortiOS版本並儘速更新"
+      "icon": "🪟",
+      "title": "微軟2026年8月Patch Tuesday（約400個CVE，含1個已遭利用0-day）",
+      "impact": "高",
+      "key_asset": "Windows Server / Office / SharePoint",
+      "ai_suggestion": "建議優先確認CVE-2026-68820相關系統已完成更新"
     },
     {
       "icon": "📡",
-      "title": "Cisco Unified Communications Manager安全公告",
+      "title": "Cisco ASA/FTD堆積檢查漏洞（CVE-2026-20349）已遭利用",
       "impact": "中",
-      "key_asset": "Cisco UCM",
-      "ai_suggestion": "建議檢視公告內容評估是否影響內部通訊系統"
+      "key_asset": "Cisco Secure Firewall ASA/FTD",
+      "ai_suggestion": "建議確認邊界防火牆設備版本並儘速更新"
     }
   ],
   "action_items": [
@@ -464,61 +450,61 @@ const DATA = {
     ]
   },
   "category_counts": {
-    "kev": 7,
+    "kev": 3,
     "vendor": 3,
     "news": 4,
     "ransomwareApt": 4
   },
   "international_news_list": [
     {
-      "title": "研究人員以近乎零人力介入完成AI自主端到端網路攻擊",
-      "source": "Help Net Security",
-      "url": "https://www.helpnetsecurity.com/2026/08/03/deepseek-ai-autonomous-cyberattacks-hermes-agent/"
-    },
-    {
-      "title": "英國10萬名警員個資疑遭駭客集團首次勒索攻擊外洩",
+      "title": "研究員發布Defender「ShieldBreak」零時差漏洞，繞過RoguePlanet修補",
       "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/exfilsquad-hackers-leak-info-of-over-100-000-uk-police-officers-staff/"
+      "url": "https://www.bleepingcomputer.com/news/security/new-microsoft-defender-shieldbreak-zero-day-grants-system-privileges/"
     },
     {
-      "title": "CISA示警Langflow、Tomcat、N-central多項漏洞已遭實際利用",
-      "source": "The Hacker News",
-      "url": "https://thehackernews.com/2026/08/cisa-flags-langflow-rce-tomcat-and-n.html"
+      "title": "CISA新增Metabase、Windows AFD.sys、Cisco ASA/FTD三項已遭利用漏洞",
+      "source": "CyberExperts",
+      "url": "https://cyberexperts.com/2026-08-12-cisa-adds-three-known-exploited-vulnerabilities-to-catalog/"
     },
     {
-      "title": "N-able N-central漏洞修補不完整，駭客持續繞過利用",
+      "title": "微軟2026年8月Patch Tuesday修補約400個CVE，含1個已遭利用0-day",
       "source": "SecurityWeek",
-      "url": "https://www.securityweek.com/cisa-warns-of-exploited-langflow-n-central-and-tomcat-vulnerabilities/"
+      "url": "https://www.securityweek.com/august-2026-patch-tuesday-microsoft-fixes-421-cves-one-exploited-zero-day/"
+    },
+    {
+      "title": "Gunra勒索軟體集團利用Fortinet舊漏洞繞過MFA攻擊關鍵基礎設施",
+      "source": "Dark Reading",
+      "url": "https://www.darkreading.com/cyberattacks-data-breaches/gunra-ransomware-gang-fortinet-flaws-bypasses-mfa"
     }
   ],
   "ransomware_apt_list": [
     {
-      "date": "2026-08-03",
+      "date": "2026-08-11",
       "type": "勒索軟體",
-      "title": "新興勒索集團以英國10萬名警員資料作為攻擊首秀",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/exfilsquad-hackers-leak-info-of-over-100-000-uk-police-officers-staff/"
+      "title": "Gunra勒索集團持續利用Fortinet舊漏洞繞過MFA攻擊關鍵基礎設施",
+      "source": "Dark Reading",
+      "url": "https://www.darkreading.com/cyberattacks-data-breaches/gunra-ransomware-gang-fortinet-flaws-bypasses-mfa"
     },
     {
-      "date": "2026-08-01",
+      "date": "2026-08-12",
       "type": "勒索軟體",
-      "title": "ShinyHunters將Questel SAS列為受害者，聲稱竊得逾2,100萬筆CRM紀錄",
-      "source": "CyPro",
-      "url": "https://cypro.co.uk/insights/cyber-bulletins/shinyhunters-ransomware-claims-data-breach-at-questel-sas/"
+      "title": "Presentations.AI遭Unsafe勒索組織攻擊",
+      "source": "綜合報導",
+      "url": "https://www.dexpose.io/category/ransomware-attacks/"
     },
     {
-      "date": "2026-08-01",
+      "date": "2026-08-11",
       "type": "勒索軟體",
-      "title": "Krybit勒索集團攻擊ProHealth Medical Group",
-      "source": "SharkStriker",
-      "url": "https://sharkstriker.com/blog/august-2026-data-breaches/"
+      "title": "Qilin勒索組織點名加拿大B Wright Drywall",
+      "source": "綜合報導",
+      "url": "https://www.dexpose.io/category/ransomware-attacks/"
     },
     {
-      "date": "2026-07-30",
+      "date": "2026-08-11",
       "type": "勒索軟體",
-      "title": "CRPx0勒索組織點名Hyundai Motor土耳其分公司",
-      "source": "SharkStriker",
-      "url": "https://sharkstriker.com/blog/august-2026-data-breaches/"
+      "title": "Storm勒索組織攻擊Southern Metals Company",
+      "source": "綜合報導",
+      "url": "https://www.dexpose.io/category/ransomware-attacks/"
     }
   ]
 };
