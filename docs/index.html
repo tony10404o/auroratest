@@ -621,7 +621,7 @@ function statModalBody(type){
     const rows = items.map(v => `
       <div class="stat-modal-row">
         <span class="stat-modal-row-label">${escapeHtml(v.cve_id||'')}：${escapeHtml(v.title||'')}</span>
-        <span class="stat-modal-row-value">CVSS ${v.cvss ?? '—'}</span>
+        <span class="stat-modal-row-value">CVSS ${v.cvss != null ? v.cvss.toFixed(1) : '—'}</span>
       </div>`).join('');
     return { title: '今日漏洞雷達（KEV）', body: rows || emptyNote() };
   }
