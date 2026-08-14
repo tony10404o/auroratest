@@ -11,183 +11,62 @@
     --bg:#FFFFFF;--panel:#F8FAFC;--panel-alt:#F1F5F9;--border:#E2E8F0;
     --text:#1E293B;--text-dim:#64748B;--text-faint:#94A3B8;
     --accent:#2563EB;--accent-dim:#1D4ED8;
-    --sev-high:#DC2626;--sev-high-bg:rgba(220,38,38,0.08);
-    --sev-medium:#D97706;--sev-medium-bg:rgba(217,119,6,0.08);
-    --sev-low:#059669;--sev-low-bg:rgba(5,150,105,0.08);
+    --sev-high:#DC2626;--sev-medium:#D97706;--sev-low:#059669;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   body{
-    background:radial-gradient(ellipse 900px 500px at 15% -10%, rgba(37,99,235,0.04), transparent), var(--bg);
-    color:var(--text);font-family:'IBM Plex Sans TC','Noto Sans TC',sans-serif;
-    min-height:100vh;padding:24px 20px 60px;
+    background:var(--bg);color:var(--text);
+    font-family:'IBM Plex Sans TC','Noto Sans TC',sans-serif;
+    min-height:100vh;
   }
-  .wrap{max-width:1560px;margin:0 auto;}
+  .wrap{max-width:1560px;margin:0 auto;padding:20px;}
 
-  /* header */
-  .header{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:14px;padding-bottom:16px;margin-bottom:4px;border-bottom:1px solid var(--border);}
-  .brand{display:flex;align-items:center;gap:10px;}
-  .brand-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#2A5CAF);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
-  .brand h1{font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:700;letter-spacing:0.3px;}
-  .brand .sub{font-size:11px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;margin-top:1px;}
-  .meta-line{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-dim);}
-
-  .dashboard-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px;}
-  @media (max-width:1000px){.dashboard-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
-  @media (max-width:640px){.dashboard-grid{grid-template-columns:1fr;}}
-
-  .panel{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px;display:flex;flex-direction:column;min-width:0;}
-  .panel-header{display:flex;align-items:center;gap:6px;margin-bottom:12px;}
-  .panel-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-faint);}
-  .panel-icon{font-size:14px;}
-  .panel-title{font-weight:700;font-size:13.5px;color:var(--text);}
-  .panel-viewall{margin-left:auto;font-size:11px;color:var(--accent);text-decoration:none;font-family:'JetBrains Mono',monospace;white-space:nowrap;}
-  .panel-viewall:hover{text-decoration:underline;}
-  .panel-body{flex:1;}
-  .empty-note{color:var(--text-faint);font-size:12px;padding:10px 0;font-family:'JetBrains Mono',monospace;}
-  .show-more-btn{
-    width:100%;margin-top:8px;padding:8px;background:var(--panel-alt);border:1px dashed var(--border);
-    border-radius:7px;color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:600;
-    cursor:pointer;transition:background .15s;
+  /* 頂部跑馬燈 */
+  .ticker-bar{
+    background:#0F172A;color:#E2E8F0;overflow:hidden;position:relative;
+    white-space:nowrap;padding:9px 0;font-family:'JetBrains Mono',monospace;font-size:12.5px;
   }
-  .show-more-btn:hover{background:var(--border);}
-
-  /* impact / tags */
-  .impact-badge{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;white-space:nowrap;}
-  .impact-高{color:var(--sev-high);background:var(--sev-high-bg);}
-  .impact-中{color:var(--sev-medium);background:var(--sev-medium-bg);}
-  .impact-低{color:var(--sev-low);background:var(--sev-low-bg);}
-  .stars{font-size:10.5px;color:#F59E0B;letter-spacing:1px;white-space:nowrap;}
-
-  /* panel 1: 頭條 */
-  .headline-row{display:flex;gap:10px;padding:9px 0;border-top:1px dashed var(--border);}
-  .headline-row:first-child{border-top:none;padding-top:0;}
-  .headline-num{width:18px;height:18px;border-radius:50%;background:var(--panel-alt);color:var(--text-dim);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'JetBrains Mono',monospace;margin-top:1px;}
-  .headline-body{flex:1;min-width:0;}
-  .headline-title-row{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;}
-  .headline-title{font-size:12.5px;font-weight:600;line-height:1.4;margin-bottom:3px;overflow-wrap:anywhere;flex:1;min-width:60%;}
-  .headline-title-tags{display:flex;align-items:center;gap:8px;flex-shrink:0;white-space:nowrap;}
-  .headline-title a{color:var(--text);text-decoration:none;}
-  .headline-title a:hover{color:var(--accent);}
-  .headline-sub{font-size:10.5px;color:var(--text-dim);margin-bottom:4px;}
-  .headline-meta{display:flex;justify-content:space-between;align-items:center;gap:6px;}
-
-  /* panel 2: 全球重大事件 */
-  .tab-row{display:flex;gap:6px;margin-bottom:10px;}
-  .tab-btn{font-family:'JetBrains Mono',monospace;font-size:10.5px;padding:4px 10px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--text-dim);cursor:pointer;}
-  .tab-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);}
-  .event-row{display:flex;align-items:flex-start;gap:8px;padding:8px 0;border-top:1px dashed var(--border);}
-  .event-row:first-child{border-top:none;padding-top:0;}
-  .event-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:5px;}
-  .event-body{flex:1;min-width:0;}
-  .event-cat{font-size:10px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;}
-  .event-title{font-size:12.5px;font-weight:600;line-height:1.4;overflow-wrap:anywhere;}
-  .event-title a{color:var(--text);text-decoration:none;}
-  .event-title a:hover{color:var(--accent);}
-  .event-time{font-size:10.5px;color:var(--text-faint);white-space:nowrap;font-family:'JetBrains Mono',monospace;margin-top:2px;}
-
-  /* Panel 7: 今日建議行動 */
-  .action-row{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-top:1px solid var(--border);}
-  .action-row:first-child{border-top:none;padding-top:0;}
-  .action-num{width:20px;height:20px;border-radius:50%;background:var(--panel-alt);color:var(--text-dim);font-size:10.5px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'JetBrains Mono',monospace;margin-top:1px;}
-  .action-body{flex:1;min-width:0;}
-  .action-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px;overflow-wrap:anywhere;line-height:1.4;}
-  .action-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
-  .action-cat-tag{font-family:'JetBrains Mono',monospace;font-size:10px;padding:2px 9px;border-radius:20px;background:var(--panel-alt);color:var(--text-dim);}
-  .action-priority{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;}
-  .action-priority-高{color:var(--sev-high);background:var(--sev-high-bg);}
-  .action-priority-中{color:var(--sev-medium);background:var(--sev-medium-bg);}
-  .action-priority-低{color:var(--sev-low);background:var(--sev-low-bg);}
-  .copy-ticket-btn{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--accent);background:none;border:1px solid var(--border);border-radius:20px;padding:3px 10px;cursor:pointer;white-space:nowrap;}
-  .copy-ticket-btn:hover{background:var(--panel-alt);}
-  .copy-ticket-btn.copied{color:var(--sev-low);border-color:var(--sev-low);}
-
-  /* Panel 8: AI新聞摘要 */
-  .digest-tabs{display:flex;gap:6px;margin-bottom:12px;}
-  .digest-tab-btn{font-family:'JetBrains Mono',monospace;font-size:11px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:none;color:var(--text-dim);cursor:pointer;}
-  .digest-tab-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);}
-  .digest-text{font-size:13px;line-height:1.8;color:var(--text);white-space:pre-line;}
-  .digest-meta{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-faint);margin-top:12px;padding-top:10px;border-top:1px dashed var(--border);}
-
-  /* panel 3: CVE 雷達 */
-  .cve-table{width:100%;border-collapse:collapse;font-size:11.5px;}
-  .cve-table th{text-align:left;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-faint);font-weight:600;padding:0 4px 8px;border-bottom:1px solid var(--border);}
-  .cve-table td{padding:8px 4px;border-bottom:1px dashed var(--border);vertical-align:top;}
-  .cve-table tr:last-child td{border-bottom:none;}
-  .cve-id{font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--text);}
-  .cve-title{font-size:10.5px;color:var(--text-dim);margin-top:2px;overflow-wrap:anywhere;}
-  .cvss-num{font-family:'JetBrains Mono',monospace;font-weight:700;}
-  .cvss-source{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:500;color:var(--text-faint);margin-top:1px;}
-  .exploited-yes{color:var(--sev-high);font-weight:700;font-size:10.5px;}
-  .exploited-no{color:var(--text-faint);font-size:10.5px;}
-  .action-badge{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;padding:3px 8px;border-radius:6px;white-space:nowrap;display:inline-block;}
-  .action-立即更新{background:var(--sev-high);color:#fff;}
-  .action-一週內更新{background:var(--sev-medium);color:#fff;}
-  .action-持續觀察{background:var(--panel-alt);color:var(--text-dim);}
-  .action-暫不處理{background:transparent;color:var(--text-faint);border:1px solid var(--border);}
-
-  /* panel 4: 廠商影響 */
-  .vendor-card{display:flex;gap:10px;padding:10px 0;border-top:1px dashed var(--border);}
-  .vendor-card:first-child{border-top:none;padding-top:0;}
-  .vendor-icon{width:30px;height:30px;border-radius:8px;background:var(--panel-alt);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
-  .vendor-body{flex:1;min-width:0;}
-  .vendor-top{display:flex;justify-content:space-between;align-items:flex-start;gap:6px;margin-bottom:3px;}
-  .vendor-title{font-size:12.5px;font-weight:600;overflow-wrap:anywhere;}
-  .vendor-asset{font-size:10.5px;color:var(--text-dim);margin-bottom:4px;}
-  .vendor-asset .tag-chip{display:inline-block;background:var(--panel-alt);border-radius:5px;padding:1px 6px;margin-right:4px;font-family:'JetBrains Mono',monospace;font-size:10px;}
-  .vendor-suggestion{font-size:11px;color:var(--text-dim);line-height:1.6;background:var(--panel-alt);border-radius:6px;padding:6px 8px;margin-top:4px;}
-  .vendor-suggestion b{color:var(--accent);}
-
-  /* panel 5: 風險儀表板 */
-  .gauge-wrap{display:flex;flex-direction:column;align-items:center;padding:6px 0 4px;}
-  .gauge-score{font-family:'Space Grotesk',sans-serif;font-size:34px;font-weight:700;margin-top:-8px;}
-  .gauge-level{font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700;margin-bottom:12px;}
-  .risk-bars{display:flex;flex-direction:column;gap:8px;}
-  .risk-bar-row{display:flex;align-items:center;gap:8px;}
-  .risk-bar-label{font-size:11px;color:var(--text-dim);width:76px;flex-shrink:0;}
-  .risk-bar-track{flex:1;height:6px;background:var(--panel-alt);border-radius:4px;overflow:hidden;}
-  .risk-bar-fill{height:100%;border-radius:4px;}
-  .risk-bar-val{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-dim);width:34px;text-align:right;flex-shrink:0;}
-
-  /* panel 6: 每日一題 */
-  .learning-card{background:linear-gradient(135deg, rgba(37,99,235,0.06), rgba(37,99,235,0.01));border:1px solid var(--border);border-radius:10px;padding:14px;}
-  .learning-top{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
-  .learning-icon{width:32px;height:32px;border-radius:8px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
-  .learning-title{font-size:13.5px;font-weight:700;}
-  .learning-desc{font-size:12px;color:var(--text-dim);line-height:1.7;margin-bottom:10px;}
-  .learning-bottom{display:flex;justify-content:space-between;align-items:center;}
-  .learning-time{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-faint);}
-  .learning-btn{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:#fff;background:var(--accent);border:none;padding:7px 14px;border-radius:7px;text-decoration:none;cursor:pointer;}
-  .learning-btn:hover{background:var(--accent-dim);}
-
-  .footer-note{text-align:center;font-size:11px;color:var(--text-faint);margin-top:26px;font-family:'JetBrains Mono',monospace;}
-
-  /* 主管一眼摘要橫幅 */
-  .glance-banner{
-    display:flex;align-items:center;gap:18px;flex-wrap:wrap;
-    background:var(--panel);border:1px solid var(--border);border-left-width:5px;
-    border-radius:10px;padding:14px 18px;margin-bottom:18px;
+  .ticker-label{
+    position:absolute;left:0;top:0;bottom:0;display:flex;align-items:center;gap:6px;
+    background:#DC2626;color:#fff;padding:0 14px;font-weight:700;font-size:11.5px;z-index:2;
+    white-space:nowrap;
   }
-  .glance-banner.level-高{border-left-color:var(--sev-high);}
-  .glance-banner.level-中{border-left-color:var(--sev-medium);}
-  .glance-banner.level-低{border-left-color:var(--sev-low);}
-  .glance-left{display:flex;align-items:center;gap:10px;flex:1;min-width:220px;}
-  .glance-badge{
-    font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;
-    padding:4px 11px;border-radius:20px;white-space:nowrap;flex-shrink:0;
+  .ticker-track{display:inline-flex;padding-left:100%;animation:ticker-scroll 45s linear infinite;}
+  .ticker-track.paused{animation-play-state:paused;}
+  .ticker-item{display:inline-flex;align-items:center;margin-right:48px;flex-shrink:0;}
+  .ticker-item a{color:#E2E8F0;text-decoration:none;position:relative;z-index:3;}
+  .ticker-item a:hover{text-decoration:underline;color:#60A5FA;}
+  .ticker-sep{color:#475569;margin-right:48px;flex-shrink:0;}
+  @keyframes ticker-scroll{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-50%);}
   }
-  .glance-badge.level-高{color:var(--sev-high);background:var(--sev-high-bg);}
-  .glance-badge.level-中{color:var(--sev-medium);background:var(--sev-medium-bg);}
-  .glance-badge.level-低{color:var(--sev-low);background:var(--sev-low-bg);}
-  .glance-headline{font-size:13.5px;font-weight:600;color:var(--text);overflow-wrap:anywhere;}
-  .glance-stats{display:flex;gap:20px;flex-wrap:wrap;}
-  .glance-stat{text-align:center;}
-  .glance-stat-num{font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:700;color:var(--text);line-height:1.1;}
-  .glance-stat-num.risk-高{color:var(--sev-high);}
-  .glance-stat-num.risk-中{color:var(--sev-medium);}
-  .glance-stat-num.risk-低{color:var(--sev-low);}
-  .glance-stat-label{font-family:'JetBrains Mono',monospace;font-size:9.5px;color:var(--text-dim);margin-top:2px;white-space:nowrap;}
-  .glance-stat.clickable{cursor:pointer;border-radius:8px;padding:4px 8px;transition:background .15s;}
-  .glance-stat.clickable:hover{background:var(--panel-alt);}
+  @media (max-width:640px){
+    .ticker-bar{overflow-x:auto;-webkit-overflow-scrolling:touch;display:flex;align-items:center;white-space:nowrap;}
+    .ticker-label{position:static;flex-shrink:0;margin-right:10px;}
+    .ticker-track{animation:none !important;padding-left:0;display:inline-flex;}
+  }
+  .layout-row{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;}
+  .box-big{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px;height:100%;min-height:400px;}
+  .box-right-group{display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr);gap:12px;height:100%;}
+  .box-small{background:var(--panel);border:1px solid var(--border);border-left-width:4px;border-radius:10px;padding:16px;height:100%;}
+  .box-small.c-blue{border-left-color:#2563EB;}
+  .box-small.c-green{border-left-color:#059669;}
+  .box-small.c-orange{border-left-color:#D97706;}
+  .box-small.c-red{border-left-color:#DC2626;}
+  .strip-label{font-size:12.5px;font-weight:600;margin-bottom:8px;}
+  .box-small.c-blue .strip-label{color:#2563EB;}
+  .box-small.c-green .strip-label{color:#059669;}
+  .box-small.c-orange .strip-label{color:#D97706;}
+  .box-small.c-red .strip-label{color:#DC2626;}
+  .strip-label-sub{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;color:var(--text-faint);}
+  .strip-number{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;line-height:1;}
+  .box-small.c-blue .strip-number{color:#2563EB;}
+  .box-small.c-green .strip-number{color:#059669;}
+  .box-small.c-orange .strip-number{color:#D97706;}
+  .box-small.c-red .strip-number{color:#DC2626;}
+  .box-small.clickable{cursor:pointer;transition:box-shadow .15s;}
+  .box-small.clickable:hover{box-shadow:0 2px 8px rgba(0,0,0,0.08);}
 
   /* 統計彈跳視窗 */
   .stat-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:100;align-items:center;justify-content:center;padding:20px;}
@@ -200,94 +79,84 @@
   .stat-modal-row:first-child{border-top:none;}
   .stat-modal-row-label{color:var(--text);flex:1;}
   .stat-modal-row-value{font-family:'JetBrains Mono',monospace;color:var(--text-dim);white-space:nowrap;}
+  .empty-note{color:var(--text-faint);font-size:12px;padding:10px 0;font-family:'JetBrains Mono',monospace;}
 
-  /* 分類統計字卡（色條風格） */
-  .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px;}
-  .strip-card{background:var(--panel);border:1px solid var(--border);border-left-width:4px;border-radius:8px;padding:14px 16px;}
-  .strip-card.c-blue{border-left-color:#2563EB;}
-  .strip-card.c-green{border-left-color:#059669;}
-  .strip-card.c-orange{border-left-color:#D97706;}
-  .strip-card.c-red{border-left-color:#DC2626;}
-  .strip-label{font-size:12.5px;font-weight:600;margin-bottom:6px;}
-  .strip-card.c-blue .strip-label{color:#2563EB;}
-  .strip-card.c-green .strip-label{color:#059669;}
-  .strip-card.c-orange .strip-label{color:#D97706;}
-  .strip-card.c-red .strip-label{color:#DC2626;}
-  .strip-label-sub{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;color:var(--text-faint);}
-  .strip-number{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;line-height:1;margin-bottom:6px;}
-  .strip-card.c-blue .strip-number{color:#2563EB;}
-  .strip-card.c-green .strip-number{color:#059669;}
-  .strip-card.c-orange .strip-number{color:#D97706;}
-  .strip-card.c-red .strip-number{color:#DC2626;}
-  .strip-desc{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-dim);}
-  @media (max-width:800px){.stat-strip{grid-template-columns:repeat(2,1fr);}}
-  @media (max-width:480px){.stat-strip{grid-template-columns:1fr;}}
+  .gauge-wrap{display:flex;flex-direction:column;align-items:center;padding:10px 0 4px;}
+  .gauge-score{font-family:'Space Grotesk',sans-serif;font-size:40px;font-weight:700;margin-top:-8px;}
+  .gauge-level{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;margin-bottom:16px;}
+  .risk-bars{display:flex;flex-direction:column;gap:10px;max-width:340px;margin:0 auto;}
+  .risk-bar-row{display:flex;align-items:center;gap:10px;}
+  .risk-bar-label{font-size:12px;color:var(--text-dim);width:110px;flex-shrink:0;}
+  .risk-bar-track{flex:1;height:7px;background:var(--panel-alt);border-radius:4px;overflow:hidden;}
+  .risk-bar-fill{height:100%;border-radius:4px;}
+  .risk-bar-val{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-dim);width:36px;text-align:right;flex-shrink:0;}
+  .box-label{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;color:var(--text-dim);}
+  @media (max-width:1100px){
+    .layout-row{grid-template-columns:1fr;}
+    .box-right-group{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:560px){
+    .box-right-group{grid-template-columns:1fr;}
+  }
 </style>
 </head>
 <body>
+
+<div class="ticker-bar">
+  <span class="ticker-label">📰 今日資安新聞</span>
+  <div class="ticker-track" id="tickerTrack"></div>
+</div>
+
 <div class="wrap">
-  <div class="header">
-    <div class="brand">
-      <div class="brand-icon">🧭</div>
-      <div><h1>資安輿情展示</h1><div class="sub">CYBER THREAT INTELLIGENCE ｜ 官方Feed + AI分析 ｜ 每日自動更新</div></div>
+  <div class="layout-row">
+    <div class="box-big">
+      <div class="box-label">今日風險儀表板</div>
+      <div id="riskGaugeBody"></div>
     </div>
-    <div class="meta-line">最後更新：<span id="updatedAt">--</span></div>
-  </div>
-
-  <div class="glance-banner" id="glanceBanner"></div>
-
-  <div class="stat-modal-overlay" id="statModal" onclick="if(event.target===this)closeStatModal()">
-    <div class="stat-modal">
-      <div class="stat-modal-header">
-        <span id="statModalTitle"></span>
-        <button class="stat-modal-close" onclick="closeStatModal()">✕</button>
-      </div>
-      <div class="stat-modal-body" id="statModalBody"></div>
+    <div class="box-right-group">
+      <div class="box-small c-blue clickable" onclick="openStatModal('kev')"><div class="strip-label">今日漏洞雷達 <span class="strip-label-sub">KEV新增筆數</span></div><div class="strip-number" id="numKev">--</div></div>
+      <div class="box-small c-green clickable" onclick="openStatModal('vendor')"><div class="strip-label">AI企業影響分析 <span class="strip-label-sub">Microsoft／Cisco／Fortinet</span></div><div class="strip-number" id="numVendor">--</div></div>
+      <div class="box-small c-orange clickable" onclick="openStatModal('news')"><div class="strip-label">國際資安新聞 <span class="strip-label-sub">今日彙整則數</span></div><div class="strip-number" id="numNews">--</div></div>
+      <div class="box-small c-red clickable" onclick="openStatModal('ransomApt')"><div class="strip-label">勒索軟體／APT <span class="strip-label-sub">近期事件數</span></div><div class="strip-number" id="numRansom">--</div></div>
     </div>
   </div>
-
-  <div class="stat-strip" id="statStrip"></div>
-
-  <div class="dashboard-grid" id="dashboardGrid"></div>
-
-  <div class="footer-note">CVSS評分、影響等級、風險分數為AI／演算法研判之參考值，非官方公告數字；正式應變請以原廠公告與CISA KEV為準。</div>
 </div>
 
 <script>
 const DATA = {
   "headlines": [
     {
-      "icon": "🎯",
-      "title": "SharePoint CVE-2026-50522遭實際利用，攻擊者竊取IIS機器金鑰",
-      "url": "https://www.cisa.gov/",
+      "icon": "🛡️",
+      "title": "Defender「ShieldBreak」新零時差漏洞曝光，繞過RoguePlanet修補且尚無官方修復",
+      "url": "https://www.bleepingcomputer.com/news/security/new-microsoft-defender-shieldbreak-zero-day-grants-system-privileges/",
       "impact": "高",
       "stars": 5
     },
     {
-      "icon": "🤖",
-      "title": "Langflow漏洞遭大規模自動化掃描，244個IP橫跨41國發動650次攻擊",
-      "url": "https://thehackernews.com/",
+      "icon": "🎯",
+      "title": "CISA新增Metabase(CVSS 10.0)、Windows AFD.sys、Cisco ASA/FTD三項已遭利用漏洞",
+      "url": "https://cyberexperts.com/2026-08-12-cisa-adds-three-known-exploited-vulnerabilities-to-catalog/",
       "impact": "高",
       "stars": 5
     },
     {
       "icon": "🦠",
-      "title": "新興勒索集團以英國10萬名警員資料作為攻擊首秀",
-      "url": "https://therecord.media/",
+      "title": "Gunra勒索集團利用Fortinet舊漏洞繞過MFA，鎖定醫療/金融/政府關鍵基礎設施",
+      "url": "https://www.darkreading.com/cyberattacks-data-breaches/gunra-ransomware-gang-fortinet-flaws-bypasses-mfa",
       "impact": "高",
       "stars": 4
     },
     {
-      "icon": "📰",
-      "title": "ShinyHunters將Questal列為受害者，外洩逾2,100萬筆Salesforce紀錄",
-      "url": "https://sharkstriker.com/",
+      "icon": "🪟",
+      "title": "微軟2026年8月Patch Tuesday修補約400個CVE，含1個已遭實際利用0-day",
+      "url": "https://www.securityweek.com/august-2026-patch-tuesday-microsoft-fixes-421-cves-one-exploited-zero-day/",
       "impact": "中",
       "stars": 4
     },
     {
-      "icon": "🛡️",
-      "title": "N-able N-central漏洞修補不完整，駭客持續繞過利用",
-      "url": "https://thehackernews.com/",
+      "icon": "📰",
+      "title": "Qilin勒索組織點名加拿大營造業者B Wright Drywall",
+      "url": "https://www.dexpose.io/category/ransomware-attacks/",
       "impact": "中",
       "stars": 3
     }
@@ -295,45 +164,63 @@ const DATA = {
   "global_events": [
     {
       "category": "零時差漏洞",
-      "title": "SharePoint CVE-2026-50522遭實際利用",
-      "date": "2026-08-07",
-      "url": "https://www.cisa.gov/"
+      "title": "Defender「ShieldBreak」零時差漏洞曝光，尚無官方修補",
+      "date": "2026-08-13",
+      "url": "https://www.bleepingcomputer.com/news/security/new-microsoft-defender-shieldbreak-zero-day-grants-system-privileges/"
     },
     {
       "category": "零時差漏洞",
-      "title": "Langflow漏洞CVE-2026-9198大規模掃描攻擊",
-      "date": "2026-08-05",
-      "url": "https://thehackernews.com/"
+      "title": "CISA新增Metabase SQL注入漏洞(CVSS 10.0)至KEV",
+      "date": "2026-08-11",
+      "url": "https://www.runzero.com/blog/metabase/"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "CISA新增Windows AFD.sys已遭利用0-day至KEV",
+      "date": "2026-08-11",
+      "url": "https://cyberexperts.com/2026-08-12-cisa-adds-three-known-exploited-vulnerabilities-to-catalog/"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "CISA新增Cisco ASA/FTD堆積檢查漏洞至KEV",
+      "date": "2026-08-11",
+      "url": "https://cyberexperts.com/2026-08-12-cisa-adds-three-known-exploited-vulnerabilities-to-catalog/"
     },
     {
       "category": "勒索病毒",
-      "title": "新興勒索集團以英國10萬名警員資料首秀",
-      "date": "2026-08-03",
-      "url": "https://therecord.media/"
-    },
-    {
-      "category": "資料外洩",
-      "title": "ShinyHunters攻擊Questal，外洩2,100萬筆Salesforce紀錄",
-      "date": "2026-08-01",
-      "url": "https://sharkstriker.com/"
+      "title": "Gunra勒索集團持續利用Fortinet舊漏洞繞過MFA攻擊關鍵基礎設施",
+      "date": "2026-08-11",
+      "url": "https://www.darkreading.com/cyberattacks-data-breaches/gunra-ransomware-gang-fortinet-flaws-bypasses-mfa"
     },
     {
       "category": "勒索病毒",
-      "title": "Krybit攻擊ProHealth Medical Group，114GB資料外洩",
-      "date": "2026-08-01",
-      "url": "https://sharkstriker.com/"
+      "title": "Presentations.AI遭Unsafe勒索組織攻擊",
+      "date": "2026-08-12",
+      "url": "https://www.dexpose.io/category/ransomware-attacks/"
     },
     {
       "category": "勒索病毒",
-      "title": "CRPx0點名Hyundai Motor土耳其分公司",
-      "date": "2026-07-30",
-      "url": "https://sharkstriker.com/"
+      "title": "Qilin勒索組織點名加拿大B Wright Drywall",
+      "date": "2026-08-11",
+      "url": "https://www.dexpose.io/category/ransomware-attacks/"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "Storm勒索組織攻擊Southern Metals Company",
+      "date": "2026-08-11",
+      "url": "https://www.dexpose.io/category/ransomware-attacks/"
     },
     {
       "category": "政府公告",
-      "title": "TWCERT/CC示警SharePoint CVE-2026-50522高風險漏洞",
+      "title": "TWCERT/CC示警Microsoft SharePoint CVE-2026-50522高風險漏洞",
       "date": "2026-07-30",
       "url": "https://www.twcert.org.tw/tw/lp-169-1.html"
+    },
+    {
+      "category": "政府公告",
+      "title": "TWCERT/CC 2026年7月份資安情資電子報發布",
+      "date": "2026-07-31",
+      "url": "https://www.twcert.org.tw/tw/cp-106-11070-54f76-1.html"
     },
     {
       "category": "政府公告",
@@ -404,57 +291,25 @@ const DATA = {
   ],
   "cve_radar": [
     {
-      "cve_id": "CVE-2026-50522",
-      "title": "SharePoint RCE漏洞，攻擊者竊取IIS機器金鑰建立持久存取",
-      "cvss": 9.8,
-      "cvss_source": "AI推估",
+      "cve_id": "CVE-2026-72898",
+      "title": "Metabase SQL注入漏洞，攻擊者可取得管理員權限",
+      "cvss": 10,
+      "cvss_source": "NVD官方",
       "exploited": true,
       "action": "立即更新"
     },
     {
-      "cve_id": "CVE-2026-9198",
-      "title": "程式碼注入漏洞，已遭大規模自動化掃描利用",
-      "cvss": 9.8,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "立即更新"
-    },
-    {
-      "cve_id": "CVE-2026-16812",
-      "title": "OS指令注入漏洞",
+      "cve_id": "CVE-2026-20349",
+      "title": "Cisco ASA/FTD堆積檢查漏洞",
       "cvss": 8.6,
       "cvss_source": "AI推估",
       "exploited": true,
-      "action": "一週內更新"
+      "action": "立即更新"
     },
     {
-      "cve_id": "CVE-2026-18556",
-      "title": "身分驗證繞過漏洞，初次修補未完全解決後遭持續利用",
-      "cvss": 8.2,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "一週內更新"
-    },
-    {
-      "cve_id": "CVE-2026-18577",
-      "title": "身分驗證繞過漏洞（與18556同批公告）",
-      "cvss": 8.2,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "一週內更新"
-    },
-    {
-      "cve_id": "CVE-2026-34486",
-      "title": "缺少加密保護敏感資料漏洞",
-      "cvss": 7.5,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "一週內更新"
-    },
-    {
-      "cve_id": "CVE-2025-68686",
-      "title": "敏感資訊洩漏漏洞",
-      "cvss": 7.5,
+      "cve_id": "CVE-2026-68820",
+      "title": "Windows AFD.sys已遭實際利用的0-day，可取得SYSTEM權限",
+      "cvss": 7,
       "cvss_source": "AI推估",
       "exploited": true,
       "action": "一週內更新"
@@ -462,25 +317,25 @@ const DATA = {
   ],
   "vendor_impact": [
     {
-      "icon": "🪟",
-      "title": "Microsoft SharePoint CVE-2026-50522 RCE漏洞，8月Patch Tuesday前已遭實際利用",
+      "icon": "🛡️",
+      "title": "Microsoft Defender「ShieldBreak」零時差漏洞，繞過RoguePlanet修補",
       "impact": "高",
-      "key_asset": "SharePoint Server",
-      "ai_suggestion": "建議立即確認修補狀態並檢查IIS機器金鑰是否需輪替"
+      "key_asset": "Windows 10／11／Server 2025",
+      "ai_suggestion": "目前無官方修補，建議留意Microsoft後續更新並加強端點監控"
     },
     {
-      "icon": "🛡️",
-      "title": "Fortinet FortiOS敏感資訊洩漏漏洞已列入CISA KEV",
-      "impact": "中",
-      "key_asset": "FortiGate 防火牆",
-      "ai_suggestion": "建議確認FortiOS版本並儘速更新"
+      "icon": "🪟",
+      "title": "微軟2026年8月Patch Tuesday（約400個CVE，含1個已遭利用0-day）",
+      "impact": "高",
+      "key_asset": "Windows Server / Office / SharePoint",
+      "ai_suggestion": "建議優先確認CVE-2026-68820相關系統已完成更新"
     },
     {
       "icon": "📡",
-      "title": "Cisco Unified Communications Manager安全公告",
+      "title": "Cisco ASA/FTD堆積檢查漏洞（CVE-2026-20349）已遭利用",
       "impact": "中",
-      "key_asset": "Cisco UCM",
-      "ai_suggestion": "建議檢視公告內容評估是否影響內部通訊系統"
+      "key_asset": "Cisco Secure Firewall ASA/FTD",
+      "ai_suggestion": "建議確認邊界防火牆設備版本並儘速更新"
     }
   ],
   "action_items": [
@@ -595,189 +450,110 @@ const DATA = {
     ]
   },
   "category_counts": {
-    "kev": 7,
+    "kev": 3,
     "vendor": 3,
     "news": 4,
     "ransomwareApt": 4
-  }
+  },
+  "international_news_list": [
+    {
+      "title": "研究員發布Defender「ShieldBreak」零時差漏洞，繞過RoguePlanet修補",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/new-microsoft-defender-shieldbreak-zero-day-grants-system-privileges/"
+    },
+    {
+      "title": "CISA新增Metabase、Windows AFD.sys、Cisco ASA/FTD三項已遭利用漏洞",
+      "source": "CyberExperts",
+      "url": "https://cyberexperts.com/2026-08-12-cisa-adds-three-known-exploited-vulnerabilities-to-catalog/"
+    },
+    {
+      "title": "微軟2026年8月Patch Tuesday修補約400個CVE，含1個已遭利用0-day",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/august-2026-patch-tuesday-microsoft-fixes-421-cves-one-exploited-zero-day/"
+    },
+    {
+      "title": "Gunra勒索軟體集團利用Fortinet舊漏洞繞過MFA攻擊關鍵基礎設施",
+      "source": "Dark Reading",
+      "url": "https://www.darkreading.com/cyberattacks-data-breaches/gunra-ransomware-gang-fortinet-flaws-bypasses-mfa"
+    }
+  ],
+  "ransomware_apt_list": [
+    {
+      "date": "2026-08-11",
+      "type": "勒索軟體",
+      "title": "Gunra勒索集團持續利用Fortinet舊漏洞繞過MFA攻擊關鍵基礎設施",
+      "source": "Dark Reading",
+      "url": "https://www.darkreading.com/cyberattacks-data-breaches/gunra-ransomware-gang-fortinet-flaws-bypasses-mfa"
+    },
+    {
+      "date": "2026-08-12",
+      "type": "勒索軟體",
+      "title": "Presentations.AI遭Unsafe勒索組織攻擊",
+      "source": "綜合報導",
+      "url": "https://www.dexpose.io/category/ransomware-attacks/"
+    },
+    {
+      "date": "2026-08-11",
+      "type": "勒索軟體",
+      "title": "Qilin勒索組織點名加拿大B Wright Drywall",
+      "source": "綜合報導",
+      "url": "https://www.dexpose.io/category/ransomware-attacks/"
+    },
+    {
+      "date": "2026-08-11",
+      "type": "勒索軟體",
+      "title": "Storm勒索組織攻擊Southern Metals Company",
+      "source": "綜合報導",
+      "url": "https://www.dexpose.io/category/ransomware-attacks/"
+    }
+  ]
 };
-const UPDATED_AT = "2026-08-10 10:00:00（台灣時間）";
-document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
 
-const SHOW_LIMIT = 5;
+function renderTicker(data){
+  const track = document.getElementById('tickerTrack');
+  if (!track) return;
 
-/**
- * 通用「顯示更多」：適用一般區塊(div列表)，超過limit筆的收合，用按鈕展開/收合
- */
-function withShowMore(itemHtmls, limit = SHOW_LIMIT){
-  const visible = itemHtmls.slice(0, limit).join('');
-  const rest = itemHtmls.slice(limit);
-  if (!rest.length) return visible;
-  const label = `顯示更多（+${rest.length}） ▼`;
-  return `${visible}<div class="more-items" style="display:none">${rest.join('')}</div><button class="show-more-btn" data-more-label="${label}" onclick="toggleMore(this)">${label}</button>`;
-}
-function toggleMore(btn){
-  const wrapper = btn.previousElementSibling;
-  const isHidden = wrapper.style.display === 'none';
-  wrapper.style.display = isHidden ? '' : 'none';
-  btn.textContent = isHidden ? '收合 ▲' : btn.dataset.moreLabel;
-}
-window.toggleMore = toggleMore;
+  const headlineTitles = (data.headlines || []).map(h => ({ title: h.title, url: h.url }));
+  const todayCutoff = Date.now() - 86400000;
+  const eventTitles = (data.global_events || [])
+    .filter(e => { const d = new Date(e.date); return isNaN(d.getTime()) ? true : d.getTime() >= todayCutoff; })
+    .map(e => ({ title: e.title, url: e.url }));
 
-/**
- * 表格專用「顯示更多」：多出的<tr>放進獨立的<tbody id="...">並預設隱藏，
- * 按鈕放在表格外面，用id而不是相鄰元素來toggle
- */
-function withShowMoreRows(rowHtmls, tbodyId, limit = SHOW_LIMIT){
-  const visible = rowHtmls.slice(0, limit).join('');
-  const rest = rowHtmls.slice(limit);
-  if (!rest.length) return { visibleRows: visible, moreTbody: '', button: '' };
-  const label = `顯示更多（+${rest.length}） ▼`;
-  return {
-    visibleRows: visible,
-    moreTbody: `<tbody id="${tbodyId}" style="display:none">${rest.join('')}</tbody>`,
-    button: `<button class="show-more-btn" data-more-label="${label}" data-target="${tbodyId}" onclick="toggleMoreRows(this)">${label}</button>`,
-  };
-}
-function toggleMoreRows(btn){
-  const target = document.getElementById(btn.dataset.target);
-  if (!target) return;
-  const isHidden = target.style.display === 'none';
-  target.style.display = isHidden ? '' : 'none';
-  btn.textContent = isHidden ? '收合 ▲' : btn.dataset.moreLabel;
-}
-window.toggleMoreRows = toggleMoreRows;
-function emptyNote(){ return `<div class="empty-note">目前沒有資料</div>`; }
-
-function panelShell(num, icon, title, viewAllUrl, bodyHtml, extraHeaderHtml=''){
-  return `<div class="panel">
-    <div class="panel-header">
-      <span class="panel-num">${num}</span>
-      <span class="panel-icon">${icon}</span>
-      <span class="panel-title">${escapeHtml(title)}</span>
-      ${viewAllUrl ? `<a class="panel-viewall" href="${escapeHtml(viewAllUrl)}" target="_blank" rel="noopener noreferrer">查看全部 →</a>` : ''}
-    </div>
-    ${extraHeaderHtml}
-    <div class="panel-body">${bodyHtml}</div>
-  </div>`;
-}
-
-/* ---------- Panel 1: 今日資安頭條 ---------- */
-function renderHeadlines(items){
-  if (!items || !items.length) return emptyNote();
-  return items.slice(0,5).map((h, i) => `
-    <div class="headline-row">
-      <div class="headline-num">${i+1}</div>
-      <div class="headline-body">
-        <div class="headline-title-row">
-          <div class="headline-title">${h.icon ? h.icon + ' ' : ''}${h.url ? `<a href="${escapeHtml(h.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(h.title)}</a>` : escapeHtml(h.title)}</div>
-          <div class="headline-title-tags">
-            ${h.impact ? `<span class="impact-badge impact-${escapeHtml(h.impact)}">${escapeHtml(h.impact)}影響</span>` : ''}
-            ${h.stars ? `<span class="stars">${'★'.repeat(h.stars)}${'☆'.repeat(5-h.stars)}</span>` : ''}
-          </div>
-        </div>
-        ${h.subtitle ? `<div class="headline-sub">${escapeHtml(h.subtitle)}</div>` : ''}
-      </div>
-    </div>`).join('');
-}
-
-/* ---------- Panel 2: 全球重大事件 ---------- */
-const CATEGORY_COLORS = {
-  '勒索病毒': 'var(--sev-high)',
-  'APT攻擊': '#D97706',
-  '資料外洩': '#7C3AED',
-  '零時差漏洞': '#DC2626',
-  '政府公告': 'var(--accent)',
-};
-
-function timeAgoLabel(dateStr){
-  if (!dateStr) return '';
-  const d = new Date(dateStr);
-  if (isNaN(d.getTime())) return dateStr;
-  const diffMs = Date.now() - d.getTime();
-  const diffDays = Math.floor(diffMs / 86400000);
-  if (diffDays <= 0) return '今天';
-  if (diffDays === 1) return '昨天';
-  return `${diffDays}天前`;
-}
-
-function renderGlobalEvents(items, rangeDays){
-  const cutoff = Date.now() - rangeDays * 86400000;
-  const filtered = (items || []).filter(e => {
-    const d = new Date(e.date);
-    return isNaN(d.getTime()) ? true : d.getTime() >= cutoff;
+  const seen = new Set();
+  const items = [...headlineTitles, ...eventTitles].filter(i => {
+    if (!i.title || seen.has(i.title)) return false;
+    seen.add(i.title);
+    return true;
   });
-  if (!filtered.length) return emptyNote();
-  const rows = filtered.map(e => `
-    <div class="event-row">
-      <div class="event-dot" style="background:${CATEGORY_COLORS[e.category] || 'var(--text-faint)'}"></div>
-      <div class="event-body">
-        <div class="event-cat">${escapeHtml(e.category || '')}</div>
-        <div class="event-title">${e.url ? `<a href="${escapeHtml(e.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(e.title)}</a>` : escapeHtml(e.title)}</div>
-      </div>
-      <div class="event-time">${timeAgoLabel(e.date)}</div>
-    </div>`);
-  return withShowMore(rows);
-}
 
-function setupGlobalEventsPanel(items){
-  const body = document.getElementById('globalEventsBody');
-  const tabs = document.querySelectorAll('.tab-btn');
-  function render(days){
-    body.innerHTML = renderGlobalEvents(items, days);
+  if (!items.length){
+    track.textContent = '目前沒有今日新聞資料';
+    track.style.animation = 'none';
+    return;
   }
-  tabs.forEach(btn => {
-    btn.addEventListener('click', () => {
-      tabs.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      render(parseInt(btn.dataset.days, 10));
-    });
-  });
-  render(1);
+
+  const itemHtml = items.map(i =>
+    `<span class="ticker-item">${escapeHtml(i.title)}</span><span class="ticker-sep">•</span>`
+  ).join('');
+
+  track.innerHTML = itemHtml + itemHtml;
 }
 
-/* ---------- Panel 3: 今日漏洞雷達 ---------- */
-function renderCveRadar(items){
-  if (!items || !items.length) return emptyNote();
-  const rowHtmls = items.map(v => `
-    <tr>
-      <td>
-        <div class="cve-id">${escapeHtml(v.cve_id || '')}</div>
-        <div class="cve-title">${escapeHtml(v.title || '')}</div>
-      </td>
-      <td class="cvss-num">${v.cvss ?? '—'}${v.cvss_source ? `<div class="cvss-source">${escapeHtml(v.cvss_source)}</div>` : ''}</td>
-      <td>${v.exploited ? `<span class="exploited-yes">Yes</span>` : `<span class="exploited-no">No</span>`}</td>
-      <td><span class="action-badge action-${escapeHtml(v.action || '持續觀察')}">${escapeHtml(v.action || '持續觀察')}</span></td>
-    </tr>`);
-  const { visibleRows, moreTbody, button } = withShowMoreRows(rowHtmls, 'cveMoreRows');
-  return `<table class="cve-table">
-    <thead><tr><th>漏洞編號</th><th>CVSS</th><th>已利用</th><th>建議行動</th></tr></thead>
-    <tbody>${visibleRows}</tbody>
-    ${moreTbody}
-  </table>${button}`;
-}
+renderTicker(DATA);
 
-/* ---------- Panel 4: AI企業影響分析 ---------- */
-function renderVendorImpact(items){
-  if (!items || !items.length) return emptyNote();
-  const cards = items.map(v => `
-    <div class="vendor-card">
-      <div class="vendor-icon">${v.icon || '🏢'}</div>
-      <div class="vendor-body">
-        <div class="vendor-top">
-          <div class="vendor-title">${escapeHtml(v.title || '')}</div>
-          ${v.impact ? `<span class="impact-badge impact-${escapeHtml(v.impact)}">${escapeHtml(v.impact)}</span>` : ''}
-        </div>
-        ${v.key_asset ? `<div class="vendor-asset"><span class="tag-chip">${escapeHtml(v.key_asset)}</span></div>` : ''}
-        ${v.ai_suggestion ? `<div class="vendor-suggestion"><b>AI建議：</b>${escapeHtml(v.ai_suggestion)}</div>` : ''}
-      </div>
-    </div>`);
-  return withShowMore(cards);
+function renderCategoryCounts(counts){
+  if (!counts) return;
+  const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val ?? 0; };
+  set('numKev', counts.kev);
+  set('numVendor', counts.vendor);
+  set('numNews', counts.news);
+  set('numRansom', counts.ransomwareApt);
 }
+renderCategoryCounts(DATA.category_counts);
 
-/* ---------- Panel 5: AI風險熱度儀表板 ---------- */
+/* ---------- 依欄位1234(KEV/廠商/新聞/勒索APT)數字算出風險儀表板 ---------- */
 function gaugeColor(score){
   if (score >= 70) return 'var(--sev-high)';
   if (score >= 40) return 'var(--sev-medium)';
@@ -788,161 +564,93 @@ function gaugeLevel(score){
   if (score >= 40) return '中風險';
   return '低風險';
 }
-
 function renderGaugeSvg(score){
-  const cx = 80, cy = 78, r = 62;
+  const cx = 100, cy = 95, r = 76;
   const needleAngle = Math.PI - (score/100) * Math.PI;
-  const nxF = cx + (r-10) * Math.cos(needleAngle);
-  const nyF = cy - (r-10) * Math.sin(needleAngle);
+  const nxF = cx + (r-12) * Math.cos(needleAngle);
+  const nyF = cy - (r-12) * Math.sin(needleAngle);
   const color = gaugeColor(score);
-  return `<svg width="160" height="92" viewBox="0 0 160 92">
-    <path d="M 18 78 A 62 62 0 0 1 142 78" fill="none" stroke="var(--panel-alt)" stroke-width="12" stroke-linecap="round"/>
-    <path d="M 18 78 A 62 62 0 0 1 142 78" fill="none" stroke="${color}" stroke-width="12" stroke-linecap="round"
-      stroke-dasharray="${Math.PI*62}" stroke-dashoffset="${Math.PI*62*(1-score/100)}"/>
-    <circle cx="${cx}" cy="${cy}" r="5" fill="${color}"/>
-    <line x1="${cx}" y1="${cy}" x2="${nxF}" y2="${nyF}" stroke="${color}" stroke-width="3" stroke-linecap="round"/>
+  return `<svg width="200" height="112" viewBox="0 0 200 112">
+    <path d="M 22 95 A 76 76 0 0 1 178 95" fill="none" stroke="var(--panel-alt)" stroke-width="14" stroke-linecap="round"/>
+    <path d="M 22 95 A 76 76 0 0 1 178 95" fill="none" stroke="${color}" stroke-width="14" stroke-linecap="round"
+      stroke-dasharray="${Math.PI*76}" stroke-dashoffset="${Math.PI*76*(1-score/100)}"/>
+    <circle cx="${cx}" cy="${cy}" r="6" fill="${color}"/>
+    <line x1="${cx}" y1="${cy}" x2="${nxF}" y2="${nyF}" stroke="${color}" stroke-width="3.5" stroke-linecap="round"/>
   </svg>`;
 }
 
-function renderRiskGauge(risk){
-  if (!risk) return emptyNote();
-  const score = risk.total ?? 0;
-  const breakdown = risk.breakdown || [];
-  const bars = breakdown.map(b => `
+function buildRiskFromCategoryCounts(counts){
+  const c = counts || {};
+  const clamp = n => Math.max(0, Math.min(100, Math.round(n)));
+  const items = [
+    { label:'今日漏洞雷達', color:'#2563EB', score: clamp((c.kev||0) * 12) },
+    { label:'AI企業影響分析', color:'#059669', score: clamp((c.vendor||0) * 15) },
+    { label:'國際資安新聞', color:'#D97706', score: clamp((c.news||0) * 10) },
+    { label:'勒索軟體／APT', color:'#DC2626', score: clamp((c.ransomwareApt||0) * 18) },
+  ];
+  const total = clamp(items.reduce((sum, it) => sum + it.score, 0) / items.length);
+  return { total, items };
+}
+
+function renderRiskGaugeFromCounts(counts){
+  const el = document.getElementById('riskGaugeBody');
+  if (!el) return;
+  const { total, items } = buildRiskFromCategoryCounts(counts);
+  const bars = items.map(it => `
     <div class="risk-bar-row">
-      <div class="risk-bar-label">${escapeHtml(b.label)}</div>
-      <div class="risk-bar-track"><div class="risk-bar-fill" style="width:${b.score}%;background:${gaugeColor(b.score)}"></div></div>
-      <div class="risk-bar-val">${b.score}/100</div>
+      <div class="risk-bar-label">${escapeHtml(it.label)}</div>
+      <div class="risk-bar-track"><div class="risk-bar-fill" style="width:${it.score}%;background:${it.color}"></div></div>
+      <div class="risk-bar-val">${it.score}/100</div>
     </div>`).join('');
-  return `
+  el.innerHTML = `
     <div class="gauge-wrap">
-      ${renderGaugeSvg(score)}
-      <div class="gauge-score" style="color:${gaugeColor(score)}">${score}<span style="font-size:14px;color:var(--text-dim);">/100</span></div>
-      <div class="gauge-level" style="color:${gaugeColor(score)}">${gaugeLevel(score)}</div>
+      ${renderGaugeSvg(total)}
+      <div class="gauge-score" style="color:${gaugeColor(total)}">${total}<span style="font-size:15px;color:var(--text-dim);">/100</span></div>
+      <div class="gauge-level" style="color:${gaugeColor(total)}">${gaugeLevel(total)}</div>
     </div>
     <div class="risk-bars">${bars}</div>`;
 }
+renderRiskGaugeFromCounts(DATA.category_counts);
 
-/* ---------- Panel 6: 今日建議行動 ---------- */
-function renderActionItems(items){
-  if (!items || !items.length) return emptyNote();
-  window.__ACTION_ITEMS__ = items;
-  const rows = items.map((a, i) => `
-    <div class="action-row">
-      <div class="action-num">${i + 1}</div>
-      <div class="action-body">
-        <div class="action-title">${escapeHtml(a.title || '')}</div>
-        <div class="action-meta">
-          <span class="action-cat-tag">${escapeHtml(a.category || '')}</span>
-          <span class="action-priority action-priority-${escapeHtml(a.priority || '中')}">${escapeHtml(a.priority || '中')}優先</span>
-          <button class="copy-ticket-btn" data-idx="${i}" onclick="copyTicket(this)">📋 複製工單內容</button>
-        </div>
-      </div>
-    </div>`);
-  return withShowMore(rows);
-}
+function emptyNote(){ return '<div class="empty-note">目前沒有資料</div>'; }
 
-function copyTicket(btn){
-  const idx = parseInt(btn.dataset.idx, 10);
-  const item = (window.__ACTION_ITEMS__ || [])[idx];
-  if (!item) return;
-  const text = `【資安待辦】${item.category}\n標題：${item.title}\n優先級：${item.priority}\n建議：${item.detail || '請依標題內容評估後處理'}`;
-  const done = () => {
-    const original = btn.textContent;
-    btn.textContent = '✓ 已複製';
-    btn.classList.add('copied');
-    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
-  };
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(text).then(done).catch(() => alert(text));
-  } else {
-    alert(text);
-  }
-}
-window.copyTicket = copyTicket;
-
-/* ---------- 組裝 6 宮格 ---------- */
-/* ---------- 主管一眼摘要橫幅（純前端組裝，不額外花AI費用） ---------- */
-function riskLevel(total){
-  if (total >= 70) return '高';
-  if (total >= 40) return '中';
-  return '低';
-}
-
-function renderGlanceBanner(data){
-  const el = document.getElementById('glanceBanner');
-  const total = data.risk_score?.total ?? 0;
-  const level = riskLevel(total);
-  const levelLabel = level === '高' ? '高風險' : level === '中' ? '中度留意' : '平穩';
-  const topHeadline = (data.headlines && data.headlines[0]) ? data.headlines[0].title : '今天暫無特別重大訊號';
-
-  const actionItems = data.action_items || [];
-  const highPriorityCount = actionItems.filter(a => a.priority === '高').length;
-  const urgentCve = (data.cve_radar || []).filter(v => v.action === '立即更新');
-
-  // 今日重大事件：只算今天(24小時內)的，而不是全部累積歷史
-  const todayCutoff = Date.now() - 86400000;
-  const todayEvents = (data.global_events || []).filter(e => {
-    const d = new Date(e.date);
-    return isNaN(d.getTime()) ? true : d.getTime() >= todayCutoff;
-  });
-
-  el.className = `glance-banner level-${level}`;
-  el.innerHTML = `
-    <div class="glance-left">
-      <span class="glance-badge level-${level}">${level === '高' ? '🔴' : level === '中' ? '🟡' : '🟢'} ${levelLabel}</span>
-      <span class="glance-headline">${escapeHtml(topHeadline)}</span>
-    </div>
-    <div class="glance-stats">
-      <div class="glance-stat clickable" onclick="openStatModal('risk')"><div class="glance-stat-num risk-${level}">${total}</div><div class="glance-stat-label">風險分數/100</div></div>
-      <div class="glance-stat clickable" onclick="openStatModal('actions')"><div class="glance-stat-num">${actionItems.length}</div><div class="glance-stat-label">待辦事項（高${highPriorityCount}）</div></div>
-      <div class="glance-stat clickable" onclick="openStatModal('urgentCve')"><div class="glance-stat-num">${urgentCve.length}</div><div class="glance-stat-label">需立即更新漏洞</div></div>
-      <div class="glance-stat clickable" onclick="openStatModal('events')"><div class="glance-stat-num">${todayEvents.length}</div><div class="glance-stat-label">今日重大事件</div></div>
-    </div>`;
-}
-
-/* ---------- 統計數字點擊彈跳視窗 ---------- */
 function statModalBody(type){
   const d = DATA;
-  if (type === 'risk'){
-    const bd = d.risk_score?.breakdown || [];
-    const rows = bd.map(item => `
-      <div class="stat-modal-row">
-        <span class="stat-modal-row-label">${escapeHtml(item.label || '')}</span>
-        <span class="stat-modal-row-value">${escapeHtml(String(item.score ?? '—'))}</span>
-      </div>`).join('');
-    return { title: '風險分數細項', body: rows || emptyNote() };
-  }
-  if (type === 'actions'){
-    const items = d.action_items || [];
-    const rows = items.map(a => `
-      <div class="stat-modal-row">
-        <span class="stat-modal-row-label">[${escapeHtml(a.category||'')}] ${escapeHtml(a.title||'')}</span>
-        <span class="action-priority action-priority-${escapeHtml(a.priority||'中')}">${escapeHtml(a.priority||'中')}</span>
-      </div>`).join('');
-    return { title: '今日待辦事項', body: rows || emptyNote() };
-  }
-  if (type === 'urgentCve'){
-    const items = (d.cve_radar || []).filter(v => v.action === '立即更新');
+  if (type === 'kev'){
+    const items = d.cve_radar || [];
     const rows = items.map(v => `
       <div class="stat-modal-row">
         <span class="stat-modal-row-label">${escapeHtml(v.cve_id||'')}：${escapeHtml(v.title||'')}</span>
         <span class="stat-modal-row-value">CVSS ${v.cvss ?? '—'}</span>
       </div>`).join('');
-    return { title: '需立即更新的漏洞', body: rows || emptyNote() };
+    return { title: '今日漏洞雷達（KEV）', body: rows || emptyNote() };
   }
-  if (type === 'events'){
-    const todayCutoff = Date.now() - 86400000;
-    const items = (d.global_events || []).filter(e => {
-      const dt = new Date(e.date);
-      return isNaN(dt.getTime()) ? true : dt.getTime() >= todayCutoff;
-    });
-    const rows = items.map(e => `
+  if (type === 'vendor'){
+    const items = d.vendor_impact || [];
+    const rows = items.map(v => `
       <div class="stat-modal-row">
-        <span class="stat-modal-row-label">[${escapeHtml(e.category||'')}] ${escapeHtml(e.title||'')}</span>
-        <span class="stat-modal-row-value">${escapeHtml(e.date||'')}</span>
+        <span class="stat-modal-row-label">${escapeHtml(v.title||'')}</span>
+        <span class="stat-modal-row-value">${escapeHtml(v.impact||'')}</span>
       </div>`).join('');
-    return { title: '今日重大事件', body: rows || emptyNote() };
+    return { title: 'AI企業影響分析', body: rows || emptyNote() };
+  }
+  if (type === 'news'){
+    const items = d.international_news_list || [];
+    const rows = items.map(n => `
+      <div class="stat-modal-row">
+        <span class="stat-modal-row-label">${n.url ? `<a href="${escapeHtml(n.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(n.title||'')}</a>` : escapeHtml(n.title||'')}</span>
+        <span class="stat-modal-row-value">${escapeHtml(n.source||'')}</span>
+      </div>`).join('');
+    return { title: '國際資安新聞', body: rows || emptyNote() };
+  }
+  if (type === 'ransomApt'){
+    const items = d.ransomware_apt_list || [];
+    const rows = items.map(r => `
+      <div class="stat-modal-row">
+        <span class="stat-modal-row-label">[${escapeHtml(r.type||'')}] ${r.url ? `<a href="${escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(r.title||'')}</a>` : escapeHtml(r.title||'')}</span>
+        <span class="stat-modal-row-value">${escapeHtml(r.date||'')}</span>
+      </div>`).join('');
+    return { title: '勒索軟體／APT事件', body: rows || emptyNote() };
   }
   return { title: '', body: emptyNote() };
 }
@@ -958,43 +666,16 @@ function closeStatModal(){
 }
 window.openStatModal = openStatModal;
 window.closeStatModal = closeStatModal;
-
-renderGlanceBanner(DATA);
-
-function renderStatStrip(counts){
-  const el = document.getElementById('statStrip');
-  if (!counts) { el.style.display = 'none'; return; }
-  const cards = [
-    { color:'blue', label:'今日漏洞雷達', number: counts.kev ?? 0, desc:'KEV新增筆數' },
-    { color:'green', label:'AI企業影響分析', number: counts.vendor ?? 0, desc:'Microsoft／Cisco／Fortinet' },
-    { color:'orange', label:'國際資安新聞', number: counts.news ?? 0, desc:'今日彙整則數' },
-    { color:'red', label:'勒索軟體／APT', number: counts.ransomwareApt ?? 0, desc:'近期事件數' },
-  ];
-  el.innerHTML = cards.map(c => `
-    <div class="strip-card c-${c.color}">
-      <div class="strip-label">${escapeHtml(c.label)} <span class="strip-label-sub">${escapeHtml(c.desc)}</span></div>
-      <div class="strip-number">${c.number}</div>
-    </div>`).join('');
-}
-renderStatStrip(DATA.category_counts);
-
-const grid = document.getElementById('dashboardGrid');
-
-grid.innerHTML =
-  panelShell('①', '📰', '今日資安頭條 (Top 5)', null, renderHeadlines(DATA.headlines)) +
-  panelShell('②', '🎯', '今日漏洞雷達 (CVE)', null, renderCveRadar(DATA.cve_radar)) +
-  panelShell('③', '✅', '今日建議行動', null, renderActionItems(DATA.action_items)) +
-  panelShell('④', '📊', 'AI風險熱度儀表板', null, renderRiskGauge(DATA.risk_score)) +
-  panelShell('⑤', '🏢', 'AI企業影響分析', null, renderVendorImpact(DATA.vendor_impact)) +
-  panelShell('⑥', '🌍', '全球重大事件', null,
-    `<div id="globalEventsBody"></div>`,
-    `<div class="tab-row">
-      <button class="tab-btn active" data-days="1">今天</button>
-      <button class="tab-btn" data-days="7">本週</button>
-      <button class="tab-btn" data-days="30">本月</button>
-    </div>`);
-
-setupGlobalEventsPanel(DATA.global_events);
 </script>
+<div class="stat-modal-overlay" id="statModal" onclick="if(event.target===this)closeStatModal()">
+  <div class="stat-modal">
+    <div class="stat-modal-header">
+      <span id="statModalTitle"></span>
+      <button class="stat-modal-close" onclick="closeStatModal()">✕</button>
+    </div>
+    <div class="stat-modal-body" id="statModalBody"></div>
+  </div>
+</div>
+
 </body>
 </html>
