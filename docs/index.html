@@ -171,93 +171,371 @@
 /* ================= 展示用資料 ================= */
 
 const CVE_LATEST = [
-  { title:'CVE-2026-72898：Metabase SQL注入漏洞，攻擊者可取得管理員權限', date:'2026-08-11', source:'弱點威脅週報' },
-  { title:'CVE-2026-68820：Windows AFD.sys已遭實際利用的0-day', date:'2026-08-11', source:'弱點威脅週報' },
-  { title:'CVE-2026-20349：Cisco ASA/FTD堆積檢查漏洞', date:'2026-08-11', source:'弱點威脅週報' },
-  { title:'CVE-2026-50522：SharePoint RCE漏洞，攻擊者竊取IIS機器金鑰', date:'2026-07-30', source:'資安ITHome' },
+  {
+    "title": "CVE-2026-70329：Microsoft Outlook遠端程式碼執行漏洞(CVSS 8.8)",
+    "date": "2026-08-11",
+    "source": "弱點威脅週報"
+  },
+  {
+    "title": "CVE-2026-68820：Windows AFD.sys已遭Lazarus集團實際利用的0-day",
+    "date": "2026-08-11",
+    "source": "弱點威脅週報"
+  },
+  {
+    "title": "CVE-2026-20349：Cisco ASA/FTD SSL VPN零時差漏洞遭實際利用",
+    "date": "2026-08-11",
+    "source": "弱點威脅週報"
+  },
+  {
+    "title": "CVE-2026-72898：Metabase SQL注入漏洞(CVSS 10.0)",
+    "date": "2026-08-11",
+    "source": "資安ITHome"
+  }
 ];
 const NEWS_LATEST = [
-  { title:'Defender「ShieldBreak」新零時差漏洞曝光，繞過RoguePlanet修補', date:'2026-08-13', source:'國際資安政策觀測' },
-  { title:'Gunra勒索集團利用Fortinet舊漏洞繞過MFA攻擊關鍵基礎設施', date:'2026-08-11', source:'資安人' },
-  { title:'微軟2026年8月Patch Tuesday修補約400個CVE，含1個已遭利用0-day', date:'2026-08-11', source:'資安ITHome' },
+  {
+    "title": "Mustang Panda APT組織升級CoolClient惡意程式，加入核心層Rootkit",
+    "date": "2026-08-16",
+    "source": "國際資安政策觀測"
+  },
+  {
+    "title": "McDonald's、Vodafone遭Azure憑證竊取活動攻擊，數百萬筆企業紀錄外洩",
+    "date": "2026-08-16",
+    "source": "資安人"
+  },
+  {
+    "title": "Palo Alto GlobalProtect等產品線公告11項漏洞，含本機權限提升與程式碼執行",
+    "date": "2026-08-12",
+    "source": "資安ITHome"
+  }
 ];
 const CVE_WEEKLY = [
-  { title:'資安通告：08/04~08/10 資安弱點威脅彙整週報', date:'2026-08-11', source:'弱點威脅週報' },
-  { title:'資安通告：07/28~08/03 資安弱點威脅彙整週報', date:'2026-08-04', source:'弱點威脅週報' },
-  { title:'資安通告：07/21~07/27 資安弱點威脅彙整週報', date:'2026-07-28', source:'弱點威脅週報' },
+  {
+    "title": "資安通告：08/11~08/17 資安弱點威脅彙整週報",
+    "date": "2026-08-17",
+    "source": "弱點威脅週報"
+  },
+  {
+    "title": "資安通告：08/04~08/10 資安弱點威脅彙整週報",
+    "date": "2026-08-11",
+    "source": "弱點威脅週報"
+  },
+  {
+    "title": "資安通告：07/28~08/03 資安弱點威脅彙整週報",
+    "date": "2026-08-04",
+    "source": "弱點威脅週報"
+  }
 ];
 const SEC_WEEKLY = [
-  { title:'資安週報：AI自主攻擊工具興起，企業端點防禦面臨新挑戰', date:'2026-08-11', source:'資安人' },
-  { title:'資安週報：勒索軟體集團持續利用MFA繞過手法攻擊關鍵基礎設施', date:'2026-08-04', source:'資安人' },
+  {
+    "title": "資安週報：微軟8月Patch Tuesday創紀錄394個CVE，Lazarus集團利用Windows 0-day",
+    "date": "2026-08-17",
+    "source": "資安人"
+  },
+  {
+    "title": "資安週報：Cisco ASA/FTD SSL VPN零時差漏洞遭鎖定攻擊，僅能修補無法規避",
+    "date": "2026-08-17",
+    "source": "資安人"
+  }
 ];
 
 const WORDS_LATEST = [
-  {t:'ShieldBreak',s:26},{t:'AI自主攻擊',s:22},{t:'Metabase',s:18},{t:'MFA繞過',s:20},
-  {t:'Patch Tuesday',s:16},{t:'Gunra',s:15},{t:'零時差漏洞',s:24},{t:'Fortinet',s:14},
-  {t:'供應鏈攻擊',s:13},{t:'AI Agent',s:19},{t:'勒索軟體',s:17},{t:'CISA KEV',s:15},
+  {
+    "t": "Lazarus",
+    "s": 24
+  },
+  {
+    "t": "Cisco 0-day",
+    "s": 22
+  },
+  {
+    "t": "Outlook RCE",
+    "s": 18
+  },
+  {
+    "t": "Mustang Panda",
+    "s": 20
+  },
+  {
+    "t": "Azure憑證竊取",
+    "s": 19
+  },
+  {
+    "t": "Patch Tuesday",
+    "s": 23
+  },
+  {
+    "t": "GlobalProtect",
+    "s": 15
+  },
+  {
+    "t": "Metabase",
+    "s": 16
+  },
+  {
+    "t": "Rootkit",
+    "s": 14
+  },
+  {
+    "t": "VMware vCenter",
+    "s": 17
+  },
+  {
+    "t": "394個CVE",
+    "s": 13
+  },
+  {
+    "t": "SSL VPN",
+    "s": 15
+  }
 ];
 const WORDS_WEEK = [
-  {t:'SharePoint',s:24},{t:'機器金鑰竊取',s:18},{t:'ToolShell',s:16},{t:'AI Agent攻擊',s:20},
-  {t:'Langflow',s:17},{t:'N-able繞過',s:14},{t:'CVSS 10.0',s:19},{t:'憑證竊取',s:13},
+  {
+    "t": "ShieldBreak",
+    "s": 22
+  },
+  {
+    "t": "SharePoint",
+    "s": 20
+  },
+  {
+    "t": "機器金鑰竊取",
+    "s": 16
+  },
+  {
+    "t": "Gunra勒索",
+    "s": 18
+  },
+  {
+    "t": "MFA繞過",
+    "s": 19
+  },
+  {
+    "t": "CVSS 10.0",
+    "s": 17
+  },
+  {
+    "t": "AI Agent攻擊",
+    "s": 15
+  },
+  {
+    "t": "Langflow",
+    "s": 14
+  }
 ];
 const WORDS_SUB = [
-  {t:'AI風險',s:22},{t:'量子資安',s:18},{t:'ChatGPT',s:16},{t:'LLM風險',s:20},
-  {t:'資料外洩',s:19},{t:'零信任',s:14},{t:'供應商風險',s:15},
+  {
+    "t": "AI風險",
+    "s": 22
+  },
+  {
+    "t": "量子資安",
+    "s": 18
+  },
+  {
+    "t": "ChatGPT",
+    "s": 16
+  },
+  {
+    "t": "LLM風險",
+    "s": 20
+  },
+  {
+    "t": "資料外洩",
+    "s": 19
+  },
+  {
+    "t": "零信任",
+    "s": 14
+  },
+  {
+    "t": "供應商風險",
+    "s": 15
+  }
 ];
 
 const SEARCH_RESULTS = [
   {
-    title:'資安通告：08/04~08/10 資安弱點威脅彙整週報',
-    pubDate:'2026-08-11', updateDate:'2026-08-11', risk:'high', source:'弱點威脅週報',
-    vendor:'Microsoft', products:['SharePoint Server','Windows 11','Windows Server 2025'],
-    cves:['CVE-2026-50522','CVE-2026-68820','CVE-2026-56164'],
-    refs:[
-      {label:'資安通告：08/04~08/10 資安弱點威脅彙整週報', url:'#'},
-      {label:'SharePoint RCE漏洞遭實際利用，攻擊者竊取IIS機器金鑰建立持久性存取', url:'#'},
+    "title": "Microsoft 2026年8月Patch Tuesday：394個CVE，3個0-day含Lazarus利用的Windows AFD.sys",
+    "pubDate": "2026-08-11",
+    "updateDate": "2026-08-11",
+    "risk": "high",
+    "source": "弱點威脅週報",
+    "vendor": "Microsoft",
+    "products": [
+      "Windows",
+      "Office",
+      "SharePoint",
+      "Azure",
+      ".NET",
+      "PowerShell"
+    ],
+    "cves": [
+      "CVE-2026-68820",
+      "CVE-2026-72971",
+      "CVE-2026-62832",
+      "CVE-2026-70329"
+    ],
+    "refs": [
+      {
+        "label": "Cyber Security Weekly Newsletter – Outlook RCE, Palo Alto, Cisco 0-day and Windows 0-Day Flaws",
+        "url": "https://cybersecuritynews.com/cyber-security-weekly-newsletter-august/"
+      },
+      {
+        "label": "The August 2026 Security Update Review",
+        "url": "https://www.zerodayinitiative.com/blog/2026/8/11/the-august-2026-security-update-review"
+      }
     ]
   },
   {
-    title:'資安通告：08/04~08/10 資安弱點威脅彙整週報（Cisco/Fortinet）',
-    pubDate:'2026-08-11', updateDate:'2026-08-11', risk:'high', source:'弱點威脅週報',
-    vendor:'Cisco', products:['ASA','FTD','Firepower Threat Defense'],
-    cves:['CVE-2026-20349'],
-    refs:[{label:'Cisco ASA/FTD堆積檢查漏洞已遭實際利用，CISA列入KEV', url:'#'}]
+    "title": "Cisco ASA/FTD SSL VPN零時差漏洞遭鎖定攻擊，官方僅提供熱修補無workaround",
+    "pubDate": "2026-08-11",
+    "updateDate": "2026-08-17",
+    "risk": "high",
+    "source": "弱點威脅週報",
+    "vendor": "Cisco",
+    "products": [
+      "ASA",
+      "FTD",
+      "SSL VPN/WebVPN"
+    ],
+    "cves": [
+      "CVE-2026-20349"
+    ],
+    "refs": [
+      {
+        "label": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
+        "url": "https://www.cisa.gov/news-events/alerts/2026/08/11/cisa-adds-three-known-exploited-vulnerabilities-catalog"
+      }
+    ]
   },
   {
-    title:'FortiOS SSL VPN威脅防禦漏洞警訊',
-    pubDate:'2026-07-30', updateDate:'2026-07-30', risk:'high', source:'弱點威脅週報',
-    vendor:'Fortinet', products:['FortiOS','FortiGate'],
-    cves:['CVE-2025-68686'],
-    refs:[{label:'FortiOS敏感資訊洩漏漏洞已列入CISA KEV', url:'#'}]
+    "title": "Metabase SQL注入漏洞導致管理員權限遭竊取(CVSS 10.0)",
+    "pubDate": "2026-08-11",
+    "updateDate": "2026-08-11",
+    "risk": "high",
+    "source": "資安ITHome",
+    "vendor": "Metabase",
+    "products": [
+      "Metabase Open Source",
+      "Metabase Enterprise"
+    ],
+    "cves": [
+      "CVE-2026-72898"
+    ],
+    "refs": [
+      {
+        "label": "CISA Adds Three Known Exploited Vulnerabilities to Catalog - CyberExperts",
+        "url": "https://cyberexperts.com/2026-08-12-cisa-adds-three-known-exploited-vulnerabilities-to-catalog/"
+      }
+    ]
   },
   {
-    title:'Metabase SQL注入漏洞導致管理員權限遭竊取',
-    pubDate:'2026-08-11', updateDate:'2026-08-11', risk:'high', source:'資安ITHome',
-    vendor:'Metabase', products:['Metabase Open Source','Metabase Enterprise'],
-    cves:['CVE-2026-72898'],
-    refs:[{label:'Metabase SQL注入漏洞(CVSS 10.0)技術分析', url:'#'}]
+    "title": "Microsoft Outlook遠端程式碼執行漏洞，建議優先部署8月累積更新",
+    "pubDate": "2026-08-11",
+    "updateDate": "2026-08-11",
+    "risk": "low",
+    "source": "弱點威脅週報",
+    "vendor": "Microsoft",
+    "products": [
+      "Outlook",
+      "Office 2016",
+      "Office LTSC"
+    ],
+    "cves": [
+      "CVE-2026-70329"
+    ],
+    "refs": [
+      {
+        "label": "Microsoft Outlook Vulnerability Allows Attackers to Execute Malicious Code Remotely",
+        "url": "https://cybersecuritynews.com/microsoft-outlook-rce-vulnerability-2/"
+      }
+    ]
   },
   {
-    title:'Windows AFD.sys權限提升0-day已遭實際利用',
-    pubDate:'2026-08-11', updateDate:'2026-08-13', risk:'high', source:'弱點威脅週報',
-    vendor:'Microsoft', products:['Windows 10','Windows 11','Windows Server'],
-    cves:['CVE-2026-68820'],
-    refs:[{label:'Windows AFD.sys 0-day技術細節與修補建議', url:'#'}]
+    "title": "Palo Alto GlobalProtect等產品線公告11項漏洞，含本機權限提升與程式碼執行",
+    "pubDate": "2026-08-12",
+    "updateDate": "2026-08-12",
+    "risk": "low",
+    "source": "資安ITHome",
+    "vendor": "Palo Alto Networks",
+    "products": [
+      "GlobalProtect App",
+      "Prisma Access Agent",
+      "Prisma Browser"
+    ],
+    "cves": [
+      "CVE-2026-0299",
+      "CVE-2026-0298"
+    ],
+    "refs": [
+      {
+        "label": "Cyber Security Weekly Newsletter – Outlook RCE, Palo Alto, Cisco 0-day",
+        "url": "https://cybersecuritynews.com/cyber-security-weekly-newsletter-august/"
+      }
+    ]
   },
   {
-    title:'Langflow授權繞過漏洞遭AI Agent用於自主勒索攻擊',
-    pubDate:'2026-08-05', updateDate:'2026-08-05', risk:'low', source:'國際資安政策觀測',
-    vendor:'Langflow', products:['Langflow'],
-    cves:['CVE-2026-9198','CVE-2026-55255'],
-    refs:[{label:'JADEPUFFER：首例AI Agent自主執行勒索軟體攻擊分析', url:'#'}]
+    "title": "VMware vCenter驗證繞過重大漏洞(CVSS 9.8)，攻擊者可完全掌控管理平面",
+    "pubDate": "2026-08-04",
+    "updateDate": "2026-08-04",
+    "risk": "high",
+    "source": "國際資安政策觀測",
+    "vendor": "Broadcom (VMware)",
+    "products": [
+      "vCenter",
+      "ESXi",
+      "Workstation",
+      "Fusion"
+    ],
+    "cves": [
+      "CVE-2026-59309",
+      "CVE-2026-59310",
+      "CVE-2026-47876"
+    ],
+    "refs": [
+      {
+        "label": "Weekly Cyber Security Newsletter – Claude Hacked 3 Companies, Cisco 0-Day, VMware Vulnerability",
+        "url": "https://cybersecuritynews.com/cyber-security-newsletter-august/"
+      }
+    ]
   },
   {
-    title:'N-able N-central身分驗證繞過漏洞修補不完整',
-    pubDate:'2026-08-03', updateDate:'2026-08-04', risk:'low', source:'資安人',
-    vendor:'N-able', products:['N-central'],
-    cves:['CVE-2026-18556','CVE-2026-18577'],
-    refs:[{label:'N-able N-central漏洞修補後仍遭繞過持續利用', url:'#'}]
+    "title": "Mustang Panda APT組織升級CoolClient惡意程式，加入核心層Rootkit",
+    "pubDate": "2026-08-16",
+    "updateDate": "2026-08-16",
+    "risk": "low",
+    "source": "國際資安政策觀測",
+    "vendor": "—",
+    "products": [
+      "Windows端點"
+    ],
+    "cves": [],
+    "refs": [
+      {
+        "label": "IT Security News Daily Summary 2026-08-16",
+        "url": "https://www.itsecuritynews.info/it-security-news-daily-summary-2026-08-15/"
+      }
+    ]
   },
+  {
+    "title": "McDonald's、Vodafone遭Azure憑證竊取活動攻擊，數百萬筆企業紀錄外洩",
+    "pubDate": "2026-08-16",
+    "updateDate": "2026-08-16",
+    "risk": "low",
+    "source": "資安人",
+    "vendor": "Microsoft Azure",
+    "products": [
+      "Azure AD／Entra ID"
+    ],
+    "cves": [],
+    "refs": [
+      {
+        "label": "IT Security News Daily Summary 2026-08-16",
+        "url": "https://www.itsecuritynews.info/it-security-news-daily-summary-2026-08-15/"
+      }
+    ]
+  }
 ];
 
 /* ================= 渲染邏輯 ================= */
