@@ -257,37 +257,37 @@
 const DATA = {
   "headlines": [
     {
-      "icon": "🎯",
-      "title": "SharePoint CVE-2026-50522遭實際利用，攻擊者竊取IIS機器金鑰",
-      "url": "https://www.cisa.gov/",
+      "icon": "🛡️",
+      "title": "FortiBleed大規模憑證外洩，全球逾7萬台FortiGate對外裝置受影響",
+      "url": "https://www.bitsight.com/blog/security-alert-fortibleed-fortinet-vpn-credentials-firewall-exposed",
       "impact": "高",
       "stars": 5
     },
     {
-      "icon": "🤖",
-      "title": "Langflow漏洞遭大規模自動化掃描，244個IP橫跨41國發動650次攻擊",
-      "url": "https://thehackernews.com/",
+      "icon": "🎯",
+      "title": "CISA新增Metabase(CVSS 10.0)、Cisco ASA/FTD、Windows AFD.sys三項已遭利用漏洞",
+      "url": "https://cyberexperts.com/2026-08-12-cisa-adds-three-known-exploited-vulnerabilities-to-catalog/",
       "impact": "高",
       "stars": 5
+    },
+    {
+      "icon": "🪟",
+      "title": "微軟發布KB5121003等8月更新檔，421個CVE含1個已遭Lazarus利用的0-day",
+      "url": "https://www.tech2geek.net/windows-11-august-2026-patch-tuesday-kb5121003-and-kb5120240-bring-security-fixes-and-new-features/",
+      "impact": "高",
+      "stars": 4
+    },
+    {
+      "icon": "📡",
+      "title": "Cisco ASA/FTD SSL VPN零時差漏洞遭鎖定攻擊，無workaround僅能修補",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/08/11/cisa-adds-three-known-exploited-vulnerabilities-catalog",
+      "impact": "高",
+      "stars": 4
     },
     {
       "icon": "🦠",
-      "title": "新興勒索集團以英國10萬名警員資料作為攻擊首秀",
-      "url": "https://therecord.media/",
-      "impact": "高",
-      "stars": 4
-    },
-    {
-      "icon": "📰",
-      "title": "ShinyHunters將Questal列為受害者，外洩逾2,100萬筆Salesforce紀錄",
-      "url": "https://sharkstriker.com/",
-      "impact": "中",
-      "stars": 4
-    },
-    {
-      "icon": "🛡️",
-      "title": "N-able N-central漏洞修補不完整，駭客持續繞過利用",
-      "url": "https://thehackernews.com/",
+      "title": "Mustang Panda APT組織升級CoolClient惡意程式，加入核心層Rootkit",
+      "url": "https://www.itsecuritynews.info/it-security-news-daily-summary-2026-08-15/",
       "impact": "中",
       "stars": 3
     }
@@ -344,60 +344,36 @@ const DATA = {
   ],
   "cve_radar": [
     {
-      "cve_id": "CVE-2026-50522",
-      "title": "SharePoint RCE漏洞，攻擊者竊取IIS機器金鑰建立持久存取",
-      "cvss": 9.8,
-      "cvss_source": "AI推估",
+      "cve_id": "CVE-2026-72898",
+      "title": "Metabase SQL注入漏洞，攻擊者可取得管理員權限",
+      "cvss": 10,
+      "cvss_source": "NVD官方",
       "exploited": true,
       "action": "立即更新"
     },
     {
-      "cve_id": "CVE-2026-9198",
-      "title": "程式碼注入漏洞，已遭大規模自動化掃描利用",
-      "cvss": 9.8,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "立即更新"
-    },
-    {
-      "cve_id": "CVE-2026-16812",
-      "title": "OS指令注入漏洞",
+      "cve_id": "CVE-2026-20349",
+      "title": "Cisco ASA/FTD SSL VPN堆積檢查漏洞，僅提供熱修補",
       "cvss": 8.6,
       "cvss_source": "AI推估",
       "exploited": true,
-      "action": "一週內更新"
+      "action": "立即更新"
     },
     {
-      "cve_id": "CVE-2026-18556",
-      "title": "身分驗證繞過漏洞，初次修補未完全解決後遭持續利用",
-      "cvss": 8.2,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "一週內更新"
-    },
-    {
-      "cve_id": "CVE-2026-18577",
-      "title": "身分驗證繞過漏洞（與18556同批公告）",
-      "cvss": 8.2,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "一週內更新"
-    },
-    {
-      "cve_id": "CVE-2026-34486",
-      "title": "缺少加密保護敏感資料漏洞",
-      "cvss": 7.5,
+      "cve_id": "CVE-2026-68820",
+      "title": "Windows AFD.sys已遭Lazarus集團實際利用的0-day",
+      "cvss": 7,
       "cvss_source": "AI推估",
       "exploited": true,
       "action": "一週內更新"
     },
     {
       "cve_id": "CVE-2025-68686",
-      "title": "敏感資訊洩漏漏洞",
+      "title": "FortiOS敏感資訊洩漏漏洞，可繞過先前修補",
       "cvss": 7.5,
       "cvss_source": "AI推估",
       "exploited": true,
-      "action": "一週內更新"
+      "action": "立即更新"
     }
   ],
   "vendor_impact": [
@@ -440,116 +416,92 @@ const DATA = {
   "action_items": [
     {
       "category": "漏洞修補",
-      "title": "CVE-2026-50522：SharePoint RCE漏洞，攻擊者竊取IIS機器金鑰建立持久存取",
+      "title": "CVE-2026-72898：Metabase SQL注入漏洞，攻擊者可取得管理員權限",
       "priority": "高",
-      "detail": "CVSS 9.8（AI推估），建議立即更新"
+      "detail": "CVSS 10（NVD官方），建議立即更新"
     },
     {
       "category": "漏洞修補",
-      "title": "CVE-2026-9198：程式碼注入漏洞，已遭大規模自動化掃描利用",
+      "title": "CVE-2026-20349：Cisco ASA/FTD SSL VPN堆積檢查漏洞，僅提供熱修補",
       "priority": "高",
-      "detail": "CVSS 9.8（AI推估），建議立即更新"
+      "detail": "CVSS 8.6（AI推估），建議立即更新"
     },
     {
-      "category": "公告確認",
-      "title": "SharePoint CVE-2026-50522遠端程式碼執行漏洞，8月Patch Tuesday前已遭實際利用",
+      "category": "漏洞修補",
+      "title": "CVE-2025-68686：FortiOS敏感資訊洩漏漏洞，可繞過先前修補",
       "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+      "detail": "CVSS 7.5（AI推估），建議立即更新"
+    },
+    {
+      "category": "廠商公告",
+      "title": "FortiGate／FortiOS：CVE-2025-68686敏感資訊洩漏漏洞已遭實際利用，可繞過先前修補",
+      "priority": "高",
+      "detail": "CISA要求聯邦機關8/10前完成緩解，建議盤點對外暴露的管理介面與VPN服務，檢查是否有先前遭入侵跡象"
+    },
+    {
+      "category": "廠商公告",
+      "title": "FortiGate：FortiBleed大規模憑證外洩活動，全球逾7萬台對外裝置受影響",
+      "priority": "高",
+      "detail": "目前無修補可完全解決此暴露問題，建議限制管理介面對外開放、全面輪替管理員與VPN帳密、強制啟用MFA"
+    },
+    {
+      "category": "廠商公告",
+      "title": "Microsoft：2026年8月Patch Tuesday（KB5121003等），421個CVE含1個已遭利用0-day",
+      "priority": "高",
+      "detail": "建議優先確認CVE-2026-68820（已遭Lazarus利用）相關系統已完成更新"
+    },
+    {
+      "category": "廠商公告",
+      "title": "Cisco：ASA/FTD SSL VPN零時差漏洞遭鎖定攻擊，僅提供熱修補無workaround",
+      "priority": "高",
+      "detail": "建議確認邊界防火牆版本並儘速套用熱修補，留意SSL VPN/WebVPN、IKEv2功能是否已啟用"
     },
     {
       "category": "漏洞修補",
-      "title": "CVE-2026-16812：OS指令注入漏洞",
+      "title": "CVE-2026-68820：Windows AFD.sys已遭Lazarus集團實際利用的0-day",
       "priority": "中",
-      "detail": "CVSS 8.6（AI推估），建議一週內更新"
-    },
-    {
-      "category": "漏洞修補",
-      "title": "CVE-2026-18556：身分驗證繞過漏洞，初次修補未完全解決後遭持續利用",
-      "priority": "中",
-      "detail": "CVSS 8.2（AI推估），建議一週內更新"
-    },
-    {
-      "category": "漏洞修補",
-      "title": "CVE-2026-18577：身分驗證繞過漏洞（與18556同批公告）",
-      "priority": "中",
-      "detail": "CVSS 8.2（AI推估），建議一週內更新"
-    },
-    {
-      "category": "漏洞修補",
-      "title": "CVE-2026-34486：缺少加密保護敏感資料漏洞",
-      "priority": "中",
-      "detail": "CVSS 7.5（AI推估），建議一週內更新"
-    },
-    {
-      "category": "漏洞修補",
-      "title": "CVE-2025-68686：敏感資訊洩漏漏洞",
-      "priority": "中",
-      "detail": "CVSS 7.5（AI推估），建議一週內更新"
+      "detail": "CVSS 7（AI推估），建議一週內更新"
     },
     {
       "category": "公告確認",
-      "title": "Microsoft SharePoint存在高風險安全漏洞(CVE-2026-50522)",
+      "title": "微軟發布KB5121003更新檔（Windows 11 24H2/25H2，含2026年8月安全性修補）",
       "priority": "中",
-      "detail": "來源：TWCERT/CC。提醒企業儘速確認SharePoint環境修補狀態，該漏洞已有實際攻擊案例。"
+      "detail": "來源：微軟官方更新發布，建議確認相關系統已完成部署。"
     },
     {
       "category": "公告確認",
-      "title": "TWCERT/CC 2026年7月份資安情資電子報發布",
+      "title": "微軟發布KB5120240更新檔（Windows 11 23H2，含8月Patch Tuesday安全修補）",
       "priority": "中",
-      "detail": "來源：TWCERT/CC。彙整七月份重大資安事件、漏洞與威脅趨勢。"
-    },
-    {
-      "category": "公告確認",
-      "title": "「Friendly Fire」攻擊手法：AI防禦工具遭誘導成為攻擊武器",
-      "priority": "中",
-      "detail": "來源：TWCERT/CC。研究揭露攻擊者可誘導企業內部AI資安工具反過來執行惡意操作，提醒留意AI工具權限控管。"
-    },
-    {
-      "category": "掃描比對",
-      "title": "Langflow漏洞(CVE-2026-9198)大規模掃描攻擊相關IOC比對",
-      "priority": "中",
-      "detail": "涉及類型：IP。建議比對內部防火牆/EDR日誌。"
-    },
-    {
-      "category": "掃描比對",
-      "title": "SharePoint機器金鑰竊取活動(CVE-2026-50522)相關IOC比對",
-      "priority": "中",
-      "detail": "涉及類型：Hash。建議比對內部防火牆/EDR日誌。"
-    },
-    {
-      "category": "教育宣導",
-      "title": "「Friendly Fire」攻擊手法：AI防禦工具遭誘導成為攻擊武器",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
+      "detail": "來源：微軟官方更新發布，建議確認相關系統已完成部署。"
     }
   ],
   "risk_score": {
-    "total": 60,
+    "total": 27,
     "breakdown": [
       {
         "label": "漏洞風險",
-        "score": 100
+        "score": 80
       },
       {
         "label": "APT攻擊",
-        "score": 0
+        "score": 30
       },
       {
         "label": "勒索病毒",
-        "score": 88
+        "score": 0
       },
       {
         "label": "身份風險",
-        "score": 50
+        "score": 25
       },
       {
         "label": "AI風險",
-        "score": 60
+        "score": 0
       }
     ]
   },
   "category_counts": {
-    "kev": 7,
+    "kev": 4,
     "vendor": 5,
     "news": 4,
     "ransomwareApt": 4
