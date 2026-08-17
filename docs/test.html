@@ -775,31 +775,11 @@ function renderActionItems(items){
         <div class="action-meta">
           <span class="action-cat-tag">${escapeHtml(a.category || '')}</span>
           <span class="action-priority action-priority-${escapeHtml(a.priority || '中')}">${escapeHtml(a.priority || '中')}優先</span>
-          <button class="copy-ticket-btn" data-idx="${i}" onclick="copyTicket(this)">📋 複製工單內容</button>
         </div>
       </div>
     </div>`);
   return withShowMore(rows);
 }
-
-function copyTicket(btn){
-  const idx = parseInt(btn.dataset.idx, 10);
-  const item = (window.__ACTION_ITEMS__ || [])[idx];
-  if (!item) return;
-  const text = `【資安待辦】${item.category}\n標題：${item.title}\n優先級：${item.priority}\n建議：${item.detail || '請依標題內容評估後處理'}`;
-  const done = () => {
-    const original = btn.textContent;
-    btn.textContent = '✓ 已複製';
-    btn.classList.add('copied');
-    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
-  };
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(text).then(done).catch(() => alert(text));
-  } else {
-    alert(text);
-  }
-}
-window.copyTicket = copyTicket;
 
 /* ---------- 組裝 6 宮格 ---------- */
 /* ---------- 主管一眼摘要橫幅（純前端組裝，不額外花AI費用） ---------- */
