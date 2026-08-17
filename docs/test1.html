@@ -3,407 +3,679 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>資安整合平台</title>
+<title>資安輿情展示</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans+TC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#F4F6F8;--panel:#FFFFFF;--border:#E2E8F0;
+    --bg:#FFFFFF;--panel:#F8FAFC;--panel-alt:#F1F5F9;--border:#E2E8F0;
     --text:#1E293B;--text-dim:#64748B;--text-faint:#94A3B8;
-    --brand:#0F4C81;--brand-light:#DCEEFB;--accent:#2563EB;
-    --high:#DC2626;--high-bg:#FDECEC;--low:#059669;--low-bg:#E7F7F1;
+    --accent:#2563EB;--accent-dim:#1D4ED8;
+    --sev-high:#DC2626;--sev-medium:#D97706;--sev-low:#059669;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
-  body{background:var(--bg);color:var(--text);font-family:'Noto Sans TC',sans-serif;min-height:100vh;}
+  body{
+    background:var(--bg);color:var(--text);
+    font-family:'IBM Plex Sans TC','Noto Sans TC',sans-serif;
+    min-height:100vh;
+  }
+  .wrap{max-width:1560px;margin:0 auto;padding:20px;}
 
-  .wrap{max-width:1400px;margin:0 auto;padding:20px 24px 60px;}
+  /* 頂部跑馬燈 */
+  .ticker-bar{
+    background:#0F172A;color:#E2E8F0;overflow:hidden;position:relative;
+    white-space:nowrap;padding:9px 0;font-family:'JetBrains Mono',monospace;font-size:12.5px;
+  }
+  .ticker-label{
+    position:absolute;left:0;top:0;bottom:0;display:flex;align-items:center;gap:6px;
+    background:#DC2626;color:#fff;padding:0 14px;font-weight:700;font-size:11.5px;z-index:2;
+    white-space:nowrap;
+  }
+  .ticker-track{display:inline-flex;padding-left:100%;animation:ticker-scroll 45s linear infinite;}
+  .ticker-track.paused{animation-play-state:paused;}
+  .ticker-item{display:inline-flex;align-items:center;margin-right:48px;flex-shrink:0;}
+  .ticker-item a{color:#E2E8F0;text-decoration:none;position:relative;z-index:3;}
+  .ticker-item a:hover{text-decoration:underline;color:#60A5FA;}
+  .ticker-sep{color:#475569;margin-right:48px;flex-shrink:0;}
+  @keyframes ticker-scroll{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-50%);}
+  }
+  @media (max-width:640px){
+    .ticker-bar{overflow-x:auto;-webkit-overflow-scrolling:touch;display:flex;align-items:center;white-space:nowrap;}
+    .ticker-label{position:static;flex-shrink:0;margin-right:10px;}
+    .ticker-track{animation:none !important;padding-left:0;display:inline-flex;}
+  }
+  .layout-row{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;}
+  .box-big{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px;height:100%;min-height:400px;}
+  .box-right-group{display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr);gap:12px;height:100%;}
+  .box-small{background:var(--panel);border:1px solid var(--border);border-left-width:4px;border-radius:10px;padding:16px;height:100%;}
+  .box-small.c-blue{border-left-color:#2563EB;}
+  .box-small.c-green{border-left-color:#059669;}
+  .box-small.c-orange{border-left-color:#D97706;}
+  .box-small.c-red{border-left-color:#DC2626;}
+  .strip-label{font-size:12.5px;font-weight:600;margin-bottom:8px;}
+  .box-small.c-blue .strip-label{color:#2563EB;}
+  .box-small.c-green .strip-label{color:#059669;}
+  .box-small.c-orange .strip-label{color:#D97706;}
+  .box-small.c-red .strip-label{color:#DC2626;}
+  .strip-label-sub{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;color:var(--text-faint);}
+  .strip-number{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;line-height:1;}
+  .box-small.c-blue .strip-number{color:#2563EB;}
+  .box-small.c-green .strip-number{color:#059669;}
+  .box-small.c-orange .strip-number{color:#D97706;}
+  .box-small.c-red .strip-number{color:#DC2626;}
+  .box-small.clickable{cursor:pointer;transition:box-shadow .15s;}
+  .box-small.clickable:hover{box-shadow:0 2px 8px rgba(0,0,0,0.08);}
 
-  /* 通用卡片 */
-  .card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px 18px;}
-  .card-tabs{display:flex;gap:6px;margin-bottom:12px;}
-  .card-tab-btn{font-size:12.5px;padding:6px 14px;border-radius:6px;border:1px solid var(--border);background:var(--bg);color:var(--text-dim);cursor:pointer;font-weight:600;}
-  .card-tab-btn.active{background:var(--brand);color:#fff;border-color:var(--brand);}
+  /* 統計彈跳視窗 */
+  .stat-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:100;align-items:center;justify-content:center;padding:20px;}
+  .stat-modal{background:var(--panel);border:1px solid var(--border);border-radius:12px;max-width:560px;width:100%;max-height:70vh;display:flex;flex-direction:column;}
+  .stat-modal-header{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--border);font-weight:700;font-size:14px;}
+  .stat-modal-close{background:none;border:none;color:var(--text-dim);font-size:16px;cursor:pointer;padding:2px 6px;}
+  .stat-modal-close:hover{color:var(--text);}
+  .stat-modal-body{overflow-y:auto;padding:8px 18px 16px;}
+  .stat-modal-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 0;border-top:1px dashed var(--border);font-size:12.5px;}
+  .stat-modal-row:first-child{border-top:none;}
+  .stat-modal-row-label{color:var(--text);flex:1;}
+  .stat-modal-row-value{font-family:'JetBrains Mono',monospace;color:var(--text-dim);white-space:nowrap;}
+  .empty-note{color:var(--text-faint);font-size:12px;padding:10px 0;font-family:'JetBrains Mono',monospace;}
 
-  .list-item{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:9px 0;border-top:1px dashed var(--border);font-size:13px;}
-  .list-item:first-child{border-top:none;}
-  .list-item a{color:var(--accent);text-decoration:none;flex:1;min-width:0;}
-  .list-item a:hover{text-decoration:underline;}
-  .list-item .list-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-faint);white-space:nowrap;flex-shrink:0;}
-
-  /* 儀表板上半 */
-  .dash-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
-  .dash-bottom{display:grid;grid-template-columns:1.3fr 1fr;gap:16px;}
-  @media (max-width:900px){.dash-row,.dash-bottom{grid-template-columns:1fr;}}
-
-  /* 文字雲 */
-  .word-cloud{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:baseline;padding:10px 4px;}
-  .word-cloud span{cursor:default;}
-
-  .section-title{font-size:14px;font-weight:700;color:var(--brand);margin:26px 0 12px;display:flex;align-items:center;gap:8px;}
-  .section-title::before{content:'';width:4px;height:16px;background:var(--brand);border-radius:2px;display:inline-block;}
-
-  /* 搜尋列 */
-  .search-bar{display:flex;gap:10px;margin-bottom:16px;}
-  .search-bar input{flex:1;padding:11px 16px;border:1px solid var(--border);border-radius:8px;font-size:13.5px;font-family:'Noto Sans TC',sans-serif;}
-  .search-bar input:focus{outline:2px solid var(--accent);outline-offset:-1px;}
-  .search-bar button{padding:0 22px;background:var(--brand);color:#fff;border:none;border-radius:8px;font-weight:700;font-size:13px;cursor:pointer;}
-  .search-bar button:hover{background:var(--accent);}
-
-  /* 搜尋主體：左篩選 右結果 */
-  .search-layout{display:grid;grid-template-columns:250px 1fr;gap:16px;align-items:start;}
-  @media (max-width:900px){.search-layout{grid-template-columns:1fr;}}
-
-  .filter-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;overflow:hidden;}
-  .filter-header{background:var(--brand);color:#fff;padding:11px 16px;font-weight:700;font-size:13px;}
-  .filter-group{padding:14px 16px;border-bottom:1px solid var(--border);}
-  .filter-group:last-child{border-bottom:none;}
-  .filter-group-title{font-size:12.5px;font-weight:700;color:var(--text);margin-bottom:10px;}
-  .filter-date-row{display:flex;flex-direction:column;gap:8px;}
-  .filter-date-row label{font-size:11px;color:var(--text-dim);}
-  .filter-date-row input{width:100%;padding:6px 8px;border:1px solid var(--border);border-radius:5px;font-size:12px;margin-top:3px;}
-  .filter-check{display:flex;align-items:center;justify-content:space-between;padding:5px 0;font-size:12.5px;cursor:pointer;}
-  .filter-check-left{display:flex;align-items:center;gap:7px;}
-  .filter-check .count{color:var(--text-faint);font-family:'JetBrains Mono',monospace;font-size:11px;}
-  .risk-icon{font-size:11px;}
-  .filter-vendor-search{width:100%;padding:7px 10px;border:1px solid var(--border);border-radius:6px;font-size:12px;margin-bottom:8px;}
-
-  .result-meta-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:12.5px;color:var(--text-dim);}
-  .result-meta-bar b{color:var(--text);}
-
-  .result-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:12px;}
-  .result-title{font-size:14.5px;font-weight:700;color:var(--accent);text-decoration:none;display:block;margin-bottom:8px;}
-  .result-title:hover{text-decoration:underline;}
-  .result-fields{display:flex;flex-wrap:wrap;gap:16px;font-size:11.5px;color:var(--text-dim);margin-bottom:8px;}
-  .result-fields b{color:var(--text);font-weight:600;}
-  .risk-badge{display:inline-flex;align-items:center;gap:4px;font-weight:700;padding:1px 8px;border-radius:12px;font-size:11px;}
-  .risk-badge.high{color:var(--high);background:var(--high-bg);}
-  .risk-badge.low{color:var(--low);background:var(--low-bg);}
-  .result-line{font-size:12px;color:var(--text-dim);margin-bottom:6px;line-height:1.6;}
-  .result-line b{color:var(--text);font-weight:600;margin-right:4px;}
-  .result-cve{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--brand);word-break:break-all;}
-  .result-sources{margin-top:10px;padding-top:10px;border-top:1px dashed var(--border);}
-  .result-source-item{display:flex;gap:8px;font-size:11.5px;color:var(--text-dim);margin-bottom:4px;}
-  .result-source-num{color:var(--text-faint);font-family:'JetBrains Mono',monospace;flex-shrink:0;}
-  .result-source-item a{color:var(--accent);text-decoration:none;}
-  .result-source-item a:hover{text-decoration:underline;}
+  .gauge-wrap{display:flex;flex-direction:column;align-items:center;padding:10px 0 4px;}
+  .gauge-score{font-family:'Space Grotesk',sans-serif;font-size:40px;font-weight:700;margin-top:-8px;}
+  .gauge-level{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;margin-bottom:16px;}
+  .risk-bars{display:flex;flex-direction:column;gap:10px;max-width:340px;margin:0 auto;}
+  .risk-bar-row{display:flex;align-items:center;gap:10px;}
+  .risk-bar-label{font-size:12px;color:var(--text-dim);width:110px;flex-shrink:0;}
+  .risk-bar-track{flex:1;height:7px;background:var(--panel-alt);border-radius:4px;overflow:hidden;}
+  .risk-bar-fill{height:100%;border-radius:4px;}
+  .risk-bar-val{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-dim);width:36px;text-align:right;flex-shrink:0;}
+  .box-label{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;color:var(--text-dim);}
+  @media (max-width:1100px){
+    .layout-row{grid-template-columns:1fr;}
+    .box-right-group{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:560px){
+    .box-right-group{grid-template-columns:1fr;}
+  }
 </style>
 </head>
 <body>
 
+<div class="ticker-bar">
+  <span class="ticker-label">📰 今日資安事件</span>
+  <div class="ticker-track" id="tickerTrack"></div>
+</div>
+
 <div class="wrap">
-
-
-  <!-- ===== 首頁儀表板區塊 ===== -->
-  <div class="dash-row">
-    <div class="card">
-      <div class="card-tabs">
-        <button class="card-tab-btn active" data-group="cve" data-tab="cve">最新發布CVE</button>
-        <button class="card-tab-btn" data-group="cve" data-tab="news">最新資安新聞</button>
-      </div>
-      <div id="cveList"></div>
+  <div class="layout-row">
+    <div class="box-big">
+      <div class="box-label">今日風險儀表板</div>
+      <div id="riskGaugeBody"></div>
     </div>
-    <div class="card">
-      <div class="card-tabs">
-        <button class="card-tab-btn active" data-group="weekly" data-tab="cveWeekly">CVE週報</button>
-        <button class="card-tab-btn" data-group="weekly" data-tab="secWeekly">資安週報</button>
-      </div>
-      <div id="weeklyList"></div>
+    <div class="box-right-group">
+      <div class="box-small c-blue clickable" onclick="openStatModal('kev')"><div class="strip-label">今日漏洞雷達 <span class="strip-label-sub">KEV新增筆數</span></div><div class="strip-number" id="numKev">--</div></div>
+      <div class="box-small c-green clickable" onclick="openStatModal('vendor')"><div class="strip-label">AI企業影響分析 <span class="strip-label-sub">Microsoft／Cisco／Fortinet</span></div><div class="strip-number" id="numVendor">--</div></div>
+      <div class="box-small c-orange clickable" onclick="openStatModal('news')"><div class="strip-label">國際資安新聞 <span class="strip-label-sub">今日彙整則數</span></div><div class="strip-number" id="numNews">--</div></div>
+      <div class="box-small c-red clickable" onclick="openStatModal('ransomApt')"><div class="strip-label">勒索軟體／APT <span class="strip-label-sub">近期事件數</span></div><div class="strip-number" id="numRansom">--</div></div>
     </div>
   </div>
-
-  <div class="dash-bottom">
-    <div class="card">
-      <div class="card-tabs">
-        <button class="card-tab-btn active" data-group="focus" data-tab="latest">最新焦點</button>
-        <button class="card-tab-btn" data-group="focus" data-tab="week">本週焦點</button>
-        <button class="card-tab-btn" data-group="focus" data-tab="sub">訂閱焦點</button>
-      </div>
-      <div class="word-cloud" id="wordCloud"></div>
-    </div>
-    <div class="card">
-      <div class="card-tabs"><button class="card-tab-btn active">相關文章</button></div>
-      <div id="focusList"></div>
-    </div>
-  </div>
-
-  <!-- ===== 進階篩選搜尋區塊 ===== -->
-  <div class="section-title">整合搜尋</div>
-
-  <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="輸入關鍵字，例如：資安弱點 and 威脅">
-    <button onclick="applySearch()">搜尋</button>
-  </div>
-
-  <div class="search-layout">
-    <div class="filter-card">
-      <div class="filter-header">進階篩選</div>
-      <div class="filter-group">
-        <div class="filter-group-title">時間區間</div>
-        <div class="filter-date-row">
-          <label>起始時間<input type="date" id="dateFrom"></label>
-          <label>結束時間<input type="date" id="dateTo"></label>
-        </div>
-      </div>
-      <div class="filter-group">
-        <div class="filter-group-title">風險等級</div>
-        <div id="riskFilters"></div>
-      </div>
-      <div class="filter-group">
-        <div class="filter-group-title">資料來源</div>
-        <div id="sourceFilters"></div>
-      </div>
-      <div class="filter-group">
-        <div class="filter-group-title">供應商</div>
-        <input type="text" class="filter-vendor-search" id="vendorSearch" placeholder="搜尋供應商...">
-        <div id="vendorFilters"></div>
-      </div>
-    </div>
-
-    <div>
-      <div class="result-meta-bar">共 <b id="resultCount">0</b> 筆資料</div>
-      <div id="resultList"></div>
-    </div>
-  </div>
-
 </div>
 
 <script>
-/* ================= 展示用資料 ================= */
-
-const CVE_LATEST = [
-  { title:'CVE-2026-72898：Metabase SQL注入漏洞，攻擊者可取得管理員權限', date:'2026-08-11', source:'弱點威脅週報' },
-  { title:'CVE-2026-68820：Windows AFD.sys已遭實際利用的0-day', date:'2026-08-11', source:'弱點威脅週報' },
-  { title:'CVE-2026-20349：Cisco ASA/FTD堆積檢查漏洞', date:'2026-08-11', source:'弱點威脅週報' },
-  { title:'CVE-2026-50522：SharePoint RCE漏洞，攻擊者竊取IIS機器金鑰', date:'2026-07-30', source:'資安ITHome' },
-];
-const NEWS_LATEST = [
-  { title:'Defender「ShieldBreak」新零時差漏洞曝光，繞過RoguePlanet修補', date:'2026-08-13', source:'國際資安政策觀測' },
-  { title:'Gunra勒索集團利用Fortinet舊漏洞繞過MFA攻擊關鍵基礎設施', date:'2026-08-11', source:'資安人' },
-  { title:'微軟2026年8月Patch Tuesday修補約400個CVE，含1個已遭利用0-day', date:'2026-08-11', source:'資安ITHome' },
-];
-const CVE_WEEKLY = [
-  { title:'資安通告：08/04~08/10 資安弱點威脅彙整週報', date:'2026-08-11', source:'弱點威脅週報' },
-  { title:'資安通告：07/28~08/03 資安弱點威脅彙整週報', date:'2026-08-04', source:'弱點威脅週報' },
-  { title:'資安通告：07/21~07/27 資安弱點威脅彙整週報', date:'2026-07-28', source:'弱點威脅週報' },
-];
-const SEC_WEEKLY = [
-  { title:'資安週報：AI自主攻擊工具興起，企業端點防禦面臨新挑戰', date:'2026-08-11', source:'資安人' },
-  { title:'資安週報：勒索軟體集團持續利用MFA繞過手法攻擊關鍵基礎設施', date:'2026-08-04', source:'資安人' },
-];
-
-const WORDS_LATEST = [
-  {t:'ShieldBreak',s:26},{t:'AI自主攻擊',s:22},{t:'Metabase',s:18},{t:'MFA繞過',s:20},
-  {t:'Patch Tuesday',s:16},{t:'Gunra',s:15},{t:'零時差漏洞',s:24},{t:'Fortinet',s:14},
-  {t:'供應鏈攻擊',s:13},{t:'AI Agent',s:19},{t:'勒索軟體',s:17},{t:'CISA KEV',s:15},
-];
-const WORDS_WEEK = [
-  {t:'SharePoint',s:24},{t:'機器金鑰竊取',s:18},{t:'ToolShell',s:16},{t:'AI Agent攻擊',s:20},
-  {t:'Langflow',s:17},{t:'N-able繞過',s:14},{t:'CVSS 10.0',s:19},{t:'憑證竊取',s:13},
-];
-const WORDS_SUB = [
-  {t:'AI風險',s:22},{t:'量子資安',s:18},{t:'ChatGPT',s:16},{t:'LLM風險',s:20},
-  {t:'資料外洩',s:19},{t:'零信任',s:14},{t:'供應商風險',s:15},
-];
-
-const SEARCH_RESULTS = [
-  {
-    title:'資安通告：08/04~08/10 資安弱點威脅彙整週報',
-    pubDate:'2026-08-11', updateDate:'2026-08-11', risk:'high', source:'弱點威脅週報',
-    vendor:'Microsoft', products:['SharePoint Server','Windows 11','Windows Server 2025'],
-    cves:['CVE-2026-50522','CVE-2026-68820','CVE-2026-56164'],
-    refs:[
-      {label:'資安通告：08/04~08/10 資安弱點威脅彙整週報', url:'#'},
-      {label:'SharePoint RCE漏洞遭實際利用，攻擊者竊取IIS機器金鑰建立持久性存取', url:'#'},
+const DATA = {
+  "headlines": [
+    {
+      "icon": "🛡️",
+      "title": "Defender「ShieldBreak」新零時差漏洞曝光，繞過RoguePlanet修補且尚無官方修復",
+      "url": "https://www.bleepingcomputer.com/news/security/new-microsoft-defender-shieldbreak-zero-day-grants-system-privileges/",
+      "impact": "高",
+      "stars": 5
+    },
+    {
+      "icon": "🎯",
+      "title": "CISA新增Metabase(CVSS 10.0)、Windows AFD.sys、Cisco ASA/FTD三項已遭利用漏洞",
+      "url": "https://cyberexperts.com/2026-08-12-cisa-adds-three-known-exploited-vulnerabilities-to-catalog/",
+      "impact": "高",
+      "stars": 5
+    },
+    {
+      "icon": "🦠",
+      "title": "Gunra勒索集團利用Fortinet舊漏洞繞過MFA，鎖定醫療/金融/政府關鍵基礎設施",
+      "url": "https://www.darkreading.com/cyberattacks-data-breaches/gunra-ransomware-gang-fortinet-flaws-bypasses-mfa",
+      "impact": "高",
+      "stars": 4
+    },
+    {
+      "icon": "🪟",
+      "title": "微軟2026年8月Patch Tuesday修補約400個CVE，含1個已遭實際利用0-day",
+      "url": "https://www.securityweek.com/august-2026-patch-tuesday-microsoft-fixes-421-cves-one-exploited-zero-day/",
+      "impact": "中",
+      "stars": 4
+    },
+    {
+      "icon": "📰",
+      "title": "Qilin勒索組織點名加拿大營造業者B Wright Drywall",
+      "url": "https://www.dexpose.io/category/ransomware-attacks/",
+      "impact": "中",
+      "stars": 3
+    }
+  ],
+  "global_events": [
+    {
+      "category": "零時差漏洞",
+      "title": "Defender「ShieldBreak」零時差漏洞曝光，尚無官方修補",
+      "date": "2026-08-13",
+      "url": "https://www.bleepingcomputer.com/news/security/new-microsoft-defender-shieldbreak-zero-day-grants-system-privileges/"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "CISA新增Metabase SQL注入漏洞(CVSS 10.0)至KEV",
+      "date": "2026-08-11",
+      "url": "https://www.runzero.com/blog/metabase/"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "CISA新增Windows AFD.sys已遭利用0-day至KEV",
+      "date": "2026-08-11",
+      "url": "https://cyberexperts.com/2026-08-12-cisa-adds-three-known-exploited-vulnerabilities-to-catalog/"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "CISA新增Cisco ASA/FTD堆積檢查漏洞至KEV",
+      "date": "2026-08-11",
+      "url": "https://cyberexperts.com/2026-08-12-cisa-adds-three-known-exploited-vulnerabilities-to-catalog/"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "Gunra勒索集團持續利用Fortinet舊漏洞繞過MFA攻擊關鍵基礎設施",
+      "date": "2026-08-11",
+      "url": "https://www.darkreading.com/cyberattacks-data-breaches/gunra-ransomware-gang-fortinet-flaws-bypasses-mfa"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "Presentations.AI遭Unsafe勒索組織攻擊",
+      "date": "2026-08-10",
+      "url": "https://www.dexpose.io/unsafe-ransomware-group-compromises-presentations-ai/"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "Qilin勒索組織點名加拿大B Wright Drywall",
+      "date": "2026-08-10",
+      "url": "https://www.dexpose.io/qilin-targets-canadian-firm-b-wright-drywall-in-ransomware-attack/"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "Storm勒索組織攻擊Southern Metals Company",
+      "date": "2026-08-10",
+      "url": "https://www.dexpose.io/storm-ransomware-targets-southern-metals-company/"
+    },
+    {
+      "category": "政府公告",
+      "title": "TWCERT/CC示警Microsoft SharePoint CVE-2026-50522高風險漏洞",
+      "date": "2026-07-30",
+      "url": "https://www.twcert.org.tw/tw/lp-169-1.html"
+    },
+    {
+      "category": "政府公告",
+      "title": "TWCERT/CC 2026年7月份資安情資電子報發布",
+      "date": "2026-07-31",
+      "url": "https://www.twcert.org.tw/tw/cp-106-11070-54f76-1.html"
+    },
+    {
+      "category": "政府公告",
+      "title": "TWCERT/CC KEV週報（7/13-7/19）",
+      "date": "2026-07-20",
+      "url": "https://www.twcert.org.tw/tw/lp-168-1.html"
+    },
+    {
+      "category": "政府公告",
+      "title": "TWCERT/CC發布Microsoft 2026年7月份安全性更新公告",
+      "date": "2026-07-15",
+      "url": "https://www.twcert.org.tw/tw/lp-169-1.html"
+    },
+    {
+      "category": "政府公告",
+      "title": "TWCERT/CC發布Microsoft 2026年7月安全性更新公告",
+      "date": "2026-07-15",
+      "url": "https://www.twcert.org.tw/tw/lp-169-1.html"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "Microsoft SharePoint CVE-2026-56164遭實際利用",
+      "date": "2026-07-14",
+      "url": "https://msrc.microsoft.com/update-guide/"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "Microsoft AD FS CVE-2026-56155遭實際利用",
+      "date": "2026-07-14",
+      "url": "https://msrc.microsoft.com/update-guide/"
+    },
+    {
+      "category": "資料外洩",
+      "title": "Accenture證實原始碼與金鑰資料遭竊",
+      "date": "2026-07-14",
+      "url": "https://blog.senthorus.ch/posts/14_07_2026"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "SharePoint 0-day（CVE-2026-56164）隨Patch Tuesday公告",
+      "date": "2026-07-14",
+      "url": "https://msrc.microsoft.com/update-guide/"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "AD FS 0-day（CVE-2026-56155）存取控制漏洞",
+      "date": "2026-07-14",
+      "url": "https://msrc.microsoft.com/update-guide/"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "Deutsche Bank遭Unsafe勒索組織列入外洩名單",
+      "date": "2026-07-10",
+      "url": "https://blog.senthorus.ch/posts/14_07_2026"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "Fluke Corporation遭ShinyHunters竊取逾100GB資料",
+      "date": "2026-07-10",
+      "url": "https://blog.senthorus.ch/posts/14_07_2026"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "Ford汽車墨西哥廠遭Krybit勒索組織點名",
+      "date": "2026-07-10",
+      "url": "https://sharkstriker.com/blog/july-2026-data-breaches/"
+    }
+  ],
+  "cve_radar": [
+    {
+      "cve_id": "CVE-2026-72898",
+      "title": "Metabase SQL注入漏洞，攻擊者可取得管理員權限",
+      "cvss": 10,
+      "cvss_source": "NVD官方",
+      "exploited": true,
+      "action": "立即更新"
+    },
+    {
+      "cve_id": "CVE-2026-20349",
+      "title": "Cisco ASA/FTD堆積檢查漏洞",
+      "cvss": 8.6,
+      "cvss_source": "AI推估",
+      "exploited": true,
+      "action": "立即更新"
+    },
+    {
+      "cve_id": "CVE-2026-68820",
+      "title": "Windows AFD.sys已遭實際利用的0-day，可取得SYSTEM權限",
+      "cvss": 7,
+      "cvss_source": "AI推估",
+      "exploited": true,
+      "action": "一週內更新"
+    }
+  ],
+  "vendor_impact": [
+    {
+      "icon": "🛡️",
+      "title": "Microsoft Defender「ShieldBreak」零時差漏洞，繞過RoguePlanet修補",
+      "impact": "高",
+      "key_asset": "Windows 10／11／Server 2025",
+      "ai_suggestion": "目前無官方修補，建議留意Microsoft後續更新並加強端點監控"
+    },
+    {
+      "icon": "🪟",
+      "title": "微軟2026年8月Patch Tuesday（約400個CVE，含1個已遭利用0-day）",
+      "impact": "高",
+      "key_asset": "Windows Server / Office / SharePoint",
+      "ai_suggestion": "建議優先確認CVE-2026-68820相關系統已完成更新"
+    },
+    {
+      "icon": "📡",
+      "title": "Cisco ASA/FTD堆積檢查漏洞（CVE-2026-20349）已遭利用",
+      "impact": "中",
+      "key_asset": "Cisco Secure Firewall ASA/FTD",
+      "ai_suggestion": "建議確認邊界防火牆設備版本並儘速更新"
+    }
+  ],
+  "action_items": [
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-50522：SharePoint RCE漏洞，攻擊者竊取IIS機器金鑰建立持久存取",
+      "priority": "高",
+      "detail": "CVSS 9.8（AI推估），建議立即更新"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-9198：程式碼注入漏洞，已遭大規模自動化掃描利用",
+      "priority": "高",
+      "detail": "CVSS 9.8（AI推估），建議立即更新"
+    },
+    {
+      "category": "公告確認",
+      "title": "SharePoint CVE-2026-50522遠端程式碼執行漏洞，8月Patch Tuesday前已遭實際利用",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-16812：OS指令注入漏洞",
+      "priority": "中",
+      "detail": "CVSS 8.6（AI推估），建議一週內更新"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-18556：身分驗證繞過漏洞，初次修補未完全解決後遭持續利用",
+      "priority": "中",
+      "detail": "CVSS 8.2（AI推估），建議一週內更新"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-18577：身分驗證繞過漏洞（與18556同批公告）",
+      "priority": "中",
+      "detail": "CVSS 8.2（AI推估），建議一週內更新"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-34486：缺少加密保護敏感資料漏洞",
+      "priority": "中",
+      "detail": "CVSS 7.5（AI推估），建議一週內更新"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2025-68686：敏感資訊洩漏漏洞",
+      "priority": "中",
+      "detail": "CVSS 7.5（AI推估），建議一週內更新"
+    },
+    {
+      "category": "公告確認",
+      "title": "Microsoft SharePoint存在高風險安全漏洞(CVE-2026-50522)",
+      "priority": "中",
+      "detail": "來源：TWCERT/CC。提醒企業儘速確認SharePoint環境修補狀態，該漏洞已有實際攻擊案例。"
+    },
+    {
+      "category": "公告確認",
+      "title": "TWCERT/CC 2026年7月份資安情資電子報發布",
+      "priority": "中",
+      "detail": "來源：TWCERT/CC。彙整七月份重大資安事件、漏洞與威脅趨勢。"
+    },
+    {
+      "category": "公告確認",
+      "title": "「Friendly Fire」攻擊手法：AI防禦工具遭誘導成為攻擊武器",
+      "priority": "中",
+      "detail": "來源：TWCERT/CC。研究揭露攻擊者可誘導企業內部AI資安工具反過來執行惡意操作，提醒留意AI工具權限控管。"
+    },
+    {
+      "category": "掃描比對",
+      "title": "Langflow漏洞(CVE-2026-9198)大規模掃描攻擊相關IOC比對",
+      "priority": "中",
+      "detail": "涉及類型：IP。建議比對內部防火牆/EDR日誌。"
+    },
+    {
+      "category": "掃描比對",
+      "title": "SharePoint機器金鑰竊取活動(CVE-2026-50522)相關IOC比對",
+      "priority": "中",
+      "detail": "涉及類型：Hash。建議比對內部防火牆/EDR日誌。"
+    },
+    {
+      "category": "教育宣導",
+      "title": "「Friendly Fire」攻擊手法：AI防禦工具遭誘導成為攻擊武器",
+      "priority": "低",
+      "detail": "建議納入員工資安宣導教育素材。"
+    }
+  ],
+  "risk_score": {
+    "total": 60,
+    "breakdown": [
+      {
+        "label": "漏洞風險",
+        "score": 100
+      },
+      {
+        "label": "APT攻擊",
+        "score": 0
+      },
+      {
+        "label": "勒索病毒",
+        "score": 88
+      },
+      {
+        "label": "身份風險",
+        "score": 50
+      },
+      {
+        "label": "AI風險",
+        "score": 60
+      }
     ]
   },
-  {
-    title:'資安通告：08/04~08/10 資安弱點威脅彙整週報（Cisco/Fortinet）',
-    pubDate:'2026-08-11', updateDate:'2026-08-11', risk:'high', source:'弱點威脅週報',
-    vendor:'Cisco', products:['ASA','FTD','Firepower Threat Defense'],
-    cves:['CVE-2026-20349'],
-    refs:[{label:'Cisco ASA/FTD堆積檢查漏洞已遭實際利用，CISA列入KEV', url:'#'}]
+  "category_counts": {
+    "kev": 3,
+    "vendor": 3,
+    "news": 4,
+    "ransomwareApt": 4
   },
-  {
-    title:'FortiOS SSL VPN威脅防禦漏洞警訊',
-    pubDate:'2026-07-30', updateDate:'2026-07-30', risk:'high', source:'弱點威脅週報',
-    vendor:'Fortinet', products:['FortiOS','FortiGate'],
-    cves:['CVE-2025-68686'],
-    refs:[{label:'FortiOS敏感資訊洩漏漏洞已列入CISA KEV', url:'#'}]
-  },
-  {
-    title:'Metabase SQL注入漏洞導致管理員權限遭竊取',
-    pubDate:'2026-08-11', updateDate:'2026-08-11', risk:'high', source:'資安ITHome',
-    vendor:'Metabase', products:['Metabase Open Source','Metabase Enterprise'],
-    cves:['CVE-2026-72898'],
-    refs:[{label:'Metabase SQL注入漏洞(CVSS 10.0)技術分析', url:'#'}]
-  },
-  {
-    title:'Windows AFD.sys權限提升0-day已遭實際利用',
-    pubDate:'2026-08-11', updateDate:'2026-08-13', risk:'high', source:'弱點威脅週報',
-    vendor:'Microsoft', products:['Windows 10','Windows 11','Windows Server'],
-    cves:['CVE-2026-68820'],
-    refs:[{label:'Windows AFD.sys 0-day技術細節與修補建議', url:'#'}]
-  },
-  {
-    title:'Langflow授權繞過漏洞遭AI Agent用於自主勒索攻擊',
-    pubDate:'2026-08-05', updateDate:'2026-08-05', risk:'low', source:'國際資安政策觀測',
-    vendor:'Langflow', products:['Langflow'],
-    cves:['CVE-2026-9198','CVE-2026-55255'],
-    refs:[{label:'JADEPUFFER：首例AI Agent自主執行勒索軟體攻擊分析', url:'#'}]
-  },
-  {
-    title:'N-able N-central身分驗證繞過漏洞修補不完整',
-    pubDate:'2026-08-03', updateDate:'2026-08-04', risk:'low', source:'資安人',
-    vendor:'N-able', products:['N-central'],
-    cves:['CVE-2026-18556','CVE-2026-18577'],
-    refs:[{label:'N-able N-central漏洞修補後仍遭繞過持續利用', url:'#'}]
-  },
-];
-
-/* ================= 渲染邏輯 ================= */
+  "international_news_list": [
+    {
+      "title": "研究員發布Defender「ShieldBreak」零時差漏洞，繞過RoguePlanet修補",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/new-microsoft-defender-shieldbreak-zero-day-grants-system-privileges/"
+    },
+    {
+      "title": "CISA新增Metabase、Windows AFD.sys、Cisco ASA/FTD三項已遭利用漏洞",
+      "source": "CyberExperts",
+      "url": "https://cyberexperts.com/2026-08-12-cisa-adds-three-known-exploited-vulnerabilities-to-catalog/"
+    },
+    {
+      "title": "微軟2026年8月Patch Tuesday修補約400個CVE，含1個已遭利用0-day",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/august-2026-patch-tuesday-microsoft-fixes-421-cves-one-exploited-zero-day/"
+    },
+    {
+      "title": "Gunra勒索軟體集團利用Fortinet舊漏洞繞過MFA攻擊關鍵基礎設施",
+      "source": "Dark Reading",
+      "url": "https://www.darkreading.com/cyberattacks-data-breaches/gunra-ransomware-gang-fortinet-flaws-bypasses-mfa"
+    }
+  ],
+  "ransomware_apt_list": [
+    {
+      "date": "2026-08-11",
+      "type": "勒索軟體",
+      "title": "Gunra勒索集團持續利用Fortinet舊漏洞繞過MFA攻擊關鍵基礎設施",
+      "source": "Dark Reading",
+      "url": "https://www.darkreading.com/cyberattacks-data-breaches/gunra-ransomware-gang-fortinet-flaws-bypasses-mfa"
+    },
+    {
+      "date": "2026-08-10",
+      "type": "勒索軟體",
+      "title": "Unsafe勒索組織攻擊印度Presentations.AI",
+      "source": "DeXpose",
+      "url": "https://www.dexpose.io/unsafe-ransomware-group-compromises-presentations-ai/"
+    },
+    {
+      "date": "2026-08-10",
+      "type": "勒索軟體",
+      "title": "Qilin勒索組織點名加拿大B Wright Drywall",
+      "source": "DeXpose",
+      "url": "https://www.dexpose.io/qilin-targets-canadian-firm-b-wright-drywall-in-ransomware-attack/"
+    },
+    {
+      "date": "2026-08-10",
+      "type": "勒索軟體",
+      "title": "Storm勒索組織攻擊Southern Metals Company",
+      "source": "DeXpose",
+      "url": "https://www.dexpose.io/storm-ransomware-targets-southern-metals-company/"
+    }
+  ]
+};
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
 
-function renderSimpleList(containerId, items){
-  const el = document.getElementById(containerId);
-  el.innerHTML = items.map(i => `
-    <div class="list-item">
-      <a href="#">${escapeHtml(i.title)}</a>
-      <span class="list-meta">${escapeHtml(i.date)} ・ ${escapeHtml(i.source)}</span>
-    </div>`).join('');
-}
+function renderTicker(data){
+  const track = document.getElementById('tickerTrack');
+  if (!track) return;
 
-function renderWordCloud(words){
-  const el = document.getElementById('wordCloud');
-  const colors = ['#0F4C81','#2563EB','#059669','#D97706','#DC2626','#7C3AED'];
-  el.innerHTML = words.map((w,i) => `<span style="font-size:${w.s}px;font-weight:700;color:${colors[i % colors.length]}">${escapeHtml(w.t)}</span>`).join('');
-}
+  const headlineTitles = (data.headlines || []).map(h => ({ title: h.title, url: h.url }));
+  const todayCutoff = Date.now() - 86400000;
+  const eventTitles = (data.global_events || [])
+    .filter(e => { const d = new Date(e.date); return isNaN(d.getTime()) ? true : d.getTime() >= todayCutoff; })
+    .map(e => ({ title: e.title, url: e.url }));
 
-/* 儀表板頁籤切換 */
-function bindTabGroup(group, handlers){
-  document.querySelectorAll(`.card-tab-btn[data-group="${group}"]`).forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll(`.card-tab-btn[data-group="${group}"]`).forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      handlers[btn.dataset.tab]?.();
-    });
-  });
-}
-
-renderSimpleList('cveList', CVE_LATEST);
-bindTabGroup('cve', {
-  cve: () => renderSimpleList('cveList', CVE_LATEST),
-  news: () => renderSimpleList('cveList', NEWS_LATEST),
-});
-
-renderSimpleList('weeklyList', CVE_WEEKLY);
-bindTabGroup('weekly', {
-  cveWeekly: () => renderSimpleList('weeklyList', CVE_WEEKLY),
-  secWeekly: () => renderSimpleList('weeklyList', SEC_WEEKLY),
-});
-
-renderWordCloud(WORDS_LATEST);
-renderSimpleList('focusList', [...CVE_LATEST, ...NEWS_LATEST].slice(0,5));
-bindTabGroup('focus', {
-  latest: () => renderWordCloud(WORDS_LATEST),
-  week: () => renderWordCloud(WORDS_WEEK),
-  sub: () => renderWordCloud(WORDS_SUB),
-});
-
-/* ================= 進階篩選搜尋 ================= */
-
-const filterState = { risk: new Set(), source: new Set(), vendor: new Set(), keyword: '' };
-
-function buildFilterOptions(){
-  const riskCounts = { high: SEARCH_RESULTS.filter(r=>r.risk==='high').length, low: SEARCH_RESULTS.filter(r=>r.risk==='low').length };
-  document.getElementById('riskFilters').innerHTML = `
-    <label class="filter-check"><span class="filter-check-left"><input type="checkbox" data-risk="high"><span class="risk-icon">🟠</span>High</span><span class="count">${riskCounts.high}</span></label>
-    <label class="filter-check"><span class="filter-check-left"><input type="checkbox" data-risk="low"><span class="risk-icon">🟢</span>Low</span><span class="count">${riskCounts.low}</span></label>`;
-
-  const sources = [...new Set(SEARCH_RESULTS.map(r=>r.source))];
-  document.getElementById('sourceFilters').innerHTML = sources.map(s => {
-    const count = SEARCH_RESULTS.filter(r=>r.source===s).length;
-    return `<label class="filter-check"><span class="filter-check-left"><input type="checkbox" data-source="${escapeHtml(s)}">${escapeHtml(s)}</span><span class="count">${count}</span></label>`;
-  }).join('');
-
-  const vendors = [...new Set(SEARCH_RESULTS.map(r=>r.vendor))];
-  renderVendorFilters(vendors);
-
-  document.querySelectorAll('#riskFilters input').forEach(cb => cb.addEventListener('change', e => {
-    e.target.checked ? filterState.risk.add(e.target.dataset.risk) : filterState.risk.delete(e.target.dataset.risk);
-    applySearch();
-  }));
-  document.querySelectorAll('#sourceFilters input').forEach(cb => cb.addEventListener('change', e => {
-    e.target.checked ? filterState.source.add(e.target.dataset.source) : filterState.source.delete(e.target.dataset.source);
-    applySearch();
-  }));
-}
-
-function renderVendorFilters(vendors){
-  document.getElementById('vendorFilters').innerHTML = vendors.map(v => {
-    const count = SEARCH_RESULTS.filter(r=>r.vendor===v).length;
-    return `<label class="filter-check"><span class="filter-check-left"><input type="checkbox" data-vendor="${escapeHtml(v)}">${escapeHtml(v)}</span><span class="count">${count}</span></label>`;
-  }).join('');
-  document.querySelectorAll('#vendorFilters input').forEach(cb => cb.addEventListener('change', e => {
-    e.target.checked ? filterState.vendor.add(e.target.dataset.vendor) : filterState.vendor.delete(e.target.dataset.vendor);
-    applySearch();
-  }));
-}
-
-document.getElementById('vendorSearch').addEventListener('input', e => {
-  const q = e.target.value.trim().toLowerCase();
-  const vendors = [...new Set(SEARCH_RESULTS.map(r=>r.vendor))].filter(v => v.toLowerCase().includes(q));
-  renderVendorFilters(vendors);
-});
-
-function renderResults(items){
-  document.getElementById('resultCount').textContent = items.length;
-  const el = document.getElementById('resultList');
-  if (!items.length){
-    el.innerHTML = `<div class="card" style="text-align:center;color:var(--text-faint);font-size:13px;">沒有符合條件的資料</div>`;
-    return;
-  }
-  el.innerHTML = items.map(r => `
-    <div class="result-card">
-      <a class="result-title" href="#">${escapeHtml(r.title)}</a>
-      <div class="result-fields">
-        <span><b>發布日期</b>${escapeHtml(r.pubDate)}</span>
-        <span><b>更新日期</b>${escapeHtml(r.updateDate)}</span>
-        <span><b>風險等級</b><span class="risk-badge ${r.risk}">${r.risk==='high' ? '🟠 High' : '🟢 Low'}</span></span>
-        <span><b>來源頻道</b>${escapeHtml(r.source)}</span>
-        <span><b>供應商</b>${escapeHtml(r.vendor)}</span>
-      </div>
-      <div class="result-line"><b>產品</b>${r.products.map(escapeHtml).join('、')}</div>
-      <div class="result-line"><b>CVE_ID</b><span class="result-cve">${r.cves.map(escapeHtml).join('、')}</span></div>
-      <div class="result-sources">
-        ${r.refs.map((ref,i) => `<div class="result-source-item"><span class="result-source-num">${i+1}</span><a href="${escapeHtml(ref.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(ref.label)}</a></div>`).join('')}
-      </div>
-    </div>`).join('');
-}
-
-function applySearch(){
-  const kw = document.getElementById('searchInput').value.trim().toLowerCase();
-  const from = document.getElementById('dateFrom').value;
-  const to = document.getElementById('dateTo').value;
-
-  const filtered = SEARCH_RESULTS.filter(r => {
-    if (filterState.risk.size && !filterState.risk.has(r.risk)) return false;
-    if (filterState.source.size && !filterState.source.has(r.source)) return false;
-    if (filterState.vendor.size && !filterState.vendor.has(r.vendor)) return false;
-    if (from && r.pubDate < from) return false;
-    if (to && r.pubDate > to) return false;
-    if (kw){
-      const hay = [r.title, r.vendor, ...r.products, ...r.cves].join(' ').toLowerCase();
-      if (!hay.includes(kw)) return false;
-    }
+  const seen = new Set();
+  const items = [...headlineTitles, ...eventTitles].filter(i => {
+    if (!i.title || seen.has(i.title)) return false;
+    seen.add(i.title);
     return true;
   });
-  renderResults(filtered);
+
+  if (!items.length){
+    track.textContent = '目前沒有今日新聞資料';
+    track.style.animation = 'none';
+    return;
+  }
+
+  const itemHtml = items.map(i =>
+    `<span class="ticker-item">${escapeHtml(i.title)}</span><span class="ticker-sep">•</span>`
+  ).join('');
+
+  track.innerHTML = itemHtml + itemHtml;
 }
 
-buildFilterOptions();
-renderResults(SEARCH_RESULTS);
-document.getElementById('searchInput').addEventListener('keydown', e => { if (e.key === 'Enter') applySearch(); });
+renderTicker(DATA);
+
+function renderCategoryCounts(counts){
+  if (!counts) return;
+  const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val ?? 0; };
+  set('numKev', counts.kev);
+  set('numVendor', counts.vendor);
+  set('numNews', counts.news);
+  set('numRansom', counts.ransomwareApt);
+}
+renderCategoryCounts(DATA.category_counts);
+
+/* ---------- 依欄位1234(KEV/廠商/新聞/勒索APT)數字算出風險儀表板 ---------- */
+function gaugeColor(score){
+  if (score >= 70) return 'var(--sev-high)';
+  if (score >= 40) return 'var(--sev-medium)';
+  return 'var(--sev-low)';
+}
+function gaugeLevel(score){
+  if (score >= 70) return '高風險';
+  if (score >= 40) return '中風險';
+  return '低風險';
+}
+function renderGaugeSvg(score){
+  const cx = 100, cy = 95, r = 76;
+  const needleAngle = Math.PI - (score/100) * Math.PI;
+  const nxF = cx + (r-12) * Math.cos(needleAngle);
+  const nyF = cy - (r-12) * Math.sin(needleAngle);
+  const color = gaugeColor(score);
+  return `<svg width="200" height="112" viewBox="0 0 200 112">
+    <path d="M 22 95 A 76 76 0 0 1 178 95" fill="none" stroke="var(--panel-alt)" stroke-width="14" stroke-linecap="round"/>
+    <path d="M 22 95 A 76 76 0 0 1 178 95" fill="none" stroke="${color}" stroke-width="14" stroke-linecap="round"
+      stroke-dasharray="${Math.PI*76}" stroke-dashoffset="${Math.PI*76*(1-score/100)}"/>
+    <circle cx="${cx}" cy="${cy}" r="6" fill="${color}"/>
+    <line x1="${cx}" y1="${cy}" x2="${nxF}" y2="${nyF}" stroke="${color}" stroke-width="3.5" stroke-linecap="round"/>
+  </svg>`;
+}
+
+function buildRiskFromCategoryCounts(counts){
+  const c = counts || {};
+  const clamp = n => Math.max(0, Math.min(100, Math.round(n)));
+  const items = [
+    { label:'今日漏洞雷達', color:'#2563EB', score: clamp((c.kev||0) * 12) },
+    { label:'AI企業影響分析', color:'#059669', score: clamp((c.vendor||0) * 15) },
+    { label:'國際資安新聞', color:'#D97706', score: clamp((c.news||0) * 10) },
+    { label:'勒索軟體／APT', color:'#DC2626', score: clamp((c.ransomwareApt||0) * 18) },
+  ];
+  const total = clamp(items.reduce((sum, it) => sum + it.score, 0) / items.length);
+  return { total, items };
+}
+
+function renderRiskGaugeFromCounts(counts){
+  const el = document.getElementById('riskGaugeBody');
+  if (!el) return;
+  const { total, items } = buildRiskFromCategoryCounts(counts);
+  const bars = items.map(it => `
+    <div class="risk-bar-row">
+      <div class="risk-bar-label">${escapeHtml(it.label)}</div>
+      <div class="risk-bar-track"><div class="risk-bar-fill" style="width:${it.score}%;background:${it.color}"></div></div>
+      <div class="risk-bar-val">${it.score}/100</div>
+    </div>`).join('');
+  el.innerHTML = `
+    <div class="gauge-wrap">
+      ${renderGaugeSvg(total)}
+      <div class="gauge-score" style="color:${gaugeColor(total)}">${total}<span style="font-size:15px;color:var(--text-dim);">/100</span></div>
+      <div class="gauge-level" style="color:${gaugeColor(total)}">${gaugeLevel(total)}</div>
+    </div>
+    <div class="risk-bars">${bars}</div>`;
+}
+renderRiskGaugeFromCounts(DATA.category_counts);
+
+function emptyNote(){ return '<div class="empty-note">目前沒有資料</div>'; }
+
+function statModalBody(type){
+  const d = DATA;
+  if (type === 'kev'){
+    const items = d.cve_radar || [];
+    const rows = items.map(v => `
+      <div class="stat-modal-row">
+        <span class="stat-modal-row-label">${escapeHtml(v.cve_id||'')}：${escapeHtml(v.title||'')}</span>
+        <span class="stat-modal-row-value">CVSS ${v.cvss != null ? v.cvss.toFixed(1) : '—'}</span>
+      </div>`).join('');
+    return { title: '今日漏洞雷達（KEV）', body: rows || emptyNote() };
+  }
+  if (type === 'vendor'){
+    const items = d.vendor_impact || [];
+    const rows = items.map(v => `
+      <div class="stat-modal-row">
+        <span class="stat-modal-row-label">${escapeHtml(v.title||'')}</span>
+        <span class="stat-modal-row-value">${escapeHtml(v.impact||'')}</span>
+      </div>`).join('');
+    return { title: 'AI企業影響分析', body: rows || emptyNote() };
+  }
+  if (type === 'news'){
+    const items = d.international_news_list || [];
+    const rows = items.map(n => `
+      <div class="stat-modal-row">
+        <span class="stat-modal-row-label">${n.url ? `<a href="${escapeHtml(n.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(n.title||'')}</a>` : escapeHtml(n.title||'')}</span>
+        <span class="stat-modal-row-value">${escapeHtml(n.source||'')}</span>
+      </div>`).join('');
+    return { title: '國際資安新聞', body: rows || emptyNote() };
+  }
+  if (type === 'ransomApt'){
+    const items = d.ransomware_apt_list || [];
+    const rows = items.map(r => `
+      <div class="stat-modal-row">
+        <span class="stat-modal-row-label">[${escapeHtml(r.type||'')}] ${r.url ? `<a href="${escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(r.title||'')}</a>` : escapeHtml(r.title||'')}</span>
+        <span class="stat-modal-row-value">${escapeHtml(r.date||'')}</span>
+      </div>`).join('');
+    return { title: '勒索軟體／APT事件', body: rows || emptyNote() };
+  }
+  return { title: '', body: emptyNote() };
+}
+
+function openStatModal(type){
+  const { title, body } = statModalBody(type);
+  document.getElementById('statModalTitle').textContent = title;
+  document.getElementById('statModalBody').innerHTML = body;
+  document.getElementById('statModal').style.display = 'flex';
+}
+function closeStatModal(){
+  document.getElementById('statModal').style.display = 'none';
+}
+window.openStatModal = openStatModal;
+window.closeStatModal = closeStatModal;
 </script>
+<div class="stat-modal-overlay" id="statModal" onclick="if(event.target===this)closeStatModal()">
+  <div class="stat-modal">
+    <div class="stat-modal-header">
+      <span id="statModalTitle"></span>
+      <button class="stat-modal-close" onclick="closeStatModal()">✕</button>
+    </div>
+    <div class="stat-modal-body" id="statModalBody"></div>
+  </div>
+</div>
+
 </body>
 </html>
