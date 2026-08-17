@@ -859,7 +859,7 @@ function statModalBody(type){
         <span class="stat-modal-row-label">[${escapeHtml(a.category||'')}] ${escapeHtml(a.title||'')}</span>
         <span class="action-priority action-priority-${escapeHtml(a.priority||'中')}">${escapeHtml(a.priority||'中')}</span>
       </div>`).join('');
-    return { title: '今日待辦事項', body: rows || emptyNote() };
+    return { title: '建議行動', body: rows || emptyNote() };
   }
   if (type === 'urgentCve'){
     const items = (d.cve_radar || []).filter(v => v.action === '立即更新');
