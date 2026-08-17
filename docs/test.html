@@ -402,25 +402,39 @@ const DATA = {
   ],
   "vendor_impact": [
     {
-      "icon": "🪟",
-      "title": "Microsoft SharePoint CVE-2026-50522 RCE漏洞，8月Patch Tuesday前已遭實際利用",
+      "icon": "🛡️",
+      "title": "FortiGate／FortiOS：CVE-2025-68686敏感資訊洩漏漏洞已遭實際利用，可繞過先前修補",
       "impact": "高",
-      "key_asset": "SharePoint Server",
-      "ai_suggestion": "建議立即確認修補狀態並檢查IIS機器金鑰是否需輪替"
+      "key_asset": "FortiGate防火牆／FortiOS",
+      "ai_suggestion": "CISA要求聯邦機關8/10前完成緩解，建議盤點對外暴露的管理介面與VPN服務，檢查是否有先前遭入侵跡象"
     },
     {
       "icon": "🛡️",
-      "title": "Fortinet FortiOS敏感資訊洩漏漏洞已列入CISA KEV",
-      "impact": "中",
-      "key_asset": "FortiGate 防火牆",
-      "ai_suggestion": "建議確認FortiOS版本並儘速更新"
+      "title": "FortiGate：FortiBleed大規模憑證外洩活動，全球逾7萬台對外裝置受影響",
+      "impact": "高",
+      "key_asset": "FortiGate防火牆（對外管理介面／SSL VPN）",
+      "ai_suggestion": "目前無修補可完全解決此暴露問題，建議限制管理介面對外開放、全面輪替管理員與VPN帳密、強制啟用MFA"
+    },
+    {
+      "icon": "🪟",
+      "title": "Microsoft：2026年8月Patch Tuesday（KB5121003等），421個CVE含1個已遭利用0-day",
+      "impact": "高",
+      "key_asset": "Windows 11／Windows Server",
+      "ai_suggestion": "建議優先確認CVE-2026-68820（已遭Lazarus利用）相關系統已完成更新"
     },
     {
       "icon": "📡",
-      "title": "Cisco Unified Communications Manager安全公告",
+      "title": "Cisco：ASA/FTD SSL VPN零時差漏洞遭鎖定攻擊，僅提供熱修補無workaround",
+      "impact": "高",
+      "key_asset": "Cisco Secure Firewall ASA／FTD",
+      "ai_suggestion": "建議確認邊界防火牆版本並儘速套用熱修補，留意SSL VPN/WebVPN、IKEv2功能是否已啟用"
+    },
+    {
+      "icon": "🛡️",
+      "title": "FortiGate：CVE-2026-24858 FortiCloud SSO身分驗證繞過漏洞（CVSS 9.4）",
       "impact": "中",
-      "key_asset": "Cisco UCM",
-      "ai_suggestion": "建議檢視公告內容評估是否影響內部通訊系統"
+      "key_asset": "FortiOS／FortiManager／FortiAnalyzer",
+      "ai_suggestion": "即使已修補先前SSO相關漏洞仍可能受影響，建議確認韌體已更新至最新版本並檢查是否有異常帳號建立紀錄"
     }
   ],
   "action_items": [
@@ -536,7 +550,7 @@ const DATA = {
   },
   "category_counts": {
     "kev": 7,
-    "vendor": 3,
+    "vendor": 5,
     "news": 4,
     "ransomwareApt": 4
   }
@@ -885,7 +899,7 @@ function renderStatStrip(counts){
   if (!counts) { el.style.display = 'none'; return; }
   const cards = [
     { color:'blue', label:'今日漏洞雷達', number: counts.kev ?? 0, desc:'KEV新增筆數' },
-    { color:'green', label:'AI企業影響分析', number: counts.vendor ?? 0, desc:'Microsoft／Cisco／Fortinet' },
+    { color:'green', label:'廠商資訊', number: counts.vendor ?? 0, desc:'Microsoft／Cisco／Fortinet' },
     { color:'orange', label:'國際資安新聞', number: counts.news ?? 0, desc:'今日彙整則數' },
     { color:'red', label:'勒索軟體／APT', number: counts.ransomwareApt ?? 0, desc:'近期事件數' },
   ];
@@ -904,7 +918,7 @@ grid.innerHTML =
   panelShell('②', '🎯', '今日漏洞雷達 (CVE)', null, renderCveRadar(DATA.cve_radar)) +
   panelShell('③', '✅', '今日建議行動', null, renderActionItems(DATA.action_items)) +
   panelShell('④', '📊', 'AI風險熱度儀表板', null, renderRiskGauge(DATA.risk_score)) +
-  panelShell('⑤', '🏢', 'AI企業影響分析', null, renderVendorImpact(DATA.vendor_impact)) +
+  panelShell('⑤', '🏢', '廠商資訊', null, renderVendorImpact(DATA.vendor_impact)) +
   panelShell('⑥', '🪟', 'Windows更新發布資訊', null,
     `<div id="globalEventsBody"></div>`,
     `<div class="tab-row">
