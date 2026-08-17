@@ -16,16 +16,6 @@
   *{box-sizing:border-box;margin:0;padding:0;}
   body{background:var(--bg);color:var(--text);font-family:'Noto Sans TC',sans-serif;min-height:100vh;}
 
-  /* 頂部導覽列 */
-  .topbar{background:var(--brand-light);border-bottom:1px solid var(--border);padding:12px 24px;display:flex;align-items:center;justify-content:space-between;}
-  .topbar-brand{display:flex;align-items:center;gap:10px;}
-  .topbar-logo{width:34px;height:34px;border-radius:8px;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;}
-  .topbar-title{font-weight:700;font-size:15px;color:var(--brand);}
-  .topbar-nav{display:flex;gap:18px;font-size:12.5px;color:var(--text-dim);}
-  .topbar-nav a{color:var(--text-dim);text-decoration:none;cursor:pointer;}
-  .topbar-nav a:hover{color:var(--brand);}
-  .topbar-nav a.active{color:var(--brand);font-weight:700;}
-
   .wrap{max-width:1400px;margin:0 auto;padding:20px 24px 60px;}
 
   /* 通用卡片 */
@@ -100,24 +90,8 @@
 </head>
 <body>
 
-<div class="topbar">
-  <div class="topbar-brand">
-    <div class="topbar-logo">J</div>
-    <div class="topbar-title">資安整合平台</div>
-  </div>
-  <div class="topbar-nav">
-    <a class="active">回首頁</a>
-    <a>整合檢索</a>
-    <a>資料來源檢視</a>
-    <a>報表管理</a>
-    <a>帳號管理</a>
-    <a>公告資訊管理</a>
-    <a>聯繫客服</a>
-    <a>登出</a>
-  </div>
-</div>
-
 <div class="wrap">
+
 
   <!-- ===== 首頁儀表板區塊 ===== -->
   <div class="dash-row">
