@@ -891,7 +891,6 @@ function renderGlanceBanner(data){
   el.innerHTML = `
     <div class="glance-left">
       <span class="glance-badge level-${level}">${level === '高' ? '🔴' : level === '中' ? '🟡' : '🟢'} ${levelLabel}</span>
-      <span class="glance-headline">${escapeHtml(topHeadline)}</span>
     </div>
     <div class="glance-stats">
       <div class="glance-stat clickable" onclick="openStatModal('risk')"><div class="glance-stat-num risk-${level}">${total}</div><div class="glance-stat-label">風險分數/100</div></div>
