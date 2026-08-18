@@ -258,39 +258,39 @@
 const DATA = {
   "headlines": [
     {
-      "icon": "🛡️",
-      "title": "FortiBleed大規模憑證外洩，全球逾7萬台FortiGate對外裝置受影響",
-      "url": "https://www.bitsight.com/blog/security-alert-fortibleed-fortinet-vpn-credentials-firewall-exposed",
+      "icon": "🔗",
+      "title": "DeadLock勒索軟體採用Polygon區塊鏈與Session通訊，打造去中心化難以查封的攻擊基礎設施",
+      "url": "https://thehackernews.com/",
       "impact": "高",
       "stars": 5
-    },
-    {
-      "icon": "🎯",
-      "title": "CISA新增Metabase(CVSS 10.0)、Cisco ASA/FTD、Windows AFD.sys三項已遭利用漏洞",
-      "url": "https://cyberexperts.com/2026-08-12-cisa-adds-three-known-exploited-vulnerabilities-to-catalog/",
-      "impact": "高",
-      "stars": 5
-    },
-    {
-      "icon": "🪟",
-      "title": "微軟發布KB5121003等8月更新檔，421個CVE含1個已遭Lazarus利用的0-day",
-      "url": "https://www.tech2geek.net/windows-11-august-2026-patch-tuesday-kb5121003-and-kb5120240-bring-security-fixes-and-new-features/",
-      "impact": "高",
-      "stars": 4
-    },
-    {
-      "icon": "📡",
-      "title": "Cisco ASA/FTD SSL VPN零時差漏洞遭鎖定攻擊，無workaround僅能修補",
-      "url": "https://www.cisa.gov/news-events/alerts/2026/08/11/cisa-adds-three-known-exploited-vulnerabilities-catalog",
-      "impact": "高",
-      "stars": 4
     },
     {
       "icon": "🦠",
-      "title": "Mustang Panda APT組織升級CoolClient惡意程式，加入核心層Rootkit",
-      "url": "https://www.itsecuritynews.info/it-security-news-daily-summary-2026-08-15/",
+      "title": "聯邦聯合公告證實Gunra已發展成大型RaaS網路，持續利用FortiOS舊漏洞攻擊醫療/政府機構",
+      "url": "https://buttondown.com/WiseGuru/archive/weekly-review-2026-08-17/",
+      "impact": "高",
+      "stars": 5
+    },
+    {
+      "icon": "🔓",
+      "title": "SonicWall零時差漏洞鏈遭利用竊取高權限憑證與活躍工作階段資料",
+      "url": "https://thehackernews.com/",
+      "impact": "高",
+      "stars": 4
+    },
+    {
+      "icon": "📈",
+      "title": "INC勒索軟體集團8月起加速活動，累計已列881名以上受害者",
+      "url": "https://thehackernews.com/",
       "impact": "中",
-      "stars": 3
+      "stars": 4
+    },
+    {
+      "icon": "🛡️",
+      "title": "FortiBleed大規模憑證外洩，全球逾7萬台FortiGate對外裝置持續受影響",
+      "url": "https://www.bitsight.com/blog/security-alert-fortibleed-fortinet-vpn-credentials-firewall-exposed",
+      "impact": "高",
+      "stars": 4
     }
   ],
   "global_events": [
@@ -353,6 +353,22 @@ const DATA = {
       "action": "立即更新"
     },
     {
+      "cve_id": "CVE-2026-15409",
+      "title": "SonicWall零時差漏洞，可串聯CVE-2026-15410執行任意指令",
+      "cvss": 9.1,
+      "cvss_source": "AI推估",
+      "exploited": true,
+      "action": "立即更新"
+    },
+    {
+      "cve_id": "CVE-2026-15410",
+      "title": "SonicWall零時差漏洞，攻擊者藉此竊取高權限憑證與工作階段資料",
+      "cvss": 8.8,
+      "cvss_source": "AI推估",
+      "exploited": true,
+      "action": "立即更新"
+    },
+    {
       "cve_id": "CVE-2026-20349",
       "title": "Cisco ASA/FTD SSL VPN堆積檢查漏洞，僅提供熱修補",
       "cvss": 8.6,
@@ -369,9 +385,9 @@ const DATA = {
       "action": "一週內更新"
     },
     {
-      "cve_id": "CVE-2025-68686",
-      "title": "FortiOS敏感資訊洩漏漏洞，可繞過先前修補",
-      "cvss": 7.5,
+      "cve_id": "CVE-2024-55591",
+      "title": "FortiOS/FortiProxy身分驗證繞過漏洞，遭Gunra勒索集團持續利用",
+      "cvss": 9.8,
       "cvss_source": "AI推估",
       "exploited": true,
       "action": "立即更新"
@@ -380,17 +396,24 @@ const DATA = {
   "vendor_impact": [
     {
       "icon": "🛡️",
-      "title": "FortiGate／FortiOS：CVE-2025-68686敏感資訊洩漏漏洞已遭實際利用，可繞過先前修補",
+      "title": "FortiOS/FortiProxy：CVE-2024-55591身分驗證繞過漏洞遭Gunra勒索集團持續利用",
       "impact": "高",
-      "key_asset": "FortiGate防火牆／FortiOS",
-      "ai_suggestion": "CISA要求聯邦機關8/10前完成緩解，建議盤點對外暴露的管理介面與VPN服務，檢查是否有先前遭入侵跡象"
+      "key_asset": "FortiGate防火牆／FortiProxy",
+      "ai_suggestion": "聯邦機關已發布聯合公告，建議確認韌體版本並排查是否已有初始入侵跡象"
     },
     {
       "icon": "🛡️",
       "title": "FortiGate：FortiBleed大規模憑證外洩活動，全球逾7萬台對外裝置受影響",
       "impact": "高",
       "key_asset": "FortiGate防火牆（對外管理介面／SSL VPN）",
-      "ai_suggestion": "目前無修補可完全解決此暴露問題，建議限制管理介面對外開放、全面輪替管理員與VPN帳密、強制啟用MFA"
+      "ai_suggestion": "建議限制管理介面對外開放、全面輪替管理員與VPN帳密、強制啟用MFA"
+    },
+    {
+      "icon": "🔓",
+      "title": "SonicWall：CVE-2026-15409/15410零時差漏洞鏈已遭利用竊取憑證",
+      "impact": "高",
+      "key_asset": "SonicWall防火牆設備",
+      "ai_suggestion": "廠商已於7月中釋出修補，建議立即確認版本並檢查是否已有憑證外洩跡象"
     },
     {
       "icon": "🪟",
@@ -404,14 +427,7 @@ const DATA = {
       "title": "Cisco：ASA/FTD SSL VPN零時差漏洞遭鎖定攻擊，僅提供熱修補無workaround",
       "impact": "高",
       "key_asset": "Cisco Secure Firewall ASA／FTD",
-      "ai_suggestion": "建議確認邊界防火牆版本並儘速套用熱修補，留意SSL VPN/WebVPN、IKEv2功能是否已啟用"
-    },
-    {
-      "icon": "🛡️",
-      "title": "FortiGate：CVE-2026-24858 FortiCloud SSO身分驗證繞過漏洞（CVSS 9.4）",
-      "impact": "中",
-      "key_asset": "FortiOS／FortiManager／FortiAnalyzer",
-      "ai_suggestion": "即使已修補先前SSO相關漏洞仍可能受影響，建議確認韌體已更新至最新版本並檢查是否有異常帳號建立紀錄"
+      "ai_suggestion": "建議確認邊界防火牆版本並儘速套用熱修補"
     }
   ],
   "action_items": [
@@ -423,27 +439,45 @@ const DATA = {
     },
     {
       "category": "漏洞修補",
+      "title": "CVE-2026-15409：SonicWall零時差漏洞，可串聯CVE-2026-15410執行任意指令",
+      "priority": "高",
+      "detail": "CVSS 9.1（AI推估），建議立即更新"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-15410：SonicWall零時差漏洞，攻擊者藉此竊取高權限憑證與工作階段資料",
+      "priority": "高",
+      "detail": "CVSS 8.8（AI推估），建議立即更新"
+    },
+    {
+      "category": "漏洞修補",
       "title": "CVE-2026-20349：Cisco ASA/FTD SSL VPN堆積檢查漏洞，僅提供熱修補",
       "priority": "高",
       "detail": "CVSS 8.6（AI推估），建議立即更新"
     },
     {
       "category": "漏洞修補",
-      "title": "CVE-2025-68686：FortiOS敏感資訊洩漏漏洞，可繞過先前修補",
+      "title": "CVE-2024-55591：FortiOS/FortiProxy身分驗證繞過漏洞，遭Gunra勒索集團持續利用",
       "priority": "高",
-      "detail": "CVSS 7.5（AI推估），建議立即更新"
+      "detail": "CVSS 9.8（AI推估），建議立即更新"
     },
     {
       "category": "廠商公告",
-      "title": "FortiGate／FortiOS：CVE-2025-68686敏感資訊洩漏漏洞已遭實際利用，可繞過先前修補",
+      "title": "FortiOS/FortiProxy：CVE-2024-55591身分驗證繞過漏洞遭Gunra勒索集團持續利用",
       "priority": "高",
-      "detail": "CISA要求聯邦機關8/10前完成緩解，建議盤點對外暴露的管理介面與VPN服務，檢查是否有先前遭入侵跡象"
+      "detail": "聯邦機關已發布聯合公告，建議確認韌體版本並排查是否已有初始入侵跡象"
     },
     {
       "category": "廠商公告",
       "title": "FortiGate：FortiBleed大規模憑證外洩活動，全球逾7萬台對外裝置受影響",
       "priority": "高",
-      "detail": "目前無修補可完全解決此暴露問題，建議限制管理介面對外開放、全面輪替管理員與VPN帳密、強制啟用MFA"
+      "detail": "建議限制管理介面對外開放、全面輪替管理員與VPN帳密、強制啟用MFA"
+    },
+    {
+      "category": "廠商公告",
+      "title": "SonicWall：CVE-2026-15409/15410零時差漏洞鏈已遭利用竊取憑證",
+      "priority": "高",
+      "detail": "廠商已於7月中釋出修補，建議立即確認版本並檢查是否已有憑證外洩跡象"
     },
     {
       "category": "廠商公告",
@@ -455,45 +489,33 @@ const DATA = {
       "category": "廠商公告",
       "title": "Cisco：ASA/FTD SSL VPN零時差漏洞遭鎖定攻擊，僅提供熱修補無workaround",
       "priority": "高",
-      "detail": "建議確認邊界防火牆版本並儘速套用熱修補，留意SSL VPN/WebVPN、IKEv2功能是否已啟用"
+      "detail": "建議確認邊界防火牆版本並儘速套用熱修補"
     },
     {
       "category": "漏洞修補",
       "title": "CVE-2026-68820：Windows AFD.sys已遭Lazarus集團實際利用的0-day",
       "priority": "中",
       "detail": "CVSS 7（AI推估），建議一週內更新"
-    },
-    {
-      "category": "公告確認",
-      "title": "微軟發布KB5121003更新檔（Windows 11 24H2/25H2，含2026年8月安全性修補）",
-      "priority": "中",
-      "detail": "來源：微軟官方更新發布，建議確認相關系統已完成部署。"
-    },
-    {
-      "category": "公告確認",
-      "title": "微軟發布KB5120240更新檔（Windows 11 23H2，含8月Patch Tuesday安全修補）",
-      "priority": "中",
-      "detail": "來源：微軟官方更新發布，建議確認相關系統已完成部署。"
     }
   ],
   "risk_score": {
-    "total": 27,
+    "total": 44,
     "breakdown": [
       {
         "label": "漏洞風險",
-        "score": 80
+        "score": 100
       },
       {
         "label": "APT攻擊",
-        "score": 30
+        "score": 20
       },
       {
         "label": "勒索病毒",
-        "score": 0
+        "score": 72
       },
       {
         "label": "身份風險",
-        "score": 25
+        "score": 30
       },
       {
         "label": "AI風險",
@@ -502,7 +524,7 @@ const DATA = {
     ]
   },
   "category_counts": {
-    "kev": 4,
+    "kev": 6,
     "vendor": 5,
     "news": 4,
     "ransomwareApt": 4
