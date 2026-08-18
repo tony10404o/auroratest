@@ -573,7 +573,7 @@ function panelShell(num, icon, title, viewAllUrl, bodyHtml, extraHeaderHtml='', 
 /* ---------- Panel 1: 今日資安頭條 ---------- */
 function renderHeadlines(items){
   if (!items || !items.length) return emptyNote();
-  return items.slice(0,5).map((h, i) => `
+  const rows = items.map((h, i) => `
     <div class="headline-row">
       <div class="headline-num">${i+1}</div>
       <div class="headline-body">
@@ -586,7 +586,8 @@ function renderHeadlines(items){
         </div>
         ${h.subtitle ? `<div class="headline-sub">${escapeHtml(h.subtitle)}</div>` : ''}
       </div>
-    </div>`).join('');
+    </div>`);
+  return withShowMore(rows);
 }
 
 /* ---------- Panel 2: 全球重大事件 ---------- */
@@ -866,7 +867,7 @@ renderStatStrip(DATA.category_counts);
 const grid = document.getElementById('dashboardGrid');
 
 grid.innerHTML =
-  panelShell('①', '📰', '今日資安頭條 (Top 5)', null, renderHeadlines(DATA.headlines)) +
+  panelShell('①', '📰', '新聞事件', null, renderHeadlines(DATA.headlines)) +
   panelShell('②', '🎯', '今日漏洞雷達 (CVE)', null, renderCveRadar(DATA.cve_radar), '', '#2563EB') +
   panelShell('③', '✅', '今日建議行動', null, renderActionItems(DATA.action_items)) +
   panelShell('④', '📊', 'AI風險熱度儀表板', null, renderRiskGauge(DATA.risk_score)) +
