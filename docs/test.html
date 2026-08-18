@@ -557,10 +557,10 @@ function toggleMoreRows(btn){
 window.toggleMoreRows = toggleMoreRows;
 function emptyNote(){ return `<div class="empty-note">目前沒有資料</div>`; }
 
-function panelShell(num, icon, title, viewAllUrl, bodyHtml, extraHeaderHtml=''){
+function panelShell(num, icon, title, viewAllUrl, bodyHtml, extraHeaderHtml='', numColor=''){
   return `<div class="panel">
     <div class="panel-header">
-      <span class="panel-num">${num}</span>
+      <span class="panel-num"${numColor ? ` style="color:${numColor}"` : ''}>${num}</span>
       <span class="panel-icon">${icon}</span>
       <span class="panel-title">${escapeHtml(title)}</span>
       ${viewAllUrl ? `<a class="panel-viewall" href="${escapeHtml(viewAllUrl)}" target="_blank" rel="noopener noreferrer">查看全部 →</a>` : ''}
@@ -867,10 +867,10 @@ const grid = document.getElementById('dashboardGrid');
 
 grid.innerHTML =
   panelShell('①', '📰', '今日資安頭條 (Top 5)', null, renderHeadlines(DATA.headlines)) +
-  panelShell('②', '🎯', '今日漏洞雷達 (CVE)', null, renderCveRadar(DATA.cve_radar)) +
+  panelShell('②', '🎯', '今日漏洞雷達 (CVE)', null, renderCveRadar(DATA.cve_radar), '', '#2563EB') +
   panelShell('③', '✅', '今日建議行動', null, renderActionItems(DATA.action_items)) +
   panelShell('④', '📊', 'AI風險熱度儀表板', null, renderRiskGauge(DATA.risk_score)) +
-  panelShell('⑤', '🏢', '廠商資訊', null, renderVendorImpact(DATA.vendor_impact)) +
+  panelShell('⑤', '🏢', '廠商資訊', null, renderVendorImpact(DATA.vendor_impact), '', '#059669') +
   panelShell('⑥', '🪟', 'Windows更新發布資訊', null,
     `<div id="globalEventsBody"></div>`,
     `<div class="tab-row">
