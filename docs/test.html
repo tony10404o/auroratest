@@ -580,7 +580,7 @@ function renderHeadlines(items){
         <div class="headline-title-row">
           <div class="headline-title">${h.icon ? h.icon + ' ' : ''}${h.url ? `<a href="${escapeHtml(h.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(h.title)}</a>` : escapeHtml(h.title)}</div>
           <div class="headline-title-tags">
-            ${h.impact ? `<span class="impact-badge impact-${escapeHtml(h.impact)}">${escapeHtml(h.impact)}影響</span>` : ''}
+            ${h.impact ? `<span class="impact-badge impact-${escapeHtml(h.impact)}">${escapeHtml(h.impact)}風險</span>` : ''}
             ${h.stars ? `<span class="stars">${'★'.repeat(h.stars)}${'☆'.repeat(5-h.stars)}</span>` : ''}
           </div>
         </div>
