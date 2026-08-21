@@ -680,14 +680,10 @@ function renderCveRadar(items){
       </td>
       <td class="cvss-num">${v.cvss ?? '—'}${v.cvss_source ? `<div class="cvss-source">${escapeHtml(v.cvss_source)}</div>` : ''}</td>
       <td>${v.exploited ? `<span class="exploited-yes">Yes</span>` : `<span class="exploited-no">No</span>`}</td>
-      <td><span class="action-badge action-${escapeHtml(v.action || '持續觀察')}">${escapeHtml(v.action || '持續觀察')}</span></td>
-    </tr>
-    <tr class="cve-advice-row">
-      <td colspan="4">建議：CVSS ${v.cvss ?? '—'}（${escapeHtml(v.cvss_source || '')}），建議${escapeHtml(v.action || '持續觀察')}</td>
     </tr>`);
   const { visibleRows, moreTbody, button } = withShowMoreRows(rowHtmls, 'cveMoreRows');
   return `<table class="cve-table">
-    <thead><tr><th>漏洞編號</th><th>CVSS</th><th>已利用</th><th>建議行動</th></tr></thead>
+    <thead><tr><th>漏洞編號</th><th>CVSS</th><th>已利用</th></tr></thead>
     <tbody>${visibleRows}</tbody>
     ${moreTbody}
   </table>${button}`;
