@@ -113,6 +113,7 @@
   .cve-table{width:100%;border-collapse:collapse;font-size:11.5px;}
   .cve-table th{text-align:left;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-faint);font-weight:600;padding:0 4px 8px;border-bottom:1px solid var(--border);}
   .cve-table td{padding:8px 4px;border-bottom:1px dashed var(--border);vertical-align:top;}
+  .cve-advice-row td{padding:0 4px 10px;border-bottom:1px dashed var(--border);font-size:11.5px;color:var(--text-dim);}
   .cve-table tr:last-child td{border-bottom:none;}
   .cve-id{font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--text);}
   .cve-title{font-size:10.5px;color:var(--text-dim);margin-top:2px;overflow-wrap:anywhere;}
@@ -258,39 +259,39 @@
 const DATA = {
   "headlines": [
     {
-      "icon": "🔗",
-      "title": "DeadLock勒索軟體採用Polygon區塊鏈與Session通訊，打造去中心化難以查封的攻擊基礎設施",
-      "url": "https://thehackernews.com/",
+      "icon": "🤖",
+      "title": "疑中國駭客用開源AI代理自主攻台，4天內入侵85個政府帳號竊取2,500筆人員資料",
+      "url": "https://udn.com/news/story/6812/9690176",
       "impact": "高",
       "stars": 5
     },
     {
-      "icon": "🦠",
-      "title": "聯邦聯合公告證實Gunra已發展成大型RaaS網路，持續利用FortiOS舊漏洞攻擊醫療/政府機構",
-      "url": "https://buttondown.com/WiseGuru/archive/weekly-review-2026-08-17/",
+      "icon": "🏛️",
+      "title": "資安署證實已對AI人機結合境外攻擊展開應變，並將範圍擴及核安會與能源公司",
+      "url": "https://www.ithome.com.tw/news/178145",
       "impact": "高",
       "stars": 5
-    },
-    {
-      "icon": "🔓",
-      "title": "SonicWall零時差漏洞鏈遭利用竊取高權限憑證與活躍工作階段資料",
-      "url": "https://thehackernews.com/",
-      "impact": "高",
-      "stars": 4
-    },
-    {
-      "icon": "📈",
-      "title": "INC勒索軟體集團8月起加速活動，累計已列881名以上受害者",
-      "url": "https://thehackernews.com/",
-      "impact": "中",
-      "stars": 4
     },
     {
       "icon": "🛡️",
-      "title": "FortiBleed大規模憑證外洩，全球逾7萬台FortiGate對外裝置持續受影響",
-      "url": "https://www.bitsight.com/blog/security-alert-fortibleed-fortinet-vpn-credentials-firewall-exposed",
+      "title": "FortiBleed衝擊台灣，90家企業遭駭客點名，近20家上市公司陷資安風暴",
+      "url": "https://tw.stock.yahoo.com/news/%E7%8D%A8%E5%AE%B6-%E8%B3%87%E5%AE%89%E9%A2%A8%E6%9A%B4%E8%A5%B2%E5%8F%B0-90%E5%AE%B6%E4%BC%81%E6%A5%AD%E9%81%AD%E9%A7%AD%E5%AE%A2%E9%BB%9E%E5%90%8D-%E5%AA%92%E9%AB%94%E4%B9%9F%E5%88%97%E5%8F%97%E5%AE%B3%E5%90%8D%E5%96%AE-033116969.html",
       "impact": "高",
       "stars": 4
+    },
+    {
+      "icon": "🏆",
+      "title": "2026 Pwnie Awards：台灣DEVCORE研究員蔡政達（Orange Tsai）獲頒史詩成就獎",
+      "url": "https://www.ithome.com.tw/news/178145",
+      "impact": "中",
+      "stars": 3
+    },
+    {
+      "icon": "🦠",
+      "title": "日商九州電子台灣子公司頻光半導體（MOST）遭勒索軟體攻擊，三階段公告完整還原事件",
+      "url": "https://news.ltn.com.tw/topic/%E8%B3%87%E5%AE%89%E4%BA%8B%E4%BB%B6",
+      "impact": "中",
+      "stars": 3
     }
   ],
   "global_events": [
@@ -680,6 +681,9 @@ function renderCveRadar(items){
       <td class="cvss-num">${v.cvss ?? '—'}${v.cvss_source ? `<div class="cvss-source">${escapeHtml(v.cvss_source)}</div>` : ''}</td>
       <td>${v.exploited ? `<span class="exploited-yes">Yes</span>` : `<span class="exploited-no">No</span>`}</td>
       <td><span class="action-badge action-${escapeHtml(v.action || '持續觀察')}">${escapeHtml(v.action || '持續觀察')}</span></td>
+    </tr>
+    <tr class="cve-advice-row">
+      <td colspan="4">建議：CVSS ${v.cvss ?? '—'}（${escapeHtml(v.cvss_source || '')}），建議${escapeHtml(v.action || '持續觀察')}</td>
     </tr>`);
   const { visibleRows, moreTbody, button } = withShowMoreRows(rowHtmls, 'cveMoreRows');
   return `<table class="cve-table">
@@ -893,10 +897,9 @@ const grid = document.getElementById('dashboardGrid');
 grid.innerHTML =
   panelShell('①', '📰', '新聞事件', null, renderHeadlines(DATA.headlines)) +
   panelShell('②', '🎯', '今日漏洞雷達 (CVE)', null, renderCveRadar(DATA.cve_radar), '', '#2563EB') +
-  panelShell('③', '✅', '今日建議行動', null, renderActionItems(DATA.action_items)) +
-  panelShell('④', '📊', 'AI風險熱度儀表板', null, renderRiskGauge(DATA.risk_score)) +
-  panelShell('⑤', '🏢', '廠商資訊', null, renderVendorImpact(DATA.vendor_impact), '', '#059669') +
-  panelShell('⑥', '🪟', 'Windows更新發布資訊', null,
+  panelShell('③', '📊', 'AI風險熱度儀表板', null, renderRiskGauge(DATA.risk_score)) +
+  panelShell('④', '🏢', '廠商資訊', null, renderVendorImpact(DATA.vendor_impact), '', '#059669') +
+  panelShell('⑤', '🪟', 'Windows更新發布資訊', null,
     `<div id="globalEventsBody"></div>`,
     `<div class="tab-row">
       <button class="tab-btn active" data-days="1">今天</button>
