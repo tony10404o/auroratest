@@ -205,6 +205,11 @@
 
   /* 分類統計字卡（色條風格） */
   .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px;}
+  .top-layout{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;margin-bottom:18px;}
+  .top-layout .gauge-box{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px;height:100%;}
+  .top-layout .stat-strip{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr);height:100%;margin-bottom:0;}
+  @media (max-width:1000px){.top-layout{grid-template-columns:1fr;}}
+  @media (max-width:480px){.top-layout .stat-strip{grid-template-columns:1fr;}}
   .strip-card{background:var(--panel);border:1px solid var(--border);border-left-width:4px;border-radius:8px;padding:14px 16px;}
   .strip-card.c-blue{border-left-color:#2563EB;}
   .strip-card.c-green{border-left-color:#059669;}
@@ -248,7 +253,10 @@
     </div>
   </div>
 
-  <div class="stat-strip" id="statStrip"></div>
+  <div class="top-layout">
+    <div class="gauge-box" id="gaugeBox"></div>
+    <div class="stat-strip" id="statStrip"></div>
+  </div>
 
   <div class="dashboard-grid" id="dashboardGrid"></div>
 
@@ -886,12 +894,18 @@ renderStatStrip(DATA.category_counts);
 
 const grid = document.getElementById('dashboardGrid');
 
+document.getElementById('gaugeBox').innerHTML =
+  `<div class="panel-header" style="margin-bottom:0;">
+    <span class="panel-icon">📊</span>
+    <span class="panel-title">AI風險熱度儀表板</span>
+  </div>
+  ${renderRiskGauge(DATA.risk_score)}`;
+
 grid.innerHTML =
   panelShell('①', '📰', '新聞事件', null, renderHeadlines(DATA.headlines)) +
   panelShell('②', '🎯', '今日漏洞雷達 (CVE)', null, renderCveRadar(DATA.cve_radar), '', '#2563EB') +
-  panelShell('③', '📊', 'AI風險熱度儀表板', null, renderRiskGauge(DATA.risk_score)) +
-  panelShell('④', '🏢', '廠商資訊', null, renderVendorImpact(DATA.vendor_impact), '', '#059669') +
-  panelShell('⑤', '🪟', 'Windows更新發布資訊', null,
+  panelShell('③', '🏢', '廠商資訊', null, renderVendorImpact(DATA.vendor_impact), '', '#059669') +
+  panelShell('④', '🪟', 'Windows更新發布資訊', null,
     `<div id="globalEventsBody"></div>`,
     `<div class="tab-row">
       <button class="tab-btn active" data-days="1">今天</button>
