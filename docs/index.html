@@ -140,9 +140,9 @@
   .vendor-suggestion b{color:var(--accent);}
 
   /* panel 5: 風險儀表板 */
-  .gauge-wrap{display:flex;flex-direction:column;align-items:center;padding:6px 0 4px;}
-  .gauge-score{font-family:'Space Grotesk',sans-serif;font-size:34px;font-weight:700;margin-top:-8px;}
-  .gauge-level{font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700;margin-bottom:12px;}
+  .gauge-wrap{display:flex;flex-direction:column;align-items:center;padding:2px 0 2px;}
+  .gauge-score{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;margin-top:-6px;}
+  .gauge-level{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;margin-bottom:8px;}
   .risk-bars{display:flex;flex-direction:column;gap:8px;}
   .risk-bar-row{display:flex;align-items:center;gap:8px;}
   .risk-bar-label{font-size:11px;color:var(--text-dim);width:76px;flex-shrink:0;}
@@ -206,7 +206,7 @@
   /* 分類統計字卡（色條風格） */
   .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px;}
   .top-layout{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;margin-bottom:18px;}
-  .top-layout .gauge-box{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px;height:100%;}
+  .top-layout .gauge-box{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:12px 16px;align-self:start;}
   .top-layout .stat-strip{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr);height:100%;margin-bottom:0;}
   @media (max-width:1000px){.top-layout{grid-template-columns:1fr;}}
   @media (max-width:480px){.top-layout .stat-strip{grid-template-columns:1fr;}}
@@ -724,17 +724,17 @@ function gaugeLevel(score){
 }
 
 function renderGaugeSvg(score){
-  const cx = 80, cy = 78, r = 62;
+  const cx = 62, cy = 60, r = 48;
   const needleAngle = Math.PI - (score/100) * Math.PI;
-  const nxF = cx + (r-10) * Math.cos(needleAngle);
-  const nyF = cy - (r-10) * Math.sin(needleAngle);
+  const nxF = cx + (r-8) * Math.cos(needleAngle);
+  const nyF = cy - (r-8) * Math.sin(needleAngle);
   const color = gaugeColor(score);
-  return `<svg width="160" height="92" viewBox="0 0 160 92">
-    <path d="M 18 78 A 62 62 0 0 1 142 78" fill="none" stroke="var(--panel-alt)" stroke-width="12" stroke-linecap="round"/>
-    <path d="M 18 78 A 62 62 0 0 1 142 78" fill="none" stroke="${color}" stroke-width="12" stroke-linecap="round"
-      stroke-dasharray="${Math.PI*62}" stroke-dashoffset="${Math.PI*62*(1-score/100)}"/>
-    <circle cx="${cx}" cy="${cy}" r="5" fill="${color}"/>
-    <line x1="${cx}" y1="${cy}" x2="${nxF}" y2="${nyF}" stroke="${color}" stroke-width="3" stroke-linecap="round"/>
+  return `<svg width="124" height="72" viewBox="0 0 124 72">
+    <path d="M 14 60 A 48 48 0 0 1 110 60" fill="none" stroke="var(--panel-alt)" stroke-width="9" stroke-linecap="round"/>
+    <path d="M 14 60 A 48 48 0 0 1 110 60" fill="none" stroke="${color}" stroke-width="9" stroke-linecap="round"
+      stroke-dasharray="${Math.PI*48}" stroke-dashoffset="${Math.PI*48*(1-score/100)}"/>
+    <circle cx="${cx}" cy="${cy}" r="4" fill="${color}"/>
+    <line x1="${cx}" y1="${cy}" x2="${nxF}" y2="${nyF}" stroke="${color}" stroke-width="2.5" stroke-linecap="round"/>
   </svg>`;
 }
 
