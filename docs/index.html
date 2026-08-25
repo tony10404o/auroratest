@@ -110,6 +110,14 @@
 
   /* panel 3: CVE 雷達 */
   .cve-table{width:100%;border-collapse:collapse;font-size:11.5px;}
+  .cve-plain-card{background:var(--panel-alt);border:1px solid var(--border);border-radius:8px;padding:12px 14px;margin-bottom:10px;}
+  .cve-plain-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:6px;}
+  .cve-plain-title{font-size:13.5px;font-weight:700;color:var(--text);line-height:1.4;}
+  .exploited-yes-badge{font-size:10px;font-weight:700;color:var(--sev-high);background:var(--sev-high-bg);padding:2px 8px;border-radius:20px;white-space:nowrap;flex-shrink:0;}
+  .cve-plain-summary{font-size:12.5px;color:var(--text-dim);line-height:1.7;margin-bottom:8px;}
+  .cve-plain-meta{display:flex;gap:10px;align-items:center;}
+  .cve-id-small{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-faint);}
+  .cve-severity-tag{font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;color:var(--accent);background:rgba(37,99,235,0.08);padding:2px 8px;border-radius:20px;}
   .cve-table th{text-align:left;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-faint);font-weight:600;padding:0 4px 8px;border-bottom:1px solid var(--border);}
   .cve-table td{padding:8px 4px;border-bottom:1px dashed var(--border);vertical-align:top;}
   .cve-advice-row td{padding:0 4px 10px;border-bottom:1px dashed var(--border);font-size:11.5px;color:var(--text-dim);}
@@ -358,7 +366,9 @@ const DATA = {
       "cvss": 10,
       "cvss_source": "NVD官方",
       "exploited": true,
-      "action": "立即更新"
+      "action": "立即更新",
+      "plain_title": "資料庫工具Metabase出現嚴重安全漏洞",
+      "plain_summary": "外部人士可能不用密碼就直接取得系統最高權限，等於整個資料庫的門鎖壞掉，任何人都能長驅直入。"
     },
     {
       "cve_id": "CVE-2026-15409",
@@ -366,7 +376,9 @@ const DATA = {
       "cvss": 9.1,
       "cvss_source": "AI推估",
       "exploited": true,
-      "action": "立即更新"
+      "action": "立即更新",
+      "plain_title": "SonicWall防火牆設備出現安全漏洞",
+      "plain_summary": "攻擊者可以遠端在防火牆設備上執行任何指令，等於防火牆這道門本身被打開了後門。"
     },
     {
       "cve_id": "CVE-2026-15410",
@@ -374,7 +386,9 @@ const DATA = {
       "cvss": 8.8,
       "cvss_source": "AI推估",
       "exploited": true,
-      "action": "立即更新"
+      "action": "立即更新",
+      "plain_title": "SonicWall防火牆設備帳密可能被竊取",
+      "plain_summary": "攻擊者能偷走使用中的登入資料，即使密碼沒外洩，也可能冒用已登入的身分進出系統。"
     },
     {
       "cve_id": "CVE-2026-20349",
@@ -382,7 +396,9 @@ const DATA = {
       "cvss": 8.6,
       "cvss_source": "AI推估",
       "exploited": true,
-      "action": "立即更新"
+      "action": "立即更新",
+      "plain_title": "Cisco防火牆VPN功能出現安全漏洞",
+      "plain_summary": "公司員工遠端連線用的VPN服務可能被攻擊者利用，目前廠商只有應急補丁，還沒有徹底修好。"
     },
     {
       "cve_id": "CVE-2026-68820",
@@ -390,7 +406,9 @@ const DATA = {
       "cvss": 7,
       "cvss_source": "AI推估",
       "exploited": true,
-      "action": "一週內更新"
+      "action": "一週內更新",
+      "plain_title": "Windows作業系統出現安全漏洞",
+      "plain_summary": "已知有駭客組織正在利用這個漏洞攻擊電腦，可能讓一般使用者權限被提升到系統管理員層級。"
     },
     {
       "cve_id": "CVE-2024-55591",
@@ -398,7 +416,9 @@ const DATA = {
       "cvss": 9.8,
       "cvss_source": "AI推估",
       "exploited": true,
-      "action": "立即更新"
+      "action": "立即更新",
+      "plain_title": "Fortinet防火牆出現身分驗證漏洞",
+      "plain_summary": "攻擊者可以繞過登入驗證直接進入系統，目前已知有勒索軟體集團正持續利用這個漏洞入侵企業。"
     }
   ],
   "vendor_impact": [
@@ -675,21 +695,19 @@ function setupGlobalEventsPanel(items){
 /* ---------- Panel 3: 今日漏洞雷達 ---------- */
 function renderCveRadar(items){
   if (!items || !items.length) return emptyNote();
-  const rowHtmls = items.map(v => `
-    <tr>
-      <td>
-        <div class="cve-id">${escapeHtml(v.cve_id || '')}</div>
-        <div class="cve-title">${escapeHtml(v.title || '')}</div>
-      </td>
-      <td class="cvss-num">${v.cvss ?? '—'}${v.cvss_source ? `<div class="cvss-source">${escapeHtml(v.cvss_source)}</div>` : ''}</td>
-      <td>${v.exploited ? `<span class="exploited-yes">Yes</span>` : `<span class="exploited-no">No</span>`}</td>
-    </tr>`);
-  const { visibleRows, moreTbody, button } = withShowMoreRows(rowHtmls, 'cveMoreRows');
-  return `<table class="cve-table">
-    <thead><tr><th>漏洞編號</th><th>CVSS</th><th>已利用</th></tr></thead>
-    <tbody>${visibleRows}</tbody>
-    ${moreTbody}
-  </table>${button}`;
+  const cardHtmls = items.map(v => `
+    <div class="cve-plain-card">
+      <div class="cve-plain-top">
+        <div class="cve-plain-title">${escapeHtml(v.plain_title || v.title || '')}</div>
+        ${v.exploited ? `<span class="exploited-yes-badge">⚠ 已有真實攻擊案例</span>` : ''}
+      </div>
+      <div class="cve-plain-summary">${escapeHtml(v.plain_summary || v.title || '')}</div>
+      <div class="cve-plain-meta">
+        <span class="cve-id-small">${escapeHtml(v.cve_id || '')}</span>
+        <span class="cve-severity-tag">嚴重度 ${v.cvss ?? '—'}／10</span>
+      </div>
+    </div>`);
+  return withShowMore(cardHtmls);
 }
 
 /* ---------- Panel 4: AI企業影響分析 ---------- */
