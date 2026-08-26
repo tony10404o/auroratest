@@ -38,6 +38,7 @@
   .panel-num{font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:700;color:var(--text-dim);}
   .panel-icon{font-size:14px;}
   .panel-title{font-weight:700;font-size:13.5px;color:var(--text);}
+  .panel-count-badge{font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;color:var(--accent);background:rgba(37,99,235,0.08);padding:2px 9px;border-radius:20px;white-space:nowrap;}
   .panel-viewall{margin-left:auto;font-size:11px;color:var(--accent);text-decoration:none;font-family:'JetBrains Mono',monospace;white-space:nowrap;}
   .panel-viewall:hover{text-decoration:underline;}
   .panel-body{flex:1;}
@@ -608,12 +609,13 @@ function toggleMoreRows(btn){
 window.toggleMoreRows = toggleMoreRows;
 function emptyNote(){ return `<div class="empty-note">目前沒有資料</div>`; }
 
-function panelShell(num, icon, title, viewAllUrl, bodyHtml, extraHeaderHtml='', numColor=''){
+function panelShell(num, icon, title, viewAllUrl, bodyHtml, extraHeaderHtml='', numColor='', count=null){
   return `<div class="panel">
     <div class="panel-header">
       <span class="panel-num"${numColor ? ` style="color:${numColor}"` : ''}>${num}</span>
       <span class="panel-icon">${icon}</span>
       <span class="panel-title">${escapeHtml(title)}</span>
+      ${count !== null ? `<span class="panel-count-badge">${count} 件</span>` : ''}
       ${viewAllUrl ? `<a class="panel-viewall" href="${escapeHtml(viewAllUrl)}" target="_blank" rel="noopener noreferrer">查看全部 →</a>` : ''}
     </div>
     ${extraHeaderHtml}
@@ -907,10 +909,7 @@ function renderStatStrip(counts){
   ];
   el.innerHTML = cards.map(c => `
     <div class="strip-card c-${c.color}">
-      <div class="strip-top-row">
-        <div class="strip-label">${escapeHtml(c.label)} <span class="strip-label-sub">${escapeHtml(c.desc)}</span></div>
-        <span class="strip-count-badge c-${c.color}">${c.number} 件</span>
-      </div>
+      <div class="strip-label">${escapeHtml(c.label)} <span class="strip-label-sub">${escapeHtml(c.desc)}</span></div>
       <div class="strip-number">${c.number}</div>
     </div>`).join('');
 }
@@ -926,15 +925,15 @@ document.getElementById('gaugeBox').innerHTML =
   ${renderRiskGauge(DATA.risk_score)}`;
 
 grid.innerHTML =
-  panelShell('①', '📰', '新聞事件', null, renderHeadlines(DATA.headlines)) +
-  panelShell('②', '🎯', '今日漏洞雷達 (CVE)', null, renderCveRadar(DATA.cve_radar), '', '#2563EB') +
-  panelShell('③', '🏢', '廠商資訊', null, renderVendorImpact(DATA.vendor_impact), '', '#059669') +
+  panelShell('①', '📰', '新聞事件', null, renderHeadlines(DATA.headlines), '', '', (DATA.headlines||[]).length) +
+  panelShell('②', '🎯', '今日漏洞雷達 (CVE)', null, renderCveRadar(DATA.cve_radar), '', '#2563EB', (DATA.cve_radar||[]).length) +
+  panelShell('③', '🏢', '廠商資訊', null, renderVendorImpact(DATA.vendor_impact), '', '#059669', (DATA.vendor_impact||[]).length) +
   panelShell('④', '🪟', 'Windows更新發布資訊', null,
     `<div id="globalEventsBody"></div>`,
     `<div class="tab-row">
       <button class="tab-btn active" data-days="1">今天</button>
       <button class="tab-btn" data-days="30">本月</button>
-    </div>`);
+    </div>`, '', (DATA.global_events||[]).length);
 
 setupGlobalEventsPanel(DATA.global_events);
 </script>
