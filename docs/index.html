@@ -555,7 +555,7 @@ const DATA = {
   "category_counts": {
     "kev": 6,
     "vendor": 5,
-    "news": 4,
+    "news": 5,
     "ransomwareApt": 4
   }
 };
@@ -904,7 +904,7 @@ function renderStatStrip(counts){
   const cards = [
     { color:'blue', label:'今日漏洞雷達', number: counts.kev ?? 0, desc:'KEV新增筆數' },
     { color:'green', label:'廠商資訊', number: counts.vendor ?? 0, desc:'Microsoft／Cisco／Fortinet' },
-    { color:'orange', label:'國際資安新聞', number: counts.news ?? 0, desc:'今日彙整則數' },
+    { color:'orange', label:'新聞事件', number: counts.news ?? 0, desc:'今日彙整則數' },
     { color:'red', label:'勒索軟體／APT', number: counts.ransomwareApt ?? 0, desc:'近期事件數' },
   ];
   el.innerHTML = cards.map(c => `
