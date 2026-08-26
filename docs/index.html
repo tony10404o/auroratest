@@ -615,7 +615,7 @@ function panelShell(num, icon, title, viewAllUrl, bodyHtml, extraHeaderHtml='', 
       <span class="panel-num"${numColor ? ` style="color:${numColor}"` : ''}>${num}</span>
       <span class="panel-icon">${icon}</span>
       <span class="panel-title">${escapeHtml(title)}</span>
-      ${count !== null ? `<span class="panel-count-badge">${count} 件</span>` : ''}
+      ${count !== null ? `<span class="panel-count-badge" style="${numColor ? `color:${numColor};background:${numColor}14;` : ''}">${count} 件</span>` : ''}
       ${viewAllUrl ? `<a class="panel-viewall" href="${escapeHtml(viewAllUrl)}" target="_blank" rel="noopener noreferrer">查看全部 →</a>` : ''}
     </div>
     ${extraHeaderHtml}
