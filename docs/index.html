@@ -925,7 +925,7 @@ document.getElementById('gaugeBox').innerHTML =
   ${renderRiskGauge(DATA.risk_score)}`;
 
 grid.innerHTML =
-  panelShell('①', '📰', '新聞事件', null, renderHeadlines(DATA.headlines), '', '', (DATA.headlines||[]).length) +
+  panelShell('①', '📰', '新聞事件', null, renderHeadlines(DATA.headlines), '', '#D97706', (DATA.headlines||[]).length) +
   panelShell('②', '🎯', '今日漏洞雷達 (CVE)', null, renderCveRadar(DATA.cve_radar), '', '#2563EB', (DATA.cve_radar||[]).length) +
   panelShell('③', '🏢', '廠商資訊', null, renderVendorImpact(DATA.vendor_impact), '', '#059669', (DATA.vendor_impact||[]).length) +
   panelShell('④', '🪟', 'Windows更新發布資訊', null,
