@@ -221,11 +221,17 @@
   .strip-card.c-green{border-left-color:#059669;}
   .strip-card.c-orange{border-left-color:#D97706;}
   .strip-card.c-red{border-left-color:#DC2626;}
-  .strip-label{font-size:12.5px;font-weight:600;margin-bottom:6px;}
+  .strip-top-row{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:6px;}
+  .strip-label{font-size:12.5px;font-weight:600;}
   .strip-card.c-blue .strip-label{color:#2563EB;}
   .strip-card.c-green .strip-label{color:#059669;}
   .strip-card.c-orange .strip-label{color:#D97706;}
   .strip-card.c-red .strip-label{color:#DC2626;}
+  .strip-count-badge{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;padding:2px 9px;border-radius:20px;white-space:nowrap;flex-shrink:0;}
+  .strip-count-badge.c-blue{color:#2563EB;background:rgba(37,99,235,0.1);}
+  .strip-count-badge.c-green{color:#059669;background:rgba(5,150,105,0.1);}
+  .strip-count-badge.c-orange{color:#D97706;background:rgba(217,119,6,0.1);}
+  .strip-count-badge.c-red{color:#DC2626;background:rgba(220,38,38,0.1);}
   .strip-label-sub{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;color:var(--text-faint);}
   .strip-number{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;line-height:1;margin-bottom:6px;}
   .strip-card.c-blue .strip-number{color:#2563EB;}
@@ -901,7 +907,10 @@ function renderStatStrip(counts){
   ];
   el.innerHTML = cards.map(c => `
     <div class="strip-card c-${c.color}">
-      <div class="strip-label">${escapeHtml(c.label)} <span class="strip-label-sub">${escapeHtml(c.desc)}</span></div>
+      <div class="strip-top-row">
+        <div class="strip-label">${escapeHtml(c.label)} <span class="strip-label-sub">${escapeHtml(c.desc)}</span></div>
+        <span class="strip-count-badge c-${c.color}">${c.number} 件</span>
+      </div>
       <div class="strip-number">${c.number}</div>
     </div>`).join('');
 }
