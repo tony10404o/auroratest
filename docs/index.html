@@ -253,8 +253,6 @@
     <div class="meta-line">最後更新：<span id="updatedAt">--</span></div>
   </div>
 
-  <div class="glance-banner" id="glanceBanner"></div>
-
   <div class="stat-modal-overlay" id="statModal" onclick="if(event.target===this)closeStatModal()">
     <div class="stat-modal">
       <div class="stat-modal-header">
@@ -896,7 +894,6 @@ function closeStatModal(){
 window.openStatModal = openStatModal;
 window.closeStatModal = closeStatModal;
 
-renderGlanceBanner(DATA);
 
 function renderStatStrip(counts){
   const el = document.getElementById('statStrip');
