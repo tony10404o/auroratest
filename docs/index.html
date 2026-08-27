@@ -607,13 +607,13 @@ function toggleMoreRows(btn){
 window.toggleMoreRows = toggleMoreRows;
 function emptyNote(){ return `<div class="empty-note">目前沒有資料</div>`; }
 
-function panelShell(num, icon, title, viewAllUrl, bodyHtml, extraHeaderHtml='', numColor='', count=null){
+function panelShell(num, icon, title, viewAllUrl, bodyHtml, extraHeaderHtml='', numColor='', count=null, badgeId=''){
   return `<div class="panel">
     <div class="panel-header">
       <span class="panel-num"${numColor ? ` style="color:${numColor}"` : ''}>${num}</span>
       <span class="panel-icon">${icon}</span>
       <span class="panel-title">${escapeHtml(title)}</span>
-      ${count !== null ? `<span class="panel-count-badge" style="${numColor ? `color:${numColor};background:${numColor}14;` : ''}">${count} 件</span>` : ''}
+      ${count !== null ? `<span class="panel-count-badge"${badgeId ? ` id="${badgeId}"` : ''} style="${numColor ? `color:${numColor};background:${numColor}14;` : ''}">${count} 件</span>` : ''}
       ${viewAllUrl ? `<a class="panel-viewall" href="${escapeHtml(viewAllUrl)}" target="_blank" rel="noopener noreferrer">查看全部 →</a>` : ''}
     </div>
     ${extraHeaderHtml}
@@ -682,9 +682,16 @@ function renderGlobalEvents(items, rangeDays){
 
 function setupGlobalEventsPanel(items){
   const body = document.getElementById('globalEventsBody');
+  const badge = document.getElementById('windowsUpdateBadge');
   const tabs = document.querySelectorAll('.tab-btn');
   function render(days){
+    const cutoff = Date.now() - days * 86400000;
+    const filtered = (items || []).filter(e => {
+      const d = new Date(e.date);
+      return isNaN(d.getTime()) ? true : d.getTime() >= cutoff;
+    });
     body.innerHTML = renderGlobalEvents(items, days);
+    if (badge) badge.textContent = `${filtered.length} 件`;
   }
   tabs.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -921,6 +928,12 @@ document.getElementById('gaugeBox').innerHTML =
   </div>
   ${renderRiskGauge(DATA.risk_score)}`;
 
+const todayWinCutoff = Date.now() - 1 * 86400000;
+const todayWinCount = (DATA.global_events || []).filter(e => {
+  const d = new Date(e.date);
+  return isNaN(d.getTime()) ? true : d.getTime() >= todayWinCutoff;
+}).length;
+
 grid.innerHTML =
   panelShell('①', '📰', '新聞事件', null, renderHeadlines(DATA.headlines), '', '#D97706', (DATA.headlines||[]).length) +
   panelShell('②', '🎯', '今日漏洞雷達 (CVE)', null, renderCveRadar(DATA.cve_radar), '', '#2563EB', (DATA.cve_radar||[]).length) +
@@ -930,7 +943,7 @@ grid.innerHTML =
     `<div class="tab-row">
       <button class="tab-btn active" data-days="1">今天</button>
       <button class="tab-btn" data-days="30">本月</button>
-    </div>`, '', (DATA.global_events||[]).length);
+    </div>`, '', todayWinCount, 'windowsUpdateBadge');
 
 setupGlobalEventsPanel(DATA.global_events);
 </script>
