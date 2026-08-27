@@ -560,7 +560,37 @@ const DATA = {
     "vendor": 5,
     "news": 5,
     "ransomwareApt": 4
-  }
+  },
+  "ransomware_apt_list": [
+    {
+      "date": "2026-08-18",
+      "type": "勒索軟體",
+      "title": "「Ransom Busters」勒索集團偽裝成事件復原服務商，二次詐騙受害企業",
+      "source": "Dark Reading",
+      "url": "https://www.darkreading.com/cyberattacks-data-breaches"
+    },
+    {
+      "date": "2026-08-13",
+      "type": "APT",
+      "title": "「Jewelbug」APT組織身兼國家級間諜活動與加密貨幣竊取雙重角色",
+      "source": "Dark Reading",
+      "url": "https://www.darkreading.com/cyberattacks-data-breaches"
+    },
+    {
+      "date": "2026-08-12",
+      "type": "APT",
+      "title": "長期資料竊取行動鎖定Salesforce、ServiceNow等雲端平台",
+      "source": "Dark Reading",
+      "url": "https://www.darkreading.com/cyberattacks-data-breaches"
+    },
+    {
+      "date": "2026-07-22",
+      "type": "APT",
+      "title": "北韓Kimsuky組織新一波攻擊，入侵南韓軟體供應商",
+      "source": "The Record",
+      "url": "https://therecord.media/tag/apt"
+    }
+  ]
 };
 const UPDATED_AT = "2026-08-10 10:00:00（台灣時間）";
 document.getElementById('updatedAt').textContent = UPDATED_AT;
@@ -861,6 +891,15 @@ function statModalBody(type){
       </div>`).join('');
     return { title: '今日重大事件', body: rows || emptyNote() };
   }
+  if (type === 'ransomApt'){
+    const items = d.ransomware_apt_list || [];
+    const rows = items.map(r => `
+      <div class="stat-modal-row">
+        <span class="stat-modal-row-label">[${escapeHtml(r.type||'')}] ${r.url ? `<a href="${escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(r.title||'')}</a>` : escapeHtml(r.title||'')}</span>
+        <span class="stat-modal-row-value">${escapeHtml(r.date||'')}</span>
+      </div>`).join('');
+    return { title: '勒索軟體／APT事件', body: rows || emptyNote() };
+  }
   return { title: '', body: emptyNote() };
 }
 
@@ -884,10 +923,10 @@ function renderStatStrip(counts){
     { color:'blue', label:'今日漏洞雷達', number: counts.kev ?? 0, desc:'KEV新增筆數' },
     { color:'green', label:'廠商資訊', number: counts.vendor ?? 0, desc:'Microsoft／Cisco／Fortinet' },
     { color:'orange', label:'新聞事件', number: counts.news ?? 0, desc:'今日彙整則數' },
-    { color:'red', label:'勒索軟體／APT', number: counts.ransomwareApt ?? 0, desc:'近期事件數' },
+    { color:'red', label:'勒索軟體／APT', number: counts.ransomwareApt ?? 0, desc:'近期事件數', clickable:true },
   ];
   el.innerHTML = cards.map(c => `
-    <div class="strip-card c-${c.color}">
+    <div class="strip-card c-${c.color}"${c.clickable ? ` style="cursor:pointer;" onclick="openStatModal('ransomApt')"` : ''}>
       <div class="strip-label">${escapeHtml(c.label)} <span class="strip-label-sub">${escapeHtml(c.desc)}</span></div>
       <div class="strip-number">${c.number}</div>
     </div>`).join('');
