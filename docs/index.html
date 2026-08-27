@@ -41,7 +41,7 @@
   .panel-count-badge{font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;color:var(--accent);background:rgba(37,99,235,0.08);padding:2px 9px;border-radius:20px;white-space:nowrap;}
   .panel-viewall{margin-left:auto;font-size:11px;color:var(--accent);text-decoration:none;font-family:'JetBrains Mono',monospace;white-space:nowrap;}
   .panel-viewall:hover{text-decoration:underline;}
-  .panel-body{flex:1;}
+  .panel-body{flex:1;max-height:420px;overflow-y:auto;padding-right:4px;}
   .empty-note{color:var(--text-faint);font-size:12px;padding:10px 0;font-family:'JetBrains Mono',monospace;}
   .show-more-btn{
     width:100%;margin-top:8px;padding:8px;background:var(--panel-alt);border:1px dashed var(--border);
@@ -567,44 +567,14 @@ const SHOW_LIMIT = 5;
 /**
  * 通用「顯示更多」：適用一般區塊(div列表)，超過limit筆的收合，用按鈕展開/收合
  */
-function withShowMore(itemHtmls, limit = SHOW_LIMIT){
-  const visible = itemHtmls.slice(0, limit).join('');
-  const rest = itemHtmls.slice(limit);
-  if (!rest.length) return visible;
-  const label = `顯示更多（+${rest.length}） ▼`;
-  return `${visible}<div class="more-items" style="display:none">${rest.join('')}</div><button class="show-more-btn" data-more-label="${label}" onclick="toggleMore(this)">${label}</button>`;
+function withShowMore(itemHtmls){
+  return itemHtmls.join('');
 }
-function toggleMore(btn){
-  const wrapper = btn.previousElementSibling;
-  const isHidden = wrapper.style.display === 'none';
-  wrapper.style.display = isHidden ? '' : 'none';
-  btn.textContent = isHidden ? '收合 ▲' : btn.dataset.moreLabel;
-}
-window.toggleMore = toggleMore;
 
 /**
  * 表格專用「顯示更多」：多出的<tr>放進獨立的<tbody id="...">並預設隱藏，
  * 按鈕放在表格外面，用id而不是相鄰元素來toggle
  */
-function withShowMoreRows(rowHtmls, tbodyId, limit = SHOW_LIMIT){
-  const visible = rowHtmls.slice(0, limit).join('');
-  const rest = rowHtmls.slice(limit);
-  if (!rest.length) return { visibleRows: visible, moreTbody: '', button: '' };
-  const label = `顯示更多（+${rest.length}） ▼`;
-  return {
-    visibleRows: visible,
-    moreTbody: `<tbody id="${tbodyId}" style="display:none">${rest.join('')}</tbody>`,
-    button: `<button class="show-more-btn" data-more-label="${label}" data-target="${tbodyId}" onclick="toggleMoreRows(this)">${label}</button>`,
-  };
-}
-function toggleMoreRows(btn){
-  const target = document.getElementById(btn.dataset.target);
-  if (!target) return;
-  const isHidden = target.style.display === 'none';
-  target.style.display = isHidden ? '' : 'none';
-  btn.textContent = isHidden ? '收合 ▲' : btn.dataset.moreLabel;
-}
-window.toggleMoreRows = toggleMoreRows;
 function emptyNote(){ return `<div class="empty-note">目前沒有資料</div>`; }
 
 function panelShell(num, icon, title, viewAllUrl, bodyHtml, extraHeaderHtml='', numColor='', count=null, badgeId=''){
