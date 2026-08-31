@@ -283,8 +283,8 @@ const DATA = {
   "headlines": [
     {
       "icon": "☁️",
-      "title": "微軟緊急修補Entra ID滿分等級漏洞CVE-2026-69836，一度指出已遭實際利用",
-      "url": "https://www.ithome.com.tw/tags/%E8%B3%87%E5%AE%89%E6%97%A5%E5%A0%B1",
+      "title": "微軟Entra ID爆滿分等級漏洞CVE-2026-69836，一度稱已遭利用後又改口否認",
+      "url": "https://thehackernews.com/2026/08/microsoft-entra-id-flaw-cvss-100.html",
       "impact": "高",
       "stars": 5
     },
@@ -297,8 +297,8 @@ const DATA = {
     },
     {
       "icon": "📰",
-      "title": "中國APT24入侵台灣廣告供應鏈，鎖定新聞與小說網站投放惡意程式BadAudio",
-      "url": "https://www.ithome.com.tw/security",
+      "title": "中國APT24入侵台灣廣告供應鏈，鎖定新聞與小說網站植入惡意程式BadAudio",
+      "url": "https://www.ithome.com.tw/news/178472",
       "impact": "高",
       "stars": 4
     },
@@ -317,37 +317,37 @@ const DATA = {
       "stars": 5
     },
     {
-      "icon": "📡",
-      "title": "台灣能源業受駭暴增10倍，中國APT組織形成「舉國體制」，UAT-7290鎖定電信產業",
-      "url": "https://blog.trendmicro.com.tw/?p=90906",
+      "icon": "🔗",
+      "title": "資安公司揭露SharePoint攻擊鏈遭實際利用，蜜罐偵測到PoC公布後即遭掃描",
+      "url": "https://www.ithome.com.tw/news/178464",
       "impact": "高",
       "stars": 4
     },
     {
-      "icon": "🛒",
-      "title": "駭客兜售52萬筆台灣好市多會員個資，業者澄清非內部外洩，疑與IG個資外洩同源",
-      "url": "https://blog.trendmicro.com.tw/?p=90906",
+      "icon": "💰",
+      "title": "資產管理業者Apollo Global遭社交工程攻擊，姓名、社會安全號碼等敏感個資外洩",
+      "url": "https://www.ithome.com.tw/news/178465",
       "impact": "中",
       "stars": 3
     },
     {
       "icon": "🦠",
-      "title": "ShinyHunters駭客團體宣稱入侵資安公司ReliaQuest，疑似社交工程攻擊所致",
-      "url": "https://www.ithome.com.tw/security",
+      "title": "ShinyHunters列名ReliaQuest遭駭，該公司證實遭社交工程攻擊短暫存取身分儀表板",
+      "url": "https://www.ithome.com.tw/news/178452",
       "impact": "中",
       "stars": 3
     },
     {
       "icon": "🔧",
       "title": "OpenSSL修補9個漏洞，含可能造成伺服器當機的高風險阻斷服務漏洞",
-      "url": "https://www.ithome.com.tw/security",
+      "url": "https://www.ithome.com.tw/news/178515",
       "impact": "中",
       "stars": 3
     },
     {
       "icon": "🏆",
-      "title": "全球首座SEMI E187資安檢測實驗室在台啟用，台灣躍升半導體資安標準把關者",
-      "url": "https://www.ithome.com.tw/tags/%E8%B3%87%E5%AE%89%E6%97%A5%E5%A0%B1",
+      "title": "資策會啟用全球首座SEMI E187資安檢測實驗室，台灣躍升半導體資安標準把關者",
+      "url": "https://www.ithome.com.tw/news/178382",
       "impact": "中",
       "stars": 3
     }
@@ -408,10 +408,10 @@ const DATA = {
       "title": "Microsoft Entra ID遠端程式碼執行漏洞，CVSS滿分10.0",
       "cvss": 10,
       "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "立即更新",
+      "exploited": false,
+      "action": "持續觀察",
       "plain_title": "微軟雲端身分驗證服務出現滿分等級漏洞",
-      "plain_summary": "企業常用來管理員工帳號登入的Entra ID服務出現最高等級漏洞，微軟一度指出已有實際攻擊案例，等於管理所有員工身分的中樞系統有破口，風險極高。"
+      "plain_summary": "企業常用來管理員工帳號登入的Entra ID服務出現最高等級漏洞，微軟一度指出已有實際攻擊案例，但同一天又改口澄清並未遭到利用；由於伺服器端已由微軟直接修補完成，客戶端不需要另外採取行動。"
     },
     {
       "cve_id": "CVE-2026-8452",
@@ -504,12 +504,6 @@ const DATA = {
   "action_items": [
     {
       "category": "漏洞修補",
-      "title": "CVE-2026-69836：微軟雲端身分驗證服務出現滿分等級漏洞",
-      "priority": "高",
-      "detail": "CVSS 10（AI推估），建議立即更新"
-    },
-    {
-      "category": "漏洞修補",
       "title": "CVE-2026-8452：企業網路流量管理設備Citrix出現安全漏洞",
       "priority": "高",
       "detail": "CVSS 8.7（AI推估），建議立即更新"
@@ -570,7 +564,7 @@ const DATA = {
     }
   ],
   "risk_score": {
-    "total": 86,
+    "total": 93,
     "breakdown": [
       {
         "label": "CVE風險",
@@ -586,7 +580,7 @@ const DATA = {
       },
       {
         "label": "台灣區域風險",
-        "score": 75
+        "score": 100
       }
     ]
   },
