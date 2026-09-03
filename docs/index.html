@@ -279,6 +279,20 @@
 const DATA = {
   "headlines": [
     {
+      "icon": "📧",
+      "title": "近2.2萬台Exchange Server暴露接管風險，台灣也有250台尚未修補",
+      "url": "https://www.ithome.com.tw/tags/%E8%B3%87%E5%AE%89%E6%97%A5%E5%A0%B1",
+      "impact": "高",
+      "stars": 5
+    },
+    {
+      "icon": "🎯",
+      "title": "CISA新增7項KEV，含SonicWall、JFrog Artifactory與AI相關LiteLLM漏洞",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/09/02/cisa-adds-seven-known-exploited-vulnerabilities-catalog",
+      "impact": "高",
+      "stars": 4
+    },
+    {
       "icon": "🔑",
       "title": "台灣雲端部署平臺Zeabur環境變數外洩，用戶Anthropic/OpenAI等API金鑰遭盜用",
       "url": "https://www.ithome.com.tw/news/178543",
@@ -291,6 +305,20 @@ const DATA = {
       "url": "https://thehackernews.com/2026/08/microsoft-entra-id-flaw-cvss-100.html",
       "impact": "高",
       "stars": 5
+    },
+    {
+      "icon": "🤝",
+      "title": "數發部攜手Meta、Google等四大平臺，建立AI生成詐騙內容源頭阻詐防線",
+      "url": "https://www.ithome.com.tw/tags/%E8%B3%87%E5%AE%89%E6%97%A5%E5%A0%B1",
+      "impact": "中",
+      "stars": 3
+    },
+    {
+      "icon": "🖱️",
+      "title": "Windows 11選用更新KB5120998出包，游標消失/異常放大縮小、桌布變全黑",
+      "url": "https://www.cool3c.com/article/251471",
+      "impact": "中",
+      "stars": 3
     },
     {
       "icon": "🏭",
@@ -307,8 +335,8 @@ const DATA = {
       "stars": 4
     },
     {
-      "icon": "🎯",
-      "title": "CISA一次新增6項KEV，含Citrix NetScaler、SQL Server、Linux Kernel等漏洞",
+      "icon": "🌐",
+      "title": "CISA新增6項KEV，含Citrix NetScaler、SQL Server、Linux Kernel等漏洞",
       "url": "https://www.cisa.gov/news-events/alerts/2026/08/26/cisa-adds-six-known-exploited-vulnerabilities-catalog",
       "impact": "高",
       "stars": 4
@@ -319,37 +347,15 @@ const DATA = {
       "url": "https://www.epochtimes.com/b5/26/8/12/n14828528.htm",
       "impact": "高",
       "stars": 5
-    },
-    {
-      "icon": "🦠",
-      "title": "ShinyHunters列名ReliaQuest遭駭，該公司證實遭社交工程攻擊短暫存取身分儀表板",
-      "url": "https://www.ithome.com.tw/news/178452",
-      "impact": "中",
-      "stars": 3
-    },
-    {
-      "icon": "🔗",
-      "title": "資安公司揭露SharePoint攻擊鏈遭實際利用，蜜罐偵測到PoC公布後即遭掃描",
-      "url": "https://www.ithome.com.tw/news/178464",
-      "impact": "高",
-      "stars": 4
-    },
-    {
-      "icon": "💰",
-      "title": "資產管理業者Apollo Global遭社交工程攻擊，姓名、社會安全號碼等敏感個資外洩",
-      "url": "https://www.ithome.com.tw/news/178465",
-      "impact": "中",
-      "stars": 3
-    },
-    {
-      "icon": "🏆",
-      "title": "資策會啟用全球首座SEMI E187資安檢測實驗室，台灣躍升半導體資安標準把關者",
-      "url": "https://www.ithome.com.tw/news/178382",
-      "impact": "中",
-      "stars": 3
     }
   ],
   "global_events": [
+    {
+      "category": "政府公告",
+      "title": "KB5120998（選用更新）出包：滑鼠游標消失/異常放大縮小、桌布變全黑，微軟已展開調查，需先解除安裝才能恢復",
+      "date": "2026-08-27",
+      "url": "https://www.cool3c.com/article/251471"
+    },
     {
       "category": "政府公告",
       "title": "微軟警告：8月更新檔請務必於3天內安裝，本次修補751個CVE規模空前",
@@ -401,14 +407,44 @@ const DATA = {
   ],
   "cve_radar": [
     {
-      "cve_id": "CVE-2026-69836",
-      "title": "Microsoft Entra ID遠端程式碼執行漏洞，CVSS滿分10.0",
-      "cvss": 10,
+      "cve_id": "CVE-2026-62911",
+      "title": "Exchange Server高風險漏洞，PoC已公開，台灣250台伺服器暴露未修補",
+      "cvss": 8,
       "cvss_source": "AI推估",
-      "exploited": false,
-      "action": "持續觀察",
-      "plain_title": "微軟雲端身分驗證服務出現滿分等級漏洞",
-      "plain_summary": "企業常用來管理員工帳號登入的Entra ID服務出現最高等級漏洞，微軟一度指出已有實際攻擊案例，但同一天又改口澄清並未遭到利用；由於伺服器端已由微軟直接修補完成，客戶端不需要另外採取行動。"
+      "exploited": true,
+      "action": "立即更新",
+      "plain_title": "企業郵件伺服器Exchange Server出現高風險漏洞，攻擊手法已公開",
+      "plain_summary": "微軟8月已修補此漏洞，但荷蘭資安機構掃描發現全球仍有近2.2萬台伺服器直接暴露在網路上未修補，台灣就有250台，攻擊者利用公開的PoC程式碼就能嘗試接管伺服器。"
+    },
+    {
+      "cve_id": "CVE-2026-59822",
+      "title": "AI模型代理平台LiteLLM身分驗證機制不當漏洞",
+      "cvss": 8.6,
+      "cvss_source": "AI推估",
+      "exploited": true,
+      "action": "立即更新",
+      "plain_title": "企業串接AI模型常用的LiteLLM平台出現身分驗證漏洞",
+      "plain_summary": "愈來愈多企業用LiteLLM來統一管理串接各家AI模型的服務，這個平台被發現身分驗證機制有問題，攻擊者可能因此取得不該有的存取權限，建議有使用相關AI基礎設施的單位優先確認。"
+    },
+    {
+      "cve_id": "CVE-2026-83548",
+      "title": "SonicWall SMA1000系列設備伺服器端請求偽造漏洞",
+      "cvss": 7.5,
+      "cvss_source": "AI推估",
+      "exploited": true,
+      "action": "立即更新",
+      "plain_title": "SonicWall遠端存取設備出現安全漏洞",
+      "plain_summary": "企業用來讓員工遠端連線的SonicWall SMA1000系列設備被發現漏洞，未經授權的攻擊者可能藉此取得內部敏感功能的存取權限。"
+    },
+    {
+      "cve_id": "CVE-2026-82329",
+      "title": "JFrog Artifactory身分驗證機制不當漏洞",
+      "cvss": 7.2,
+      "cvss_source": "AI推估",
+      "exploited": true,
+      "action": "一週內更新",
+      "plain_title": "企業軟體開發常用的Artifactory出現身分驗證漏洞",
+      "plain_summary": "許多公司用JFrog Artifactory來存放程式碼建置後的成品，這個工具被發現身分驗證有缺陷，可能讓不該有權限的人存取到內部軟體資產。"
     },
     {
       "cve_id": "CVE-2026-8452",
@@ -421,26 +457,6 @@ const DATA = {
       "plain_summary": "許多企業用來管理對外連線流量與VPN閘道的Citrix設備被發現漏洞，攻擊者可能藉此造成服務中斷或進一步入侵，CISA要求優先處理。"
     },
     {
-      "cve_id": "CVE-2019-1068",
-      "title": "Microsoft SQL Server遠端程式碼執行漏洞（舊漏洞新列入KEV）",
-      "cvss": 8.8,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "立即更新",
-      "plain_title": "企業資料庫伺服器SQL Server出現漏洞遭實際利用",
-      "plain_summary": "這個漏洞雖然早已存在，但最近被發現有人正在實際利用，攻擊者可能藉此在資料庫伺服器上執行任意程式，建議即使是舊系統也要檢查是否已修補。"
-    },
-    {
-      "cve_id": "CVE-2026-73570",
-      "title": "Zimbra Collaboration Suite作業系統指令注入漏洞",
-      "cvss": 7.5,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "一週內更新",
-      "plain_title": "企業郵件協作系統Zimbra出現安全漏洞",
-      "plain_summary": "部分企業使用的Zimbra郵件與協作系統被發現漏洞，攻擊者可能藉此在伺服器上執行系統指令，建議確認是否為使用中的郵件系統並儘速更新。"
-    },
-    {
       "cve_id": "CVE-2026-55040",
       "title": "SharePoint身分驗證機制過弱漏洞",
       "cvss": 9.1,
@@ -449,25 +465,29 @@ const DATA = {
       "action": "立即更新",
       "plain_title": "SharePoint文件系統的登入把關出問題",
       "plain_summary": "公司內部常用的SharePoint文件系統，驗證身分的機制被發現有漏洞，攻擊者可能不用完整帳密就繞過登入限制，進入原本該被保護的資料。"
-    },
-    {
-      "cve_id": "CVE-2026-59310",
-      "title": "VMware vCenter路徑穿越漏洞，公布不到一週遭APT利用",
-      "cvss": 8.5,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "立即更新",
-      "plain_title": "企業常用的虛擬化管理平台VMware遭鎖定攻擊",
-      "plain_summary": "許多企業用VMware來集中管理伺服器，這個漏洞公布不到一週，就已經有國家級駭客組織開始利用，攻擊範圍遍布47個國家，建議儘速確認是否受影響。"
     }
   ],
   "vendor_impact": [
+    {
+      "icon": "📧",
+      "title": "Microsoft：Exchange Server高風險漏洞CVE-2026-62911，全球逾2.2萬台暴露、台灣250台",
+      "impact": "高",
+      "key_asset": "Exchange Server（企業郵件伺服器）",
+      "ai_suggestion": "建議立即確認Exchange Server是否已套用8月修補，並檢查是否有不必要的公開網路暴露"
+    },
+    {
+      "icon": "🤖",
+      "title": "LiteLLM：CVE-2026-59822身分驗證機制不當漏洞，影響企業AI基礎設施",
+      "impact": "高",
+      "key_asset": "LiteLLM（AI模型代理平台）",
+      "ai_suggestion": "建議盤點內部是否有使用LiteLLM串接AI服務，並確認是否已套用修補"
+    },
     {
       "icon": "☁️",
       "title": "Microsoft：Entra ID滿分等級漏洞CVE-2026-69836，一度指出已遭實際利用",
       "impact": "高",
       "key_asset": "Entra ID（雲端身分驗證服務）",
-      "ai_suggestion": "建議立即確認租戶是否已套用修補，並檢查登入紀錄是否有異常存取"
+      "ai_suggestion": "伺服器端已由微軟直接修補完成，客戶端不需額外採取行動，建議留意後續是否有更多細節公布"
     },
     {
       "icon": "🌐",
@@ -477,28 +497,32 @@ const DATA = {
       "ai_suggestion": "建議確認設備版本並儘速套用修補，留意是否已有異常流量或存取紀錄"
     },
     {
-      "icon": "🌐",
-      "title": "VMware vCenter：CVE-2026-59310路徑穿越漏洞，公布一週內遭APT利用，攻擊47國",
-      "impact": "高",
-      "key_asset": "vCenter Server（虛擬化管理平台）",
-      "ai_suggestion": "建議立即確認修補狀態，vCenter一旦被攻陷等於整個虛擬化環境的管理權限外洩"
-    },
-    {
       "icon": "🛡️",
       "title": "FortiOS/FortiProxy：CVE-2024-55591身分驗證繞過漏洞遭Gunra勒索集團持續利用",
       "impact": "高",
       "key_asset": "FortiGate防火牆／FortiProxy",
       "ai_suggestion": "聯邦機關已發布聯合公告，建議確認韌體版本並排查是否已有初始入侵跡象"
-    },
-    {
-      "icon": "📡",
-      "title": "Cisco：ASA/FTD SSL VPN零時差漏洞遭鎖定攻擊，僅提供熱修補無workaround",
-      "impact": "高",
-      "key_asset": "Cisco Secure Firewall ASA／FTD",
-      "ai_suggestion": "建議確認邊界防火牆版本並儘速套用熱修補"
     }
   ],
   "action_items": [
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-62911：企業郵件伺服器Exchange Server出現高風險漏洞，攻擊手法已公開",
+      "priority": "高",
+      "detail": "CVSS 8（AI推估），建議立即更新"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-59822：企業串接AI模型常用的LiteLLM平台出現身分驗證漏洞",
+      "priority": "高",
+      "detail": "CVSS 8.6（AI推估），建議立即更新"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-83548：SonicWall遠端存取設備出現安全漏洞",
+      "priority": "高",
+      "detail": "CVSS 7.5（AI推估），建議立即更新"
+    },
     {
       "category": "漏洞修補",
       "title": "CVE-2026-8452：企業網路流量管理設備Citrix出現安全漏洞",
@@ -507,27 +531,27 @@ const DATA = {
     },
     {
       "category": "漏洞修補",
-      "title": "CVE-2019-1068：企業資料庫伺服器SQL Server出現漏洞遭實際利用",
-      "priority": "高",
-      "detail": "CVSS 8.8（AI推估），建議立即更新"
-    },
-    {
-      "category": "漏洞修補",
       "title": "CVE-2026-55040：SharePoint文件系統的登入把關出問題",
       "priority": "高",
       "detail": "CVSS 9.1（AI推估），建議立即更新"
     },
     {
-      "category": "漏洞修補",
-      "title": "CVE-2026-59310：企業常用的虛擬化管理平台VMware遭鎖定攻擊",
+      "category": "廠商公告",
+      "title": "Microsoft：Exchange Server高風險漏洞CVE-2026-62911，全球逾2.2萬台暴露、台灣250台",
       "priority": "高",
-      "detail": "CVSS 8.5（AI推估），建議立即更新"
+      "detail": "建議立即確認Exchange Server是否已套用8月修補，並檢查是否有不必要的公開網路暴露"
+    },
+    {
+      "category": "廠商公告",
+      "title": "LiteLLM：CVE-2026-59822身分驗證機制不當漏洞，影響企業AI基礎設施",
+      "priority": "高",
+      "detail": "建議盤點內部是否有使用LiteLLM串接AI服務，並確認是否已套用修補"
     },
     {
       "category": "廠商公告",
       "title": "Microsoft：Entra ID滿分等級漏洞CVE-2026-69836，一度指出已遭實際利用",
       "priority": "高",
-      "detail": "建議立即確認租戶是否已套用修補，並檢查登入紀錄是否有異常存取"
+      "detail": "伺服器端已由微軟直接修補完成，客戶端不需額外採取行動，建議留意後續是否有更多細節公布"
     },
     {
       "category": "廠商公告",
@@ -537,31 +561,19 @@ const DATA = {
     },
     {
       "category": "廠商公告",
-      "title": "VMware vCenter：CVE-2026-59310路徑穿越漏洞，公布一週內遭APT利用，攻擊47國",
-      "priority": "高",
-      "detail": "建議立即確認修補狀態，vCenter一旦被攻陷等於整個虛擬化環境的管理權限外洩"
-    },
-    {
-      "category": "廠商公告",
       "title": "FortiOS/FortiProxy：CVE-2024-55591身分驗證繞過漏洞遭Gunra勒索集團持續利用",
       "priority": "高",
       "detail": "聯邦機關已發布聯合公告，建議確認韌體版本並排查是否已有初始入侵跡象"
     },
     {
-      "category": "廠商公告",
-      "title": "Cisco：ASA/FTD SSL VPN零時差漏洞遭鎖定攻擊，僅提供熱修補無workaround",
-      "priority": "高",
-      "detail": "建議確認邊界防火牆版本並儘速套用熱修補"
-    },
-    {
       "category": "漏洞修補",
-      "title": "CVE-2026-73570：企業郵件協作系統Zimbra出現安全漏洞",
+      "title": "CVE-2026-82329：企業軟體開發常用的Artifactory出現身分驗證漏洞",
       "priority": "中",
-      "detail": "CVSS 7.5（AI推估），建議一週內更新"
+      "detail": "CVSS 7.2（AI推估），建議一週內更新"
     }
   ],
   "risk_score": {
-    "total": 93,
+    "total": 95,
     "breakdown": [
       {
         "label": "CVE風險",
@@ -573,7 +585,7 @@ const DATA = {
       },
       {
         "label": "Windows更新風險",
-        "score": 80
+        "score": 90
       },
       {
         "label": "台灣區域風險",
