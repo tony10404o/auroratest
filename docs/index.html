@@ -216,12 +216,10 @@
   .stat-modal-row-value{font-family:'JetBrains Mono',monospace;color:var(--text-dim);white-space:nowrap;}
 
   /* 分類統計字卡（色條風格） */
-  .stat-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-bottom:18px;}
-  .top-layout{display:grid;grid-template-columns:0.8fr 1fr;gap:16px;margin-bottom:18px;}
-  .top-layout .gauge-box{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:12px 16px;align-self:start;}
-  .top-layout .stat-strip{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr);height:100%;margin-bottom:0;}
-  @media (max-width:1000px){.top-layout{grid-template-columns:1fr;}}
-  @media (max-width:480px){.top-layout .stat-strip{grid-template-columns:1fr;}}
+  .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px;}
+  @media (max-width:900px){.stat-strip{grid-template-columns:repeat(2,1fr);}}
+  .top-layout{margin-bottom:18px;}
+  @media (max-width:480px){.stat-strip{grid-template-columns:1fr;}}
   .strip-card{background:var(--panel);border:1px solid var(--border);border-left-width:4px;border-radius:8px;padding:14px 16px;}
   .strip-card.c-blue{border-left-color:#2563EB;}
   .strip-card.c-green{border-left-color:#059669;}
@@ -269,7 +267,6 @@
   </div>
 
   <div class="top-layout">
-    <div class="gauge-box" id="gaugeBox"></div>
     <div class="stat-strip" id="statStrip"></div>
   </div>
 
@@ -963,13 +960,6 @@ function renderStatStrip(counts){
 renderStatStrip(DATA.category_counts);
 
 const grid = document.getElementById('dashboardGrid');
-
-document.getElementById('gaugeBox').innerHTML =
-  `<div class="panel-header" style="margin-bottom:0;">
-    <span class="panel-icon">📊</span>
-    <span class="panel-title">AI風險熱度儀表板</span>
-  </div>
-  ${renderRiskGauge(DATA.risk_score)}`;
 
 const todayWinCutoff = Date.now() - 1 * 86400000;
 const todayWinCount = (DATA.global_events || []).filter(e => {
