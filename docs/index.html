@@ -352,49 +352,49 @@ const DATA = {
   "global_events": [
     {
       "category": "政府公告",
-      "title": "微軟發布KB5121003更新檔（Windows 11 24H2/25H2，含2026年8月安全性修補）",
+      "title": "微軟警告：8月更新檔請務必於3天內安裝，本次修補751個CVE規模空前",
       "date": "2026-08-11",
-      "url": "https://www.bleepingcomputer.com/news/microsoft/windows-11-kb5121003-and-kb5120240-cumulative-updates-released/"
+      "url": "https://www.windowslatest.com/2026/08/14/microsoft-install-windows-11s-august-2026-update-within-3-days-400-security-bugs-fixed/"
     },
     {
       "category": "政府公告",
-      "title": "微軟發布KB5120240更新檔（Windows 11 23H2，含8月Patch Tuesday安全修補）",
+      "title": "KB5121003（Windows 11 24H2/25H2）：含Remote Desktop、DNS/DHCP Server等多項嚴重RCE修補",
+      "date": "2026-08-11",
+      "url": "https://support.microsoft.com/en-us/servicing/os/windows-11/2026/08/kb5121003-windows-11-24h2-25h2-security-update"
+    },
+    {
+      "category": "政府公告",
+      "title": "CVE-2026-68820（Windows AFD.sys）：本月唯一已遭實際利用的0-day，已知遭Lazarus集團利用",
+      "date": "2026-08-11",
+      "url": "https://senserva.com/patch-tuesday.html"
+    },
+    {
+      "category": "政府公告",
+      "title": "KB5121000（Windows 11 26H1）：修補421個CVE，含身分驗證與網路堆疊相關漏洞",
+      "date": "2026-08-11",
+      "url": "https://support.microsoft.com/en-us/servicing/os/windows-11/2026/08/kb5121000-windows-11-26h1-security-update"
+    },
+    {
+      "category": "政府公告",
+      "title": "KB5120240（Windows 11 23H2）：含Kerberos、LDAP身分驗證相關安全修補",
       "date": "2026-08-11",
       "url": "https://windowsreport.com/windows-11-kb5121003-kb5121000-and-kb5120240-august-2026-patch-tuesday-updates-released/"
     },
     {
       "category": "政府公告",
-      "title": "微軟發布KB5121000更新檔（Windows 11 26H1，修補421個CVE）",
-      "date": "2026-08-11",
-      "url": "https://windowsreport.com/windows-11-kb5121003-kb5121000-and-kb5120240-august-2026-patch-tuesday-updates-released/"
-    },
-    {
-      "category": "政府公告",
-      "title": "微軟2026年8月Patch Tuesday：421個CVE公告，236個影響Windows，1個已遭實際利用",
-      "date": "2026-08-11",
-      "url": "https://www.tech2geek.net/windows-11-august-2026-patch-tuesday-kb5121003-and-kb5120240-bring-security-fixes-and-new-features/"
-    },
-    {
-      "category": "政府公告",
-      "title": "微軟發布CVE-2026-68820（Windows AFD.sys）修補，該漏洞已遭Lazarus利用",
-      "date": "2026-08-11",
-      "url": "https://cyberexperts.com/2026-08-12-cisa-adds-three-known-exploited-vulnerabilities-to-catalog/"
-    },
-    {
-      "category": "政府公告",
-      "title": "微軟發布CVE-2026-70329（Outlook遠端程式碼執行）修補",
+      "title": "CVE-2026-70329（Outlook RCE）：建議企業信件系統優先確認已完成更新",
       "date": "2026-08-11",
       "url": "https://cybersecuritynews.com/microsoft-outlook-rce-vulnerability-2/"
     },
     {
       "category": "政府公告",
-      "title": "微軟發布KB5101684預覽更新（7月28日，Windows 11 24H2/25H2）",
+      "title": "KB5101684：7月28日預覽更新（Windows 11 24H2/25H2），本月正式版之前的先行測試版",
       "date": "2026-07-28",
       "url": "https://www.prajwaldesai.com/windows-11-kb5121003-august-2026-patch-tuesday-update/"
     },
     {
       "category": "政府公告",
-      "title": "微軟2026年7月Patch Tuesday：SharePoint CVE-2026-56164、AD FS CVE-2026-56155兩個0-day",
+      "title": "7月Patch Tuesday：SharePoint CVE-2026-56164、AD FS CVE-2026-56155兩個0-day",
       "date": "2026-07-14",
       "url": "https://msrc.microsoft.com/update-guide/"
     }
@@ -971,7 +971,7 @@ grid.innerHTML =
   panelShell('①', '📰', '新聞事件', null, renderHeadlines(DATA.headlines), '', '#D97706', (DATA.headlines||[]).length) +
   panelShell('②', '🎯', '今日漏洞雷達 (CVE)', null, renderCveRadar(DATA.cve_radar), '', '#2563EB', (DATA.cve_radar||[]).length) +
   panelShell('③', '🏢', '廠商資訊', null, renderVendorImpact(DATA.vendor_impact), '', '#059669', (DATA.vendor_impact||[]).length) +
-  panelShell('④', '🪟', 'Windows更新發布資訊', null,
+  panelShell('④', '🪟', '需留意的更新檔', null,
     `<div id="globalEventsBody"></div>`,
     `<div class="tab-row">
       <button class="tab-btn active" data-days="1">今天</button>
