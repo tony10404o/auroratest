@@ -485,7 +485,7 @@ const DATA = {
       "exploited": true,
       "action": "立即更新",
       "plain_title": "企業列印管理系統PaperCut出現嚴重漏洞",
-      "plain_summary": "許多企業與學校用PaperCut來管理列印配額，這個漏洞可能讓未經驗證的攻擊者修改系統設定，並可與另一個漏洞串聯執行任意程式碼，風險較高。"
+      "plain_summary": "許多企業與學校用PaperCut來管理列印配額，威脅情報公司Huntress、watchTowr、Defused Cyber已觀察到針對此漏洞的攻擊活動從原本的偵察行為，演變成實際的資料竊取活動，風險明顯升高，建議儘速確認並修補。"
     },
     {
       "cve_id": "CVE-2026-82329",
@@ -671,7 +671,7 @@ const DATA = {
     }
   ]
 };
-const UPDATED_AT = "2026-09-05 10:00:00（台灣時間）";
+const UPDATED_AT = "2026-09-09 10:00:00（台灣時間）";
 document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
