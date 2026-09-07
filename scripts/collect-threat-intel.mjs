@@ -272,7 +272,7 @@ Krebs on Security: ${JSON.stringify(intlNews.krebs, null, 2)}
 
 注意事項：
 - kev_vulnerabilities 最多列出前10筆，依date_added新到舊排序
-- vendor_advisories 每家廠商最多列出前5則，優先列出看起來較嚴重（RCE、權限提升、認證繞過等）的項目
+- vendor_advisories 優先列出看起來較嚴重（RCE、權限提升、認證繞過等）的項目，不限制每家廠商最多幾則
 - international_news 挑選最重要的3-6則（原始資料已限縮為當天與昨天），摘要必須用自己的話改寫，不要照抄原文標題字句
 - 如果某類別原始資料是空的，該欄位回傳空陣列即可`;
 
