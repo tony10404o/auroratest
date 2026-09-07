@@ -89,10 +89,10 @@
   .update-title{font-size:12.5px;font-weight:600;line-height:1.4;overflow-wrap:anywhere;flex:1;min-width:0;}
   .update-title a{color:var(--text);text-decoration:none;}
   .update-title a:hover{color:var(--accent);}
-  .update-status-badge{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;white-space:nowrap;flex-shrink:0;border:none;cursor:pointer;}
-  .update-status-badge.status-待確認{color:var(--text-dim);background:var(--panel);}
-  .update-status-badge.status-處理中{color:var(--sev-medium);background:var(--sev-medium-bg);}
-  .update-status-badge.status-已完成{color:var(--sev-low);background:var(--sev-low-bg);}
+  .update-status-select{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;padding:3px 6px;border-radius:20px;white-space:nowrap;flex-shrink:0;border:none;cursor:pointer;appearance:none;-webkit-appearance:none;text-align:center;text-align-last:center;}
+  .update-status-select.status-待確認{color:var(--text-dim);background:var(--panel);}
+  .update-status-select.status-處理中{color:var(--sev-medium);background:var(--sev-medium-bg);}
+  .update-status-select.status-已完成{color:var(--sev-low);background:var(--sev-low-bg);}
   .update-cve-line{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-faint);margin-top:6px;margin-left:23px;}
   .update-cve-line b{color:var(--text-dim);font-weight:600;}
   .event-time{font-size:10.5px;color:var(--text-faint);white-space:nowrap;font-family:'JetBrains Mono',monospace;margin-top:2px;}
@@ -749,19 +749,10 @@ function timeAgoLabel(dateStr){
   return `${diffDays}天前`;
 }
 
-const STATUS_CYCLE = ['待確認', '處理中', '已完成'];
-function nextStatus(current){
-  const idx = STATUS_CYCLE.indexOf(current);
-  return STATUS_CYCLE[(idx + 1) % STATUS_CYCLE.length];
+function onStatusChange(select){
+  select.className = 'update-status-select status-' + select.value;
 }
-function toggleItemStatus(btn){
-  const current = btn.dataset.status || '待確認';
-  const next = nextStatus(current);
-  btn.dataset.status = next;
-  btn.textContent = next + (next === '已完成' ? ' ✓' : '');
-  btn.className = 'update-status-badge status-' + next;
-}
-window.toggleItemStatus = toggleItemStatus;
+window.onStatusChange = onStatusChange;
 
 function extractCve(title){
   const m = (title || '').match(/CVE-\d{4}-\d+/);
@@ -782,7 +773,11 @@ function renderGlobalEvents(items, rangeDays){
       <div class="update-card-top">
         <span class="update-vendor-icon">${vendorIconFor(e.title)}</span>
         <div class="update-title">${e.url ? `<a href="${escapeHtml(e.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(e.title)}</a>` : escapeHtml(e.title)}</div>
-        <button class="update-status-badge status-待確認" data-status="待確認" onclick="toggleItemStatus(this)">待確認</button>
+        <select class="update-status-select status-待確認" onchange="onStatusChange(this)">
+          <option value="待確認">待確認</option>
+          <option value="處理中">處理中</option>
+          <option value="已完成">已完成</option>
+        </select>
       </div>
       ${cve ? `<div class="update-cve-line"><b>CVE：</b>${escapeHtml(cve)}</div>` : ''}
     </div>`;
