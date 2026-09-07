@@ -219,6 +219,21 @@
   .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px;}
   @media (max-width:900px){.stat-strip{grid-template-columns:repeat(2,1fr);}}
   .top-layout{margin-bottom:18px;}
+
+  /* 近期威脅趨勢卡片 */
+  .trend-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin-bottom:18px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+  .trend-header{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+  .trend-icon{width:34px;height:34px;border-radius:8px;background:rgba(37,99,235,0.1);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+  .trend-title{font-weight:700;font-size:13.5px;color:var(--text);}
+  .trend-sub{font-size:10.5px;color:var(--text-faint);font-family:'JetBrains Mono',monospace;}
+  .trend-items{display:flex;gap:26px;flex-wrap:wrap;flex:1;}
+  .trend-item{display:flex;flex-direction:column;gap:3px;min-width:90px;}
+  .trend-item-label{font-size:11.5px;color:var(--text-dim);white-space:nowrap;}
+  .trend-item-value{display:flex;align-items:center;gap:8px;}
+  .trend-item-pct{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;}
+  .trend-item-pct.up{color:var(--sev-high);}
+  .trend-item-pct.down{color:var(--sev-low);}
+  @media (max-width:800px){.trend-card{flex-direction:column;align-items:flex-start;}.trend-items{gap:16px;}}
   @media (max-width:480px){.stat-strip{grid-template-columns:1fr;}}
   .strip-card{background:var(--panel);border:1px solid var(--border);border-left-width:4px;border-radius:8px;padding:14px 16px;}
   .strip-card.c-blue{border-left-color:#2563EB;}
@@ -269,6 +284,8 @@
   <div class="top-layout">
     <div class="stat-strip" id="statStrip"></div>
   </div>
+
+  <div class="trend-card" id="trendCard"></div>
 
   <div class="dashboard-grid" id="dashboardGrid"></div>
 
@@ -970,6 +987,52 @@ function renderStatStrip(counts){
     </div>`).join('');
 }
 renderStatStrip(DATA.category_counts);
+
+/* ---------- 近期威脅趨勢（示範資料，尚未接上真實歷史統計） ---------- */
+function renderSparkline(points, color){
+  const w = 64, h = 22;
+  const min = Math.min(...points), max = Math.max(...points);
+  const range = (max - min) || 1;
+  const step = w / (points.length - 1);
+  const path = points.map((p, i) => `${i === 0 ? 'M' : 'L'} ${(i * step).toFixed(1)} ${(h - ((p - min) / range) * h).toFixed(1)}`).join(' ');
+  return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><path d="${path}" fill="none" stroke="${color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+}
+
+function renderTrendCard(){
+  const el = document.getElementById('trendCard');
+  if (!el) return;
+  // 示範資料：真實趨勢需要每天累積歷史統計才能計算，目前尚未串接
+  const items = [
+    { label:'釣魚攻擊', pct:28, points:[40,44,42,50,55,58,64] },
+    { label:'勒索軟體', pct:15, points:[30,32,31,35,34,37,38] },
+    { label:'BEC商業郵件詐騙', pct:32, points:[20,22,26,25,30,33,36] },
+    { label:'帳密竊取', pct:-12, points:[50,48,46,44,42,41,38] },
+    { label:'AI詐騙', pct:18, points:[15,17,18,20,19,22,24] },
+  ];
+  const rows = items.map(it => {
+    const isUp = it.pct >= 0;
+    const color = isUp ? '#DC2626' : '#059669';
+    return `
+    <div class="trend-item">
+      <div class="trend-item-label">${escapeHtml(it.label)}</div>
+      <div class="trend-item-value">
+        <span class="trend-item-pct ${isUp ? 'up' : 'down'}">${isUp ? '↑' : '↓'} ${isUp ? '+' : ''}${it.pct}%</span>
+        ${renderSparkline(it.points, color)}
+      </div>
+    </div>`;
+  }).join('');
+
+  el.innerHTML = `
+    <div class="trend-header">
+      <div class="trend-icon">📈</div>
+      <div>
+        <div class="trend-title">近期威脅趨勢</div>
+        <div class="trend-sub">近7天威脅類型變化（相較前一週，示範資料）</div>
+      </div>
+    </div>
+    <div class="trend-items">${rows}</div>`;
+}
+renderTrendCard();
 
 const grid = document.getElementById('dashboardGrid');
 
