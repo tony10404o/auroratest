@@ -344,6 +344,7 @@ ${JSON.stringify(result, null, 2)}
       "icon": "廠商對應表情符號，例如Microsoft用🪟、Cisco用🔀、Fortinet用🛡️，其餘用🏢",
       "title": "廠商公告標題（可参考原始資料）",
       "impact": "高、中或低",
+      "category": "這則公告所屬的產品功能分類，例如：郵件系統、瀏覽器、防火牆、遠端存取設備、AI基礎設施、列印管理系統、身分驗證服務、虛擬化平台等，8字以內",
       "key_asset": "這則公告主要涉及的關鍵設備/軟體名稱（例如：FortiGate防火牆、Windows Server、SharePoint等），15字以內",
       "ai_suggestion": "20-40字的具體建議行動"
     }

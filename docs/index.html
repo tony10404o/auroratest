@@ -79,6 +79,10 @@
   .tab-row{display:flex;gap:6px;margin-bottom:10px;}
   .tab-btn{font-family:'JetBrains Mono',monospace;font-size:10.5px;padding:4px 10px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--text-dim);cursor:pointer;}
   .tab-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+  .vendor-pill-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;}
+  .vendor-pill{font-family:'Noto Sans TC',sans-serif;font-size:11px;padding:4px 11px;border-radius:20px;border:1px solid var(--border);background:var(--panel-alt);color:var(--text-dim);cursor:pointer;white-space:nowrap;}
+  .vendor-pill:hover{background:var(--border);}
+  .vendor-pill.active{background:var(--accent);color:#fff;border-color:var(--accent);}
   .event-row{display:flex;align-items:flex-start;gap:8px;padding:8px 0;border-top:1px dashed var(--border);}
   .event-row:first-child{border-top:none;padding-top:0;}
   .event-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:5px;}
@@ -155,6 +159,7 @@
   .vendor-title{font-size:12.5px;font-weight:600;overflow-wrap:anywhere;}
   .vendor-asset{font-size:10.5px;color:var(--text-dim);margin-bottom:4px;}
   .vendor-asset .tag-chip{display:inline-block;background:var(--panel-alt);border-radius:5px;padding:1px 6px;margin-right:4px;font-family:'JetBrains Mono',monospace;font-size:10px;}
+  .vendor-asset .category-chip{background:rgba(37,99,235,0.1);color:var(--accent);font-weight:600;}
   .vendor-suggestion{font-size:11px;color:var(--text-dim);line-height:1.6;background:var(--panel-alt);border-radius:6px;padding:6px 8px;margin-top:4px;}
   .vendor-suggestion b{color:var(--accent);}
 
@@ -499,35 +504,45 @@ const DATA = {
       "title": "Google：Chrome瀏覽器V8引擎零時差漏洞已遭實際利用",
       "impact": "高",
       "key_asset": "Google Chrome瀏覽器",
-      "ai_suggestion": "建議確認員工端瀏覽器已自動更新，或手動重新啟動瀏覽器以套用最新版本"
+      "ai_suggestion": "建議確認員工端瀏覽器已自動更新，或手動重新啟動瀏覽器以套用最新版本",
+      "category": "瀏覽器",
+      "vendor": "Google"
     },
     {
       "icon": "🤖",
       "title": "LiteLLM：CVE-2026-59822身分驗證漏洞，Qilin勒索集團已鎖定利用",
       "impact": "高",
       "key_asset": "LiteLLM（AI模型代理平台）",
-      "ai_suggestion": "建議盤點內部是否有使用LiteLLM串接AI服務，並確認是否已套用修補"
+      "ai_suggestion": "建議盤點內部是否有使用LiteLLM串接AI服務，並確認是否已套用修補",
+      "category": "AI基礎設施",
+      "vendor": "LiteLLM"
     },
     {
       "icon": "🔐",
       "title": "SonicWall：SMA1000系列滿分等級漏洞CVE-2026-83548已遭利用",
       "impact": "高",
       "key_asset": "SonicWall SMA1000遠端存取設備",
-      "ai_suggestion": "建議立即確認設備韌體版本並套用修補，優先程度視同緊急事件處理"
+      "ai_suggestion": "建議立即確認設備韌體版本並套用修補，優先程度視同緊急事件處理",
+      "category": "遠端存取設備",
+      "vendor": "SonicWall"
     },
     {
       "icon": "📧",
       "title": "Microsoft：Exchange Server高風險漏洞CVE-2026-62911，全球逾2.2萬台暴露、台灣250台",
       "impact": "高",
       "key_asset": "Exchange Server（企業郵件伺服器）",
-      "ai_suggestion": "建議立即確認Exchange Server是否已套用8月修補，並檢查是否有不必要的公開網路暴露"
+      "ai_suggestion": "建議立即確認Exchange Server是否已套用8月修補，並檢查是否有不必要的公開網路暴露",
+      "category": "郵件系統",
+      "vendor": "Microsoft"
     },
     {
       "icon": "🖨️",
       "title": "PaperCut：CVE-2026-81578關鍵功能缺少身分驗證漏洞已遭利用",
       "impact": "高",
       "key_asset": "PaperCut NG/MF（列印管理系統）",
-      "ai_suggestion": "建議確認校園或企業內部PaperCut系統版本並儘速套用修補"
+      "ai_suggestion": "建議確認校園或企業內部PaperCut系統版本並儘速套用修補",
+      "category": "列印管理系統",
+      "vendor": "PaperCut"
     }
   ],
   "action_items": [
@@ -819,7 +834,10 @@ function renderVendorImpact(items){
           <div class="vendor-title">${escapeHtml(v.title || '')}</div>
           ${v.impact ? `<span class="impact-badge impact-${escapeHtml(v.impact)}">${escapeHtml(v.impact)}</span>` : ''}
         </div>
-        ${v.key_asset ? `<div class="vendor-asset"><span class="tag-chip">${escapeHtml(v.key_asset)}</span></div>` : ''}
+        <div class="vendor-asset">
+          ${v.category ? `<span class="tag-chip category-chip">${escapeHtml(v.category)}</span>` : ''}
+          ${v.key_asset ? `<span class="tag-chip">${escapeHtml(v.key_asset)}</span>` : ''}
+        </div>
         ${v.ai_suggestion ? `<div class="vendor-suggestion"><b>AI建議：</b>${escapeHtml(v.ai_suggestion)}</div>` : ''}
       </div>
     </div>`);
@@ -1072,7 +1090,7 @@ const todayWinCount = (DATA.global_events || []).filter(e => {
 grid.innerHTML =
   panelShell('①', '📰', '新聞事件', null, renderHeadlines(DATA.headlines), '', '#D97706', (DATA.headlines||[]).length) +
   panelShell('②', '🎯', '今日漏洞雷達 (CVE)', null, renderCveRadar(DATA.cve_radar), '', '#2563EB', (DATA.cve_radar||[]).length) +
-  panelShell('③', '🏢', '廠商資訊', null, renderVendorImpact(DATA.vendor_impact), '', '#059669', (DATA.vendor_impact||[]).length) +
+  panelShell('③', '🏢', '廠商資訊', null, `<div id="vendorImpactBody"></div>`, `<div id="vendorPillRow"></div>`, '#059669', (DATA.vendor_impact||[]).length) +
   panelShell('④', '🪟', '需留意的更新檔', null,
     `<div id="globalEventsBody"></div>`,
     `<div class="tab-row">
@@ -1081,6 +1099,38 @@ grid.innerHTML =
     </div>`, '', todayWinCount, 'windowsUpdateBadge');
 
 setupGlobalEventsPanel(DATA.global_events);
+setupVendorPillFilter(DATA.vendor_impact);
+
+function setupVendorPillFilter(items){
+  const pillRow = document.getElementById('vendorPillRow');
+  const body = document.getElementById('vendorImpactBody');
+  if (!pillRow || !body) return;
+
+  const vendorNames = [...new Set((items || []).map(v => v.vendor).filter(Boolean))];
+  let activeVendor = null;
+
+  function render(){
+    const filtered = activeVendor ? items.filter(v => v.vendor === activeVendor) : items;
+    body.innerHTML = renderVendorImpact(filtered);
+  }
+
+  pillRow.innerHTML = `
+    <div class="vendor-pill-row">
+      <button class="vendor-pill active" data-vendor="">全部</button>
+      ${vendorNames.map(v => `<button class="vendor-pill" data-vendor="${escapeHtml(v)}">${vendorIconFor(v)} ${escapeHtml(v)}</button>`).join('')}
+    </div>`;
+
+  pillRow.querySelectorAll('.vendor-pill').forEach(btn => {
+    btn.addEventListener('click', () => {
+      pillRow.querySelectorAll('.vendor-pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeVendor = btn.dataset.vendor || null;
+      render();
+    });
+  });
+
+  render();
+}
 </script>
 </body>
 </html>
