@@ -83,14 +83,18 @@
   .vendor-pill{font-family:'Noto Sans TC',sans-serif;font-size:11px;padding:4px 11px;border-radius:20px;border:1px solid var(--border);background:var(--panel-alt);color:var(--text-dim);cursor:pointer;white-space:nowrap;}
   .vendor-pill:hover{background:var(--border);}
   .vendor-pill.active{background:var(--accent);color:#fff;border-color:var(--accent);}
-  .event-row{display:flex;align-items:flex-start;gap:8px;padding:8px 0;border-top:1px dashed var(--border);}
-  .event-row:first-child{border-top:none;padding-top:0;}
-  .event-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:5px;}
-  .event-body{flex:1;min-width:0;}
-  .event-cat{font-size:10px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;}
-  .event-title{font-size:12.5px;font-weight:600;line-height:1.4;overflow-wrap:anywhere;}
-  .event-title a{color:var(--text);text-decoration:none;}
-  .event-title a:hover{color:var(--accent);}
+  .update-card{background:var(--panel-alt);border:1px solid var(--border);border-radius:8px;padding:10px 12px;margin-bottom:8px;}
+  .update-card-top{display:flex;align-items:flex-start;gap:8px;}
+  .update-vendor-icon{font-size:15px;flex-shrink:0;margin-top:1px;}
+  .update-title{font-size:12.5px;font-weight:600;line-height:1.4;overflow-wrap:anywhere;flex:1;min-width:0;}
+  .update-title a{color:var(--text);text-decoration:none;}
+  .update-title a:hover{color:var(--accent);}
+  .update-status-badge{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;white-space:nowrap;flex-shrink:0;border:none;cursor:pointer;}
+  .update-status-badge.status-待確認{color:var(--text-dim);background:var(--panel);}
+  .update-status-badge.status-處理中{color:var(--sev-medium);background:var(--sev-medium-bg);}
+  .update-status-badge.status-已完成{color:var(--sev-low);background:var(--sev-low-bg);}
+  .update-cve-line{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-faint);margin-top:6px;margin-left:23px;}
+  .update-cve-line b{color:var(--text-dim);font-weight:600;}
   .event-time{font-size:10.5px;color:var(--text-faint);white-space:nowrap;font-family:'JetBrains Mono',monospace;margin-top:2px;}
 
   /* Panel 7: 今日建議行動 */
@@ -745,6 +749,25 @@ function timeAgoLabel(dateStr){
   return `${diffDays}天前`;
 }
 
+const STATUS_CYCLE = ['待確認', '處理中', '已完成'];
+function nextStatus(current){
+  const idx = STATUS_CYCLE.indexOf(current);
+  return STATUS_CYCLE[(idx + 1) % STATUS_CYCLE.length];
+}
+function toggleItemStatus(btn){
+  const current = btn.dataset.status || '待確認';
+  const next = nextStatus(current);
+  btn.dataset.status = next;
+  btn.textContent = next + (next === '已完成' ? ' ✓' : '');
+  btn.className = 'update-status-badge status-' + next;
+}
+window.toggleItemStatus = toggleItemStatus;
+
+function extractCve(title){
+  const m = (title || '').match(/CVE-\d{4}-\d+/);
+  return m ? m[0] : null;
+}
+
 function renderGlobalEvents(items, rangeDays){
   const cutoff = Date.now() - rangeDays * 86400000;
   const filtered = (items || []).filter(e => {
@@ -752,15 +775,18 @@ function renderGlobalEvents(items, rangeDays){
     return isNaN(d.getTime()) ? true : d.getTime() >= cutoff;
   });
   if (!filtered.length) return emptyNote();
-  const rows = filtered.map(e => `
-    <div class="event-row">
-      <div class="event-dot" style="background:${CATEGORY_COLORS[e.category] || 'var(--text-faint)'}"></div>
-      <div class="event-body">
-        <div class="event-cat">${escapeHtml(e.category || '')}</div>
-        <div class="event-title">${e.url ? `<a href="${escapeHtml(e.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(e.title)}</a>` : escapeHtml(e.title)}</div>
+  const rows = filtered.map(e => {
+    const cve = extractCve(e.title);
+    return `
+    <div class="update-card">
+      <div class="update-card-top">
+        <span class="update-vendor-icon">${vendorIconFor(e.title)}</span>
+        <div class="update-title">${e.url ? `<a href="${escapeHtml(e.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(e.title)}</a>` : escapeHtml(e.title)}</div>
+        <button class="update-status-badge status-待確認" data-status="待確認" onclick="toggleItemStatus(this)">待確認</button>
       </div>
-      <div class="event-time">${timeAgoLabel(e.date)}</div>
-    </div>`);
+      ${cve ? `<div class="update-cve-line"><b>CVE：</b>${escapeHtml(cve)}</div>` : ''}
+    </div>`;
+  });
   return withShowMore(rows);
 }
 
