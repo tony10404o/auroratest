@@ -216,9 +216,12 @@
   .stat-modal-row-value{font-family:'JetBrains Mono',monospace;color:var(--text-dim);white-space:nowrap;}
 
   /* 分類統計字卡（色條風格） */
-  .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px;}
+  .stat-strip{display:grid;grid-template-columns:repeat(4,minmax(120px,150px));gap:10px;flex-shrink:0;}
+  .top-combined-row{display:flex;align-items:stretch;gap:14px;margin-bottom:18px;flex-wrap:wrap;}
+  .trend-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;flex:1;min-width:320px;}
+  @media (max-width:800px){.trend-card{flex-direction:column;align-items:flex-start;}.trend-items{gap:16px;}.stat-strip{grid-template-columns:repeat(2,1fr);width:100%;}}
   @media (max-width:900px){.stat-strip{grid-template-columns:repeat(2,1fr);}}
-  .top-layout{margin-bottom:18px;}
+
 
   /* 近期威脅趨勢卡片 */
   .trend-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin-bottom:18px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
@@ -233,15 +236,15 @@
   .trend-item-pct{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;}
   .trend-item-pct.up{color:var(--sev-high);}
   .trend-item-pct.down{color:var(--sev-low);}
-  @media (max-width:800px){.trend-card{flex-direction:column;align-items:flex-start;}.trend-items{gap:16px;}}
+
   @media (max-width:480px){.stat-strip{grid-template-columns:1fr;}}
-  .strip-card{background:var(--panel);border:1px solid var(--border);border-left-width:4px;border-radius:8px;padding:14px 16px;}
+  .strip-card{background:var(--panel);border:1px solid var(--border);border-left-width:3px;border-radius:8px;padding:10px 12px;}
   .strip-card.c-blue{border-left-color:#2563EB;}
   .strip-card.c-green{border-left-color:#059669;}
   .strip-card.c-orange{border-left-color:#D97706;}
   .strip-card.c-red{border-left-color:#DC2626;}
   .strip-top-row{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:6px;}
-  .strip-label{font-size:12.5px;font-weight:600;}
+  .strip-label{font-size:11px;font-weight:600;margin-bottom:2px;}
   .strip-card.c-blue .strip-label{color:#2563EB;}
   .strip-card.c-green .strip-label{color:#059669;}
   .strip-card.c-orange .strip-label{color:#D97706;}
@@ -252,7 +255,7 @@
   .strip-count-badge.c-orange{color:#D97706;background:rgba(217,119,6,0.1);}
   .strip-count-badge.c-red{color:#DC2626;background:rgba(220,38,38,0.1);}
   .strip-label-sub{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;color:var(--text-faint);}
-  .strip-number{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;line-height:1;margin-bottom:6px;}
+  .strip-number{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;line-height:1;margin-bottom:2px;}
   .strip-card.c-blue .strip-number{color:#2563EB;}
   .strip-card.c-green .strip-number{color:#059669;}
   .strip-card.c-orange .strip-number{color:#D97706;}
@@ -281,11 +284,10 @@
     </div>
   </div>
 
-  <div class="top-layout">
+  <div class="top-combined-row">
     <div class="stat-strip" id="statStrip"></div>
+    <div class="trend-card" id="trendCard"></div>
   </div>
-
-  <div class="trend-card" id="trendCard"></div>
 
   <div class="dashboard-grid" id="dashboardGrid"></div>
 
