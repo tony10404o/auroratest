@@ -1043,7 +1043,7 @@ function renderStatStrip(counts){
   const cards = [
     { color:'orange', label:'新聞事件', number: counts.news ?? 0, desc:'國內/全球新聞' },
     { color:'blue', label:'今日漏洞雷達', number: counts.kev ?? 0, desc:'KEV新增筆數' },
-    { color:'green', label:'廠商資訊', number: counts.vendor ?? 0, desc:'Microsoft／Cisco／Fortinet' },
+    { color:'green', label:'公司關注廠商情報', number: counts.vendor ?? 0, desc:'Microsoft／Cisco／Fortinet' },
     { color:'red', label:'勒索軟體／APT', number: counts.ransomwareApt ?? 0, desc:'近期事件數', clickable:true },
   ];
   el.innerHTML = cards.map(c => `
@@ -1111,7 +1111,7 @@ const todayWinCount = (DATA.global_events || []).filter(e => {
 grid.innerHTML =
   panelShell('①', '📰', '新聞事件', null, renderHeadlines(DATA.headlines), '', '#D97706', (DATA.headlines||[]).length) +
   panelShell('②', '🎯', '今日漏洞雷達 (CVE)', null, renderCveRadar(DATA.cve_radar), '', '#2563EB', (DATA.cve_radar||[]).length) +
-  panelShell('③', '🏢', '廠商資訊', null, `<div id="vendorImpactBody"></div>`, `<div id="vendorPillRow"></div>`, '#059669', (DATA.vendor_impact||[]).length) +
+  panelShell('③', '🏢', '公司關注廠商情報', null, `<div id="vendorImpactBody"></div>`, `<div id="vendorPillRow"></div>`, '#059669', (DATA.vendor_impact||[]).length) +
   panelShell('④', '🪟', '待處理事項', null,
     `<div id="globalEventsBody"></div>`,
     `<div class="tab-row">
