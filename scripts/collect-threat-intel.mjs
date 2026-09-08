@@ -306,7 +306,7 @@ async function searchRemainingCategories() {
   ]
 }
 
-注意：summary務必用自己的話改寫，不要照抄原文字句。若某類別找不到足夠資料，回傳較少筆數也沒關係，但陣列格式要維持。`;
+注意：summary務必用自己的話改寫，不要照抄原文字句。若某類別找不到足夠資料，回傳較少筆數也沒關係，但陣列格式要維持。所有url/source_url欄位務必是報導該則新聞的「確切單篇文章網址」（例如 https://example.com/news/12345 這種有具體文章ID或標題slug的頁面），絕對不可以是分類列表頁、標籤頁或網站首頁（例如 /tags/xxx、/category/xxx、/security、網站根目錄等），如果找不到確切單篇文章的網址，該欄位請留空字串，不要用列表頁充數。`;
 
   return await callClaudeForJson({
     prompt,
