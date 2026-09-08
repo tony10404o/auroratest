@@ -768,9 +768,21 @@ function timeAgoLabel(dateStr){
 }
 
 function onStatusChange(select){
-  select.className = 'update-status-select status-' + select.value;
+  select.className = 'update-status-select' + (select.value ? ' status-' + select.value : '');
+  updatePendingCount();
 }
 window.onStatusChange = onStatusChange;
+
+function updatePendingCount(){
+  const badge = document.getElementById('pendingCountNum');
+  if (!badge) return;
+  const selects = document.querySelectorAll('.update-status-select');
+  let remaining = 0;
+  selects.forEach(s => {
+    if (s.value !== '不處理' && s.value !== '已完成') remaining++;
+  });
+  badge.textContent = remaining;
+}
 
 function extractCve(title){
   const m = (title || '').match(/CVE-\d{4}-\d+/);
@@ -791,7 +803,8 @@ function renderGlobalEvents(items, rangeDays){
       <div class="update-card-top">
         <span class="update-vendor-icon">${vendorIconFor(e.title)}</span>
         <div class="update-title">${e.url ? `<a href="${escapeHtml(e.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(e.title)}</a>` : escapeHtml(e.title)}</div>
-        <select class="update-status-select status-不處理" onchange="onStatusChange(this)">
+        <select class="update-status-select" onchange="onStatusChange(this)">
+          <option value="" selected>－</option>
           <option value="不處理">不處理</option>
           <option value="處理中">處理中</option>
           <option value="已完成">已完成</option>
@@ -1062,12 +1075,12 @@ function renderStatStrip(counts, pendingCount){
     { color:'red', label:'新聞事件', number: counts.news ?? 0, desc:'國內/全球新聞' },
     { color:'blue', label:'今日漏洞雷達', number: counts.kev ?? 0, desc:'KEV新增筆數' },
     { color:'green', label:'公司關注廠商情報', number: counts.vendor ?? 0, desc:'Microsoft／Cisco／Fortinet' },
-    { color:'orange', label:'待處理事項', number: pendingCount ?? 0, desc:'需留意的更新檔數' },
+    { color:'orange', label:'待處理事項', number: pendingCount ?? 0, desc:'需留意的更新檔數', id:'pendingCountNum' },
   ];
   el.innerHTML = cards.map(c => `
     <div class="strip-card c-${c.color}"${c.clickable ? ` style="cursor:pointer;" onclick="openStatModal('ransomApt')"` : ''}>
       <div class="strip-label">${escapeHtml(c.label)} <span class="strip-label-sub">${escapeHtml(c.desc)}</span></div>
-      <div class="strip-number">${c.number}</div>
+      <div class="strip-number"${c.id ? ` id="${c.id}"` : ''}>${c.number}</div>
     </div>`).join('');
 }
 renderStatStrip(DATA.category_counts, (DATA.global_events||[]).length);
