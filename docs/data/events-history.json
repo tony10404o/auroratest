@@ -1,6 +1,48 @@
 [
   {
     "category": "零時差漏洞",
+    "title": "Magento爆發StyleSmuggler零時差漏洞，攻擊者利用部署Linux後門",
+    "date": "2026-09-08",
+    "url": "https://www.bleepingcomputer.com/news/security/magento-stylesmuggler-zero-day-exploited-to-deploy-linux-backdoor/"
+  },
+  {
+    "category": "政府公告",
+    "title": "資安週報第10期（114/9/08 - 114/9/14）",
+    "date": "2026-09-08",
+    "url": "https://www.nics.nat.gov.tw/core_business/information_security_information_sharing/cybersecuritynews/9f6934d2-b451-422a-a531-815c6c6cc062/"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "Europol牽頭捣毀Sality僵屍網路",
+    "date": "2026-09-06",
+    "url": "https://www.gm7.org/archives/154059"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "創新服務(7828)遭勒索軟體攻擊",
+    "date": "2026-09-02",
+    "url": "https://tw.stock.yahoo.com/news/%E5%85%AC%E5%91%8A-%E8%AA%AA%E6%98%8E%E5%89%B5%E6%96%B0%E6%9C%8D%E5%8B%99%E9%83%A8%E4%BB%BD%E8%B3%87%E8%A8%8A%E7%B3%BB%E7%B5%B1%E9%81%AD%E5%8F%97%E7%B6%B2%E8%B7%AF%E5%8B%92%E7%B4%A2%E7%97%85%E6%AF%92%E6%94%BB%E6%93%8A%E4%BA%8B%E4%BB%B6-110354474.html"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "美國某醫療公司遭勒索攻擊，284億條患者數據洩露",
+    "date": "2026-09-01",
+    "url": "https://www.gm7.org/archives/153320"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "Salt Typhoon（鹽颱風）國家級駭客滲透全球關鍵基礎設施",
+    "date": "2026-08-31",
+    "url": "https://moda.gov.tw/ACS/press/report/17402"
+  },
+  {
+    "category": "政府公告",
+    "title": "資通安全網路月報（114年8月）",
+    "date": "2026-08-31",
+    "url": "https://moda.gov.tw/ACS/press/report/17402"
+  },
+  {
+    "category": "零時差漏洞",
     "title": "SharePoint CVE-2026-50522遭實際利用",
     "date": "2026-08-07",
     "url": "https://www.cisa.gov/"
@@ -10,101 +52,5 @@
     "title": "Langflow漏洞CVE-2026-9198大規模掃描攻擊",
     "date": "2026-08-05",
     "url": "https://thehackernews.com/"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "新興勒索集團以英國10萬名警員資料首秀",
-    "date": "2026-08-03",
-    "url": "https://therecord.media/"
-  },
-  {
-    "category": "資料外洩",
-    "title": "ShinyHunters攻擊Questal，外洩2,100萬筆Salesforce紀錄",
-    "date": "2026-08-01",
-    "url": "https://sharkstriker.com/"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "Krybit攻擊ProHealth Medical Group，114GB資料外洩",
-    "date": "2026-08-01",
-    "url": "https://sharkstriker.com/"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "CRPx0點名Hyundai Motor土耳其分公司",
-    "date": "2026-07-30",
-    "url": "https://sharkstriker.com/"
-  },
-  {
-    "category": "政府公告",
-    "title": "TWCERT/CC示警SharePoint CVE-2026-50522高風險漏洞",
-    "date": "2026-07-30",
-    "url": "https://www.twcert.org.tw/tw/lp-169-1.html"
-  },
-  {
-    "category": "政府公告",
-    "title": "TWCERT/CC KEV週報（7/13-7/19）",
-    "date": "2026-07-20",
-    "url": "https://www.twcert.org.tw/tw/lp-168-1.html"
-  },
-  {
-    "category": "政府公告",
-    "title": "TWCERT/CC發布Microsoft 2026年7月份安全性更新公告",
-    "date": "2026-07-15",
-    "url": "https://www.twcert.org.tw/tw/lp-169-1.html"
-  },
-  {
-    "category": "政府公告",
-    "title": "TWCERT/CC發布Microsoft 2026年7月安全性更新公告",
-    "date": "2026-07-15",
-    "url": "https://www.twcert.org.tw/tw/lp-169-1.html"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "Microsoft SharePoint CVE-2026-56164遭實際利用",
-    "date": "2026-07-14",
-    "url": "https://msrc.microsoft.com/update-guide/"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "Microsoft AD FS CVE-2026-56155遭實際利用",
-    "date": "2026-07-14",
-    "url": "https://msrc.microsoft.com/update-guide/"
-  },
-  {
-    "category": "資料外洩",
-    "title": "Accenture證實原始碼與金鑰資料遭竊",
-    "date": "2026-07-14",
-    "url": "https://blog.senthorus.ch/posts/14_07_2026"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "SharePoint 0-day（CVE-2026-56164）隨Patch Tuesday公告",
-    "date": "2026-07-14",
-    "url": "https://msrc.microsoft.com/update-guide/"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "AD FS 0-day（CVE-2026-56155）存取控制漏洞",
-    "date": "2026-07-14",
-    "url": "https://msrc.microsoft.com/update-guide/"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "Deutsche Bank遭Unsafe勒索組織列入外洩名單",
-    "date": "2026-07-10",
-    "url": "https://blog.senthorus.ch/posts/14_07_2026"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "Fluke Corporation遭ShinyHunters竊取逾100GB資料",
-    "date": "2026-07-10",
-    "url": "https://blog.senthorus.ch/posts/14_07_2026"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "Ford汽車墨西哥廠遭Krybit勒索組織點名",
-    "date": "2026-07-10",
-    "url": "https://sharkstriker.com/blog/july-2026-data-breaches/"
   }
 ]
