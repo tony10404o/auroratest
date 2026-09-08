@@ -314,6 +314,20 @@
 const DATA = {
   "headlines": [
     {
+      "icon": "🔑",
+      "title": "舊漏洞Langflow CVE-2026-0768遭重新利用，攻擊者鎖定竊取OpenAI API金鑰",
+      "url": "https://www.ithome.com.tw/security",
+      "impact": "高",
+      "stars": 4
+    },
+    {
+      "icon": "🏆",
+      "title": "數發部攜手SEMI揭露「SEMI E187驗證標章」，台灣半導體資安標準邁向落地驗證",
+      "url": "https://www.ithome.com.tw/tags/%E8%B3%87%E5%AE%89%E6%97%A5%E5%A0%B1",
+      "impact": "中",
+      "stars": 3
+    },
+    {
       "icon": "🌐",
       "title": "CISA新增Chrome瀏覽器V8引擎零時差漏洞，已遭實際利用",
       "url": "https://www.cisa.gov/news-events/alerts/2026/09/04/cisa-adds-one-known-exploited-vulnerability-catalog",
@@ -368,28 +382,14 @@ const DATA = {
       "url": "https://www.cool3c.com/article/251471",
       "impact": "中",
       "stars": 3
-    },
-    {
-      "icon": "🏭",
-      "title": "連接線束大廠貿聯-KY部分資訊系統遭網安事件，股價一度跌停",
-      "url": "https://tw.stock.yahoo.com/news/%E8%B2%BF%E8%81%AF-%E8%B3%87%E8%A8%8A%E7%B3%BB%E7%B5%B1%E9%81%AD%E5%8F%97%E7%B6%B2%E5%AE%89%E4%BA%8B%E4%BB%B6-%E5%95%9F%E5%8B%95%E6%87%89%E8%AE%8A%E6%A9%9F%E5%88%B6-002059813.html",
-      "impact": "高",
-      "stars": 4
-    },
-    {
-      "icon": "📰",
-      "title": "中國APT24入侵台灣廣告供應鏈，鎖定新聞與小說網站植入惡意程式BadAudio",
-      "url": "https://www.ithome.com.tw/news/178472",
-      "impact": "高",
-      "stars": 4
     }
   ],
   "global_events": [
     {
       "category": "政府公告",
-      "title": "微軟9月Patch Tuesday今日發布，資安業者預估規模達200個CVE以上",
+      "title": "微軟9月Patch Tuesday正式發布：僅9個CVE、全數列為Critical，本月無已遭實際利用漏洞",
       "date": "2026-09-08",
-      "url": "https://senserva.com/patch-tuesday-2026-09.html"
+      "url": "https://trinetriops.com/resources/patch-tuesday"
     },
     {
       "category": "政府公告",
@@ -636,7 +636,7 @@ const DATA = {
     }
   ],
   "risk_score": {
-    "total": 95,
+    "total": 98,
     "breakdown": [
       {
         "label": "CVE風險",
@@ -648,7 +648,7 @@ const DATA = {
       },
       {
         "label": "Windows更新風險",
-        "score": 90
+        "score": 100
       },
       {
         "label": "台灣區域風險",
@@ -693,7 +693,7 @@ const DATA = {
     }
   ]
 };
-const UPDATED_AT = "2026-09-08 10:00:00（台灣時間）";
+const UPDATED_AT = "2026-09-08 09:00:00（台灣時間）";
 document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
