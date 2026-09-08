@@ -172,6 +172,8 @@ function buildCveRadar(kevItems) {
         cvss_source: hasOfficial ? "NVD官方" : "AI推估",
         exploited: true, // 來自KEV清單，一律視為已知遭實際利用
         action: decideAction(cvss, v.is_zero_day, v.known_ransomware_use),
+        plain_title: v.plain_title || v.title,
+        plain_summary: v.plain_summary || v.summary || v.title,
       };
     })
     .sort((a, b) => b.cvss - a.cvss);
@@ -248,7 +250,9 @@ Krebs on Security: ${JSON.stringify(intlNews.krebs, null, 2)}
       "date_added": "YYYY-MM-DD",
       "known_ransomware_use": true或false,
       "is_zero_day": true或false（若description或name中提到這是在廠商發布修補之前就已經被利用的0-day漏洞，填true；不確定則填false）,
-      "summary": "40字以內繁體中文摘要"
+      "summary": "40字以內繁體中文摘要",
+      "plain_title": "給完全不懂技術的人看的白話標題，10-20字，不要出現CVE編號或專有名詞，例如「資料庫工具出現嚴重安全漏洞」",
+      "plain_summary": "60-100字的白話說明，用完全不懂技術的人也看得懂的語言解釋：這個問題大概是什麼、可能造成什麼影響、為什麼要注意，避免使用CVSS、RCE等專業術語，可以用「等於...」這種比喻方式說明"
     }
   ],
   "vendor_advisories": [
@@ -342,6 +346,7 @@ ${JSON.stringify(result, null, 2)}
   "vendor_impact": [
     {
       "icon": "廠商對應表情符號，例如Microsoft用🪟、Cisco用🔀、Fortinet用🛡️，其餘用🏢",
+      "vendor": "廠商簡短名稱（例如：Microsoft、Cisco、Fortinet），不要加其他文字",
       "title": "廠商公告標題（可参考原始資料）",
       "impact": "高、中或低",
       "category": "這則公告所屬的產品功能分類，例如：郵件系統、瀏覽器、防火牆、遠端存取設備、AI基礎設施、列印管理系統、身分驗證服務、虛擬化平台等，8字以內",

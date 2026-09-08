@@ -23,33 +23,6 @@
   }
   .wrap{max-width:1560px;margin:0 auto;}
 
-  /* 頂部跑馬燈 */
-  .ticker-bar{
-    background:#0F172A;color:#E2E8F0;overflow:hidden;position:relative;
-    white-space:nowrap;padding:9px 0;font-family:'JetBrains Mono',monospace;font-size:12.5px;
-  }
-  .ticker-label{
-    position:absolute;left:0;top:0;bottom:0;display:flex;align-items:center;gap:6px;
-    background:#DC2626;color:#fff;padding:0 14px;font-weight:700;font-size:11.5px;z-index:2;
-    white-space:nowrap;
-  }
-  .ticker-track{display:inline-flex;padding-left:100%;animation:ticker-scroll 45s linear infinite;}
-  .ticker-track.paused{animation-play-state:paused;}
-  .ticker-item{display:inline-flex;align-items:center;margin-right:48px;flex-shrink:0;}
-  .ticker-item a{color:#E2E8F0;text-decoration:none;position:relative;z-index:3;}
-  .ticker-item a:hover{text-decoration:underline;color:#60A5FA;}
-  .ticker-sep{color:#475569;margin-right:48px;flex-shrink:0;}
-  @keyframes ticker-scroll{
-    0%{transform:translateX(0);}
-    100%{transform:translateX(-50%);}
-  }
-  @media (max-width:640px){
-    .ticker-bar{overflow-x:auto;-webkit-overflow-scrolling:touch;}
-    .ticker-label{position:static;flex-shrink:0;margin-right:10px;}
-    .ticker-bar{display:flex;align-items:center;white-space:nowrap;}
-    .ticker-track{animation:none !important;padding-left:0;display:inline-flex;}
-  }
-
   /* header */
   .header{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:14px;padding-bottom:16px;margin-bottom:4px;border-bottom:1px solid var(--border);}
   .brand{display:flex;align-items:center;gap:10px;}
@@ -58,18 +31,22 @@
   .brand .sub{font-size:11px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;margin-top:1px;}
   .meta-line{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-dim);}
 
-  .dashboard-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px;}
-  @media (max-width:1000px){.dashboard-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
-  @media (max-width:640px){.dashboard-grid{grid-template-columns:1fr;}}
+  .dashboard-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px;margin-top:18px;}
 
   .panel{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px;display:flex;flex-direction:column;min-width:0;}
   .panel-header{display:flex;align-items:center;gap:6px;margin-bottom:12px;}
-  .panel-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-faint);}
+  .panel-num{font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:700;color:var(--text-dim);}
   .panel-icon{font-size:14px;}
   .panel-title{font-weight:700;font-size:13.5px;color:var(--text);}
+  .panel-count-badge{font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;color:var(--accent);background:rgba(37,99,235,0.08);padding:2px 9px;border-radius:20px;white-space:nowrap;}
   .panel-viewall{margin-left:auto;font-size:11px;color:var(--accent);text-decoration:none;font-family:'JetBrains Mono',monospace;white-space:nowrap;}
   .panel-viewall:hover{text-decoration:underline;}
-  .panel-body{flex:1;}
+  .panel-body{flex:1;max-height:420px;overflow-y:auto;padding-right:4px;scrollbar-width:thin;scrollbar-color:transparent transparent;}
+  .panel-body:hover{scrollbar-color:var(--text-faint) transparent;}
+  .panel-body::-webkit-scrollbar{width:5px;}
+  .panel-body::-webkit-scrollbar-track{background:transparent;}
+  .panel-body::-webkit-scrollbar-thumb{background:transparent;border-radius:10px;}
+  .panel-body:hover::-webkit-scrollbar-thumb{background:var(--text-faint);}
   .empty-note{color:var(--text-faint);font-size:12px;padding:10px 0;font-family:'JetBrains Mono',monospace;}
   .show-more-btn{
     width:100%;margin-top:8px;padding:8px;background:var(--panel-alt);border:1px dashed var(--border);
@@ -102,14 +79,23 @@
   .tab-row{display:flex;gap:6px;margin-bottom:10px;}
   .tab-btn{font-family:'JetBrains Mono',monospace;font-size:10.5px;padding:4px 10px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--text-dim);cursor:pointer;}
   .tab-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);}
-  .event-row{display:flex;align-items:flex-start;gap:8px;padding:8px 0;border-top:1px dashed var(--border);}
-  .event-row:first-child{border-top:none;padding-top:0;}
-  .event-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:5px;}
-  .event-body{flex:1;min-width:0;}
-  .event-cat{font-size:10px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;}
-  .event-title{font-size:12.5px;font-weight:600;line-height:1.4;overflow-wrap:anywhere;}
-  .event-title a{color:var(--text);text-decoration:none;}
-  .event-title a:hover{color:var(--accent);}
+  .vendor-pill-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;}
+  .vendor-pill{font-family:'Noto Sans TC',sans-serif;font-size:11px;padding:4px 11px;border-radius:20px;border:1px solid var(--border);background:var(--panel-alt);color:var(--text-dim);cursor:pointer;white-space:nowrap;}
+  .vendor-pill:hover{background:var(--border);}
+  .vendor-pill.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+  .update-card{background:var(--panel-alt);border:1px solid var(--border);border-radius:8px;padding:10px 12px;margin-bottom:8px;}
+  .update-card-top{display:flex;align-items:flex-start;gap:8px;}
+  .update-vendor-icon{font-size:15px;flex-shrink:0;margin-top:1px;}
+  .update-title{font-size:12.5px;font-weight:600;line-height:1.4;overflow-wrap:anywhere;flex:1;min-width:0;}
+  .update-title a{color:var(--text);text-decoration:none;}
+  .update-title a:hover{color:var(--accent);}
+  .update-status-select{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;padding:3px 8px;border-radius:20px;white-space:nowrap;flex-shrink:0;border:1px solid var(--border);cursor:pointer;appearance:none;-webkit-appearance:none;text-align:center;text-align-last:center;color:var(--text-dim);background:var(--panel);}
+  .update-status-select.status-不處理{color:var(--sev-high);background:var(--sev-high-bg);border-color:transparent;}
+  .update-status-select.status-處理中{color:var(--sev-medium);background:var(--sev-medium-bg);border-color:transparent;}
+  .update-status-select.status-已完成{color:var(--sev-low);background:var(--sev-low-bg);border-color:transparent;}
+  .update-status-select option{color:var(--text);background:var(--panel);font-weight:400;}
+  .update-cve-line{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-faint);margin-top:6px;margin-left:23px;}
+  .update-cve-line b{color:var(--text-dim);font-weight:600;}
   .event-time{font-size:10.5px;color:var(--text-faint);white-space:nowrap;font-family:'JetBrains Mono',monospace;margin-top:2px;}
 
   /* Panel 7: 今日建議行動 */
@@ -117,7 +103,8 @@
   .action-row:first-child{border-top:none;padding-top:0;}
   .action-num{width:20px;height:20px;border-radius:50%;background:var(--panel-alt);color:var(--text-dim);font-size:10.5px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'JetBrains Mono',monospace;margin-top:1px;}
   .action-body{flex:1;min-width:0;}
-  .action-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px;overflow-wrap:anywhere;line-height:1.4;}
+  .action-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;overflow-wrap:anywhere;line-height:1.4;}
+  .action-detail{font-size:12px;color:var(--text-dim);margin-bottom:8px;line-height:1.6;overflow-wrap:anywhere;}
   .action-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
   .action-cat-tag{font-family:'JetBrains Mono',monospace;font-size:10px;padding:2px 9px;border-radius:20px;background:var(--panel-alt);color:var(--text-dim);}
   .action-priority{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;}
@@ -137,8 +124,24 @@
 
   /* panel 3: CVE 雷達 */
   .cve-table{width:100%;border-collapse:collapse;font-size:11.5px;}
+  .cve-plain-card{background:var(--panel-alt);border:1px solid var(--border);border-radius:8px;padding:12px 14px;margin-bottom:10px;}
+  .cve-plain-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:6px;}
+  .cve-plain-title-row{display:flex;align-items:flex-start;gap:8px;flex:1;min-width:0;}
+  .cve-vendor-icon{font-size:16px;flex-shrink:0;margin-top:1px;}
+  .cve-plain-title{font-size:13.5px;font-weight:700;color:var(--text);line-height:1.4;}
+  .exploited-status-badge{font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;white-space:nowrap;flex-shrink:0;}
+  .exploited-status-badge.is-exploited{color:var(--sev-high);background:var(--sev-high-bg);}
+  .exploited-status-badge.is-watch{color:var(--text-dim);background:var(--panel);}
+  .cve-plain-summary{font-size:12.5px;color:var(--text-dim);line-height:1.7;margin-bottom:8px;}
+  .cve-plain-meta{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+  .cve-id-small{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-faint);}
+  .cve-severity-tag{font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;color:var(--accent);background:rgba(37,99,235,0.08);padding:2px 8px;border-radius:20px;}
+  .cve-kev-tag{font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;color:var(--sev-high);background:var(--sev-high-bg);padding:2px 8px;border-radius:20px;}
+  .cve-ai-suggestion{font-size:11.5px;color:var(--text-dim);background:var(--panel);border-radius:6px;padding:7px 10px;margin-top:8px;line-height:1.6;}
+  .cve-ai-suggestion b{color:var(--accent);}
   .cve-table th{text-align:left;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-faint);font-weight:600;padding:0 4px 8px;border-bottom:1px solid var(--border);}
   .cve-table td{padding:8px 4px;border-bottom:1px dashed var(--border);vertical-align:top;}
+  .cve-advice-row td{padding:0 4px 10px;border-bottom:1px dashed var(--border);font-size:11.5px;color:var(--text-dim);}
   .cve-table tr:last-child td{border-bottom:none;}
   .cve-id{font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--text);}
   .cve-title{font-size:10.5px;color:var(--text-dim);margin-top:2px;overflow-wrap:anywhere;}
@@ -161,13 +164,14 @@
   .vendor-title{font-size:12.5px;font-weight:600;overflow-wrap:anywhere;}
   .vendor-asset{font-size:10.5px;color:var(--text-dim);margin-bottom:4px;}
   .vendor-asset .tag-chip{display:inline-block;background:var(--panel-alt);border-radius:5px;padding:1px 6px;margin-right:4px;font-family:'JetBrains Mono',monospace;font-size:10px;}
+  .vendor-asset .category-chip{background:rgba(37,99,235,0.1);color:var(--accent);font-weight:600;}
   .vendor-suggestion{font-size:11px;color:var(--text-dim);line-height:1.6;background:var(--panel-alt);border-radius:6px;padding:6px 8px;margin-top:4px;}
   .vendor-suggestion b{color:var(--accent);}
 
   /* panel 5: 風險儀表板 */
-  .gauge-wrap{display:flex;flex-direction:column;align-items:center;padding:6px 0 4px;}
-  .gauge-score{font-family:'Space Grotesk',sans-serif;font-size:34px;font-weight:700;margin-top:-8px;}
-  .gauge-level{font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700;margin-bottom:12px;}
+  .gauge-wrap{display:flex;flex-direction:column;align-items:center;padding:2px 0 2px;}
+  .gauge-score{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;margin-top:-6px;}
+  .gauge-level{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;margin-bottom:8px;}
   .risk-bars{display:flex;flex-direction:column;gap:8px;}
   .risk-bar-row{display:flex;align-items:center;gap:8px;}
   .risk-bar-label{font-size:11px;color:var(--text-dim);width:76px;flex-shrink:0;}
@@ -229,33 +233,55 @@
   .stat-modal-row-value{font-family:'JetBrains Mono',monospace;color:var(--text-dim);white-space:nowrap;}
 
   /* 分類統計字卡（色條風格） */
-  .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px;}
-  .strip-card{background:var(--panel);border:1px solid var(--border);border-left-width:4px;border-radius:8px;padding:14px 16px;}
-  .strip-card.c-blue{border-left-color:#2563EB;}
-  .strip-card.c-green{border-left-color:#059669;}
-  .strip-card.c-orange{border-left-color:#D97706;}
-  .strip-card.c-red{border-left-color:#DC2626;}
-  .strip-label{font-size:12.5px;font-weight:600;margin-bottom:6px;}
-  .strip-card.c-blue .strip-label{color:#2563EB;}
-  .strip-card.c-green .strip-label{color:#059669;}
-  .strip-card.c-orange .strip-label{color:#D97706;}
-  .strip-card.c-red .strip-label{color:#DC2626;}
-  .strip-label-sub{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;color:var(--text-faint);}
-  .strip-number{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;line-height:1;margin-bottom:6px;}
-  .strip-card.c-blue .strip-number{color:#2563EB;}
-  .strip-card.c-green .strip-number{color:#059669;}
-  .strip-card.c-orange .strip-number{color:#D97706;}
-  .strip-card.c-red .strip-number{color:#DC2626;}
-  .strip-desc{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-dim);}
-  @media (max-width:800px){.stat-strip{grid-template-columns:repeat(2,1fr);}}
+  .stat-strip{display:grid;grid-template-columns:repeat(4,minmax(120px,150px));gap:10px;flex-shrink:0;height:auto;}
+  .top-combined-row{display:flex;align-items:stretch;gap:14px;margin-bottom:18px;flex-wrap:wrap;}
+  .trend-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;flex:1;min-width:320px;}
+  @media (max-width:800px){.trend-card{flex-direction:column;align-items:flex-start;}.trend-items{gap:16px;}.stat-strip{grid-template-columns:repeat(2,1fr);width:100%;}}
+  @media (max-width:900px){.stat-strip{grid-template-columns:repeat(2,1fr);}}
+
+
+  /* 近期威脅趨勢卡片 */
+  .trend-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;flex:1;min-width:320px;}
+  .trend-header{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+  .trend-icon{width:34px;height:34px;border-radius:8px;background:rgba(37,99,235,0.1);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+  .trend-title{font-weight:700;font-size:13.5px;color:var(--text);}
+  .trend-sub{font-size:10.5px;color:var(--text-faint);font-family:'JetBrains Mono',monospace;}
+  .trend-items{display:flex;gap:26px;flex-wrap:wrap;flex:1;}
+  .trend-item{display:flex;flex-direction:column;gap:3px;min-width:90px;}
+  .trend-item-label{font-size:11.5px;color:var(--text-dim);white-space:nowrap;}
+  .trend-item-value{display:flex;align-items:center;gap:8px;}
+  .trend-item-pct{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;}
+  .trend-item-pct.up{color:var(--sev-high);}
+  .trend-item-pct.down{color:var(--sev-low);}
+
   @media (max-width:480px){.stat-strip{grid-template-columns:1fr;}}
+  .strip-card{background:var(--panel);border:1px solid var(--border);border-left-width:3px;border-radius:8px;padding:10px 12px;height:100%;display:flex;flex-direction:column;justify-content:center;}
+  .strip-card.c-blue{border-left-color:#3B82F6;}
+  .strip-card.c-green{border-left-color:#10B981;}
+  .strip-card.c-orange{border-left-color:#F59E0B;}
+  .strip-card.c-red{border-left-color:#EF4444;}
+  .strip-top-row{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:6px;}
+  .strip-label{font-size:11px;font-weight:600;margin-bottom:2px;}
+  .strip-card.c-blue .strip-label{color:#3B82F6;}
+  .strip-card.c-green .strip-label{color:#10B981;}
+  .strip-card.c-orange .strip-label{color:#F59E0B;}
+  .strip-card.c-red .strip-label{color:#EF4444;}
+  .strip-count-badge{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;padding:2px 9px;border-radius:20px;white-space:nowrap;flex-shrink:0;}
+  .strip-count-badge.c-blue{color:#3B82F6;background:rgba(59,130,246,0.12);}
+  .strip-count-badge.c-green{color:#10B981;background:rgba(16,185,129,0.12);}
+  .strip-count-badge.c-orange{color:#F59E0B;background:rgba(245,158,11,0.12);}
+  .strip-count-badge.c-red{color:#EF4444;background:rgba(239,68,68,0.12);}
+  .strip-label-sub{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;color:var(--text-faint);}
+  .strip-number{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;line-height:1;margin-bottom:2px;}
+  .strip-card.c-blue .strip-number{color:#3B82F6;}
+  .strip-card.c-green .strip-number{color:#10B981;}
+  .strip-card.c-orange .strip-number{color:#F59E0B;}
+  .strip-card.c-red .strip-number{color:#EF4444;}
+  .strip-desc{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-dim);}
+
 </style>
 </head>
 <body>
-<div class="ticker-bar">
-  <span class="ticker-label">📰 今日資安新聞</span>
-  <div class="ticker-track" id="tickerTrack"></div>
-</div>
 <div class="wrap">
   <div class="header">
     <div class="brand">
@@ -264,8 +290,6 @@
     </div>
     <div class="meta-line">最後更新：<span id="updatedAt">--</span></div>
   </div>
-
-  <div class="glance-banner" id="glanceBanner"></div>
 
   <div class="stat-modal-overlay" id="statModal" onclick="if(event.target===this)closeStatModal()">
     <div class="stat-modal">
@@ -277,7 +301,10 @@
     </div>
   </div>
 
-  <div class="stat-strip" id="statStrip"></div>
+  <div class="top-combined-row">
+    <div class="stat-strip" id="statStrip"></div>
+    <div class="trend-card" id="trendCard"></div>
+  </div>
 
   <div class="dashboard-grid" id="dashboardGrid"></div>
 
@@ -291,92 +318,28 @@ document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
 
-/* ---------- 頂部跑馬燈：今日資安新聞標題 ---------- */
-function renderTicker(data){
-  const track = document.getElementById('tickerTrack');
-  if (!track) return;
-
-  // 來源：今日頭條 + 全球重大事件(今天的) 的標題，去重後串接
-  const headlineTitles = (data.headlines || []).map(h => ({ title: h.title, url: h.url }));
-  const todayCutoff = Date.now() - 86400000;
-  const eventTitles = (data.global_events || [])
-    .filter(e => { const d = new Date(e.date); return isNaN(d.getTime()) ? true : d.getTime() >= todayCutoff; })
-    .map(e => ({ title: e.title, url: e.url }));
-
-  const seen = new Set();
-  const items = [...headlineTitles, ...eventTitles].filter(i => {
-    if (!i.title || seen.has(i.title)) return false;
-    seen.add(i.title);
-    return true;
-  });
-
-  if (!items.length){
-    track.textContent = '目前沒有今日新聞資料';
-    track.style.animation = 'none';
-    return;
-  }
-
-  const itemHtml = items.map(i =>
-    `<span class="ticker-item">${i.url ? `<a href="${escapeHtml(i.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(i.title)}</a>` : escapeHtml(i.title)}</span><span class="ticker-sep">•</span>`
-  ).join('');
-
-  // 重複一次內容，讓跑馬燈可以無縫循環
-  track.innerHTML = itemHtml + itemHtml;
-  track.addEventListener('mouseenter', () => track.classList.add('paused'));
-  track.addEventListener('mouseleave', () => track.classList.remove('paused'));
-}
-
 const SHOW_LIMIT = 5;
 
 /**
  * 通用「顯示更多」：適用一般區塊(div列表)，超過limit筆的收合，用按鈕展開/收合
  */
-function withShowMore(itemHtmls, limit = SHOW_LIMIT){
-  const visible = itemHtmls.slice(0, limit).join('');
-  const rest = itemHtmls.slice(limit);
-  if (!rest.length) return visible;
-  const label = `顯示更多（+${rest.length}） ▼`;
-  return `${visible}<div class="more-items" style="display:none">${rest.join('')}</div><button class="show-more-btn" data-more-label="${label}" onclick="toggleMore(this)">${label}</button>`;
+function withShowMore(itemHtmls){
+  return itemHtmls.join('');
 }
-function toggleMore(btn){
-  const wrapper = btn.previousElementSibling;
-  const isHidden = wrapper.style.display === 'none';
-  wrapper.style.display = isHidden ? '' : 'none';
-  btn.textContent = isHidden ? '收合 ▲' : btn.dataset.moreLabel;
-}
-window.toggleMore = toggleMore;
 
 /**
  * 表格專用「顯示更多」：多出的<tr>放進獨立的<tbody id="...">並預設隱藏，
  * 按鈕放在表格外面，用id而不是相鄰元素來toggle
  */
-function withShowMoreRows(rowHtmls, tbodyId, limit = SHOW_LIMIT){
-  const visible = rowHtmls.slice(0, limit).join('');
-  const rest = rowHtmls.slice(limit);
-  if (!rest.length) return { visibleRows: visible, moreTbody: '', button: '' };
-  const label = `顯示更多（+${rest.length}） ▼`;
-  return {
-    visibleRows: visible,
-    moreTbody: `<tbody id="${tbodyId}" style="display:none">${rest.join('')}</tbody>`,
-    button: `<button class="show-more-btn" data-more-label="${label}" data-target="${tbodyId}" onclick="toggleMoreRows(this)">${label}</button>`,
-  };
-}
-function toggleMoreRows(btn){
-  const target = document.getElementById(btn.dataset.target);
-  if (!target) return;
-  const isHidden = target.style.display === 'none';
-  target.style.display = isHidden ? '' : 'none';
-  btn.textContent = isHidden ? '收合 ▲' : btn.dataset.moreLabel;
-}
-window.toggleMoreRows = toggleMoreRows;
 function emptyNote(){ return `<div class="empty-note">目前沒有資料</div>`; }
 
-function panelShell(num, icon, title, viewAllUrl, bodyHtml, extraHeaderHtml=''){
+function panelShell(num, icon, title, viewAllUrl, bodyHtml, extraHeaderHtml='', numColor='', count=null, badgeId=''){
   return `<div class="panel">
     <div class="panel-header">
-      <span class="panel-num">${num}</span>
+      <span class="panel-num"${numColor ? ` style="color:${numColor}"` : ''}>${num}</span>
       <span class="panel-icon">${icon}</span>
       <span class="panel-title">${escapeHtml(title)}</span>
+      ${count !== null ? `<span class="panel-count-badge"${badgeId ? ` id="${badgeId}"` : ''} style="${numColor ? `color:${numColor};background:${numColor}14;` : ''}">${count} 件</span>` : ''}
       ${viewAllUrl ? `<a class="panel-viewall" href="${escapeHtml(viewAllUrl)}" target="_blank" rel="noopener noreferrer">查看全部 →</a>` : ''}
     </div>
     ${extraHeaderHtml}
@@ -387,20 +350,21 @@ function panelShell(num, icon, title, viewAllUrl, bodyHtml, extraHeaderHtml=''){
 /* ---------- Panel 1: 今日資安頭條 ---------- */
 function renderHeadlines(items){
   if (!items || !items.length) return emptyNote();
-  return items.slice(0,5).map((h, i) => `
+  const rows = items.map((h, i) => `
     <div class="headline-row">
       <div class="headline-num">${i+1}</div>
       <div class="headline-body">
         <div class="headline-title-row">
           <div class="headline-title">${h.icon ? h.icon + ' ' : ''}${h.url ? `<a href="${escapeHtml(h.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(h.title)}</a>` : escapeHtml(h.title)}</div>
           <div class="headline-title-tags">
-            ${h.impact ? `<span class="impact-badge impact-${escapeHtml(h.impact)}">${escapeHtml(h.impact)}影響</span>` : ''}
+            ${h.impact ? `<span class="impact-badge impact-${escapeHtml(h.impact)}">${escapeHtml(h.impact)}風險</span>` : ''}
             ${h.stars ? `<span class="stars">${'★'.repeat(h.stars)}${'☆'.repeat(5-h.stars)}</span>` : ''}
           </div>
         </div>
         ${h.subtitle ? `<div class="headline-sub">${escapeHtml(h.subtitle)}</div>` : ''}
       </div>
-    </div>`).join('');
+    </div>`);
+  return withShowMore(rows);
 }
 
 /* ---------- Panel 2: 全球重大事件 ---------- */
@@ -423,6 +387,28 @@ function timeAgoLabel(dateStr){
   return `${diffDays}天前`;
 }
 
+function onStatusChange(select){
+  select.className = 'update-status-select' + (select.value ? ' status-' + select.value : '');
+  updatePendingCount();
+}
+window.onStatusChange = onStatusChange;
+
+function updatePendingCount(){
+  const badge = document.getElementById('pendingCountNum');
+  if (!badge) return;
+  const selects = document.querySelectorAll('.update-status-select');
+  let remaining = 0;
+  selects.forEach(s => {
+    if (s.value !== '不處理' && s.value !== '已完成') remaining++;
+  });
+  badge.textContent = remaining;
+}
+
+function extractCve(title){
+  const m = (title || '').match(/CVE-\d{4}-\d+/);
+  return m ? m[0] : null;
+}
+
 function renderGlobalEvents(items, rangeDays){
   const cutoff = Date.now() - rangeDays * 86400000;
   const filtered = (items || []).filter(e => {
@@ -430,23 +416,38 @@ function renderGlobalEvents(items, rangeDays){
     return isNaN(d.getTime()) ? true : d.getTime() >= cutoff;
   });
   if (!filtered.length) return emptyNote();
-  const rows = filtered.map(e => `
-    <div class="event-row">
-      <div class="event-dot" style="background:${CATEGORY_COLORS[e.category] || 'var(--text-faint)'}"></div>
-      <div class="event-body">
-        <div class="event-cat">${escapeHtml(e.category || '')}</div>
-        <div class="event-title">${e.url ? `<a href="${escapeHtml(e.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(e.title)}</a>` : escapeHtml(e.title)}</div>
+  const rows = filtered.map(e => {
+    const cve = extractCve(e.title);
+    return `
+    <div class="update-card">
+      <div class="update-card-top">
+        <span class="update-vendor-icon">${vendorIconFor(e.title)}</span>
+        <div class="update-title">${e.url ? `<a href="${escapeHtml(e.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(e.title)}</a>` : escapeHtml(e.title)}</div>
+        <select class="update-status-select" onchange="onStatusChange(this)">
+          <option value="" selected>－</option>
+          <option value="不處理">不處理</option>
+          <option value="處理中">處理中</option>
+          <option value="已完成">已完成</option>
+        </select>
       </div>
-      <div class="event-time">${timeAgoLabel(e.date)}</div>
-    </div>`);
+      ${cve ? `<div class="update-cve-line"><b>CVE：</b>${escapeHtml(cve)}</div>` : ''}
+    </div>`;
+  });
   return withShowMore(rows);
 }
 
 function setupGlobalEventsPanel(items){
   const body = document.getElementById('globalEventsBody');
+  const badge = document.getElementById('windowsUpdateBadge');
   const tabs = document.querySelectorAll('.tab-btn');
   function render(days){
+    const cutoff = Date.now() - days * 86400000;
+    const filtered = (items || []).filter(e => {
+      const d = new Date(e.date);
+      return isNaN(d.getTime()) ? true : d.getTime() >= cutoff;
+    });
     body.innerHTML = renderGlobalEvents(items, days);
+    if (badge) badge.textContent = `${filtered.length} 件`;
   }
   tabs.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -455,28 +456,43 @@ function setupGlobalEventsPanel(items){
       render(parseInt(btn.dataset.days, 10));
     });
   });
-  render(1);
+  render(30);
 }
 
 /* ---------- Panel 3: 今日漏洞雷達 ---------- */
+function vendorIconFor(title){
+  const t = title || '';
+  if (/Microsoft|Windows|Exchange|Entra|SharePoint|Outlook/i.test(t)) return '🪟';
+  if (/Cisco/i.test(t)) return '📡';
+  if (/Fortinet|FortiOS|FortiGate/i.test(t)) return '🛡️';
+  if (/Chrome|Google/i.test(t)) return '🌐';
+  if (/SonicWall/i.test(t)) return '🔐';
+  if (/PaperCut/i.test(t)) return '🖨️';
+  if (/VMware|Citrix/i.test(t)) return '💻';
+  if (/JFrog|Artifactory/i.test(t)) return '📦';
+  if (/LiteLLM|AI/i.test(t)) return '🤖';
+  return '🎯';
+}
 function renderCveRadar(items){
   if (!items || !items.length) return emptyNote();
-  const rowHtmls = items.map(v => `
-    <tr>
-      <td>
-        <div class="cve-id">${escapeHtml(v.cve_id || '')}</div>
-        <div class="cve-title">${escapeHtml(v.title || '')}</div>
-      </td>
-      <td class="cvss-num">${v.cvss ?? '—'}${v.cvss_source ? `<div class="cvss-source">${escapeHtml(v.cvss_source)}</div>` : ''}</td>
-      <td>${v.exploited ? `<span class="exploited-yes">Yes</span>` : `<span class="exploited-no">No</span>`}</td>
-      <td><span class="action-badge action-${escapeHtml(v.action || '持續觀察')}">${escapeHtml(v.action || '持續觀察')}</span></td>
-    </tr>`);
-  const { visibleRows, moreTbody, button } = withShowMoreRows(rowHtmls, 'cveMoreRows');
-  return `<table class="cve-table">
-    <thead><tr><th>漏洞編號</th><th>CVSS</th><th>已利用</th><th>建議行動</th></tr></thead>
-    <tbody>${visibleRows}</tbody>
-    ${moreTbody}
-  </table>${button}`;
+  const cardHtmls = items.map(v => `
+    <div class="cve-plain-card">
+      <div class="cve-plain-top">
+        <div class="cve-plain-title-row">
+          <span class="cve-vendor-icon">${vendorIconFor(v.title)}</span>
+          <div class="cve-plain-title">${escapeHtml(v.plain_title || v.title || '')}</div>
+        </div>
+        <span class="exploited-status-badge ${v.exploited ? 'is-exploited' : 'is-watch'}">${v.exploited ? '⚠ 已遭利用' : '觀察中'}</span>
+      </div>
+      <div class="cve-plain-summary">${escapeHtml(v.plain_summary || v.title || '')}</div>
+      <div class="cve-plain-meta">
+        <span class="cve-id-small">${escapeHtml(v.cve_id || '')}</span>
+        <span class="cve-severity-tag">嚴重度 ${v.cvss ?? '—'}／10</span>
+        <span class="cve-kev-tag">KEV：是</span>
+      </div>
+      ${v.action ? `<div class="cve-ai-suggestion"><b>AI建議：</b>${escapeHtml(v.action)}${v.action === '立即更新' ? '，優先排入本週修補排程' : v.action === '一週內更新' ? '，建議一週內完成' : '，持續留意後續情資'}</div>` : ''}
+    </div>`);
+  return withShowMore(cardHtmls);
 }
 
 /* ---------- Panel 4: AI企業影響分析 ---------- */
@@ -490,7 +506,10 @@ function renderVendorImpact(items){
           <div class="vendor-title">${escapeHtml(v.title || '')}</div>
           ${v.impact ? `<span class="impact-badge impact-${escapeHtml(v.impact)}">${escapeHtml(v.impact)}</span>` : ''}
         </div>
-        ${v.key_asset ? `<div class="vendor-asset"><span class="tag-chip">${escapeHtml(v.key_asset)}</span></div>` : ''}
+        <div class="vendor-asset">
+          ${v.category ? `<span class="tag-chip category-chip">${escapeHtml(v.category)}</span>` : ''}
+          ${v.key_asset ? `<span class="tag-chip">${escapeHtml(v.key_asset)}</span>` : ''}
+        </div>
         ${v.ai_suggestion ? `<div class="vendor-suggestion"><b>AI建議：</b>${escapeHtml(v.ai_suggestion)}</div>` : ''}
       </div>
     </div>`);
@@ -510,17 +529,17 @@ function gaugeLevel(score){
 }
 
 function renderGaugeSvg(score){
-  const cx = 80, cy = 78, r = 62;
+  const cx = 62, cy = 60, r = 48;
   const needleAngle = Math.PI - (score/100) * Math.PI;
-  const nxF = cx + (r-10) * Math.cos(needleAngle);
-  const nyF = cy - (r-10) * Math.sin(needleAngle);
+  const nxF = cx + (r-8) * Math.cos(needleAngle);
+  const nyF = cy - (r-8) * Math.sin(needleAngle);
   const color = gaugeColor(score);
-  return `<svg width="160" height="92" viewBox="0 0 160 92">
-    <path d="M 18 78 A 62 62 0 0 1 142 78" fill="none" stroke="var(--panel-alt)" stroke-width="12" stroke-linecap="round"/>
-    <path d="M 18 78 A 62 62 0 0 1 142 78" fill="none" stroke="${color}" stroke-width="12" stroke-linecap="round"
-      stroke-dasharray="${Math.PI*62}" stroke-dashoffset="${Math.PI*62*(1-score/100)}"/>
-    <circle cx="${cx}" cy="${cy}" r="5" fill="${color}"/>
-    <line x1="${cx}" y1="${cy}" x2="${nxF}" y2="${nyF}" stroke="${color}" stroke-width="3" stroke-linecap="round"/>
+  return `<svg width="124" height="72" viewBox="0 0 124 72">
+    <path d="M 14 60 A 48 48 0 0 1 110 60" fill="none" stroke="var(--panel-alt)" stroke-width="9" stroke-linecap="round"/>
+    <path d="M 14 60 A 48 48 0 0 1 110 60" fill="none" stroke="${color}" stroke-width="9" stroke-linecap="round"
+      stroke-dasharray="${Math.PI*48}" stroke-dashoffset="${Math.PI*48*(1-score/100)}"/>
+    <circle cx="${cx}" cy="${cy}" r="4" fill="${color}"/>
+    <line x1="${cx}" y1="${cy}" x2="${nxF}" y2="${nyF}" stroke="${color}" stroke-width="2.5" stroke-linecap="round"/>
   </svg>`;
 }
 
@@ -552,34 +571,15 @@ function renderActionItems(items){
       <div class="action-num">${i + 1}</div>
       <div class="action-body">
         <div class="action-title">${escapeHtml(a.title || '')}</div>
+        ${a.detail ? `<div class="action-detail">${escapeHtml(a.detail)}</div>` : ''}
         <div class="action-meta">
           <span class="action-cat-tag">${escapeHtml(a.category || '')}</span>
           <span class="action-priority action-priority-${escapeHtml(a.priority || '中')}">${escapeHtml(a.priority || '中')}優先</span>
-          <button class="copy-ticket-btn" data-idx="${i}" onclick="copyTicket(this)">📋 複製工單內容</button>
         </div>
       </div>
     </div>`);
   return withShowMore(rows);
 }
-
-function copyTicket(btn){
-  const idx = parseInt(btn.dataset.idx, 10);
-  const item = (window.__ACTION_ITEMS__ || [])[idx];
-  if (!item) return;
-  const text = `【資安待辦】${item.category}\n標題：${item.title}\n優先級：${item.priority}\n建議：${item.detail || '請依標題內容評估後處理'}`;
-  const done = () => {
-    const original = btn.textContent;
-    btn.textContent = '✓ 已複製';
-    btn.classList.add('copied');
-    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
-  };
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(text).then(done).catch(() => alert(text));
-  } else {
-    alert(text);
-  }
-}
-window.copyTicket = copyTicket;
 
 /* ---------- 組裝 6 宮格 ---------- */
 /* ---------- 主管一眼摘要橫幅（純前端組裝，不額外花AI費用） ---------- */
@@ -611,11 +611,10 @@ function renderGlanceBanner(data){
   el.innerHTML = `
     <div class="glance-left">
       <span class="glance-badge level-${level}">${level === '高' ? '🔴' : level === '中' ? '🟡' : '🟢'} ${levelLabel}</span>
-      <span class="glance-headline">${escapeHtml(topHeadline)}</span>
     </div>
     <div class="glance-stats">
       <div class="glance-stat clickable" onclick="openStatModal('risk')"><div class="glance-stat-num risk-${level}">${total}</div><div class="glance-stat-label">風險分數/100</div></div>
-      <div class="glance-stat clickable" onclick="openStatModal('actions')"><div class="glance-stat-num">${actionItems.length}</div><div class="glance-stat-label">待辦事項（高${highPriorityCount}）</div></div>
+      <div class="glance-stat clickable" onclick="openStatModal('actions')"><div class="glance-stat-num">${actionItems.length}</div><div class="glance-stat-label">建議行動（高${highPriorityCount}）</div></div>
       <div class="glance-stat clickable" onclick="openStatModal('urgentCve')"><div class="glance-stat-num">${urgentCve.length}</div><div class="glance-stat-label">需立即更新漏洞</div></div>
       <div class="glance-stat clickable" onclick="openStatModal('events')"><div class="glance-stat-num">${todayEvents.length}</div><div class="glance-stat-label">今日重大事件</div></div>
     </div>`;
@@ -640,7 +639,7 @@ function statModalBody(type){
         <span class="stat-modal-row-label">[${escapeHtml(a.category||'')}] ${escapeHtml(a.title||'')}</span>
         <span class="action-priority action-priority-${escapeHtml(a.priority||'中')}">${escapeHtml(a.priority||'中')}</span>
       </div>`).join('');
-    return { title: '今日待辦事項', body: rows || emptyNote() };
+    return { title: '建議行動', body: rows || emptyNote() };
   }
   if (type === 'urgentCve'){
     const items = (d.cve_radar || []).filter(v => v.action === '立即更新');
@@ -664,6 +663,15 @@ function statModalBody(type){
       </div>`).join('');
     return { title: '今日重大事件', body: rows || emptyNote() };
   }
+  if (type === 'ransomApt'){
+    const items = d.ransomware_apt_list || [];
+    const rows = items.map(r => `
+      <div class="stat-modal-row">
+        <span class="stat-modal-row-label">[${escapeHtml(r.type||'')}] ${r.url ? `<a href="${escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(r.title||'')}</a>` : escapeHtml(r.title||'')}</span>
+        <span class="stat-modal-row-value">${escapeHtml(r.date||'')}</span>
+      </div>`).join('');
+    return { title: '勒索軟體／APT事件', body: rows || emptyNote() };
+  }
   return { title: '', body: emptyNote() };
 }
 
@@ -679,43 +687,127 @@ function closeStatModal(){
 window.openStatModal = openStatModal;
 window.closeStatModal = closeStatModal;
 
-renderTicker(DATA);
-renderGlanceBanner(DATA);
 
-function renderStatStrip(counts){
+function renderStatStrip(counts, pendingCount){
   const el = document.getElementById('statStrip');
   if (!counts) { el.style.display = 'none'; return; }
   const cards = [
+    { color:'red', label:'新聞事件', number: counts.news ?? 0, desc:'國內/全球新聞' },
     { color:'blue', label:'今日漏洞雷達', number: counts.kev ?? 0, desc:'KEV新增筆數' },
-    { color:'green', label:'AI企業影響分析', number: counts.vendor ?? 0, desc:'Microsoft／Cisco／Fortinet' },
-    { color:'orange', label:'國際資安新聞', number: counts.news ?? 0, desc:'今日彙整則數' },
-    { color:'red', label:'勒索軟體／APT', number: counts.ransomwareApt ?? 0, desc:'近期事件數' },
+    { color:'green', label:'公司關注廠商情報', number: counts.vendor ?? 0, desc:'Microsoft／Cisco／Fortinet' },
+    { color:'orange', label:'待處理事項', number: pendingCount ?? 0, desc:'需留意的更新檔數', id:'pendingCountNum' },
   ];
   el.innerHTML = cards.map(c => `
-    <div class="strip-card c-${c.color}">
+    <div class="strip-card c-${c.color}"${c.clickable ? ` style="cursor:pointer;" onclick="openStatModal('ransomApt')"` : ''}>
       <div class="strip-label">${escapeHtml(c.label)} <span class="strip-label-sub">${escapeHtml(c.desc)}</span></div>
-      <div class="strip-number">${c.number}</div>
+      <div class="strip-number"${c.id ? ` id="${c.id}"` : ''}>${c.number}</div>
     </div>`).join('');
 }
-renderStatStrip(DATA.category_counts);
+const monthPendingCutoff = Date.now() - 30 * 86400000;
+const monthPendingCount = (DATA.global_events || []).filter(e => {
+  const d = new Date(e.date);
+  return isNaN(d.getTime()) ? true : d.getTime() >= monthPendingCutoff;
+}).length;
+renderStatStrip(DATA.category_counts, monthPendingCount);
+
+/* ---------- 近期威脅趨勢（示範資料，尚未接上真實歷史統計） ---------- */
+function renderSparkline(points, color){
+  const w = 64, h = 22;
+  const min = Math.min(...points), max = Math.max(...points);
+  const range = (max - min) || 1;
+  const step = w / (points.length - 1);
+  const path = points.map((p, i) => `${i === 0 ? 'M' : 'L'} ${(i * step).toFixed(1)} ${(h - ((p - min) / range) * h).toFixed(1)}`).join(' ');
+  return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><path d="${path}" fill="none" stroke="${color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+}
+
+function renderTrendCard(){
+  const el = document.getElementById('trendCard');
+  if (!el) return;
+  // 示範資料：真實趨勢需要每天累積歷史統計才能計算，目前尚未串接
+  const items = [
+    { label:'釣魚攻擊', pct:28, points:[40,44,42,50,55,58,64] },
+    { label:'勒索軟體', pct:15, points:[30,32,31,35,34,37,38] },
+    { label:'BEC商業郵件詐騙', pct:32, points:[20,22,26,25,30,33,36] },
+    { label:'帳密竊取', pct:-12, points:[50,48,46,44,42,41,38] },
+    { label:'AI詐騙', pct:18, points:[15,17,18,20,19,22,24] },
+  ];
+  const rows = items.map(it => {
+    const isUp = it.pct >= 0;
+    const color = isUp ? '#DC2626' : '#059669';
+    return `
+    <div class="trend-item">
+      <div class="trend-item-label">${escapeHtml(it.label)}</div>
+      <div class="trend-item-value">
+        <span class="trend-item-pct ${isUp ? 'up' : 'down'}">${isUp ? '↑' : '↓'} ${isUp ? '+' : ''}${it.pct}%</span>
+        ${renderSparkline(it.points, color)}
+      </div>
+    </div>`;
+  }).join('');
+
+  el.innerHTML = `
+    <div class="trend-header">
+      <div class="trend-icon">📈</div>
+      <div>
+        <div class="trend-title">近期威脅趨勢</div>
+        <div class="trend-sub">近7天威脅類型變化</div>
+      </div>
+    </div>
+    <div class="trend-items">${rows}</div>`;
+}
+renderTrendCard();
 
 const grid = document.getElementById('dashboardGrid');
 
+const todayWinCutoff = Date.now() - 1 * 86400000;
+const todayWinCount = (DATA.global_events || []).filter(e => {
+  const d = new Date(e.date);
+  return isNaN(d.getTime()) ? true : d.getTime() >= todayWinCutoff;
+}).length;
+
 grid.innerHTML =
-  panelShell('①', '📰', '今日資安頭條 (Top 5)', null, renderHeadlines(DATA.headlines)) +
-  panelShell('②', '🎯', '今日漏洞雷達 (CVE)', null, renderCveRadar(DATA.cve_radar)) +
-  panelShell('③', '✅', '今日建議行動', null, renderActionItems(DATA.action_items)) +
-  panelShell('④', '📊', 'AI風險熱度儀表板', null, renderRiskGauge(DATA.risk_score)) +
-  panelShell('⑤', '🏢', 'AI企業影響分析', null, renderVendorImpact(DATA.vendor_impact)) +
-  panelShell('⑥', '🌍', '全球重大事件', null,
+  panelShell('①', '📰', '新聞事件', null, renderHeadlines(DATA.headlines), '', '#D97706', (DATA.headlines||[]).length) +
+  panelShell('②', '🎯', '今日漏洞雷達 (CVE)', null, renderCveRadar(DATA.cve_radar), '', '#2563EB', (DATA.cve_radar||[]).length) +
+  panelShell('③', '🏢', '公司關注廠商情報', null, `<div id="vendorImpactBody"></div>`, `<div id="vendorPillRow"></div>`, '#059669', (DATA.vendor_impact||[]).length) +
+  panelShell('④', '🪟', '待處理事項', null,
     `<div id="globalEventsBody"></div>`,
     `<div class="tab-row">
-      <button class="tab-btn active" data-days="1">今天</button>
-      <button class="tab-btn" data-days="7">本週</button>
-      <button class="tab-btn" data-days="30">本月</button>
-    </div>`);
+      <button class="tab-btn" data-days="1">今天</button>
+      <button class="tab-btn active" data-days="30">本月</button>
+    </div>`, '', todayWinCount, 'windowsUpdateBadge');
 
 setupGlobalEventsPanel(DATA.global_events);
+setupVendorPillFilter(DATA.vendor_impact);
+
+function setupVendorPillFilter(items){
+  const pillRow = document.getElementById('vendorPillRow');
+  const body = document.getElementById('vendorImpactBody');
+  if (!pillRow || !body) return;
+
+  const vendorNames = [...new Set((items || []).map(v => v.vendor).filter(Boolean))];
+  let activeVendor = null;
+
+  function render(){
+    const filtered = activeVendor ? items.filter(v => v.vendor === activeVendor) : items;
+    body.innerHTML = renderVendorImpact(filtered);
+  }
+
+  pillRow.innerHTML = `
+    <div class="vendor-pill-row">
+      <button class="vendor-pill active" data-vendor="">全部</button>
+      ${vendorNames.map(v => `<button class="vendor-pill" data-vendor="${escapeHtml(v)}">${vendorIconFor(v)} ${escapeHtml(v)}</button>`).join('')}
+    </div>`;
+
+  pillRow.querySelectorAll('.vendor-pill').forEach(btn => {
+    btn.addEventListener('click', () => {
+      pillRow.querySelectorAll('.vendor-pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeVendor = btn.dataset.vendor || null;
+      render();
+    });
+  });
+
+  render();
+}
 </script>
 </body>
 </html>
