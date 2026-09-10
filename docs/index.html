@@ -227,6 +227,15 @@
   .stat-modal-close{background:none;border:none;color:var(--text-dim);font-size:16px;cursor:pointer;padding:2px 6px;}
   .stat-modal-close:hover{color:var(--text);}
   .stat-modal-body{overflow-y:auto;padding:8px 18px 16px;}
+  .ai-fab{
+    position:fixed;right:22px;bottom:22px;z-index:90;
+    background:var(--accent);color:#fff;border:none;border-radius:24px;
+    padding:12px 18px;font-family:'Noto Sans TC',sans-serif;font-size:13px;font-weight:700;
+    box-shadow:0 4px 14px rgba(37,99,235,0.35);cursor:pointer;
+  }
+  .ai-fab:hover{background:var(--accent-dim);}
+  .ai-analysis-text{font-size:13px;line-height:1.9;color:var(--text);white-space:pre-line;}
+  .ai-analysis-meta{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-faint);margin-top:14px;padding-top:10px;border-top:1px dashed var(--border);}
   .stat-modal-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 0;border-top:1px dashed var(--border);font-size:12.5px;}
   .stat-modal-row:first-child{border-top:none;}
   .stat-modal-row-label{color:var(--text);flex:1;}
@@ -298,6 +307,18 @@
         <button class="stat-modal-close" onclick="closeStatModal()">✕</button>
       </div>
       <div class="stat-modal-body" id="statModalBody"></div>
+    </div>
+  </div>
+
+  <button class="ai-fab" id="aiFab" onclick="openAiAnalysisModal()">🤖 AI分析</button>
+
+  <div class="stat-modal-overlay" id="aiAnalysisModal" onclick="if(event.target===this)closeAiAnalysisModal()">
+    <div class="stat-modal">
+      <div class="stat-modal-header">
+        <span>🤖 今日資料 AI 分析</span>
+        <button class="stat-modal-close" onclick="closeAiAnalysisModal()">✕</button>
+      </div>
+      <div class="stat-modal-body" id="aiAnalysisBody"></div>
     </div>
   </div>
 
@@ -692,7 +713,8 @@ const DATA = {
       "source": "Dark Reading",
       "url": "https://www.darkreading.com/cyberattacks-data-breaches"
     }
-  ]
+  ],
+  "ai_analysis": "今天最需要留意的是 Google Chrome 瀏覽器的零時差漏洞（CVE-2026-85046），因為幾乎每個人電腦上都有Chrome，中招範圍會非常廣，建議優先確認公司內部電腦瀏覽器已自動更新。\n\n其次是 LiteLLM 這個AI基礎設施平台的漏洞，已經被Qilin勒索軟體集團鎖定利用——這反映出一個新趨勢：攻擊者開始把「企業串接AI服務用的中介層」當成新的攻擊入口，如果公司有導入類似的AI工具串接架構，建議優先盤點確認。\n\n另外 Exchange Server 的漏洞影響範圍也不小（全球逾2.2萬台暴露、台灣250台），如果公司用Exchange收發郵件，這個項目的修補優先度應該拉高。\n\n整體來看，今天的風險集中在「常見基礎設施軟體」（瀏覽器、郵件伺服器、列印系統）而非單一產業的針對性攻擊，建議IT部門依照使用率高低排序處理順序，而不是逐一平均分配資源。"
 };
 const UPDATED_AT = "2026-09-08 09:00:00（台灣時間）";
 document.getElementById('updatedAt').textContent = UPDATED_AT;
@@ -1068,12 +1090,24 @@ function closeStatModal(){
 window.openStatModal = openStatModal;
 window.closeStatModal = closeStatModal;
 
+function openAiAnalysisModal(){
+  const body = document.getElementById('aiAnalysisBody');
+  const text = DATA.ai_analysis || '今日資料暫無AI綜合分析。';
+  body.innerHTML = `<div class="ai-analysis-text">${escapeHtml(text)}</div><div class="ai-analysis-meta">此分析由AI於資料產生當下彙整撰寫，非即時分析，僅供參考</div>`;
+  document.getElementById('aiAnalysisModal').style.display = 'flex';
+}
+function closeAiAnalysisModal(){
+  document.getElementById('aiAnalysisModal').style.display = 'none';
+}
+window.openAiAnalysisModal = openAiAnalysisModal;
+window.closeAiAnalysisModal = closeAiAnalysisModal;
+
 
 function renderStatStrip(counts, pendingCount){
   const el = document.getElementById('statStrip');
   if (!counts) { el.style.display = 'none'; return; }
   const cards = [
-    { color:'red', label:'新聞事件', number: counts.news ?? 0, desc:'國內/全球新聞' },
+    { color:'red', label:'今日新聞事件', number: counts.news ?? 0, desc:'國內/全球新聞' },
     { color:'blue', label:'今日漏洞雷達', number: counts.kev ?? 0, desc:'KEV新增筆數' },
     { color:'green', label:'公司關注廠商情報', number: counts.vendor ?? 0, desc:'Microsoft／Cisco／Fortinet' },
     { color:'orange', label:'待處理事項', number: pendingCount ?? 0, desc:'需留意的更新檔數', id:'pendingCountNum' },
@@ -1146,7 +1180,7 @@ const todayWinCount = (DATA.global_events || []).filter(e => {
 }).length;
 
 grid.innerHTML =
-  panelShell('①', '📰', '新聞事件', null, renderHeadlines(DATA.headlines), '', '#D97706', (DATA.headlines||[]).length) +
+  panelShell('①', '📰', '今日新聞事件', null, renderHeadlines(DATA.headlines), '', '#D97706', (DATA.headlines||[]).length) +
   panelShell('②', '🎯', '今日漏洞雷達 (CVE)', null, renderCveRadar(DATA.cve_radar), '', '#2563EB', (DATA.cve_radar||[]).length) +
   panelShell('③', '🏢', '公司關注廠商情報', null, `<div id="vendorImpactBody"></div>`, `<div id="vendorPillRow"></div>`, '#059669', (DATA.vendor_impact||[]).length) +
   panelShell('④', '🪟', '待處理事項', null,
