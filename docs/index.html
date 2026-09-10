@@ -316,254 +316,190 @@ const DATA = {
   "headlines": [
     {
       "icon": "🎯",
-      "title": "N-able N-central 零日漏洞 - 未認證遠端程式碼執行",
-      "subtitle": "遠端管理工具爆發 CVSS 10.0 關鍵漏洞，攻擊者無需認證即可執行任意程式碼",
+      "title": "Cisco防火牆管理平台認證繞過漏洞遭實際攻擊",
+      "subtitle": "CVE-2026-20079滿分漏洞，攻擊者可直接取得根權限",
       "impact": "高",
       "stars": 5,
-      "url": "https://www.bleepingcomputer.com/news/security/adobe-fixes-critical-magento-zero-day-exploited-to-backdoor-servers/"
+      "url": "https://www.bleepingcomputer.com/news/security/cisco-confirms-cve-2026-20079-secure-fmc-flaw-exploited-in-attacks/"
     },
     {
       "icon": "🎯",
-      "title": "Adobe Commerce/Magento 零日漏洞 - 程式碼注入與後門植入",
-      "subtitle": "電商平台樣板引擎漏洞已在野利用植入後門，CVSS 10.0 極度危急",
+      "title": "Citrix NetScaler ADC認證繞過漏洞威脅企業VPN",
+      "subtitle": "CVE-2026-19490讓未授權使用者直接存取公司網路",
       "impact": "高",
-      "stars": 5,
-      "url": "https://www.bleepingcomputer.com/news/security/adobe-fixes-critical-magento-zero-day-exploited-to-backdoor-servers/"
+      "stars": 5
+    },
+    {
+      "icon": "🎯",
+      "title": "Chromium V8瀏覽器引擎沙箱逃逸漏洞",
+      "subtitle": "CVE-2026-87491可透過惡意網站竊取用戶帳號密碼",
+      "impact": "高",
+      "stars": 4
     },
     {
       "icon": "🦠",
-      "title": "台灣企業遭勒索軟體攻擊 - 創新服務(7828)系統癱瘓",
-      "subtitle": "上市公司 ERP 系統遭勒索病毒攻擊，已啟動隔離防禦措施",
+      "title": "創新服務公司遭勒索病毒加密攻擊",
+      "subtitle": "ERP系統無法運作，已啟動應變隔離與復原機制",
       "impact": "高",
       "stars": 4,
       "url": "https://tw.stock.yahoo.com/news/%E5%85%AC%E5%91%8A-%E8%AA%AA%E6%98%8E%E5%89%B5%E6%96%B0%E6%9C%8D%E5%8B%99%E9%83%A8%E4%BB%BD%E8%B3%87%E8%A8%8A%E7%B3%BB%E7%B5%B1%E9%81%AD%E5%8F%97%E7%B6%B2%E8%B7%AF%E5%8B%92%E7%B4%A2%E7%97%85%E6%AF%92%E6%94%BB%E6%93%8A%E4%BA%8B%E4%BB%B6-110354474.html"
     },
     {
-      "icon": "🪟",
-      "title": "微軟九月補丁日 - 修補 966 個漏洞與 2 個零日攻擊",
-      "subtitle": "包含 Windows 權限提升、Media Foundation 遠端執行等多項關鍵漏洞",
+      "icon": "📰",
+      "title": "Microsoft Defender發現ShieldCrash零日漏洞",
+      "subtitle": "可讓攻擊者直接獲得作業系統最高權限",
       "impact": "高",
-      "stars": 5
-    },
-    {
-      "icon": "⚠️",
-      "title": "台灣 TWCERT 警告 - 勒索軟體威脅升溫",
-      "subtitle": "醫療機構與關鍵基礎設施遭 BYOVD 技術複雜攻擊，需即刻防禦",
-      "impact": "高",
-      "stars": 4,
-      "url": "https://www.twcert.org.tw/tw/cp-104-10043-5f54b-1.html"
+      "stars": 5,
+      "url": "https://www.bleepingcomputer.com/news/security/new-microsoft-defender-shieldcrash-zero-day-grants-system-access/"
     }
   ],
   "vendor_impact": [
     {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-62706 Windows Media Foundation 遠端程式碼執行漏洞",
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "Cisco Secure Firewall Management Center軟體認證繞過漏洞",
       "impact": "高",
-      "category": "媒體處理服務",
-      "key_asset": "Windows Media Foundation",
-      "ai_suggestion": "立即安裝微軟九月補丁日更新，檢查是否有媒體相關應用被利用痕跡"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-62744 Windows Media Foundation 遠端程式碼執行漏洞",
-      "impact": "高",
-      "category": "媒體處理服務",
-      "key_asset": "Windows Media Foundation",
-      "ai_suggestion": "併同 CVE-2026-62706 進行更新部署，加強媒體檔案輸入驗證"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-66302 Skype for Business 遠端程式碼執行漏洞",
-      "impact": "高",
-      "category": "通訊協作系統",
-      "key_asset": "Skype for Business",
-      "ai_suggestion": "優先更新 Skype 伺服器與用戶端，監控異常通話與會議活動"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-62694 Windows 安裝程式權限提升漏洞",
-      "impact": "高",
-      "category": "系統安裝機制",
-      "key_asset": "Windows Installer",
-      "ai_suggestion": "更新 Windows Installer 元件，檢查本地使用者是否可異常提升權限"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-62895 Azure Arc SQL Server 擴充功能權限提升漏洞",
-      "impact": "高",
-      "category": "雲端管理服務",
-      "key_asset": "Azure Arc SQL Server",
-      "ai_suggestion": "更新 Azure Arc 代理程式，限制 SQL Server 本地帳戶操作權限"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-69341 Windows 影像擷取權限提升漏洞",
-      "impact": "高",
-      "category": "系統維護工具",
-      "key_asset": "Windows 影像擷取",
-      "ai_suggestion": "套用最新補丁，禁用非必要的影像擷取權限"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-69522 .NET 和 Visual Studio 遠端程式碼執行漏洞",
-      "impact": "高",
-      "category": "開發框架",
-      "key_asset": ".NET / Visual Studio",
-      "ai_suggestion": "更新 .NET Runtime 與 Visual Studio，重新檢視開發環境程式碼"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-66304 Skype for Business 資訊洩露漏洞",
-      "impact": "中",
-      "category": "通訊協作系統",
-      "key_asset": "Skype for Business",
-      "ai_suggestion": "與 CVE-2026-66302 併行更新，監控聊天與會議記錄外洩跡象"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-66306 Skype for Business 資訊洩露漏洞",
-      "impact": "中",
-      "category": "通訊協作系統",
-      "key_asset": "Skype for Business",
-      "ai_suggestion": "進行完整 Skype 產品套件漏洞評估，加強端點防護"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-66308 Skype for Business 和 Lync 阻斷服務漏洞",
-      "impact": "中",
-      "category": "通訊協作系統",
-      "key_asset": "Skype for Business",
-      "ai_suggestion": "部署最新補丁並監控 Skype 服務可用性，預備備用通訊方案"
+      "category": "防火牆管理",
+      "key_asset": "Secure FMC/SCC",
+      "ai_suggestion": "立即檢查FMC/SCC版本，優先套用安全補丁，限制管理界面存取IP，監控異常登入活動",
+      "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-onprem-fmc-authbypass-5JPp45V2?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Management%20Center%20Software%20Authentication%20Bypass%20Vulnerability%26vs_k=1"
     },
     {
       "icon": "🔀",
       "vendor": "Cisco",
-      "title": "Cisco UCS 與 UCS 應用設備 UEFI Shell 安全開機繞過漏洞",
+      "title": "Cisco UCS與UCS based應用設備UEFI Shell安全開機繞過漏洞",
       "impact": "高",
       "category": "虛擬化平台",
-      "key_asset": "Cisco UCS / BIG-IP 設備",
-      "ai_suggestion": "立即更新 UCS 韌體，驗證安全開機完整性與 UEFI 設定"
+      "key_asset": "Cisco UCS伺服器",
+      "ai_suggestion": "更新UCS伺服器BIOS韌體，啟用UEFI安全開機，加強實體存取控制",
+      "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ucs-uefi-sb-bypass-eb6xC5GW?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20UCS%20and%20UCS-Based%20Appliances%20UEFI%20Shell%20Secure%20Boot%20Bypass%20Vulnerability%26vs_k=1"
     },
     {
       "icon": "🔀",
       "vendor": "Cisco",
-      "title": "Cisco IOS XR 軟體安全強化版本：2026 年 9 月",
+      "title": "Cisco IOS XR軟體安全強化版本（2026年9月）",
       "impact": "中",
-      "category": "網路路由設備",
-      "key_asset": "Cisco IOS XR",
-      "ai_suggestion": "評估升級至強化版本，檢查現有設備已知漏洞修補狀況"
+      "category": "網路設備",
+      "key_asset": "IOS XR路由器",
+      "ai_suggestion": "評估IOS XR設備版本，規劃升級時程至最新安全強化版本",
+      "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-hardening-iosxr-qg64NcM?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20IOS%20XR%20Software%20Security%20Hardening%20Release:%20September%202026%26vs_k=1"
     },
     {
-      "icon": "🔀",
-      "vendor": "Cisco",
-      "title": "Cisco Secure Email S/MIME 密文解密漏洞",
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-68877 Windows Storage Spaces Controller遠端代碼執行漏洞",
       "impact": "高",
-      "category": "郵件安全系統",
-      "key_asset": "Cisco Secure Email",
-      "ai_suggestion": "更新郵件網關韌體，檢查 S/MIME 加密郵件解密日誌"
+      "category": "儲存系統",
+      "key_asset": "Windows Storage Spaces",
+      "ai_suggestion": "立即套用Windows安全更新，檢查儲存空間控制器權限配置，限制網路存取",
+      "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68877"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-69334 Windows Volume Manager Extension Driver遠端代碼執行漏洞",
+      "impact": "高",
+      "category": "儲存系統",
+      "key_asset": "Windows Volume Manager",
+      "ai_suggestion": "優先部署Windows安全更新，監控磁碟管理工具異常行為",
+      "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-69334"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-69777 Windows DHCP Client權限提升漏洞",
+      "impact": "高",
+      "category": "網路基礎",
+      "key_asset": "Windows DHCP Client",
+      "ai_suggestion": "套用最新Windows補丁，檢查DHCP伺服器安全設定，監控異常DHCP流量",
+      "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-69777"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-69508 Windows MIDI Service Module權限提升漏洞",
+      "impact": "高",
+      "category": "系統服務",
+      "key_asset": "Windows MIDI服務",
+      "ai_suggestion": "部署Windows安全補丁，若無需求可停用MIDI服務，監控使用者權限變化",
+      "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-69508"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-85046 Chromium V8型別混淆漏洞",
+      "impact": "高",
+      "category": "瀏覽器",
+      "key_asset": "Edge瀏覽器",
+      "ai_suggestion": "立即更新Microsoft Edge瀏覽器，推送Chrome/Edge更新至全體終端用戶",
+      "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-85046"
     },
     {
       "icon": "🛡️",
       "vendor": "Fortinet",
-      "title": "FortiPAM 伺服器認證不當漏洞",
+      "title": "Fortinet FortiPAM Server認證漏洞（FG-IR-26-168）",
       "impact": "高",
       "category": "身分驗證服務",
-      "key_asset": "FortiPAM 伺服器",
-      "ai_suggestion": "立即更新 FortiPAM，重置所有管理員密碼並檢查異常登入"
+      "key_asset": "FortiPAM伺服器",
+      "ai_suggestion": "檢查FortiPAM版本並套用補丁，加強特權帳號監控與稽核日誌",
+      "url": "https://fortiguard.fortinet.com/psirt/FG-IR-26-168"
     },
     {
       "icon": "🛡️",
       "vendor": "Fortinet",
-      "title": "Websocket 串流存在破損的存取控制漏洞",
+      "title": "Fortinet NAT規則未認證控制漏洞導致敏感資訊洩露（FG-IR-26-166）",
+      "impact": "高",
+      "category": "防火牆",
+      "key_asset": "FortiGate防火牆",
+      "ai_suggestion": "檢查NAT規則存取控制設定，限制管理員帳號數量，啟用多因素認證",
+      "url": "https://fortiguard.fortinet.com/psirt/FG-IR-26-166"
+    },
+    {
+      "icon": "🛡️",
+      "vendor": "Fortinet",
+      "title": "Fortinet Web GUI JWT靜態金鑰簽署漏洞（FG-IR-26-170）",
       "impact": "高",
       "category": "防火牆管理",
-      "key_asset": "FortiGate 管理介面",
-      "ai_suggestion": "補丁更新 FortiGate 設備，加強管理介面網路隔離"
+      "key_asset": "FortiGate Web GUI",
+      "ai_suggestion": "立即升級FortiGate韌體，變更JWT金鑰配置，加強管理界面存取控制",
+      "url": "https://fortiguard.fortinet.com/psirt/FG-IR-26-170"
     },
     {
       "icon": "🛡️",
       "vendor": "Fortinet",
-      "title": "Web GUI JWT 以靜態金鑰簽署的認證漏洞",
+      "title": "Fortinet遠端備份Cron Job注入漏洞（FG-IR-26-167）",
       "impact": "高",
-      "category": "防火牆管理",
-      "key_asset": "FortiGate Web 管理介面",
-      "ai_suggestion": "更新韌體解決 JWT 靜態金鑰問題，強制重新認證所有管理員"
-    },
-    {
-      "icon": "🛡️",
-      "vendor": "Fortinet",
-      "title": "未經認證即可控制 NAT 規則導致敏感資訊暴露",
-      "impact": "高",
-      "category": "防火牆流量管理",
-      "key_asset": "FortiGate NAT 規則",
-      "ai_suggestion": "立即對 NAT 規則進行存取控制驗證，限制非管理員修改權限"
-    },
-    {
-      "icon": "🛡️",
-      "vendor": "Fortinet",
-      "title": "遠端備份中的排程工作注入漏洞",
-      "impact": "中",
       "category": "備份系統",
-      "key_asset": "Fortinet 遠端備份",
-      "ai_suggestion": "檢查備份排程工作完整性，驗證備份檔案簽章並隔離可疑備份"
-    },
-    {
-      "icon": "🛡️",
-      "vendor": "Fortinet",
-      "title": "暴露的 minifilter 通訊埠導致任意行程終止",
-      "impact": "中",
-      "category": "系統驅動程式",
-      "key_asset": "Fortinet minifilter 驅動",
-      "ai_suggestion": "更新防護軟體驅動程式，監控異常行程終止事件"
-    },
-    {
-      "icon": "🛡️",
-      "vendor": "Fortinet",
-      "title": "FortiSIEM 開放重定向漏洞",
-      "impact": "中",
-      "category": "安全事件管理",
-      "key_asset": "FortiSIEM 伺服器",
-      "ai_suggestion": "更新 FortiSIEM，檢查日誌中是否有重定向攻擊跡象"
-    },
-    {
-      "icon": "🛡️",
-      "vendor": "Fortinet",
-      "title": "工作流程會話電郵核准流程繞過漏洞",
-      "impact": "中",
-      "category": "工作流程管理",
-      "key_asset": "Fortinet 工作流程系統",
-      "ai_suggestion": "驗證電郵核准流程是否被繞過，檢查未授權的工作流執行"
-    },
-    {
-      "icon": "🛡️",
-      "vendor": "Fortinet",
-      "title": "SNMP 中的不受控資源消耗漏洞",
-      "impact": "低",
-      "category": "網路監控服務",
-      "key_asset": "Fortinet SNMP 服務",
-      "ai_suggestion": "限制 SNMP 查詢來源 IP，更新韌體並監控異常 SNMP 流量"
-    },
-    {
-      "icon": "🛡️",
-      "vendor": "Fortinet",
-      "title": "日誌報表中的空指標解參考漏洞",
-      "impact": "低",
-      "category": "日誌管理系統",
-      "key_asset": "Fortinet 日誌報表",
-      "ai_suggestion": "更新產品版本，備份關鍵日誌並驗證報表產生完整性"
+      "key_asset": "Fortinet遠端備份",
+      "ai_suggestion": "檢查備份排程設定，套用安全補丁，驗證備份完整性與隔離環境",
+      "url": "https://fortiguard.fortinet.com/psirt/FG-IR-26-167"
     }
   ],
   "global_events": [
+    {
+      "category": "零時差漏洞",
+      "title": "Cisco FMC認證繞過漏洞遭實際攻擊利用",
+      "date": "2026-09-09",
+      "url": "https://www.bleepingcomputer.com/news/security/cisco-confirms-cve-2026-20079-secure-fmc-flaw-exploited-in-attacks/"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "Microsoft Defender發現ShieldCrash零日漏洞可取得系統最高權限",
+      "date": "2026-09-09",
+      "url": "https://www.bleepingcomputer.com/news/security/new-microsoft-defender-shieldcrash-zero-day-grants-system-access/"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "Google Chrome發現第七個遭駭客利用的零日漏洞",
+      "date": "2026-09-09",
+      "url": "https://www.bleepingcomputer.com/news/security/google-patches-seventh-chrome-zero-day-exploited-in-attacks-this-year/"
+    },
+    {
+      "category": "資料外洩",
+      "title": "AdaptHealth確認4.1萬人醫療資料在7月遭駭客入侵外洩",
+      "date": "2026-09-09",
+      "url": "https://www.bleepingcomputer.com/news/security/adapthealth-confirms-41-million-people-exposed-in-july-cyberattack/"
+    },
     {
       "category": "零時差漏洞",
       "title": "N-able N-central 零日漏洞 - 未認證遠端程式碼執行 (CVE-2026-86218)",
@@ -626,6 +562,12 @@ const DATA = {
     },
     {
       "category": "勒索病毒",
+      "title": "創新服務公司遭勒索病毒攻擊ERP系統無法運作",
+      "date": "2026-09-02",
+      "url": "https://tw.stock.yahoo.com/news/%E5%85%AC%E5%91%8A-%E8%AA%AA%E6%98%8E%E5%89%B5%E6%96%B0%E6%9C%8D%E5%8B%99%E9%83%A8%E4%BB%BD%E8%B3%87%E8%A8%8A%E7%B3%BB%E7%B5%B1%E9%81%AD%E5%8F%97%E7%B6%B2%E8%B7%AF%E5%8B%92%E7%B4%A2%E7%97%85%E6%AF%92%E6%94%BB%E6%93%8A%E4%BA%8B%E4%BB%B6-110354474.html"
+    },
+    {
+      "category": "勒索病毒",
       "title": "CyberLeek勒索組織 - GTA VI遊戲內容外洩事件",
       "date": "2026-08-28",
       "url": "https://www.gm7.org/archives/153807"
@@ -645,48 +587,48 @@ const DATA = {
   ],
   "cve_radar": [
     {
-      "cve_id": "CVE-2026-86218",
-      "title": "N-able N-central 靜態程式碼注入漏洞，允許未經認證的遠端程式碼執行",
+      "cve_id": "CVE-2026-20079",
+      "title": "防火牆管理平台認證繞過漏洞，可導致遠端攻擊者取得根權限",
       "cvss": 10,
       "cvss_source": "NVD官方",
       "exploited": true,
       "action": "立即更新",
-      "plain_title": "遠端管理工具出現嚴重安全漏洞",
-      "plain_summary": "N-able N-central 是許多公司用來遠端管理電腦的工具。這個問題讓攻擊者不需要密碼就能直接入侵系統並執行惡意指令，等於是在公司的管理後台留了一扇開著的門。如果公司用這套軟體，需要立即更新修補。"
+      "plain_title": "防火牆管理工具可被未授權人士遠端接管",
+      "plain_summary": "這個漏洞讓網路駭客不需要密碼就能登入公司的防火牆管理系統，相當於有人拿著鑰匙進入公司的安全控制室。一旦進入，攻擊者幾乎可以控制整個網路防護系統，這是很嚴重的安全威脅。"
     },
     {
-      "cve_id": "CVE-2026-75650",
-      "title": "Adobe Commerce 和 Magento 樣板引擎特殊字元未正確過濾漏洞，允許任意程式碼執行",
-      "cvss": 10,
+      "cve_id": "CVE-2026-19490",
+      "title": "網路存取控制系統認證繞過漏洞，未授權使用者可直接存取",
+      "cvss": 9.3,
       "cvss_source": "NVD官方",
       "exploited": true,
       "action": "立即更新",
-      "plain_title": "電商平台軟體爆發嚴重安全漏洞",
-      "plain_summary": "Adobe Magento 是許多線上商店使用的購物平台系統。系統在處理動態內容時沒有正確檢查特殊字元，讓攻擊者可以注入惡意程式碼。如果有網站用這套系統，客戶資料和金流資訊都可能暴露。"
+      "plain_title": "企業VPN系統出現重大認證漏洞",
+      "plain_summary": "公司的網路入口守門人（VPN系統）出現嚴重漏洞，讓未經授權的人可以假裝是員工進入公司網路。這就像公司大門的識別卡系統壞掉了，任何人都能溜進去。"
     },
     {
-      "cve_id": "CVE-2026-85880",
-      "title": "Windows 進階本機程序呼叫堆積緩衝區溢位漏洞，允許本機權限提升至 SYSTEM",
-      "cvss": 7.8,
+      "cve_id": "CVE-2026-87491",
+      "title": "V8引擎邊界越界寫入漏洞，可導致瀏覽器沙箱逃逸執行任意代碼",
+      "cvss": 8.8,
       "cvss_source": "NVD官方",
       "exploited": true,
       "action": "一週內更新",
-      "plain_title": "Windows 系統核心零件出現權限漏洞",
-      "plain_summary": "Windows 系統中負責處理程式通訊的元件存在記憶體錯誤。已經在電腦上的攻擊者或惡意程式可以利用這個缺陷，把自己升級成最高管理員權限，進而完全控制電腦。"
+      "plain_title": "熱門瀏覽器發現可被惡意網站利用的漏洞",
+      "plain_summary": "Google Chrome、Microsoft Edge等瀏覽器的核心引擎出現漏洞，使用者只要造訪被駭客改造的惡意網站，就可能被偷走帳號密碼或個人資料。影響全球數億瀏覽器使用者。"
     },
     {
-      "cve_id": "CVE-2026-81963",
-      "title": "Windows 連結追蹤漏洞，允許本機攻擊者提升權限至 SYSTEM",
-      "cvss": 7.8,
+      "cve_id": "CVE-2025-25249",
+      "title": "堆記憶體緩衝區溢位漏洞，可導致未授權代碼執行",
+      "cvss": 8.1,
       "cvss_source": "NVD官方",
       "exploited": true,
       "action": "一週內更新",
-      "plain_title": "Windows 更新系統出現權限漏洞",
-      "plain_summary": "Windows 的更新系統在處理檔案連結時有安全漏洞。已經在電腦上的使用者可以透過這個漏洞取得最高管理員權限。雖然需要先在電腦本地執行，但仍須立即修補以防止進階攻擊。"
+      "plain_title": "網路安全設備被發現可能遭遠端控制",
+      "plain_summary": "Fortinet製造的安全設備中發現漏洞，駭客可以透過傳送特殊網路封包來控制這些設備。這些設備通常負責保護公司網路，如果被攻擊者控制，等於城牆被破開了。"
     }
   ],
   "risk_score": {
-    "total": 48,
+    "total": 39,
     "breakdown": [
       {
         "label": "漏洞風險",
@@ -694,122 +636,122 @@ const DATA = {
       },
       {
         "label": "APT攻擊",
-        "score": 30
+        "score": 0
       },
       {
         "label": "勒索病毒",
-        "score": 66
+        "score": 22
       },
       {
         "label": "身份風險",
-        "score": 25
+        "score": 75
       },
       {
         "label": "AI風險",
-        "score": 20
+        "score": 0
       }
     ]
   },
   "action_items": [
     {
       "category": "漏洞修補",
-      "title": "CVE-2026-86218：N-able N-central 靜態程式碼注入漏洞，允許未經認證的遠端程式碼執行",
+      "title": "CVE-2026-20079：防火牆管理平台認證繞過漏洞，可導致遠端攻擊者取得根權限",
       "priority": "高",
       "detail": "CVSS 10（NVD官方），建議立即更新"
     },
     {
       "category": "漏洞修補",
-      "title": "CVE-2026-75650：Adobe Commerce 和 Magento 樣板引擎特殊字元未正確過濾漏洞，允許任意程式碼執行",
+      "title": "CVE-2026-19490：網路存取控制系統認證繞過漏洞，未授權使用者可直接存取",
       "priority": "高",
-      "detail": "CVSS 10（NVD官方），建議立即更新"
+      "detail": "CVSS 9.3（NVD官方），建議立即更新"
     },
     {
       "category": "公告確認",
-      "title": "CVE-2026-62706 Windows Media Foundation 遠端程式碼執行漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-62744 Windows Media Foundation 遠端程式碼執行漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-66302 Skype for Business 遠端程式碼執行漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-62694 Windows 安裝程式權限提升漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-62895 Azure Arc SQL Server 擴充功能權限提升漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-69341 Windows 影像擷取權限提升漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-69522 .NET 和 Visual Studio 遠端程式碼執行漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "Cisco UCS 與 UCS 應用設備 UEFI Shell 安全開機繞過漏洞",
+      "title": "Cisco Secure Firewall Management Center 軟體認證繞過漏洞",
       "priority": "高",
       "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "Cisco Secure Email S/MIME 密文解密漏洞",
+      "title": "Cisco UCS 與 UCS based 應用設備 UEFI Shell 安全開機繞過漏洞",
       "priority": "高",
       "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "FortiPAM 伺服器認證不當漏洞",
+      "title": "CVE-2026-68877 Windows Storage Spaces Controller 遠端代碼執行漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-69334 Windows Volume Manager Extension Driver 遠端代碼執行漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-69777 Windows DHCP Client 權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-69508 Windows MIDI Service Module 權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-85046 Chromium V8 型別混淆漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "Fortinet FortiPAM Server 認證漏洞（FG-IR-26-168）",
       "priority": "高",
       "detail": "Fortinet廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "Websocket 串流存在破損的存取控制漏洞",
+      "title": "Fortinet NAT 規則未認證控制漏洞導致敏感資訊洩露（FG-IR-26-166）",
       "priority": "高",
       "detail": "Fortinet廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "Web GUI JWT 以靜態金鑰簽署的認證漏洞",
+      "title": "Fortinet Web GUI JWT 靜態金鑰簽署漏洞（FG-IR-26-170）",
       "priority": "高",
       "detail": "Fortinet廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "未經認證即可控制 NAT 規則導致敏感資訊暴露",
+      "title": "Fortinet 遠端備份 Cron Job 注入漏洞（FG-IR-26-167）",
       "priority": "高",
       "detail": "Fortinet廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-87491：V8引擎邊界越界寫入漏洞，可導致瀏覽器沙箱逃逸執行任意代碼",
+      "priority": "中",
+      "detail": "CVSS 8.8（NVD官方），建議一週內更新"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2025-25249：堆記憶體緩衝區溢位漏洞，可導致未授權代碼執行",
+      "priority": "中",
+      "detail": "CVSS 8.1（NVD官方），建議一週內更新"
     }
   ],
   "category_counts": {
     "kev": 4,
-    "vendor": 23,
-    "news": 6,
-    "ransomwareApt": 4
+    "vendor": 12,
+    "news": 5,
+    "ransomwareApt": 1
   }
 };
-const UPDATED_AT = "2026/9/9 09:11:32（台灣時間）";
+const UPDATED_AT = "2026/9/10 08:59:26（台灣時間）";
 document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
