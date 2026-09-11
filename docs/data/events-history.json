@@ -1,110 +1,26 @@
 [
   {
     "category": "零時差漏洞",
-    "title": "SharePoint CVE-2026-50522遭實際利用",
-    "date": "2026-08-07",
-    "url": "https://www.cisa.gov/"
+    "title": "MikroTik RouterOS命令參數分隔符驗證不足漏洞CVE-2026-86060",
+    "date": "2026-09-10",
+    "url": ""
   },
   {
     "category": "零時差漏洞",
-    "title": "Langflow漏洞CVE-2026-9198大規模掃描攻擊",
-    "date": "2026-08-05",
-    "url": "https://thehackernews.com/"
+    "title": "MikroTik RouterOS btest服務認證缺失漏洞CVE-2026-67277",
+    "date": "2026-09-10",
+    "url": ""
   },
   {
     "category": "勒索病毒",
-    "title": "新興勒索集團以英國10萬名警員資料首秀",
-    "date": "2026-08-03",
-    "url": "https://therecord.media/"
-  },
-  {
-    "category": "資料外洩",
-    "title": "ShinyHunters攻擊Questal，外洩2,100萬筆Salesforce紀錄",
-    "date": "2026-08-01",
-    "url": "https://sharkstriker.com/"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "Krybit攻擊ProHealth Medical Group，114GB資料外洩",
-    "date": "2026-08-01",
-    "url": "https://sharkstriker.com/"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "CRPx0點名Hyundai Motor土耳其分公司",
-    "date": "2026-07-30",
-    "url": "https://sharkstriker.com/"
+    "title": "創新服務遭勒索病毒攻擊，ERP系統受影響",
+    "date": "2026-09-02",
+    "url": ""
   },
   {
     "category": "政府公告",
-    "title": "TWCERT/CC示警SharePoint CVE-2026-50522高風險漏洞",
-    "date": "2026-07-30",
-    "url": "https://www.twcert.org.tw/tw/lp-169-1.html"
-  },
-  {
-    "category": "政府公告",
-    "title": "TWCERT/CC KEV週報（7/13-7/19）",
-    "date": "2026-07-20",
-    "url": "https://www.twcert.org.tw/tw/lp-168-1.html"
-  },
-  {
-    "category": "政府公告",
-    "title": "TWCERT/CC發布Microsoft 2026年7月份安全性更新公告",
-    "date": "2026-07-15",
-    "url": "https://www.twcert.org.tw/tw/lp-169-1.html"
-  },
-  {
-    "category": "政府公告",
-    "title": "TWCERT/CC發布Microsoft 2026年7月安全性更新公告",
-    "date": "2026-07-15",
-    "url": "https://www.twcert.org.tw/tw/lp-169-1.html"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "Microsoft SharePoint CVE-2026-56164遭實際利用",
-    "date": "2026-07-14",
-    "url": "https://msrc.microsoft.com/update-guide/"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "Microsoft AD FS CVE-2026-56155遭實際利用",
-    "date": "2026-07-14",
-    "url": "https://msrc.microsoft.com/update-guide/"
-  },
-  {
-    "category": "資料外洩",
-    "title": "Accenture證實原始碼與金鑰資料遭竊",
-    "date": "2026-07-14",
-    "url": "https://blog.senthorus.ch/posts/14_07_2026"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "SharePoint 0-day（CVE-2026-56164）隨Patch Tuesday公告",
-    "date": "2026-07-14",
-    "url": "https://msrc.microsoft.com/update-guide/"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "AD FS 0-day（CVE-2026-56155）存取控制漏洞",
-    "date": "2026-07-14",
-    "url": "https://msrc.microsoft.com/update-guide/"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "Deutsche Bank遭Unsafe勒索組織列入外洩名單",
-    "date": "2026-07-10",
-    "url": "https://blog.senthorus.ch/posts/14_07_2026"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "Fluke Corporation遭ShinyHunters竊取逾100GB資料",
-    "date": "2026-07-10",
-    "url": "https://blog.senthorus.ch/posts/14_07_2026"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "Ford汽車墨西哥廠遭Krybit勒索組織點名",
-    "date": "2026-07-10",
-    "url": "https://sharkstriker.com/blog/july-2026-data-breaches/"
+    "title": "因應AI資安新挑戰強化國家防護",
+    "date": "2026-09-02",
+    "url": "https://moda.gov.tw/ACS/press/news/press/20242"
   }
 ]

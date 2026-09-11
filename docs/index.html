@@ -336,387 +336,328 @@
 const DATA = {
   "headlines": [
     {
-      "icon": "🔑",
-      "title": "舊漏洞Langflow CVE-2026-0768遭重新利用，攻擊者鎖定竊取OpenAI API金鑰",
-      "url": "https://www.bleepingcomputer.com/news/security/critical-langflow-flaw-exploited-to-steal-openai-and-aws-keys/",
-      "impact": "高",
-      "stars": 4
-    },
-    {
-      "icon": "🏆",
-      "title": "數發部攜手SEMI揭露「SEMI E187驗證標章」，台灣半導體資安標準邁向落地驗證",
-      "url": "https://www.ithome.com.tw/news/178733",
-      "impact": "中",
-      "stars": 3
-    },
-    {
-      "icon": "🌐",
-      "title": "CISA新增Chrome瀏覽器V8引擎零時差漏洞，已遭實際利用",
-      "url": "https://www.cisa.gov/news-events/alerts/2026/09/04/cisa-adds-one-known-exploited-vulnerability-catalog",
-      "impact": "高",
-      "stars": 5
-    },
-    {
-      "icon": "🔑",
-      "title": "台灣新創Zeabur外洩事件擴大，高權限AWS憑證同遭外洩，用戶急需輪替金鑰與密碼",
-      "url": "https://www.ithome.com.tw/news/178543",
-      "impact": "高",
-      "stars": 5
-    },
-    {
       "icon": "🎯",
-      "title": "CISA新增7項KEV，Qilin勒索集團已鎖定LiteLLM漏洞鏈發動攻擊",
-      "url": "https://thehackernews.com/2026/09/cisa-adds-seven-exploited-flaws-as.html",
+      "title": "MikroTik RouterOS命令驗證漏洞CVSS 9.2",
+      "subtitle": "攻擊者可變更路由器政策掩碼進行權限提升",
+      "impact": "高",
+      "stars": 5
+    },
+    {
+      "icon": "🔀",
+      "title": "Cisco防火牆管理中心認證缺失已被實際利用",
+      "subtitle": "勒索軟體與政府駭客已在真實攻擊中利用此漏洞",
+      "impact": "高",
+      "stars": 5,
+      "url": "https://www.bleepingcomputer.com/news/security/cisco-fmc-flaws-exploited-by-ransomware-gang-state-sponsored-hackers/"
+    },
+    {
+      "icon": "🦠",
+      "title": "MikroTik RouterOS btest服務認證缺失CVSS 8.8",
+      "subtitle": "診斷工具無密碼保護導致記憶體洩露與拒絕服務",
       "impact": "高",
       "stars": 4
     },
     {
-      "icon": "📧",
-      "title": "近2.2萬台Exchange Server暴露接管風險，台灣也有250台尚未修補",
-      "url": "https://www.ithome.com.tw/news/178617",
+      "icon": "📰",
+      "title": "微軟9月更新致遠端桌面服務故障",
+      "subtitle": "最新Windows伺服器更新造成RDS連線異常",
+      "impact": "中",
+      "stars": 4,
+      "url": "https://www.bleepingcomputer.com/news/microsoft/september-windows-server-updates-break-remote-desktop-services/"
+    },
+    {
+      "icon": "🤖",
+      "title": "AI驅動攻擊利用PaperCut漏洞入侵395組織",
+      "subtitle": "自動化攻擊工具批量突破企業防線展現新威脅",
       "impact": "高",
-      "stars": 4
-    },
-    {
-      "icon": "📦",
-      "title": "Dropbox通知用戶資料外洩，帳號與聯想ID（Lenovo ID）連結，約5千名用戶受影響",
-      "url": "https://www.ithome.com.tw/news/178617",
-      "impact": "中",
-      "stars": 3
-    },
-    {
-      "icon": "☁️",
-      "title": "微軟Entra ID爆滿分等級漏洞CVE-2026-69836，一度稱已遭利用後又改口否認",
-      "url": "https://thehackernews.com/2026/08/microsoft-entra-id-flaw-cvss-100.html",
-      "impact": "高",
-      "stars": 4
-    },
-    {
-      "icon": "🤝",
-      "title": "數發部攜手Meta、Google等四大平臺，建立AI生成詐騙內容源頭阻詐防線",
-      "url": "https://www.ithome.com.tw/news/178617",
-      "impact": "中",
-      "stars": 3
-    },
-    {
-      "icon": "🖱️",
-      "title": "Windows 11選用更新KB5120998出包，游標消失/異常放大縮小、桌布變全黑",
-      "url": "https://www.cool3c.com/article/251471",
-      "impact": "中",
-      "stars": 3
-    }
-  ],
-  "global_events": [
-    {
-      "category": "政府公告",
-      "title": "微軟9月Patch Tuesday正式發布：僅9個CVE、全數列為Critical，本月無已遭實際利用漏洞",
-      "date": "2026-09-08",
-      "url": "https://trinetriops.com/resources/patch-tuesday"
-    },
-    {
-      "category": "政府公告",
-      "title": "CVE-2026-50376：Windows遠端桌面用戶端資訊洩漏漏洞，MSRC已公告",
-      "date": "2026-09-04",
-      "url": "https://zecurit.com/endpoint-management/patch-tuesday/"
-    },
-    {
-      "category": "政府公告",
-      "title": "KB5120998已知問題：微軟正修復CVE-2026-69414權限提升漏洞（可取得SYSTEM權限）",
-      "date": "2026-09-04",
-      "url": "https://www.helpnetsecurity.com/2026/09/04/september-2026-patch-tuesday-forecast/"
-    },
-    {
-      "category": "政府公告",
-      "title": "KB5120998（選用更新）出包：滑鼠游標消失/異常放大縮小、桌布變全黑，微軟已展開調查，需先解除安裝才能恢復",
-      "date": "2026-08-27",
-      "url": "https://www.cool3c.com/article/251471"
-    },
-    {
-      "category": "政府公告",
-      "title": "微軟警告：8月更新檔請務必於3天內安裝，本次修補751個CVE規模空前",
-      "date": "2026-08-11",
-      "url": "https://www.windowslatest.com/2026/08/14/microsoft-install-windows-11s-august-2026-update-within-3-days-400-security-bugs-fixed/"
-    },
-    {
-      "category": "政府公告",
-      "title": "KB5121003（Windows 11 24H2/25H2）：含Remote Desktop、DNS/DHCP Server等多項嚴重RCE修補",
-      "date": "2026-08-11",
-      "url": "https://support.microsoft.com/en-us/servicing/os/windows-11/2026/08/kb5121003-windows-11-24h2-25h2-security-update"
-    },
-    {
-      "category": "政府公告",
-      "title": "CVE-2026-68820（Windows AFD.sys）：本月唯一已遭實際利用的0-day，已知遭Lazarus集團利用",
-      "date": "2026-08-11",
-      "url": "https://senserva.com/patch-tuesday.html"
-    },
-    {
-      "category": "政府公告",
-      "title": "KB5121000（Windows 11 26H1）：修補421個CVE，含身分驗證與網路堆疊相關漏洞",
-      "date": "2026-08-11",
-      "url": "https://support.microsoft.com/en-us/servicing/os/windows-11/2026/08/kb5121000-windows-11-26h1-security-update"
-    },
-    {
-      "category": "政府公告",
-      "title": "KB5120240（Windows 11 23H2）：含Kerberos、LDAP身分驗證相關安全修補",
-      "date": "2026-08-11",
-      "url": "https://windowsreport.com/windows-11-kb5121003-kb5121000-and-kb5120240-august-2026-patch-tuesday-updates-released/"
-    },
-    {
-      "category": "政府公告",
-      "title": "CVE-2026-70329（Outlook RCE）：建議企業信件系統優先確認已完成更新",
-      "date": "2026-08-11",
-      "url": "https://cybersecuritynews.com/microsoft-outlook-rce-vulnerability-2/"
-    },
-    {
-      "category": "政府公告",
-      "title": "KB5101684：7月28日預覽更新（Windows 11 24H2/25H2），本月正式版之前的先行測試版",
-      "date": "2026-07-28",
-      "url": "https://www.prajwaldesai.com/windows-11-kb5121003-august-2026-patch-tuesday-update/"
-    },
-    {
-      "category": "政府公告",
-      "title": "7月Patch Tuesday：SharePoint CVE-2026-56164、AD FS CVE-2026-56155兩個0-day",
-      "date": "2026-07-14",
-      "url": "https://msrc.microsoft.com/update-guide/"
-    }
-  ],
-  "cve_radar": [
-    {
-      "cve_id": "CVE-2026-85046",
-      "title": "Google Chrome瀏覽器V8引擎型別混淆漏洞，已遭實際利用",
-      "cvss": 8.8,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "立即更新",
-      "plain_title": "全球最多人用的Chrome瀏覽器出現已遭利用的漏洞",
-      "plain_summary": "Chrome瀏覽器核心引擎V8被發現漏洞且已有真實攻擊案例，只要瀏覽惡意網頁就可能中招，建議確認瀏覽器已自動更新到最新版本（通常重開瀏覽器即可套用）。"
-    },
-    {
-      "cve_id": "CVE-2026-59822",
-      "title": "AI模型代理平台LiteLLM身分驗證機制不當漏洞，Qilin勒索集團已鎖定利用",
-      "cvss": 8.6,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "立即更新",
-      "plain_title": "企業串接AI模型常用的LiteLLM平台出現漏洞，已被勒索集團盯上",
-      "plain_summary": "愈來愈多企業用LiteLLM來統一管理串接各家AI模型的服務，資安業者已觀察到Qilin勒索軟體集團鎖定此漏洞鏈發動攻擊，建議有使用相關AI基礎設施的單位優先確認並修補。"
-    },
-    {
-      "cve_id": "CVE-2026-83548",
-      "title": "SonicWall SMA1000系列設備伺服器端請求偽造漏洞（CVSS滿分10.0）",
-      "cvss": 10,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "立即更新",
-      "plain_title": "SonicWall遠端存取設備出現滿分等級安全漏洞",
-      "plain_summary": "企業用來讓員工遠端連線的SonicWall SMA1000系列設備被發現最高等級漏洞，未經授權的攻擊者可能藉此取得內部敏感功能的完整存取權限。"
-    },
-    {
-      "cve_id": "CVE-2026-62911",
-      "title": "Exchange Server高風險漏洞，PoC已公開，台灣250台伺服器暴露未修補",
-      "cvss": 8,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "立即更新",
-      "plain_title": "企業郵件伺服器Exchange Server出現高風險漏洞，攻擊手法已公開",
-      "plain_summary": "微軟8月已修補此漏洞，但荷蘭資安機構掃描發現全球仍有近2.2萬台伺服器直接暴露在網路上未修補，台灣就有250台，攻擊者利用公開的PoC程式碼就能嘗試接管伺服器。"
-    },
-    {
-      "cve_id": "CVE-2026-81578",
-      "title": "PaperCut NG/MF關鍵功能缺少身分驗證漏洞",
-      "cvss": 9.1,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "立即更新",
-      "plain_title": "企業列印管理系統PaperCut出現嚴重漏洞",
-      "plain_summary": "許多企業與學校用PaperCut來管理列印配額，威脅情報公司Huntress、watchTowr、Defused Cyber已觀察到針對此漏洞的攻擊活動從原本的偵察行為，演變成實際的資料竊取活動，風險明顯升高，建議儘速確認並修補。"
-    },
-    {
-      "cve_id": "CVE-2026-82329",
-      "title": "JFrog Artifactory身分驗證機制不當漏洞",
-      "cvss": 7.2,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "一週內更新",
-      "plain_title": "企業軟體開發常用的Artifactory出現身分驗證漏洞",
-      "plain_summary": "許多公司用JFrog Artifactory來存放程式碼建置後的成品，這個工具被發現身分驗證有缺陷，可能讓不該有權限的人存取到內部軟體資產。"
+      "stars": 5,
+      "url": "https://www.bleepingcomputer.com/news/security/ai-powered-attack-exploited-papercut-flaws-to-hack-395-organizations/"
     }
   ],
   "vendor_impact": [
     {
-      "icon": "🌐",
-      "title": "Google：Chrome瀏覽器V8引擎零時差漏洞已遭實際利用",
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-68877 Windows儲存空間控制器遠端程式碼執行漏洞",
       "impact": "高",
-      "key_asset": "Google Chrome瀏覽器",
-      "ai_suggestion": "建議確認員工端瀏覽器已自動更新，或手動重新啟動瀏覽器以套用最新版本",
-      "category": "瀏覽器",
-      "vendor": "Google"
+      "category": "系統核心服務",
+      "key_asset": "Windows儲存空間控制器",
+      "ai_suggestion": "立即盤點環境內Windows儲存空間使用情況，排定緊急更新排程，優先更新關鍵伺服器"
     },
     {
-      "icon": "🤖",
-      "title": "LiteLLM：CVE-2026-59822身分驗證漏洞，Qilin勒索集團已鎖定利用",
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-69334 Windows磁碟區管理擴充驅動程式遠端程式碼執行漏洞",
       "impact": "高",
-      "key_asset": "LiteLLM（AI模型代理平台）",
-      "ai_suggestion": "建議盤點內部是否有使用LiteLLM串接AI服務，並確認是否已套用修補",
+      "category": "系統核心服務",
+      "key_asset": "Windows磁碟區管理擴充驅動程式",
+      "ai_suggestion": "評估組織Windows Server版本與存儲配置，制定分階段更新計畫，避免業務中斷"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-69777 Windows DHCP用戶端權限提升漏洞",
+      "impact": "高",
+      "category": "網路基礎設施",
+      "key_asset": "Windows DHCP用戶端服務",
+      "ai_suggestion": "檢查企業DHCP配置與用戶端設定，驗證網路設備韌體版本，推動用戶端系統更新"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-69508 Windows MIDI服務模組權限提升漏洞",
+      "impact": "高",
+      "category": "多媒體服務",
+      "key_asset": "Windows MIDI服務模組",
+      "ai_suggestion": "評估是否有終端使用者需要MIDI功能，必要時禁用該服務並推動系統更新"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-69492 Windows分割區管理驅動程式權限提升漏洞",
+      "impact": "高",
+      "category": "系統核心服務",
+      "key_asset": "Windows分割區管理驅動程式",
+      "ai_suggestion": "檢查存儲基礎設施與磁碟分割方案，規劃更新排程並備妥回滾方案"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-73024 Windows NFS ONCRPC XDR驅動程式權限提升漏洞",
+      "impact": "高",
+      "category": "檔案共享服務",
+      "key_asset": "Windows NFS ONCRPC XDR驅動程式",
+      "ai_suggestion": "盤點企業NFS共享使用情況，若無必要應禁用該功能，或立即套用安全更新"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-45499 Azure OpenAI權限提升漏洞",
+      "impact": "高",
       "category": "AI基礎設施",
-      "vendor": "LiteLLM"
+      "key_asset": "Azure OpenAI服務",
+      "ai_suggestion": "檢查Azure OpenAI部署與身分驗證設定，檢視存取日誌並進行存取權限審計"
     },
     {
-      "icon": "🔐",
-      "title": "SonicWall：SMA1000系列滿分等級漏洞CVE-2026-83548已遭利用",
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-62693 Windows MIDI服務模組權限提升漏洞",
       "impact": "高",
-      "key_asset": "SonicWall SMA1000遠端存取設備",
-      "ai_suggestion": "建議立即確認設備韌體版本並套用修補，優先程度視同緊急事件處理",
-      "category": "遠端存取設備",
-      "vendor": "SonicWall"
+      "category": "多媒體服務",
+      "key_asset": "Windows MIDI服務模組",
+      "ai_suggestion": "確認組織內MIDI使用需求，無必要應禁用服務，有需求應盡速更新系統"
     },
     {
-      "icon": "📧",
-      "title": "Microsoft：Exchange Server高風險漏洞CVE-2026-62911，全球逾2.2萬台暴露、台灣250台",
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "Chromium CVE-2026-85046 V8型別混淆漏洞",
       "impact": "高",
-      "key_asset": "Exchange Server（企業郵件伺服器）",
-      "ai_suggestion": "建議立即確認Exchange Server是否已套用8月修補，並檢查是否有不必要的公開網路暴露",
-      "category": "郵件系統",
-      "vendor": "Microsoft"
+      "category": "瀏覽器引擎",
+      "key_asset": "Chromium/Edge V8引擎",
+      "ai_suggestion": "推動所有基於Chromium的瀏覽器更新，確保用戶端與伺服器端均為最新版本"
     },
     {
-      "icon": "🖨️",
-      "title": "PaperCut：CVE-2026-81578關鍵功能缺少身分驗證漏洞已遭利用",
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "Cisco Secure防火牆管理中心軟體認證繞過漏洞",
       "impact": "高",
-      "key_asset": "PaperCut NG/MF（列印管理系統）",
-      "ai_suggestion": "建議確認校園或企業內部PaperCut系統版本並儘速套用修補",
-      "category": "列印管理系統",
-      "vendor": "PaperCut"
+      "category": "防火牆管理",
+      "key_asset": "Cisco Secure防火牆管理中心",
+      "ai_suggestion": "立即檢查FMC版本與部署，確認是否已成為攻擊目標，優先排定系統更新與存取控制加強"
+    },
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "Cisco IOS XR軟體安全強化版本：2026年9月",
+      "impact": "中",
+      "category": "路由器韌體",
+      "key_asset": "Cisco IOS XR軟體",
+      "ai_suggestion": "評估企業IOS XR設備版本，與Cisco確認強化版本的適用性與部署時程"
+    },
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "Cisco 2026年9月16日安全公告預告",
+      "impact": "中",
+      "category": "預告通知",
+      "key_asset": "多款Cisco產品",
+      "ai_suggestion": "密切監控Cisco官方安全公告，提前準備更新測試環境與變更管理流程"
     }
   ],
-  "action_items": [
+  "global_events": [
     {
-      "category": "漏洞修補",
-      "title": "CVE-2026-85046：全球最多人用的Chrome瀏覽器出現已遭利用的漏洞",
-      "priority": "高",
-      "detail": "CVSS 8.8（AI推估），建議立即更新"
+      "category": "零時差漏洞",
+      "title": "MikroTik RouterOS命令參數分隔符驗證不足漏洞CVE-2026-86060",
+      "date": "2026-09-10",
+      "url": ""
     },
     {
-      "category": "漏洞修補",
-      "title": "CVE-2026-59822：企業串接AI模型常用的LiteLLM平台出現漏洞，已被勒索集團盯上",
-      "priority": "高",
-      "detail": "CVSS 8.6（AI推估），建議立即更新"
+      "category": "零時差漏洞",
+      "title": "MikroTik RouterOS btest服務認證缺失漏洞CVE-2026-67277",
+      "date": "2026-09-10",
+      "url": ""
     },
     {
-      "category": "漏洞修補",
-      "title": "CVE-2026-83548：SonicWall遠端存取設備出現滿分等級安全漏洞",
-      "priority": "高",
-      "detail": "CVSS 10（AI推估），建議立即更新"
+      "category": "勒索病毒",
+      "title": "創新服務遭勒索病毒攻擊，ERP系統受影響",
+      "date": "2026-09-02",
+      "url": ""
     },
     {
-      "category": "漏洞修補",
-      "title": "CVE-2026-62911：企業郵件伺服器Exchange Server出現高風險漏洞，攻擊手法已公開",
-      "priority": "高",
-      "detail": "CVSS 8（AI推估），建議立即更新"
+      "category": "政府公告",
+      "title": "因應AI資安新挑戰強化國家防護",
+      "date": "2026-09-02",
+      "url": "https://moda.gov.tw/ACS/press/news/press/20242"
+    }
+  ],
+  "ai_analysis": "今日威脅情況相當嚴峻，最優先要處理的是兩件事：首先，MikroTik RouterOS的兩個漏洞（CVE-2026-86060與CVE-2026-67277）都已納入CISA已知易遭利用漏洞清單，CVSS評分分別達9.2與8.8，考量路由器是網路邊界的關鍵設備，建議立即盤點企業所有RouterOS設備版本並排定緊急修補計畫。其次，Cisco防火牆管理中心的認證繞過漏洞已被勒索軟體組織與政府級駭客在實際攻擊中利用，具備完整的實戰威脅證據，必須視為P1優先級處理。\n\n另外值得關注的趨勢包括：微軟9月更新本身造成遠端桌面服務故障，提醒我們更新本身也可能帶來業務風險，建議採用分階段測試策略；AI驅動的自動化攻擊已批量突破395個組織，說明傳統防禦已難以應對規模化的攻擊；國內勒索軟體攻擊確實升溫，從7月的5家受害企業公開揭露來看，實際受害數應遠高於此。Microsoft的12個高危漏洞中涉及多個權限提升與遠端執行漏洞，建議與IT部門協調制定分優先級的系統更新排程。",
+  "cve_radar": [
+    {
+      "cve_id": "CVE-2026-86060",
+      "title": "MikroTik RouterOS命令參數分隔符驗證不足漏洞",
+      "cvss": 9.2,
+      "cvss_source": "NVD官方",
+      "exploited": true,
+      "action": "立即更新",
+      "plain_title": "路由器設定管制出現漏洞",
+      "plain_summary": "MikroTik路由器在處理系統命令時沒有正確檢查輸入內容，就像是鑰匙沒有正確驗證一樣。攻擊者可以利用這個漏洞改變路由器的安全設定，取得不該有的管理員權限，進而控制整個網路裝置的行為"
     },
     {
-      "category": "漏洞修補",
-      "title": "CVE-2026-81578：企業列印管理系統PaperCut出現嚴重漏洞",
-      "priority": "高",
-      "detail": "CVSS 9.1（AI推估），建議立即更新"
-    },
-    {
-      "category": "廠商公告",
-      "title": "Google：Chrome瀏覽器V8引擎零時差漏洞已遭實際利用",
-      "priority": "高",
-      "detail": "建議確認員工端瀏覽器已自動更新，或手動重新啟動瀏覽器以套用最新版本"
-    },
-    {
-      "category": "廠商公告",
-      "title": "LiteLLM：CVE-2026-59822身分驗證漏洞，Qilin勒索集團已鎖定利用",
-      "priority": "高",
-      "detail": "建議盤點內部是否有使用LiteLLM串接AI服務，並確認是否已套用修補"
-    },
-    {
-      "category": "廠商公告",
-      "title": "SonicWall：SMA1000系列滿分等級漏洞CVE-2026-83548已遭利用",
-      "priority": "高",
-      "detail": "建議立即確認設備韌體版本並套用修補，優先程度視同緊急事件處理"
-    },
-    {
-      "category": "廠商公告",
-      "title": "Microsoft：Exchange Server高風險漏洞CVE-2026-62911，全球逾2.2萬台暴露、台灣250台",
-      "priority": "高",
-      "detail": "建議立即確認Exchange Server是否已套用8月修補，並檢查是否有不必要的公開網路暴露"
-    },
-    {
-      "category": "廠商公告",
-      "title": "PaperCut：CVE-2026-81578關鍵功能缺少身分驗證漏洞已遭利用",
-      "priority": "高",
-      "detail": "建議確認校園或企業內部PaperCut系統版本並儘速套用修補"
-    },
-    {
-      "category": "漏洞修補",
-      "title": "CVE-2026-82329：企業軟體開發常用的Artifactory出現身分驗證漏洞",
-      "priority": "中",
-      "detail": "CVSS 7.2（AI推估），建議一週內更新"
+      "cve_id": "CVE-2026-67277",
+      "title": "MikroTik RouterOS btest服務認證缺失漏洞",
+      "cvss": 8.8,
+      "cvss_source": "NVD官方",
+      "exploited": true,
+      "action": "一週內更新",
+      "plain_title": "路由器診斷工具安全防護不足",
+      "plain_summary": "路由器內有一個診斷檢測服務沒有設定密碼保護，任何人都能直接存取。攻擊者可以利用這個缺口偷取系統重要資訊，或者持續發送請求讓路由器無法正常運作，造成網路中斷"
     }
   ],
   "risk_score": {
-    "total": 98,
+    "total": 38,
     "breakdown": [
       {
-        "label": "CVE風險",
-        "score": 90
-      },
-      {
-        "label": "廠商風險",
+        "label": "漏洞風險",
         "score": 100
       },
       {
-        "label": "Windows更新風險",
-        "score": 100
+        "label": "APT攻擊",
+        "score": 0
       },
       {
-        "label": "台灣區域風險",
-        "score": 100
+        "label": "勒索病毒",
+        "score": 44
+      },
+      {
+        "label": "身份風險",
+        "score": 25
+      },
+      {
+        "label": "AI風險",
+        "score": 20
       }
     ]
   },
-  "category_counts": {
-    "kev": 6,
-    "vendor": 5,
-    "news": 10,
-    "ransomwareApt": 4
-  },
-  "ransomware_apt_list": [
+  "action_items": [
     {
-      "date": "2026-08-26",
-      "type": "勒索軟體",
-      "title": "ShinyHunters駭客團體宣稱入侵資安公司ReliaQuest，疑似社交工程所致",
-      "source": "iThome",
-      "url": "https://www.ithome.com.tw/security"
+      "category": "漏洞修補",
+      "title": "CVE-2026-86060：MikroTik RouterOS命令參數分隔符驗證不足漏洞",
+      "priority": "高",
+      "detail": "CVSS 9.2（NVD官方），建議立即更新"
     },
     {
-      "date": "2026-08-18",
-      "type": "勒索軟體",
-      "title": "「Ransom Busters」勒索集團偽裝成事件復原服務商，二次詐騙受害企業",
-      "source": "Dark Reading",
-      "url": "https://www.darkreading.com/cyberattacks-data-breaches"
+      "category": "公告確認",
+      "title": "CVE-2026-68877 Windows儲存空間控制器遠端程式碼執行漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
-      "date": "2026-08-13",
-      "type": "APT",
-      "title": "「Jewelbug」APT組織身兼國家級間諜活動與加密貨幣竊取雙重角色",
-      "source": "Dark Reading",
-      "url": "https://www.darkreading.com/cyberattacks-data-breaches"
+      "category": "公告確認",
+      "title": "CVE-2026-69334 Windows磁碟區管理擴充驅動程式遠端程式碼執行漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
-      "date": "2026-08-12",
-      "type": "APT",
-      "title": "長期資料竊取行動鎖定Salesforce、ServiceNow等雲端平台",
-      "source": "Dark Reading",
-      "url": "https://www.darkreading.com/cyberattacks-data-breaches"
+      "category": "公告確認",
+      "title": "CVE-2026-69777 Windows DHCP用戶端權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-69508 Windows MIDI服務模組權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-69492 Windows分割區管理驅動程式權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-73024 Windows NFS ONCRPC XDR驅動程式權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-45499 Azure OpenAI權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-62693 Windows MIDI服務模組權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "Chromium CVE-2026-85046 V8型別混淆漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "Cisco Secure防火牆管理中心軟體認證繞過漏洞",
+      "priority": "高",
+      "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-67277：MikroTik RouterOS btest服務認證缺失漏洞",
+      "priority": "中",
+      "detail": "CVSS 8.8（NVD官方），建議一週內更新"
+    },
+    {
+      "category": "公告確認",
+      "title": "因應AI資安新挑戰強化國家防護",
+      "priority": "中",
+      "detail": "來源：資安署。資安署發布政府因應先進AI資安風險政策，提醒企業因應勒索軟體與AI濫用威脅。"
+    },
+    {
+      "category": "掃描比對",
+      "title": "銀狐組織相關IOC比對",
+      "priority": "中",
+      "detail": "涉及類型：Domain、IP。建議比對內部防火牆/EDR日誌。"
+    },
+    {
+      "category": "教育宣導",
+      "title": "新型Android惡意軟體同時加密檔案、竊取資料和騷擾受害者",
+      "priority": "低",
+      "detail": "建議納入員工資安宣導教育素材。"
     }
   ],
-  "ai_analysis": "今天最需要留意的是 Google Chrome 瀏覽器的零時差漏洞（CVE-2026-85046），因為幾乎每個人電腦上都有Chrome，中招範圍會非常廣，建議優先確認公司內部電腦瀏覽器已自動更新。\n\n其次是 LiteLLM 這個AI基礎設施平台的漏洞，已經被Qilin勒索軟體集團鎖定利用——這反映出一個新趨勢：攻擊者開始把「企業串接AI服務用的中介層」當成新的攻擊入口，如果公司有導入類似的AI工具串接架構，建議優先盤點確認。\n\n另外 Exchange Server 的漏洞影響範圍也不小（全球逾2.2萬台暴露、台灣250台），如果公司用Exchange收發郵件，這個項目的修補優先度應該拉高。\n\n整體來看，今天的風險集中在「常見基礎設施軟體」（瀏覽器、郵件伺服器、列印系統）而非單一產業的針對性攻擊，建議IT部門依照使用率高低排序處理順序，而不是逐一平均分配資源。"
+  "category_counts": {
+    "kev": 2,
+    "vendor": 12,
+    "news": 6,
+    "ransomwareApt": 2
+  }
 };
-const UPDATED_AT = "2026-09-08 09:00:00（台灣時間）";
+const UPDATED_AT = "2026/9/11 08:56:06（台灣時間）";
 document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
