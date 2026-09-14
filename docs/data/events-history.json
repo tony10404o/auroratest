@@ -12,6 +12,24 @@
     "url": ""
   },
   {
+    "category": "APT攻擊",
+    "title": "多國間諜組織共用BlueMoon漏洞工具包",
+    "date": "2026-09-10",
+    "url": "https://www.gm7.org/archives/154825"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "ShinyHunters勒索團伙入侵美國佛羅里達州車管所",
+    "date": "2026-09-09",
+    "url": "https://www.gm7.org/archives/154890"
+  },
+  {
+    "category": "資料外洩",
+    "title": "韓國醫美平台Gangnam Unni大規模數據洩露",
+    "date": "2026-09-08",
+    "url": "https://www.gm7.org/archives/154890"
+  },
+  {
     "category": "勒索病毒",
     "title": "創新服務遭勒索病毒攻擊，ERP系統受影響",
     "date": "2026-09-02",

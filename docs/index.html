@@ -336,154 +336,47 @@
 const DATA = {
   "headlines": [
     {
-      "icon": "🎯",
-      "title": "MikroTik RouterOS命令驗證漏洞CVSS 9.2",
-      "subtitle": "攻擊者可變更路由器政策掩碼進行權限提升",
-      "impact": "高",
-      "stars": 5
-    },
-    {
-      "icon": "🔀",
-      "title": "Cisco防火牆管理中心認證缺失已被實際利用",
-      "subtitle": "勒索軟體與政府駭客已在真實攻擊中利用此漏洞",
+      "icon": "🔐",
+      "title": "Check Point VPN重大漏洞預計遭大規模攻擊",
+      "subtitle": "荷蘭NCSC發預警，企業遠端存取設備面臨迫在眉睫的威脅",
       "impact": "高",
       "stars": 5,
-      "url": "https://www.bleepingcomputer.com/news/security/cisco-fmc-flaws-exploited-by-ransomware-gang-state-sponsored-hackers/"
+      "url": "https://www.bleepingcomputer.com/news/security/dutch-ncsc-critical-check-point-vpn-flaws-exploitation-is-imminent/"
     },
     {
       "icon": "🦠",
-      "title": "MikroTik RouterOS btest服務認證缺失CVSS 8.8",
-      "subtitle": "診斷工具無密碼保護導致記憶體洩露與拒絕服務",
-      "impact": "高",
-      "stars": 4
-    },
-    {
-      "icon": "📰",
-      "title": "微軟9月更新致遠端桌面服務故障",
-      "subtitle": "最新Windows伺服器更新造成RDS連線異常",
-      "impact": "中",
-      "stars": 4,
-      "url": "https://www.bleepingcomputer.com/news/microsoft/september-windows-server-updates-break-remote-desktop-services/"
-    },
-    {
-      "icon": "🤖",
-      "title": "AI驅動攻擊利用PaperCut漏洞入侵395組織",
-      "subtitle": "自動化攻擊工具批量突破企業防線展現新威脅",
+      "title": "多國間諜組織共用BlueMoon漏洞工具包",
+      "subtitle": "APT31等多個駭客組織協同攻擊美國NGO與企業",
       "impact": "高",
       "stars": 5,
-      "url": "https://www.bleepingcomputer.com/news/security/ai-powered-attack-exploited-papercut-flaws-to-hack-395-organizations/"
+      "url": "https://www.gm7.org/archives/154825"
+    },
+    {
+      "icon": "💾",
+      "title": "銀狐組織監測：14條IOC曝露C2回連基礎設施",
+      "subtitle": "捕獲7個惡意域名與7個IP端口用於命令控制",
+      "impact": "中",
+      "stars": 4,
+      "url": "https://www.gm7.org/archives/155235"
+    },
+    {
+      "icon": "🦠",
+      "title": "騰訊應用漏洞遭駭客濫用傳播GrayRabbit惡意軟體",
+      "subtitle": "攻擊者利用知名應用安全缺陷進行大規模部署",
+      "impact": "中",
+      "stars": 4,
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-tencent-app-flaw-to-deploy-grayrabbit-malware/"
+    },
+    {
+      "icon": "🎯",
+      "title": "定向攻擊浪潮：藍凌OA與禪道環境暴露面成焦點",
+      "subtitle": "10個定向攻擊IP與多個惡意樣本涉及16個相關漏洞",
+      "impact": "中",
+      "stars": 4,
+      "url": "https://www.gm7.org/archives/155235"
     }
   ],
-  "vendor_impact": [
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-68877 Windows儲存空間控制器遠端程式碼執行漏洞",
-      "impact": "高",
-      "category": "系統核心服務",
-      "key_asset": "Windows儲存空間控制器",
-      "ai_suggestion": "立即盤點環境內Windows儲存空間使用情況，排定緊急更新排程，優先更新關鍵伺服器"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-69334 Windows磁碟區管理擴充驅動程式遠端程式碼執行漏洞",
-      "impact": "高",
-      "category": "系統核心服務",
-      "key_asset": "Windows磁碟區管理擴充驅動程式",
-      "ai_suggestion": "評估組織Windows Server版本與存儲配置，制定分階段更新計畫，避免業務中斷"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-69777 Windows DHCP用戶端權限提升漏洞",
-      "impact": "高",
-      "category": "網路基礎設施",
-      "key_asset": "Windows DHCP用戶端服務",
-      "ai_suggestion": "檢查企業DHCP配置與用戶端設定，驗證網路設備韌體版本，推動用戶端系統更新"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-69508 Windows MIDI服務模組權限提升漏洞",
-      "impact": "高",
-      "category": "多媒體服務",
-      "key_asset": "Windows MIDI服務模組",
-      "ai_suggestion": "評估是否有終端使用者需要MIDI功能，必要時禁用該服務並推動系統更新"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-69492 Windows分割區管理驅動程式權限提升漏洞",
-      "impact": "高",
-      "category": "系統核心服務",
-      "key_asset": "Windows分割區管理驅動程式",
-      "ai_suggestion": "檢查存儲基礎設施與磁碟分割方案，規劃更新排程並備妥回滾方案"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-73024 Windows NFS ONCRPC XDR驅動程式權限提升漏洞",
-      "impact": "高",
-      "category": "檔案共享服務",
-      "key_asset": "Windows NFS ONCRPC XDR驅動程式",
-      "ai_suggestion": "盤點企業NFS共享使用情況，若無必要應禁用該功能，或立即套用安全更新"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-45499 Azure OpenAI權限提升漏洞",
-      "impact": "高",
-      "category": "AI基礎設施",
-      "key_asset": "Azure OpenAI服務",
-      "ai_suggestion": "檢查Azure OpenAI部署與身分驗證設定，檢視存取日誌並進行存取權限審計"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-62693 Windows MIDI服務模組權限提升漏洞",
-      "impact": "高",
-      "category": "多媒體服務",
-      "key_asset": "Windows MIDI服務模組",
-      "ai_suggestion": "確認組織內MIDI使用需求，無必要應禁用服務，有需求應盡速更新系統"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "Chromium CVE-2026-85046 V8型別混淆漏洞",
-      "impact": "高",
-      "category": "瀏覽器引擎",
-      "key_asset": "Chromium/Edge V8引擎",
-      "ai_suggestion": "推動所有基於Chromium的瀏覽器更新，確保用戶端與伺服器端均為最新版本"
-    },
-    {
-      "icon": "🔀",
-      "vendor": "Cisco",
-      "title": "Cisco Secure防火牆管理中心軟體認證繞過漏洞",
-      "impact": "高",
-      "category": "防火牆管理",
-      "key_asset": "Cisco Secure防火牆管理中心",
-      "ai_suggestion": "立即檢查FMC版本與部署，確認是否已成為攻擊目標，優先排定系統更新與存取控制加強"
-    },
-    {
-      "icon": "🔀",
-      "vendor": "Cisco",
-      "title": "Cisco IOS XR軟體安全強化版本：2026年9月",
-      "impact": "中",
-      "category": "路由器韌體",
-      "key_asset": "Cisco IOS XR軟體",
-      "ai_suggestion": "評估企業IOS XR設備版本，與Cisco確認強化版本的適用性與部署時程"
-    },
-    {
-      "icon": "🔀",
-      "vendor": "Cisco",
-      "title": "Cisco 2026年9月16日安全公告預告",
-      "impact": "中",
-      "category": "預告通知",
-      "key_asset": "多款Cisco產品",
-      "ai_suggestion": "密切監控Cisco官方安全公告，提前準備更新測試環境與變更管理流程"
-    }
-  ],
+  "vendor_impact": [],
   "global_events": [
     {
       "category": "零時差漏洞",
@@ -498,6 +391,24 @@ const DATA = {
       "url": ""
     },
     {
+      "category": "APT攻擊",
+      "title": "多國間諜組織共用BlueMoon漏洞工具包",
+      "date": "2026-09-10",
+      "url": "https://www.gm7.org/archives/154825"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "ShinyHunters勒索團伙入侵美國佛羅里達州車管所",
+      "date": "2026-09-09",
+      "url": "https://www.gm7.org/archives/154890"
+    },
+    {
+      "category": "資料外洩",
+      "title": "韓國醫美平台Gangnam Unni大規模數據洩露",
+      "date": "2026-09-08",
+      "url": "https://www.gm7.org/archives/154890"
+    },
+    {
       "category": "勒索病毒",
       "title": "創新服務遭勒索病毒攻擊，ERP系統受影響",
       "date": "2026-09-02",
@@ -510,154 +421,55 @@ const DATA = {
       "url": "https://moda.gov.tw/ACS/press/news/press/20242"
     }
   ],
-  "ai_analysis": "今日威脅情況相當嚴峻，最優先要處理的是兩件事：首先，MikroTik RouterOS的兩個漏洞（CVE-2026-86060與CVE-2026-67277）都已納入CISA已知易遭利用漏洞清單，CVSS評分分別達9.2與8.8，考量路由器是網路邊界的關鍵設備，建議立即盤點企業所有RouterOS設備版本並排定緊急修補計畫。其次，Cisco防火牆管理中心的認證繞過漏洞已被勒索軟體組織與政府級駭客在實際攻擊中利用，具備完整的實戰威脅證據，必須視為P1優先級處理。\n\n另外值得關注的趨勢包括：微軟9月更新本身造成遠端桌面服務故障，提醒我們更新本身也可能帶來業務風險，建議採用分階段測試策略；AI驅動的自動化攻擊已批量突破395個組織，說明傳統防禦已難以應對規模化的攻擊；國內勒索軟體攻擊確實升溫，從7月的5家受害企業公開揭露來看，實際受害數應遠高於此。Microsoft的12個高危漏洞中涉及多個權限提升與遠端執行漏洞，建議與IT部門協調制定分優先級的系統更新排程。",
-  "cve_radar": [
-    {
-      "cve_id": "CVE-2026-86060",
-      "title": "MikroTik RouterOS命令參數分隔符驗證不足漏洞",
-      "cvss": 9.2,
-      "cvss_source": "NVD官方",
-      "exploited": true,
-      "action": "立即更新",
-      "plain_title": "路由器設定管制出現漏洞",
-      "plain_summary": "MikroTik路由器在處理系統命令時沒有正確檢查輸入內容，就像是鑰匙沒有正確驗證一樣。攻擊者可以利用這個漏洞改變路由器的安全設定，取得不該有的管理員權限，進而控制整個網路裝置的行為"
-    },
-    {
-      "cve_id": "CVE-2026-67277",
-      "title": "MikroTik RouterOS btest服務認證缺失漏洞",
-      "cvss": 8.8,
-      "cvss_source": "NVD官方",
-      "exploited": true,
-      "action": "一週內更新",
-      "plain_title": "路由器診斷工具安全防護不足",
-      "plain_summary": "路由器內有一個診斷檢測服務沒有設定密碼保護，任何人都能直接存取。攻擊者可以利用這個缺口偷取系統重要資訊，或者持續發送請求讓路由器無法正常運作，造成網路中斷"
-    }
-  ],
+  "ai_analysis": "本日威脅情資呈現明確的高危態勢，需優先聚焦兩個事項：\n\n第一、Check Point VPN重大漏洞已獲荷蘭NCSC正式預警，指出大規模攻擊迫在眉睫。若貴司使用Check Point VPN作為遠端存取解決方案，應立即盤點受影響版本並規劃緊急修補。此類基礎設施漏洞一旦被大規模利用，將直接威脅所有遠端工作人員的登入安全。\n\n第二、APT31等間諜組織共同部署BlueMoon漏洞工具包針對美國實體組織，顯示國家級駭客活動已現協同態勢。雖然本次目標在美國，但相同工具包在短期內被多組織使用，暗示該套件可能隨後被擴大利用至其他地區。建議檢查Windows及Chrome漏洞修補進度，並強化進階威脅檢測能力。\n\n另值得留意的是銀狐組織與定向攻擊活動顯示國內網路環境面臨持續滲透壓力，特別是藍凌OA及禪道等國產系統成為焦點，建議評估內部相關系統暴露情況並強化邊界監控。",
+  "cve_radar": [],
   "risk_score": {
-    "total": 38,
+    "total": 6,
     "breakdown": [
       {
         "label": "漏洞風險",
-        "score": 100
-      },
-      {
-        "label": "APT攻擊",
         "score": 0
       },
       {
+        "label": "APT攻擊",
+        "score": 30
+      },
+      {
         "label": "勒索病毒",
-        "score": 44
+        "score": 0
       },
       {
         "label": "身份風險",
-        "score": 25
+        "score": 0
       },
       {
         "label": "AI風險",
-        "score": 20
+        "score": 0
       }
     ]
   },
   "action_items": [
     {
-      "category": "漏洞修補",
-      "title": "CVE-2026-86060：MikroTik RouterOS命令參數分隔符驗證不足漏洞",
-      "priority": "高",
-      "detail": "CVSS 9.2（NVD官方），建議立即更新"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-68877 Windows儲存空間控制器遠端程式碼執行漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-69334 Windows磁碟區管理擴充驅動程式遠端程式碼執行漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-69777 Windows DHCP用戶端權限提升漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-69508 Windows MIDI服務模組權限提升漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-69492 Windows分割區管理驅動程式權限提升漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-73024 Windows NFS ONCRPC XDR驅動程式權限提升漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-45499 Azure OpenAI權限提升漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-62693 Windows MIDI服務模組權限提升漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "Chromium CVE-2026-85046 V8型別混淆漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "Cisco Secure防火牆管理中心軟體認證繞過漏洞",
-      "priority": "高",
-      "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "漏洞修補",
-      "title": "CVE-2026-67277：MikroTik RouterOS btest服務認證缺失漏洞",
-      "priority": "中",
-      "detail": "CVSS 8.8（NVD官方），建議一週內更新"
-    },
-    {
-      "category": "公告確認",
-      "title": "因應AI資安新挑戰強化國家防護",
-      "priority": "中",
-      "detail": "來源：資安署。資安署發布政府因應先進AI資安風險政策，提醒企業因應勒索軟體與AI濫用威脅。"
-    },
-    {
       "category": "掃描比對",
-      "title": "銀狐組織相關IOC比對",
+      "title": "银狐组织相關IOC比對",
       "priority": "中",
       "detail": "涉及類型：Domain、IP。建議比對內部防火牆/EDR日誌。"
     },
     {
-      "category": "教育宣導",
-      "title": "新型Android惡意軟體同時加密檔案、竊取資料和騷擾受害者",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
+      "category": "掃描比對",
+      "title": "定向攻击IP与恶意样本相關IOC比對",
+      "priority": "中",
+      "detail": "涉及類型：IP、Hash。建議比對內部防火牆/EDR日誌。"
     }
   ],
   "category_counts": {
-    "kev": 2,
-    "vendor": 12,
-    "news": 6,
-    "ransomwareApt": 2
+    "kev": 0,
+    "vendor": 0,
+    "news": 2,
+    "ransomwareApt": 3
   }
 };
-const UPDATED_AT = "2026/9/11 08:56:06（台灣時間）";
+const UPDATED_AT = "2026/9/14 08:54:25（台灣時間）";
 document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
