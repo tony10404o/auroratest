@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fetchFeed } from "./lib/rss-utils.mjs";
 import { loadEventsHistory, mergeEventsHistory, saveEventsHistory } from "./lib/history-store.mjs";
+import { computeTodayThreatCounts, loadTrendHistory, appendTodayTrend, saveTrendHistory } from "./lib/trend-store.mjs";
 
 const apiKey = process.env.ANTHROPIC_API_KEY;
 if (!apiKey) {
@@ -520,6 +521,16 @@ async function main() {
   const mergedHistory = mergeEventsHistory(existingHistory, dashboard.global_events || []);
   saveEventsHistory(mergedHistory);
   dashboard.global_events = mergedHistory;
+
+  // 近期威脅趨勢：規則式關鍵字分類（不額外花AI費用），每天把當天分類結果存進歷史檔案
+  const todayDateStr = new Date().toISOString().slice(0, 10);
+  const todayThreatCounts = computeTodayThreatCounts(result);
+  const existingTrendHistory = loadTrendHistory();
+  const updatedTrendHistory = appendTodayTrend(existingTrendHistory, todayThreatCounts, todayDateStr);
+  saveTrendHistory(updatedTrendHistory);
+  console.log(
+    `威脅趨勢分類完成（今天）：${Object.entries(todayThreatCounts).map(([k, v]) => `${k}${v}`).join("／")}，歷史累積共${updatedTrendHistory.length}天`
+  );
 
   console.log(
     `儀表板產生完成：頭條${(dashboard.headlines||[]).length} / 全球事件${(dashboard.global_events||[]).length}（累積歷史）/ CVE雷達${(dashboard.cve_radar||[]).length} / 廠商影響${(dashboard.vendor_impact||[]).length} / 建議行動${(dashboard.action_items||[]).length} / 風險分數${dashboard.risk_score.total}`
