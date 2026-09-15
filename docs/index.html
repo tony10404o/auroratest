@@ -336,48 +336,204 @@
 const DATA = {
   "headlines": [
     {
-      "icon": "🔐",
-      "title": "Check Point VPN重大漏洞預計遭大規模攻擊",
-      "subtitle": "荷蘭NCSC發預警，企業遠端存取設備面臨迫在眉睫的威脅",
-      "impact": "高",
-      "stars": 5,
-      "url": "https://www.bleepingcomputer.com/news/security/dutch-ncsc-critical-check-point-vpn-flaws-exploitation-is-imminent/"
-    },
-    {
-      "icon": "🦠",
-      "title": "多國間諜組織共用BlueMoon漏洞工具包",
-      "subtitle": "APT31等多個駭客組織協同攻擊美國NGO與企業",
-      "impact": "高",
-      "stars": 5,
-      "url": "https://www.gm7.org/archives/154825"
-    },
-    {
-      "icon": "💾",
-      "title": "銀狐組織監測：14條IOC曝露C2回連基礎設施",
-      "subtitle": "捕獲7個惡意域名與7個IP端口用於命令控制",
-      "impact": "中",
-      "stars": 4,
-      "url": "https://www.gm7.org/archives/155235"
-    },
-    {
-      "icon": "🦠",
-      "title": "騰訊應用漏洞遭駭客濫用傳播GrayRabbit惡意軟體",
-      "subtitle": "攻擊者利用知名應用安全缺陷進行大規模部署",
-      "impact": "中",
-      "stars": 4,
-      "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-tencent-app-flaw-to-deploy-grayrabbit-malware/"
-    },
-    {
       "icon": "🎯",
-      "title": "定向攻擊浪潮：藍凌OA與禪道環境暴露面成焦點",
-      "subtitle": "10個定向攻擊IP與多個惡意樣本涉及16個相關漏洞",
-      "impact": "中",
-      "stars": 4,
-      "url": "https://www.gm7.org/archives/155235"
+      "title": "思科郵件閘道SQL注入漏洞，root權限遠端執行任意命令",
+      "subtitle": "CVSS 9.8極危漏洞，無需認證即可入侵，郵件系統面臨接管風險",
+      "impact": "高",
+      "stars": 5,
+      "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-inj-2bLVGmhX"
+    },
+    {
+      "icon": "🕵️",
+      "title": "APT組織利用JFrog Artifactory漏洞部署Rust後門",
+      "subtitle": "開發環境遭滲透，CVE-2026-42018與42016被實際利用中",
+      "impact": "高",
+      "stars": 5
+    },
+    {
+      "icon": "🕵️",
+      "title": "APT24供應鏈攻擊臺灣廣告業者，向網站訪客投放BadAudio惡意程式",
+      "subtitle": "中國駭客組織針對本地企業發動攻擊，新聞與小說網站成傳播媒介",
+      "impact": "高",
+      "stars": 4
+    },
+    {
+      "icon": "🦠",
+      "title": "GitLab CVSS滿分漏洞CVE-2026-85706遭大規模利用",
+      "subtitle": "路徑穿越漏洞已出現探測行為，未認證攻擊者可讀取任意伺服器檔案",
+      "impact": "高",
+      "stars": 5,
+      "url": "https://www.bleepingcomputer.com/news/security/cisa-hackers-now-exploit-max-severity-gitlab-flaw-in-attacks/"
+    },
+    {
+      "icon": "🦠",
+      "title": "勒索軟體Gentlemen攻擊醫療軟體商，約350萬患者資料恐外洩",
+      "subtitle": "第三方協力廠商遭入侵，醫療業敏感資料面臨洩露風險",
+      "impact": "高",
+      "stars": 5
     }
   ],
-  "vendor_impact": [],
+  "vendor_impact": [
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "Cisco Secure Email Gateway SQL注入漏洞CVE-2026-76461",
+      "impact": "高",
+      "category": "郵件系統",
+      "key_asset": "Cisco Secure Email Gateway AsyncOS",
+      "ai_suggestion": "立即檢視郵件閘道版本並套用緊急安全補丁；暫時限制遠端存取；加強郵件流量監控以偵測異常行為"
+    },
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "Cisco Secure Email Gateway與Manager安全強化版本（2026年9月）",
+      "impact": "中",
+      "category": "郵件系統",
+      "key_asset": "Cisco Secure Email Gateway & Web Manager",
+      "ai_suggestion": "排程升級至強化版本，與上述SQL注入補丁一併部署，降低整體安全風險"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "Windows安全核心模式權限提升漏洞CVE-2026-85921",
+      "impact": "高",
+      "category": "系統核心",
+      "key_asset": "Windows Server & 用戶端作業系統",
+      "ai_suggestion": "優先對關鍵伺服器與AD管理工作站部署安全性更新；評估是否需要暫時隔離高危資產"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "Chromium CVE-2026-87455 Aura元件記憶體使用後釋放漏洞",
+      "impact": "高",
+      "category": "瀏覽器",
+      "key_asset": "Microsoft Edge 及Chromium衍生瀏覽器",
+      "ai_suggestion": "推送瀏覽器自動更新；若涉及受管裝置需主動部署；監控使用者系統日誌偵測異常進程"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "Chromium CVE-2026-87457更新程式競爭條件漏洞",
+      "impact": "高",
+      "category": "瀏覽器",
+      "key_asset": "Microsoft Edge 及Chromium衍生瀏覽器",
+      "ai_suggestion": "確保瀏覽器自動更新機制正常運作；提醒用戶勿關閉安全更新提示"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "Chromium CVE-2026-87480列印模組記憶體使用後釋放漏洞",
+      "impact": "高",
+      "category": "瀏覽器",
+      "key_asset": "Microsoft Edge 及Chromium衍生瀏覽器",
+      "ai_suggestion": "透過WSUS或MDM統一更新瀏覽器版本；評估列印相關權限設定是否需收緊"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "Chromium CVE-2026-87454企業版資訊外洩漏洞",
+      "impact": "中",
+      "category": "瀏覽器",
+      "key_asset": "Microsoft Edge 及Chromium衍生瀏覽器",
+      "ai_suggestion": "安排瀏覽器更新計畫；檢視是否有敏感業務依賴此功能或需調整存取權限"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "Chromium CVE-2026-87456媒體模組未初始化資源漏洞",
+      "impact": "中",
+      "category": "瀏覽器",
+      "key_asset": "Microsoft Edge 及Chromium衍生瀏覽器",
+      "ai_suggestion": "納入常規瀏覽器更新週期；監控媒體播放相關錯誤日誌"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "Chromium CVE-2026-87485 CORS授權不當漏洞",
+      "impact": "中",
+      "category": "瀏覽器",
+      "key_asset": "Microsoft Edge 及Chromium衍生瀏覽器",
+      "ai_suggestion": "檢視企業內跨網域資源共享(CORS)設定；更新瀏覽器以獲得最新安全策略"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "Chromium CVE-2026-87487檔案系統授權遺漏漏洞",
+      "impact": "中",
+      "category": "瀏覽器",
+      "key_asset": "Microsoft Edge 及Chromium衍生瀏覽器",
+      "ai_suggestion": "檢查檔案共享權限設定；適時推送瀏覽器更新補丁"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "Chromium CVE-2026-87458幾何圖形模組UI誤導漏洞",
+      "impact": "低",
+      "category": "瀏覽器",
+      "key_asset": "Microsoft Edge 及Chromium衍生瀏覽器",
+      "ai_suggestion": "納入定期更新排程；優先級低於其他高危漏洞"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "Chromium CVE-2026-87484幾何圖形模組UI誤導漏洞",
+      "impact": "低",
+      "category": "瀏覽器",
+      "key_asset": "Microsoft Edge 及Chromium衍生瀏覽器",
+      "ai_suggestion": "排定常規更新時程，優先度次於中高危漏洞"
+    }
+  ],
   "global_events": [
+    {
+      "category": "零時差漏洞",
+      "title": "思科郵件閘道SQL注入漏洞CVE-2026-76461",
+      "date": "2026-09-14",
+      "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-inj-2bLVGmhX"
+    },
+    {
+      "category": "政府公告",
+      "title": "GitLab修補CVSS滿分重大漏洞CVE-2026-85706",
+      "date": "2026-09-14"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "勒索軟體Everest攻擊晶睿通訊竊取236GB資料",
+      "date": "2026-09-14"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "勒索軟體Gentlemen攻擊醫療軟體服務商Veradigm",
+      "date": "2026-09-14"
+    },
+    {
+      "category": "資料外洩",
+      "title": "日本政府VPN漏洞導致24萬公務人員資料外洩",
+      "date": "2026-09-14",
+      "url": "https://www.bleepingcomputer.com/news/security/japans-digital-agency-says-vpn-flaw-exposed-246-000-personnel-records/"
+    },
+    {
+      "category": "資料外洩",
+      "title": "數位支付服務商Revolut資料外洩涉及財務與證件資訊",
+      "date": "2026-09-14",
+      "url": "https://www.bleepingcomputer.com/news/security/revolut-discloses-data-breach-exposing-financial-info-passports/"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "GitLab最高等級漏洞被駭客大規模利用",
+      "date": "2026-09-14",
+      "url": "https://www.bleepingcomputer.com/news/security/cisa-hackers-now-exploit-max-severity-gitlab-flaw-in-attacks/"
+    },
+    {
+      "category": "資料外洩",
+      "title": "微軟九月更新導致遠端桌面服務故障已發佈緊急修補",
+      "date": "2026-09-14",
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-releases-emergency-windows-updates-to-fix-rds-failures/"
+    },
+    {
+      "category": "APT攻擊",
+      "title": "APT組織利用JFrog Artifactory漏洞部署Rust後門",
+      "date": "2026-09-11"
+    },
     {
       "category": "零時差漏洞",
       "title": "MikroTik RouterOS命令參數分隔符驗證不足漏洞CVE-2026-86060",
@@ -395,6 +551,11 @@ const DATA = {
       "title": "多國間諜組織共用BlueMoon漏洞工具包",
       "date": "2026-09-10",
       "url": "https://www.gm7.org/archives/154825"
+    },
+    {
+      "category": "APT攻擊",
+      "title": "APT24供應鏈攻擊臺灣廣告行銷業者投放BadAudio惡意程式",
+      "date": "2026-09-10"
     },
     {
       "category": "勒索病毒",
@@ -421,22 +582,33 @@ const DATA = {
       "url": "https://moda.gov.tw/ACS/press/news/press/20242"
     }
   ],
-  "ai_analysis": "本日威脅情資呈現明確的高危態勢，需優先聚焦兩個事項：\n\n第一、Check Point VPN重大漏洞已獲荷蘭NCSC正式預警，指出大規模攻擊迫在眉睫。若貴司使用Check Point VPN作為遠端存取解決方案，應立即盤點受影響版本並規劃緊急修補。此類基礎設施漏洞一旦被大規模利用，將直接威脅所有遠端工作人員的登入安全。\n\n第二、APT31等間諜組織共同部署BlueMoon漏洞工具包針對美國實體組織，顯示國家級駭客活動已現協同態勢。雖然本次目標在美國，但相同工具包在短期內被多組織使用，暗示該套件可能隨後被擴大利用至其他地區。建議檢查Windows及Chrome漏洞修補進度，並強化進階威脅檢測能力。\n\n另值得留意的是銀狐組織與定向攻擊活動顯示國內網路環境面臨持續滲透壓力，特別是藍凌OA及禪道等國產系統成為焦點，建議評估內部相關系統暴露情況並強化邊界監控。",
-  "cve_radar": [],
+  "ai_analysis": "今日威脅環境呈現『三大重點』需要立即關注。首先是思科郵件閘道的SQL注入漏洞(CVE-2026-76461)，CVSS評分達9.8且無需認證即可遠端取得root權限，這類漏洞歷來是駭客優先獵捕的目標。由於郵件系統是企業資訊流通的樞紐，如遭控制將導致全面機密外洩風險，務必今日內完成版本盤點與補丁部署。\n\n其次是GitLab漏洞已進入實際攻擊階段。CVE-2026-85706達到CVSS滿分，且根據CISA警告駭客已在野外發動大規模利用，若貴公司有自託管的GitLab環境應立即升級。同時JFrog Artifactory的漏洞也被APT組織實際利用部署後門，開發工具鏈遭滲透影響範圍相當廣泛。\n\n第三是多起勒索軟體與APT活動顯示攻擊趨勢轉變。Cl0p、Everest、Gentlemen等勒索集團持續鎖定關鍵產業(晶片、醫療)，加上APT24針對本地廣告業者的供應鏈攻擊，反映威脅行為者正系統性滲透各產業生態。建議優先強化郵件系統防護與開發環境存取控制，並檢視第三方協力廠商安全水位。",
+  "cve_radar": [
+    {
+      "cve_id": "CVE-2026-76461",
+      "title": "Cisco Secure Email Gateway SQL 注入漏洞導致遠端執行任意命令",
+      "cvss": 9.8,
+      "cvss_source": "NVD官方",
+      "exploited": true,
+      "action": "立即更新",
+      "plain_title": "郵件安全設備出現嚴重漏洞可被遠端入侵",
+      "plain_summary": "思科郵件安全閘道軟體存在資料庫查詢漏洞，攻擊者可以透過網際網路直接攻擊，無需密碼認證即可取得系統最高權限。這類漏洞通常會被駭客優先鎖定，可能導致整個郵件系統遭到控制或竊密，影響非常嚴重，務必立即修補。"
+    }
+  ],
   "risk_score": {
-    "total": 6,
+    "total": 31,
     "breakdown": [
       {
         "label": "漏洞風險",
-        "score": 0
+        "score": 52
       },
       {
         "label": "APT攻擊",
-        "score": 30
+        "score": 60
       },
       {
         "label": "勒索病毒",
-        "score": 0
+        "score": 44
       },
       {
         "label": "身份風險",
@@ -450,26 +622,92 @@ const DATA = {
   },
   "action_items": [
     {
-      "category": "掃描比對",
-      "title": "银狐组织相關IOC比對",
+      "category": "漏洞修補",
+      "title": "CVE-2026-76461：Cisco Secure Email Gateway SQL 注入漏洞導致遠端執行任意命令",
+      "priority": "高",
+      "detail": "CVSS 9.8（NVD官方），建議立即更新"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-85921 Windows 安全核心模式權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "Cisco Secure Email Gateway SQL 注入漏洞",
+      "priority": "高",
+      "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "Chromium CVE-2026-87455 Aura 元件記憶體使用後釋放漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "Chromium CVE-2026-87457 更新程式競爭條件漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "Chromium CVE-2026-87480 列印模組記憶體使用後釋放漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "GitLab修補CVSS滿分重大漏洞CVE-2026-85706",
       "priority": "中",
-      "detail": "涉及類型：Domain、IP。建議比對內部防火牆/EDR日誌。"
+      "detail": "來源：TWCERT/CC。GitLab修補路徑穿越漏洞，未認證攻擊者可讀取伺服器任意檔案，漏洞公開隔日已出現探測行為。"
     },
     {
       "category": "掃描比對",
-      "title": "定向攻击IP与恶意样本相關IOC比對",
+      "title": "LiteLLM AI網關預設憑證暴露相關IOC比對",
       "priority": "中",
-      "detail": "涉及類型：IP、Hash。建議比對內部防火牆/EDR日誌。"
+      "detail": "涉及類型：IP。建議比對內部防火牆/EDR日誌。"
+    },
+    {
+      "category": "掃描比對",
+      "title": "JFrog Artifactory嚴重漏洞被利用相關IOC比對",
+      "priority": "中",
+      "detail": "涉及類型：URL。建議比對內部防火牆/EDR日誌。"
+    },
+    {
+      "category": "掃描比對",
+      "title": "Cl0p團伙攻擊哈雷戴維森相關IOC比對",
+      "priority": "中",
+      "detail": "涉及類型：Domain。建議比對內部防火牆/EDR日誌。"
+    },
+    {
+      "category": "教育宣導",
+      "title": "駭客盜用 HBO Max Reddit 帳號散布虛假點擊廣告惡意程式",
+      "priority": "低",
+      "detail": "建議納入員工資安宣導教育素材。"
+    },
+    {
+      "category": "教育宣導",
+      "title": "Twitch 瀏覽器擴充程式漏洞暴露用戶帳號授權令牌",
+      "priority": "低",
+      "detail": "建議納入員工資安宣導教育素材。"
+    },
+    {
+      "category": "教育宣導",
+      "title": "GitLab修補CVSS滿分重大漏洞CVE-2026-85706",
+      "priority": "低",
+      "detail": "建議納入員工資安宣導教育素材。"
     }
   ],
   "category_counts": {
-    "kev": 0,
-    "vendor": 0,
-    "news": 2,
-    "ransomwareApt": 3
+    "kev": 1,
+    "vendor": 12,
+    "news": 6,
+    "ransomwareApt": 4
   }
 };
-const UPDATED_AT = "2026/9/14 08:54:25（台灣時間）";
+const UPDATED_AT = "2026/9/15 09:21:44（台灣時間）";
 document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
