@@ -289,6 +289,7 @@
   .strip-desc{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-dim);}
 
 </style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -410,6 +411,7 @@ function timeAgoLabel(dateStr){
 
 function onStatusChange(select){
   select.className = 'update-status-select' + (select.value ? ' status-' + select.value : '');
+  saveStatus(select.dataset.itemId, select.value);
   updatePendingCount();
 }
 window.onStatusChange = onStatusChange;
@@ -430,6 +432,80 @@ function extractCve(title){
   return m ? m[0] : null;
 }
 
+const STATUS_STORAGE_PREFIX = 'aurora_update_status_';
+
+function stableIdFor(text){
+  // 用簡單雜湊把標題文字轉成穩定的短識別碼，當作儲存的key
+  let hash = 0;
+  const s = text || '';
+  for (let i = 0; i < s.length; i++) {
+    hash = ((hash << 5) - hash + s.charCodeAt(i)) | 0;
+  }
+  return 'id' + Math.abs(hash);
+}
+
+// ---------- Supabase 雲端同步（讓不同裝置/瀏覽器看到同一份狀態） ----------
+const SUPABASE_URL = 'https://svvyygfxhxbqlhmafvjq.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN2dnl5Z2Z4aHhicWxobWFmdmpxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk0MzQ5MzAsImV4cCI6MjEwNTAxMDkzMH0.9LELBFyqalM79z_u_8y2JnLYsVFOOZTJbCZdXepd2GA';
+let supabaseClient = null;
+try {
+  if (window.supabase && window.supabase.createClient) {
+    supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  }
+} catch (e) { supabaseClient = null; }
+
+function getLocalStatus(id){
+  try {
+    return localStorage.getItem(STATUS_STORAGE_PREFIX + id) || '';
+  } catch (e) {
+    return '';
+  }
+}
+function setLocalStatus(id, value){
+  try {
+    if (value) localStorage.setItem(STATUS_STORAGE_PREFIX + id, value);
+    else localStorage.removeItem(STATUS_STORAGE_PREFIX + id);
+  } catch (e) { /* 忽略儲存失敗 */ }
+}
+
+// 一開始先用本機快取當作立即可用的資料，Supabase抓到之後會覆蓋、並重新畫面
+function getSavedStatus(id){
+  return getLocalStatus(id);
+}
+
+async function saveStatus(id, value){
+  setLocalStatus(id, value); // 立即更新本機，畫面不用等雲端
+  if (!supabaseClient) return;
+  try {
+    if (value) {
+      await supabaseClient.from('update_status').upsert({ id, status: value, updated_at: new Date().toISOString() });
+    } else {
+      await supabaseClient.from('update_status').delete().eq('id', id);
+    }
+  } catch (e) {
+    console.error('雲端同步狀態失敗（已保留在本機）：', e.message || e);
+  }
+}
+
+// 從Supabase一次抓回所有已儲存的狀態，合併進本機快取，並重新渲染待處理事項面板
+async function syncStatusFromCloud(){
+  if (!supabaseClient) return;
+  try {
+    const { data, error } = await supabaseClient.from('update_status').select('id, status');
+    if (error) throw error;
+    let changed = false;
+    (data || []).forEach(row => {
+      if (getLocalStatus(row.id) !== (row.status || '')) changed = true;
+      setLocalStatus(row.id, row.status || '');
+    });
+    if (changed && typeof window.__rerenderUpdatePanel === 'function') {
+      window.__rerenderUpdatePanel();
+    }
+  } catch (e) {
+    console.error('雲端狀態同步失敗（沿用本機資料）：', e.message || e);
+  }
+}
+
 function renderGlobalEvents(items, rangeDays){
   const cutoff = Date.now() - rangeDays * 86400000;
   const filtered = (items || []).filter(e => {
@@ -439,16 +515,18 @@ function renderGlobalEvents(items, rangeDays){
   if (!filtered.length) return emptyNote();
   const rows = filtered.map(e => {
     const cve = extractCve(e.title);
+    const id = stableIdFor(e.title);
+    const saved = getSavedStatus(id);
     return `
     <div class="update-card">
       <div class="update-card-top">
         <span class="update-vendor-icon">${vendorIconFor(e.title)}</span>
         <div class="update-title">${e.url ? `<a href="${escapeHtml(e.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(e.title)}</a>` : escapeHtml(e.title)}</div>
-        <select class="update-status-select" onchange="onStatusChange(this)">
-          <option value="" selected>－</option>
-          <option value="不處理">不處理</option>
-          <option value="處理中">處理中</option>
-          <option value="已完成">已完成</option>
+        <select class="update-status-select${saved ? ' status-' + saved : ''}" data-item-id="${id}" onchange="onStatusChange(this)">
+          <option value="" ${!saved ? 'selected' : ''}>－</option>
+          <option value="不處理" ${saved === '不處理' ? 'selected' : ''}>不處理</option>
+          <option value="處理中" ${saved === '處理中' ? 'selected' : ''}>處理中</option>
+          <option value="已完成" ${saved === '已完成' ? 'selected' : ''}>已完成</option>
         </select>
       </div>
       ${cve ? `<div class="update-cve-line"><b>CVE：</b>${escapeHtml(cve)}</div>` : ''}
@@ -461,7 +539,9 @@ function setupGlobalEventsPanel(items){
   const body = document.getElementById('globalEventsBody');
   const badge = document.getElementById('windowsUpdateBadge');
   const tabs = document.querySelectorAll('.tab-btn');
+  let currentDays = 30;
   function render(days){
+    currentDays = days;
     const cutoff = Date.now() - days * 86400000;
     const filtered = (items || []).filter(e => {
       const d = new Date(e.date);
@@ -469,6 +549,7 @@ function setupGlobalEventsPanel(items){
     });
     body.innerHTML = renderGlobalEvents(items, days);
     if (badge) badge.textContent = `${filtered.length} 件`;
+    updatePendingCount();
   }
   tabs.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -478,6 +559,7 @@ function setupGlobalEventsPanel(items){
     });
   });
   render(30);
+  window.__rerenderUpdatePanel = () => render(currentDays);
 }
 
 /* ---------- Panel 3: 今日漏洞雷達 ---------- */
@@ -739,7 +821,10 @@ function renderStatStrip(counts, pendingCount){
 const monthPendingCutoff = Date.now() - 30 * 86400000;
 const monthPendingCount = (DATA.global_events || []).filter(e => {
   const d = new Date(e.date);
-  return isNaN(d.getTime()) ? true : d.getTime() >= monthPendingCutoff;
+  const inRange = isNaN(d.getTime()) ? true : d.getTime() >= monthPendingCutoff;
+  if (!inRange) return false;
+  const saved = getSavedStatus(stableIdFor(e.title));
+  return saved !== '不處理' && saved !== '已完成';
 }).length;
 renderStatStrip(DATA.category_counts, monthPendingCount);
 
@@ -810,6 +895,7 @@ grid.innerHTML =
 
 setupGlobalEventsPanel(DATA.global_events);
 setupVendorPillFilter(DATA.vendor_impact);
+syncStatusFromCloud();
 
 function setupVendorPillFilter(items){
   const pillRow = document.getElementById('vendorPillRow');
