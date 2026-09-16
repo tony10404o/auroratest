@@ -45,6 +45,48 @@
     "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-releases-emergency-windows-updates-to-fix-rds-failures/"
   },
   {
+    "category": "零時差漏洞",
+    "title": "VMware高風險RCE遭勒索軟體集團實際利用",
+    "date": "2026-09-12",
+    "url": "https://www.bleepingcomputer.com/news/security/cisa-critical-vmware-vcenter-rce-flaw-now-exploited-by-ransomware-gangs/"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "Vexy跨平台勒索軟體快速擴張",
+    "date": "2026-09-12",
+    "url": "https://www.gm7.org/archives/155016"
+  },
+  {
+    "category": "資料外洩",
+    "title": "日本數位廳VPN漏洞洩露24.6萬人個資",
+    "date": "2026-09-12",
+    "url": "https://www.bleepingcomputer.com/news/security/japans-digital-agency-says-vpn-flaw-exposed-246-000-personnel-records/"
+  },
+  {
+    "category": "資料外洩",
+    "title": "CenterPoint Energy客戶資料遭竊",
+    "date": "2026-09-12",
+    "url": "https://www.bleepingcomputer.com/news/security/centerpoint-energy-confirms-customer-data-stolen-in-cyberattack/"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "Acronis cPanel備份外掛程式遭積極利用",
+    "date": "2026-09-12",
+    "url": "https://www.bleepingcomputer.com/news/security/acronis-warns-of-actively-exploited-flaw-in-its-cpanel-backup-plugin/"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "惡意WordPress外掛在1500個網站植入後門",
+    "date": "2026-09-12",
+    "url": "https://www.bleepingcomputer.com/news/security/malcious-admin-menu-editor-pro-plugin-backdoors-1-500-wordpress-sites/"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "BambooToken跨平台惡意軟體透過MQTT控制系統",
+    "date": "2026-09-12",
+    "url": "https://www.bleepingcomputer.com/news/security/bambootoken-malware-controls-windows-and-linux-systems-via-mqtt/"
+  },
+  {
     "category": "APT攻擊",
     "title": "APT組織利用JFrog Artifactory漏洞部署Rust後門",
     "date": "2026-09-11"
@@ -74,7 +116,19 @@
   },
   {
     "category": "勒索病毒",
+    "title": "商周集團網站遭攻擊導致線上服務中斷",
+    "date": "2026-09-10",
+    "url": ""
+  },
+  {
+    "category": "勒索病毒",
     "title": "ShinyHunters勒索團伙入侵美國佛羅里達州車管所",
+    "date": "2026-09-09",
+    "url": "https://www.gm7.org/archives/154890"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "ShinyHunters攻擊美國佛羅里達州車管所",
     "date": "2026-09-09",
     "url": "https://www.gm7.org/archives/154890"
   },
@@ -83,6 +137,12 @@
     "title": "韓國醫美平台Gangnam Unni大規模數據洩露",
     "date": "2026-09-08",
     "url": "https://www.gm7.org/archives/154890"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "勒索軟體Everest宣稱攻擊晶睿通訊",
+    "date": "2026-09-08",
+    "url": ""
   },
   {
     "category": "勒索病毒",
