@@ -1,6 +1,42 @@
 [
   {
     "category": "零時差漏洞",
+    "title": "Cisco身份服務引擎特權API不當使用漏洞",
+    "date": "2026-09-16",
+    "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ise-rce-se7bYU57"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Acronis備份外掛程式不當預設權限漏洞",
+    "date": "2026-09-16",
+    "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-fmc-static-cred-BET3Cjh"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Google Pixel行動通訊晶片權限檢查繞過漏洞",
+    "date": "2026-09-16",
+    "url": "https://www.bleepingcomputer.com/news/security/google-fixes-actively-exploited-android-zero-day-on-pixel-devices/"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "美國起訴五名中國駭客 與APT41駭客集團有關",
+    "date": "2026-09-16",
+    "url": "https://blog.trendmicro.com.tw/?p=65827"
+  },
+  {
+    "category": "政府公告",
+    "title": "因應先進AI資安新挑戰 資安署發布『政府因應先進AI資安風險政策』",
+    "date": "2026-09-16",
+    "url": "https://moda.gov.tw/ACS/"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "Cisco Secure FMC滿分漏洞遭利用部署Qilin勒索軟體",
+    "date": "2026-09-15",
+    "url": "https://www.gm7.org/archives/156101"
+  },
+  {
+    "category": "零時差漏洞",
     "title": "思科郵件閘道SQL注入漏洞CVE-2026-76461",
     "date": "2026-09-14",
     "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-inj-2bLVGmhX"
@@ -133,6 +169,12 @@
     "url": "https://www.gm7.org/archives/154890"
   },
   {
+    "category": "APT攻擊",
+    "title": "APT24入侵台灣廣告行銷業者導致供應鏈攻擊",
+    "date": "2026-09-09",
+    "url": "https://www.ithome.com.tw/news/178489"
+  },
+  {
     "category": "資料外洩",
     "title": "韓國醫美平台Gangnam Unni大規模數據洩露",
     "date": "2026-09-08",
@@ -143,6 +185,12 @@
     "title": "勒索軟體Everest宣稱攻擊晶睿通訊",
     "date": "2026-09-08",
     "url": ""
+  },
+  {
+    "category": "勒索病毒",
+    "title": "Magento與Adobe Commerce RCE漏洞遭主動利用",
+    "date": "2026-09-04",
+    "url": "https://www.cyware.com/resources/threat-briefings/daily-threat-briefing/cyware-daily-threat-intelligence-september-08-2026"
   },
   {
     "category": "勒索病毒",

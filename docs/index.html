@@ -338,126 +338,189 @@ const DATA = {
   "headlines": [
     {
       "icon": "🎯",
-      "title": "Microsoft 10大高危漏洞集中爆發",
-      "subtitle": "Office、驅動程式、系統權限提升漏洞同步公告",
+      "title": "Cisco身份服務引擎滿分漏洞 認證可被繞過",
+      "subtitle": "CVSS 10.0重大漏洞，攻擊者無需密碼即可入侵",
       "impact": "高",
       "stars": 5,
-      "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-78517"
+      "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ise-rce-se7bYU57"
     },
     {
       "icon": "🦠",
-      "title": "VMware高風險RCE遭勒索軟體集團實際利用",
-      "subtitle": "CISA確認勒索團隊已在真實攻擊中利用此漏洞",
+      "title": "Cisco FMC漏洞遭利用 直接部署Qilin勒索軟體",
+      "subtitle": "CVE-2026-20079已被犯罪集團主動攻擊",
       "impact": "高",
       "stars": 5,
-      "url": "https://www.bleepingcomputer.com/news/security/cisa-critical-vmware-vcenter-rce-flaw-now-exploited-by-ransomware-gangs/"
+      "url": "https://www.gm7.org/archives/156101"
     },
     {
-      "icon": "🦠",
-      "title": "Vexy跨平台勒索軟體快速擴張",
-      "subtitle": "Rust編寫支援多系統，入場費低至200美元RaaS模式",
+      "icon": "🎯",
+      "title": "ScreenConnect遠端控制軟體關鍵漏洞 正遭主動利用",
+      "subtitle": "CISA警告企業應立即更新軟體版本",
       "impact": "高",
       "stars": 5,
-      "url": "https://www.gm7.org/archives/155016"
-    },
-    {
-      "icon": "🔀",
-      "title": "Cisco Secure Email Gateway SQL注入高危漏洞",
-      "subtitle": "郵件閘道系統存在注入漏洞，立即更新補程式",
-      "impact": "高",
-      "stars": 4,
-      "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-inj-2bLVGmhX"
+      "url": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-hackers-exploiting-critical-screenconnect-flaw/"
     },
     {
       "icon": "🕵️",
-      "title": "銀狐組織IOC新增13條 C2架設阿里雲",
-      "subtitle": "9月12日檢測含7個惡意域名與6個IP，高頻利用禪道漏洞",
+      "title": "美國起訴APT41駭客集團 涉及全球百家機構",
+      "subtitle": "中國駭客攻擊電玩、電信、大學等多產業",
       "impact": "中",
       "stars": 4,
-      "url": "https://www.gm7.org/archives/155394"
+      "url": "https://blog.trendmicro.com.tw/?p=65827"
+    },
+    {
+      "icon": "🔧",
+      "title": "Windows多項權限提升漏洞 涉及ALPC、NTFS等",
+      "subtitle": "微軟發布五項高危權限提升漏洞修補",
+      "impact": "高",
+      "stars": 4,
+      "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-85880"
     }
   ],
   "vendor_impact": [
     {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-78517 Office Word遠端程式碼執行漏洞",
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "Cisco Secure Firewall Management Center軟體Java反序列化遠端程式碼執行漏洞",
       "impact": "高",
-      "category": "辦公生產力軟體",
-      "key_asset": "Microsoft Office Word",
-      "ai_suggestion": "立即推送更新至所有使用Word的終端設備，考慮臨時限制Office巨集執行權限直至補程式完成"
+      "category": "防火牆管理",
+      "key_asset": "Firewall Management Center",
+      "ai_suggestion": "立即檢查FMC軟體版本，下載最新修補程式，限制FMC管理介面網路存取，監控異常連線行為"
     },
     {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-81355 VHD Miniport驅動程式RCE漏洞",
-      "impact": "高",
-      "category": "虛擬化基礎設施",
-      "key_asset": "Windows虛擬硬碟驅動程式",
-      "ai_suggestion": "優先在虛擬主機平台部署補程式，檢查VM存取控制清單避免非授權VHD操作"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-68841 NTFS權限提升漏洞",
-      "impact": "高",
-      "category": "作業系統核心",
-      "key_asset": "Windows NTFS檔案系統",
-      "ai_suggestion": "推送至所有Windows伺服器與工作站，並配合帳號權限審計檢查本地管理員組成員"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-69608 Windows搜尋元件權限提升",
-      "impact": "高",
-      "category": "作業系統元件",
-      "key_asset": "Windows Search服務",
-      "ai_suggestion": "評估是否關閉非必要搜尋功能，部署補程式前設定服務啟動為禁用"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-69605 Microsoft安裝服務權限提升",
-      "impact": "高",
-      "category": "系統維護工具",
-      "key_asset": "Windows Installer服務",
-      "ai_suggestion": "限制MSI安裝權限，部署Group Policy禁用無簽名MSI檔案的安裝"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-68824 Connected User Experiences權限提升",
-      "impact": "高",
-      "category": "遙測與診斷",
-      "key_asset": "Windows遙測服務",
-      "ai_suggestion": "透過Group Policy禁用連線使用者經驗與遙測功能，修補完成前可設定防火牆封鎖相關連出"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-68847 Connected User Experiences權限提升",
-      "impact": "高",
-      "category": "遙測與診斷",
-      "key_asset": "Windows遙測服務",
-      "ai_suggestion": "同CVE-2026-68824處置，檢查已連線端點遙測傳輸是否遭劫持"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-80097 Microsoft Authenticator權限提升",
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "Cisco Identity Services Engine遠端程式碼執行漏洞",
       "impact": "高",
       "category": "身分驗證服務",
-      "key_asset": "Microsoft Authenticator應用",
-      "ai_suggestion": "緊急更新驗證器應用至最新版本，強化MFA相關日誌監控以檢測異常核准行為"
+      "key_asset": "Identity Services Engine",
+      "ai_suggestion": "優先更新ISE至修補版本，檢視Web管理介面日誌，隔離未授權的API存取"
+    },
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "Cisco Secure Firewall Management Center軟體認證繞過漏洞",
+      "impact": "高",
+      "category": "防火牆管理",
+      "key_asset": "Firewall Management Center",
+      "ai_suggestion": "評估環境中FMC認證機制，套用官方補丁，考慮使用多因素認證加強防護"
+    },
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "Cisco Secure Firewall Management Center軟體靜態認證漏洞",
+      "impact": "高",
+      "category": "防火牆管理",
+      "key_asset": "Firewall Management Center",
+      "ai_suggestion": "掃描內部系統中硬編碼認證，重置FMC預設帳號，啟用強密碼政策與日誌審計"
+    },
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "Cisco Identity Services Engine已認證遠端程式碼執行與API漏洞",
+      "impact": "高",
+      "category": "身分驗證服務",
+      "key_asset": "Identity Services Engine",
+      "ai_suggestion": "確認ISE版本無漏洞，檢視API呼叫日誌，限制API端點存取來源IP位址"
+    },
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "Cisco Secure Firewall Adaptive Security Appliance與Threat Defense軟體SSL VPN拒絕服務漏洞",
+      "impact": "中",
+      "category": "遠端存取設備",
+      "key_asset": "ASA/Threat Defense SSL VPN",
+      "ai_suggestion": "更新ASA及Threat Defense軟體，監控VPN連線異常斷開，設置DDoS防護閾值"
+    },
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "Cisco Secure Firewall Adaptive Security Appliance與Threat Defense軟體遠端存取SSL VPN拒絕服務漏洞",
+      "impact": "中",
+      "category": "遠端存取設備",
+      "key_asset": "ASA/Threat Defense SSL VPN",
+      "ai_suggestion": "檢視VPN設定，套用修補程式，啟用連線速率限制與超時保護機制"
+    },
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "Cisco Secure Firewall Adaptive Security Appliance與Threat Defense軟體3100和4200系列DTLS拒絕服務漏洞",
+      "impact": "中",
+      "category": "遠端存取設備",
+      "key_asset": "ASA 3100/4200系列DTLS",
+      "ai_suggestion": "確認設備型號與軟體版本，下載對應修補程式，測試DTLS連線穩定性"
+    },
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "Cisco Identity Services Engine多項漏洞",
+      "impact": "中",
+      "category": "身分驗證服務",
+      "key_asset": "Identity Services Engine",
+      "ai_suggestion": "進行ISE完整資安審計，確認所有漏洞修補狀態，檢視使用者存取權限"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-80075 Work Folders權限提升漏洞",
+      "title": "CVE-2026-85880 Windows Advanced Local Procedure Call (ALPC)權限提升漏洞",
       "impact": "高",
-      "category": "檔案同步服務",
-      "key_asset": "Windows Work Folders",
-      "ai_suggestion": "檢查環境中Work Folders使用情況，若使用中應立即部署補程式並稽核檔案存取日誌"
+      "category": "作業系統核心",
+      "key_asset": "Windows ALPC系統元件",
+      "ai_suggestion": "立即套用Windows更新，優先處理伺服器環境，監控本地特權提升嘗試"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-78517 Microsoft Office Word遠端程式碼執行漏洞",
+      "impact": "高",
+      "category": "辦公軟體",
+      "key_asset": "Microsoft Office Word",
+      "ai_suggestion": "更新Office至最新版本，限制用戶開啟不明來源文檔，啟用沙箱保護功能"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-68841 Windows NTFS權限提升漏洞",
+      "impact": "高",
+      "category": "檔案系統",
+      "key_asset": "Windows NTFS驅動程式",
+      "ai_suggestion": "套用安全更新，檢視檔案系統權限設定，監控異常檔案系統操作"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-69608 Microsoft Windows Search Component權限提升漏洞",
+      "impact": "高",
+      "category": "系統服務",
+      "key_asset": "Windows Search服務",
+      "ai_suggestion": "安裝最新修補程式，檢查Search服務設定，考慮禁用高風險搜尋功能"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-69605 Microsoft Install Service權限提升漏洞",
+      "impact": "高",
+      "category": "軟體管理",
+      "key_asset": "Windows Installer服務",
+      "ai_suggestion": "更新Windows Installer，限制安裝權限，控制應用程式安裝策略"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-68824 Connected User Experiences and Telemetry權限提升漏洞",
+      "impact": "中",
+      "category": "系統服務",
+      "key_asset": "用戶體驗與遙測服務",
+      "ai_suggestion": "套用修補程式，審查遙測服務設定，考慮在企業環境中禁用或限制"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-68847 Connected User Experiences and Telemetry權限提升漏洞",
+      "impact": "中",
+      "category": "系統服務",
+      "key_asset": "用戶體驗與遙測服務",
+      "ai_suggestion": "安裝安全更新，檢視遙測原則設定，加強系統服務監控"
     },
     {
       "icon": "🪟",
@@ -466,55 +529,82 @@ const DATA = {
       "impact": "中",
       "category": "作業系統核心",
       "key_asset": "Windows Kernel",
-      "ai_suggestion": "排入常規補程式部署週期，此漏洞可能用於增強其他RCE的利用鏈"
+      "ai_suggestion": "更新Windows至最新版本，監控記憶體洩露跡象，加強入侵偵測"
     },
     {
-      "icon": "🔀",
-      "vendor": "Cisco",
-      "title": "Cisco Secure Email Gateway SQL Injection漏洞",
-      "impact": "高",
-      "category": "郵件系統",
-      "key_asset": "Cisco SEG Email Gateway",
-      "ai_suggestion": "立即套用安全補程式，檢查郵件日誌確認SQL注入嘗試攻擊，設定WAF規則預防"
-    },
-    {
-      "icon": "🔀",
-      "vendor": "Cisco",
-      "title": "Cisco UCS UEFI Shell Secure Boot繞過漏洞",
-      "impact": "高",
-      "category": "伺服器基礎架構",
-      "key_asset": "Cisco UCS伺服器UEFI",
-      "ai_suggestion": "檢查UCS伺服器韌體版本，部署最新安全更新並驗證Secure Boot狀態"
-    },
-    {
-      "icon": "🔀",
-      "vendor": "Cisco",
-      "title": "Cisco整合管理控制器參數注入漏洞",
-      "impact": "高",
-      "category": "遠端管理設備",
-      "key_asset": "Cisco CIMC管理界面",
-      "ai_suggestion": "限制CIMC管理網段存取，更新至修補版本，強化管理帳號認證與稽核日誌"
-    },
-    {
-      "icon": "🔀",
-      "vendor": "Cisco",
-      "title": "Cisco IOS XR軟體安全強化版本",
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-80075 Windows Work Folders權限提升漏洞",
       "impact": "中",
-      "category": "網路設備韌體",
-      "key_asset": "Cisco IOS XR路由器",
-      "ai_suggestion": "規劃測試環境驗證新版本相容性，排定安全更新部署時程"
+      "category": "檔案同步服務",
+      "key_asset": "Windows Work Folders",
+      "ai_suggestion": "套用修補程式，檢查Work Folders設定與權限，監控同步異常行為"
     },
     {
-      "icon": "🔀",
-      "vendor": "Cisco",
-      "title": "Cisco SEG與Email Web Manager安全強化版本",
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-80097 Microsoft Authenticator權限提升漏洞",
       "impact": "中",
-      "category": "郵件安全",
-      "key_asset": "Cisco SEG及SEWM",
-      "ai_suggestion": "在非生產環境驗證強化版本，評估對郵件流程的影響後排定部署"
+      "category": "身分認證工具",
+      "key_asset": "Microsoft Authenticator",
+      "ai_suggestion": "更新Authenticator至最新版本，檢視使用者多因素認證設定，監控異常登入"
+    },
+    {
+      "icon": "🏢",
+      "vendor": "Google",
+      "title": "Google Pixel行動通訊晶片權限檢查繞過漏洞",
+      "impact": "高",
+      "category": "行動設備安全",
+      "key_asset": "Pixel手機數據機韌體",
+      "ai_suggestion": "檢查企業配置Pixel手機版本，推送最新韌體更新，限制高風險應用權限"
+    },
+    {
+      "icon": "🏢",
+      "vendor": "Acronis",
+      "title": "Acronis備份外掛程式不當預設權限漏洞",
+      "impact": "中",
+      "category": "備份軟體",
+      "key_asset": "Acronis Backup外掛",
+      "ai_suggestion": "檢視cPanel與Plesk外掛權限設定，更新至最新版本，加強備份系統存取控制"
     }
   ],
   "global_events": [
+    {
+      "category": "零時差漏洞",
+      "title": "Cisco身份服務引擎特權API不當使用漏洞",
+      "date": "2026-09-16",
+      "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ise-rce-se7bYU57"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "Acronis備份外掛程式不當預設權限漏洞",
+      "date": "2026-09-16",
+      "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-fmc-static-cred-BET3Cjh"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "Google Pixel行動通訊晶片權限檢查繞過漏洞",
+      "date": "2026-09-16",
+      "url": "https://www.bleepingcomputer.com/news/security/google-fixes-actively-exploited-android-zero-day-on-pixel-devices/"
+    },
+    {
+      "category": "APT攻擊",
+      "title": "美國起訴五名中國駭客 與APT41駭客集團有關",
+      "date": "2026-09-16",
+      "url": "https://blog.trendmicro.com.tw/?p=65827"
+    },
+    {
+      "category": "政府公告",
+      "title": "因應先進AI資安新挑戰 資安署發布『政府因應先進AI資安風險政策』",
+      "date": "2026-09-16",
+      "url": "https://moda.gov.tw/ACS/"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "Cisco Secure FMC滿分漏洞遭利用部署Qilin勒索軟體",
+      "date": "2026-09-15",
+      "url": "https://www.gm7.org/archives/156101"
+    },
     {
       "category": "零時差漏洞",
       "title": "思科郵件閘道SQL注入漏洞CVE-2026-76461",
@@ -649,6 +739,12 @@ const DATA = {
       "url": "https://www.gm7.org/archives/154890"
     },
     {
+      "category": "APT攻擊",
+      "title": "APT24入侵台灣廣告行銷業者導致供應鏈攻擊",
+      "date": "2026-09-09",
+      "url": "https://www.ithome.com.tw/news/178489"
+    },
+    {
       "category": "資料外洩",
       "title": "韓國醫美平台Gangnam Unni大規模數據洩露",
       "date": "2026-09-08",
@@ -659,6 +755,12 @@ const DATA = {
       "title": "勒索軟體Everest宣稱攻擊晶睿通訊",
       "date": "2026-09-08",
       "url": ""
+    },
+    {
+      "category": "勒索病毒",
+      "title": "Magento與Adobe Commerce RCE漏洞遭主動利用",
+      "date": "2026-09-04",
+      "url": "https://www.cyware.com/resources/threat-briefings/daily-threat-briefing/cyware-daily-threat-intelligence-september-08-2026"
     },
     {
       "category": "勒索病毒",
@@ -673,22 +775,53 @@ const DATA = {
       "url": "https://moda.gov.tw/ACS/press/news/press/20242"
     }
   ],
-  "ai_analysis": "今天情報整體風險等級為『高』，需要優先關注兩項重大威脅：首先是Microsoft集中發佈的10大高危漏洞，涵蓋Office、驅動程式、系統核心與身份驗證服務等關鍵元件，特別是Office Word RCE與Authenticator權限提升漏洞已可能成為駭客鎖定目標。建議立即評估環境受影響範圍並排定緊急部署計畫。其次，VMware關鍵漏洞已被勒索軟體集團實際利用攻擊，結合近期Vexy勒索軟體快速擴張的趨勢，虛擬化基礎設施成為高危目標。建議優先檢查vCenter伺服器版本與補程式狀態。\n\n此外注意到Cisco郵件與管理設備也出現高危漏洞，恰好對應當前威脅情景：郵件成為勒索軟體與後門程式的傳播媒介，管理設備淪陷則允許橫向移動。長期趨勢上，跨平台惡意軟體（如BambooToken與Vexy）與供應鏈攻擊（WordPress外掛、cPanel備份）持續增加，企業應強化第三方軟體驗證與端點監控。建議本週優先完成Microsoft與虛擬化補程式部署，同時針對郵件閘道與管理介面實施額外存取控制。",
-  "cve_radar": [],
+  "ai_analysis": "今日威脅環境呈現「雙高風險」態勢，最需要優先處理的是Cisco ISE與FMC系列漏洞。ISE身份認證漏洞（CVSS 10.0）已被確認可在無認證狀態下遠端執行程式碼，直接威脅企業網路入口；FMC漏洞則已遭Qilin勒索軟體集團主動利用，部署案例已出現，影響範圍涵蓋全球金融、製造、電信等關鍵產業。建議立即盤點環境中Cisco安全設備數量與版本，優先部署修補程式。\n\n次要風險來自Microsoft Windows系列五項高危權限提升漏洞，涉及ALPC、NTFS、搜尋等核心系統元件，這些漏洞常被用於後滲透橫向移動。由於企業普遍部署Windows環境，建議同步規劃更新部署，優先保護伺服器與管理工作站。\n\n值得關注的新趨勢是，ScreenConnect遠端工具漏洞正遭主動利用、APT41與APT24持續對全球與台灣目標進行定向攻擊，而AI驅動的資料外洩事件首度在西班牙被記錄，顯示攻擊者已開始引入AI技術提升效率，企業應加強對新型攻擊手法的監控與防禦準備。",
+  "cve_radar": [
+    {
+      "cve_id": "CVE-2026-76460",
+      "title": "Cisco身份服務引擎特權API不當使用漏洞",
+      "cvss": 10,
+      "cvss_source": "NVD官方",
+      "exploited": true,
+      "action": "立即更新",
+      "plain_title": "身份認證系統遭繞過漏洞",
+      "plain_summary": "企業用來驗證員工身份的系統發現漏洞，攻擊者可能不需要密碼就能入侵公司網路。就像大樓的門禁系統壞掉，陌生人也能進去，這會讓公司機密資料面臨洩露風險，需要盡快更新修補。"
+    },
+    {
+      "cve_id": "CVE-2026-58704",
+      "title": "Google Pixel行動通訊晶片權限檢查繞過漏洞",
+      "cvss": 8.8,
+      "cvss_source": "NVD官方",
+      "exploited": true,
+      "action": "一週內更新",
+      "plain_title": "Pixel手機晶片安全漏洞",
+      "plain_summary": "Google Pixel手機內部的通訊晶片存在設計缺陷，攻擊者可利用此漏洞升級自己的系統權限。類似於汽車安全系統被駭客破解，導致車輛被遠端控制，使用者的個人隱私和資料安全受威脅。"
+    },
+    {
+      "cve_id": "CVE-2026-87886",
+      "title": "Acronis備份外掛程式不當預設權限漏洞",
+      "cvss": 5,
+      "cvss_source": "AI推估",
+      "exploited": true,
+      "action": "持續觀察",
+      "plain_title": "備份軟體權限設定缺陷",
+      "plain_summary": "用來備份網站資料的外掛程式設定有問題，攻擊者可藉此提升自己的權限從普通用戶變成管理員。這就像停車場的驗票機故障，任何人都能以假票進出，可能導致伺服器被完全控制。"
+    }
+  ],
   "risk_score": {
-    "total": 37,
+    "total": 45,
     "breakdown": [
       {
         "label": "漏洞風險",
-        "score": 96
+        "score": 100
       },
       {
         "label": "APT攻擊",
-        "score": 0
+        "score": 60
       },
       {
         "label": "勒索病毒",
-        "score": 88
+        "score": 44
       },
       {
         "label": "身份風險",
@@ -696,110 +829,110 @@ const DATA = {
       },
       {
         "label": "AI風險",
-        "score": 0
+        "score": 20
       }
     ]
   },
   "action_items": [
     {
-      "category": "公告確認",
-      "title": "CVE-2026-78517 Microsoft Office Word 遠端程式碼執行漏洞",
+      "category": "漏洞修補",
+      "title": "CVE-2026-76460：Cisco身份服務引擎特權API不當使用漏洞",
       "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+      "detail": "CVSS 10（NVD官方），建議立即更新"
     },
     {
       "category": "公告確認",
-      "title": "CVE-2026-81355 虛擬硬碟 VHD Miniport 驅動程式遠端程式碼執行漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-68841 Windows NTFS 權限提升漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-69608 Microsoft Windows 搜尋元件權限提升漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-69605 Microsoft 安裝服務權限提升漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-68824 Connected User Experiences and Telemetry 權限提升漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-68847 Connected User Experiences and Telemetry 權限提升漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-80097 Microsoft Authenticator 權限提升漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-80075 Windows Work Folders 權限提升漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "Cisco Secure Email Gateway SQL Injection 漏洞",
+      "title": "Cisco Secure Firewall Management Center軟體Java反序列化遠端程式碼執行漏洞",
       "priority": "高",
       "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "Cisco UCS UEFI Shell Secure Boot 繞過漏洞",
+      "title": "Cisco Identity Services Engine遠端程式碼執行漏洞",
       "priority": "高",
       "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "Cisco 整合管理控制器參數注入漏洞",
+      "title": "Cisco Secure Firewall Management Center軟體認證繞過漏洞",
       "priority": "高",
       "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "Cisco Secure Firewall Management Center軟體靜態認證漏洞",
+      "priority": "高",
+      "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "Cisco Identity Services Engine已認證遠端程式碼執行與API漏洞",
+      "priority": "高",
+      "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-85880 Windows Advanced Local Procedure Call (ALPC)權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-78517 Microsoft Office Word遠端程式碼執行漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-68841 Windows NTFS權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-69608 Microsoft Windows Search Component權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-69605 Microsoft Install Service權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-58704：Google Pixel行動通訊晶片權限檢查繞過漏洞",
+      "priority": "中",
+      "detail": "CVSS 8.8（NVD官方），建議一週內更新"
+    },
+    {
+      "category": "公告確認",
+      "title": "因應先進AI資安新挑戰 資安署發布『政府因應先進AI資安風險政策』",
+      "priority": "中",
+      "detail": "來源：資安署。資安署針對AI技術帶來的資安風險發布因應政策，強化國家數位防護網對於生成AI攻擊的防禦措施。"
     },
     {
       "category": "掃描比對",
-      "title": "銀狐組織相關IOC比對",
+      "title": "銀狐組織攻擊行動相關IOC比對",
+      "priority": "中",
+      "detail": "涉及類型：Domain、IP、URL。建議比對內部防火牆/EDR日誌。"
+    },
+    {
+      "category": "掃描比對",
+      "title": "禪道env.bak敏感信息泄露相關IOC比對",
       "priority": "中",
       "detail": "涉及類型：Domain、IP。建議比對內部防火牆/EDR日誌。"
-    },
-    {
-      "category": "掃描比對",
-      "title": "高頻漏洞與高危IP相關IOC比對",
-      "priority": "中",
-      "detail": "涉及類型：IP。建議比對內部防火牆/EDR日誌。"
-    },
-    {
-      "category": "掃描比對",
-      "title": "定向攻擊IP相關IOC比對",
-      "priority": "中",
-      "detail": "涉及類型：IP。建議比對內部防火牆/EDR日誌。"
     }
   ],
   "category_counts": {
-    "kev": 0,
-    "vendor": 15,
+    "kev": 3,
+    "vendor": 19,
     "news": 6,
     "ransomwareApt": 4
   }
 };
-const UPDATED_AT = "2026/9/16 09:17:38（台灣時間）";
+const UPDATED_AT = "2026/9/17 09:17:59（台灣時間）";
 document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
