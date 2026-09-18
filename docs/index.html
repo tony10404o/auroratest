@@ -338,237 +338,224 @@ const DATA = {
   "headlines": [
     {
       "icon": "🎯",
-      "title": "Cisco身份服務引擎滿分漏洞 認證可被繞過",
-      "subtitle": "CVSS 10.0重大漏洞，攻擊者無需密碼即可入侵",
+      "title": "Cisco多個關鍵漏洞遭實際攻擊利用",
+      "subtitle": "ISE遠端程式碼執行零日已被駭客活用，需立即修補",
       "impact": "高",
       "stars": 5,
-      "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ise-rce-se7bYU57"
+      "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ise-rce-se7bYU57?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Identity%20Services%20Engine%20Remote%20Code%20Execution%20Vulnerabilities%26vs_k=1"
     },
     {
       "icon": "🦠",
-      "title": "Cisco FMC漏洞遭利用 直接部署Qilin勒索軟體",
-      "subtitle": "CVE-2026-20079已被犯罪集團主動攻擊",
+      "title": "APT29針對歐洲進行大規模郵件與基礎設施竊取",
+      "subtitle": "竊取超30萬筆身分資料，滲透20+歐洲組織",
       "impact": "高",
       "stars": 5,
-      "url": "https://www.gm7.org/archives/156101"
+      "url": "https://www.uvcyber.com/resources/reports/threat-advisory-the-historical-and-ongoing-threat-of-apt29"
     },
     {
-      "icon": "🎯",
-      "title": "ScreenConnect遠端控制軟體關鍵漏洞 正遭主動利用",
-      "subtitle": "CISA警告企業應立即更新軟體版本",
+      "icon": "🪟",
+      "title": "Microsoft Azure與雲端服務多項高危權限提升漏洞",
+      "subtitle": "涉及Copilot、Arc、Dataverse等關鍵服務，共7項高危漏洞",
       "impact": "高",
-      "stars": 5,
-      "url": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-hackers-exploiting-critical-screenconnect-flaw/"
+      "stars": 5
+    },
+    {
+      "icon": "📰",
+      "title": "CISA聯合多國預警Gunra勒索軟體新威脅",
+      "subtitle": "源自Conti原始碼洩露，已形成RaaS營運模式",
+      "impact": "高",
+      "stars": 4,
+      "url": "https://www.twcert.org.tw/tw/cp-104-7686-95b20-1.html"
     },
     {
       "icon": "🕵️",
-      "title": "美國起訴APT41駭客集團 涉及全球百家機構",
-      "subtitle": "中國駭客攻擊電玩、電信、大學等多產業",
+      "title": "RatHat Android惡意軟體利用AI技術自動化攻擊",
+      "subtitle": "新型木馬具人工智慧驅動控制，可自動繞過防護機制",
       "impact": "中",
       "stars": 4,
-      "url": "https://blog.trendmicro.com.tw/?p=65827"
-    },
-    {
-      "icon": "🔧",
-      "title": "Windows多項權限提升漏洞 涉及ALPC、NTFS等",
-      "subtitle": "微軟發布五項高危權限提升漏洞修補",
-      "impact": "高",
-      "stars": 4,
-      "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-85880"
+      "url": "https://www.bleepingcomputer.com/news/security/new-rathat-android-malware-uses-ai-to-automate-device-control/"
     }
   ],
   "vendor_impact": [
     {
       "icon": "🔀",
       "vendor": "Cisco",
-      "title": "Cisco Secure Firewall Management Center軟體Java反序列化遠端程式碼執行漏洞",
-      "impact": "高",
-      "category": "防火牆管理",
-      "key_asset": "Firewall Management Center",
-      "ai_suggestion": "立即檢查FMC軟體版本，下載最新修補程式，限制FMC管理介面網路存取，監控異常連線行為"
-    },
-    {
-      "icon": "🔀",
-      "vendor": "Cisco",
       "title": "Cisco Identity Services Engine遠端程式碼執行漏洞",
       "impact": "高",
       "category": "身分驗證服務",
-      "key_asset": "Identity Services Engine",
-      "ai_suggestion": "優先更新ISE至修補版本，檢視Web管理介面日誌，隔離未授權的API存取"
+      "key_asset": "ISE身份驗證系統",
+      "ai_suggestion": "立即檢視ISE部署情況，優先在生產環境中應用官方安全補丁，監控日誌異常存取活動"
     },
     {
       "icon": "🔀",
       "vendor": "Cisco",
-      "title": "Cisco Secure Firewall Management Center軟體認證繞過漏洞",
+      "title": "Cisco Secure Firewall Management Center Java反序列化遠端程式碼執行漏洞",
       "impact": "高",
       "category": "防火牆管理",
-      "key_asset": "Firewall Management Center",
-      "ai_suggestion": "評估環境中FMC認證機制，套用官方補丁，考慮使用多因素認證加強防護"
+      "key_asset": "FMC防火牆管理中心",
+      "ai_suggestion": "評估企業環境中FMC版本，制定分批更新計畫，同時加強管理網段存取控制"
     },
     {
       "icon": "🔀",
       "vendor": "Cisco",
-      "title": "Cisco Secure Firewall Management Center軟體靜態認證漏洞",
+      "title": "Cisco Secure Firewall Management Center認證繞過漏洞",
       "impact": "高",
       "category": "防火牆管理",
-      "key_asset": "Firewall Management Center",
-      "ai_suggestion": "掃描內部系統中硬編碼認證，重置FMC預設帳號，啟用強密碼政策與日誌審計"
+      "key_asset": "FMC管理介面",
+      "ai_suggestion": "檢查FMC日誌，尋找未授權登入跡象，實施多因素驗證強化管理員認證"
     },
     {
       "icon": "🔀",
       "vendor": "Cisco",
-      "title": "Cisco Identity Services Engine已認證遠端程式碼執行與API漏洞",
+      "title": "Cisco Secure Email Gateway SQL注入漏洞",
       "impact": "高",
-      "category": "身分驗證服務",
-      "key_asset": "Identity Services Engine",
-      "ai_suggestion": "確認ISE版本無漏洞，檢視API呼叫日誌，限制API端點存取來源IP位址"
+      "category": "郵件系統",
+      "key_asset": "ESA郵件安全網關",
+      "ai_suggestion": "立即升級ESA至修補版本，檢視郵件日誌是否有注入攻擊跡象，強化郵件網關隔離"
     },
     {
       "icon": "🔀",
       "vendor": "Cisco",
-      "title": "Cisco Secure Firewall Adaptive Security Appliance與Threat Defense軟體SSL VPN拒絕服務漏洞",
+      "title": "Cisco Secure Firewall Management Center靜態認證漏洞",
+      "impact": "高",
+      "category": "防火牆管理",
+      "key_asset": "FMC預設帳號",
+      "ai_suggestion": "檢查FMC預設帳號是否已變更，審計所有管理員帳號，考慮定期輪換認證資訊"
+    },
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "Cisco Secure Firewall ASA與Threat Defense SSL VPN拒絕服務漏洞",
       "impact": "中",
       "category": "遠端存取設備",
-      "key_asset": "ASA/Threat Defense SSL VPN",
-      "ai_suggestion": "更新ASA及Threat Defense軟體，監控VPN連線異常斷開，設置DDoS防護閾值"
+      "key_asset": "ASA與Threat Defense VPN",
+      "ai_suggestion": "監控VPN連線穩定性，準備修補計畫，評估備用遠端存取方案以防服務中斷"
     },
     {
       "icon": "🔀",
       "vendor": "Cisco",
-      "title": "Cisco Secure Firewall Adaptive Security Appliance與Threat Defense軟體遠端存取SSL VPN拒絕服務漏洞",
+      "title": "Cisco Secure Firewall ASA與Threat Defense遠端存取SSL VPN拒絕服務漏洞",
       "impact": "中",
       "category": "遠端存取設備",
-      "key_asset": "ASA/Threat Defense SSL VPN",
-      "ai_suggestion": "檢視VPN設定，套用修補程式，啟用連線速率限制與超時保護機制"
+      "key_asset": "遠端存取VPN",
+      "ai_suggestion": "檢視遠端工作人員VPN依賴程度，備妥應變方案，監控異常連線嘗試"
     },
     {
       "icon": "🔀",
       "vendor": "Cisco",
-      "title": "Cisco Secure Firewall Adaptive Security Appliance與Threat Defense軟體3100和4200系列DTLS拒絕服務漏洞",
+      "title": "Cisco Secure Firewall 3100/4200 Series DTLS拒絕服務漏洞",
       "impact": "中",
-      "category": "遠端存取設備",
-      "key_asset": "ASA 3100/4200系列DTLS",
-      "ai_suggestion": "確認設備型號與軟體版本，下載對應修補程式，測試DTLS連線穩定性"
+      "category": "防火牆硬體",
+      "key_asset": "Secure Firewall 3100/4200",
+      "ai_suggestion": "檢查相關型號部署位置，優先更新邊界防火牆，監測DTLS連線異常"
     },
     {
       "icon": "🔀",
       "vendor": "Cisco",
-      "title": "Cisco Identity Services Engine多項漏洞",
+      "title": "Cisco IOS XR軟體安全強化版本：2026年9月",
       "impact": "中",
-      "category": "身分驗證服務",
-      "key_asset": "Identity Services Engine",
-      "ai_suggestion": "進行ISE完整資安審計，確認所有漏洞修補狀態，檢視使用者存取權限"
+      "category": "網路設備",
+      "key_asset": "IOS XR路由器",
+      "ai_suggestion": "納入IOS XR更新計畫，注意中國APT組織已利用此類設備進行竊密，加強設備監控"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-85880 Windows Advanced Local Procedure Call (ALPC)權限提升漏洞",
+      "title": "CVE-2026-85885 Microsoft 365 Copilot權限提升漏洞",
       "impact": "高",
-      "category": "作業系統核心",
-      "key_asset": "Windows ALPC系統元件",
-      "ai_suggestion": "立即套用Windows更新，優先處理伺服器環境，監控本地特權提升嘗試"
+      "category": "AI基礎設施",
+      "key_asset": "Microsoft 365 Copilot",
+      "ai_suggestion": "檢查Copilot部署範圍，立即套用安全更新，監控Copilot權限異常使用情況"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-78517 Microsoft Office Word遠端程式碼執行漏洞",
+      "title": "CVE-2026-70009 Azure Arc權限提升漏洞",
       "impact": "高",
-      "category": "辦公軟體",
-      "key_asset": "Microsoft Office Word",
-      "ai_suggestion": "更新Office至最新版本，限制用戶開啟不明來源文檔，啟用沙箱保護功能"
+      "category": "混合雲管理",
+      "key_asset": "Azure Arc服務",
+      "ai_suggestion": "盤點Azure Arc部署數量，優先在混合環境中修補，強化Arc連線器存取控制"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-68841 Windows NTFS權限提升漏洞",
+      "title": "CVE-2026-69865 Microsoft Container Registry權限提升漏洞",
       "impact": "高",
-      "category": "檔案系統",
-      "key_asset": "Windows NTFS驅動程式",
-      "ai_suggestion": "套用安全更新，檢視檔案系統權限設定，監控異常檔案系統操作"
+      "category": "容器管理",
+      "key_asset": "ACR容器註冊表",
+      "ai_suggestion": "檢視容器部署流程，更新Container Registry認證機制，掃描現有映像檔案"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-69608 Microsoft Windows Search Component權限提升漏洞",
+      "title": "CVE-2026-77903 Microsoft Dataverse權限提升漏洞",
       "impact": "高",
-      "category": "系統服務",
-      "key_asset": "Windows Search服務",
-      "ai_suggestion": "安裝最新修補程式，檢查Search服務設定，考慮禁用高風險搜尋功能"
+      "category": "資料平台",
+      "key_asset": "Microsoft Dataverse",
+      "ai_suggestion": "審計Dataverse中敏感資料存取權限，套用最新修補，監控異常資料查詢"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-69605 Microsoft Install Service權限提升漏洞",
+      "title": "CVE-2026-69399 Azure Arc權限提升漏洞",
       "impact": "高",
-      "category": "軟體管理",
-      "key_asset": "Windows Installer服務",
-      "ai_suggestion": "更新Windows Installer，限制安裝權限，控制應用程式安裝策略"
+      "category": "混合雲管理",
+      "key_asset": "Azure Arc連線器",
+      "ai_suggestion": "確認Arc連線器版本，實施分階段修補，避免內部部署環境中斷"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-68824 Connected User Experiences and Telemetry權限提升漏洞",
-      "impact": "中",
-      "category": "系統服務",
-      "key_asset": "用戶體驗與遙測服務",
-      "ai_suggestion": "套用修補程式，審查遙測服務設定，考慮在企業環境中禁用或限制"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-68847 Connected User Experiences and Telemetry權限提升漏洞",
-      "impact": "中",
-      "category": "系統服務",
-      "key_asset": "用戶體驗與遙測服務",
-      "ai_suggestion": "安裝安全更新，檢視遙測原則設定，加強系統服務監控"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-69406 Windows Kernel資訊洩露漏洞",
-      "impact": "中",
-      "category": "作業系統核心",
-      "key_asset": "Windows Kernel",
-      "ai_suggestion": "更新Windows至最新版本，監控記憶體洩露跡象，加強入侵偵測"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-80075 Windows Work Folders權限提升漏洞",
-      "impact": "中",
-      "category": "檔案同步服務",
-      "key_asset": "Windows Work Folders",
-      "ai_suggestion": "套用修補程式，檢查Work Folders設定與權限，監控同步異常行為"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-80097 Microsoft Authenticator權限提升漏洞",
-      "impact": "中",
-      "category": "身分認證工具",
-      "key_asset": "Microsoft Authenticator",
-      "ai_suggestion": "更新Authenticator至最新版本，檢視使用者多因素認證設定，監控異常登入"
-    },
-    {
-      "icon": "🏢",
-      "vendor": "Google",
-      "title": "Google Pixel行動通訊晶片權限檢查繞過漏洞",
+      "title": "CVE-2026-83944 Azure Logic Apps權限提升漏洞",
       "impact": "高",
-      "category": "行動設備安全",
-      "key_asset": "Pixel手機數據機韌體",
-      "ai_suggestion": "檢查企業配置Pixel手機版本，推送最新韌體更新，限制高風險應用權限"
+      "category": "工作流平台",
+      "key_asset": "Azure Logic Apps",
+      "ai_suggestion": "檢查Logic Apps中的敏感流程權限設定，更新受影響版本，加強API認證"
     },
     {
-      "icon": "🏢",
-      "vendor": "Acronis",
-      "title": "Acronis備份外掛程式不當預設權限漏洞",
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-87701 Azure Cosmos DB權限提升漏洞",
+      "impact": "高",
+      "category": "資料庫服務",
+      "key_asset": "Azure Cosmos DB",
+      "ai_suggestion": "審視Cosmos DB存取金鑰管理，啟用RBAC驗證，監控異常查詢活動"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-55946 Microsoft Copilot資訊洩露漏洞",
       "impact": "中",
-      "category": "備份軟體",
-      "key_asset": "Acronis Backup外掛",
-      "ai_suggestion": "檢視cPanel與Plesk外掛權限設定，更新至最新版本，加強備份系統存取控制"
+      "category": "AI基礎設施",
+      "key_asset": "Copilot服務",
+      "ai_suggestion": "檢查Copilot使用政策，教育使用者勿輸入敏感資訊，監測資料外洩跡象"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-78501 Microsoft 365 Copilot Business Chat資訊洩露漏洞",
+      "impact": "中",
+      "category": "AI基礎設施",
+      "key_asset": "Copilot Business Chat",
+      "ai_suggestion": "限制Business Chat存取敏感部門，強化使用者訓練，定期審計聊天記錄"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-68791 Azure Machine Learning資訊洩露漏洞",
+      "impact": "中",
+      "category": "AI基礎設施",
+      "key_asset": "Azure ML工作空間",
+      "ai_suggestion": "檢查ML工作空間資料存取權限，隔離包含敏感資料的模型，加強日誌監控"
     }
   ],
   "global_events": [
+    {
+      "category": "勒索病毒",
+      "title": "AUDIT TEAM對日本藥廠與南韓電商之勒索攻擊",
+      "date": "2026-09-17",
+      "url": "https://asec.ahnlab.com/en/95450/"
+    },
     {
       "category": "零時差漏洞",
       "title": "Cisco身份服務引擎特權API不當使用漏洞",
@@ -728,6 +715,12 @@ const DATA = {
     },
     {
       "category": "勒索病毒",
+      "title": "The Gentlemen勒索軟體攻擊加拿大航空公司",
+      "date": "2026-09-10",
+      "url": "https://asec.ahnlab.com/en/95338/"
+    },
+    {
+      "category": "勒索病毒",
       "title": "ShinyHunters勒索團伙入侵美國佛羅里達州車管所",
       "date": "2026-09-09",
       "url": "https://www.gm7.org/archives/154890"
@@ -773,51 +766,56 @@ const DATA = {
       "title": "因應AI資安新挑戰強化國家防護",
       "date": "2026-09-02",
       "url": "https://moda.gov.tw/ACS/press/news/press/20242"
-    }
-  ],
-  "ai_analysis": "今日威脅環境呈現「雙高風險」態勢，最需要優先處理的是Cisco ISE與FMC系列漏洞。ISE身份認證漏洞（CVSS 10.0）已被確認可在無認證狀態下遠端執行程式碼，直接威脅企業網路入口；FMC漏洞則已遭Qilin勒索軟體集團主動利用，部署案例已出現，影響範圍涵蓋全球金融、製造、電信等關鍵產業。建議立即盤點環境中Cisco安全設備數量與版本，優先部署修補程式。\n\n次要風險來自Microsoft Windows系列五項高危權限提升漏洞，涉及ALPC、NTFS、搜尋等核心系統元件，這些漏洞常被用於後滲透橫向移動。由於企業普遍部署Windows環境，建議同步規劃更新部署，優先保護伺服器與管理工作站。\n\n值得關注的新趨勢是，ScreenConnect遠端工具漏洞正遭主動利用、APT41與APT24持續對全球與台灣目標進行定向攻擊，而AI驅動的資料外洩事件首度在西班牙被記錄，顯示攻擊者已開始引入AI技術提升效率，企業應加強對新型攻擊手法的監控與防禦準備。",
-  "cve_radar": [
-    {
-      "cve_id": "CVE-2026-76460",
-      "title": "Cisco身份服務引擎特權API不當使用漏洞",
-      "cvss": 10,
-      "cvss_source": "NVD官方",
-      "exploited": true,
-      "action": "立即更新",
-      "plain_title": "身份認證系統遭繞過漏洞",
-      "plain_summary": "企業用來驗證員工身份的系統發現漏洞，攻擊者可能不需要密碼就能入侵公司網路。就像大樓的門禁系統壞掉，陌生人也能進去，這會讓公司機密資料面臨洩露風險，需要盡快更新修補。"
     },
     {
-      "cve_id": "CVE-2026-58704",
-      "title": "Google Pixel行動通訊晶片權限檢查繞過漏洞",
-      "cvss": 8.8,
-      "cvss_source": "NVD官方",
-      "exploited": true,
-      "action": "一週內更新",
-      "plain_title": "Pixel手機晶片安全漏洞",
-      "plain_summary": "Google Pixel手機內部的通訊晶片存在設計缺陷，攻擊者可利用此漏洞升級自己的系統權限。類似於汽車安全系統被駭客破解，導致車輛被遠端控制，使用者的個人隱私和資料安全受威脅。"
+      "category": "APT攻擊",
+      "title": "APT29針對歐洲進行大規模郵件與基礎設施竊取行動GTG-20006",
+      "date": "2026-09-02",
+      "url": "https://www.uvcyber.com/resources/reports/threat-advisory-the-historical-and-ongoing-threat-of-apt29"
     },
     {
-      "cve_id": "CVE-2026-87886",
-      "title": "Acronis備份外掛程式不當預設權限漏洞",
-      "cvss": 5,
-      "cvss_source": "AI推估",
-      "exploited": true,
-      "action": "持續觀察",
-      "plain_title": "備份軟體權限設定缺陷",
-      "plain_summary": "用來備份網站資料的外掛程式設定有問題，攻擊者可藉此提升自己的權限從普通用戶變成管理員。這就像停車場的驗票機故障，任何人都能以假票進出，可能導致伺服器被完全控制。"
+      "category": "APT攻擊",
+      "title": "中國APT組織Fire Ant利用Cisco IOS XR進行基礎設施滲透",
+      "date": "2026-08-31",
+      "url": "https://krypt3ia.wordpress.com/2026/09/08/weekly-all-source-cyber-warfare-intelligence-brief-september-8-2026/"
+    },
+    {
+      "category": "政府公告",
+      "title": "CISA與多國安全機構聯合發布Gunra勒索軟體預警通報",
+      "date": "2026-08-31",
+      "url": "https://www.twcert.org.tw/tw/cp-104-7686-95b20-1.html"
+    },
+    {
+      "category": "政府公告",
+      "title": "惡意npm攻擊再進化！駭客利用區塊鏈隱藏C2位址",
+      "date": "2026-08-31",
+      "url": ""
+    },
+    {
+      "category": "政府公告",
+      "title": "CRA強化軟體供應鏈安全要求，SBOM成企業重要管理工具",
+      "date": "2026-08-31",
+      "url": ""
+    },
+    {
+      "category": "APT攻擊",
+      "title": "APT36利用Rust惡意程式工具包針對印度政府與國防機構",
+      "date": "2026-08-29",
+      "url": "https://gbhackers.com/apt36-malware-campaign/"
     }
   ],
+  "ai_analysis": "今日情資呈現多層次高危威脅態勢。首要優先事項是Cisco產品漏洞集群，特別是ISE身份驗證服務的遠端程式碼執行零日已被駭客實際利用，該服務通常部署在核心網路，影響範圍極廣。同時Microsoft Azure雲端服務發現7項高危權限提升漏洞，涉及Copilot、Arc、Dataverse等關鍵基礎設施，考量企業雲端遷移速度，應視為同等優先級。\n\n值得關注的新興趨勢包括：APT組織已具備AI自動化攻擊能力（RatHat惡意軟體）、駭客利用區塊鏈技術隱藏C2通道規避檢測、以及中國APT組織專門針對網路設備進行隱蔽竊密。特別是APT29對歐洲的大規模基礎設施滲透行動影響深遠，竊取超30萬筆身分資料並劫持飯店Wi-Fi作為跳板，反映APT組織的戰術進階。Gunra勒索軟體由Conti原始碼演化而來，已形成成熟的RaaS營運模式，預期後續活動將增加。\n\n建議立即行動：優先修補Cisco ISE與FMC系列產品、評估Azure環境中受影響服務、強化供應鏈安全（實施SBOM管理）、提升網路設備（特別是路由器）的監控敏感度以偵測可疑配置變更。",
+  "cve_radar": [],
   "risk_score": {
-    "total": 45,
+    "total": 54,
     "breakdown": [
       {
         "label": "漏洞風險",
-        "score": 100
+        "score": 96
       },
       {
         "label": "APT攻擊",
-        "score": 60
+        "score": 90
       },
       {
         "label": "勒索病毒",
@@ -829,110 +827,110 @@ const DATA = {
       },
       {
         "label": "AI風險",
-        "score": 20
+        "score": 40
       }
     ]
   },
   "action_items": [
     {
-      "category": "漏洞修補",
-      "title": "CVE-2026-76460：Cisco身份服務引擎特權API不當使用漏洞",
-      "priority": "高",
-      "detail": "CVSS 10（NVD官方），建議立即更新"
-    },
-    {
       "category": "公告確認",
-      "title": "Cisco Secure Firewall Management Center軟體Java反序列化遠端程式碼執行漏洞",
+      "title": "Cisco Identity Services Engine 遠端程式碼執行漏洞",
       "priority": "高",
       "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "Cisco Identity Services Engine遠端程式碼執行漏洞",
+      "title": "Cisco Secure Firewall Management Center 軟體 Java 反序列化遠端程式碼執行漏洞",
       "priority": "高",
       "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "Cisco Secure Firewall Management Center軟體認證繞過漏洞",
+      "title": "Cisco Secure Firewall Management Center 軟體認證繞過漏洞",
       "priority": "高",
       "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "Cisco Secure Firewall Management Center軟體靜態認證漏洞",
+      "title": "Cisco Secure Email Gateway SQL 注入漏洞",
       "priority": "高",
       "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "Cisco Identity Services Engine已認證遠端程式碼執行與API漏洞",
+      "title": "Cisco Secure Firewall Management Center 軟體靜態認證漏洞",
       "priority": "高",
       "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "CVE-2026-85880 Windows Advanced Local Procedure Call (ALPC)權限提升漏洞",
+      "title": "CVE-2026-85885 Microsoft 365 Copilot 權限提升漏洞",
       "priority": "高",
       "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "CVE-2026-78517 Microsoft Office Word遠端程式碼執行漏洞",
+      "title": "CVE-2026-70009 Azure Arc 權限提升漏洞",
       "priority": "高",
       "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "CVE-2026-68841 Windows NTFS權限提升漏洞",
+      "title": "CVE-2026-69865 Microsoft Container Registry 權限提升漏洞",
       "priority": "高",
       "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "CVE-2026-69608 Microsoft Windows Search Component權限提升漏洞",
+      "title": "CVE-2026-77903 Microsoft Dataverse 權限提升漏洞",
       "priority": "高",
       "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "CVE-2026-69605 Microsoft Install Service權限提升漏洞",
+      "title": "CVE-2026-69399 Azure Arc 權限提升漏洞",
       "priority": "高",
       "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
-      "category": "漏洞修補",
-      "title": "CVE-2026-58704：Google Pixel行動通訊晶片權限檢查繞過漏洞",
+      "category": "公告確認",
+      "title": "CVE-2026-83944 Azure Logic Apps 權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-87701 Azure Cosmos DB 權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CISA與多國安全機構聯合發布「Gunra」勒索軟體預警通報",
       "priority": "中",
-      "detail": "CVSS 8.8（NVD官方），建議一週內更新"
+      "detail": "來源：TWCERT/CC。CISA與多國安全機構聯合發布Gunra勒索軟體預警，該軟體來自洩露之Conti原始碼，已形成RaaS營運模式，威脅跨國企業"
     },
     {
       "category": "公告確認",
-      "title": "因應先進AI資安新挑戰 資安署發布『政府因應先進AI資安風險政策』",
+      "title": "惡意npm攻擊再進化！駭客利用區塊鏈隱藏C2位址",
       "priority": "中",
-      "detail": "來源：資安署。資安署針對AI技術帶來的資安風險發布因應政策，強化國家數位防護網對於生成AI攻擊的防禦措施。"
+      "detail": "來源：TWCERT/CC。駭客利用區塊鏈技術隱藏C2通訊位址，使惡意npm套件攻擊更難被檢測，企業應加強供應鏈驗證機制"
     },
     {
-      "category": "掃描比對",
-      "title": "銀狐組織攻擊行動相關IOC比對",
+      "category": "公告確認",
+      "title": "CRA強化軟體供應鏈安全要求，SBOM成企業重要管理工具",
       "priority": "中",
-      "detail": "涉及類型：Domain、IP、URL。建議比對內部防火牆/EDR日誌。"
-    },
-    {
-      "category": "掃描比對",
-      "title": "禪道env.bak敏感信息泄露相關IOC比對",
-      "priority": "中",
-      "detail": "涉及類型：Domain、IP。建議比對內部防火牆/EDR日誌。"
+      "detail": "來源：TWCERT/CC。美國網路安全機構強化軟體供應鏈安全規範，將軟體物料清單(SBOM)納為必需管理工具以防止漏洞傳播"
     }
   ],
   "category_counts": {
-    "kev": 3,
+    "kev": 0,
     "vendor": 19,
     "news": 6,
-    "ransomwareApt": 4
+    "ransomwareApt": 5
   }
 };
-const UPDATED_AT = "2026/9/17 09:17:59（台灣時間）";
+const UPDATED_AT = "2026/9/18 09:12:52（台灣時間）";
 document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }

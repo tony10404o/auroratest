@@ -1,5 +1,11 @@
 [
   {
+    "category": "勒索病毒",
+    "title": "AUDIT TEAM對日本藥廠與南韓電商之勒索攻擊",
+    "date": "2026-09-17",
+    "url": "https://asec.ahnlab.com/en/95450/"
+  },
+  {
     "category": "零時差漏洞",
     "title": "Cisco身份服務引擎特權API不當使用漏洞",
     "date": "2026-09-16",
@@ -158,6 +164,12 @@
   },
   {
     "category": "勒索病毒",
+    "title": "The Gentlemen勒索軟體攻擊加拿大航空公司",
+    "date": "2026-09-10",
+    "url": "https://asec.ahnlab.com/en/95338/"
+  },
+  {
+    "category": "勒索病毒",
     "title": "ShinyHunters勒索團伙入侵美國佛羅里達州車管所",
     "date": "2026-09-09",
     "url": "https://www.gm7.org/archives/154890"
@@ -203,5 +215,41 @@
     "title": "因應AI資安新挑戰強化國家防護",
     "date": "2026-09-02",
     "url": "https://moda.gov.tw/ACS/press/news/press/20242"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "APT29針對歐洲進行大規模郵件與基礎設施竊取行動GTG-20006",
+    "date": "2026-09-02",
+    "url": "https://www.uvcyber.com/resources/reports/threat-advisory-the-historical-and-ongoing-threat-of-apt29"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "中國APT組織Fire Ant利用Cisco IOS XR進行基礎設施滲透",
+    "date": "2026-08-31",
+    "url": "https://krypt3ia.wordpress.com/2026/09/08/weekly-all-source-cyber-warfare-intelligence-brief-september-8-2026/"
+  },
+  {
+    "category": "政府公告",
+    "title": "CISA與多國安全機構聯合發布Gunra勒索軟體預警通報",
+    "date": "2026-08-31",
+    "url": "https://www.twcert.org.tw/tw/cp-104-7686-95b20-1.html"
+  },
+  {
+    "category": "政府公告",
+    "title": "惡意npm攻擊再進化！駭客利用區塊鏈隱藏C2位址",
+    "date": "2026-08-31",
+    "url": ""
+  },
+  {
+    "category": "政府公告",
+    "title": "CRA強化軟體供應鏈安全要求，SBOM成企業重要管理工具",
+    "date": "2026-08-31",
+    "url": ""
+  },
+  {
+    "category": "APT攻擊",
+    "title": "APT36利用Rust惡意程式工具包針對印度政府與國防機構",
+    "date": "2026-08-29",
+    "url": "https://gbhackers.com/apt36-malware-campaign/"
   }
 ]
