@@ -338,47 +338,119 @@ const DATA = {
   "headlines": [
     {
       "icon": "🦠",
-      "title": "北韓WaterPlum駭客全球感染三萬台裝置",
-      "subtitle": "北韓駭客組織WaterPlum在全球成功感染約三萬台裝置",
+      "title": "臺灣企業勒索軟體攻擊升溫，駭客採用AI深度偽造技術",
+      "subtitle": "Crazyhunter等駭客組織針對醫療、學校及上市櫃公司發動複雜攻擊",
       "impact": "高",
       "stars": 5,
-      "url": "https://www.bleepingcomputer.com/news/security/north-korean-waterplum-hackers-infected-30-000-devices-worldwide/"
+      "url": "https://www.twcert.org.tw/tw/cp-104-10043-5f54b-1.html"
     },
     {
       "icon": "🎯",
-      "title": "惡意npm套件繞過安裝防護在執行時發動攻擊",
-      "subtitle": "駭客植入代碼躲過安裝階段防護，於執行時才啟動攻擊",
+      "title": "Microsoft Office系列爆發5個遠端程式碼執行漏洞",
+      "subtitle": "Word及Office應用程式發現高危漏洞，攻擊者可直接執行惡意程式碼",
       "impact": "高",
-      "stars": 5,
-      "url": "https://www.bleepingcomputer.com/news/security/malicious-npm-packages-evade-install-script-defenses-at-runtime/"
+      "stars": 5
     },
     {
-      "icon": "🔓",
-      "title": "OpenAI Codex沙箱漏洞允許主機指令執行",
-      "subtitle": "研究員發現Codex沙箱存在逃逸漏洞，可執行任意指令",
+      "icon": "⚠️",
+      "title": "CISA警告Linux核心三個漏洞正遭主動攻擊",
+      "subtitle": "核心層級漏洞已被實際利用，建議立即更新系統",
       "impact": "高",
       "stars": 5,
-      "url": "https://www.bleepingcomputer.com/news/security/researchers-escape-openai-codex-sandbox-to-run-commands-on-host/"
+      "url": "https://www.bleepingcomputer.com/news/security/cisa-alerts-of-active-exploitation-of-three-linux-kernel-flaws/"
     },
     {
-      "icon": "🤖",
-      "title": "BragJack攻擊透過惡意擴充劫持AI瀏覽器代理",
-      "subtitle": "駭客利用瀏覽器擴充程式攻擊AI自動化代理執行不當操作",
-      "impact": "中",
+      "icon": "🎯",
+      "title": "Zyxel網路交換器發現堆疊緩衝區溢位漏洞",
+      "subtitle": "區域網路內未認證攻擊者可遠端控制設備，影響企業網路基礎設施",
+      "impact": "高",
       "stars": 4,
-      "url": "https://www.bleepingcomputer.com/news/security/bragjack-attacks-hijack-ai-browser-agents-through-malicious-extensions/"
+      "url": "https://www.bleepingcomputer.com/news/security/cisa-alerts-of-active-exploitation-of-three-linux-kernel-flaws/"
     },
     {
-      "icon": "👁️",
-      "title": "AI虛擬主持人服務進行人臉辨識與情緒監控",
-      "subtitle": "熱門AI虛擬助理掃描來電者面部表情進行監控",
-      "impact": "中",
-      "stars": 3,
-      "url": "https://www.bleepingcomputer.com/news/security/viral-ai-actress-hotline-face-scans-every-caller-watches-their-mood/"
+      "icon": "🕵️",
+      "title": "中國駭客Red Heron利用Gitea漏洞進行多國攻擊",
+      "subtitle": "包括臺灣在內多國遭受Web應用程式滲透與資料竊取",
+      "impact": "高",
+      "stars": 4,
+      "url": "https://www.ithome.com.tw/news/178932"
     }
   ],
-  "vendor_impact": [],
+  "vendor_impact": [
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-78517、78526及77901 Word遠端程式碼執行漏洞",
+      "impact": "高",
+      "category": "辦公應用軟體",
+      "key_asset": "Microsoft Office Word",
+      "ai_suggestion": "立即檢查企業內Word版本，優先部署Microsoft官方安全更新，同時監控郵件系統以防惡意文件傳播"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-78524及63532 Office遠端程式碼執行漏洞",
+      "impact": "高",
+      "category": "辦公應用軟體",
+      "key_asset": "Microsoft Office套件",
+      "ai_suggestion": "部署Microsoft Office全套更新，評估是否啟用Office沙箱保護模式，限制巨集執行權限"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-68825 Windows Bind Filter Driver權限提升漏洞",
+      "impact": "高",
+      "category": "作業系統核心",
+      "key_asset": "Windows驅動程式",
+      "ai_suggestion": "推送Windows安全更新至所有企業端點，優先處理域管帳戶使用的工作站，預防本地權限提升攻擊"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-83498 Windows VBS Enclave權限提升漏洞",
+      "impact": "高",
+      "category": "作業系統核心",
+      "key_asset": "Windows VBS機制",
+      "ai_suggestion": "確保所有Windows系統安裝最新補丁，評估虛擬化環境的VBS配置設定是否完善"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-62871 .NET權限提升漏洞",
+      "impact": "中",
+      "category": "開發框架",
+      "key_asset": ".NET Framework",
+      "ai_suggestion": "更新企業內.NET Framework至最新版本，重點檢視開發及測試環境的.NET運行時版本"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-63516 SharePoint Server詐騙漏洞",
+      "impact": "中",
+      "category": "協作平台",
+      "key_asset": "Microsoft SharePoint",
+      "ai_suggestion": "更新SharePoint伺服器至最新版本，加強身分驗證機制以防詐騙攻擊"
+    }
+  ],
   "global_events": [
+    {
+      "category": "APT攻擊",
+      "title": "中國駭客Red Heron利用Gitea漏洞攻擊多國",
+      "date": "2026-09-21",
+      "url": "https://www.ithome.com.tw/news/178932"
+    },
+    {
+      "category": "APT攻擊",
+      "title": "JFrog Artifactory漏洞遭駭客積極利用進行供應鏈攻擊",
+      "date": "2026-09-21",
+      "url": "https://www.ithome.com.tw/news/178902"
+    },
+    {
+      "category": "APT攻擊",
+      "title": "Chrome與Windows零時差漏洞遭中國駭客串連利用",
+      "date": "2026-09-21",
+      "url": "https://www.ithome.com.tw/news/178917"
+    },
     {
       "category": "勒索病毒",
       "title": "AUDIT TEAM對日本藥廠與南韓電商之勒索攻擊",
@@ -514,6 +586,18 @@ const DATA = {
       "date": "2026-09-11"
     },
     {
+      "category": "勒索病毒",
+      "title": "晶睿通訊遭勒索軟體Everest攻擊，竊取236GB資料",
+      "date": "2026-09-11",
+      "url": "https://www.ithome.com.tw/news/178882"
+    },
+    {
+      "category": "政府公告",
+      "title": "勒索軟體威脅升溫，攻擊手法日趨複雜",
+      "date": "2026-09-11",
+      "url": "https://www.twcert.org.tw/tw/cp-104-10043-5f54b-1.html"
+    },
+    {
       "category": "零時差漏洞",
       "title": "MikroTik RouterOS命令參數分隔符驗證不足漏洞CVE-2026-86060",
       "date": "2026-09-10",
@@ -547,6 +631,12 @@ const DATA = {
       "title": "The Gentlemen勒索軟體攻擊加拿大航空公司",
       "date": "2026-09-10",
       "url": "https://asec.ahnlab.com/en/95338/"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "商周集團遭網路攻擊導致服務中斷近一週",
+      "date": "2026-09-10",
+      "url": "https://www.ithome.com.tw/news/178882"
     },
     {
       "category": "勒索病毒",
@@ -603,6 +693,12 @@ const DATA = {
       "url": "https://www.uvcyber.com/resources/reports/threat-advisory-the-historical-and-ongoing-threat-of-apt29"
     },
     {
+      "category": "勒索病毒",
+      "title": "創新服務遭勒索病毒攻擊，ERP等系統癱瘓",
+      "date": "2026-09-01",
+      "url": "https://tw.stock.yahoo.com/news/%E5%85%AC%E5%91%8A-%E8%AA%AA%E6%98%8E%E5%89%B5%E6%96%B0%E6%9C%8D%E5%8B%99%E9%83%A8%E4%BB%BD%E8%B3%87%E8%A8%8A%E7%B3%BB%E7%B5%B1%E9%81%AD%E5%8F%97%E7%B6%B2%E8%B7%AF%E5%8B%92%E7%B4%A2%E7%97%85%E6%AF%92%E6%94%BB%E6%93%8A%E4%BA%8B%E4%BB%B6-110354474.html"
+    },
+    {
       "category": "APT攻擊",
       "title": "中國APT組織Fire Ant利用Cisco IOS XR進行基礎設施滲透",
       "date": "2026-08-31",
@@ -633,14 +729,25 @@ const DATA = {
       "url": "https://gbhackers.com/apt36-malware-campaign/"
     }
   ],
-  "ai_analysis": "今日威脅情報呈現多層次攻擊態勢，最值得優先關注的是北韓WaterPlum駭客組織的大規模感染事件，影響全球三萬台裝置，規模龐大且來自國家級威脅行為者，需要立即檢查組織內部系統是否遭感染。其次是npm套件供應鏈攻擊，這類威脅特別狡猾因為能繞過安裝階段防護，在執行時才發動攻擊，對依賴開源套件的開發團隊構成重大風險。\n\n值得注意的新興趨勢是AI相關攻擊快速增加，包括OpenAI Codex沙箱逃逸、BragJack針對AI瀏覽器代理的攻擊，甚至AI虛擬助理的隱私問題，這反映出組織在導入AI工具時的安全考量仍顯不足。同時駭客組織間的對抗（ShinyHunters入侵勒索軟體集團）也顯示整個威脅生態的複雜性在升級。建議優先檢視開發流程中的依賴套件審查機制，加強AI應用的沙箱隔離與審計，並維持對APT活動的監控警覺。",
-  "cve_radar": [],
+  "ai_analysis": "今日威脅態勢評估，最緊迫的優先處理事項是Microsoft Office系列的5個遠端程式碼執行高危漏洞，加上CISA已確認的Linux核心主動攻擊事件。Microsoft Office被廣泛部署於企業環境，若員工收到惡意文件可直接觸發程式碼執行，結合臺灣近期勒索軟體攻擊升溫的態勢，風險極高。建議立即啟動Microsoft Office全套補丁部署，重點監控郵件進口。\n\n第二優先是國內勒索軟體攻擊頻率明顯加快。近期晶睿通訊、商周集團及創新服務等知名企業連續遭攻，駭客採用超快速滲透加AI深度偽造技術，滲透到勒索的時間窗口大幅縮短。這提示我們傳統的邊界防護已不足以應對，需強化內部分網隔離、備份獨立性及事件應變機制。\n\n值得注意的是APT組織也在積極利用新漏洞進行供應鏈攻擊，中國駭客Red Heron及Chrome/Windows零時差漏洞串連案例顯示威脅生態鏈完整化。建議重新評估企業關鍵供應商的資安狀態，加強軟體供應鏈的驗證機制。",
+  "cve_radar": [
+    {
+      "cve_id": "CVE-2026-7273",
+      "title": "Zyxel GS1900系列交換器堆疊型緩衝區溢位漏洞",
+      "cvss": 8.8,
+      "cvss_source": "NVD官方",
+      "exploited": true,
+      "action": "一週內更新",
+      "plain_title": "網路交換器發現遠端控制漏洞",
+      "plain_summary": "Zyxel製造的網路交換器設備有個安全缺陷，攻擊者在同一區域網路內不需要密碼就能發送特殊的網路請求，進而控制設備或執行惡意指令。這類設備通常是公司網路的重要基礎設施，若被攻擊可能導致整個網路癱瘓或資料外洩。建議企業儘快向廠商確認並安裝更新。"
+    }
+  ],
   "risk_score": {
-    "total": 12,
+    "total": 27,
     "breakdown": [
       {
         "label": "漏洞風險",
-        "score": 0
+        "score": 68
       },
       {
         "label": "APT攻擊",
@@ -648,7 +755,7 @@ const DATA = {
       },
       {
         "label": "勒索病毒",
-        "score": 0
+        "score": 66
       },
       {
         "label": "身份風險",
@@ -656,26 +763,110 @@ const DATA = {
       },
       {
         "label": "AI風險",
-        "score": 60
+        "score": 0
       }
     ]
   },
   "action_items": [
     {
+      "category": "公告確認",
+      "title": "CVE-2026-78517 Microsoft Office Word 遠端程式碼執行漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-77901 Microsoft Office Word 遠端程式碼執行漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-78526 Microsoft Office Word 遠端程式碼執行漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-78524 Microsoft Office 遠端程式碼執行漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-63532 Microsoft Office 遠端程式碼執行漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-68825 Windows Bind Filter Driver 權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-83498 Windows VBS Enclave 權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-7273：Zyxel GS1900系列交換器堆疊型緩衝區溢位漏洞",
+      "priority": "中",
+      "detail": "CVSS 8.8（NVD官方），建議一週內更新"
+    },
+    {
+      "category": "公告確認",
+      "title": "勒索軟體威脅升溫，攻擊手法日趨複雜",
+      "priority": "中",
+      "detail": "來源：TWCERT/CC。駭客組織Crazyhunter、Nightspire及UAT-5918針對臺灣醫療機構、學校及上市櫃公司發動勒索攻擊，採用超快速滲透與AI深度偽造技術，造成系統癱瘓與資料外洩。"
+    },
+    {
+      "category": "公告確認",
+      "title": "企業遭勒索軟體攻擊升溫 資安署籲4招強化防護",
+      "priority": "中",
+      "detail": "來源：資安署。資安署指出駭客採用雙重勒索模式結合AI自動化攻擊，呼籲企業透過系統備份、軟體更新等防護措施強化資安防護。"
+    },
+    {
+      "category": "掃描比對",
+      "title": "中國駭客Red Heron利用Gitea漏洞相關IOC比對",
+      "priority": "中",
+      "detail": "涉及類型：URL、Domain。建議比對內部防火牆/EDR日誌。"
+    },
+    {
+      "category": "掃描比對",
+      "title": "JFrog Artifactory漏洞遭積極利用相關IOC比對",
+      "priority": "中",
+      "detail": "涉及類型：URL。建議比對內部防火牆/EDR日誌。"
+    },
+    {
+      "category": "掃描比對",
+      "title": "Chrome與Windows零時差漏洞串連相關IOC比對",
+      "priority": "中",
+      "detail": "涉及類型：Domain、IP。建議比對內部防火牆/EDR日誌。"
+    },
+    {
       "category": "教育宣導",
-      "title": "熱門AI虛擬主持人電話服務掃描並監控來電者面部表情",
+      "title": "BigCommerce電商平台驚爆用戶資料外洩事件",
+      "priority": "低",
+      "detail": "建議納入員工資安宣導教育素材。"
+    },
+    {
+      "category": "教育宣導",
+      "title": "Google因位置資料隱私問題被歐盟罰款四億歐元",
       "priority": "低",
       "detail": "建議納入員工資安宣導教育素材。"
     }
   ],
   "category_counts": {
-    "kev": 0,
-    "vendor": 0,
-    "news": 6,
-    "ransomwareApt": 0
+    "kev": 1,
+    "vendor": 9,
+    "news": 5,
+    "ransomwareApt": 3
   }
 };
-const UPDATED_AT = "2026/9/21 08:58:41（台灣時間）";
+const UPDATED_AT = "2026/9/22 09:33:52（台灣時間）";
 document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
