@@ -1,5 +1,23 @@
 [
   {
+    "category": "零時差漏洞",
+    "title": "Check Point 安全管理伺服器路徑遍歷零日漏洞",
+    "date": "2026-09-22",
+    "url": "https://www.cna.com.tw"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Check Point VPN 憑證驗證零日漏洞",
+    "date": "2026-09-22",
+    "url": "https://www.cna.com.tw"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Windows Defender 零日漏洞阻止防毒更新",
+    "date": "2026-09-22",
+    "url": "https://www.bleepingcomputer.com/news/security/new-windows-defender-zero-day-blocks-microsoft-antivirus-updates/"
+  },
+  {
     "category": "APT攻擊",
     "title": "中國駭客Red Heron利用Gitea漏洞攻擊多國",
     "date": "2026-09-21",
@@ -16,6 +34,48 @@
     "title": "Chrome與Windows零時差漏洞遭中國駭客串連利用",
     "date": "2026-09-21",
     "url": "https://www.ithome.com.tw/news/178917"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "FBI 遭駭客入侵竊取 PeopleSoft 零日漏洞",
+    "date": "2026-09-21",
+    "url": "https://www.bleepingcomputer.com/news/security/shinyhunters-claims-fbi-hack-data-theft-in-peoplesoft-zero-day-breach/"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "中國駭客利用 WordPress 與 Zyxel 漏洞竊取政府資料",
+    "date": "2026-09-21",
+    "url": "https://www.bleepingcomputer.com/news/security/chinese-hackers-exploit-wordpress-zyxel-flaws-to-steal-govt-data/"
+  },
+  {
+    "category": "資料外洩",
+    "title": "虛假多因素驗證提供商竊取登入密碼",
+    "date": "2026-09-21",
+    "url": "https://www.bleepingcomputer.com/news/security/rogue-external-mfa-providers-can-steal-passwords-during-logins/"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "新型 Windows 惡意軟體使用 AI 決策進行攻擊",
+    "date": "2026-09-21",
+    "url": "https://www.bleepingcomputer.com/news/security/new-closedquorum-windows-malware-uses-ai-for-attack-decisions/"
+  },
+  {
+    "category": "資料外洩",
+    "title": "瑞典對環境監測公司罰款 220 萬人資料外洩",
+    "date": "2026-09-21",
+    "url": "https://www.bleepingcomputer.com/news/security/sweden-fines-miljoedata-183-000-over-breach-affecting-2.2-million/"
+  },
+  {
+    "category": "政府公告",
+    "title": "台灣資安日倡議全民防範意識提升",
+    "date": "2026-09-21",
+    "url": "https://www.cna.com.tw/news/afe/202609210105.aspx"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "勒索軟體 Everest 攻擊晶睿通訊事件",
+    "date": "2026-09-18",
+    "url": "https://www.ithome.com.tw/tags/%E8%B3%87%E5%AE%89%E6%97%A5%E5%A0%B1"
   },
   {
     "category": "勒索病毒",
@@ -203,6 +263,12 @@
     "title": "商周集團遭網路攻擊導致服務中斷近一週",
     "date": "2026-09-10",
     "url": "https://www.ithome.com.tw/news/178882"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "商周集團網站遭攻擊中斷服務",
+    "date": "2026-09-10",
+    "url": "https://www.ithome.com.tw/tags/%E8%B3%87%E5%AE%89%E6%97%A5%E5%A0%B1"
   },
   {
     "category": "勒索病毒",

@@ -337,102 +337,94 @@
 const DATA = {
   "headlines": [
     {
-      "icon": "🦠",
-      "title": "臺灣企業勒索軟體攻擊升溫，駭客採用AI深度偽造技術",
-      "subtitle": "Crazyhunter等駭客組織針對醫療、學校及上市櫃公司發動複雜攻擊",
+      "icon": "🎯",
+      "title": "Check Point 防火牆管理系統零日漏洞",
+      "subtitle": "未認證攻擊者可上傳執行任意指令，影響整個防火牆防線",
       "impact": "高",
       "stars": 5,
-      "url": "https://www.twcert.org.tw/tw/cp-104-10043-5f54b-1.html"
+      "url": "https://www.cna.com.tw"
     },
     {
       "icon": "🎯",
-      "title": "Microsoft Office系列爆發5個遠端程式碼執行漏洞",
-      "subtitle": "Word及Office應用程式發現高危漏洞，攻擊者可直接執行惡意程式碼",
-      "impact": "高",
-      "stars": 5
-    },
-    {
-      "icon": "⚠️",
-      "title": "CISA警告Linux核心三個漏洞正遭主動攻擊",
-      "subtitle": "核心層級漏洞已被實際利用，建議立即更新系統",
+      "title": "Check Point VPN 憑證驗證漏洞",
+      "subtitle": "零日漏洞導致遠端攻擊者可假冒身分入侵內網",
       "impact": "高",
       "stars": 5,
-      "url": "https://www.bleepingcomputer.com/news/security/cisa-alerts-of-active-exploitation-of-three-linux-kernel-flaws/"
+      "url": "https://www.cna.com.tw"
     },
     {
       "icon": "🎯",
-      "title": "Zyxel網路交換器發現堆疊緩衝區溢位漏洞",
-      "subtitle": "區域網路內未認證攻擊者可遠端控制設備，影響企業網路基礎設施",
+      "title": "F5 BIG-IP APM 堆積緩衝區溢位漏洞",
+      "subtitle": "未認證遠端程式碼執行，應用防火牆淪為攻擊跳板",
       "impact": "高",
-      "stars": 4,
-      "url": "https://www.bleepingcomputer.com/news/security/cisa-alerts-of-active-exploitation-of-three-linux-kernel-flaws/"
+      "stars": 5,
+      "url": "https://www.cna.com.tw"
     },
     {
-      "icon": "🕵️",
-      "title": "中國駭客Red Heron利用Gitea漏洞進行多國攻擊",
-      "subtitle": "包括臺灣在內多國遭受Web應用程式滲透與資料竊取",
+      "icon": "📰",
+      "title": "FBI 遭駭客入侵竊取 PeopleSoft 零日漏洞",
+      "subtitle": "聯邦機構淪陷，企業資源規劃軟體零日漏洞被公開利用",
       "impact": "高",
+      "stars": 5,
+      "url": "https://www.bleepingcomputer.com/news/security/shinyhunters-claims-fbi-hack-data-theft-in-peoplesoft-zero-day-breach/"
+    },
+    {
+      "icon": "🪟",
+      "title": "Microsoft Windows 多個高危漏洞",
+      "subtitle": "DHCP、Word、Win32k 等多個遠端程式碼執行與權限提升漏洞",
+      "impact": "中",
       "stars": 4,
-      "url": "https://www.ithome.com.tw/news/178932"
+      "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-69620"
     }
   ],
   "vendor_impact": [
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-78517、78526及77901 Word遠端程式碼執行漏洞",
+      "title": "Windows DHCP 伺服器與 Office 遠端程式碼執行漏洞",
       "impact": "高",
-      "category": "辦公應用軟體",
-      "key_asset": "Microsoft Office Word",
-      "ai_suggestion": "立即檢查企業內Word版本，優先部署Microsoft官方安全更新，同時監控郵件系統以防惡意文件傳播"
+      "category": "作業系統與應用軟體",
+      "key_asset": "Windows Server、Microsoft Word、Win32k",
+      "ai_suggestion": "立即檢查 DHCP 伺服器日誌並評估 Office 使用狀況，優先部署 CVE-2026-69620 與 CVE-2026-55134 的修補程式"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-78524及63532 Office遠端程式碼執行漏洞",
-      "impact": "高",
-      "category": "辦公應用軟體",
-      "key_asset": "Microsoft Office套件",
-      "ai_suggestion": "部署Microsoft Office全套更新，評估是否啟用Office沙箱保護模式，限制巨集執行權限"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-68825 Windows Bind Filter Driver權限提升漏洞",
-      "impact": "高",
-      "category": "作業系統核心",
-      "key_asset": "Windows驅動程式",
-      "ai_suggestion": "推送Windows安全更新至所有企業端點，優先處理域管帳戶使用的工作站，預防本地權限提升攻擊"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-83498 Windows VBS Enclave權限提升漏洞",
-      "impact": "高",
-      "category": "作業系統核心",
-      "key_asset": "Windows VBS機制",
-      "ai_suggestion": "確保所有Windows系統安裝最新補丁，評估虛擬化環境的VBS配置設定是否完善"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-62871 .NET權限提升漏洞",
+      "title": "Windows 權限提升與資訊洩露漏洞",
       "impact": "中",
-      "category": "開發框架",
-      "key_asset": ".NET Framework",
-      "ai_suggestion": "更新企業內.NET Framework至最新版本，重點檢視開發及測試環境的.NET運行時版本"
+      "category": "作業系統核心",
+      "key_asset": "Windows Bind Filter、Connected User Experience",
+      "ai_suggestion": "排程測試環境驗證修補相容性，制定分階段部署計畫，優先保護高權限主機"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-63516 SharePoint Server詐騙漏洞",
-      "impact": "中",
-      "category": "協作平台",
-      "key_asset": "Microsoft SharePoint",
-      "ai_suggestion": "更新SharePoint伺服器至最新版本，加強身分驗證機制以防詐騙攻擊"
+      "title": "ASP.NET Core 與 Windows SMB 漏洞",
+      "impact": "低",
+      "category": "應用開發框架",
+      "key_asset": "ASP.NET Core、Windows SMB 用戶端",
+      "ai_suggestion": "評估內部 ASP.NET Core 版本，納入月度更新計畫，關注 SMB 用戶端外洩風險"
     }
   ],
   "global_events": [
+    {
+      "category": "零時差漏洞",
+      "title": "Check Point 安全管理伺服器路徑遍歷零日漏洞",
+      "date": "2026-09-22",
+      "url": "https://www.cna.com.tw"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "Check Point VPN 憑證驗證零日漏洞",
+      "date": "2026-09-22",
+      "url": "https://www.cna.com.tw"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "Windows Defender 零日漏洞阻止防毒更新",
+      "date": "2026-09-22",
+      "url": "https://www.bleepingcomputer.com/news/security/new-windows-defender-zero-day-blocks-microsoft-antivirus-updates/"
+    },
     {
       "category": "APT攻擊",
       "title": "中國駭客Red Heron利用Gitea漏洞攻擊多國",
@@ -450,6 +442,48 @@ const DATA = {
       "title": "Chrome與Windows零時差漏洞遭中國駭客串連利用",
       "date": "2026-09-21",
       "url": "https://www.ithome.com.tw/news/178917"
+    },
+    {
+      "category": "APT攻擊",
+      "title": "FBI 遭駭客入侵竊取 PeopleSoft 零日漏洞",
+      "date": "2026-09-21",
+      "url": "https://www.bleepingcomputer.com/news/security/shinyhunters-claims-fbi-hack-data-theft-in-peoplesoft-zero-day-breach/"
+    },
+    {
+      "category": "APT攻擊",
+      "title": "中國駭客利用 WordPress 與 Zyxel 漏洞竊取政府資料",
+      "date": "2026-09-21",
+      "url": "https://www.bleepingcomputer.com/news/security/chinese-hackers-exploit-wordpress-zyxel-flaws-to-steal-govt-data/"
+    },
+    {
+      "category": "資料外洩",
+      "title": "虛假多因素驗證提供商竊取登入密碼",
+      "date": "2026-09-21",
+      "url": "https://www.bleepingcomputer.com/news/security/rogue-external-mfa-providers-can-steal-passwords-during-logins/"
+    },
+    {
+      "category": "APT攻擊",
+      "title": "新型 Windows 惡意軟體使用 AI 決策進行攻擊",
+      "date": "2026-09-21",
+      "url": "https://www.bleepingcomputer.com/news/security/new-closedquorum-windows-malware-uses-ai-for-attack-decisions/"
+    },
+    {
+      "category": "資料外洩",
+      "title": "瑞典對環境監測公司罰款 220 萬人資料外洩",
+      "date": "2026-09-21",
+      "url": "https://www.bleepingcomputer.com/news/security/sweden-fines-miljoedata-183-000-over-breach-affecting-2.2-million/"
+    },
+    {
+      "category": "政府公告",
+      "title": "台灣資安日倡議全民防範意識提升",
+      "date": "2026-09-21",
+      "url": "https://www.cna.com.tw/news/afe/202609210105.aspx"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "勒索軟體 Everest 攻擊晶睿通訊事件",
+      "date": "2026-09-18",
+      "url": "https://www.ithome.com.tw/tags/%E8%B3%87%E5%AE%89%E6%97%A5%E5%A0%B1"
     },
     {
       "category": "勒索病毒",
@@ -640,6 +674,12 @@ const DATA = {
     },
     {
       "category": "勒索病毒",
+      "title": "商周集團網站遭攻擊中斷服務",
+      "date": "2026-09-10",
+      "url": "https://www.ithome.com.tw/tags/%E8%B3%87%E5%AE%89%E6%97%A5%E5%A0%B1"
+    },
+    {
+      "category": "勒索病毒",
       "title": "ShinyHunters勒索團伙入侵美國佛羅里達州車管所",
       "date": "2026-09-09",
       "url": "https://www.gm7.org/archives/154890"
@@ -729,25 +769,55 @@ const DATA = {
       "url": "https://gbhackers.com/apt36-malware-campaign/"
     }
   ],
-  "ai_analysis": "今日威脅態勢評估，最緊迫的優先處理事項是Microsoft Office系列的5個遠端程式碼執行高危漏洞，加上CISA已確認的Linux核心主動攻擊事件。Microsoft Office被廣泛部署於企業環境，若員工收到惡意文件可直接觸發程式碼執行，結合臺灣近期勒索軟體攻擊升溫的態勢，風險極高。建議立即啟動Microsoft Office全套補丁部署，重點監控郵件進口。\n\n第二優先是國內勒索軟體攻擊頻率明顯加快。近期晶睿通訊、商周集團及創新服務等知名企業連續遭攻，駭客採用超快速滲透加AI深度偽造技術，滲透到勒索的時間窗口大幅縮短。這提示我們傳統的邊界防護已不足以應對，需強化內部分網隔離、備份獨立性及事件應變機制。\n\n值得注意的是APT組織也在積極利用新漏洞進行供應鏈攻擊，中國駭客Red Heron及Chrome/Windows零時差漏洞串連案例顯示威脅生態鏈完整化。建議重新評估企業關鍵供應商的資安狀態，加強軟體供應鏈的驗證機制。",
+  "ai_analysis": "今日出現四個 CVSS 9.3-9.8 的關鍵漏洞，其中兩個是 Check Point 零日漏洞，直接威脅組織的防火牆防線。Check Point 管理伺服器和 VPN 模組已成為高優先度應急修補對象，建議立即與 Check Point 聯繫取得修補程式，同時檢視是否有異常登入或管理操作日誌。\n\nF5 BIG-IP APM 的堆積緩衝區溢位漏洞也需儘速處理，若貴組織使用該應用防火牆應立即評估受影響版本並啟動更新流程。另值得注意的是，聯邦調查局遭駭客入侵且盜取 PeopleSoft 零日漏洞資訊，代表企業資源規劃系統成為高價值目標，建議加強 ERP 系統的存取控制和日誌監控。\n\n整體趨勢上，零日漏洞增多、攻擊手法智慧化（AI 輔助決策）、假 MFA 服務成為新威脅向量，組織應強化多因子驗證的真偽驗證機制，並加快部署 Microsoft 月度安全更新。建議優先順序為：Check Point 零日 > F5 漏洞 > Microsoft 關鍵補丁 > Windows Defender 零日評估。",
   "cve_radar": [
     {
-      "cve_id": "CVE-2026-7273",
-      "title": "Zyxel GS1900系列交換器堆疊型緩衝區溢位漏洞",
-      "cvss": 8.8,
+      "cve_id": "CVE-2026-93616",
+      "title": "Check Point 安全管理伺服器路徑遍歷漏洞",
+      "cvss": 9.8,
       "cvss_source": "NVD官方",
       "exploited": true,
-      "action": "一週內更新",
-      "plain_title": "網路交換器發現遠端控制漏洞",
-      "plain_summary": "Zyxel製造的網路交換器設備有個安全缺陷，攻擊者在同一區域網路內不需要密碼就能發送特殊的網路請求，進而控制設備或執行惡意指令。這類設備通常是公司網路的重要基礎設施，若被攻擊可能導致整個網路癱瘓或資料外洩。建議企業儘快向廠商確認並安裝更新。"
+      "action": "立即更新",
+      "plain_title": "防火牆管理系統遭駭客入侵",
+      "plain_summary": "Check Point 防火牆的管理系統發現漏洞，駭客無需密碼就能上傳和執行惡意程式。由於這套系統管理著整個公司的防火牆，一旦被攻破等於所有網路防線都失效，攻擊者可以任意監控和竄改流量，風險極高"
+    },
+    {
+      "cve_id": "CVE-2026-85102",
+      "title": "Check Point VPN 憑證驗證不足漏洞",
+      "cvss": 9.8,
+      "cvss_source": "NVD官方",
+      "exploited": true,
+      "action": "立即更新",
+      "plain_title": "遠端VPN連線出現嚴重安全漏洞",
+      "plain_summary": "Check Point 防火牆的遠端存取 VPN 功能驗證機制有缺陷，攻擊者可以假冒合法使用者身分連線進來，進而控制防火牆並進入內部網路。這就像大樓保全沒有確認訪客真實身分就放人進去，後果非常嚴重"
+    },
+    {
+      "cve_id": "CVE-2026-93952",
+      "title": "Arista VeloCloud Orchestrator 輸入驗證不足漏洞",
+      "cvss": 9.5,
+      "cvss_source": "NVD官方",
+      "exploited": true,
+      "action": "立即更新",
+      "plain_title": "雲端管理平台出現安全漏洞",
+      "plain_summary": "Arista 公司的雲端服務管理工具發現漏洞，攻擊者可能利用這個問題繞過安全檢查，取得不該有的存取權限。這就像是門禁系統沒有確實檢查訪客身分一樣，可能導致敏感資料洩露或系統被破壞，使用該工具的公司應儘速更新軟體"
+    },
+    {
+      "cve_id": "CVE-2026-94127",
+      "title": "F5 BIG-IP APM 堆積緩衝區溢位漏洞",
+      "cvss": 9.3,
+      "cvss_source": "NVD官方",
+      "exploited": true,
+      "action": "立即更新",
+      "plain_title": "網路安全裝置出現遠端控制漏洞",
+      "plain_summary": "F5 公司的應用程式防火牆裝置發現嚴重缺陷，攻擊者在不需要帳號密碼的情況下，就能透過特定方式輸入資料，使裝置執行惡意程式。這相當於把伺服器的控制權拱手相讓，影響範圍涵蓋所有受保護的系統，必須立即修補"
     }
   ],
   "risk_score": {
-    "total": 27,
+    "total": 29,
     "breakdown": [
       {
         "label": "漏洞風險",
-        "score": 68
+        "score": 100
       },
       {
         "label": "APT攻擊",
@@ -755,7 +825,7 @@ const DATA = {
       },
       {
         "label": "勒索病毒",
-        "score": 66
+        "score": 44
       },
       {
         "label": "身份風險",
@@ -769,6 +839,42 @@ const DATA = {
   },
   "action_items": [
     {
+      "category": "漏洞修補",
+      "title": "CVE-2026-93616：Check Point 安全管理伺服器路徑遍歷漏洞",
+      "priority": "高",
+      "detail": "CVSS 9.8（NVD官方），建議立即更新"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-85102：Check Point VPN 憑證驗證不足漏洞",
+      "priority": "高",
+      "detail": "CVSS 9.8（NVD官方），建議立即更新"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-93952：Arista VeloCloud Orchestrator 輸入驗證不足漏洞",
+      "priority": "高",
+      "detail": "CVSS 9.5（NVD官方），建議立即更新"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-94127：F5 BIG-IP APM 堆積緩衝區溢位漏洞",
+      "priority": "高",
+      "detail": "CVSS 9.3（NVD官方），建議立即更新"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-69620 Windows DHCP 伺服器遠端程式碼執行漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-55134 Microsoft Word 遠端程式碼執行漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
       "category": "公告確認",
       "title": "CVE-2026-78517 Microsoft Office Word 遠端程式碼執行漏洞",
       "priority": "高",
@@ -776,25 +882,13 @@ const DATA = {
     },
     {
       "category": "公告確認",
-      "title": "CVE-2026-77901 Microsoft Office Word 遠端程式碼執行漏洞",
+      "title": "CVE-2026-69498 Windows Win32k 權限提升漏洞",
       "priority": "高",
       "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "CVE-2026-78526 Microsoft Office Word 遠端程式碼執行漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-78524 Microsoft Office 遠端程式碼執行漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-63532 Microsoft Office 遠端程式碼執行漏洞",
+      "title": "CVE-2026-68824 Connected User Experiences and Telemetry 權限提升漏洞",
       "priority": "高",
       "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
@@ -805,68 +899,38 @@ const DATA = {
       "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
-      "category": "公告確認",
-      "title": "CVE-2026-83498 Windows VBS Enclave 權限提升漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "漏洞修補",
-      "title": "CVE-2026-7273：Zyxel GS1900系列交換器堆疊型緩衝區溢位漏洞",
-      "priority": "中",
-      "detail": "CVSS 8.8（NVD官方），建議一週內更新"
-    },
-    {
-      "category": "公告確認",
-      "title": "勒索軟體威脅升溫，攻擊手法日趨複雜",
-      "priority": "中",
-      "detail": "來源：TWCERT/CC。駭客組織Crazyhunter、Nightspire及UAT-5918針對臺灣醫療機構、學校及上市櫃公司發動勒索攻擊，採用超快速滲透與AI深度偽造技術，造成系統癱瘓與資料外洩。"
-    },
-    {
-      "category": "公告確認",
-      "title": "企業遭勒索軟體攻擊升溫 資安署籲4招強化防護",
-      "priority": "中",
-      "detail": "來源：資安署。資安署指出駭客採用雙重勒索模式結合AI自動化攻擊，呼籲企業透過系統備份、軟體更新等防護措施強化資安防護。"
-    },
-    {
-      "category": "掃描比對",
-      "title": "中國駭客Red Heron利用Gitea漏洞相關IOC比對",
-      "priority": "中",
-      "detail": "涉及類型：URL、Domain。建議比對內部防火牆/EDR日誌。"
-    },
-    {
-      "category": "掃描比對",
-      "title": "JFrog Artifactory漏洞遭積極利用相關IOC比對",
-      "priority": "中",
-      "detail": "涉及類型：URL。建議比對內部防火牆/EDR日誌。"
-    },
-    {
-      "category": "掃描比對",
-      "title": "Chrome與Windows零時差漏洞串連相關IOC比對",
-      "priority": "中",
-      "detail": "涉及類型：Domain、IP。建議比對內部防火牆/EDR日誌。"
-    },
-    {
       "category": "教育宣導",
-      "title": "BigCommerce電商平台驚爆用戶資料外洩事件",
+      "title": "虛假多因素驗證提供商可在登入時竊取密碼",
       "priority": "低",
       "detail": "建議納入員工資安宣導教育素材。"
     },
     {
       "category": "教育宣導",
-      "title": "Google因位置資料隱私問題被歐盟罰款四億歐元",
+      "title": "台灣資安日倡議——全民防範意識提升",
+      "priority": "低",
+      "detail": "建議納入員工資安宣導教育素材。"
+    },
+    {
+      "category": "教育宣導",
+      "title": "勒索軟體Everest攻擊晶睿通訊事件",
+      "priority": "低",
+      "detail": "建議納入員工資安宣導教育素材。"
+    },
+    {
+      "category": "教育宣導",
+      "title": "商周集團網站遭攻擊中斷服務",
       "priority": "低",
       "detail": "建議納入員工資安宣導教育素材。"
     }
   ],
   "category_counts": {
-    "kev": 1,
-    "vendor": 9,
-    "news": 5,
+    "kev": 4,
+    "vendor": 10,
+    "news": 6,
     "ransomwareApt": 3
   }
 };
-const UPDATED_AT = "2026/9/22 09:33:52（台灣時間）";
+const UPDATED_AT = "2026/9/23 09:24:09（台灣時間）";
 document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
