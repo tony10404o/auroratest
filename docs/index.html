@@ -338,174 +338,214 @@ const DATA = {
   "headlines": [
     {
       "icon": "🎯",
-      "title": "Microsoft Outlook 遠端代碼執行漏洞",
-      "subtitle": "CVE-2026-70125 高風險漏洞已發佈，需立即關注修補時程",
+      "title": "WSO2 API產品遠端程式碼執行漏洞",
+      "subtitle": "CVSS 10.0 滿分危害，無需認證即可上傳惡意檔案",
       "impact": "高",
       "stars": 5,
-      "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-70125"
+      "url": "https://asec.ahnlab.com/en/95545/"
     },
     {
       "icon": "🎯",
-      "title": "Check Point VPN 遠端代碼執行漏洞遭駭客利用",
-      "subtitle": "Security Gateway VPN 零時差漏洞被積極利用，已有實際攻擊案例",
+      "title": "Adobe Commerce授權驗證漏洞",
+      "subtitle": "CVSS 9.1危急等級，可直接竄改購物平台與外洩客戶資料",
       "impact": "高",
-      "stars": 5,
-      "url": "https://www.bleepingcomputer.com/news/security/check-point-warns-of-hackers-exploiting-security-gateway-vpn-rce-flaw/"
+      "stars": 5
     },
     {
-      "icon": "🎯",
-      "title": "Cisco Secure Firewall ASA/Threat Defense SSL VPN 阻斷服務漏洞",
-      "subtitle": "高風險漏洞影響防火牆可用性，需優先評估內部系統版本",
+      "icon": "🦠",
+      "title": "TeamCity嚴重漏洞遭勒索軟體大規模利用",
+      "subtitle": "美國CISA警告，已有實際攻擊案例持續發生中",
       "impact": "高",
       "stars": 5,
-      "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftdvirtual-dos-MuenGnYR?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Adaptive%20Security%20Appliance%20and%20Secure%20Firewall%20Threat%20Defense%20Software%20SSL%20VPN%20Denial%20of%20Service%20Vulnerability%26vs_k=1"
+      "url": "https://www.bleepingcomputer.com/news/security/cisa-ransomware-gangs-now-exploiting-critical-teamcity-flaw/"
     },
     {
-      "icon": "🎯",
-      "title": "F5 BIG-IP APM 遠端代碼執行零時差漏洞",
-      "subtitle": "正被駭客主動利用進行遠端入侵，企業需立即修補",
+      "icon": "🪟",
+      "title": "Microsoft多個高危漏洞集中公告",
+      "subtitle": "包含SharePoint遠端執行、Windows權限提升等5個高風險漏洞",
       "impact": "高",
-      "stars": 5,
-      "url": "https://www.bleepingcomputer.com/news/security/f5-warns-of-big-ip-apm-remote-code-execution-zero-day-exploited-in-attacks/"
+      "stars": 4
     },
     {
-      "icon": "🎯",
-      "title": "Arista VeloCloud Orchestrator 零時差漏洞修補",
-      "subtitle": "被駭客積極利用的零時差漏洞，已發佈修補程式需盡速更新",
+      "icon": "🦠",
+      "title": "Carbonato惡意軟體利用AI自動化攻擊Docker",
+      "subtitle": "新型威脅結合AI技術自動尋找暴露容器環境發動攻擊",
       "impact": "高",
-      "stars": 5,
-      "url": "https://www.bleepingcomputer.com/news/security/arista-patches-actively-exploited-velocloud-orchestrator-zero-day/"
+      "stars": 4,
+      "url": "https://www.bleepingcomputer.com/news/security/new-carbonato-malware-uses-ai-agents-to-hijack-exposed-docker-hosts/"
     }
   ],
   "vendor_impact": [
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-70125 Outlook 遠端代碼執行漏洞",
+      "title": "CVE-2026-69282 SharePoint遠端程式碼執行漏洞",
       "impact": "高",
-      "category": "郵件系統",
-      "key_asset": "Microsoft Outlook",
-      "ai_suggestion": "確認內部 Outlook 版本並制定修補計畫，建議優先在用戶端進行測試"
+      "category": "協作平台",
+      "key_asset": "Microsoft SharePoint",
+      "ai_suggestion": "立即檢查SharePoint版本並套用最新安全補檔，優先保護外部存取的SharePoint伺服器"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-57099 ASP.NET Core 阻斷服務漏洞",
-      "impact": "中",
-      "category": "開發平台",
-      "key_asset": "ASP.NET Core 應用程式",
-      "ai_suggestion": "檢查內部 ASP.NET Core 應用現況，評估修補優先度與測試窗口"
+      "title": "CVE-2026-69681 虛擬硬碟驅動程式權限提升",
+      "impact": "高",
+      "category": "虛擬化平台",
+      "key_asset": "Windows VHD迷你連接埠驅動程式",
+      "ai_suggestion": "更新Hyper-V或虛擬化平台相關驅動程式，檢查VM主機權限控制設定"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-77886 Windows DHCP Server 阻斷服務漏洞",
+      "title": "CVE-2026-69732 LLDP遠端程式碼執行漏洞",
+      "impact": "高",
+      "category": "網路協定",
+      "key_asset": "Windows連結層拓撲探索協定",
+      "ai_suggestion": "檢查網路交換機與伺服器的LLDP設定，考慮在邊界關閉不必要的LLDP服務"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-71337 儲存管理提供者權限提升",
+      "impact": "高",
+      "category": "儲存管理",
+      "key_asset": "Windows存放裝置管理提供者",
+      "ai_suggestion": "更新Windows系統並限制本機登入權限，檢查儲存池與磁碟管理的存取控制"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-68894 錯誤報告權限提升漏洞",
+      "impact": "高",
+      "category": "系統服務",
+      "key_asset": "Windows錯誤報告服務",
+      "ai_suggestion": "停用或限制Windows錯誤報告服務權限，檢查本機使用者帳戶權限設定"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-81357 Visual Studio Code安全功能繞過",
       "impact": "中",
-      "category": "網路基礎服務",
+      "category": "開發工具",
+      "key_asset": "Visual Studio Code",
+      "ai_suggestion": "更新VS Code至最新版本，檢查開發團隊的擴充套件安全政策"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-69637 DHCP Server拒絕服務漏洞",
+      "impact": "中",
+      "category": "網路服務",
       "key_asset": "Windows DHCP Server",
-      "ai_suggestion": "盤點內部 DHCP 服務配置，規劃測試與修補時程，避免網路服務中斷"
+      "ai_suggestion": "檢查DHCP伺服器日誌，限制DHCP查詢流量，套用最新修補程式"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "Chromium CVE-2026-87489：V8 引擎記憶體損毀漏洞",
-      "impact": "高",
-      "category": "瀏覽器",
-      "key_asset": "Edge/Chromium 瀏覽器",
-      "ai_suggestion": "推送 Edge 瀏覽器更新至用戶端，監控修補完成率與相關日誌"
+      "title": "CVE-2026-69803 DHCP Server資訊揭露漏洞",
+      "impact": "中",
+      "category": "網路服務",
+      "key_asset": "Windows DHCP Server",
+      "ai_suggestion": "審核DHCP伺服器記錄可讀性權限，限制非必要的DHCP查詢存取"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "Chromium CVE-2026-87536：V8 引擎釋放後使用漏洞",
-      "impact": "高",
-      "category": "瀏覽器",
-      "key_asset": "Edge/Chromium 瀏覽器",
-      "ai_suggestion": "納入瀏覽器修補推送名單，檢查企業內 Chromium 衍生應用版本"
+      "title": "CVE-2026-69409 SharePoint資訊揭露漏洞",
+      "impact": "中",
+      "category": "協作平台",
+      "key_asset": "Microsoft SharePoint",
+      "ai_suggestion": "檢查SharePoint文件庫權限設定，套用權限隱藏補檔，審計敏感內容存取"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "Chromium CVE-2026-87564：V8 引擎型別混淆漏洞",
+      "title": "CVE-2026-87564 Chromium V8型別混淆漏洞",
       "impact": "高",
-      "category": "瀏覽器",
-      "key_asset": "Edge/Chromium 瀏覽器",
-      "ai_suggestion": "V8 引擎多個漏洞需統一修補，建議納入月度更新計畫"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "Chromium CVE-2026-87601：V8 引擎競爭條件漏洞",
-      "impact": "高",
-      "category": "瀏覽器",
-      "key_asset": "Edge/Chromium 瀏覽器",
-      "ai_suggestion": "監測同期 Chromium 相關漏洞修補狀況，統一規劃更新時程"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "Chromium CVE-2026-87612：V8 引擎型別混淆漏洞",
-      "impact": "高",
-      "category": "瀏覽器",
-      "key_asset": "Edge/Chromium 瀏覽器",
-      "ai_suggestion": "建議優先處理 Chromium 相關修補，測試後推送至全公司用戶端"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "Chromium CVE-2026-87625：V8 引擎釋放後使用漏洞",
-      "impact": "高",
-      "category": "瀏覽器",
-      "key_asset": "Edge/Chromium 瀏覽器",
-      "ai_suggestion": "V8 引擎多個高風險漏洞同期發佈，需加速修補驗證與部署"
+      "category": "瀏覽器引擎",
+      "key_asset": "Chromium/Edge瀏覽器",
+      "ai_suggestion": "更新Edge與Chromium為最新版本，檢查企業自動更新政策是否啟用"
     },
     {
       "icon": "🔀",
       "vendor": "Cisco",
-      "title": "Secure Firewall ASA/Threat Defense SSL VPN 阻斷服務漏洞",
-      "impact": "高",
-      "category": "防火牆",
-      "key_asset": "Cisco Secure Firewall ASA/Threat Defense",
-      "ai_suggestion": "立即盤點內部防火牆版本，確認修補檔發佈後優先安排測試與更新"
-    },
-    {
-      "icon": "🏢",
-      "vendor": "Arista",
-      "title": "VeloCloud Orchestrator 零時差漏洞修補",
-      "impact": "高",
-      "category": "遠端存取設備",
-      "key_asset": "Arista VeloCloud Orchestrator",
-      "ai_suggestion": "如使用 VeloCloud，立即檢查版本並應用最新修補程式"
-    },
-    {
-      "icon": "🏢",
-      "vendor": "Check Point",
-      "title": "Security Gateway VPN 遠端代碼執行漏洞",
-      "impact": "高",
-      "category": "遠端存取設備",
-      "key_asset": "Check Point Security Gateway",
-      "ai_suggestion": "已有實際攻擊案例，需緊急檢查版本並應用官方修補程式"
-    },
-    {
-      "icon": "🏢",
-      "vendor": "F5",
-      "title": "BIG-IP APM 遠端代碼執行零時差漏洞",
+      "title": "Identity Services Engine認證繞過漏洞",
       "impact": "高",
       "category": "身分驗證服務",
-      "key_asset": "F5 BIG-IP APM",
-      "ai_suggestion": "零時差漏洞已遭利用，需緊急評估內部 BIG-IP 部署狀況並修補"
+      "key_asset": "Cisco ISE身分認證系統",
+      "ai_suggestion": "檢查ISE版本並套用認證補檔，重新驗證所有已發行的使用者憑證"
     },
     {
-      "icon": "🏢",
-      "vendor": "WordPress",
-      "title": "重大漏洞遭駭客入侵執行惡意代碼",
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "Secure Firewall SSL VPN拒絕服務漏洞",
       "impact": "中",
-      "category": "內容管理系統",
-      "key_asset": "WordPress 網站",
-      "ai_suggestion": "盤點內部 WordPress 網站，應用官方安全更新並強化存取控制"
+      "category": "遠端存取設備",
+      "key_asset": "Cisco ASA/Threat Defense防火牆",
+      "ai_suggestion": "檢查防火牆SSL VPN模組版本，限制VPN連線速率，監控異常連線嘗試"
     }
   ],
   "global_events": [
+    {
+      "category": "勒索病毒",
+      "title": "TeamCity嚴重漏洞遭勒索軟體大規模利用",
+      "date": "2026-09-24",
+      "url": "https://www.bleepingcomputer.com/news/security/cisa-ransomware-gangs-now-exploiting-critical-teamcity-flaw/"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "WSO2 API產品路徑遍歷漏洞導致遠端程式碼執行",
+      "date": "2026-09-24",
+      "url": ""
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "Adobe Commerce授權驗證不當漏洞",
+      "date": "2026-09-24",
+      "url": ""
+    },
+    {
+      "category": "資料外洩",
+      "title": "Carbonato惡意軟體利用AI自動化攻擊Docker容器",
+      "date": "2026-09-24",
+      "url": "https://www.bleepingcomputer.com/news/security/new-carbonato-malware-uses-ai-agents-to-hijack-exposed-docker-hosts/"
+    },
+    {
+      "category": "資料外洩",
+      "title": "Roundcube郵件系統漏洞遭大規模攻擊利用",
+      "date": "2026-09-24",
+      "url": "https://www.bleepingcomputer.com/news/security/critical-roundcube-flaw-now-actively-exploited-in-code-injection-attacks/"
+    },
+    {
+      "category": "資料外洩",
+      "title": "GitLab專案外洩郵件遭利用進行程式碼注入攻擊",
+      "date": "2026-09-24",
+      "url": "https://www.bleepingcomputer.com/news/security/exposed-gitlab-project-email-addresses-let-attackers-push-code/"
+    },
+    {
+      "category": "資料外洩",
+      "title": "MacSync惡意軟體利用iCloud行事曆傳播",
+      "date": "2026-09-24",
+      "url": "https://www.bleepingcomputer.com/news/security/macsync-malware-uses-public-icalendars-to-deliver-new-payloads/"
+    },
+    {
+      "category": "資料外洩",
+      "title": "澳洲政府醫療網站遭駭客入侵並探測軟體供應商",
+      "date": "2026-09-24",
+      "url": "https://www.bleepingcomputer.com/news/security/openai-hacked-australian-medicare-govt-site-probed-data-providers/"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "Metaencryptor勒索軟體攻擊南韓相機及日本汽車供應商",
+      "date": "2026-09-23",
+      "url": "https://asec.ahnlab.com/en/95545/"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "ShinyHunters聲稱入侵美國聯邦執法機構竊取敏感資料",
+      "date": "2026-09-23",
+      "url": "https://asec.ahnlab.com/en/95545/"
+    },
     {
       "category": "零時差漏洞",
       "title": "Check Point 安全管理伺服器路徑遍歷零日漏洞",
@@ -586,7 +626,19 @@ const DATA = {
     },
     {
       "category": "勒索病毒",
+      "title": "Settra勒索軟體針對零售與製造業發動攻擊",
+      "date": "2026-09-18",
+      "url": "https://www.infosecurity-magazine.com/news/settra-ransomware-retail/"
+    },
+    {
+      "category": "勒索病毒",
       "title": "AUDIT TEAM對日本藥廠與南韓電商之勒索攻擊",
+      "date": "2026-09-17",
+      "url": "https://asec.ahnlab.com/en/95450/"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "AUDIT TEAM對南韓組織進行資料敲詐攻擊",
       "date": "2026-09-17",
       "url": "https://asec.ahnlab.com/en/95450/"
     },
@@ -868,14 +920,35 @@ const DATA = {
       "url": "https://gbhackers.com/apt36-malware-campaign/"
     }
   ],
-  "ai_analysis": "今日威脅情勢相當嚴峻，最需優先處理的是三個已遭駭客主動利用的零時差漏洞：Check Point Security Gateway VPN、F5 BIG-IP APM 與 Arista VeloCloud Orchestrator。這些都是關鍵網路設備，若貴組織有部署相關產品，建議立即盤點版本並應用最新修補程式，因為攻擊者已開始利用這些漏洞進行實際入侵。\n\n第二優先是 Microsoft 與 Chromium 相關漏洞的大量發佈。特別是 Outlook 遠端代碼執行（CVE-2026-70125）與多個 V8 引擎漏洞，這類漏洞涉及廣泛使用的應用程式，建議納入本周修補計畫。\n\n觀察到的趨勢是遠端存取設備的漏洞明顯增加，這反映駭客持續聚焦網路邊界與身分認證服務作為攻擊切入點。建議優先檢查 VPN、防火牆與身分驗證設備的版本與修補狀態，同時考慮強化這些關鍵設備的存取控制與監控。",
-  "cve_radar": [],
+  "ai_analysis": "今日威脅態勢呈現「高風險集中爆發」的特徵。首要優先處理事項是WSO2 API產品與Adobe Commerce的兩個CVSS評分極高的漏洞。WSO2漏洞滿分10.0代表攻擊者可無需認證直接上傳惡意程式碼控制伺服器，Adobe Commerce則可繞過權限驗證竄改購物平台，兩者都涉及大規模資料外洩與服務中斷風險。\n\n其次，TeamCity漏洞已進入「實際勒索軟體攻擊階段」，美國CISA已發出警告，代表這不再是理論威脅而是現實進行式。此漏洞與Microsoft高危補檔群集合併考量，表示企業面臨「多層次、多廠商」的同步攻擊壓力。\n\n值得關注的趨勢包括三點：第一，AI輔助自動化攻擊工具（如Carbonato）正興起，讓駭客能快速掃描並入侵大量容器化環境；第二，勒索軟體集團持續針對關鍵供應鏈發動攻擊（南韓相機模組、日本汽車零件），意味台灣製造業正處於高風險十字路口；第三，新型傳播管道不斷創新（iCloud行事曆、GitLab專案），傳統防禦邊界的效能逐漸衰減。\n\n建議立即啟動三軌並行方案：一是緊急盤點WSO2、Adobe Commerce、TeamCity、ISE、SharePoint等關鍵系統的版本與補檔狀態；二是檢視容器與雲端環境的預設配置是否暴露；三是加強員工對新型社交工程管道（日曆邀請、程式碼協作通知）的警覺訓練。",
+  "cve_radar": [
+    {
+      "cve_id": "CVE-2026-5430",
+      "title": "WSO2 多款產品路徑遍歷漏洞，可導致遠端程式碼執行",
+      "cvss": 10,
+      "cvss_source": "NVD官方",
+      "exploited": true,
+      "action": "立即更新",
+      "plain_title": "API 管理工具出現嚴重執行程式漏洞",
+      "plain_summary": "WSO2 API 相關產品被發現可讓攻擊者上傳惡意檔案到不該放置的位置，等於直接在企業伺服器上植入病毒。攻擊者不需要登入帳號，就能遠端控制整個系統執行任意指令，影響所有使用該工具的企業。"
+    },
+    {
+      "cve_id": "CVE-2026-71362",
+      "title": "Adobe Commerce 與 Magento 授權驗證不當漏洞",
+      "cvss": 9.1,
+      "cvss_source": "NVD官方",
+      "exploited": true,
+      "action": "立即更新",
+      "plain_title": "線上購物平台存在權限提升漏洞",
+      "plain_summary": "Adobe 旗下電商軟體被發現有安全漏洞，等於前台員工能偷偷存取本不應該看到的客戶資料與系統設定。駭客可以直接繞過安全驗證機制，不需要透過釣魚或其他手法就能取得高級權限，可能導致大量客戶資料外洩或網站遭篡改。"
+    }
+  ],
   "risk_score": {
-    "total": 13,
+    "total": 43,
     "breakdown": [
       {
         "label": "漏洞風險",
-        "score": 64
+        "score": 80
       },
       {
         "label": "APT攻擊",
@@ -883,88 +956,112 @@ const DATA = {
       },
       {
         "label": "勒索病毒",
-        "score": 0
+        "score": 88
       },
       {
         "label": "身份風險",
-        "score": 0
+        "score": 25
       },
       {
         "label": "AI風險",
-        "score": 0
+        "score": 20
       }
     ]
   },
   "action_items": [
     {
+      "category": "漏洞修補",
+      "title": "CVE-2026-5430：WSO2 多款產品路徑遍歷漏洞，可導致遠端程式碼執行",
+      "priority": "高",
+      "detail": "CVSS 10（NVD官方），建議立即更新"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-71362：Adobe Commerce 與 Magento 授權驗證不當漏洞",
+      "priority": "高",
+      "detail": "CVSS 9.1（NVD官方），建議立即更新"
+    },
+    {
       "category": "公告確認",
-      "title": "CVE-2026-70125 Outlook 遠端代碼執行漏洞",
+      "title": "CVE-2026-69282 Microsoft Office SharePoint 遠端程式碼執行漏洞",
       "priority": "高",
       "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "Secure Firewall ASA/Threat Defense SSL VPN 阻斷服務漏洞",
+      "title": "CVE-2026-69681 虛擬硬碟 VHD 迷你連接埠驅動程式權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-69732 Windows 連結層拓撲探索協定遠端程式碼執行漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-71337 Windows 存放裝置管理提供者權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-68894 Windows 錯誤報告權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "Chromium CVE-2026-87564 V8 型別混淆漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "Cisco Identity Services Engine 認證繞過漏洞",
       "priority": "高",
       "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
-      "category": "公告確認",
-      "title": "Chromium CVE-2026-87489：V8 引擎記憶體損毀漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "Chromium CVE-2026-87536：V8 引擎釋放後使用漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "Chromium CVE-2026-87564：V8 引擎型別混淆漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "Chromium CVE-2026-87601：V8 引擎競爭條件漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "Chromium CVE-2026-87612：V8 引擎型別混淆漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "Chromium CVE-2026-87625：V8 引擎釋放後使用漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
       "category": "教育宣導",
-      "title": "虛假應用商店域名成為 ClickFix 攻擊新據點",
+      "title": "駭客竟能用公開 iCloud 行事曆散播 MacSync 惡意軟體",
       "priority": "低",
       "detail": "建議納入員工資安宣導教育素材。"
     },
     {
       "category": "教育宣導",
-      "title": "新型 RemControl Android 銀行木馬襲擊歐加用戶",
+      "title": "Metaencryptor攻擊南韓相機模組與日本汽車零件廠商",
+      "priority": "低",
+      "detail": "建議納入員工資安宣導教育素材。"
+    },
+    {
+      "category": "教育宣導",
+      "title": "ShinyHunters聲稱入侵美國聯邦執法機構",
+      "priority": "低",
+      "detail": "建議納入員工資安宣導教育素材。"
+    },
+    {
+      "category": "教育宣導",
+      "title": "Settra勒索軟體針對零售與製造業發動攻擊",
+      "priority": "低",
+      "detail": "建議納入員工資安宣導教育素材。"
+    },
+    {
+      "category": "教育宣導",
+      "title": "AUDIT TEAM對南韓組織實施資料敲詐攻擊",
       "priority": "低",
       "detail": "建議納入員工資安宣導教育素材。"
     }
   ],
   "category_counts": {
-    "kev": 0,
-    "vendor": 10,
+    "kev": 2,
+    "vendor": 12,
     "news": 6,
-    "ransomwareApt": 0
+    "ransomwareApt": 4
   }
 };
-const UPDATED_AT = "2026/9/24 09:17:46（台灣時間）";
+const UPDATED_AT = "2026/9/25 09:23:17（台灣時間）";
 document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }

@@ -1,5 +1,65 @@
 [
   {
+    "category": "勒索病毒",
+    "title": "TeamCity嚴重漏洞遭勒索軟體大規模利用",
+    "date": "2026-09-24",
+    "url": "https://www.bleepingcomputer.com/news/security/cisa-ransomware-gangs-now-exploiting-critical-teamcity-flaw/"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "WSO2 API產品路徑遍歷漏洞導致遠端程式碼執行",
+    "date": "2026-09-24",
+    "url": ""
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Adobe Commerce授權驗證不當漏洞",
+    "date": "2026-09-24",
+    "url": ""
+  },
+  {
+    "category": "資料外洩",
+    "title": "Carbonato惡意軟體利用AI自動化攻擊Docker容器",
+    "date": "2026-09-24",
+    "url": "https://www.bleepingcomputer.com/news/security/new-carbonato-malware-uses-ai-agents-to-hijack-exposed-docker-hosts/"
+  },
+  {
+    "category": "資料外洩",
+    "title": "Roundcube郵件系統漏洞遭大規模攻擊利用",
+    "date": "2026-09-24",
+    "url": "https://www.bleepingcomputer.com/news/security/critical-roundcube-flaw-now-actively-exploited-in-code-injection-attacks/"
+  },
+  {
+    "category": "資料外洩",
+    "title": "GitLab專案外洩郵件遭利用進行程式碼注入攻擊",
+    "date": "2026-09-24",
+    "url": "https://www.bleepingcomputer.com/news/security/exposed-gitlab-project-email-addresses-let-attackers-push-code/"
+  },
+  {
+    "category": "資料外洩",
+    "title": "MacSync惡意軟體利用iCloud行事曆傳播",
+    "date": "2026-09-24",
+    "url": "https://www.bleepingcomputer.com/news/security/macsync-malware-uses-public-icalendars-to-deliver-new-payloads/"
+  },
+  {
+    "category": "資料外洩",
+    "title": "澳洲政府醫療網站遭駭客入侵並探測軟體供應商",
+    "date": "2026-09-24",
+    "url": "https://www.bleepingcomputer.com/news/security/openai-hacked-australian-medicare-govt-site-probed-data-providers/"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "Metaencryptor勒索軟體攻擊南韓相機及日本汽車供應商",
+    "date": "2026-09-23",
+    "url": "https://asec.ahnlab.com/en/95545/"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "ShinyHunters聲稱入侵美國聯邦執法機構竊取敏感資料",
+    "date": "2026-09-23",
+    "url": "https://asec.ahnlab.com/en/95545/"
+  },
+  {
     "category": "零時差漏洞",
     "title": "Check Point 安全管理伺服器路徑遍歷零日漏洞",
     "date": "2026-09-22",
@@ -79,7 +139,19 @@
   },
   {
     "category": "勒索病毒",
+    "title": "Settra勒索軟體針對零售與製造業發動攻擊",
+    "date": "2026-09-18",
+    "url": "https://www.infosecurity-magazine.com/news/settra-ransomware-retail/"
+  },
+  {
+    "category": "勒索病毒",
     "title": "AUDIT TEAM對日本藥廠與南韓電商之勒索攻擊",
+    "date": "2026-09-17",
+    "url": "https://asec.ahnlab.com/en/95450/"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "AUDIT TEAM對南韓組織進行資料敲詐攻擊",
     "date": "2026-09-17",
     "url": "https://asec.ahnlab.com/en/95450/"
   },
