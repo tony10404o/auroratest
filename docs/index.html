@@ -338,45 +338,56 @@ const DATA = {
   "headlines": [
     {
       "icon": "🎯",
-      "title": "Citrix NetScaler 爆發雙零時差漏洞遭實際攻擊",
-      "subtitle": "CVSS 9.5嚴重等級，已有駭客主動利用實施攻擊",
+      "title": "Citrix NetScaler零日漏洞遭實際攻擊",
+      "subtitle": "美國CISA已下令聯邦機構緊急修補",
       "impact": "高",
       "stars": 5,
-      "url": "https://www.bleepingcomputer.com/news/security/citrix-admins-warned-to-shut-down-netscalers-over-2-exploited-zero-days/"
+      "url": "https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-exploited-citrix-flaws-by-wednesday/"
     },
     {
-      "icon": "🕵️",
-      "title": "APT24供應鏈攻擊入侵臺灣廣告業者",
-      "subtitle": "中國駭客組織植入惡意程式碼於國內新聞網站",
+      "icon": "🪟",
+      "title": "Microsoft VHD虛擬硬碟驅動程式遠端執行漏洞",
+      "subtitle": "高風險漏洞影響虛擬化環境安全",
       "impact": "高",
-      "stars": 5
+      "stars": 4,
+      "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-81355"
+    },
+    {
+      "icon": "🔐",
+      "title": "超八萬組織AI登入憑證遭竊",
+      "subtitle": "影子AI與LLM劫持威脅浮現",
+      "impact": "高",
+      "stars": 5,
+      "url": "https://www.bleepingcomputer.com/news/security/80-000-plus-organizations-had-ai-logins-stolen-from-shadow-ai-to-llmjacking/"
+    },
+    {
+      "icon": "💾",
+      "title": "Supabase資料庫設定不當",
+      "subtitle": "逾一萬六千個應用程式洩露敏感資料",
+      "impact": "高",
+      "stars": 4,
+      "url": "https://www.bleepingcomputer.com/news/security/misconfigured-supabase-apps-expose-data-in-over-16-000-databases/"
     },
     {
       "icon": "🦠",
-      "title": "Brevo行銷平臺遭駭，ClickFix惡意程式注入客戶網站",
-      "subtitle": "Cloudflare API金鑰失竊導致客戶資訊與流量風險",
-      "impact": "高",
-      "stars": 4,
-      "url": "https://www.ithome.com.tw/news/179189"
-    },
-    {
-      "icon": "🦠",
-      "title": "The Gentlemen勒索軟體瞄準醫療產業",
-      "subtitle": "多家醫療機構遭受攻擊，向SEC揭露安全事件",
-      "impact": "高",
-      "stars": 4,
-      "url": "https://www.ithome.com.tw/news/178935"
-    },
-    {
-      "icon": "📰",
-      "title": "Microsoft 365更新KB5002907導致授權被撤銷",
-      "subtitle": "微軟已暫停發布該更新，用戶Office授權遭停用",
+      "title": "日本慶應大學遭勒索軟體攻擊",
+      "subtitle": "業務系統中斷需進行恢復",
       "impact": "中",
       "stars": 3,
-      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-365-kb5002907-update-paused-after-office-license-deactivations/"
+      "url": "https://www.bleepingcomputer.com/news/security/japans-keio-confirms-ransomware-attack-disrupted-business-systems/"
     }
   ],
-  "vendor_impact": [],
+  "vendor_impact": [
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-81355 虛擬硬碟(VHD)迷你埠驅動程式遠端程式碼執行漏洞",
+      "impact": "高",
+      "category": "虛擬化平台",
+      "key_asset": "Hyper-V VHD虛擬硬碟驅動程式",
+      "ai_suggestion": "優先評估環境中虛擬化基礎設施的使用情況，立即檢查Microsoft官方補丁發布時間並規劃修補排程，優先保護虛擬化叢集。"
+    }
+  ],
   "global_events": [
     {
       "category": "零時差漏洞",
@@ -587,6 +598,36 @@ const DATA = {
       "title": "Cisco Secure FMC滿分漏洞遭利用部署Qilin勒索軟體",
       "date": "2026-09-15",
       "url": "https://www.gm7.org/archives/156101"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "Citrix NetScaler零日漏洞遭實際攻擊",
+      "date": "2026-09-15",
+      "url": "https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-exploited-citrix-flaws-by-wednesday/"
+    },
+    {
+      "category": "資料外洩",
+      "title": "Supabase資料庫設定不當導致逾六萬筆個人資料洩露",
+      "date": "2026-09-15",
+      "url": "https://www.bleepingcomputer.com/news/security/misconfigured-supabase-apps-expose-data-in-over-16-000-databases/"
+    },
+    {
+      "category": "資料外洩",
+      "title": "超八萬組織AI登入憑證遭竊",
+      "date": "2026-09-15",
+      "url": "https://www.bleepingcomputer.com/news/security/80-000-plus-organizations-had-ai-logins-stolen-from-shadow-ai-to-llmjacking/"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "日本慶應大學遭勒索軟體攻擊",
+      "date": "2026-09-15",
+      "url": "https://www.bleepingcomputer.com/news/security/japans-keio-confirms-ransomware-attack-disrupted-business-systems/"
+    },
+    {
+      "category": "APT攻擊",
+      "title": "加密貨幣交易所Bitget遭駭損失3.875億美元",
+      "date": "2026-09-15",
+      "url": "https://www.bleepingcomputer.com/news/security/bitget-resumes-bitcoin-withdrawals-after-3875-million-crypto-heist/"
     },
     {
       "category": "零時差漏洞",
@@ -854,43 +895,22 @@ const DATA = {
       "url": "https://gbhackers.com/apt36-malware-campaign/"
     }
   ],
-  "ai_analysis": "今日最關鍵的優先事項是 Citrix NetScaler 的雙零時差漏洞。兩個 CVSS 9.5 的嚴重漏洞（CVE-2026-88772、CVE-2026-88771）已被駭客在實際攻擊中利用，涉及遠端程式碼執行與未認證指令執行，威脅程度極高。若貴司使用 NetScaler ADC 或 Gateway 設備，應立即檢查並考慮緊急停用受影響版本。\n\n次要關注項目是 APT24 供應鏈攻擊，已在臺灣廣告平臺成功植入惡意代碼，影響國內新聞與小說網站，波及範圍廣泛。同時，勒索軟體攻擊持續升溫，包括 ClickFix 注入、The Gentlemen 瞄準醫療產業，顯示攻擊者重點轉向供應鏈與特定產業。建議優先盤點網路設備與關鍵應用的依賴廠商清單，強化供應鏈可見度與安全監控。",
-  "cve_radar": [
-    {
-      "cve_id": "CVE-2026-88772",
-      "title": "Citrix NetScaler 記憶體緩衝區越界漏洞",
-      "cvss": 9.5,
-      "cvss_source": "NVD官方",
-      "exploited": true,
-      "action": "立即更新",
-      "plain_title": "網路設備出現嚴重安全漏洞，駭客可入侵系統",
-      "plain_summary": "Citrix 公司的網路設備軟體出現嚴重漏洞，攻擊者可以利用這個漏洞遠端控制受害設備或癱瘓其功能。這就像房子的鎖出現缺陷，讓陌生人可以強行進入或破壞內部。受影響的公司應立即檢查並安裝修補程式，因為此漏洞已有駭客在實際攻擊中使用。"
-    },
-    {
-      "cve_id": "CVE-2026-88771",
-      "title": "Citrix NetScaler 輸入驗證漏洞",
-      "cvss": 9.5,
-      "cvss_source": "NVD官方",
-      "exploited": true,
-      "action": "立即更新",
-      "plain_title": "網路設備允許無登入即可執行危險指令",
-      "plain_summary": "Citrix 網路設備軟體無法正確檢查輸入內容，攻擊者不需要密碼登入，就能向系統下達指令執行惡意操作。如同銀行櫃員沒有驗證你的身分，就讓你提領帳戶內的所有款項。這個漏洞相當危險，已被駭客主動利用，管理者須立即採取防護措施。"
-    }
-  ],
+  "ai_analysis": "本周威脅情勢嚴峻，須優先關注兩大事項。其一是Citrix NetScaler零日漏洞已遭實際利用且美國CISA已下達強制修補令，影響範圍涵蓋全球政府與企業的關鍵遠端存取基礎設施，建議立即盤點環境內是否部署該產品並儘速部署修補。其二是超八萬組織的AI系統登入憑證遭竊，反映出影子AI與LLM遭劫持的威脅日益嚴重，許多企業可能未察覺到未授權AI應用的安全風險。\n\n從趨勢觀察，雲端應用配置疏漏導致大規模資料洩露的案例增加（Supabase、AI憑證洩露），顯示開發與運維團隊的安全意識培訓需要加強。同時零日漏洞被實際利用的速度變快，已從發現到攻擊縮短，建議強化漏洞監測與快速反應能力。建議優先檢視組織內的虛擬化環境（Microsoft補丁待發）、遠端存取設備（Citrix）與AI系統存取控制，以及雲端服務的安全設定。",
+  "cve_radar": [],
   "risk_score": {
-    "total": 38,
+    "total": 6,
     "breakdown": [
       {
         "label": "漏洞風險",
-        "score": 54
+        "score": 8
       },
       {
         "label": "APT攻擊",
-        "score": 30
+        "score": 0
       },
       {
         "label": "勒索病毒",
-        "score": 66
+        "score": 0
       },
       {
         "label": "身份風險",
@@ -898,110 +918,38 @@ const DATA = {
       },
       {
         "label": "AI風險",
-        "score": 40
+        "score": 20
       }
     ]
   },
   "action_items": [
     {
-      "category": "漏洞修補",
-      "title": "CVE-2026-88772：Citrix NetScaler 記憶體緩衝區越界漏洞",
-      "priority": "高",
-      "detail": "CVSS 9.5（NVD官方），建議立即更新"
-    },
-    {
-      "category": "漏洞修補",
-      "title": "CVE-2026-88771：Citrix NetScaler 輸入驗證漏洞",
-      "priority": "高",
-      "detail": "CVSS 9.5（NVD官方），建議立即更新"
-    },
-    {
       "category": "公告確認",
-      "title": "CISA與多國安全機構聯合發布「Gunra」勒索軟體預警通報",
-      "priority": "中",
-      "detail": "來源：TWCERT/CC。多國政府機構聯合警示全球企業及組織關注Gunra勒索軟體威脅，提醒實施防禦措施與備份策略。"
-    },
-    {
-      "category": "公告確認",
-      "title": "Microsoft發布Exchange Server系列安全性更新",
-      "priority": "中",
-      "detail": "來源：TWCERT/CC。Microsoft公告Exchange Server存在高風險漏洞CVE-2026-45659，提醒組織及時進行修補更新。"
-    },
-    {
-      "category": "掃描比對",
-      "title": "ClickFix惡意程式注入攻擊相關IOC比對",
-      "priority": "中",
-      "detail": "涉及類型：Domain、IP。建議比對內部防火牆/EDR日誌。"
-    },
-    {
-      "category": "掃描比對",
-      "title": "Shai-Hulud蠕蟲相關IOC比對",
-      "priority": "中",
-      "detail": "涉及類型：Hash、URL。建議比對內部防火牆/EDR日誌。"
-    },
-    {
-      "category": "掃描比對",
-      "title": "Rapuncel竊資程式相關IOC比對",
-      "priority": "中",
-      "detail": "涉及類型：Hash、URL。建議比對內部防火牆/EDR日誌。"
-    },
-    {
-      "category": "掃描比對",
-      "title": "APT24供應鏈攻擊相關IOC比對",
-      "priority": "中",
-      "detail": "涉及類型：Domain、URL。建議比對內部防火牆/EDR日誌。"
+      "title": "CVE-2026-81355 虛擬硬碟(VHD)迷你埠驅動程式遠端程式碼執行漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "教育宣導",
-      "title": "OpenAI AI 代理誤將用戶上傳的圖片傳送至第三方網站",
+      "title": "日本慶應大學遭勒索軟體攻擊，業務系統中斷",
       "priority": "低",
       "detail": "建議納入員工資安宣導教育素材。"
     },
     {
       "category": "教育宣導",
-      "title": "CISA與多國安全機構聯合發布「Gunra」勒索軟體預警通報",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
-    },
-    {
-      "category": "教育宣導",
-      "title": "Microsoft發布Exchange Server系列安全性更新",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
-    },
-    {
-      "category": "教育宣導",
-      "title": "Brevo行銷平臺遭駭客攻擊",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
-    },
-    {
-      "category": "教育宣導",
-      "title": "APT24入侵臺灣廣告供應鏈",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
-    },
-    {
-      "category": "教育宣導",
-      "title": "創新服務(7828)遭勒索病毒攻擊",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
-    },
-    {
-      "category": "教育宣導",
-      "title": "The Gentlemen勒索軟體攻擊醫療產業",
+      "title": "加密貨幣交易所Bitget遭駭，損失3.875億美元比特幣",
       "priority": "低",
       "detail": "建議納入員工資安宣導教育素材。"
     }
   ],
   "category_counts": {
-    "kev": 2,
-    "vendor": 0,
-    "news": 5,
-    "ransomwareApt": 4
+    "kev": 0,
+    "vendor": 1,
+    "news": 6,
+    "ransomwareApt": 0
   }
 };
-const UPDATED_AT = "2026/9/28 09:32:01（台灣時間）";
+const UPDATED_AT = "2026/9/29 10:33:20（台灣時間）";
 document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }

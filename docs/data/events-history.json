@@ -211,6 +211,36 @@
   },
   {
     "category": "零時差漏洞",
+    "title": "Citrix NetScaler零日漏洞遭實際攻擊",
+    "date": "2026-09-15",
+    "url": "https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-exploited-citrix-flaws-by-wednesday/"
+  },
+  {
+    "category": "資料外洩",
+    "title": "Supabase資料庫設定不當導致逾六萬筆個人資料洩露",
+    "date": "2026-09-15",
+    "url": "https://www.bleepingcomputer.com/news/security/misconfigured-supabase-apps-expose-data-in-over-16-000-databases/"
+  },
+  {
+    "category": "資料外洩",
+    "title": "超八萬組織AI登入憑證遭竊",
+    "date": "2026-09-15",
+    "url": "https://www.bleepingcomputer.com/news/security/80-000-plus-organizations-had-ai-logins-stolen-from-shadow-ai-to-llmjacking/"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "日本慶應大學遭勒索軟體攻擊",
+    "date": "2026-09-15",
+    "url": "https://www.bleepingcomputer.com/news/security/japans-keio-confirms-ransomware-attack-disrupted-business-systems/"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "加密貨幣交易所Bitget遭駭損失3.875億美元",
+    "date": "2026-09-15",
+    "url": "https://www.bleepingcomputer.com/news/security/bitget-resumes-bitcoin-withdrawals-after-3875-million-crypto-heist/"
+  },
+  {
+    "category": "零時差漏洞",
     "title": "思科郵件閘道SQL注入漏洞CVE-2026-76461",
     "date": "2026-09-14",
     "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-inj-2bLVGmhX"
