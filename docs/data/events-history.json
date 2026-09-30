@@ -1,6 +1,18 @@
 [
   {
     "category": "零時差漏洞",
+    "title": "Apple CoreGraphics零時差漏洞遭實際攻擊利用",
+    "date": "2026-09-29",
+    "url": "https://www.bleepingcomputer.com/news/security/apple-patches-coregraphics-zero-day-flaw-exploited-in-attacks/"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Citrix NetScaler零時差漏洞遭駭客利用部署網頁後門",
+    "date": "2026-09-29",
+    "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-citrix-netscaler-zero-day-to-deploy-web-shells/"
+  },
+  {
+    "category": "零時差漏洞",
     "title": "Citrix NetScaler 記憶體緩衝區越界漏洞",
     "date": "2026-09-27",
     "url": "https://www.bleepingcomputer.com/news/security/citrix-admins-warned-to-shut-down-netscalers-over-2-exploited-zero-days/"
@@ -202,6 +214,12 @@
     "title": "因應先進AI資安新挑戰 資安署發布『政府因應先進AI資安風險政策』",
     "date": "2026-09-16",
     "url": "https://moda.gov.tw/ACS/"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "APT41駭客集團遭美國司法部起訴",
+    "date": "2026-09-16",
+    "url": "https://blog.trendmicro.com.tw/?p=65827"
   },
   {
     "category": "勒索病毒",
@@ -503,5 +521,11 @@
     "title": "APT36利用Rust惡意程式工具包針對印度政府與國防機構",
     "date": "2026-08-29",
     "url": "https://gbhackers.com/apt36-malware-campaign/"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "APT組織Head Mare利用TrueConf漏洞發動攻擊",
+    "date": "2026-08-28",
+    "url": "https://www.ithome.com.tw/news/178489"
   }
 ]

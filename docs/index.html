@@ -338,57 +338,149 @@ const DATA = {
   "headlines": [
     {
       "icon": "🎯",
-      "title": "Citrix NetScaler零日漏洞遭實際攻擊",
-      "subtitle": "美國CISA已下令聯邦機構緊急修補",
+      "title": "蘋果CoreGraphics零時差漏洞遭實際攻擊利用",
+      "subtitle": "iOS、macOS、iPadOS均受影響，可導致遠端代碼執行",
       "impact": "高",
       "stars": 5,
-      "url": "https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-exploited-citrix-flaws-by-wednesday/"
+      "url": "https://www.bleepingcomputer.com/news/security/apple-patches-coregraphics-zero-day-flaw-exploited-in-attacks/"
     },
     {
       "icon": "🪟",
-      "title": "Microsoft VHD虛擬硬碟驅動程式遠端執行漏洞",
-      "subtitle": "高風險漏洞影響虛擬化環境安全",
-      "impact": "高",
-      "stars": 4,
-      "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-81355"
-    },
-    {
-      "icon": "🔐",
-      "title": "超八萬組織AI登入憑證遭竊",
-      "subtitle": "影子AI與LLM劫持威脅浮現",
+      "title": "Microsoft發布4項高嚴重性Windows權限提升漏洞",
+      "subtitle": "涵蓋Win32k、核心、Installer等關鍵元件",
       "impact": "高",
       "stars": 5,
-      "url": "https://www.bleepingcomputer.com/news/security/80-000-plus-organizations-had-ai-logins-stolen-from-shadow-ai-to-llmjacking/"
+      "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-69522"
     },
     {
-      "icon": "💾",
-      "title": "Supabase資料庫設定不當",
-      "subtitle": "逾一萬六千個應用程式洩露敏感資料",
-      "impact": "高",
+      "icon": "🕵️",
+      "title": "APT41駭客集團遭美國司法部起訴",
+      "subtitle": "已入侵逾百家美國及海外機構，涉及五名中國籍人士",
+      "impact": "中",
       "stars": 4,
-      "url": "https://www.bleepingcomputer.com/news/security/misconfigured-supabase-apps-expose-data-in-over-16-000-databases/"
+      "url": "https://blog.trendmicro.com.tw/?p=65827"
     },
     {
       "icon": "🦠",
-      "title": "日本慶應大學遭勒索軟體攻擊",
-      "subtitle": "業務系統中斷需進行恢復",
+      "title": "銀狐組織IOC情報曝光",
+      "subtitle": "7個惡意域名、6個IP端口，C2架設在阿里雲OSS",
+      "impact": "中",
+      "stars": 4
+    },
+    {
+      "icon": "📰",
+      "title": "駭客利用ChatGPT應用傳播ClickFix社交工程詐騙",
+      "subtitle": "誘導用戶點擊惡意連結感染遠端存取木馬",
       "impact": "中",
       "stars": 3,
-      "url": "https://www.bleepingcomputer.com/news/security/japans-keio-confirms-ransomware-attack-disrupted-business-systems/"
+      "url": "https://www.bleepingcomputer.com/news/security/custom-chatgpts-push-clickfix-attacks-to-deploy-rat-malware/"
     }
   ],
   "vendor_impact": [
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-81355 虛擬硬碟(VHD)迷你埠驅動程式遠端程式碼執行漏洞",
+      "title": "CVE-2026-69522：.NET和Visual Studio遠端代碼執行漏洞",
       "impact": "高",
+      "category": "AI基礎設施",
+      "key_asset": ".NET框架、Visual Studio",
+      "ai_suggestion": "立即評估內部使用情況，優先更新開發環境中的.NET和Visual Studio版本"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-68880：Windows Win32k權限提升漏洞",
+      "impact": "高",
+      "category": "作業系統核心",
+      "key_asset": "Windows作業系統",
+      "ai_suggestion": "對內部Windows系統進行安全更新評估，優先更新伺服器和高價值工作站"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-61930：Windows核心權限提升漏洞",
+      "impact": "高",
+      "category": "作業系統核心",
+      "key_asset": "Windows核心模組",
+      "ai_suggestion": "建立分階段更新計畫，先覆蓋關鍵伺服器，後續納入全體工作站"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-62694：Windows Installer權限提升漏洞",
+      "impact": "高",
+      "category": "系統安裝服務",
+      "key_asset": "Windows Installer服務",
+      "ai_suggestion": "針對軟體部署流程進行合規檢查，確保使用者無法規避Installer驗證"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-69307：Windows USB Audio驅動權限提升漏洞",
+      "impact": "中",
+      "category": "裝置驅動程式",
+      "key_asset": "USB音訊驅動程式",
+      "ai_suggestion": "在中等優先級更新周期中納入，評估實際使用USB音訊設備的端點數量"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-56172：Windows VHD miniport驅動漏洞",
+      "impact": "中",
       "category": "虛擬化平台",
-      "key_asset": "Hyper-V VHD虛擬硬碟驅動程式",
-      "ai_suggestion": "優先評估環境中虛擬化基礎設施的使用情況，立即檢查Microsoft官方補丁發布時間並規劃修補排程，優先保護虛擬化叢集。"
+      "key_asset": "Hyper-V虛擬磁碟驅動",
+      "ai_suggestion": "虛擬化環境使用者優先排程更新，檢查是否涉及動態磁碟場景"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-62688：Windows MIDI服務權限提升漏洞",
+      "impact": "中",
+      "category": "音訊服務",
+      "key_asset": "Windows MIDI服務模組",
+      "ai_suggestion": "評估內部MIDI設備使用情況，按優先級有序推進更新"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-62755：Windows DHCP客戶端漏洞",
+      "impact": "中",
+      "category": "網路配置",
+      "key_asset": "DHCP客戶端服務",
+      "ai_suggestion": "納入例行安全更新周期，DHCP環境中的所有用戶端應納入覆蓋範圍"
+    },
+    {
+      "icon": "🌐",
+      "vendor": "Chromium",
+      "title": "CVE-2026-91728：整數溢位漏洞",
+      "impact": "中",
+      "category": "瀏覽器引擎",
+      "key_asset": "Chromium核心引擎",
+      "ai_suggestion": "提醒使用者啟用Chrome自動更新，企業可通過Group Policy強制部署最新版本"
+    },
+    {
+      "icon": "🌐",
+      "vendor": "Chromium",
+      "title": "CVE-2026-91745：釋放後使用漏洞",
+      "impact": "中",
+      "category": "瀏覽器引擎",
+      "key_asset": "Chromium記憶體管理",
+      "ai_suggestion": "同步進行瀏覽器版本清查，評估企業內是否使用舊版本Chromium衍生品"
     }
   ],
   "global_events": [
+    {
+      "category": "零時差漏洞",
+      "title": "Apple CoreGraphics零時差漏洞遭實際攻擊利用",
+      "date": "2026-09-29",
+      "url": "https://www.bleepingcomputer.com/news/security/apple-patches-coregraphics-zero-day-flaw-exploited-in-attacks/"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "Citrix NetScaler零時差漏洞遭駭客利用部署網頁後門",
+      "date": "2026-09-29",
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-citrix-netscaler-zero-day-to-deploy-web-shells/"
+    },
     {
       "category": "零時差漏洞",
       "title": "Citrix NetScaler 記憶體緩衝區越界漏洞",
@@ -592,6 +684,12 @@ const DATA = {
       "title": "因應先進AI資安新挑戰 資安署發布『政府因應先進AI資安風險政策』",
       "date": "2026-09-16",
       "url": "https://moda.gov.tw/ACS/"
+    },
+    {
+      "category": "APT攻擊",
+      "title": "APT41駭客集團遭美國司法部起訴",
+      "date": "2026-09-16",
+      "url": "https://blog.trendmicro.com.tw/?p=65827"
     },
     {
       "category": "勒索病毒",
@@ -893,24 +991,41 @@ const DATA = {
       "title": "APT36利用Rust惡意程式工具包針對印度政府與國防機構",
       "date": "2026-08-29",
       "url": "https://gbhackers.com/apt36-malware-campaign/"
+    },
+    {
+      "category": "APT攻擊",
+      "title": "APT組織Head Mare利用TrueConf漏洞發動攻擊",
+      "date": "2026-08-28",
+      "url": "https://www.ithome.com.tw/news/178489"
     }
   ],
-  "ai_analysis": "本周威脅情勢嚴峻，須優先關注兩大事項。其一是Citrix NetScaler零日漏洞已遭實際利用且美國CISA已下達強制修補令，影響範圍涵蓋全球政府與企業的關鍵遠端存取基礎設施，建議立即盤點環境內是否部署該產品並儘速部署修補。其二是超八萬組織的AI系統登入憑證遭竊，反映出影子AI與LLM遭劫持的威脅日益嚴重，許多企業可能未察覺到未授權AI應用的安全風險。\n\n從趨勢觀察，雲端應用配置疏漏導致大規模資料洩露的案例增加（Supabase、AI憑證洩露），顯示開發與運維團隊的安全意識培訓需要加強。同時零日漏洞被實際利用的速度變快，已從發現到攻擊縮短，建議強化漏洞監測與快速反應能力。建議優先檢視組織內的虛擬化環境（Microsoft補丁待發）、遠端存取設備（Citrix）與AI系統存取控制，以及雲端服務的安全設定。",
-  "cve_radar": [],
+  "ai_analysis": "今日威脅情況呈現多點突破的高風險態勢，最迫切的是蘋果CoreGraphics零時差漏洞已遭實際攻擊利用，加上Microsoft同日發布4項高嚴重性Windows權限提升漏洞，此組合構成對企業端點的雙面夾擊。蘋果產品在行政與創意部門的普及使用，加上Windows的廣泛覆蓋，建議立即啟動應急更新計畫。\n\n其次，Citrix NetScaler零時差被駭客部署網頁後門的案例警示我們關鍵基礎設施的漏洞利用已進入主動攻擊階段。同時留意到駭客正採用更隱蔽的供應鏈攻擊手法——利用區塊鏈隱匿命令控制伺服器，以及ChatGPT客製應用進行社交工程，顯示攻擊者在持續創新隱匿與社工手段。\n\n整體趨勢表明：零時差漏洞的實際利用週期正在加快，傳統APT組織與勒索軟體集團正進行資源整合（如LockBit聯盟成立），建議各企業立即啟動分級應急更新，同時強化端點檢測、網路流量監控與使用者安全意識訓練。",
+  "cve_radar": [
+    {
+      "cve_id": "CVE-2026-86950",
+      "title": "Apple多款產品CoreGraphics越界寫入漏洞",
+      "cvss": 8.8,
+      "cvss_source": "NVD官方",
+      "exploited": true,
+      "action": "立即更新",
+      "plain_title": "蘋果系統出現嚴重安全漏洞可被遠端攻擊",
+      "plain_summary": "蘋果的iPhone、Mac等設備中的圖形處理系統存在漏洞，攻擊者可以利用它在你的裝置上執行惡意程式。這類漏洞就像家裡的鑰匙孔設計有缺陷，讓陌生人可以撬開進來。蘋果已經在進行修復，建議用戶盡快更新系統軟體。"
+    }
+  ],
   "risk_score": {
-    "total": 6,
+    "total": 28,
     "breakdown": [
       {
         "label": "漏洞風險",
-        "score": 8
+        "score": 59
       },
       {
         "label": "APT攻擊",
-        "score": 0
+        "score": 60
       },
       {
         "label": "勒索病毒",
-        "score": 0
+        "score": 22
       },
       {
         "label": "身份風險",
@@ -918,38 +1033,104 @@ const DATA = {
       },
       {
         "label": "AI風險",
-        "score": 20
+        "score": 0
       }
     ]
   },
   "action_items": [
     {
+      "category": "漏洞修補",
+      "title": "CVE-2026-86950：Apple多款產品CoreGraphics越界寫入漏洞",
+      "priority": "高",
+      "detail": "CVSS 8.8（NVD官方），建議立即更新"
+    },
+    {
       "category": "公告確認",
-      "title": "CVE-2026-81355 虛擬硬碟(VHD)迷你埠驅動程式遠端程式碼執行漏洞",
+      "title": "CVE-2026-69522：.NET和Visual Studio遠端代碼執行漏洞",
       "priority": "高",
       "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
+      "category": "公告確認",
+      "title": "CVE-2026-68880：Windows Win32k權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-61930：Windows核心權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-62694：Windows Installer權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CISA與多國安全機構聯合發布「Gunra」勒索軟體預警通報",
+      "priority": "中",
+      "detail": "來源：TWCERT/CC。CISA與多國安全機構發布Gunra勒索軟體的聯合預警通報，提醒企業注意此勒索軟體威脅。"
+    },
+    {
+      "category": "公告確認",
+      "title": "惡意npm攻擊再進化！駭客利用區塊鏈隱藏C2位址",
+      "priority": "中",
+      "detail": "來源：TWCERT/CC。駭客進階npm套件供應鏈攻擊手法，利用區塊鏈技術隱匿命令控制伺服器位址，增加檢測難度。"
+    },
+    {
+      "category": "掃描比對",
+      "title": "銀狐組織相關IOC比對",
+      "priority": "中",
+      "detail": "涉及類型：IP、Domain。建議比對內部防火牆/EDR日誌。"
+    },
+    {
+      "category": "掃描比對",
+      "title": "高頻漏洞關聯惡意IP相關IOC比對",
+      "priority": "中",
+      "detail": "涉及類型：IP。建議比對內部防火牆/EDR日誌。"
+    },
+    {
       "category": "教育宣導",
-      "title": "日本慶應大學遭勒索軟體攻擊，業務系統中斷",
+      "title": "駭客利用ChatGPT客製應用程式傳播ClickFix詐騙攻擊",
       "priority": "低",
       "detail": "建議納入員工資安宣導教育素材。"
     },
     {
       "category": "教育宣導",
-      "title": "加密貨幣交易所Bitget遭駭，損失3.875億美元比特幣",
+      "title": "越南男子因價值1600萬美元「殺豬盤」詐騙案遭控",
+      "priority": "低",
+      "detail": "建議納入員工資安宣導教育素材。"
+    },
+    {
+      "category": "教育宣導",
+      "title": "CISA與多國安全機構聯合發布「Gunra」勒索軟體預警通報",
+      "priority": "低",
+      "detail": "建議納入員工資安宣導教育素材。"
+    },
+    {
+      "category": "教育宣導",
+      "title": "惡意npm攻擊再進化！駭客利用區塊鏈隱藏C2位址",
+      "priority": "低",
+      "detail": "建議納入員工資安宣導教育素材。"
+    },
+    {
+      "category": "教育宣導",
+      "title": "APT駭客組織Head Mare利用TrueConf漏洞發動攻擊",
       "priority": "低",
       "detail": "建議納入員工資安宣導教育素材。"
     }
   ],
   "category_counts": {
-    "kev": 0,
-    "vendor": 1,
+    "kev": 1,
+    "vendor": 10,
     "news": 6,
-    "ransomwareApt": 0
+    "ransomwareApt": 3
   }
 };
-const UPDATED_AT = "2026/9/29 10:33:20（台灣時間）";
+const UPDATED_AT = "2026/9/30 09:59:48（台灣時間）";
 document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
