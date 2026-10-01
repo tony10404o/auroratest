@@ -338,137 +338,197 @@ const DATA = {
   "headlines": [
     {
       "icon": "🎯",
-      "title": "蘋果CoreGraphics零時差漏洞遭實際攻擊利用",
-      "subtitle": "iOS、macOS、iPadOS均受影響，可導致遠端代碼執行",
+      "title": "思科SD-WAN管理器認證繞過漏洞遭實際利用",
+      "subtitle": "CVSS 9.8重大漏洞，駭客已針對目標組織發動攻擊",
       "impact": "高",
       "stars": 5,
-      "url": "https://www.bleepingcomputer.com/news/security/apple-patches-coregraphics-zero-day-flaw-exploited-in-attacks/"
+      "url": "https://www.bleepingcomputer.com/news/security/cisco-warns-of-new-sd-wan-authentication-bypass-zero-day-exploited-in-attacks/"
     },
     {
       "icon": "🪟",
-      "title": "Microsoft發布4項高嚴重性Windows權限提升漏洞",
-      "subtitle": "涵蓋Win32k、核心、Installer等關鍵元件",
+      "title": "微軟發佈6個高危漏洞公告",
+      "subtitle": "涵蓋KDC、Outlook等核心系統的遠端程式碼執行風險",
       "impact": "高",
-      "stars": 5,
-      "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-69522"
-    },
-    {
-      "icon": "🕵️",
-      "title": "APT41駭客集團遭美國司法部起訴",
-      "subtitle": "已入侵逾百家美國及海外機構，涉及五名中國籍人士",
-      "impact": "中",
-      "stars": 4,
-      "url": "https://blog.trendmicro.com.tw/?p=65827"
+      "stars": 5
     },
     {
       "icon": "🦠",
-      "title": "銀狐組織IOC情報曝光",
-      "subtitle": "7個惡意域名、6個IP端口，C2架設在阿里雲OSS",
-      "impact": "中",
-      "stars": 4
+      "title": "亞太地區勒索軟體攻擊月增27%",
+      "subtitle": "臺灣事件數排名地區前三，The Gentlemen為最活躍組織",
+      "impact": "高",
+      "stars": 4,
+      "url": ""
+    },
+    {
+      "icon": "🎯",
+      "title": "MikroTik路由器未認證遠端程式碼執行漏洞",
+      "subtitle": "CISA已列入已知遭利用漏洞名單，需立即修補",
+      "impact": "高",
+      "stars": 4,
+      "url": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-critical-pre-auth-rce-flaw-in-mikrotik-routeros/"
     },
     {
       "icon": "📰",
-      "title": "駭客利用ChatGPT應用傳播ClickFix社交工程詐騙",
-      "subtitle": "誘導用戶點擊惡意連結感染遠端存取木馬",
+      "title": "54萬組帳密洩露在GitHub公開代碼庫",
+      "subtitle": "開發者誤將登入憑證上傳，導致大量有效帳號遭濫用",
       "impact": "中",
-      "stars": 3,
-      "url": "https://www.bleepingcomputer.com/news/security/custom-chatgpts-push-clickfix-attacks-to-deploy-rat-malware/"
+      "stars": 4,
+      "url": "https://www.bleepingcomputer.com/news/security/over-543-000-valid-credentials-exposed-in-public-github-repositories/"
     }
   ],
   "vendor_impact": [
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-69522：.NET和Visual Studio遠端代碼執行漏洞",
+      "title": "CVE-2026-69712 Windows Key Distribution Center遠端程式碼執行漏洞",
       "impact": "高",
-      "category": "AI基礎設施",
-      "key_asset": ".NET框架、Visual Studio",
-      "ai_suggestion": "立即評估內部使用情況，優先更新開發環境中的.NET和Visual Studio版本"
+      "category": "身分驗證服務",
+      "key_asset": "Windows KDC服務",
+      "ai_suggestion": "立即檢查環境中KDC伺服器版本，申請相關安全更新，並監控異常認證行為"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-68880：Windows Win32k權限提升漏洞",
+      "title": "CVE-2026-70125 Microsoft Office Outlook遠端程式碼執行漏洞",
+      "impact": "高",
+      "category": "郵件系統",
+      "key_asset": "Microsoft Outlook客戶端",
+      "ai_suggestion": "優先更新所有Outlook用戶端版本，考慮先行更新高風險帳號如管理員與財務部門"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-62699 Windows UDFS檔案系統驅動程式遠端程式碼執行漏洞",
       "impact": "高",
       "category": "作業系統核心",
-      "key_asset": "Windows作業系統",
-      "ai_suggestion": "對內部Windows系統進行安全更新評估，優先更新伺服器和高價值工作站"
+      "key_asset": "Windows UDFS驅動程式",
+      "ai_suggestion": "透過WSUS或更新管理工具批量部署修補程式，重點關注文件伺服器與NAS設備"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-61930：Windows核心權限提升漏洞",
+      "title": "CVE-2026-69586 Microsoft Windows PDF遠端程式碼執行漏洞",
       "impact": "高",
-      "category": "作業系統核心",
-      "key_asset": "Windows核心模組",
-      "ai_suggestion": "建立分階段更新計畫，先覆蓋關鍵伺服器，後續納入全體工作站"
+      "category": "文件處理",
+      "key_asset": "Windows PDF閱讀器",
+      "ai_suggestion": "提醒使用者不開啟可疑PDF檔案，同時部署相關安全更新並強化郵件過濾規則"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-62694：Windows Installer權限提升漏洞",
+      "title": "CVE-2026-69451 Windows Management Instrumentation權限提升漏洞",
       "impact": "高",
-      "category": "系統安裝服務",
-      "key_asset": "Windows Installer服務",
-      "ai_suggestion": "針對軟體部署流程進行合規檢查，確保使用者無法規避Installer驗證"
+      "category": "系統管理",
+      "key_asset": "Windows WMI服務",
+      "ai_suggestion": "限制WMI遠端存取權限，審查WMI事件訂閱設定，監控異常WMI活動日誌"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-69307：Windows USB Audio驅動權限提升漏洞",
-      "impact": "中",
-      "category": "裝置驅動程式",
-      "key_asset": "USB音訊驅動程式",
-      "ai_suggestion": "在中等優先級更新周期中納入，評估實際使用USB音訊設備的端點數量"
+      "title": "CVE-2026-69605 Microsoft Install Service權限提升漏洞",
+      "impact": "高",
+      "category": "系統管理",
+      "key_asset": "Windows Install Service",
+      "ai_suggestion": "限制本機安裝服務權限，禁用不必要的遠端安裝功能，監控軟體安裝活動"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-56172：Windows VHD miniport驅動漏洞",
+      "title": "CVE-2026-70562 Windows Audio Service權限提升漏洞",
       "impact": "中",
-      "category": "虛擬化平台",
-      "key_asset": "Hyper-V虛擬磁碟驅動",
-      "ai_suggestion": "虛擬化環境使用者優先排程更新，檢查是否涉及動態磁碟場景"
+      "category": "系統服務",
+      "key_asset": "Windows Audio服務",
+      "ai_suggestion": "評估環境是否需要Audio Service，可考慮在不需要的系統上停用此服務"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-62688：Windows MIDI服務權限提升漏洞",
+      "title": "CVE-2026-69328 Windows Storage權限提升漏洞",
       "impact": "中",
-      "category": "音訊服務",
-      "key_asset": "Windows MIDI服務模組",
-      "ai_suggestion": "評估內部MIDI設備使用情況，按優先級有序推進更新"
+      "category": "儲存管理",
+      "key_asset": "Windows Storage服務",
+      "ai_suggestion": "部署安全更新，監控本機儲存管理活動，限制非必要的儲存管理權限"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-62755：Windows DHCP客戶端漏洞",
+      "title": "CVE-2026-69504 Windows NTFS資訊洩露漏洞",
       "impact": "中",
-      "category": "網路配置",
-      "key_asset": "DHCP客戶端服務",
-      "ai_suggestion": "納入例行安全更新周期，DHCP環境中的所有用戶端應納入覆蓋範圍"
+      "category": "檔案系統",
+      "key_asset": "Windows NTFS驅動程式",
+      "ai_suggestion": "部署修補程式並驗證檔案權限設定，確保敏感檔案存取控制列表配置正確"
     },
     {
-      "icon": "🌐",
-      "vendor": "Chromium",
-      "title": "CVE-2026-91728：整數溢位漏洞",
-      "impact": "中",
-      "category": "瀏覽器引擎",
-      "key_asset": "Chromium核心引擎",
-      "ai_suggestion": "提醒使用者啟用Chrome自動更新，企業可通過Group Policy強制部署最新版本"
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-69288 Windows GDI+資訊洩露漏洞",
+      "impact": "低",
+      "category": "圖形系統",
+      "key_asset": "Windows GDI+程式庫",
+      "ai_suggestion": "納入定期更新計畫，優先級次於高危漏洞，但仍建議在下次更新周期內修補"
     },
     {
-      "icon": "🌐",
-      "vendor": "Chromium",
-      "title": "CVE-2026-91745：釋放後使用漏洞",
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "Cisco Catalyst SD-WAN Manager API認證繞過漏洞",
+      "impact": "高",
+      "category": "遠端存取設備",
+      "key_asset": "Cisco SD-WAN Manager",
+      "ai_suggestion": "立即檢查SD-WAN Manager版本，優先部署官方修補程式，監控管理員帳號異常登入"
+    },
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "Cisco Advance Notification for Publication of October 7, 2026, Security Advisories",
       "impact": "中",
-      "category": "瀏覽器引擎",
-      "key_asset": "Chromium記憶體管理",
-      "ai_suggestion": "同步進行瀏覽器版本清查，評估企業內是否使用舊版本Chromium衍生品"
+      "category": "網路安全",
+      "key_asset": "Cisco多款產品",
+      "ai_suggestion": "關注10月7日官方公告內容，提前規劃受影響產品的更新計畫與風險評估"
     }
   ],
   "global_events": [
+    {
+      "category": "零時差漏洞",
+      "title": "思科SD-WAN管理器十六進位編碼漏洞",
+      "date": "2026-09-30",
+      "url": ""
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "思科SD-WAN認證繞過漏洞遭實際利用攻擊",
+      "date": "2026-09-30",
+      "url": "https://www.bleepingcomputer.com/news/security/cisco-warns-of-new-sd-wan-authentication-bypass-zero-day-exploited-in-attacks/"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "亞太地區勒索軟體事件月增近27%",
+      "date": "2026-09-30",
+      "url": ""
+    },
+    {
+      "category": "政府公告",
+      "title": "TWCERT/CC 2026年9月份資安情資電子報",
+      "date": "2026-09-30",
+      "url": ""
+    },
+    {
+      "category": "政府公告",
+      "title": "CISA更新Medusa勒索軟體安全防護指引",
+      "date": "2026-09-30",
+      "url": ""
+    },
+    {
+      "category": "政府公告",
+      "title": "PostgreSQL潛藏12年高風險漏洞導致任意程式碼執行",
+      "date": "2026-09-30",
+      "url": ""
+    },
+    {
+      "category": "勒索病毒",
+      "title": "日本Keio大學遭勒索軟體攻擊業務系統中斷",
+      "date": "2026-09-30",
+      "url": ""
+    },
     {
       "category": "零時差漏洞",
       "title": "Apple CoreGraphics零時差漏洞遭實際攻擊利用",
@@ -492,6 +552,18 @@ const DATA = {
       "title": "Citrix NetScaler 輸入驗證漏洞",
       "date": "2026-09-27",
       "url": "https://www.bleepingcomputer.com/news/security/citrix-admins-warned-to-shut-down-netscalers-over-2-exploited-zero-days/"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "DeadLock勒索軟體利用分散式基礎設施躲避追蹤",
+      "date": "2026-09-26",
+      "url": ""
+    },
+    {
+      "category": "APT攻擊",
+      "title": "ShinyHunters攻陷Cl0p勒索軟體集團網站",
+      "date": "2026-09-25",
+      "url": "https://www.gm7.org/archives/161395"
     },
     {
       "category": "勒索病毒",
@@ -999,138 +1071,144 @@ const DATA = {
       "url": "https://www.ithome.com.tw/news/178489"
     }
   ],
-  "ai_analysis": "今日威脅情況呈現多點突破的高風險態勢，最迫切的是蘋果CoreGraphics零時差漏洞已遭實際攻擊利用，加上Microsoft同日發布4項高嚴重性Windows權限提升漏洞，此組合構成對企業端點的雙面夾擊。蘋果產品在行政與創意部門的普及使用，加上Windows的廣泛覆蓋，建議立即啟動應急更新計畫。\n\n其次，Citrix NetScaler零時差被駭客部署網頁後門的案例警示我們關鍵基礎設施的漏洞利用已進入主動攻擊階段。同時留意到駭客正採用更隱蔽的供應鏈攻擊手法——利用區塊鏈隱匿命令控制伺服器，以及ChatGPT客製應用進行社交工程，顯示攻擊者在持續創新隱匿與社工手段。\n\n整體趨勢表明：零時差漏洞的實際利用週期正在加快，傳統APT組織與勒索軟體集團正進行資源整合（如LockBit聯盟成立），建議各企業立即啟動分級應急更新，同時強化端點檢測、網路流量監控與使用者安全意識訓練。",
+  "ai_analysis": "今日最需優先處理的是思科SD-WAN Manager認證繞過漏洞，此漏洞CVSS評分高達9.8且已有實際攻擊案例，若貴組織使用SD-WAN設備需立即檢查版本並部署官方修補程式。其次是微軟連發6個高危漏洞，涵蓋Windows核心系統、郵件客戶端與認證服務，建議透過WSUS批量部署更新。\n\n值得注意的趨勢是亞太地區勒索軟體攻擊月增27%且臺灣事件數排名前三，同步有新型DeadLock勒索軟體採用區塊鏈與分散式基礎設施躲避追蹤，傳統防禦手段效果下降。此外零時差漏洞與遠端存取設備漏洞持續成為駭客首選攻擊面，建議加強內網分段、限制管理介面存取並強化異常登入監控。",
   "cve_radar": [
     {
-      "cve_id": "CVE-2026-86950",
-      "title": "Apple多款產品CoreGraphics越界寫入漏洞",
-      "cvss": 8.8,
+      "cve_id": "CVE-2026-76504",
+      "title": "Cisco Catalyst SD-WAN Manager 十六進位編碼漏洞允許未認證遠端攻擊者以管理員權限存取系統",
+      "cvss": 9.8,
       "cvss_source": "NVD官方",
       "exploited": true,
       "action": "立即更新",
-      "plain_title": "蘋果系統出現嚴重安全漏洞可被遠端攻擊",
-      "plain_summary": "蘋果的iPhone、Mac等設備中的圖形處理系統存在漏洞，攻擊者可以利用它在你的裝置上執行惡意程式。這類漏洞就像家裡的鑰匙孔設計有缺陷，讓陌生人可以撬開進來。蘋果已經在進行修復，建議用戶盡快更新系統軟體。"
+      "plain_title": "網路管理工具認證機制出現漏洞",
+      "plain_summary": "思科的網路管理系統在處理網路請求時出現安全漏洞，攻擊者可以繞過身分驗證直接以最高權限進入系統。這就像是停車場柵欄的電子鎖故障，任何人都能不用鑰匙就打開。受影響組織的網路設定可能被非法竄改，造成服務中斷或資料外洩。"
     }
   ],
   "risk_score": {
-    "total": 28,
+    "total": 42,
     "breakdown": [
       {
         "label": "漏洞風險",
-        "score": 59
+        "score": 68
       },
       {
         "label": "APT攻擊",
-        "score": 60
+        "score": 30
       },
       {
         "label": "勒索病毒",
-        "score": 22
+        "score": 66
       },
       {
         "label": "身份風險",
-        "score": 0
+        "score": 25
       },
       {
         "label": "AI風險",
-        "score": 0
+        "score": 20
       }
     ]
   },
   "action_items": [
     {
       "category": "漏洞修補",
-      "title": "CVE-2026-86950：Apple多款產品CoreGraphics越界寫入漏洞",
+      "title": "CVE-2026-76504：Cisco Catalyst SD-WAN Manager 十六進位編碼漏洞允許未認證遠端攻擊者以管理員權限存取系統",
       "priority": "高",
-      "detail": "CVSS 8.8（NVD官方），建議立即更新"
+      "detail": "CVSS 9.8（NVD官方），建議立即更新"
     },
     {
       "category": "公告確認",
-      "title": "CVE-2026-69522：.NET和Visual Studio遠端代碼執行漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-68880：Windows Win32k權限提升漏洞",
+      "title": "CVE-2026-69712 Windows Key Distribution Center 遠端程式碼執行漏洞",
       "priority": "高",
       "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "CVE-2026-61930：Windows核心權限提升漏洞",
+      "title": "CVE-2026-70125 Microsoft Office Outlook 遠端程式碼執行漏洞",
       "priority": "高",
       "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "CVE-2026-62694：Windows Installer權限提升漏洞",
+      "title": "CVE-2026-62699 Windows UDFS 檔案系統驅動程式遠端程式碼執行漏洞",
       "priority": "高",
       "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "CISA與多國安全機構聯合發布「Gunra」勒索軟體預警通報",
+      "title": "CVE-2026-69586 Microsoft Windows PDF 遠端程式碼執行漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-69451 Windows Management Instrumentation 權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-69605 Microsoft Install Service 權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "Cisco Catalyst SD-WAN Manager API 認證繞過漏洞",
+      "priority": "高",
+      "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "TWCERT/CC 2026年9月份資安情資電子報",
       "priority": "中",
-      "detail": "來源：TWCERT/CC。CISA與多國安全機構發布Gunra勒索軟體的聯合預警通報，提醒企業注意此勒索軟體威脅。"
+      "detail": "來源：TWCERT/CC。發布9月份資安情資電子報，整理本月重要資安事件與威脅訊息。"
     },
     {
       "category": "公告確認",
-      "title": "惡意npm攻擊再進化！駭客利用區塊鏈隱藏C2位址",
+      "title": "CISA更新Medusa勒索軟體安全防護指引：揭露新型勒索手法與入侵指標",
       "priority": "中",
-      "detail": "來源：TWCERT/CC。駭客進階npm套件供應鏈攻擊手法，利用區塊鏈技術隱匿命令控制伺服器位址，增加檢測難度。"
+      "detail": "來源：TWCERT/CC。CISA發布Medusa勒索軟體防護指引，揭示新型勒索手法與相關入侵指標供防禦參考。"
+    },
+    {
+      "category": "公告確認",
+      "title": "PostgreSQL潛藏12年高風險漏洞，恐導致任意程式碼執行",
+      "priority": "中",
+      "detail": "來源：TWCERT/CC。PostgreSQL發現已存在12年的高風險漏洞，攻擊者可藉此執行任意程式碼，需立即修補。"
     },
     {
       "category": "掃描比對",
       "title": "銀狐組織相關IOC比對",
       "priority": "中",
-      "detail": "涉及類型：IP、Domain。建議比對內部防火牆/EDR日誌。"
+      "detail": "涉及類型：Domain、IP。建議比對內部防火牆/EDR日誌。"
     },
     {
       "category": "掃描比對",
-      "title": "高頻漏洞關聯惡意IP相關IOC比對",
+      "title": "禪道env.bak漏洞相關IOC比對",
       "priority": "中",
-      "detail": "涉及類型：IP。建議比對內部防火牆/EDR日誌。"
+      "detail": "涉及類型：Hash、Domain。建議比對內部防火牆/EDR日誌。"
+    },
+    {
+      "category": "掃描比對",
+      "title": "銀狐組織相關IOC比對",
+      "priority": "中",
+      "detail": "涉及類型：Domain、IP。建議比對內部防火牆/EDR日誌。"
     },
     {
       "category": "教育宣導",
-      "title": "駭客利用ChatGPT客製應用程式傳播ClickFix詐騙攻擊",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
-    },
-    {
-      "category": "教育宣導",
-      "title": "越南男子因價值1600萬美元「殺豬盤」詐騙案遭控",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
-    },
-    {
-      "category": "教育宣導",
-      "title": "CISA與多國安全機構聯合發布「Gunra」勒索軟體預警通報",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
-    },
-    {
-      "category": "教育宣導",
-      "title": "惡意npm攻擊再進化！駭客利用區塊鏈隱藏C2位址",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
-    },
-    {
-      "category": "教育宣導",
-      "title": "APT駭客組織Head Mare利用TrueConf漏洞發動攻擊",
+      "title": "超過 54 萬組帳密被洩露在公開代碼庫",
       "priority": "低",
       "detail": "建議納入員工資安宣導教育素材。"
     }
   ],
   "category_counts": {
     "kev": 1,
-    "vendor": 10,
+    "vendor": 12,
     "news": 6,
-    "ransomwareApt": 3
+    "ransomwareApt": 4
   }
 };
-const UPDATED_AT = "2026/9/30 09:59:48（台灣時間）";
+const UPDATED_AT = "2026/10/1 09:59:19（台灣時間）";
 document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }

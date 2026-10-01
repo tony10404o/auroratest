@@ -1,6 +1,48 @@
 [
   {
     "category": "零時差漏洞",
+    "title": "思科SD-WAN管理器十六進位編碼漏洞",
+    "date": "2026-09-30",
+    "url": ""
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "思科SD-WAN認證繞過漏洞遭實際利用攻擊",
+    "date": "2026-09-30",
+    "url": "https://www.bleepingcomputer.com/news/security/cisco-warns-of-new-sd-wan-authentication-bypass-zero-day-exploited-in-attacks/"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "亞太地區勒索軟體事件月增近27%",
+    "date": "2026-09-30",
+    "url": ""
+  },
+  {
+    "category": "政府公告",
+    "title": "TWCERT/CC 2026年9月份資安情資電子報",
+    "date": "2026-09-30",
+    "url": ""
+  },
+  {
+    "category": "政府公告",
+    "title": "CISA更新Medusa勒索軟體安全防護指引",
+    "date": "2026-09-30",
+    "url": ""
+  },
+  {
+    "category": "政府公告",
+    "title": "PostgreSQL潛藏12年高風險漏洞導致任意程式碼執行",
+    "date": "2026-09-30",
+    "url": ""
+  },
+  {
+    "category": "勒索病毒",
+    "title": "日本Keio大學遭勒索軟體攻擊業務系統中斷",
+    "date": "2026-09-30",
+    "url": ""
+  },
+  {
+    "category": "零時差漏洞",
     "title": "Apple CoreGraphics零時差漏洞遭實際攻擊利用",
     "date": "2026-09-29",
     "url": "https://www.bleepingcomputer.com/news/security/apple-patches-coregraphics-zero-day-flaw-exploited-in-attacks/"
@@ -22,6 +64,18 @@
     "title": "Citrix NetScaler 輸入驗證漏洞",
     "date": "2026-09-27",
     "url": "https://www.bleepingcomputer.com/news/security/citrix-admins-warned-to-shut-down-netscalers-over-2-exploited-zero-days/"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "DeadLock勒索軟體利用分散式基礎設施躲避追蹤",
+    "date": "2026-09-26",
+    "url": ""
+  },
+  {
+    "category": "APT攻擊",
+    "title": "ShinyHunters攻陷Cl0p勒索軟體集團網站",
+    "date": "2026-09-25",
+    "url": "https://www.gm7.org/archives/161395"
   },
   {
     "category": "勒索病毒",
