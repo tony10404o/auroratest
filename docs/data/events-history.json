@@ -1,6 +1,30 @@
 [
   {
     "category": "零時差漏洞",
+    "title": "FortiMail 路徑遍歷與空字節中立化漏洞 - 零日攻擊進行中",
+    "date": "2026-10-01",
+    "url": "https://www.bleepingcomputer.com/news/security/fortinet-warns-of-critical-fortimail-flaw-exploited-in-zero-day-attacks/"
+  },
+  {
+    "category": "資料外洩",
+    "title": "五角大廈人力資源管理系統遭入侵 - 300萬員工資料洩露",
+    "date": "2026-10-01",
+    "url": "https://www.bleepingcomputer.com/news/security/hackers-breach-pentagon-human-resources-management-system-steal-data-of-nearly-3-million-people/"
+  },
+  {
+    "category": "資料外洩",
+    "title": "GitHub 公開儲存庫洩露54萬筆有效帳號認證憑證",
+    "date": "2026-10-01",
+    "url": "https://www.bleepingcomputer.com/news/security/over-543-000-valid-credentials-exposed-in-public-github-repositories/"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Cisco SD-WAN Manager API 認證繞過零日漏洞遭實際利用",
+    "date": "2026-10-01",
+    "url": "https://www.bleepingcomputer.com/news/security/cisco-warns-of-new-sd-wan-authentication-bypass-zero-day-exploited-in-attacks/"
+  },
+  {
+    "category": "零時差漏洞",
     "title": "思科SD-WAN管理器十六進位編碼漏洞",
     "date": "2026-09-30",
     "url": ""
@@ -575,11 +599,5 @@
     "title": "APT36利用Rust惡意程式工具包針對印度政府與國防機構",
     "date": "2026-08-29",
     "url": "https://gbhackers.com/apt36-malware-campaign/"
-  },
-  {
-    "category": "APT攻擊",
-    "title": "APT組織Head Mare利用TrueConf漏洞發動攻擊",
-    "date": "2026-08-28",
-    "url": "https://www.ithome.com.tw/news/178489"
   }
 ]
