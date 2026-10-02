@@ -6,18 +6,6 @@
     "url": "https://www.bleepingcomputer.com/news/security/fortinet-warns-of-critical-fortimail-flaw-exploited-in-zero-day-attacks/"
   },
   {
-    "category": "資料外洩",
-    "title": "五角大廈人力資源管理系統遭入侵 - 300萬員工資料洩露",
-    "date": "2026-10-01",
-    "url": "https://www.bleepingcomputer.com/news/security/hackers-breach-pentagon-human-resources-management-system-steal-data-of-nearly-3-million-people/"
-  },
-  {
-    "category": "資料外洩",
-    "title": "GitHub 公開儲存庫洩露54萬筆有效帳號認證憑證",
-    "date": "2026-10-01",
-    "url": "https://www.bleepingcomputer.com/news/security/over-543-000-valid-credentials-exposed-in-public-github-repositories/"
-  },
-  {
     "category": "零時差漏洞",
     "title": "Cisco SD-WAN Manager API 認證繞過零日漏洞遭實際利用",
     "date": "2026-10-01",
@@ -120,36 +108,6 @@
     "url": ""
   },
   {
-    "category": "資料外洩",
-    "title": "Carbonato惡意軟體利用AI自動化攻擊Docker容器",
-    "date": "2026-09-24",
-    "url": "https://www.bleepingcomputer.com/news/security/new-carbonato-malware-uses-ai-agents-to-hijack-exposed-docker-hosts/"
-  },
-  {
-    "category": "資料外洩",
-    "title": "Roundcube郵件系統漏洞遭大規模攻擊利用",
-    "date": "2026-09-24",
-    "url": "https://www.bleepingcomputer.com/news/security/critical-roundcube-flaw-now-actively-exploited-in-code-injection-attacks/"
-  },
-  {
-    "category": "資料外洩",
-    "title": "GitLab專案外洩郵件遭利用進行程式碼注入攻擊",
-    "date": "2026-09-24",
-    "url": "https://www.bleepingcomputer.com/news/security/exposed-gitlab-project-email-addresses-let-attackers-push-code/"
-  },
-  {
-    "category": "資料外洩",
-    "title": "MacSync惡意軟體利用iCloud行事曆傳播",
-    "date": "2026-09-24",
-    "url": "https://www.bleepingcomputer.com/news/security/macsync-malware-uses-public-icalendars-to-deliver-new-payloads/"
-  },
-  {
-    "category": "資料外洩",
-    "title": "澳洲政府醫療網站遭駭客入侵並探測軟體供應商",
-    "date": "2026-09-24",
-    "url": "https://www.bleepingcomputer.com/news/security/openai-hacked-australian-medicare-govt-site-probed-data-providers/"
-  },
-  {
     "category": "勒索病毒",
     "title": "Metaencryptor勒索軟體攻擊南韓相機及日本汽車供應商",
     "date": "2026-09-23",
@@ -210,22 +168,10 @@
     "url": "https://www.bleepingcomputer.com/news/security/chinese-hackers-exploit-wordpress-zyxel-flaws-to-steal-govt-data/"
   },
   {
-    "category": "資料外洩",
-    "title": "虛假多因素驗證提供商竊取登入密碼",
-    "date": "2026-09-21",
-    "url": "https://www.bleepingcomputer.com/news/security/rogue-external-mfa-providers-can-steal-passwords-during-logins/"
-  },
-  {
     "category": "APT攻擊",
     "title": "新型 Windows 惡意軟體使用 AI 決策進行攻擊",
     "date": "2026-09-21",
     "url": "https://www.bleepingcomputer.com/news/security/new-closedquorum-windows-malware-uses-ai-for-attack-decisions/"
-  },
-  {
-    "category": "資料外洩",
-    "title": "瑞典對環境監測公司罰款 220 萬人資料外洩",
-    "date": "2026-09-21",
-    "url": "https://www.bleepingcomputer.com/news/security/sweden-fines-miljoedata-183-000-over-breach-affecting-2.2-million/"
   },
   {
     "category": "政府公告",
@@ -312,18 +258,6 @@
     "url": "https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-exploited-citrix-flaws-by-wednesday/"
   },
   {
-    "category": "資料外洩",
-    "title": "Supabase資料庫設定不當導致逾六萬筆個人資料洩露",
-    "date": "2026-09-15",
-    "url": "https://www.bleepingcomputer.com/news/security/misconfigured-supabase-apps-expose-data-in-over-16-000-databases/"
-  },
-  {
-    "category": "資料外洩",
-    "title": "超八萬組織AI登入憑證遭竊",
-    "date": "2026-09-15",
-    "url": "https://www.bleepingcomputer.com/news/security/80-000-plus-organizations-had-ai-logins-stolen-from-shadow-ai-to-llmjacking/"
-  },
-  {
     "category": "勒索病毒",
     "title": "日本慶應大學遭勒索軟體攻擊",
     "date": "2026-09-15",
@@ -357,28 +291,10 @@
     "date": "2026-09-14"
   },
   {
-    "category": "資料外洩",
-    "title": "日本政府VPN漏洞導致24萬公務人員資料外洩",
-    "date": "2026-09-14",
-    "url": "https://www.bleepingcomputer.com/news/security/japans-digital-agency-says-vpn-flaw-exposed-246-000-personnel-records/"
-  },
-  {
-    "category": "資料外洩",
-    "title": "數位支付服務商Revolut資料外洩涉及財務與證件資訊",
-    "date": "2026-09-14",
-    "url": "https://www.bleepingcomputer.com/news/security/revolut-discloses-data-breach-exposing-financial-info-passports/"
-  },
-  {
     "category": "零時差漏洞",
     "title": "GitLab最高等級漏洞被駭客大規模利用",
     "date": "2026-09-14",
     "url": "https://www.bleepingcomputer.com/news/security/cisa-hackers-now-exploit-max-severity-gitlab-flaw-in-attacks/"
-  },
-  {
-    "category": "資料外洩",
-    "title": "微軟九月更新導致遠端桌面服務故障已發佈緊急修補",
-    "date": "2026-09-14",
-    "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-releases-emergency-windows-updates-to-fix-rds-failures/"
   },
   {
     "category": "勒索病毒",
@@ -397,18 +313,6 @@
     "title": "Vexy跨平台勒索軟體快速擴張",
     "date": "2026-09-12",
     "url": "https://www.gm7.org/archives/155016"
-  },
-  {
-    "category": "資料外洩",
-    "title": "日本數位廳VPN漏洞洩露24.6萬人個資",
-    "date": "2026-09-12",
-    "url": "https://www.bleepingcomputer.com/news/security/japans-digital-agency-says-vpn-flaw-exposed-246-000-personnel-records/"
-  },
-  {
-    "category": "資料外洩",
-    "title": "CenterPoint Energy客戶資料遭竊",
-    "date": "2026-09-12",
-    "url": "https://www.bleepingcomputer.com/news/security/centerpoint-energy-confirms-customer-data-stolen-in-cyberattack/"
   },
   {
     "category": "APT攻擊",
@@ -515,12 +419,6 @@
     "title": "APT24入侵台灣廣告行銷業者導致供應鏈攻擊",
     "date": "2026-09-09",
     "url": "https://www.ithome.com.tw/news/178489"
-  },
-  {
-    "category": "資料外洩",
-    "title": "韓國醫美平台Gangnam Unni大規模數據洩露",
-    "date": "2026-09-08",
-    "url": "https://www.gm7.org/archives/154890"
   },
   {
     "category": "勒索病毒",

@@ -357,7 +357,7 @@ ${JSON.stringify(result, null, 2)}
   ],
   "global_events": [
     {
-      "category": "勒索病毒、APT攻擊、資料外洩、零時差漏洞 或 政府公告 其中一個",
+      "category": "勒索病毒、APT攻擊、零時差漏洞 或 政府公告 其中一個（不要用資料外洩）",
       "title": "事件標題",
       "date": "YYYY-MM-DD（依原始資料的date/date_added欄位）",
       "url": "來源網址"
@@ -369,7 +369,7 @@ ${JSON.stringify(result, null, 2)}
 規則：
 - headlines 從所有原始資料中，挑選今天最重要的5則（跨類別挑選，不限單一類別）
 - vendor_impact 從 vendor_advisories 轉換，保留原本筆數
-- global_events 從 kev_vulnerabilities（挑is_zero_day或known_ransomware_use的）、ransomware_apt、gov_announcements 轉換彙整，最多12則，依日期新到舊排序
+- global_events 從 kev_vulnerabilities（挑is_zero_day或known_ransomware_use的）、ransomware_apt、gov_announcements 轉換彙整，最多12則，依日期新到舊排序。這份清單是給IT人員「待處理」用的，只放需要我們實際評估/修補/應對的項目（漏洞修補、勒索軟體/APT威脅、政府資安公告），不要放純粹是「其他組織帳號或個資外洩」的新聞（例如某國政府機關VPN漏洞導致民眾個資外洩這類跟我們IT維運沒有直接行動關聯的外洩事件），這類資料外洩新聞如果重要可以放在headlines，但不要放進global_events
 - 所有評分（impact、stars）都是AI研判的參考值，請根據資料內容合理判斷，不要每個都給一樣的分數
 - 不需要回傳cve_radar欄位，這部分會用官方NVD資料另外處理
 - ai_analysis 的內容要能呼應 headlines、vendor_impact、global_events 這幾個欄位實際產生的內容，不要憑空提到資料中沒有的項目`;
