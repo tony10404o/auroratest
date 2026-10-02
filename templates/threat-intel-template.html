@@ -413,17 +413,23 @@ function onStatusChange(select){
   select.className = 'update-status-select' + (select.value ? ' status-' + select.value : '');
   saveStatus(select.dataset.itemId, select.value);
   updatePendingCount();
+  // 面板本身的「XX件」徽章也要跟著重新計算，不然只有上方統計卡會更新、下方面板數字不會變
+  if (typeof window.__rerenderUpdatePanel === 'function') {
+    window.__rerenderUpdatePanel();
+  }
 }
 window.onStatusChange = onStatusChange;
 
+// 「待處理事項」統計卡固定代表「近30天資料」，計算時直接從完整資料算，不要依賴畫面上
+// 目前顯示的是「今天」還是「本月」分頁，否則切換分頁時這個數字會跟著分頁範圍跳動、對不上
 function updatePendingCount(){
   const badge = document.getElementById('pendingCountNum');
   if (!badge) return;
-  const selects = document.querySelectorAll('.update-status-select');
-  let remaining = 0;
-  selects.forEach(s => {
-    if (s.value !== '不處理' && s.value !== '已完成') remaining++;
-  });
+  const remaining = (DATA.global_events || []).filter(e => {
+    if (!isWithinCalendarDays(e.date, 30)) return false;
+    const saved = getSavedStatus(stableIdFor(e.title));
+    return saved !== '不處理' && saved !== '已完成';
+  }).length;
   badge.textContent = remaining;
 }
 
@@ -572,7 +578,15 @@ function setupGlobalEventsPanel(items){
       return !isAutoRemoved(stableIdFor(e.title));
     });
     body.innerHTML = renderGlobalEvents(items, days);
-    if (badge) badge.textContent = `${filtered.length} 件`;
+    // 徽章數字跟「待處理事項」統計卡用同一套定義：排除已標記「不處理／已完成」的項目，
+    // 不要單純算畫面上渲染的筆數（渲染筆數在3天緩衝期內還會包含剛標記完成的項目，數字會對不上）
+    if (badge) {
+      const pending = filtered.filter(e => {
+        const saved = getSavedStatus(stableIdFor(e.title));
+        return saved !== '不處理' && saved !== '已完成';
+      }).length;
+      badge.textContent = `${pending} 件`;
+    }
     updatePendingCount();
   }
   tabs.forEach(btn => {
