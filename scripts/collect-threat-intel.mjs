@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fetchFeed } from "./lib/rss-utils.mjs";
 import { loadEventsHistory, mergeEventsHistory, saveEventsHistory } from "./lib/history-store.mjs";
-import { computeTodayThreatCounts, loadTrendHistory, appendTodayTrend, saveTrendHistory } from "./lib/trend-store.mjs";
+import { computeTodayThreatCounts, loadTrendHistory, appendTodayTrend, saveTrendHistory, computeTrendSummary } from "./lib/trend-store.mjs";
 
 const apiKey = process.env.ANTHROPIC_API_KEY;
 if (!apiKey) {
@@ -529,6 +529,7 @@ async function main() {
   const existingTrendHistory = loadTrendHistory();
   const updatedTrendHistory = appendTodayTrend(existingTrendHistory, todayThreatCounts, todayDateStr);
   saveTrendHistory(updatedTrendHistory);
+  dashboard.threat_trend = computeTrendSummary(updatedTrendHistory, todayDateStr);
   console.log(
     `威脅趨勢分類完成（今天）：${Object.entries(todayThreatCounts).map(([k, v]) => `${k}${v}`).join("／")}，歷史累積共${updatedTrendHistory.length}天`
   );

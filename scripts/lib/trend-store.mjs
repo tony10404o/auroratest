@@ -89,3 +89,49 @@ export function saveTrendHistory(history, path = TREND_PATH) {
   fs.mkdirSync("docs/data", { recursive: true });
   fs.writeFileSync(path, JSON.stringify(history, null, 2), "utf-8");
 }
+
+const TREND_CATEGORIES = ["釣魚攻擊", "勒索軟體", "BEC商業郵件詐騙", "帳密竊取", "AI詐騙"];
+
+/**
+ * 把累積的歷史資料整理成前端「近期威脅趨勢」卡片要的格式：
+ * 每個分類給近7天的每日筆數（當作走勢圖的點）、以及近7天總數相較於再前7天總數的漲跌百分比。
+ * 歷史天數不夠7天的部分用0補齊，漲跌幅分母為0時（前7天完全沒出現過）：
+ * 這7天只要有出現就算「新增趨勢」顯示+100%，兩邊都是0則顯示0%。
+ */
+export function computeTrendSummary(history, todayDate) {
+  const sorted = [...(history || [])].sort((a, b) => new Date(a.date) - new Date(b.date));
+  const today = todayDate ? new Date(todayDate) : new Date();
+
+  function countsOnOffset(daysAgo) {
+    const d = new Date(today);
+    d.setDate(d.getDate() - daysAgo);
+    const dateStr = d.toISOString().slice(0, 10);
+    const entry = sorted.find((e) => e.date === dateStr);
+    return entry ? entry.counts : null;
+  }
+
+  // 近7天（含今天，offset 0~6）與再前7天（offset 7~13），由舊到新排序方便畫走勢圖
+  const last7Offsets = [6, 5, 4, 3, 2, 1, 0];
+  const prev7Offsets = [13, 12, 11, 10, 9, 8, 7];
+
+  return TREND_CATEGORIES.map((category) => {
+    const points = last7Offsets.map((offset) => {
+      const counts = countsOnOffset(offset);
+      return counts ? counts[category] || 0 : 0;
+    });
+    const last7Sum = points.reduce((a, b) => a + b, 0);
+    const prev7Sum = prev7Offsets.reduce((sum, offset) => {
+      const counts = countsOnOffset(offset);
+      return sum + (counts ? counts[category] || 0 : 0);
+    }, 0);
+
+    let pct;
+    if (prev7Sum === 0) {
+      pct = last7Sum === 0 ? 0 : 100;
+    } else {
+      pct = Math.round(((last7Sum - prev7Sum) / prev7Sum) * 100);
+    }
+
+    return { label: category, pct, points };
+  });
+}
