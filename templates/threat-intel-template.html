@@ -344,6 +344,17 @@ function withShowMore(itemHtmls){
  */
 function emptyNote(){ return `<div class="empty-note">目前沒有資料</div>`; }
 
+// 用「日曆天數」而非精確24小時區間比對日期，避免事件日期(只有年月日、視為UTC午夜)跟目前時間比較時
+// 因為時區／當下時刻差異，導致「今天」分類篩不到今天剛發布、但還不滿24小時的項目
+function isWithinCalendarDays(dateStr, rangeDays){
+  const d = new Date(dateStr);
+  if (isNaN(d.getTime())) return true;
+  const now = new Date();
+  const todayMidnightUTC = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+  const diffDays = Math.floor((todayMidnightUTC - d.getTime()) / 86400000);
+  return diffDays <= (rangeDays - 1);
+}
+
 function panelShell(num, icon, title, viewAllUrl, bodyHtml, extraHeaderHtml='', numColor='', count=null, badgeId=''){
   return `<div class="panel">
     <div class="panel-header">
@@ -443,23 +454,47 @@ try {
   }
 } catch (e) { supabaseClient = null; }
 
-function getLocalStatus(id){
+// 本機快取格式改為 JSON {status, updatedAt(毫秒時間戳)}，才能判斷「不處理／已完成」是幾天前標記的
+const AUTO_REMOVE_DAYS = 3;
+
+function getLocalStatusMeta(id){
   try {
-    return localStorage.getItem(STATUS_STORAGE_PREFIX + id) || '';
+    const raw = localStorage.getItem(STATUS_STORAGE_PREFIX + id);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (parsed && typeof parsed === 'object' && parsed.status) return parsed;
+    return null;
   } catch (e) {
-    return '';
+    return null;
   }
 }
-function setLocalStatus(id, value){
+function setLocalStatus(id, value, updatedAtMs){
   try {
-    if (value) localStorage.setItem(STATUS_STORAGE_PREFIX + id, value);
-    else localStorage.removeItem(STATUS_STORAGE_PREFIX + id);
+    if (value) {
+      const meta = { status: value, updatedAt: updatedAtMs || Date.now() };
+      localStorage.setItem(STATUS_STORAGE_PREFIX + id, JSON.stringify(meta));
+    } else {
+      localStorage.removeItem(STATUS_STORAGE_PREFIX + id);
+    }
   } catch (e) { /* 忽略儲存失敗 */ }
+}
+function getLocalStatus(id){
+  const meta = getLocalStatusMeta(id);
+  return meta ? meta.status : '';
 }
 
 // 一開始先用本機快取當作立即可用的資料，Supabase抓到之後會覆蓋、並重新畫面
 function getSavedStatus(id){
   return getLocalStatus(id);
+}
+
+// 判斷這筆「不處理／已完成」是否已標記超過 AUTO_REMOVE_DAYS 天，超過的話要從清單中自動消除
+function isAutoRemoved(id){
+  const meta = getLocalStatusMeta(id);
+  if (!meta) return false;
+  if (meta.status !== '不處理' && meta.status !== '已完成') return false;
+  const ageDays = (Date.now() - meta.updatedAt) / 86400000;
+  return ageDays >= AUTO_REMOVE_DAYS;
 }
 
 async function saveStatus(id, value){
@@ -480,12 +515,13 @@ async function saveStatus(id, value){
 async function syncStatusFromCloud(){
   if (!supabaseClient) return;
   try {
-    const { data, error } = await supabaseClient.from('update_status').select('id, status');
+    const { data, error } = await supabaseClient.from('update_status').select('id, status, updated_at');
     if (error) throw error;
     let changed = false;
     (data || []).forEach(row => {
+      const cloudUpdatedAt = row.updated_at ? new Date(row.updated_at).getTime() : Date.now();
       if (getLocalStatus(row.id) !== (row.status || '')) changed = true;
-      setLocalStatus(row.id, row.status || '');
+      setLocalStatus(row.id, row.status || '', cloudUpdatedAt);
     });
     if (changed && typeof window.__rerenderUpdatePanel === 'function') {
       window.__rerenderUpdatePanel();
@@ -496,10 +532,10 @@ async function syncStatusFromCloud(){
 }
 
 function renderGlobalEvents(items, rangeDays){
-  const cutoff = Date.now() - rangeDays * 86400000;
   const filtered = (items || []).filter(e => {
-    const d = new Date(e.date);
-    return isNaN(d.getTime()) ? true : d.getTime() >= cutoff;
+    if (!isWithinCalendarDays(e.date, rangeDays)) return false;
+    // 標記「不處理」或「已完成」滿3天後，從清單自動消除
+    return !isAutoRemoved(stableIdFor(e.title));
   });
   if (!filtered.length) return emptyNote();
   const rows = filtered.map(e => {
@@ -531,10 +567,9 @@ function setupGlobalEventsPanel(items){
   let currentDays = 30;
   function render(days){
     currentDays = days;
-    const cutoff = Date.now() - days * 86400000;
     const filtered = (items || []).filter(e => {
-      const d = new Date(e.date);
-      return isNaN(d.getTime()) ? true : d.getTime() >= cutoff;
+      if (!isWithinCalendarDays(e.date, days)) return false;
+      return !isAutoRemoved(stableIdFor(e.title));
     });
     body.innerHTML = renderGlobalEvents(items, days);
     if (badge) badge.textContent = `${filtered.length} 件`;
@@ -803,11 +838,8 @@ function renderStatStrip(counts, pendingCount){
       <div class="strip-range">${escapeHtml(c.range)}</div>
     </div>`).join('');
 }
-const monthPendingCutoff = Date.now() - 30 * 86400000;
 const monthPendingCount = (DATA.global_events || []).filter(e => {
-  const d = new Date(e.date);
-  const inRange = isNaN(d.getTime()) ? true : d.getTime() >= monthPendingCutoff;
-  if (!inRange) return false;
+  if (!isWithinCalendarDays(e.date, 30)) return false;
   const saved = getSavedStatus(stableIdFor(e.title));
   return saved !== '不處理' && saved !== '已完成';
 }).length;
