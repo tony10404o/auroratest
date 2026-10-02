@@ -227,10 +227,10 @@
   .stat-modal-close{background:none;border:none;color:var(--text-dim);font-size:16px;cursor:pointer;padding:2px 6px;}
   .stat-modal-close:hover{color:var(--text);}
   .stat-modal-body{overflow-y:auto;padding:8px 18px 16px;}
+  .ai-fab-inline-wrap{display:flex;justify-content:center;margin:22px 0 4px;}
   .ai-fab{
-    position:fixed;right:22px;bottom:22px;z-index:90;
     background:var(--accent);color:#fff;border:none;border-radius:24px;
-    padding:12px 18px;font-family:'Noto Sans TC',sans-serif;font-size:13px;font-weight:700;
+    padding:12px 22px;font-family:'Noto Sans TC',sans-serif;font-size:13px;font-weight:700;
     box-shadow:0 4px 14px rgba(37,99,235,0.35);cursor:pointer;
   }
   .ai-fab:hover{background:var(--accent-dim);}
@@ -286,6 +286,7 @@
   .strip-card.c-green .strip-number{color:#10B981;}
   .strip-card.c-orange .strip-number{color:#F59E0B;}
   .strip-card.c-red .strip-number{color:#EF4444;}
+  .strip-range{font-family:'JetBrains Mono',monospace;font-size:9.5px;color:var(--text-faint);margin-top:2px;}
   .strip-desc{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-dim);}
 
 </style>
@@ -311,8 +312,6 @@
     </div>
   </div>
 
-  <button class="ai-fab" id="aiFab" onclick="openAiAnalysisModal()">🤖 AI分析</button>
-
   <div class="stat-modal-overlay" id="aiAnalysisModal" onclick="if(event.target===this)closeAiAnalysisModal()">
     <div class="stat-modal">
       <div class="stat-modal-header">
@@ -329,6 +328,10 @@
   </div>
 
   <div class="dashboard-grid" id="dashboardGrid"></div>
+
+  <div class="ai-fab-inline-wrap">
+    <button class="ai-fab" id="aiFab" onclick="openAiAnalysisModal()">🤖 AI分析</button>
+  </div>
 
   <div class="footer-note">CVSS評分、影響等級、風險分數為AI／演算法研判之參考值，非官方公告數字；正式應變請以原廠公告與CISA KEV為準。</div>
 </div>
@@ -807,15 +810,16 @@ function renderStatStrip(counts, pendingCount){
   const el = document.getElementById('statStrip');
   if (!counts) { el.style.display = 'none'; return; }
   const cards = [
-    { color:'red', label:'今日新聞事件', number: counts.news ?? 0, desc:'國內/全球新聞' },
-    { color:'blue', label:'今日漏洞雷達', number: counts.kev ?? 0, desc:'KEV新增筆數' },
-    { color:'green', label:'公司關注廠商情報', number: counts.vendor ?? 0, desc:'Microsoft／Cisco／Fortinet' },
-    { color:'orange', label:'待處理事項', number: pendingCount ?? 0, desc:'需留意的更新檔數', id:'pendingCountNum' },
+    { color:'red', label:'今日新聞事件', number: counts.news ?? 0, desc:'國內/全球新聞', range:'近2天資料' },
+    { color:'blue', label:'今日漏洞雷達', number: counts.kev ?? 0, desc:'KEV新增筆數', range:'近2天資料' },
+    { color:'green', label:'公司關注廠商情報', number: counts.vendor ?? 0, desc:'Microsoft／Cisco／Fortinet', range:'近2天資料' },
+    { color:'orange', label:'待處理事項', number: pendingCount ?? 0, desc:'需留意的更新檔數', id:'pendingCountNum', range:'近30天資料' },
   ];
   el.innerHTML = cards.map(c => `
     <div class="strip-card c-${c.color}"${c.clickable ? ` style="cursor:pointer;" onclick="openStatModal('ransomApt')"` : ''}>
       <div class="strip-label">${escapeHtml(c.label)} <span class="strip-label-sub">${escapeHtml(c.desc)}</span></div>
       <div class="strip-number"${c.id ? ` id="${c.id}"` : ''}>${c.number}</div>
+      <div class="strip-range">${escapeHtml(c.range)}</div>
     </div>`).join('');
 }
 const monthPendingCutoff = Date.now() - 30 * 86400000;
