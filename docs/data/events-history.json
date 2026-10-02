@@ -1,6 +1,342 @@
 [
   {
     "category": "零時差漏洞",
+    "title": "FortiMail 路徑遍歷與空字節中立化漏洞 - 零日攻擊進行中",
+    "date": "2026-10-01",
+    "url": "https://www.bleepingcomputer.com/news/security/fortinet-warns-of-critical-fortimail-flaw-exploited-in-zero-day-attacks/"
+  },
+  {
+    "category": "資料外洩",
+    "title": "五角大廈人力資源管理系統遭入侵 - 300萬員工資料洩露",
+    "date": "2026-10-01",
+    "url": "https://www.bleepingcomputer.com/news/security/hackers-breach-pentagon-human-resources-management-system-steal-data-of-nearly-3-million-people/"
+  },
+  {
+    "category": "資料外洩",
+    "title": "GitHub 公開儲存庫洩露54萬筆有效帳號認證憑證",
+    "date": "2026-10-01",
+    "url": "https://www.bleepingcomputer.com/news/security/over-543-000-valid-credentials-exposed-in-public-github-repositories/"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Cisco SD-WAN Manager API 認證繞過零日漏洞遭實際利用",
+    "date": "2026-10-01",
+    "url": "https://www.bleepingcomputer.com/news/security/cisco-warns-of-new-sd-wan-authentication-bypass-zero-day-exploited-in-attacks/"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "思科SD-WAN管理器十六進位編碼漏洞",
+    "date": "2026-09-30",
+    "url": ""
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "思科SD-WAN認證繞過漏洞遭實際利用攻擊",
+    "date": "2026-09-30",
+    "url": "https://www.bleepingcomputer.com/news/security/cisco-warns-of-new-sd-wan-authentication-bypass-zero-day-exploited-in-attacks/"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "亞太地區勒索軟體事件月增近27%",
+    "date": "2026-09-30",
+    "url": ""
+  },
+  {
+    "category": "政府公告",
+    "title": "TWCERT/CC 2026年9月份資安情資電子報",
+    "date": "2026-09-30",
+    "url": ""
+  },
+  {
+    "category": "政府公告",
+    "title": "CISA更新Medusa勒索軟體安全防護指引",
+    "date": "2026-09-30",
+    "url": ""
+  },
+  {
+    "category": "政府公告",
+    "title": "PostgreSQL潛藏12年高風險漏洞導致任意程式碼執行",
+    "date": "2026-09-30",
+    "url": ""
+  },
+  {
+    "category": "勒索病毒",
+    "title": "日本Keio大學遭勒索軟體攻擊業務系統中斷",
+    "date": "2026-09-30",
+    "url": ""
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Apple CoreGraphics零時差漏洞遭實際攻擊利用",
+    "date": "2026-09-29",
+    "url": "https://www.bleepingcomputer.com/news/security/apple-patches-coregraphics-zero-day-flaw-exploited-in-attacks/"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Citrix NetScaler零時差漏洞遭駭客利用部署網頁後門",
+    "date": "2026-09-29",
+    "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-citrix-netscaler-zero-day-to-deploy-web-shells/"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Citrix NetScaler 記憶體緩衝區越界漏洞",
+    "date": "2026-09-27",
+    "url": "https://www.bleepingcomputer.com/news/security/citrix-admins-warned-to-shut-down-netscalers-over-2-exploited-zero-days/"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Citrix NetScaler 輸入驗證漏洞",
+    "date": "2026-09-27",
+    "url": "https://www.bleepingcomputer.com/news/security/citrix-admins-warned-to-shut-down-netscalers-over-2-exploited-zero-days/"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "DeadLock勒索軟體利用分散式基礎設施躲避追蹤",
+    "date": "2026-09-26",
+    "url": ""
+  },
+  {
+    "category": "APT攻擊",
+    "title": "ShinyHunters攻陷Cl0p勒索軟體集團網站",
+    "date": "2026-09-25",
+    "url": "https://www.gm7.org/archives/161395"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "TeamCity嚴重漏洞遭勒索軟體大規模利用",
+    "date": "2026-09-24",
+    "url": "https://www.bleepingcomputer.com/news/security/cisa-ransomware-gangs-now-exploiting-critical-teamcity-flaw/"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "WSO2 API產品路徑遍歷漏洞導致遠端程式碼執行",
+    "date": "2026-09-24",
+    "url": ""
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Adobe Commerce授權驗證不當漏洞",
+    "date": "2026-09-24",
+    "url": ""
+  },
+  {
+    "category": "資料外洩",
+    "title": "Carbonato惡意軟體利用AI自動化攻擊Docker容器",
+    "date": "2026-09-24",
+    "url": "https://www.bleepingcomputer.com/news/security/new-carbonato-malware-uses-ai-agents-to-hijack-exposed-docker-hosts/"
+  },
+  {
+    "category": "資料外洩",
+    "title": "Roundcube郵件系統漏洞遭大規模攻擊利用",
+    "date": "2026-09-24",
+    "url": "https://www.bleepingcomputer.com/news/security/critical-roundcube-flaw-now-actively-exploited-in-code-injection-attacks/"
+  },
+  {
+    "category": "資料外洩",
+    "title": "GitLab專案外洩郵件遭利用進行程式碼注入攻擊",
+    "date": "2026-09-24",
+    "url": "https://www.bleepingcomputer.com/news/security/exposed-gitlab-project-email-addresses-let-attackers-push-code/"
+  },
+  {
+    "category": "資料外洩",
+    "title": "MacSync惡意軟體利用iCloud行事曆傳播",
+    "date": "2026-09-24",
+    "url": "https://www.bleepingcomputer.com/news/security/macsync-malware-uses-public-icalendars-to-deliver-new-payloads/"
+  },
+  {
+    "category": "資料外洩",
+    "title": "澳洲政府醫療網站遭駭客入侵並探測軟體供應商",
+    "date": "2026-09-24",
+    "url": "https://www.bleepingcomputer.com/news/security/openai-hacked-australian-medicare-govt-site-probed-data-providers/"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "Metaencryptor勒索軟體攻擊南韓相機及日本汽車供應商",
+    "date": "2026-09-23",
+    "url": "https://asec.ahnlab.com/en/95545/"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "ShinyHunters聲稱入侵美國聯邦執法機構竊取敏感資料",
+    "date": "2026-09-23",
+    "url": "https://asec.ahnlab.com/en/95545/"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Check Point 安全管理伺服器路徑遍歷零日漏洞",
+    "date": "2026-09-22",
+    "url": "https://www.cna.com.tw"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Check Point VPN 憑證驗證零日漏洞",
+    "date": "2026-09-22",
+    "url": "https://www.cna.com.tw"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Windows Defender 零日漏洞阻止防毒更新",
+    "date": "2026-09-22",
+    "url": "https://www.bleepingcomputer.com/news/security/new-windows-defender-zero-day-blocks-microsoft-antivirus-updates/"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "中國駭客Red Heron利用Gitea漏洞攻擊多國",
+    "date": "2026-09-21",
+    "url": "https://www.ithome.com.tw/news/178932"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "JFrog Artifactory漏洞遭駭客積極利用進行供應鏈攻擊",
+    "date": "2026-09-21",
+    "url": "https://www.ithome.com.tw/news/178902"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "Chrome與Windows零時差漏洞遭中國駭客串連利用",
+    "date": "2026-09-21",
+    "url": "https://www.ithome.com.tw/news/178917"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "FBI 遭駭客入侵竊取 PeopleSoft 零日漏洞",
+    "date": "2026-09-21",
+    "url": "https://www.bleepingcomputer.com/news/security/shinyhunters-claims-fbi-hack-data-theft-in-peoplesoft-zero-day-breach/"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "中國駭客利用 WordPress 與 Zyxel 漏洞竊取政府資料",
+    "date": "2026-09-21",
+    "url": "https://www.bleepingcomputer.com/news/security/chinese-hackers-exploit-wordpress-zyxel-flaws-to-steal-govt-data/"
+  },
+  {
+    "category": "資料外洩",
+    "title": "虛假多因素驗證提供商竊取登入密碼",
+    "date": "2026-09-21",
+    "url": "https://www.bleepingcomputer.com/news/security/rogue-external-mfa-providers-can-steal-passwords-during-logins/"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "新型 Windows 惡意軟體使用 AI 決策進行攻擊",
+    "date": "2026-09-21",
+    "url": "https://www.bleepingcomputer.com/news/security/new-closedquorum-windows-malware-uses-ai-for-attack-decisions/"
+  },
+  {
+    "category": "資料外洩",
+    "title": "瑞典對環境監測公司罰款 220 萬人資料外洩",
+    "date": "2026-09-21",
+    "url": "https://www.bleepingcomputer.com/news/security/sweden-fines-miljoedata-183-000-over-breach-affecting-2.2-million/"
+  },
+  {
+    "category": "政府公告",
+    "title": "台灣資安日倡議全民防範意識提升",
+    "date": "2026-09-21",
+    "url": "https://www.cna.com.tw/news/afe/202609210105.aspx"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "Brevo行銷平臺遭駭客攻擊",
+    "date": "2026-09-21",
+    "url": "https://www.ithome.com.tw/news/179189"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "勒索軟體 Everest 攻擊晶睿通訊事件",
+    "date": "2026-09-18",
+    "url": "https://www.ithome.com.tw/tags/%E8%B3%87%E5%AE%89%E6%97%A5%E5%A0%B1"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "Settra勒索軟體針對零售與製造業發動攻擊",
+    "date": "2026-09-18",
+    "url": "https://www.infosecurity-magazine.com/news/settra-ransomware-retail/"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "AUDIT TEAM對日本藥廠與南韓電商之勒索攻擊",
+    "date": "2026-09-17",
+    "url": "https://asec.ahnlab.com/en/95450/"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "AUDIT TEAM對南韓組織進行資料敲詐攻擊",
+    "date": "2026-09-17",
+    "url": "https://asec.ahnlab.com/en/95450/"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Cisco身份服務引擎特權API不當使用漏洞",
+    "date": "2026-09-16",
+    "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ise-rce-se7bYU57"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Acronis備份外掛程式不當預設權限漏洞",
+    "date": "2026-09-16",
+    "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-fmc-static-cred-BET3Cjh"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Google Pixel行動通訊晶片權限檢查繞過漏洞",
+    "date": "2026-09-16",
+    "url": "https://www.bleepingcomputer.com/news/security/google-fixes-actively-exploited-android-zero-day-on-pixel-devices/"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "美國起訴五名中國駭客 與APT41駭客集團有關",
+    "date": "2026-09-16",
+    "url": "https://blog.trendmicro.com.tw/?p=65827"
+  },
+  {
+    "category": "政府公告",
+    "title": "因應先進AI資安新挑戰 資安署發布『政府因應先進AI資安風險政策』",
+    "date": "2026-09-16",
+    "url": "https://moda.gov.tw/ACS/"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "APT41駭客集團遭美國司法部起訴",
+    "date": "2026-09-16",
+    "url": "https://blog.trendmicro.com.tw/?p=65827"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "Cisco Secure FMC滿分漏洞遭利用部署Qilin勒索軟體",
+    "date": "2026-09-15",
+    "url": "https://www.gm7.org/archives/156101"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Citrix NetScaler零日漏洞遭實際攻擊",
+    "date": "2026-09-15",
+    "url": "https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-exploited-citrix-flaws-by-wednesday/"
+  },
+  {
+    "category": "資料外洩",
+    "title": "Supabase資料庫設定不當導致逾六萬筆個人資料洩露",
+    "date": "2026-09-15",
+    "url": "https://www.bleepingcomputer.com/news/security/misconfigured-supabase-apps-expose-data-in-over-16-000-databases/"
+  },
+  {
+    "category": "資料外洩",
+    "title": "超八萬組織AI登入憑證遭竊",
+    "date": "2026-09-15",
+    "url": "https://www.bleepingcomputer.com/news/security/80-000-plus-organizations-had-ai-logins-stolen-from-shadow-ai-to-llmjacking/"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "日本慶應大學遭勒索軟體攻擊",
+    "date": "2026-09-15",
+    "url": "https://www.bleepingcomputer.com/news/security/japans-keio-confirms-ransomware-attack-disrupted-business-systems/"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "加密貨幣交易所Bitget遭駭損失3.875億美元",
+    "date": "2026-09-15",
+    "url": "https://www.bleepingcomputer.com/news/security/bitget-resumes-bitcoin-withdrawals-after-3875-million-crypto-heist/"
+  },
+  {
+    "category": "零時差漏洞",
     "title": "思科郵件閘道SQL注入漏洞CVE-2026-76461",
     "date": "2026-09-14",
     "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-inj-2bLVGmhX"
@@ -45,9 +381,69 @@
     "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-releases-emergency-windows-updates-to-fix-rds-failures/"
   },
   {
+    "category": "勒索病毒",
+    "title": "The Gentlemen勒索軟體攻擊醫療產業",
+    "date": "2026-09-14",
+    "url": "https://www.ithome.com.tw/news/178935"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "VMware高風險RCE遭勒索軟體集團實際利用",
+    "date": "2026-09-12",
+    "url": "https://www.bleepingcomputer.com/news/security/cisa-critical-vmware-vcenter-rce-flaw-now-exploited-by-ransomware-gangs/"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "Vexy跨平台勒索軟體快速擴張",
+    "date": "2026-09-12",
+    "url": "https://www.gm7.org/archives/155016"
+  },
+  {
+    "category": "資料外洩",
+    "title": "日本數位廳VPN漏洞洩露24.6萬人個資",
+    "date": "2026-09-12",
+    "url": "https://www.bleepingcomputer.com/news/security/japans-digital-agency-says-vpn-flaw-exposed-246-000-personnel-records/"
+  },
+  {
+    "category": "資料外洩",
+    "title": "CenterPoint Energy客戶資料遭竊",
+    "date": "2026-09-12",
+    "url": "https://www.bleepingcomputer.com/news/security/centerpoint-energy-confirms-customer-data-stolen-in-cyberattack/"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "Acronis cPanel備份外掛程式遭積極利用",
+    "date": "2026-09-12",
+    "url": "https://www.bleepingcomputer.com/news/security/acronis-warns-of-actively-exploited-flaw-in-its-cpanel-backup-plugin/"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "惡意WordPress外掛在1500個網站植入後門",
+    "date": "2026-09-12",
+    "url": "https://www.bleepingcomputer.com/news/security/malcious-admin-menu-editor-pro-plugin-backdoors-1-500-wordpress-sites/"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "BambooToken跨平台惡意軟體透過MQTT控制系統",
+    "date": "2026-09-12",
+    "url": "https://www.bleepingcomputer.com/news/security/bambootoken-malware-controls-windows-and-linux-systems-via-mqtt/"
+  },
+  {
     "category": "APT攻擊",
     "title": "APT組織利用JFrog Artifactory漏洞部署Rust後門",
     "date": "2026-09-11"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "晶睿通訊遭勒索軟體Everest攻擊，竊取236GB資料",
+    "date": "2026-09-11",
+    "url": "https://www.ithome.com.tw/news/178882"
+  },
+  {
+    "category": "政府公告",
+    "title": "勒索軟體威脅升溫，攻擊手法日趨複雜",
+    "date": "2026-09-11",
+    "url": "https://www.twcert.org.tw/tw/cp-104-10043-5f54b-1.html"
   },
   {
     "category": "零時差漏洞",
@@ -74,15 +470,69 @@
   },
   {
     "category": "勒索病毒",
+    "title": "商周集團網站遭攻擊導致線上服務中斷",
+    "date": "2026-09-10",
+    "url": ""
+  },
+  {
+    "category": "勒索病毒",
+    "title": "The Gentlemen勒索軟體攻擊加拿大航空公司",
+    "date": "2026-09-10",
+    "url": "https://asec.ahnlab.com/en/95338/"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "商周集團遭網路攻擊導致服務中斷近一週",
+    "date": "2026-09-10",
+    "url": "https://www.ithome.com.tw/news/178882"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "商周集團網站遭攻擊中斷服務",
+    "date": "2026-09-10",
+    "url": "https://www.ithome.com.tw/tags/%E8%B3%87%E5%AE%89%E6%97%A5%E5%A0%B1"
+  },
+  {
+    "category": "政府公告",
+    "title": "Microsoft發布Exchange Server系列安全性更新",
+    "date": "2026-09-10",
+    "url": ""
+  },
+  {
+    "category": "勒索病毒",
     "title": "ShinyHunters勒索團伙入侵美國佛羅里達州車管所",
     "date": "2026-09-09",
     "url": "https://www.gm7.org/archives/154890"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "ShinyHunters攻擊美國佛羅里達州車管所",
+    "date": "2026-09-09",
+    "url": "https://www.gm7.org/archives/154890"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "APT24入侵台灣廣告行銷業者導致供應鏈攻擊",
+    "date": "2026-09-09",
+    "url": "https://www.ithome.com.tw/news/178489"
   },
   {
     "category": "資料外洩",
     "title": "韓國醫美平台Gangnam Unni大規模數據洩露",
     "date": "2026-09-08",
     "url": "https://www.gm7.org/archives/154890"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "勒索軟體Everest宣稱攻擊晶睿通訊",
+    "date": "2026-09-08",
+    "url": ""
+  },
+  {
+    "category": "勒索病毒",
+    "title": "Magento與Adobe Commerce RCE漏洞遭主動利用",
+    "date": "2026-09-04",
+    "url": "https://www.cyware.com/resources/threat-briefings/daily-threat-briefing/cyware-daily-threat-intelligence-september-08-2026"
   },
   {
     "category": "勒索病毒",
@@ -95,5 +545,59 @@
     "title": "因應AI資安新挑戰強化國家防護",
     "date": "2026-09-02",
     "url": "https://moda.gov.tw/ACS/press/news/press/20242"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "APT29針對歐洲進行大規模郵件與基礎設施竊取行動GTG-20006",
+    "date": "2026-09-02",
+    "url": "https://www.uvcyber.com/resources/reports/threat-advisory-the-historical-and-ongoing-threat-of-apt29"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "創新服務(7828)遭勒索病毒攻擊",
+    "date": "2026-09-02",
+    "url": "https://tw.stock.yahoo.com/news/%E5%85%AC%E5%91%8A-%E8%AA%AA%E6%98%8E%E5%89%B5%E6%96%B0%E6%9C%8D%E5%8B%99%E9%83%A8%E4%BB%BD%E8%B3%87%E8%A8%8A%E7%B3%BB%E7%B5%B1%E9%81%AD%E5%8F%97%E7%B6%B2%E8%B7%AF%E5%8B%92%E7%B4%A2%E7%97%85%E6%AF%92%E6%94%BB%E6%93%8A%E4%BA%8B%E4%BB%B6-110354474.html"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "創新服務遭勒索病毒攻擊，ERP等系統癱瘓",
+    "date": "2026-09-01",
+    "url": "https://tw.stock.yahoo.com/news/%E5%85%AC%E5%91%8A-%E8%AA%AA%E6%98%8E%E5%89%B5%E6%96%B0%E6%9C%8D%E5%8B%99%E9%83%A8%E4%BB%BD%E8%B3%87%E8%A8%8A%E7%B3%BB%E7%B5%B1%E9%81%AD%E5%8F%97%E7%B6%B2%E8%B7%AF%E5%8B%92%E7%B4%A2%E7%97%85%E6%AF%92%E6%94%BB%E6%93%8A%E4%BA%8B%E4%BB%B6-110354474.html"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "中國APT組織Fire Ant利用Cisco IOS XR進行基礎設施滲透",
+    "date": "2026-08-31",
+    "url": "https://krypt3ia.wordpress.com/2026/09/08/weekly-all-source-cyber-warfare-intelligence-brief-september-8-2026/"
+  },
+  {
+    "category": "政府公告",
+    "title": "CISA與多國安全機構聯合發布Gunra勒索軟體預警通報",
+    "date": "2026-08-31",
+    "url": "https://www.twcert.org.tw/tw/cp-104-7686-95b20-1.html"
+  },
+  {
+    "category": "政府公告",
+    "title": "惡意npm攻擊再進化！駭客利用區塊鏈隱藏C2位址",
+    "date": "2026-08-31",
+    "url": ""
+  },
+  {
+    "category": "政府公告",
+    "title": "CRA強化軟體供應鏈安全要求，SBOM成企業重要管理工具",
+    "date": "2026-08-31",
+    "url": ""
+  },
+  {
+    "category": "政府公告",
+    "title": "CISA與多國安全機構聯合發布「Gunra」勒索軟體預警通報",
+    "date": "2026-08-31",
+    "url": ""
+  },
+  {
+    "category": "APT攻擊",
+    "title": "APT36利用Rust惡意程式工具包針對印度政府與國防機構",
+    "date": "2026-08-29",
+    "url": "https://gbhackers.com/apt36-malware-campaign/"
   }
 ]
