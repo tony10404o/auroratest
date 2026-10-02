@@ -363,7 +363,7 @@ ${JSON.stringify(result, null, 2)}
       "url": "來源網址"
     }
   ],
-  "ai_analysis": "給IT/資安人員看的今日綜合分析，200-350字，用繁體中文條理分明地說明：今天最需要優先處理的1-2件事是什麼、為什麼（例如影響範圍廣、已有實際攻擊案例等）、有沒有值得注意的趨勢（例如同類型攻擊變多、新的攻擊手法等），語氣像資深資安顧問跟同事討論，可以用換行分段，不要用條列符號"
+  "ai_analysis": "給IT/資安人員看的今日綜合分析，200-350字，用繁體中文條理分明地說明。必須從今天儀表板上4張統計卡片各抓1個重點帶入分析（不要用標題或條列，用自然語句整合成一段流暢文字）：①今日新聞事件中最值得留意的1則焦點事件、②今日漏洞雷達（KEV）中風險最高或最急迫處理的漏洞、③公司關注廠商情報中最需優先處理的廠商公告、④待處理事項中目前累積待處理的狀況概述（例如筆數偏多、有無逾期未處理的高風險項目）。整合這4點之餘，再點出今天最需要優先處理的1-2件事、為什麼（例如影響範圍廣、已有實際攻擊案例等），以及有沒有值得注意的趨勢，語氣像資深資安顧問跟同事討論，可以用換行分段，不要用條列符號"
 }
 
 規則：
@@ -371,7 +371,8 @@ ${JSON.stringify(result, null, 2)}
 - vendor_impact 從 vendor_advisories 轉換，保留原本筆數
 - global_events 從 kev_vulnerabilities（挑is_zero_day或known_ransomware_use的）、ransomware_apt、gov_announcements 轉換彙整，最多12則，依日期新到舊排序
 - 所有評分（impact、stars）都是AI研判的參考值，請根據資料內容合理判斷，不要每個都給一樣的分數
-- 不需要回傳cve_radar欄位，這部分會用官方NVD資料另外處理`;
+- 不需要回傳cve_radar欄位，這部分會用官方NVD資料另外處理
+- ai_analysis 的內容要能呼應 headlines、vendor_impact、global_events 這幾個欄位實際產生的內容，不要憑空提到資料中沒有的項目`;
 
   return await callClaudeForJson({ prompt, maxTokens: 8000, label: "儀表板資料" });
 }
