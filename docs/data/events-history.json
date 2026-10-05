@@ -1,6 +1,18 @@
 [
   {
     "category": "零時差漏洞",
+    "title": "Citrix NetScaler SAML 認證零時差漏洞遭主動利用",
+    "date": "2026-10-04",
+    "url": "https://www.bleepingcomputer.com/news/security/citrix-patches-netscaler-saml-zero-day-exploited-in-attacks/"
+  },
+  {
+    "category": "政府公告",
+    "title": "GitLab 重大漏洞遭駭客利用警訊",
+    "date": "2026-10-02",
+    "url": ""
+  },
+  {
+    "category": "零時差漏洞",
     "title": "FortiMail 路徑遍歷與空字節中立化漏洞 - 零日攻擊進行中",
     "date": "2026-10-01",
     "url": "https://www.bleepingcomputer.com/news/security/fortinet-warns-of-critical-fortimail-flaw-exploited-in-zero-day-attacks/"
@@ -10,6 +22,30 @@
     "title": "Cisco SD-WAN Manager API 認證繞過零日漏洞遭實際利用",
     "date": "2026-10-01",
     "url": "https://www.bleepingcomputer.com/news/security/cisco-warns-of-new-sd-wan-authentication-bypass-zero-day-exploited-in-attacks/"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "Bitget 加密交易所 3.875 億美元盜竊事件",
+    "date": "2026-10-01",
+    "url": "https://www.ncontracts.com/nsight-blog/october-2026-vendor-management-news"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "FBI 職缺入口網站遭駭客入侵資料外洩",
+    "date": "2026-10-01",
+    "url": "https://www.ncontracts.com/nsight-blog/october-2026-vendor-management-news"
+  },
+  {
+    "category": "政府公告",
+    "title": "Zyxel GS1900 交換器 CVE-2026-7273 高風險漏洞",
+    "date": "2026-10-01",
+    "url": "https://www.nics.nat.gov.tw/core_business/information_security_information_sharing/Vulnerability_Alert_Announcements/"
+  },
+  {
+    "category": "政府公告",
+    "title": "Cisco Secure FMC 與 ISE 五項高風險漏洞",
+    "date": "2026-10-01",
+    "url": "https://www.nics.nat.gov.tw/core_business/information_security_information_sharing/Vulnerability_Alert_Announcements/"
   },
   {
     "category": "零時差漏洞",
@@ -461,41 +497,5 @@
     "title": "創新服務遭勒索病毒攻擊，ERP等系統癱瘓",
     "date": "2026-09-01",
     "url": "https://tw.stock.yahoo.com/news/%E5%85%AC%E5%91%8A-%E8%AA%AA%E6%98%8E%E5%89%B5%E6%96%B0%E6%9C%8D%E5%8B%99%E9%83%A8%E4%BB%BD%E8%B3%87%E8%A8%8A%E7%B3%BB%E7%B5%B1%E9%81%AD%E5%8F%97%E7%B6%B2%E8%B7%AF%E5%8B%92%E7%B4%A2%E7%97%85%E6%AF%92%E6%94%BB%E6%93%8A%E4%BA%8B%E4%BB%B6-110354474.html"
-  },
-  {
-    "category": "APT攻擊",
-    "title": "中國APT組織Fire Ant利用Cisco IOS XR進行基礎設施滲透",
-    "date": "2026-08-31",
-    "url": "https://krypt3ia.wordpress.com/2026/09/08/weekly-all-source-cyber-warfare-intelligence-brief-september-8-2026/"
-  },
-  {
-    "category": "政府公告",
-    "title": "CISA與多國安全機構聯合發布Gunra勒索軟體預警通報",
-    "date": "2026-08-31",
-    "url": "https://www.twcert.org.tw/tw/cp-104-7686-95b20-1.html"
-  },
-  {
-    "category": "政府公告",
-    "title": "惡意npm攻擊再進化！駭客利用區塊鏈隱藏C2位址",
-    "date": "2026-08-31",
-    "url": ""
-  },
-  {
-    "category": "政府公告",
-    "title": "CRA強化軟體供應鏈安全要求，SBOM成企業重要管理工具",
-    "date": "2026-08-31",
-    "url": ""
-  },
-  {
-    "category": "政府公告",
-    "title": "CISA與多國安全機構聯合發布「Gunra」勒索軟體預警通報",
-    "date": "2026-08-31",
-    "url": ""
-  },
-  {
-    "category": "APT攻擊",
-    "title": "APT36利用Rust惡意程式工具包針對印度政府與國防機構",
-    "date": "2026-08-29",
-    "url": "https://gbhackers.com/apt36-malware-campaign/"
   }
 ]
