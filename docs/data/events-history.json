@@ -1,8 +1,20 @@
 [
   {
+    "category": "APT攻擊",
+    "title": "韓國銀行金融公共機構遭駭客利用AI進行大規模個資外洩攻擊",
+    "date": "2026-10-05",
+    "url": "https://epochtimes.com/b5/26/10/4/n14863261.htm"
+  },
+  {
     "category": "零時差漏洞",
     "title": "Citrix NetScaler SAML 認證零時差漏洞遭主動利用",
     "date": "2026-10-04",
+    "url": "https://www.bleepingcomputer.com/news/security/citrix-patches-netscaler-saml-zero-day-exploited-in-attacks/"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Citrix NetScaler SAML零時差漏洞遭實際攻擊",
+    "date": "2026-10-03",
     "url": "https://www.bleepingcomputer.com/news/security/citrix-patches-netscaler-saml-zero-day-exploited-in-attacks/"
   },
   {
@@ -10,6 +22,18 @@
     "title": "GitLab 重大漏洞遭駭客利用警訊",
     "date": "2026-10-02",
     "url": ""
+  },
+  {
+    "category": "政府公告",
+    "title": "GitLab重大漏洞遭駭客利用",
+    "date": "2026-10-02",
+    "url": "https://udn.com/news/story/7238/9790612"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "Cl0p勒索軟體集團針對PTC Windchill漏洞進行大規模攻擊",
+    "date": "2026-10-02",
+    "url": "https://netmag.tw/tag/%E5%8B%92%E7%B4%A2%E8%BB%9F%E9%AB%94"
   },
   {
     "category": "零時差漏洞",
@@ -490,12 +514,6 @@
     "category": "勒索病毒",
     "title": "創新服務(7828)遭勒索病毒攻擊",
     "date": "2026-09-02",
-    "url": "https://tw.stock.yahoo.com/news/%E5%85%AC%E5%91%8A-%E8%AA%AA%E6%98%8E%E5%89%B5%E6%96%B0%E6%9C%8D%E5%8B%99%E9%83%A8%E4%BB%BD%E8%B3%87%E8%A8%8A%E7%B3%BB%E7%B5%B1%E9%81%AD%E5%8F%97%E7%B6%B2%E8%B7%AF%E5%8B%92%E7%B4%A2%E7%97%85%E6%AF%92%E6%94%BB%E6%93%8A%E4%BA%8B%E4%BB%B6-110354474.html"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "創新服務遭勒索病毒攻擊，ERP等系統癱瘓",
-    "date": "2026-09-01",
     "url": "https://tw.stock.yahoo.com/news/%E5%85%AC%E5%91%8A-%E8%AA%AA%E6%98%8E%E5%89%B5%E6%96%B0%E6%9C%8D%E5%8B%99%E9%83%A8%E4%BB%BD%E8%B3%87%E8%A8%8A%E7%B3%BB%E7%B5%B1%E9%81%AD%E5%8F%97%E7%B6%B2%E8%B7%AF%E5%8B%92%E7%B4%A2%E7%97%85%E6%AF%92%E6%94%BB%E6%93%8A%E4%BA%8B%E4%BB%B6-110354474.html"
   }
 ]

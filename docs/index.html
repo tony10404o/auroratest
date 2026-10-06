@@ -327,74 +327,81 @@ const DATA = {
   "headlines": [
     {
       "icon": "🎯",
-      "title": "Citrix NetScaler 零時差漏洞遭主動利用",
-      "subtitle": "高危漏洞已被駭客實際利用，影響全球銀行機構",
+      "title": "GitLab CVSS滿分漏洞遭實際攻擊",
+      "subtitle": "CVE-2026-85706無需驗證即可遠端利用，已列入CISA清單",
+      "impact": "高",
+      "stars": 5,
+      "url": "https://udn.com/news/story/7238/9790612"
+    },
+    {
+      "icon": "🦠",
+      "title": "Cl0p集團攻擊40家企業竊取工程資料",
+      "subtitle": "利用PTC Windchill漏洞CVE-2026-12569，涉及殼牌等大型企業",
+      "impact": "高",
+      "stars": 5,
+      "url": "https://netmag.tw/tag/%E5%8B%92%E7%B4%A2%E8%BB%9F%E9%AB%94"
+    },
+    {
+      "icon": "🕵️",
+      "title": "Rejetto HFS伺服器遭主動掃描利用",
+      "subtitle": "駭客積極掃描並利用嚴重遠端執行程式碼漏洞，需儘速修補",
+      "impact": "高",
+      "stars": 5,
+      "url": "https://www.bleepingcomputer.com/news/security/rejetto-hfs-servers-now-actively-scanned-for-critical-rce-flaw/"
+    },
+    {
+      "icon": "📊",
+      "title": "台灣受資安威脅排全球第4",
+      "subtitle": "微軟報告：政府機關受創最重，網路釣魚攻擊大幅增至23%",
+      "impact": "中",
+      "stars": 4,
+      "url": "https://inside.com.tw/article/42562-microsoft-digital-defense-report-2026-taiwan-government"
+    },
+    {
+      "icon": "🔐",
+      "title": "Citrix NetScaler SAML零時差漏洞已被利用",
+      "subtitle": "企業級應用交付平台發現零時差漏洞，廠商已發布修補程式",
       "impact": "高",
       "stars": 5,
       "url": "https://www.bleepingcomputer.com/news/security/citrix-patches-netscaler-saml-zero-day-exploited-in-attacks/"
-    },
-    {
-      "icon": "💰",
-      "title": "Bitget 加密交易所遭竊 3.875 億美元",
-      "subtitle": "駭客利用安全軟體零時差漏洞入侵系統",
-      "impact": "高",
-      "stars": 5
-    },
-    {
-      "icon": "🎯",
-      "title": "Chromium 連續爆發三個高危漏洞",
-      "subtitle": "V8 引擎與 ANGLE 元件存在型別混淆及緩衝區溢位",
-      "impact": "高",
-      "stars": 4,
-      "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-1920"
-    },
-    {
-      "icon": "📋",
-      "title": "Zyxel GS1900 交換器高風險漏洞",
-      "subtitle": "CVE-2026-7273 需儘速確認修補",
-      "impact": "高",
-      "stars": 4,
-      "url": "https://www.nics.nat.gov.tw/core_business/information_security_information_sharing/Vulnerability_Alert_Announcements/"
-    },
-    {
-      "icon": "📋",
-      "title": "Cisco Secure FMC 與 ISE 存在五項高風險漏洞",
-      "subtitle": "涉及身分驗證與防火牆管理產品",
-      "impact": "高",
-      "stars": 4,
-      "url": "https://www.nics.nat.gov.tw/core_business/information_security_information_sharing/Vulnerability_Alert_Announcements/"
     }
   ],
   "vendor_impact": [
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "Chromium：CVE-2025-1920 V8 型別混淆漏洞",
-      "impact": "高",
-      "category": "瀏覽器引擎",
-      "key_asset": "Chromium/Edge 瀏覽器",
-      "ai_suggestion": "儘速驗證企業環境內 Chromium 與 Edge 的版本，安排批次更新至最新修補版本"
+      "title": "CVE-2026-69267 Windows連線使用者經驗與遙測資訊洩露漏洞",
+      "impact": "中",
+      "category": "系統遠端管理",
+      "key_asset": "Windows連線使用者與遙測服務",
+      "ai_suggestion": "評估內部Windows系統受影響範圍，製作修補計畫並優先更新機敏部門設備"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "Chromium：CVE-2025-10502 ANGLE 堆積緩衝區溢位",
+      "title": "Chromium CVE-2025-1920 V8引擎類型混淆漏洞",
       "impact": "高",
-      "category": "瀏覽器引擎",
-      "key_asset": "Chromium/Edge 瀏覽器",
-      "ai_suggestion": "同上漏洞統一處理，檢查桌面應用是否嵌入 Chromium 元件"
+      "category": "瀏覽器",
+      "key_asset": "Edge瀏覽器V8引擎",
+      "ai_suggestion": "立即檢查Edge版本並推送最新更新至全企業，特別是面向互聯網工作站"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "Chromium：CVE-2025-2137 V8 邊界外讀取漏洞",
+      "title": "Chromium CVE-2025-2137 V8引擎越界讀取漏洞",
       "impact": "高",
-      "category": "瀏覽器引擎",
-      "key_asset": "Chromium/Edge 瀏覽器",
-      "ai_suggestion": "納入瀏覽器統一補丁更新計畫，優先部署至高風險部門"
+      "category": "瀏覽器",
+      "key_asset": "Edge瀏覽器V8引擎",
+      "ai_suggestion": "與CVE-2025-1920同步處理，確保Edge瀏覽器版本為最新穩定版本"
     }
   ],
   "global_events": [
+    {
+      "category": "APT攻擊",
+      "title": "韓國銀行金融公共機構遭駭客利用AI進行大規模個資外洩攻擊",
+      "date": "2026-10-05",
+      "url": "https://epochtimes.com/b5/26/10/4/n14863261.htm"
+    },
     {
       "category": "零時差漏洞",
       "title": "Citrix NetScaler SAML 認證零時差漏洞遭主動利用",
@@ -402,10 +409,28 @@ const DATA = {
       "url": "https://www.bleepingcomputer.com/news/security/citrix-patches-netscaler-saml-zero-day-exploited-in-attacks/"
     },
     {
+      "category": "零時差漏洞",
+      "title": "Citrix NetScaler SAML零時差漏洞遭實際攻擊",
+      "date": "2026-10-03",
+      "url": "https://www.bleepingcomputer.com/news/security/citrix-patches-netscaler-saml-zero-day-exploited-in-attacks/"
+    },
+    {
       "category": "政府公告",
       "title": "GitLab 重大漏洞遭駭客利用警訊",
       "date": "2026-10-02",
       "url": ""
+    },
+    {
+      "category": "政府公告",
+      "title": "GitLab重大漏洞遭駭客利用",
+      "date": "2026-10-02",
+      "url": "https://udn.com/news/story/7238/9790612"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "Cl0p勒索軟體集團針對PTC Windchill漏洞進行大規模攻擊",
+      "date": "2026-10-02",
+      "url": "https://netmag.tw/tag/%E5%8B%92%E7%B4%A2%E8%BB%9F%E9%AB%94"
     },
     {
       "category": "零時差漏洞",
@@ -887,33 +912,16 @@ const DATA = {
       "title": "創新服務(7828)遭勒索病毒攻擊",
       "date": "2026-09-02",
       "url": "https://tw.stock.yahoo.com/news/%E5%85%AC%E5%91%8A-%E8%AA%AA%E6%98%8E%E5%89%B5%E6%96%B0%E6%9C%8D%E5%8B%99%E9%83%A8%E4%BB%BD%E8%B3%87%E8%A8%8A%E7%B3%BB%E7%B5%B1%E9%81%AD%E5%8F%97%E7%B6%B2%E8%B7%AF%E5%8B%92%E7%B4%A2%E7%97%85%E6%AF%92%E6%94%BB%E6%93%8A%E4%BA%8B%E4%BB%B6-110354474.html"
-    },
-    {
-      "category": "勒索病毒",
-      "title": "創新服務遭勒索病毒攻擊，ERP等系統癱瘓",
-      "date": "2026-09-01",
-      "url": "https://tw.stock.yahoo.com/news/%E5%85%AC%E5%91%8A-%E8%AA%AA%E6%98%8E%E5%89%B5%E6%96%B0%E6%9C%8D%E5%8B%99%E9%83%A8%E4%BB%BD%E8%B3%87%E8%A8%8A%E7%B3%BB%E7%B5%B1%E9%81%AD%E5%8F%97%E7%B6%B2%E8%B7%AF%E5%8B%92%E7%B4%A2%E7%97%85%E6%AF%92%E6%94%BB%E6%93%8A%E4%BA%8B%E4%BB%B6-110354474.html"
     }
   ],
-  "ai_analysis": "今日威脅局勢相當緊急，需要立即聚焦在三個領域。首先，Citrix NetScaler 零時差漏洞已被駭客主動利用攻擊全球銀行機構，這是當前最急迫的安全事件，若組織部署了 NetScaler 設備必須立刻確認版本並安排緊急修補。其次，漏洞雷達方面 CVE-2026-88779 同樣影響 NetScaler，評分高達 8.7，性質為零時差且已被利用，應視為第一優先處理項目。從廠商情報來看，Cisco、Zyxel 與 Microsoft 都在近日發布重要安全公告，特別是 Cisco Secure FMC 與 ISE 的五項高風險漏洞涉及身分認證與防火牆核心功能，建議排在 Citrix 之後的第二優先序列處理。\n\n當前待處理項目已累積至少六項政府資安署公告與多個廠商漏洞，其中 Chromium 三個漏洞、Zyxel 與 Cisco 的高危漏洞都需要在本周內完成評估與修補計畫。特別值得注意的是 Citrix NetScaler 不僅在 KEV 清單中出現，還同時在勒索軟體威脅與國際新聞中被多次提及，這表示該漏洞的利用已成為實際進行中的攻擊活動。建議立刻組織資安應變小組，優先處理網路邊界設備（NetScaler、交換器、防火牆），再逐步推進到瀏覽器與應用層的修補作業。",
-  "cve_radar": [
-    {
-      "cve_id": "CVE-2026-88779",
-      "title": "Citrix NetScaler 記憶體邊界限制不當漏洞",
-      "cvss": 8.7,
-      "cvss_source": "NVD官方",
-      "exploited": true,
-      "action": "立即更新",
-      "plain_title": "Citrix 網路設備爆發零時差漏洞",
-      "plain_summary": "Citrix 公司的網路管理設備 NetScaler 被發現存在安全漏洞，攻擊者可以利用這個漏洞造成該設備停止運作，影響網路正常服務。這類設備通常掌控公司的網路流量，一旦遭受攻擊會造成嚴重的業務中斷，因此必須盡快更新修補"
-    }
-  ],
+  "ai_analysis": "今天的威脅景觀相當緊繃，需要我們立刻鎖定幾個關鍵優先事項。首先是GitLab CVSS滿分漏洞CVE-2026-85706已經遭實際攻擊且列入CISA已知遭利用清單，這不是假設威脅而是正在發生的攻擊事件，企業若部署GitLab必須立刻評估與更新。其次是Cl0p勒索軟體集團成功利用PTC Windchill漏洞CVE-2026-12569攻擊超過40家企業包括知名製造商，這代表供應鏈與製造業系統成為重點目標，若貴組織使用Windchill或相似PLM系統應立即優先處理。\n\n在漏洞雷達部分，Citrix NetScaler SAML零時差漏洞與Rejetto HFS遠端執行程式碼漏洞都已有實際攻擊證據，兩者都屬於需要儘速修補的高風險項目，特別是NetScaler涉及身份驗證與企業級應用交付，影響層面更廣。廠商公告方面，Microsoft的Chromium V8引擎兩個高風險漏洞（CVE-2025-1920與CVE-2025-2137）需要同步推送Edge瀏覽器更新至全企業。\n\n從微軟最新數位防禦報告來看，台灣已成為全球第四大受資安威脅國家，政府機關受創最重，網路釣魚攻擊大幅增至23%，加上APT活動恢復至5個集群的威脅統計，這些都提示我們内部員工防護需要強化。當前最需要優先處理的是GitLab與Windchill漏洞修補，因為已有實際攻擊案例且影響範圍廣泛，同時應加速推送Microsoft與Citrix的安全更新至全企業環境。",
+  "cve_radar": [],
   "risk_score": {
-    "total": 25,
+    "total": 18,
     "breakdown": [
       {
         "label": "漏洞風險",
-        "score": 51
+        "score": 16
       },
       {
         "label": "APT攻擊",
@@ -921,7 +929,7 @@ const DATA = {
       },
       {
         "label": "勒索病毒",
-        "score": 44
+        "score": 22
       },
       {
         "label": "身份風險",
@@ -929,106 +937,76 @@ const DATA = {
       },
       {
         "label": "AI風險",
-        "score": 0
+        "score": 20
       }
     ]
   },
   "action_items": [
     {
-      "category": "漏洞修補",
-      "title": "CVE-2026-88779：Citrix NetScaler 記憶體邊界限制不當漏洞",
-      "priority": "高",
-      "detail": "CVSS 8.7（NVD官方），建議立即更新"
-    },
-    {
       "category": "公告確認",
-      "title": "Chromium：CVE-2025-1920 V8 型別混淆漏洞",
+      "title": "Chromium CVE-2025-1920 V8 引擎類型混淆漏洞",
       "priority": "高",
       "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "Chromium：CVE-2025-10502 ANGLE 堆積緩衝區溢位",
+      "title": "Chromium CVE-2025-2137 V8 引擎越界讀取漏洞",
       "priority": "高",
       "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "Chromium：CVE-2025-2137 V8 邊界外讀取漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "GitLab重大漏洞遭駭客利用",
+      "title": "GitLab重大漏洞遭駭客利用 資安署籲儘速更新強化資安防護",
       "priority": "中",
-      "detail": "來源：數位發展部資安署。資安署提醒組織儘速更新GitLab系統，以防駭客利用該重大漏洞進行攻擊。"
-    },
-    {
-      "category": "公告確認",
-      "title": "Zyxel GS1900系列交換器高風險漏洞警訊",
-      "priority": "中",
-      "detail": "來源：數位發展部資安署。漏洞警訊公告提示CVE-2026-7273高風險漏洞存在於Zyxel GS1900交換器，建議儘速確認並進行修補。"
-    },
-    {
-      "category": "公告確認",
-      "title": "Cisco Secure FMC與ISE存在高風險漏洞",
-      "priority": "中",
-      "detail": "來源：數位發展部資安署。共計5項CVE漏洞涉及Cisco Secure FMC及ISE產品，包括CVE-2026-20242、CVE-2026-20324等多個高風險漏洞需儘速修補。"
+      "detail": "來源：資安署。GitLab爆出CVSS滿分10分重大漏洞CVE-2026-85706，無需身分驗證即可遠端利用，已遭實際攻擊，列入CISA已知遭利用漏洞清單，資安署籲機關企業速更新。"
     },
     {
       "category": "掃描比對",
-      "title": "Citrix NetScaler漏洞利用相關IOC比對",
+      "title": "週報威脅統計(2026年9月28日-10月4日)相關IOC比對",
       "priority": "中",
-      "detail": "涉及類型：Domain、Hash。建議比對內部防火牆/EDR日誌。"
+      "detail": "涉及類型：IP、Hash。建議比對內部防火牆/EDR日誌。"
     },
     {
       "category": "掃描比對",
-      "title": "Bitget加密交易所盜竊事件相關IOC比對",
+      "title": "PTC Windchill漏洞(Cl0p勒索軟體)相關IOC比對",
       "priority": "中",
-      "detail": "涉及類型：IP、Domain。建議比對內部防火牆/EDR日誌。"
+      "detail": "涉及類型：URL、IP。建議比對內部防火牆/EDR日誌。"
     },
     {
       "category": "教育宣導",
-      "title": "丹麥技術大學遭入侵洩露 20 萬人個資",
+      "title": "IQVIA 健康資料去識別化不足 遭罰 780 萬美元",
       "priority": "低",
       "detail": "建議納入員工資安宣導教育素材。"
     },
     {
       "category": "教育宣導",
-      "title": "GitLab重大漏洞遭駭客利用",
+      "title": "GitLab重大漏洞遭駭客利用 資安署籲儘速更新強化資安防護",
       "priority": "低",
       "detail": "建議納入員工資安宣導教育素材。"
     },
     {
       "category": "教育宣導",
-      "title": "Zyxel GS1900系列交換器高風險漏洞警訊",
+      "title": "Cl0p勒索軟體集團針對PTC Windchill漏洞進行大規模攻擊",
       "priority": "低",
       "detail": "建議納入員工資安宣導教育素材。"
     },
     {
       "category": "教育宣導",
-      "title": "Cisco Secure FMC與ISE存在高風險漏洞",
+      "title": "韓國銀行金融公共機構遭駭客利用AI進行大規模個資外洩攻擊",
       "priority": "低",
       "detail": "建議納入員工資安宣導教育素材。"
     },
     {
       "category": "教育宣導",
-      "title": "Citrix NetScaler漏洞遭駭客主動利用",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
-    },
-    {
-      "category": "教育宣導",
-      "title": "Bitget加密交易所$3.875億美元盜竊事件",
+      "title": "微軟數位防禦報告：台灣受資安威脅排全球第4、亞太第1",
       "priority": "低",
       "detail": "建議納入員工資安宣導教育素材。"
     }
   ],
   "category_counts": {
-    "kev": 1,
+    "kev": 0,
     "vendor": 3,
-    "news": 3,
+    "news": 6,
     "ransomwareApt": 3
   },
   "threat_trend": [
@@ -1037,25 +1015,25 @@ const DATA = {
       "pct": 100,
       "points": [
         0,
-        0,
         1,
         0,
         0,
         0,
-        0
+        0,
+        1
       ]
     },
     {
       "label": "勒索軟體",
-      "pct": -33,
+      "pct": 11,
       "points": [
-        1,
         2,
         5,
         0,
         0,
         0,
-        0
+        0,
+        3
       ]
     },
     {
@@ -1076,8 +1054,8 @@ const DATA = {
       "pct": -50,
       "points": [
         0,
-        0,
         1,
+        0,
         0,
         0,
         0,
@@ -1099,7 +1077,7 @@ const DATA = {
     }
   ]
 };
-const UPDATED_AT = "2026/10/5 09:48:08（台灣時間）";
+const UPDATED_AT = "2026/10/6 10:51:47（台灣時間）";
 document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
