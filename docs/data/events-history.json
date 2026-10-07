@@ -1,9 +1,39 @@
 [
   {
+    "category": "勒索病毒",
+    "title": "日本MisterMax客戶資料遭不正存取 173.5萬客戶個資外洩",
+    "date": "2026-10-06",
+    "url": "https://smartscope.blog/blog/japan-data-breach-list-tier-2026-09-10/"
+  },
+  {
     "category": "APT攻擊",
     "title": "韓國銀行金融公共機構遭駭客利用AI進行大規模個資外洩攻擊",
     "date": "2026-10-05",
     "url": "https://epochtimes.com/b5/26/10/4/n14863261.htm"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "中國駭客TA419假冒日本防衛相進行釣魚攻擊",
+    "date": "2026-10-05",
+    "url": "https://news.ltn.com.tw/news/world/breakingnews/5594379"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Pwn2Own愛爾蘭駭客大賽首日即破解32個零時差漏洞",
+    "date": "2026-10-05",
+    "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-32-zero-days-on-first-day-of-pwn2own-ireland/"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "中國駭客UAT-11587散布後門Antino攻擊亞洲政府",
+    "date": "2026-10-05",
+    "url": "https://www.ithome.com.tw/news/179333"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "GMOリサーチ&AI遭勒索軟體攻擊 最多94.8萬件個資外洩",
+    "date": "2026-10-05",
+    "url": "https://smartscope.blog/blog/japan-data-breach-list-tier-2026-09-10/"
   },
   {
     "category": "零時差漏洞",
@@ -34,6 +64,12 @@
     "title": "Cl0p勒索軟體集團針對PTC Windchill漏洞進行大規模攻擊",
     "date": "2026-10-02",
     "url": "https://netmag.tw/tag/%E5%8B%92%E7%B4%A2%E8%BB%9F%E9%AB%94"
+  },
+  {
+    "category": "政府公告",
+    "title": "GitLab重大漏洞CVE-2026-85706遭駭客利用 資安署籲儘速更新",
+    "date": "2026-10-02",
+    "url": "https://www.cna.com.tw/news/afe/202610020159.aspx"
   },
   {
     "category": "零時差漏洞",
@@ -491,29 +527,5 @@
     "title": "Magento與Adobe Commerce RCE漏洞遭主動利用",
     "date": "2026-09-04",
     "url": "https://www.cyware.com/resources/threat-briefings/daily-threat-briefing/cyware-daily-threat-intelligence-september-08-2026"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "創新服務遭勒索病毒攻擊，ERP系統受影響",
-    "date": "2026-09-02",
-    "url": ""
-  },
-  {
-    "category": "政府公告",
-    "title": "因應AI資安新挑戰強化國家防護",
-    "date": "2026-09-02",
-    "url": "https://moda.gov.tw/ACS/press/news/press/20242"
-  },
-  {
-    "category": "APT攻擊",
-    "title": "APT29針對歐洲進行大規模郵件與基礎設施竊取行動GTG-20006",
-    "date": "2026-09-02",
-    "url": "https://www.uvcyber.com/resources/reports/threat-advisory-the-historical-and-ongoing-threat-of-apt29"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "創新服務(7828)遭勒索病毒攻擊",
-    "date": "2026-09-02",
-    "url": "https://tw.stock.yahoo.com/news/%E5%85%AC%E5%91%8A-%E8%AA%AA%E6%98%8E%E5%89%B5%E6%96%B0%E6%9C%8D%E5%8B%99%E9%83%A8%E4%BB%BD%E8%B3%87%E8%A8%8A%E7%B3%BB%E7%B5%B1%E9%81%AD%E5%8F%97%E7%B6%B2%E8%B7%AF%E5%8B%92%E7%B4%A2%E7%97%85%E6%AF%92%E6%94%BB%E6%93%8A%E4%BA%8B%E4%BB%B6-110354474.html"
   }
 ]

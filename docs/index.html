@@ -326,81 +326,174 @@
 const DATA = {
   "headlines": [
     {
-      "icon": "🎯",
-      "title": "GitLab CVSS滿分漏洞遭實際攻擊",
-      "subtitle": "CVE-2026-85706無需驗證即可遠端利用，已列入CISA清單",
-      "impact": "高",
-      "stars": 5,
-      "url": "https://udn.com/news/story/7238/9790612"
-    },
-    {
-      "icon": "🦠",
-      "title": "Cl0p集團攻擊40家企業竊取工程資料",
-      "subtitle": "利用PTC Windchill漏洞CVE-2026-12569，涉及殼牌等大型企業",
-      "impact": "高",
-      "stars": 5,
-      "url": "https://netmag.tw/tag/%E5%8B%92%E7%B4%A2%E8%BB%9F%E9%AB%94"
-    },
-    {
       "icon": "🕵️",
-      "title": "Rejetto HFS伺服器遭主動掃描利用",
-      "subtitle": "駭客積極掃描並利用嚴重遠端執行程式碼漏洞，需儘速修補",
+      "title": "中國駭客TA419假冒日本防衛相進行釣魚攻擊",
+      "subtitle": "針對國防相關企業與智庫進行有針對性的社交工程攻擊",
       "impact": "高",
       "stars": 5,
-      "url": "https://www.bleepingcomputer.com/news/security/rejetto-hfs-servers-now-actively-scanned-for-critical-rce-flaw/"
+      "url": "https://news.ltn.com.tw/news/world/breakingnews/5594379"
     },
     {
-      "icon": "📊",
-      "title": "台灣受資安威脅排全球第4",
-      "subtitle": "微軟報告：政府機關受創最重，網路釣魚攻擊大幅增至23%",
-      "impact": "中",
+      "icon": "🎯",
+      "title": "GitLab重大漏洞CVE-2026-85706遭駭客利用",
+      "subtitle": "滿分漏洞無需驗證即可讀取伺服器檔案，資安署急速公告",
+      "impact": "高",
+      "stars": 5,
+      "url": "https://www.cna.com.tw/news/afe/202610020159.aspx"
+    },
+    {
+      "icon": "⚠️",
+      "title": "Pwn2Own首日破解32個零時差漏洞",
+      "subtitle": "駭客競賽創紀錄數量展現業界系統安全隱患",
+      "impact": "高",
       "stars": 4,
-      "url": "https://inside.com.tw/article/42562-microsoft-digital-defense-report-2026-taiwan-government"
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-32-zero-days-on-first-day-of-pwn2own-ireland/"
     },
     {
-      "icon": "🔐",
-      "title": "Citrix NetScaler SAML零時差漏洞已被利用",
-      "subtitle": "企業級應用交付平台發現零時差漏洞，廠商已發布修補程式",
+      "icon": "🪟",
+      "title": "Microsoft發佈5項高風險Windows漏洞",
+      "subtitle": "涵蓋SSTP遠端程式碼執行與多項權限提升漏洞",
       "impact": "高",
-      "stars": 5,
-      "url": "https://www.bleepingcomputer.com/news/security/citrix-patches-netscaler-saml-zero-day-exploited-in-attacks/"
+      "stars": 4,
+      "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-73009"
+    },
+    {
+      "icon": "🎣",
+      "title": "假冒ChatGPT與Gemini網站竊取廣告帳號與雙因素碼",
+      "subtitle": "詐騙分子以釣魚手法竊取企業廣告預算與帳號控制權",
+      "impact": "中",
+      "stars": 3,
+      "url": "https://www.bleepingcomputer.com/news/security/fake-chatgpt-gemini-sites-steal-advertising-accounts-mfa-codes/"
     }
   ],
   "vendor_impact": [
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-69267 Windows連線使用者經驗與遙測資訊洩露漏洞",
+      "title": "CVE-2026-73009 Windows SSTP遠端程式碼執行漏洞",
+      "impact": "高",
+      "category": "遠端存取設備",
+      "key_asset": "Windows SSTP VPN服務",
+      "ai_suggestion": "立即檢視組織內VPN使用情形，優先更新或隔離使用SSTP協議的系統，評估改用更安全的VPN通訊協議"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-71343 Windows遠端存取連線管理員遠端程式碼執行漏洞",
+      "impact": "高",
+      "category": "遠端存取設備",
+      "key_asset": "Windows遠端存取連線管理員",
+      "ai_suggestion": "盤點所有遠端存取服務的使用狀況，立即套用Microsoft最新安全更新，同時加強網路邊界防護與存取控制"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-69582 Windows磁碟區管理員延伸驅動程式權限提升漏洞",
+      "impact": "高",
+      "category": "核心系統驅動",
+      "key_asset": "Windows磁碟區管理員驅動程式",
+      "ai_suggestion": "發佈Windows更新政策，確保所有終端設備系統驅動保持最新版本，加強特權帳號監控與日誌紀錄"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-69844 Windows Win32k權限提升漏洞",
+      "impact": "高",
+      "category": "核心系統驅動",
+      "key_asset": "Windows Win32k驅動程式",
+      "ai_suggestion": "排程緊急補丁部署計畫，優先更新高風險工作站與伺服器，監控相關權限提升行為偵測"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-69265 Windows NTFS權限提升漏洞",
+      "impact": "高",
+      "category": "檔案系統",
+      "key_asset": "Windows NTFS檔案系統",
+      "ai_suggestion": "評估檔案系統權限設置的合理性，立即部署最新安全補丁，加強檔案存取與異常權限變更的監控"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-72999 Windows USB Hub驅動程式權限提升漏洞",
       "impact": "中",
-      "category": "系統遠端管理",
-      "key_asset": "Windows連線使用者與遙測服務",
-      "ai_suggestion": "評估內部Windows系統受影響範圍，製作修補計畫並優先更新機敏部門設備"
+      "category": "硬體驅動",
+      "key_asset": "Windows USB Hub驅動程式",
+      "ai_suggestion": "檢視USB設備使用政策，在適當場景禁用非必要的USB外設連接，排程驅動程式補丁更新"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "Chromium CVE-2025-1920 V8引擎類型混淆漏洞",
-      "impact": "高",
-      "category": "瀏覽器",
-      "key_asset": "Edge瀏覽器V8引擎",
-      "ai_suggestion": "立即檢查Edge版本並推送最新更新至全企業，特別是面向互聯網工作站"
+      "title": "CVE-2026-68894 Windows錯誤報告權限提升漏洞",
+      "impact": "中",
+      "category": "系統服務",
+      "key_asset": "Windows錯誤報告服務",
+      "ai_suggestion": "檢視錯誤報告服務的必要性與設置，確保僅在必要時啟用，套用最新安全補丁"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "Chromium CVE-2025-2137 V8引擎越界讀取漏洞",
-      "impact": "高",
-      "category": "瀏覽器",
-      "key_asset": "Edge瀏覽器V8引擎",
-      "ai_suggestion": "與CVE-2025-1920同步處理，確保Edge瀏覽器版本為最新穩定版本"
+      "title": "CVE-2026-61936 Windows Defender防火牆服務安全功能略過漏洞",
+      "impact": "中",
+      "category": "防火牆",
+      "key_asset": "Windows Defender防火牆",
+      "ai_suggestion": "驗證防火牆設置與例外規則的正確性，部署補丁更新，加強防火牆政策審計與版本管理"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-61927 Windows Bind Filter驅動程式權限提升漏洞",
+      "impact": "中",
+      "category": "網路驅動",
+      "key_asset": "Windows Bind Filter驅動程式",
+      "ai_suggestion": "評估網路篩選相關驅動的使用情形與設置，排程補丁更新計畫，監控驅動層級的異常活動"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-78501 Microsoft 365 Copilot Business Chat資訊洩露漏洞",
+      "impact": "中",
+      "category": "AI基礎設施",
+      "key_asset": "Microsoft 365 Copilot服務",
+      "ai_suggestion": "審核組織內Copilot使用政策與權限設置，更新至最新版本，加強機密資訊處理規範的宣導"
     }
   ],
   "global_events": [
+    {
+      "category": "勒索病毒",
+      "title": "日本MisterMax客戶資料遭不正存取 173.5萬客戶個資外洩",
+      "date": "2026-10-06",
+      "url": "https://smartscope.blog/blog/japan-data-breach-list-tier-2026-09-10/"
+    },
     {
       "category": "APT攻擊",
       "title": "韓國銀行金融公共機構遭駭客利用AI進行大規模個資外洩攻擊",
       "date": "2026-10-05",
       "url": "https://epochtimes.com/b5/26/10/4/n14863261.htm"
+    },
+    {
+      "category": "APT攻擊",
+      "title": "中國駭客TA419假冒日本防衛相進行釣魚攻擊",
+      "date": "2026-10-05",
+      "url": "https://news.ltn.com.tw/news/world/breakingnews/5594379"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "Pwn2Own愛爾蘭駭客大賽首日即破解32個零時差漏洞",
+      "date": "2026-10-05",
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-32-zero-days-on-first-day-of-pwn2own-ireland/"
+    },
+    {
+      "category": "APT攻擊",
+      "title": "中國駭客UAT-11587散布後門Antino攻擊亞洲政府",
+      "date": "2026-10-05",
+      "url": "https://www.ithome.com.tw/news/179333"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "GMOリサーチ&AI遭勒索軟體攻擊 最多94.8萬件個資外洩",
+      "date": "2026-10-05",
+      "url": "https://smartscope.blog/blog/japan-data-breach-list-tier-2026-09-10/"
     },
     {
       "category": "零時差漏洞",
@@ -431,6 +524,12 @@ const DATA = {
       "title": "Cl0p勒索軟體集團針對PTC Windchill漏洞進行大規模攻擊",
       "date": "2026-10-02",
       "url": "https://netmag.tw/tag/%E5%8B%92%E7%B4%A2%E8%BB%9F%E9%AB%94"
+    },
+    {
+      "category": "政府公告",
+      "title": "GitLab重大漏洞CVE-2026-85706遭駭客利用 資安署籲儘速更新",
+      "date": "2026-10-02",
+      "url": "https://www.cna.com.tw/news/afe/202610020159.aspx"
     },
     {
       "category": "零時差漏洞",
@@ -888,40 +987,16 @@ const DATA = {
       "title": "Magento與Adobe Commerce RCE漏洞遭主動利用",
       "date": "2026-09-04",
       "url": "https://www.cyware.com/resources/threat-briefings/daily-threat-briefing/cyware-daily-threat-intelligence-september-08-2026"
-    },
-    {
-      "category": "勒索病毒",
-      "title": "創新服務遭勒索病毒攻擊，ERP系統受影響",
-      "date": "2026-09-02",
-      "url": ""
-    },
-    {
-      "category": "政府公告",
-      "title": "因應AI資安新挑戰強化國家防護",
-      "date": "2026-09-02",
-      "url": "https://moda.gov.tw/ACS/press/news/press/20242"
-    },
-    {
-      "category": "APT攻擊",
-      "title": "APT29針對歐洲進行大規模郵件與基礎設施竊取行動GTG-20006",
-      "date": "2026-09-02",
-      "url": "https://www.uvcyber.com/resources/reports/threat-advisory-the-historical-and-ongoing-threat-of-apt29"
-    },
-    {
-      "category": "勒索病毒",
-      "title": "創新服務(7828)遭勒索病毒攻擊",
-      "date": "2026-09-02",
-      "url": "https://tw.stock.yahoo.com/news/%E5%85%AC%E5%91%8A-%E8%AA%AA%E6%98%8E%E5%89%B5%E6%96%B0%E6%9C%8D%E5%8B%99%E9%83%A8%E4%BB%BD%E8%B3%87%E8%A8%8A%E7%B3%BB%E7%B5%B1%E9%81%AD%E5%8F%97%E7%B6%B2%E8%B7%AF%E5%8B%92%E7%B4%A2%E7%97%85%E6%AF%92%E6%94%BB%E6%93%8A%E4%BA%8B%E4%BB%B6-110354474.html"
     }
   ],
-  "ai_analysis": "今天的威脅景觀相當緊繃，需要我們立刻鎖定幾個關鍵優先事項。首先是GitLab CVSS滿分漏洞CVE-2026-85706已經遭實際攻擊且列入CISA已知遭利用清單，這不是假設威脅而是正在發生的攻擊事件，企業若部署GitLab必須立刻評估與更新。其次是Cl0p勒索軟體集團成功利用PTC Windchill漏洞CVE-2026-12569攻擊超過40家企業包括知名製造商，這代表供應鏈與製造業系統成為重點目標，若貴組織使用Windchill或相似PLM系統應立即優先處理。\n\n在漏洞雷達部分，Citrix NetScaler SAML零時差漏洞與Rejetto HFS遠端執行程式碼漏洞都已有實際攻擊證據，兩者都屬於需要儘速修補的高風險項目，特別是NetScaler涉及身份驗證與企業級應用交付，影響層面更廣。廠商公告方面，Microsoft的Chromium V8引擎兩個高風險漏洞（CVE-2025-1920與CVE-2025-2137）需要同步推送Edge瀏覽器更新至全企業。\n\n從微軟最新數位防禦報告來看，台灣已成為全球第四大受資安威脅國家，政府機關受創最重，網路釣魚攻擊大幅增至23%，加上APT活動恢復至5個集群的威脅統計，這些都提示我們内部員工防護需要強化。當前最需要優先處理的是GitLab與Windchill漏洞修補，因為已有實際攻擊案例且影響範圍廣泛，同時應加速推送Microsoft與Citrix的安全更新至全企業環境。",
+  "ai_analysis": "今日資安威脅態勢持續升溫，需要緊急關注的焦點事件為中國駭客TA419假冒日本防衛相進行有針對性的釣魚攻擊，該APT集團鎖定國防相關企業與智庫，顯示高度組織化與針對性強的社交工程手法，值得國內具國防產業背景的企業特別警惕。在漏洞修補優先級上，GitLab的CVE-2026-85706滿分漏洞最為急迫，該漏洞已遭實際利用且無需身分驗證即可讀取伺服器檔案，資安署已公開通報，組織應立即盤點內部GitLab部署情形並緊急更新。\n\nMicrosoft廠商層面則發現5項高風險漏洞集中在Windows系統核心元件，特別是SSTP遠端程式碼執行與多項權限提升漏洞，涉及遠端存取、核心驅動與檔案系統等關鍵領域，建議優先處理遠端存取相關漏洞以降低外部攻擊面。同時Pwn2Own駭客大賽首日即破解32個零時差漏洞的紀錄創新高，反映業界多款主流軟硬體產品存在嚴重安全隱患，雖未立即對我們造成影響，但應持續關注是否有涉及組織內常用設備或軟體的新漏洞發佈。\n\n綜合研判，本週最需要優先處理的是GitLab漏洞的緊急修補與Microsoft Windows系統的多個高風險補丁部署，理由在於GitLab漏洞已有實際攻擊案例且易於利用，Windows漏洞涵蓋權限提升與遠端執行兩大攻擊途徑，影響面廣。建議立即啟動應急補丁部署流程，同時加強對釣魚郵件與異常遠端存取的防禦監控，特別是針對企業高風險人員的安全意識訓練。",
   "cve_radar": [],
   "risk_score": {
-    "total": 18,
+    "total": 27,
     "breakdown": [
       {
         "label": "漏洞風險",
-        "score": 16
+        "score": 40
       },
       {
         "label": "APT攻擊",
@@ -929,7 +1004,7 @@ const DATA = {
       },
       {
         "label": "勒索病毒",
-        "score": 22
+        "score": 44
       },
       {
         "label": "身份風險",
@@ -944,13 +1019,31 @@ const DATA = {
   "action_items": [
     {
       "category": "公告確認",
-      "title": "Chromium CVE-2025-1920 V8 引擎類型混淆漏洞",
+      "title": "CVE-2026-73009 Windows SSTP 遠端程式碼執行漏洞",
       "priority": "高",
       "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "Chromium CVE-2025-2137 V8 引擎越界讀取漏洞",
+      "title": "CVE-2026-71343 Windows 遠端存取連線管理員遠端程式碼執行漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-69582 Windows 磁碟區管理員延伸驅動程式權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-69844 Windows Win32k 權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-69265 Windows NTFS 權限提升漏洞",
       "priority": "高",
       "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
@@ -958,23 +1051,23 @@ const DATA = {
       "category": "公告確認",
       "title": "GitLab重大漏洞遭駭客利用 資安署籲儘速更新強化資安防護",
       "priority": "中",
-      "detail": "來源：資安署。GitLab爆出CVSS滿分10分重大漏洞CVE-2026-85706，無需身分驗證即可遠端利用，已遭實際攻擊，列入CISA已知遭利用漏洞清單，資安署籲機關企業速更新。"
+      "detail": "來源：資安署。GitLab漏洞CVE-2026-85706得分滿分10，無需身分驗證即可讀取伺服器檔案，已遭實際利用，資安署呼籲儘速更新。"
     },
     {
       "category": "掃描比對",
-      "title": "週報威脅統計(2026年9月28日-10月4日)相關IOC比對",
+      "title": "UAT-11587後門Antino相關IOC比對",
       "priority": "中",
-      "detail": "涉及類型：IP、Hash。建議比對內部防火牆/EDR日誌。"
+      "detail": "涉及類型：IP、Domain、URL。建議比對內部防火牆/EDR日誌。"
     },
     {
       "category": "掃描比對",
-      "title": "PTC Windchill漏洞(Cl0p勒索軟體)相關IOC比對",
+      "title": "Clop勒索軟體洩漏網站遭ShinyHunters駭客入侵相關IOC比對",
       "priority": "中",
-      "detail": "涉及類型：URL、IP。建議比對內部防火牆/EDR日誌。"
+      "detail": "涉及類型：URL、Domain。建議比對內部防火牆/EDR日誌。"
     },
     {
       "category": "教育宣導",
-      "title": "IQVIA 健康資料去識別化不足 遭罰 780 萬美元",
+      "title": "假冒 ChatGPT 與 Gemini 網站騙取廣告帳號及雙因素驗證碼",
       "priority": "低",
       "detail": "建議納入員工資安宣導教育素材。"
     },
@@ -986,26 +1079,26 @@ const DATA = {
     },
     {
       "category": "教育宣導",
-      "title": "Cl0p勒索軟體集團針對PTC Windchill漏洞進行大規模攻擊",
+      "title": "中國駭客TA419假冒日本防衛相進行釣魚攻擊",
       "priority": "低",
       "detail": "建議納入員工資安宣導教育素材。"
     },
     {
       "category": "教育宣導",
-      "title": "韓國銀行金融公共機構遭駭客利用AI進行大規模個資外洩攻擊",
+      "title": "日本MisterMax客戶資料遭不正存取",
       "priority": "低",
       "detail": "建議納入員工資安宣導教育素材。"
     },
     {
       "category": "教育宣導",
-      "title": "微軟數位防禦報告：台灣受資安威脅排全球第4、亞太第1",
+      "title": "GMOリサーチ&AI(infoQ)遭勒索軟體攻擊",
       "priority": "低",
       "detail": "建議納入員工資安宣導教育素材。"
     }
   ],
   "category_counts": {
     "kev": 0,
-    "vendor": 3,
+    "vendor": 10,
     "news": 6,
     "ransomwareApt": 3
   },
@@ -1014,26 +1107,26 @@ const DATA = {
       "label": "釣魚攻擊",
       "pct": 100,
       "points": [
-        0,
         1,
         0,
         0,
         0,
         0,
-        1
+        1,
+        2
       ]
     },
     {
       "label": "勒索軟體",
-      "pct": 11,
+      "pct": 0,
       "points": [
-        2,
         5,
         0,
         0,
         0,
         0,
-        3
+        3,
+        2
       ]
     },
     {
@@ -1053,8 +1146,8 @@ const DATA = {
       "label": "帳密竊取",
       "pct": -50,
       "points": [
-        0,
         1,
+        0,
         0,
         0,
         0,
@@ -1077,7 +1170,7 @@ const DATA = {
     }
   ]
 };
-const UPDATED_AT = "2026/10/6 10:51:47（台灣時間）";
+const UPDATED_AT = "2026/10/7 10:13:48（台灣時間）";
 document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
