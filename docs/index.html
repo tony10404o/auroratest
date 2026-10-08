@@ -1323,7 +1323,7 @@ function renderGlobalEvents(items, rangeDays){
         <span class="update-vendor-icon">${vendorIconFor(e.title)}</span>
         <div class="update-title">${e.url ? `<a href="${escapeHtml(e.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(e.title)}</a>` : escapeHtml(e.title)}</div>
         <select class="update-status-select${saved ? ' status-' + saved : ''}" data-item-id="${id}" onchange="onStatusChange(this)">
-          <option value="" ${!saved ? 'selected' : ''}>－</option>
+          <option value="" ${!saved ? 'selected' : ''}>待處理</option>
           <option value="不處理" ${saved === '不處理' ? 'selected' : ''}>不處理</option>
           <option value="處理中" ${saved === '處理中' ? 'selected' : ''}>處理中</option>
           <option value="已完成" ${saved === '已完成' ? 'selected' : ''}>已完成</option>
@@ -1632,15 +1632,16 @@ renderStatStrip(DATA.category_counts, monthPendingCount);
 function renderStatusSummary(){
   const el = document.getElementById('statusSummaryCard');
   if (!el) return;
-  const counts = { '不處理':0, '處理中':0, '已完成':0 };
+  const counts = { '待處理':0, '不處理':0, '處理中':0, '已完成':0 };
   (DATA.global_events || []).forEach(e => {
     if (!isWithinCalendarDays(e.date, 30)) return;
     const id = stableIdFor(e.title);
     if (isAutoRemoved(id)) return; // 已從清單自動消除的不算，數字才會跟下方面板一致
     const saved = getSavedStatus(id);
-    if (counts[saved] !== undefined) counts[saved]++;
+    const key = saved || '待處理';
+    if (counts[key] !== undefined) counts[key]++;
   });
-  const colors = { '不處理':'var(--sev-high)', '處理中':'var(--sev-medium)', '已完成':'var(--sev-low)' };
+  const colors = { '待處理':'var(--text)', '不處理':'var(--sev-high)', '處理中':'var(--sev-medium)', '已完成':'var(--sev-low)' };
   const rows = Object.keys(counts).map(k => `
     <div class="trend-item">
       <div class="trend-item-label">${k}</div>
