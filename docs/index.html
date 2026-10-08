@@ -327,164 +327,297 @@ const DATA = {
   "headlines": [
     {
       "icon": "🎯",
-      "title": "FortiMail 零日漏洞遭實際利用 - 郵件系統面臨重大風險",
-      "subtitle": "未認證攻擊者可寫入任意檔案，已有野外攻擊案例",
+      "title": "GitLab滿分重大漏洞CVE-2026-85706遭駭客利用",
+      "subtitle": "路徑遍歷漏洞允許未驗證遠端讀取檔案，已列入CISA已知遭利用清單",
       "impact": "高",
       "stars": 5,
-      "url": "https://www.bleepingcomputer.com/news/security/fortinet-warns-of-critical-fortimail-flaw-exploited-in-zero-day-attacks/"
+      "url": "https://www.cna.com.tw/news/afe/202610020159.aspx"
     },
     {
-      "icon": "🪟",
-      "title": "Microsoft 發布多個高危漏洞 - Windows 系統多模塊受影響",
-      "subtitle": "涵蓋金鑰發佈中心、Outlook、PDF等關鍵元件的遠端程式碼執行漏洞",
-      "impact": "高",
-      "stars": 5
-    },
-    {
-      "icon": "🔀",
-      "title": "Cisco SD-WAN 認證繞過零日漏洞 - 遠端存取設備淪陷",
-      "subtitle": "Manager API 認證機制被繞過，攻擊者已開始實際利用",
+      "icon": "🦠",
+      "title": "FortiGate VPN持續遭FortiBleed漏洞攻擊",
+      "subtitle": "FBI警告駭客鎖定VPN管理員，導致系統管理員被擊出",
       "impact": "高",
       "stars": 5,
-      "url": "https://www.bleepingcomputer.com/news/security/cisco-warns-of-new-sd-wan-authentication-bypass-zero-day-exploited-in-attacks/"
+      "url": "https://www.bleepingcomputer.com/news/security/fbi-ongoing-fortibleed-attacks-lock-out-fortigate-vpn-admins/"
+    },
+    {
+      "icon": "🦠",
+      "title": "亞太地區勒索軟體事件急增27% 台灣排名全球第三",
+      "subtitle": "月環比增長近27%，台灣遭受勒索軟體威脅持續升溫",
+      "impact": "高",
+      "stars": 5,
+      "url": "https://www.ithome.com.tw/news/179235"
+    },
+    {
+      "icon": "🕵️",
+      "title": "104人力銀行12萬筆履歷遭未授權讀取",
+      "subtitle": "App系統異常遭攻擊者存取求職者個人資訊，已啟動應變機制",
+      "impact": "高",
+      "stars": 4,
+      "url": "https://news.ltn.com.tw/news/life/breakingnews/5597618"
+    },
+    {
+      "icon": "🎯",
+      "title": "Atlassian Jira與Confluence關鍵漏洞已有公開利用程式碼",
+      "subtitle": "允許檔案存取的漏洞已被駭客發布PoC，立即遭大規模利用",
+      "impact": "高",
+      "stars": 5,
+      "url": "https://www.bleepingcomputer.com/news/security/atlassian-warns-of-critical-file-access-flaw-in-jira-confluence/"
+    },
+    {
+      "icon": "🎯",
+      "title": "SonicWall SMA1000閘道器最高等級SSRF漏洞",
+      "subtitle": "安全管理設備發現伺服器端請求偽造漏洞需立即修補",
+      "impact": "高",
+      "stars": 5,
+      "url": "https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-max-severity-ssrf-flaw-in-sma1000-gateways/"
+    },
+    {
+      "icon": "🕵️",
+      "title": "駭客入侵域名註冊機構劫持Google相關網域",
+      "subtitle": "攻擊者通過ccTLD註冊機構漏洞成功進行域名劫持",
+      "impact": "中",
+      "stars": 4,
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-hijack-google-domains-after-breaching-cctld-registries/"
     },
     {
       "icon": "📰",
-      "title": "五角大廈人資系統遭入侵 - 逾300萬員工資料洩露",
-      "subtitle": "美國國防部軍職與文職人員敏感資訊外洩，國家安全影響重大",
-      "impact": "高",
-      "stars": 4,
-      "url": "https://www.bleepingcomputer.com/news/security/hackers-breach-pentagon-human-resources-management-system-steal-data-of-nearly-3-million-people/"
+      "title": "ShinyHunters勒索波音子公司並成功獲得贖金",
+      "subtitle": "駭客組織在被逮捕前完成勒索活動，影響波音旗下企業",
+      "impact": "中",
+      "stars": 3,
+      "url": "https://krebsonsecurity.com/2026/10/shinyhunters-extorted-boeing-spin-off-prior-to-arrests/"
     },
     {
-      "icon": "⚠️",
-      "title": "GitHub 公開洩露54萬筆有效認證憑證",
-      "subtitle": "企業員工帳號密碼遭誤傳至公開儲存庫，需立即變更認證資訊",
+      "icon": "📱",
+      "title": "假冒ChatGPT與Gemini網站盜竊廣告帳戶與驗證碼",
+      "subtitle": "詐騙者架設山寨版AI聊天工具誘騙使用者輸入認證資訊",
       "impact": "中",
-      "stars": 4,
-      "url": "https://www.bleepingcomputer.com/news/security/over-543-000-valid-credentials-exposed-in-public-github-repositories/"
+      "stars": 3,
+      "url": "https://www.bleepingcomputer.com/news/security/fake-chatgpt-gemini-sites-steal-advertising-accounts-mfa-codes/"
+    },
+    {
+      "icon": "🦠",
+      "title": "ShinyHunters入侵Clop勒索軟體洩漏網站",
+      "subtitle": "駭客揚言公開受害企業付款紀錄及相關IOC情報",
+      "impact": "中",
+      "stars": 3,
+      "url": "https://www.informationsecurity.com.tw/article/article_detail.aspx?aid=13305"
+    },
+    {
+      "icon": "🕵️",
+      "title": "FBI逮捕16歲KillSec勒索軟體主嫌",
+      "subtitle": "歐洲警方聯手打擊，繳獲伺服器及洩漏網站",
+      "impact": "低",
+      "stars": 2,
+      "url": "https://www.ithome.com.tw/news/179366"
     }
   ],
   "vendor_impact": [
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-69712 Windows 金鑰發佈中心遠端程式碼執行漏洞",
+      "title": "Windows遠端存取連線管理員遠端程式碼執行漏洞CVE-2026-71343",
       "impact": "高",
-      "category": "身分驗證服務",
-      "key_asset": "Windows KDC 服務",
-      "ai_suggestion": "立即部署最新安全更新，優先保護域控制器與身分驗證基礎設施，檢查近期存取日誌"
+      "category": "遠端存取服務",
+      "key_asset": "Windows遠端存取連線管理員",
+      "ai_suggestion": "優先評估環境內遠端存取連線管理員使用狀況，立即申請修補程式並規劃更新時程，評估是否需臨時控制存取權限"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-70125 Microsoft Office Outlook 遠端程式碼執行漏洞",
+      "title": "Windows SSTP遠端程式碼執行漏洞CVE-2026-73009",
       "impact": "高",
-      "category": "郵件系統",
-      "key_asset": "Microsoft Outlook",
-      "ai_suggestion": "應立即推送客戶端更新至全體使用者，考慮郵件伺服器端防護措施，監控可疑郵件活動"
+      "category": "遠端存取協議",
+      "key_asset": "Windows安全通訊端通道通訊協定",
+      "ai_suggestion": "檢視VPN連線設定是否使用SSTP協議，若有使用應優先更新，同時監控相關網路連線異常活動"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-62699 Windows 通用磁碟格式驅動程式遠端程式碼執行漏洞",
+      "title": "Windows State Repository Service權限提升漏洞CVE-2026-69436",
       "impact": "高",
-      "category": "儲存系統",
-      "key_asset": "Windows UDF 驅動程式",
-      "ai_suggestion": "檢查環境中 UDF 光碟使用情況，優先更新可能接觸光碟映像的伺服器系統"
+      "category": "系統核心服務",
+      "key_asset": "Windows State Repository Service",
+      "ai_suggestion": "評估此服務在關鍵系統上的依賴程度，納入本月安全更新計畫中優先修補，監控異常進程執行"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-69586 Microsoft Windows PDF 遠端程式碼執行漏洞",
+      "title": "Windows磁碟區管理員擴充驅動程式權限提升漏洞CVE-2026-69582",
       "impact": "高",
-      "category": "檔案處理",
-      "key_asset": "Windows PDF 閱讀元件",
-      "ai_suggestion": "監控 PDF 檔案流量，限制外部 PDF 來源，更新 Windows 及第三方 PDF 應用程式"
+      "category": "儲存系統管理",
+      "key_asset": "磁碟區管理員擴充驅動程式",
+      "ai_suggestion": "確認環境內磁碟區管理組態，優先更新驅動程式至最新版本，強化存儲管理權限控制"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-69451 Windows 管理工具權限提升漏洞",
+      "title": "Windows NTFS權限提升漏洞CVE-2026-69265",
       "impact": "高",
-      "category": "系統管理",
-      "key_asset": "Windows 管理元件",
-      "ai_suggestion": "強化管理員帳號訪問控制，推送修補程式，審計特權操作日誌"
+      "category": "檔案系統安全",
+      "key_asset": "NTFS檔案系統",
+      "ai_suggestion": "評估檔案系統權限設定合規性，立即部署安全更新，檢視是否有異常檔案權限變更紀錄"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-69605 Microsoft 安裝服務權限提升漏洞",
+      "title": "Windows Win32k權限提升漏洞CVE-2026-69844",
       "impact": "高",
-      "category": "系統管理",
-      "key_asset": "Windows 安裝服務",
-      "ai_suggestion": "限制安裝服務權限，部署修補程式，監控異常服務安裝活動"
+      "category": "系統圖形介面",
+      "key_asset": "Win32k子系統",
+      "ai_suggestion": "此為高風險系統級漏洞，應納入緊急修補範圍，優先更新終端使用者工作站"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-70562 Windows 音訊服務權限提升漏洞",
+      "title": "Windows錯誤報告權限提升漏洞CVE-2026-68894",
+      "impact": "高",
+      "category": "系統診斷服務",
+      "key_asset": "Windows錯誤報告服務",
+      "ai_suggestion": "檢視錯誤報告服務設定，立即應用安全更新，監控相關服務異常重啟情形"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "Windows USB Hub驅動程式權限提升漏洞CVE-2026-72999",
+      "impact": "高",
+      "category": "硬體周邊驅動",
+      "key_asset": "USB Hub驅動程式",
+      "ai_suggestion": "評估USB周邊存取政策，更新驅動程式至最新版本，考慮於高安全環境限制USB使用"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "Chromium V8物件毀損漏洞CVE-2025-0611",
+      "impact": "高",
+      "category": "瀏覽器引擎",
+      "key_asset": "Chromium V8引擎",
+      "ai_suggestion": "應用最新版本瀏覽器更新至所有終端，監控此引擎相關安全更新，評估企業瀏覽器政策"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "Microsoft365Copilot Business Chat資訊洩露漏洞CVE-2026-78501",
       "impact": "中",
-      "category": "周邊設備",
-      "key_asset": "Windows 音訊服務",
-      "ai_suggestion": "排程部署修補程式至安全更新周期內，優先處理多媒體應用環境"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-69328 Windows 儲存空間權限提升漏洞",
-      "impact": "中",
-      "category": "儲存系統",
-      "key_asset": "Windows 儲存空間",
-      "ai_suggestion": "評估環境中儲存空間使用情況，依優先級排程更新計畫"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-69504 Windows NTFS 資訊洩露漏洞",
-      "impact": "中",
-      "category": "檔案系統",
-      "key_asset": "Windows NTFS 驅動",
-      "ai_suggestion": "部署修補程式，檢查敏感資料檔案權限設定，強化存取控制"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-69288 Windows GDI+ 資訊洩露漏洞",
-      "impact": "低",
-      "category": "圖形系統",
-      "key_asset": "Windows GDI+ 元件",
-      "ai_suggestion": "納入常規修補週期，無需特別加急處理"
+      "category": "AI基礎設施",
+      "key_asset": "Copilot Business Chat",
+      "ai_suggestion": "檢視Copilot使用範圍及機密資訊輸入狀況，評估是否需禁用或限制使用，監控聊天紀錄存取"
     },
     {
       "icon": "🔀",
       "vendor": "Cisco",
-      "title": "Cisco Catalyst SD-WAN Manager API 認證繞過漏洞",
+      "title": "Nexus3000及9000系列MPLS OAM遠端程式碼執行漏洞",
       "impact": "高",
-      "category": "遠端存取設備",
-      "key_asset": "Cisco SD-WAN Manager",
-      "ai_suggestion": "立即檢查 SD-WAN Manager 版本，部署廠商修補程式，強化網路分段與存取控制"
+      "category": "網路交換設備",
+      "key_asset": "Cisco Nexus交換機",
+      "ai_suggestion": "立即檢視交換機固件版本，聯絡Cisco獲取修補程式，評估內網MPLS環境風險並升級"
     },
     {
       "icon": "🔀",
       "vendor": "Cisco",
-      "title": "Cisco 10 月 7 日安全公告預告",
-      "impact": "中",
-      "category": "待公開",
-      "key_asset": "Cisco 多產品線",
-      "ai_suggestion": "持續關注公告發佈，提前規劃修補計畫，備妥測試環境"
+      "title": "Nexus3000及9000系列NGOAM遠端程式碼執行漏洞",
+      "impact": "高",
+      "category": "網路監管協議",
+      "key_asset": "Cisco Nexus NGOAM模組",
+      "ai_suggestion": "檢視交換機OAM功能啟用狀況，優先於高風險區段更新固件，監控異常管理連線"
     },
     {
-      "icon": "🛡️",
-      "vendor": "Fortinet",
-      "title": "路徑名稱不當限制漏洞",
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "NX-OS軟體Python沙箱逃逸漏洞",
       "impact": "高",
-      "category": "郵件系統",
-      "key_asset": "FortiMail 郵件安全網關",
-      "ai_suggestion": "配合 CVE-2026-104286 立即部署修補程式，監控郵件流量異常，檢視系統檔案完整性"
+      "category": "系統管理介面",
+      "key_asset": "NX-OS Python環境",
+      "ai_suggestion": "評估自動化指令檔中Python使用情形，限制NX-OS Python執行權限，升級至修補版本"
+    },
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "Finesse伺服器端請求偽造漏洞",
+      "impact": "高",
+      "category": "客服系統平台",
+      "key_asset": "Cisco Finesse伺服器",
+      "ai_suggestion": "檢視Finesse部署及內網可達性，升級至修補版本，強化HTTP請求驗證及防火牆規則"
+    },
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "APIC API指令注入漏洞",
+      "impact": "高",
+      "category": "網路架構管理",
+      "key_asset": "Application Policy Infrastructure",
+      "ai_suggestion": "檢視APIC API存取控制，立即應用安全修補，審視近期異常API呼叫紀錄"
+    },
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "APIC未授權檔案存取漏洞",
+      "impact": "高",
+      "category": "網路架構管理",
+      "key_asset": "APIC系統檔案存取",
+      "ai_suggestion": "審計APIC檔案系統存取權限，部署修補程式，監控檔案存取稽核紀錄異常"
+    },
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "Nexus9000系列ACI模式端點群組合約繞過漏洞",
+      "impact": "中",
+      "category": "網路政策管理",
+      "key_asset": "ACI端點群組合約",
+      "ai_suggestion": "檢視ACI政策設定，評估EPG合約是否被繞過風險，規劃固件升級時程"
+    },
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "Meraki安全強化版本發佈2026年10月",
+      "impact": "中",
+      "category": "雲端網路管理",
+      "key_asset": "Cisco Meraki OS",
+      "ai_suggestion": "檢視Meraki設備版本，評估升級至強化版本的必要性，規劃維護窗口"
+    },
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "License Smart Software Manager內部部署安全強化版本",
+      "impact": "中",
+      "category": "授權管理系統",
+      "key_asset": "Smart Software Manager",
+      "ai_suggestion": "評估是否使用Smart Software Manager內部部署，檢視版本並規劃升級至強化版本"
     }
   ],
   "global_events": [
+    {
+      "category": "APT攻擊",
+      "title": "FortiGate VPN持續遭FortiBleed漏洞攻擊",
+      "date": "2026-10-06",
+      "url": "https://www.bleepingcomputer.com/news/security/fbi-ongoing-fortibleed-attacks-lock-out-fortigate-vpn-admins/"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "Atlassian Jira與Confluence關鍵漏洞已有公開利用程式碼",
+      "date": "2026-10-06",
+      "url": "https://www.bleepingcomputer.com/news/security/atlassian-warns-of-critical-file-access-flaw-in-jira-confluence/"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "SonicWall SMA1000閘道器最高等級SSRF漏洞",
+      "date": "2026-10-06",
+      "url": "https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-max-severity-ssrf-flaw-in-sma1000-gateways/"
+    },
+    {
+      "category": "政府公告",
+      "title": "104人力銀行12萬筆履歷遭未授權讀取",
+      "date": "2026-10-06",
+      "url": "https://news.ltn.com.tw/news/life/breakingnews/5597618"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "GitLab滿分重大漏洞CVE-2026-85706遭駭客利用",
+      "date": "2026-10-02",
+      "url": "https://www.cna.com.tw/news/afe/202610020159.aspx"
+    },
     {
       "category": "零時差漏洞",
       "title": "FortiMail 路徑遍歷與空字節中立化漏洞 - 零日攻擊進行中",
@@ -496,6 +629,12 @@ const DATA = {
       "title": "Cisco SD-WAN Manager API 認證繞過零日漏洞遭實際利用",
       "date": "2026-10-01",
       "url": "https://www.bleepingcomputer.com/news/security/cisco-warns-of-new-sd-wan-authentication-bypass-zero-day-exploited-in-attacks/"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "亞太地區勒索軟體事件急增27% 台灣排名全球第三",
+      "date": "2026-10-01",
+      "url": "https://www.ithome.com.tw/news/179235"
     },
     {
       "category": "零時差漏洞",
@@ -917,93 +1056,16 @@ const DATA = {
       "title": "Magento與Adobe Commerce RCE漏洞遭主動利用",
       "date": "2026-09-04",
       "url": "https://www.cyware.com/resources/threat-briefings/daily-threat-briefing/cyware-daily-threat-intelligence-september-08-2026"
-    },
-    {
-      "category": "勒索病毒",
-      "title": "創新服務遭勒索病毒攻擊，ERP系統受影響",
-      "date": "2026-09-02",
-      "url": ""
-    },
-    {
-      "category": "政府公告",
-      "title": "因應AI資安新挑戰強化國家防護",
-      "date": "2026-09-02",
-      "url": "https://moda.gov.tw/ACS/press/news/press/20242"
-    },
-    {
-      "category": "APT攻擊",
-      "title": "APT29針對歐洲進行大規模郵件與基礎設施竊取行動GTG-20006",
-      "date": "2026-09-02",
-      "url": "https://www.uvcyber.com/resources/reports/threat-advisory-the-historical-and-ongoing-threat-of-apt29"
-    },
-    {
-      "category": "勒索病毒",
-      "title": "創新服務(7828)遭勒索病毒攻擊",
-      "date": "2026-09-02",
-      "url": "https://tw.stock.yahoo.com/news/%E5%85%AC%E5%91%8A-%E8%AA%AA%E6%98%8E%E5%89%B5%E6%96%B0%E6%9C%8D%E5%8B%99%E9%83%A8%E4%BB%BD%E8%B3%87%E8%A8%8A%E7%B3%BB%E7%B5%B1%E9%81%AD%E5%8F%97%E7%B6%B2%E8%B7%AF%E5%8B%92%E7%B4%A2%E7%97%85%E6%AF%92%E6%94%BB%E6%93%8A%E4%BA%8B%E4%BB%B6-110354474.html"
-    },
-    {
-      "category": "勒索病毒",
-      "title": "創新服務遭勒索病毒攻擊，ERP等系統癱瘓",
-      "date": "2026-09-01",
-      "url": "https://tw.stock.yahoo.com/news/%E5%85%AC%E5%91%8A-%E8%AA%AA%E6%98%8E%E5%89%B5%E6%96%B0%E6%9C%8D%E5%8B%99%E9%83%A8%E4%BB%BD%E8%B3%87%E8%A8%8A%E7%B3%BB%E7%B5%B1%E9%81%AD%E5%8F%97%E7%B6%B2%E8%B7%AF%E5%8B%92%E7%B4%A2%E7%97%85%E6%AF%92%E6%94%BB%E6%93%8A%E4%BA%8B%E4%BB%B6-110354474.html"
-    },
-    {
-      "category": "APT攻擊",
-      "title": "中國APT組織Fire Ant利用Cisco IOS XR進行基礎設施滲透",
-      "date": "2026-08-31",
-      "url": "https://krypt3ia.wordpress.com/2026/09/08/weekly-all-source-cyber-warfare-intelligence-brief-september-8-2026/"
-    },
-    {
-      "category": "政府公告",
-      "title": "CISA與多國安全機構聯合發布Gunra勒索軟體預警通報",
-      "date": "2026-08-31",
-      "url": "https://www.twcert.org.tw/tw/cp-104-7686-95b20-1.html"
-    },
-    {
-      "category": "政府公告",
-      "title": "惡意npm攻擊再進化！駭客利用區塊鏈隱藏C2位址",
-      "date": "2026-08-31",
-      "url": ""
-    },
-    {
-      "category": "政府公告",
-      "title": "CRA強化軟體供應鏈安全要求，SBOM成企業重要管理工具",
-      "date": "2026-08-31",
-      "url": ""
-    },
-    {
-      "category": "政府公告",
-      "title": "CISA與多國安全機構聯合發布「Gunra」勒索軟體預警通報",
-      "date": "2026-08-31",
-      "url": ""
-    },
-    {
-      "category": "APT攻擊",
-      "title": "APT36利用Rust惡意程式工具包針對印度政府與國防機構",
-      "date": "2026-08-29",
-      "url": "https://gbhackers.com/apt36-malware-campaign/"
     }
   ],
-  "ai_analysis": "今日威脅情勢極為嚴峻，需優先處理的是 FortiMail 與 Cisco SD-WAN 的兩個零日漏洞。FortiMail 的路徑遍歷漏洞（CVSS 9.8）已在野外被主動利用，攻擊者無需認證即可寫入任意檔案，直接威脅郵件系統核心功能與組織通訊安全；Cisco SD-WAN 的認證繞過同樣已被實戰利用，影響遠端辦公與分支機構的網路連接。此外，Microsoft 於本週發布多達 10 項高中危漏洞，其中 6 項為高危遠端程式碼執行漏洞，涵蓋身分驗證、郵件、系統管理等關鍵功能。\n\n值得注意的是，本週出現了三起大規模資料外洩事件：五角大廈 300 萬名員工資料、GitHub 上 54 萬筆有效認證憑證，這顯示攻擊者正積極搜集組織內部帳號與員工資訊作為後續滲透的跳板。建議立即針對 FortiMail 與 SD-WAN 進行應急修補或臨時防護，同時啟動 Microsoft 安全更新的加速部署，並要求全體員工檢查並變更在 GitHub 或其他公開平台曝露的認證資訊。",
-  "cve_radar": [
-    {
-      "cve_id": "CVE-2026-104286",
-      "title": "FortiMail 路徑遍歷與空字節中立化漏洞",
-      "cvss": 9.8,
-      "cvss_source": "NVD官方",
-      "exploited": true,
-      "action": "立即更新",
-      "plain_title": "郵件伺服器防護軟體出現嚴重安全漏洞",
-      "plain_summary": "Fortinet 公司的 FortiMail 郵件安全產品被發現存在安全漏洞。駭客不需登入帳號，只要傳送特殊設計的網路請求，就能在伺服器上寫入或竄改任意檔案，等同於完全掌控郵件系統。由於該漏洞已被實際利用，企業應立即採取防護措施。"
-    }
-  ],
+  "ai_analysis": "今日威脅態勢呈現多重高風險狀況，需立即著手優先應對。當前最為緊迫的事項是GitLab的CVE-2026-85706滿分漏洞，已確認遭駭客利用且列入CISA已知遭利用清單，若貴組織部署GitLab應火速更新版本；其次FortiGate VPN正遭FortiBleed漏洞持續攻擊，FBI已發警告駭客正在鎖定管理員帳戶，這對依賴遠端存取的組織構成即時威脅。\n\n漏洞面向方面，今日Microsoft發佈9件高風險漏洞通知，涵蓋遠端存取、系統核心與驅動程式等關鍵元件，其中Windows遠端存取連線管理員與SSTP遠端程式碼執行漏洞（CVE-2026-71343、CVE-2026-73009）特別需要重視，因為這些直接影響VPN及遠端工作安全。此外Cisco在交換機與管理平台上也披露6件高風險漏洞，尤其Nexus系列的MPLS OAM與NGOAM遠端程式碼執行漏洞會威脅核心網路基礎設施。Atlassian Jira與Confluence的關鍵檔案存取漏洞則已有公開PoC，需立即評估修補規劃。\n\n廠商公告中最需優先處理的是Microsoft與Cisco的遠端存取與網路基礎設施相關漏洞，因為這些系統的妥協將導致整個企業IT環境淪陷。SonicWall SMA1000的最高等級SSRF漏洞也應納入緊急修補名單。\n\n當前待處理項目數量已達相當規模，包括19件廠商公告、6件全球威脅事件與多項高風險漏洞修補需求，其中GitLab、FortiGate與Microsoft Windows漏洞已無法延遲。特別值得注意的是亞太地區勒索軟體事件月環比增長27%且台灣排名全球第三，這反映出本地企業面臨的勒索威脅正在加速升溫。建議近期應集中資源在三個方向：一、緊急修補GitLab與Fortinet漏洞；二、評估並更新Microsoft與Cisco關鍵元件；三、強化勒索軟體防禦機制，包括備份策略與入侵偵測監控。",
+  "cve_radar": [],
   "risk_score": {
-    "total": 26,
+    "total": 28,
     "breakdown": [
       {
         "label": "漏洞風險",
-        "score": 91
+        "score": 100
       },
       {
         "label": "APT攻擊",
@@ -1011,7 +1073,7 @@ const DATA = {
       },
       {
         "label": "勒索病毒",
-        "score": 0
+        "score": 22
       },
       {
         "label": "身份風險",
@@ -1019,80 +1081,110 @@ const DATA = {
       },
       {
         "label": "AI風險",
-        "score": 40
+        "score": 20
       }
     ]
   },
   "action_items": [
     {
-      "category": "漏洞修補",
-      "title": "CVE-2026-104286：FortiMail 路徑遍歷與空字節中立化漏洞",
-      "priority": "高",
-      "detail": "CVSS 9.8（NVD官方），建議立即更新"
-    },
-    {
       "category": "公告確認",
-      "title": "CVE-2026-69712 Windows 金鑰發佈中心遠端程式碼執行漏洞",
+      "title": "CVE-2026-71343 Windows 遠端存取連線管理員遠端程式碼執行漏洞",
       "priority": "高",
       "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "CVE-2026-70125 Microsoft Office Outlook 遠端程式碼執行漏洞",
+      "title": "CVE-2026-73009 Windows 安全通訊端通道通訊協定(SSTP)遠端程式碼執行漏洞",
       "priority": "高",
       "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "CVE-2026-62699 Windows 通用磁碟格式驅動程式遠端程式碼執行漏洞",
+      "title": "CVE-2026-69436 Windows State Repository Service 權限提升漏洞",
       "priority": "高",
       "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "CVE-2026-69586 Microsoft Windows PDF 遠端程式碼執行漏洞",
+      "title": "CVE-2026-69582 Windows 磁碟區管理員擴充驅動程式權限提升漏洞",
       "priority": "高",
       "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "CVE-2026-69451 Windows 管理工具權限提升漏洞",
+      "title": "CVE-2026-69265 Windows NTFS 權限提升漏洞",
       "priority": "高",
       "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "CVE-2026-69605 Microsoft 安裝服務權限提升漏洞",
+      "title": "CVE-2026-69844 Windows Win32k 權限提升漏洞",
       "priority": "高",
       "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "Cisco Catalyst SD-WAN Manager API 認證繞過漏洞",
+      "title": "CVE-2026-68894 Windows 錯誤報告權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-72999 Windows USB Hub 驅動程式權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2025-0611 Chromium V8 物件毀損漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "Cisco Nexus 3000 及 9000 系列交換機 MPLS OAM 遠端程式碼執行漏洞",
       "priority": "高",
       "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "路徑名稱不當限制漏洞",
+      "title": "Cisco Nexus 3000 及 9000 系列交換機 NGOAM 遠端程式碼執行漏洞",
       "priority": "高",
-      "detail": "Fortinet廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+      "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
-      "category": "教育宣導",
-      "title": "超過 54 萬筆有效帳號密碼被公開洩露在 GitHub",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
+      "category": "公告確認",
+      "title": "Cisco NX-OS 軟體 Python 沙箱逃逸漏洞",
+      "priority": "高",
+      "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "Cisco Finesse 伺服器端請求偽造漏洞",
+      "priority": "高",
+      "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "Cisco Application Policy Infrastructure Controller API 指令注入漏洞",
+      "priority": "高",
+      "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "Cisco Application Policy Infrastructure Controller 未授權檔案存取漏洞",
+      "priority": "高",
+      "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     }
   ],
   "category_counts": {
-    "kev": 1,
-    "vendor": 13,
-    "news": 5,
-    "ransomwareApt": 0
+    "kev": 0,
+    "vendor": 19,
+    "news": 11,
+    "ransomwareApt": 3
   }
 };
-const UPDATED_AT = "2026/10/2 10:07:30（台灣時間）";
+const UPDATED_AT = "2026/10/8 10:39:31（台灣時間）";
 document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
