@@ -309,7 +309,7 @@
 
   <div class="top-combined-row">
     <div class="stat-strip" id="statStrip"></div>
-    <div class="trend-card" id="trendCard"></div>
+    <div class="trend-card" id="statusSummaryCard"></div>
   </div>
 
   <div class="ai-analysis-card" id="aiAnalysisCard">
@@ -431,6 +431,7 @@ function updatePendingCount(){
     return saved !== '不處理' && saved !== '已完成';
   }).length;
   badge.textContent = remaining;
+  renderStatusSummary();
 }
 
 function extractCve(title){
@@ -840,7 +841,7 @@ function renderStatStrip(counts, pendingCount){
   const el = document.getElementById('statStrip');
   if (!counts) { el.style.display = 'none'; return; }
   const cards = [
-    { color:'red', label:'今日新聞事件', number: counts.news ?? 0, desc:'國內/全球新聞', range:'近2天資料' },
+    { color:'red', label:'今日新聞事件', number: (DATA.headlines || []).length, desc:'國內/全球新聞', range:'近2天資料' },
     { color:'blue', label:'今日漏洞雷達', number: counts.kev ?? 0, desc:'KEV新增筆數', range:'近2天資料' },
     { color:'green', label:'公司關注廠商情報', number: counts.vendor ?? 0, desc:'Microsoft／Cisco／Fortinet', range:'近2天資料' },
     { color:'orange', label:'待處理事項', number: pendingCount ?? 0, desc:'需留意的更新檔數', id:'pendingCountNum', range:'近30天資料' },
@@ -859,55 +860,35 @@ const monthPendingCount = (DATA.global_events || []).filter(e => {
 }).length;
 renderStatStrip(DATA.category_counts, monthPendingCount);
 
-/* ---------- 近期威脅趨勢（示範資料，尚未接上真實歷史統計） ---------- */
-function renderSparkline(points, color){
-  const w = 64, h = 22;
-  const min = Math.min(...points), max = Math.max(...points);
-  const range = (max - min) || 1;
-  const step = w / (points.length - 1);
-  const path = points.map((p, i) => `${i === 0 ? 'M' : 'L'} ${(i * step).toFixed(1)} ${(h - ((p - min) / range) * h).toFixed(1)}`).join(' ');
-  return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><path d="${path}" fill="none" stroke="${color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-}
-
-function renderTrendCard(){
-  const el = document.getElementById('trendCard');
+/* ---------- 待處理事項處理狀況（不處理／處理中／已完成 各幾筆） ---------- */
+function renderStatusSummary(){
+  const el = document.getElementById('statusSummaryCard');
   if (!el) return;
-  const items = DATA.threat_trend;
-  if (!items || !items.length) {
-    el.innerHTML = `
-    <div class="trend-header">
-      <div class="trend-icon">📈</div>
-      <div>
-        <div class="trend-title">近期威脅趨勢</div>
-        <div class="trend-sub">歷史資料累積中，尚無法計算趨勢</div>
-      </div>
-    </div>`;
-    return;
-  }
-  const rows = items.map(it => {
-    const isUp = it.pct >= 0;
-    const color = isUp ? '#DC2626' : '#059669';
-    return `
+  const counts = { '不處理':0, '處理中':0, '已完成':0 };
+  (DATA.global_events || []).forEach(e => {
+    if (!isWithinCalendarDays(e.date, 30)) return;
+    const id = stableIdFor(e.title);
+    if (isAutoRemoved(id)) return; // 已從清單自動消除的不算，數字才會跟下方面板一致
+    const saved = getSavedStatus(id);
+    if (counts[saved] !== undefined) counts[saved]++;
+  });
+  const colors = { '不處理':'var(--sev-high)', '處理中':'var(--sev-medium)', '已完成':'var(--sev-low)' };
+  const rows = Object.keys(counts).map(k => `
     <div class="trend-item">
-      <div class="trend-item-label">${escapeHtml(it.label)}</div>
-      <div class="trend-item-value">
-        <span class="trend-item-pct ${isUp ? 'up' : 'down'}">${isUp ? '↑' : '↓'} ${isUp ? '+' : ''}${it.pct}%</span>
-        ${renderSparkline(it.points, color)}
-      </div>
-    </div>`;
-  }).join('');
-
+      <div class="trend-item-label">${k}</div>
+      <div class="trend-item-value"><span class="trend-item-pct" style="color:${colors[k]}">${counts[k]} 筆</span></div>
+    </div>`).join('');
   el.innerHTML = `
     <div class="trend-header">
-      <div class="trend-icon">📈</div>
+      <div class="trend-icon">📋</div>
       <div>
-        <div class="trend-title">近期威脅趨勢</div>
-        <div class="trend-sub">近7天威脅類型變化</div>
+        <div class="trend-title">處理狀況統計</div>
+        <div class="trend-sub">待處理事項 · 近30天</div>
       </div>
     </div>
     <div class="trend-items">${rows}</div>`;
 }
-renderTrendCard();
+renderStatusSummary();
 
 const grid = document.getElementById('dashboardGrid');
 
