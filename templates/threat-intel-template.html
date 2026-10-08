@@ -609,6 +609,7 @@ function vendorIconFor(title){
   if (/Microsoft|Windows|Exchange|Entra|SharePoint|Outlook/i.test(t)) return '🪟';
   if (/Cisco/i.test(t)) return '📡';
   if (/Fortinet|FortiOS|FortiGate/i.test(t)) return '🛡️';
+  if (/Palo ?Alto|PAN-OS|GlobalProtect|Prisma|Cortex/i.test(t)) return '🔥';
   if (/Chrome|Google/i.test(t)) return '🌐';
   if (/SonicWall/i.test(t)) return '🔐';
   if (/PaperCut/i.test(t)) return '🖨️';
@@ -853,7 +854,7 @@ function renderStatStrip(counts, pendingCount){
   const cards = [
     { color:'red', label:'今日新聞事件', number: (DATA.headlines || []).length, desc:'國內/全球新聞', range:'近2天資料' },
     { color:'blue', label:'今日漏洞雷達', number: counts.kev ?? 0, desc:'KEV新增筆數', range:'近2天資料' },
-    { color:'green', label:'公司關注廠商情報', number: counts.vendor ?? 0, desc:'Microsoft／Cisco／Fortinet', range:'近2天資料' },
+    { color:'green', label:'公司關注廠商情報', number: counts.vendor ?? 0, desc:'Microsoft／Cisco／Fortinet／Palo Alto', range:'近2天資料' },
     { color:'orange', label:'待處理事項', number: pendingCount ?? 0, desc:'需留意的更新檔數', id:'pendingCountNum', range:'近30天資料' },
   ];
   el.innerHTML = cards.map(c => `

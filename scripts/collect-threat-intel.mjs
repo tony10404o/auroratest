@@ -62,15 +62,17 @@ async function fetchCisaKev() {
 
 async function fetchVendorAdvisories() {
   console.log("抓取廠商安全公告 RSS...");
-  const [msrc, cisco, fortinet] = await Promise.all([
+  const [msrc, cisco, fortinet, paloalto] = await Promise.all([
     fetchFeed("https://api.msrc.microsoft.com/update-guide/rss", 10, "Microsoft MSRC"),
     fetchFeed("https://tools.cisco.com/security/center/psirtrss20/CiscoSecurityAdvisory.xml", 10, "Cisco PSIRT"),
     fetchFeed("https://filestore.fortinet.com/fortiguard/rss/ir.xml", 10, "Fortinet PSIRT"),
+    fetchFeed("https://security.paloaltonetworks.com/rss.xml", 10, "Palo Alto Networks"),
   ]);
   return {
     microsoft: filterRecentItems(msrc),
     cisco: filterRecentItems(cisco),
     fortinet: filterRecentItems(fortinet),
+    paloalto: filterRecentItems(paloalto),
   };
 }
 
@@ -234,6 +236,7 @@ ${JSON.stringify(kev, null, 2)}
 Microsoft: ${JSON.stringify(vendorAdvisories.microsoft, null, 2)}
 Cisco: ${JSON.stringify(vendorAdvisories.cisco, null, 2)}
 Fortinet: ${JSON.stringify(vendorAdvisories.fortinet, null, 2)}
+Palo Alto Networks: ${JSON.stringify(vendorAdvisories.paloalto, null, 2)}
 
 【國際資安新聞標題（RSS，未經處理）】
 BleepingComputer: ${JSON.stringify(intlNews.bleeping, null, 2)}
@@ -257,7 +260,7 @@ Krebs on Security: ${JSON.stringify(intlNews.krebs, null, 2)}
   ],
   "vendor_advisories": [
     {
-      "vendor": "Microsoft、Cisco 或 Fortinet",
+      "vendor": "Microsoft、Cisco、Fortinet 或 Palo Alto",
       "title": "繁體中文標題（可保留原文品名/CVE編號，其餘翻譯）",
       "severity_guess": "高、中或低（根據標題內容合理推測，例如RCE/認證繞過等關鍵字通常較高）",
       "url": "原始連結網址（若RSS項目沒有網址可留空字串）"
@@ -345,8 +348,8 @@ ${JSON.stringify(result, null, 2)}
   ],
   "vendor_impact": [
     {
-      "icon": "廠商對應表情符號，例如Microsoft用🪟、Cisco用🔀、Fortinet用🛡️，其餘用🏢",
-      "vendor": "廠商簡短名稱（例如：Microsoft、Cisco、Fortinet），不要加其他文字",
+      "icon": "廠商對應表情符號，例如Microsoft用🪟、Cisco用🔀、Fortinet用🛡️、Palo Alto用🔥，其餘用🏢",
+      "vendor": "廠商簡短名稱（例如：Microsoft、Cisco、Fortinet、Palo Alto），不要加其他文字",
       "title": "廠商公告標題（可参考原始資料）",
       "impact": "高、中或低",
       "category": "這則公告所屬的產品功能分類，例如：郵件系統、瀏覽器、防火牆、遠端存取設備、AI基礎設施、列印管理系統、身分驗證服務、虛擬化平台等，8字以內",
