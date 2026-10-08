@@ -230,6 +230,8 @@
   .ai-analysis-card{background:var(--panel);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:10px;padding:16px 18px;margin-bottom:18px;}
   .ai-analysis-card-header{display:flex;align-items:center;gap:8px;font-weight:700;font-size:13.5px;color:var(--text);margin-bottom:10px;}
   .ai-analysis-text{font-size:13px;line-height:1.9;color:var(--text);white-space:pre-line;}
+  .ai-analysis-list{margin:0;padding-left:20px;font-size:13px;line-height:1.9;color:var(--text);}
+  .ai-analysis-list li{margin-bottom:6px;}
   .ai-analysis-meta{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-faint);margin-top:14px;padding-top:10px;border-top:1px dashed var(--border);}
   .stat-modal-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 0;border-top:1px dashed var(--border);font-size:12.5px;}
   .stat-modal-row:first-child{border-top:none;}
@@ -985,7 +987,11 @@ const DATA = {
       "url": "https://gbhackers.com/apt36-malware-campaign/"
     }
   ],
-  "ai_analysis": "今日威脅情勢極為嚴峻，需優先處理的是 FortiMail 與 Cisco SD-WAN 的兩個零日漏洞。FortiMail 的路徑遍歷漏洞（CVSS 9.8）已在野外被主動利用，攻擊者無需認證即可寫入任意檔案，直接威脅郵件系統核心功能與組織通訊安全；Cisco SD-WAN 的認證繞過同樣已被實戰利用，影響遠端辦公與分支機構的網路連接。此外，Microsoft 於本週發布多達 10 項高中危漏洞，其中 6 項為高危遠端程式碼執行漏洞，涵蓋身分驗證、郵件、系統管理等關鍵功能。\n\n值得注意的是，本週出現了三起大規模資料外洩事件：五角大廈 300 萬名員工資料、GitHub 上 54 萬筆有效認證憑證，這顯示攻擊者正積極搜集組織內部帳號與員工資訊作為後續滲透的跳板。建議立即針對 FortiMail 與 SD-WAN 進行應急修補或臨時防護，同時啟動 Microsoft 安全更新的加速部署，並要求全體員工檢查並變更在 GitHub 或其他公開平台曝露的認證資訊。",
+  "ai_analysis": [
+    "Fortinet FortiMail 路徑遍歷漏洞（CVE-2026-104286，CVSS 9.8）已被實際攻擊利用，請立即確認公司郵件閘道版本並部署修補程式，同時檢視郵件流量與系統檔案是否異常。",
+    "Cisco Catalyst SD-WAN Manager API 認證繞過漏洞已遭實際利用，請檢查 SD-WAN Manager 版本、部署廠商修補程式，並強化網路分段與存取控制。",
+    "Microsoft 本期公布 10 項漏洞，含 Outlook 等多項遠端程式碼執行漏洞，請排入更新作業，優先處理待處理事項中的 Microsoft 更新。"
+  ],
   "cve_radar": [
     {
       "cve_id": "CVE-2026-104286",
@@ -1599,8 +1605,16 @@ window.closeStatModal = closeStatModal;
 
 function renderAiAnalysis(){
   const body = document.getElementById('aiAnalysisBody');
-  const text = DATA.ai_analysis || '今日資料暫無AI綜合分析。';
-  body.innerHTML = `<div class="ai-analysis-text">${escapeHtml(text)}</div><div class="ai-analysis-meta">此分析由AI於資料產生當下彙整撰寫，非即時分析，僅供參考</div>`;
+  const raw = DATA.ai_analysis;
+  let inner;
+  if (Array.isArray(raw) && raw.length) {
+    inner = `<ol class="ai-analysis-list">${raw.map(t => `<li>${escapeHtml(t)}</li>`).join('')}</ol>`;
+  } else if (typeof raw === 'string' && raw.trim()) {
+    inner = `<div class="ai-analysis-text">${escapeHtml(raw)}</div>`; // 相容舊格式（整段文字）
+  } else {
+    inner = `<div class="ai-analysis-text">今日資料暫無AI綜合分析。</div>`;
+  }
+  body.innerHTML = inner + `<div class="ai-analysis-meta">此分析由AI於資料產生當下彙整撰寫，非即時分析，僅供參考</div>`;
 }
 renderAiAnalysis();
 
