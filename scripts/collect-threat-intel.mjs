@@ -367,7 +367,7 @@ ${JSON.stringify(result, null, 2)}
 }
 
 規則：
-- headlines 從所有原始資料中，挑選今天最重要的5則（跨類別挑選，不限單一類別）
+- headlines 要涵蓋原始資料中 international_news、gov_announcements、ransomware_apt 這三類新聞事件的「全部」項目（不限筆數、不要自行刪減，重複報導同一事件的可合併成一則），依重要程度（stars）由高到低排序；kev_vulnerabilities 與 vendor_advisories 各有專屬面板，不要放進 headlines
 - vendor_impact 從 vendor_advisories 轉換，保留原本筆數
 - global_events 從 kev_vulnerabilities（挑is_zero_day或known_ransomware_use的）、ransomware_apt、gov_announcements 轉換彙整，最多12則，依日期新到舊排序。這份清單是給IT人員「待處理」用的，只放需要我們實際評估/修補/應對的項目（漏洞修補、勒索軟體/APT威脅、政府資安公告），不要放純粹是「其他組織帳號或個資外洩」的新聞（例如某國政府機關VPN漏洞導致民眾個資外洩這類跟我們IT維運沒有直接行動關聯的外洩事件），這類資料外洩新聞如果重要可以放在headlines，但不要放進global_events
 - 所有評分（impact、stars）都是AI研判的參考值，請根據資料內容合理判斷，不要每個都給一樣的分數
@@ -513,7 +513,7 @@ async function main() {
   dashboard.category_counts = {
     kev: result.kev_vulnerabilities.length,
     vendor: result.vendor_advisories.length,
-    news: result.international_news.length,
+    news: (dashboard.headlines || []).length,
     ransomwareApt: result.ransomware_apt.length,
   };
 
