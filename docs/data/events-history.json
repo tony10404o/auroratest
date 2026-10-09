@@ -1,5 +1,71 @@
 [
   {
+    "category": "勒索病毒",
+    "title": "日本軟銀子公司IDC Frontier遭勒索軟體攻擊",
+    "date": "2026-10-08",
+    "url": "https://www.youtube.com/watch?v=StLVY7im1zk"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "ProFTPD存取控制不當漏洞允許任意檔案讀寫",
+    "date": "2026-10-08",
+    "url": ""
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "ONLYOFFICE Docs路徑遍歷漏洞允許遠端代碼執行",
+    "date": "2026-10-08",
+    "url": ""
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Apache Struts命令注入漏洞允許執行任意程式碼",
+    "date": "2026-10-08",
+    "url": ""
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "ISC BIND資料處理錯誤漏洞可導致服務中斷",
+    "date": "2026-10-08",
+    "url": ""
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Strapi敏感資訊明文儲存漏洞",
+    "date": "2026-10-08",
+    "url": ""
+  },
+  {
+    "category": "APT攻擊",
+    "title": "Atlassian CVE-2026-21589漏洞遭駭客積極利用",
+    "date": "2026-10-08",
+    "url": "https://www.ithome.com.tw/security"
+  },
+  {
+    "category": "政府公告",
+    "title": "GitLab重大漏洞遭駭客利用",
+    "date": "2026-10-07",
+    "url": ""
+  },
+  {
+    "category": "政府公告",
+    "title": "Citrix NetScaler ADC與Gateway高風險漏洞",
+    "date": "2026-10-07",
+    "url": "https://www.nics.nat.gov.tw/core_business/information_security_information_sharing/Vulnerability_Alert_Announcements/"
+  },
+  {
+    "category": "政府公告",
+    "title": "Microsoft Office SharePoint高風險漏洞",
+    "date": "2026-10-07",
+    "url": "https://www.nics.nat.gov.tw/core_business/information_security_information_sharing/Vulnerability_Alert_Announcements/"
+  },
+  {
+    "category": "政府公告",
+    "title": "pgAdmin 4高風險漏洞",
+    "date": "2026-10-07",
+    "url": "https://www.nics.nat.gov.tw/core_business/information_security_information_sharing/Vulnerability_Alert_Announcements/"
+  },
+  {
     "category": "APT攻擊",
     "title": "FortiGate VPN持續遭FortiBleed漏洞攻擊",
     "date": "2026-10-06",
@@ -22,6 +88,12 @@
     "title": "104人力銀行12萬筆履歷遭未授權讀取",
     "date": "2026-10-06",
     "url": "https://news.ltn.com.tw/news/life/breakingnews/5597618"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "大阪公立大學遭勒索軟體攻擊",
+    "date": "2026-10-05",
+    "url": "https://www.sbbit.jp/article/cont1/187311"
   },
   {
     "category": "零時差漏洞",
@@ -461,11 +533,5 @@
     "title": "勒索軟體Everest宣稱攻擊晶睿通訊",
     "date": "2026-09-08",
     "url": ""
-  },
-  {
-    "category": "勒索病毒",
-    "title": "Magento與Adobe Commerce RCE漏洞遭主動利用",
-    "date": "2026-09-04",
-    "url": "https://www.cyware.com/resources/threat-briefings/daily-threat-briefing/cyware-daily-threat-intelligence-september-08-2026"
   }
 ]
