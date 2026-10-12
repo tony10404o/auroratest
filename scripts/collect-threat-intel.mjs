@@ -521,7 +521,8 @@ async function main() {
 
   // 全球重大事件：累積歷史，讓「本週/本月」分頁能篩選出真正的歷史資料
   const existingHistory = loadEventsHistory();
-  const mergedHistory = mergeEventsHistory(existingHistory, dashboard.global_events || []);
+  const todayTaipei = new Date().toLocaleDateString("sv-SE", { timeZone: "Asia/Taipei" }); // YYYY-MM-DD（台灣日期）
+  const mergedHistory = mergeEventsHistory(existingHistory, dashboard.global_events || [], undefined, undefined, todayTaipei);
   saveEventsHistory(mergedHistory);
   dashboard.global_events = mergedHistory;
 

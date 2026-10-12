@@ -346,6 +346,13 @@ function withShowMore(itemHtmls){
  */
 function emptyNote(){ return `<div class="empty-note">目前沒有資料</div>`; }
 
+// 事件是否落在指定分頁範圍：「今天」看第一次被抓到的日期（first_seen，來源發布日期常是前幾天），
+// 「本月」等其他範圍仍看事件日期
+function eventInRange(e, rangeDays){
+  if (rangeDays === 1) return isWithinCalendarDays(e.first_seen || e.date, 1);
+  return isWithinCalendarDays(e.date, rangeDays);
+}
+
 // 用「日曆天數」而非精確24小時區間比對日期，避免事件日期(只有年月日、視為UTC午夜)跟目前時間比較時
 // 因為時區／當下時刻差異，導致「今天」分類篩不到今天剛發布、但還不滿24小時的項目
 function isWithinCalendarDays(dateStr, rangeDays){
@@ -542,7 +549,7 @@ async function syncStatusFromCloud(){
 
 function renderGlobalEvents(items, rangeDays){
   const filtered = (items || []).filter(e => {
-    if (!isWithinCalendarDays(e.date, rangeDays)) return false;
+    if (!eventInRange(e, rangeDays)) return false;
     // 標記「不處理」或「已完成」滿3天後，從清單自動消除
     return !isAutoRemoved(stableIdFor(e.title));
   });
@@ -577,7 +584,7 @@ function setupGlobalEventsPanel(items){
   function render(days){
     currentDays = days;
     const filtered = (items || []).filter(e => {
-      if (!isWithinCalendarDays(e.date, days)) return false;
+      if (!eventInRange(e, days)) return false;
       return !isAutoRemoved(stableIdFor(e.title));
     });
     body.innerHTML = renderGlobalEvents(items, days);
@@ -904,11 +911,7 @@ renderStatusSummary();
 
 const grid = document.getElementById('dashboardGrid');
 
-const todayWinCutoff = Date.now() - 1 * 86400000;
-const todayWinCount = (DATA.global_events || []).filter(e => {
-  const d = new Date(e.date);
-  return isNaN(d.getTime()) ? true : d.getTime() >= todayWinCutoff;
-}).length;
+const todayWinCount = (DATA.global_events || []).filter(e => eventInRange(e, 1)).length;
 
 grid.innerHTML =
   panelShell('①', '📰', '今日新聞事件', null, renderHeadlines(DATA.headlines), '', '#D97706', (DATA.headlines||[]).length) +

@@ -27,7 +27,7 @@ function normalizeTitle(title) {
  * 合併新事件進歷史清單：以「分類+標題」去重（保留最早出現的日期），
  * 依日期新到舊排序，並修剪超過保留天數或超過筆數上限的舊資料
  */
-export function mergeEventsHistory(existing, newItems, maxDays = MAX_HISTORY_DAYS, maxItems = MAX_HISTORY_ITEMS) {
+export function mergeEventsHistory(existing, newItems, maxDays = MAX_HISTORY_DAYS, maxItems = MAX_HISTORY_ITEMS, firstSeenDate = null) {
   const seen = new Map();
 
   for (const item of existing || []) {
@@ -36,7 +36,9 @@ export function mergeEventsHistory(existing, newItems, maxDays = MAX_HISTORY_DAY
   }
   for (const item of newItems || []) {
     const key = `${item.category || ""}|${normalizeTitle(item.title)}`;
-    if (!seen.has(key)) seen.set(key, item); // 已存在的舊事件保留最早那筆，不覆蓋
+    // 已存在的舊事件保留最早那筆，不覆蓋；新事件記下「第一次被抓到的日期」，
+    // 讓「今天」分頁顯示今天新增的項目（來源發布日期常常是前幾天，不能只看發布日期）
+    if (!seen.has(key)) seen.set(key, firstSeenDate ? { ...item, first_seen: firstSeenDate } : item);
   }
 
   const cutoff = Date.now() - maxDays * 86400000;
