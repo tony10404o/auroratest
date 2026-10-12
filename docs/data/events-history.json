@@ -66,6 +66,24 @@
     "url": "https://www.nics.nat.gov.tw/core_business/information_security_information_sharing/Vulnerability_Alert_Announcements/"
   },
   {
+    "category": "勒索病毒",
+    "title": "全球勒索軟體日報：10月7日新增24起攻擊事件",
+    "date": "2026-10-07",
+    "url": "https://cn-sec.com/archives/5479633.html"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "IDCFクラウド遭勒索軟體攻擊導致495家企業受影響",
+    "date": "2026-10-07",
+    "url": "https://rocket-boys.co.jp/security-measures-lab/2026-ransomware-attack-examples/"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "大阪公立大學遭勒索軟體攻擊導致停課",
+    "date": "2026-10-07",
+    "url": "https://rocket-boys.co.jp/security-measures-lab/2026-ransomware-attack-examples/"
+  },
+  {
     "category": "APT攻擊",
     "title": "FortiGate VPN持續遭FortiBleed漏洞攻擊",
     "date": "2026-10-06",
@@ -98,6 +116,12 @@
   {
     "category": "零時差漏洞",
     "title": "GitLab滿分重大漏洞CVE-2026-85706遭駭客利用",
+    "date": "2026-10-02",
+    "url": "https://www.cna.com.tw/news/afe/202610020159.aspx"
+  },
+  {
+    "category": "政府公告",
+    "title": "GitLab重大漏洞CVE-2026-85706遭駭客利用",
     "date": "2026-10-02",
     "url": "https://www.cna.com.tw/news/afe/202610020159.aspx"
   },
