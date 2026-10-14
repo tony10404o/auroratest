@@ -1,6 +1,27 @@
 [
   {
     "category": "勒索病毒",
+    "title": "Qilin 勒索軟體集團單月宣稱 11 個受害者",
+    "date": "2026-10-14",
+    "url": "https://www.dreamjtech.com/28192/",
+    "first_seen": "2026-10-14"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Ivanti Connect Secure CVE-2026-104935 認證繞過漏洞遭利用",
+    "date": "2026-10-13",
+    "url": "https://www.bleepingcomputer.com/news/security/ivanti-warns-of-connect-secure-zero-day-exploited-in-attacks/",
+    "first_seen": "2026-10-14"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "微軟十月修補 1411 個漏洞含 3 個零時差",
+    "date": "2026-10-13",
+    "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-october-2026-patch-tuesday-fixes-1,411-flaws-3-zero-days/",
+    "first_seen": "2026-10-14"
+  },
+  {
+    "category": "勒索病毒",
     "title": "日本軟銀子公司IDC Frontier遭勒索軟體攻擊",
     "date": "2026-10-08",
     "url": "https://www.youtube.com/watch?v=StLVY7im1zk"
@@ -141,6 +162,13 @@
   },
   {
     "category": "零時差漏洞",
+    "title": "GitLab CVE-2026-85706 無需身分驗證遠端檔案讀取漏洞",
+    "date": "2026-10-02",
+    "url": "https://udn.com/news/story/7238/9790612",
+    "first_seen": "2026-10-14"
+  },
+  {
+    "category": "零時差漏洞",
     "title": "FortiMail 路徑遍歷與空字節中立化漏洞 - 零日攻擊進行中",
     "date": "2026-10-01",
     "url": "https://www.bleepingcomputer.com/news/security/fortinet-warns-of-critical-fortimail-flaw-exploited-in-zero-day-attacks/"
@@ -156,6 +184,13 @@
     "title": "亞太地區勒索軟體事件急增27% 台灣排名全球第三",
     "date": "2026-10-01",
     "url": "https://www.ithome.com.tw/news/179235"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "APT-C-60 針對日本組織持續攻擊",
+    "date": "2026-10-01",
+    "url": "https://blogs.jpcert.or.jp/ja/2026/07/apt-c-60_2026.html",
+    "first_seen": "2026-10-14"
   },
   {
     "category": "零時差漏洞",
@@ -234,6 +269,13 @@
     "title": "ShinyHunters攻陷Cl0p勒索軟體集團網站",
     "date": "2026-09-25",
     "url": "https://www.gm7.org/archives/161395"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "JLR 遭勒索軟體攻擊損失創英國紀錄",
+    "date": "2026-09-25",
+    "url": "https://www.digit-secure.com/news",
+    "first_seen": "2026-10-14"
   },
   {
     "category": "勒索病毒",
@@ -547,23 +589,5 @@
     "title": "Microsoft發布Exchange Server系列安全性更新",
     "date": "2026-09-10",
     "url": ""
-  },
-  {
-    "category": "勒索病毒",
-    "title": "ShinyHunters勒索團伙入侵美國佛羅里達州車管所",
-    "date": "2026-09-09",
-    "url": "https://www.gm7.org/archives/154890"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "ShinyHunters攻擊美國佛羅里達州車管所",
-    "date": "2026-09-09",
-    "url": "https://www.gm7.org/archives/154890"
-  },
-  {
-    "category": "APT攻擊",
-    "title": "APT24入侵台灣廣告行銷業者導致供應鏈攻擊",
-    "date": "2026-09-09",
-    "url": "https://www.ithome.com.tw/news/178489"
   }
 ]
