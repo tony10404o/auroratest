@@ -8,6 +8,41 @@
   },
   {
     "category": "零時差漏洞",
+    "title": "Palo Alto PAN-OS防火牆認證後遠端程式碼執行漏洞(CVE-2026-0322)遭實際攻擊利用",
+    "date": "2026-10-14",
+    "url": "https://security.paloaltonetworks.com/CVE-2026-0322",
+    "first_seen": "2026-10-15"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Cisco Secure Email Gateway任意檔案寫入零時差漏洞(CVE-2026-76519)遭駭客利用",
+    "date": "2026-10-14",
+    "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-afw-zqYJkjxp",
+    "first_seen": "2026-10-15"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "微軟十月補丁修復1,411個漏洞包含3個零時差(Windows Kerberos、DHCP Server等)",
+    "date": "2026-10-14",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-69676",
+    "first_seen": "2026-10-15"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Ahsay AhsayCBS備份軟體命令注入漏洞(CVE-2026-105134)CVSS 9.3",
+    "date": "2026-10-14",
+    "url": "",
+    "first_seen": "2026-10-15"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Ahsay AhsayCBS備份軟體身份驗證繞過漏洞(CVE-2026-105133)CVSS 5.5",
+    "date": "2026-10-14",
+    "url": "",
+    "first_seen": "2026-10-15"
+  },
+  {
+    "category": "零時差漏洞",
     "title": "Ivanti Connect Secure CVE-2026-104935 認證繞過漏洞遭利用",
     "date": "2026-10-13",
     "url": "https://www.bleepingcomputer.com/news/security/ivanti-warns-of-connect-secure-zero-day-exploited-in-attacks/",
@@ -166,6 +201,13 @@
     "date": "2026-10-02",
     "url": "https://udn.com/news/story/7238/9790612",
     "first_seen": "2026-10-14"
+  },
+  {
+    "category": "政府公告",
+    "title": "資安署警告GitLab重大漏洞遭駭客利用籲儘速更新",
+    "date": "2026-10-02",
+    "url": "https://moda.gov.tw/ACS/press/news/press/",
+    "first_seen": "2026-10-15"
   },
   {
     "category": "零時差漏洞",
@@ -491,6 +533,13 @@
     "url": "https://www.ithome.com.tw/news/178935"
   },
   {
+    "category": "勒索病毒",
+    "title": "LockBit 5勒索軟體集團維持高度活躍並宣稱多個新受害者",
+    "date": "2026-09-14",
+    "url": "https://www.ransomware.live/group/lockbit5",
+    "first_seen": "2026-10-15"
+  },
+  {
     "category": "零時差漏洞",
     "title": "VMware高風險RCE遭勒索軟體集團實際利用",
     "date": "2026-09-12",
@@ -536,58 +585,5 @@
     "title": "勒索軟體威脅升溫，攻擊手法日趨複雜",
     "date": "2026-09-11",
     "url": "https://www.twcert.org.tw/tw/cp-104-10043-5f54b-1.html"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "MikroTik RouterOS命令參數分隔符驗證不足漏洞CVE-2026-86060",
-    "date": "2026-09-10",
-    "url": ""
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "MikroTik RouterOS btest服務認證缺失漏洞CVE-2026-67277",
-    "date": "2026-09-10",
-    "url": ""
-  },
-  {
-    "category": "APT攻擊",
-    "title": "多國間諜組織共用BlueMoon漏洞工具包",
-    "date": "2026-09-10",
-    "url": "https://www.gm7.org/archives/154825"
-  },
-  {
-    "category": "APT攻擊",
-    "title": "APT24供應鏈攻擊臺灣廣告行銷業者投放BadAudio惡意程式",
-    "date": "2026-09-10"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "商周集團網站遭攻擊導致線上服務中斷",
-    "date": "2026-09-10",
-    "url": ""
-  },
-  {
-    "category": "勒索病毒",
-    "title": "The Gentlemen勒索軟體攻擊加拿大航空公司",
-    "date": "2026-09-10",
-    "url": "https://asec.ahnlab.com/en/95338/"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "商周集團遭網路攻擊導致服務中斷近一週",
-    "date": "2026-09-10",
-    "url": "https://www.ithome.com.tw/news/178882"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "商周集團網站遭攻擊中斷服務",
-    "date": "2026-09-10",
-    "url": "https://www.ithome.com.tw/tags/%E8%B3%87%E5%AE%89%E6%97%A5%E5%A0%B1"
-  },
-  {
-    "category": "政府公告",
-    "title": "Microsoft發布Exchange Server系列安全性更新",
-    "date": "2026-09-10",
-    "url": ""
   }
 ]
