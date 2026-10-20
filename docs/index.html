@@ -254,8 +254,9 @@
   .trend-sub{font-size:10.5px;color:var(--text-faint);font-family:'JetBrains Mono',monospace;}
   .trend-items{display:flex;gap:26px;flex-wrap:wrap;flex:1;}
   .trend-item{display:flex;flex-direction:column;gap:3px;min-width:90px;}
-  #statusSummaryCard .trend-items{justify-content:center;gap:28px;}
-  #statusSummaryCard .trend-group{width:280px;height:75px;box-sizing:border-box;padding:0 18px;gap:26px;align-items:center;justify-content:center;}
+  #statusSummaryCard .trend-items{justify-content:stretch;gap:16px;flex:1;flex-wrap:nowrap;}
+  @media (max-width:800px){#statusSummaryCard .trend-items{flex-wrap:wrap;width:100%;}}
+  #statusSummaryCard .trend-group{flex:1;min-width:240px;height:75px;box-sizing:border-box;padding:0 18px;gap:26px;align-items:center;justify-content:center;}
   #statusSummaryCard .trend-item-label{font-size:13px;}
   #statusSummaryCard .trend-item-pct{font-size:19px;}
   #statusSummaryCard .trend-item{gap:4px;min-width:90px;}
