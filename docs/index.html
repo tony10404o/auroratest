@@ -239,7 +239,7 @@
   .stat-modal-row-value{font-family:'JetBrains Mono',monospace;color:var(--text-dim);white-space:nowrap;}
 
   /* 分類統計字卡（色條風格） */
-  .stat-strip{display:grid;grid-template-columns:repeat(4,170px);gap:10px;flex-shrink:0;height:auto;}
+  .stat-strip{display:grid;grid-template-columns:repeat(3,170px);gap:10px;flex-shrink:0;height:auto;}
   .top-combined-row{display:flex;align-items:stretch;gap:14px;margin-bottom:18px;flex-wrap:wrap;}
   .trend-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;flex:1;min-width:320px;}
   @media (max-width:800px){.trend-card{flex-direction:column;align-items:flex-start;}.trend-items{gap:16px;}.stat-strip{grid-template-columns:repeat(2,1fr);width:100%;}}
@@ -259,6 +259,11 @@
   #statusSummaryCard .trend-item-label{font-size:13px;}
   #statusSummaryCard .trend-item-pct{font-size:19px;}
   #statusSummaryCard .trend-item{gap:4px;min-width:90px;}
+  .status-total{padding-right:20px;border-right:1px solid var(--border);}
+  .status-total-label{font-size:13px;font-weight:700;color:#F59E0B;}
+  .status-total-label span{font-size:10.5px;font-weight:500;color:var(--text-dim);margin-left:4px;}
+  .status-total-num{font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700;line-height:1.1;color:#F59E0B;}
+  .status-total-range{font-size:10px;color:var(--text-faint);}
   .trend-group{display:flex;gap:22px;padding:8px 14px;border:1px solid var(--border);border-radius:8px;background:rgba(127,127,127,.06);}
   .trend-item-label{font-size:11.5px;color:var(--text-dim);white-space:nowrap;}
   .trend-item-value{display:flex;align-items:center;gap:8px;}
@@ -1972,7 +1977,6 @@ function renderStatStrip(counts, pendingCount){
     { color:'red', label:'今日新聞事件', number: (DATA.headlines || []).length, desc:'國內/全球新聞', range:'近2天資料' },
     { color:'blue', label:'今日漏洞雷達', number: counts.kev ?? 0, desc:'KEV新增筆數', range:'近2天資料' },
     { color:'green', label:'公司關注廠商情報', number: counts.vendor ?? 0, desc:'Microsoft／Cisco／Fortinet／Palo Alto', range:'近2天資料' },
-    { color:'orange', label:'待處理事項', number: pendingCount ?? 0, desc:'需留意的更新檔數', id:'pendingCountNum', range:'近30天資料' },
   ];
   el.innerHTML = cards.map(c => `
     <div class="strip-card c-${c.color}"${c.clickable ? ` style="cursor:pointer;" onclick="openStatModal('ransomApt')"` : ''}>
@@ -2010,12 +2014,10 @@ function renderStatusSummary(){
   const rows = [['待處理','處理中'],['不處理','已完成']]
     .map(g => `<div class="trend-group">${g.map(itemHtml).join('')}</div>`).join('');
   el.innerHTML = `
-    <div class="trend-header">
-      <div class="trend-icon">📋</div>
-      <div>
-        <div class="trend-title">處理狀況統計</div>
-        <div class="trend-sub">待處理事項 · 近30天</div>
-      </div>
+    <div class="status-total">
+      <div class="status-total-label">待處理事項 <span>待處理＋處理中</span></div>
+      <div class="status-total-num" id="pendingCountNum">${counts['待處理'] + counts['處理中']}</div>
+      <div class="status-total-range">近30天資料</div>
     </div>
     <div class="trend-items">${rows}</div>`;
 }
