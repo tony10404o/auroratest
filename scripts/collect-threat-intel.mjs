@@ -289,7 +289,7 @@ Krebs on Security: ${JSON.stringify(intlNews.krebs, null, 2)}
 async function searchRemainingCategories() {
   console.log("呼叫 Claude 搜尋（國內CERT/政府公告、IOC情資、勒索軟體與APT活動）...");
 
-  const prompt = `請完成以下三項任務，並回傳單一 JSON 物件（不要有任何前言、說明文字或 markdown 的 \`\`\` 符號）。請盡量精簡搜尋次數（6次以內廣泛搜尋）。
+  const prompt = `請完成以下四項任務，並回傳單一 JSON 物件（不要有任何前言、說明文字或 markdown 的 \`\`\` 符號）。請盡量精簡搜尋次數（8次以內廣泛搜尋）。
 
 【任務一】國內 CERT 與政府資安公告
 搜尋台灣 TWCERT/CC（https://www.twcert.org.tw）與數位發展部資安署（ACS）當天與昨天發布的資安公告、預警或新聞，列出最多5則（若沒有那麼多則資料就列出實際找到的數量，不用湊）。
@@ -300,8 +300,14 @@ async function searchRemainingCategories() {
 【任務三】勒索軟體與APT活動
 搜尋當天與昨天全球重大勒索軟體攻擊事件、勒索軟體集團動態、以及APT（國家級駭客組織）活動相關新聞，列出最多5則。
 
+【任務四】台灣詐騙與資安事件
+搜尋當天與最近幾天台灣發生的詐騙或資安事件（例如165反詐騙諮詢專線、內政部警政署刑事警察局、各媒體報導的網路詐騙手法、釣魚簡訊/釣魚網站、假冒機構或企業的詐騙、個資外洩導致的詐騙等），列出最多5則。只要台灣相關的事件。
+
 回傳格式：
 {
+  "tw_scam_events": [
+    { "date": "YYYY-MM-DD", "type": "詐騙手法類型，例如 釣魚簡訊、投資詐騙、假冒客服、個資外洩", "title": "事件標題", "summary": "50字以內摘要，用自己的話改寫", "source_name": "來源名稱", "source_url": "來源網址" }
+  ],
   "gov_announcements": [
     { "date": "YYYY-MM-DD", "source": "TWCERT/CC 或 資安署", "title": "公告標題", "summary": "40字以內摘要", "url": "來源網址", "is_awareness_case": true或false（是否適合做員工資安宣導教育） }
   ],
@@ -319,7 +325,7 @@ async function searchRemainingCategories() {
     prompt,
     maxTokens: 8000,
     label: "搜尋分類",
-    tools: [{ type: "web_search_20250305", name: "web_search", max_uses: 6 }],
+    tools: [{ type: "web_search_20250305", name: "web_search", max_uses: 8 }],
   });
 }
 
@@ -501,6 +507,7 @@ async function main() {
     ioc_highlights: searched.ioc_highlights || [],
     ransomware_apt: searched.ransomware_apt || [],
   };
+  const twScamEvents = Array.isArray(searched.tw_scam_events) ? searched.tw_scam_events : [];
 
   console.log(
     `彙整完成：KEV ${result.kev_vulnerabilities.length} / 廠商公告 ${result.vendor_advisories.length} / 國際新聞 ${result.international_news.length} / 政府公告 ${result.gov_announcements.length} / IOC ${result.ioc_highlights.length} / 勒索軟體APT ${result.ransomware_apt.length}`
@@ -510,6 +517,7 @@ async function main() {
 
   const dashboard = await buildDashboard(result);
   dashboard.cve_radar = buildCveRadar(result.kev_vulnerabilities);
+  dashboard.tw_scam_events = twScamEvents;
   dashboard.risk_score = computeRiskScore(result);
   dashboard.action_items = buildActionItems(result, dashboard.cve_radar);
   dashboard.category_counts = {

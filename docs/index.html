@@ -2073,5 +2073,50 @@ function setupVendorPillFilter(items){
   render();
 }
 </script>
+
+<style>
+  .tw-fab{position:fixed;right:20px;bottom:20px;z-index:900;width:52px;height:52px;border-radius:50%;border:none;background:#2563EB;color:#fff;font-size:22px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25);}
+  .tw-fab:hover{background:#1D4ED8;}
+  .tw-pop{position:fixed;right:20px;bottom:84px;z-index:900;width:360px;max-width:calc(100vw - 40px);max-height:70vh;display:none;flex-direction:column;background:var(--bg);border:1px solid var(--border);border-radius:12px;box-shadow:0 8px 28px rgba(0,0,0,.22);overflow:hidden;}
+  .tw-pop.open{display:flex;}
+  .tw-pop-head{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-bottom:1px solid var(--border);font-weight:700;font-size:14px;color:var(--text);background:var(--panel);}
+  .tw-pop-close{border:none;background:none;font-size:16px;cursor:pointer;color:var(--text-dim);}
+  .tw-pop-body{overflow-y:auto;padding:6px 14px 10px;}
+  .tw-item{padding:10px 0;border-bottom:1px solid var(--border);}
+  .tw-item:last-child{border-bottom:none;}
+  .tw-item-top{display:flex;gap:8px;align-items:center;font-size:11px;color:var(--text-dim);margin-bottom:3px;}
+  .tw-tag{font-weight:700;color:#DC2626;background:rgba(220,38,38,.1);padding:1px 8px;border-radius:20px;}
+  .tw-item-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:3px;}
+  .tw-item-title a{color:inherit;text-decoration:none;}
+  .tw-item-title a:hover{text-decoration:underline;color:#2563EB;}
+  .tw-item-sum{font-size:12px;color:var(--text-dim);line-height:1.5;}
+  .tw-empty{padding:18px 0;font-size:12.5px;color:var(--text-faint);text-align:center;}
+  .tw-note{padding:8px 14px;font-size:10.5px;color:var(--text-faint);border-top:1px solid var(--border);background:var(--panel);}
+</style>
+<button class="tw-fab" id="twFab" title="台灣詐騙資安事件" aria-label="台灣詐騙資安事件">🚨</button>
+<div class="tw-pop" id="twPop">
+  <div class="tw-pop-head"><span>🚨 台灣詐騙資安事件</span><button class="tw-pop-close" id="twClose" aria-label="關閉">✕</button></div>
+  <div class="tw-pop-body" id="twBody"></div>
+  <div class="tw-note">由AI於資料產生當下搜尋彙整，非即時資訊，僅供參考</div>
+</div>
+<script>
+(function(){
+  const items = Array.isArray(DATA.tw_scam_events) ? DATA.tw_scam_events : [];
+  const body = document.getElementById('twBody');
+  const safe = u => /^https?:\/\//i.test(u || '') ? u : '';
+  body.innerHTML = items.length ? items.map(e => {
+    const u = safe(e.source_url);
+    const title = escapeHtml(e.title || '');
+    return `<div class="tw-item">
+      <div class="tw-item-top"><span class="tw-tag">${escapeHtml(e.type || '詐騙')}</span><span>${escapeHtml(e.date || '')}</span><span>${escapeHtml(e.source_name || '')}</span></div>
+      <div class="tw-item-title">${u ? `<a href="${escapeHtml(u)}" target="_blank" rel="noopener noreferrer">${title}</a>` : title}</div>
+      <div class="tw-item-sum">${escapeHtml(e.summary || '')}</div>
+    </div>`;
+  }).join('') : '<div class="tw-empty">目前沒有資料，下次自動更新後會顯示</div>';
+  const pop = document.getElementById('twPop');
+  document.getElementById('twFab').addEventListener('click', () => pop.classList.toggle('open'));
+  document.getElementById('twClose').addEventListener('click', () => pop.classList.remove('open'));
+})();
+</script>
 </body>
 </html>
