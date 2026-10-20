@@ -377,6 +377,7 @@ function panelShell(num, icon, title, viewAllUrl, bodyHtml, extraHeaderHtml='', 
       <span class="panel-icon">${icon}</span>
       <span class="panel-title">${escapeHtml(title)}</span>
       ${count !== null ? `<span class="panel-count-badge"${badgeId ? ` id="${badgeId}"` : ''} style="${numColor ? `color:${numColor};background:${numColor}14;` : ''}">${count} 件</span>` : ''}
+      ${badgeId === 'windowsUpdateBadge' ? '<span style="font-size:10.5px;color:var(--text-dim);white-space:nowrap;">待處理＋處理中</span>' : ''}
       ${viewAllUrl ? `<a class="panel-viewall" href="${escapeHtml(viewAllUrl)}" target="_blank" rel="noopener noreferrer">查看全部 →</a>` : ''}
     </div>
     ${extraHeaderHtml}
