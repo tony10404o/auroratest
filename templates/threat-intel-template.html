@@ -254,6 +254,7 @@
   .trend-sub{font-size:10.5px;color:var(--text-faint);font-family:'JetBrains Mono',monospace;}
   .trend-items{display:flex;gap:26px;flex-wrap:wrap;flex:1;}
   .trend-item{display:flex;flex-direction:column;gap:3px;min-width:90px;}
+  .trend-group{display:flex;gap:22px;padding:8px 14px;border:1px solid var(--border);border-radius:8px;background:rgba(127,127,127,.06);}
   .trend-item-label{font-size:11.5px;color:var(--text-dim);white-space:nowrap;}
   .trend-item-value{display:flex;align-items:center;gap:8px;}
   .trend-item-pct{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;}
@@ -349,7 +350,12 @@ function emptyNote(){ return `<div class="empty-note">目前沒有資料</div>`;
 // 事件是否落在指定分頁範圍：「今天」看第一次被抓到的日期（first_seen，來源發布日期常是前幾天），
 // 「本月」等其他範圍仍看事件日期
 function eventInRange(e, rangeDays){
-  if (rangeDays === 1) return isWithinCalendarDays(e.first_seen || e.date, 1);
+  if (rangeDays === 1) {
+    // 「今天」＝最近一批新抓到的事件（今天沒有新資料時，顯示最近一次更新的那批，避免空白）
+    if (!e.first_seen) return isWithinCalendarDays(e.date, 1);
+    const seen = (DATA.global_events || []).map(x => x.first_seen).filter(Boolean).sort();
+    return e.first_seen === seen[seen.length - 1];
+  }
   return isWithinCalendarDays(e.date, rangeDays);
 }
 
@@ -892,11 +898,13 @@ function renderStatusSummary(){
     if (counts[key] !== undefined) counts[key]++;
   });
   const colors = { '待處理':'var(--text)', '不處理':'var(--sev-high)', '處理中':'var(--sev-medium)', '已完成':'var(--sev-low)' };
-  const rows = Object.keys(counts).map(k => `
+  const itemHtml = k => `
     <div class="trend-item">
       <div class="trend-item-label">${k}</div>
       <div class="trend-item-value"><span class="trend-item-pct" style="color:${colors[k]}">${counts[k]} 筆</span></div>
-    </div>`).join('');
+    </div>`;
+  const rows = [['待處理','處理中'],['不處理','已完成']]
+    .map(g => `<div class="trend-group">${g.map(itemHtml).join('')}</div>`).join('');
   el.innerHTML = `
     <div class="trend-header">
       <div class="trend-icon">📋</div>
