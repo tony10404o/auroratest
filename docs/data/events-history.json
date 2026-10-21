@@ -1,5 +1,100 @@
 [
   {
+    "category": "APT攻擊",
+    "title": "開源AI開發平台OpenCode遭入侵 API金鑰外洩風險",
+    "date": "2026-10-21",
+    "url": "https://cyberq.tw/2026/10/18/hackers-target-ai-agent-opencode/",
+    "first_seen": "2026-10-21"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "CVE-2026-106931 EG Secure Solutions SiteGuard Server Edition OS指令注入漏洞",
+    "date": "2026-10-20",
+    "url": "",
+    "first_seen": "2026-10-21"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "CVE-2026-96656 Plex Media Server檔案名稱路徑外部控制漏洞",
+    "date": "2026-10-20",
+    "url": "",
+    "first_seen": "2026-10-21"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "CVE-2026-96655 Plex Media Server SSRF漏洞",
+    "date": "2026-10-20",
+    "url": "",
+    "first_seen": "2026-10-21"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "CVE-2026-96654 Plex Media Server編碼URI方案中和漏洞",
+    "date": "2026-10-20",
+    "url": "",
+    "first_seen": "2026-10-21"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "CVE-2026-96652 Plex Media Server SSRF漏洞",
+    "date": "2026-10-20",
+    "url": "",
+    "first_seen": "2026-10-21"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "CVE-2026-110936 Siemens Software Center DLL植入漏洞",
+    "date": "2026-10-20",
+    "url": "",
+    "first_seen": "2026-10-21"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "SiteGuard Server Edition作業系統指令注入漏洞（CVE-2026-106931）",
+    "date": "2026-10-20",
+    "first_seen": "2026-10-21"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Plex Media Server檔案路徑外部控制漏洞（CVE-2026-96656）",
+    "date": "2026-10-20",
+    "first_seen": "2026-10-21"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Siemens Software Center搜尋路徑元素控制不當漏洞（CVE-2026-110936）",
+    "date": "2026-10-20",
+    "first_seen": "2026-10-21"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Microsoft Windows Shell遠端程式碼執行漏洞（CVE-2026-83782）",
+    "date": "2026-10-20",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-83782",
+    "first_seen": "2026-10-21"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Microsoft Exchange Server遠端程式碼執行漏洞（CVE-2026-62913）",
+    "date": "2026-10-20",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-62913",
+    "first_seen": "2026-10-21"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Microsoft PowerShell遠端程式碼執行漏洞（CVE-2026-70337）",
+    "date": "2026-10-20",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-70337",
+    "first_seen": "2026-10-21"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "PHP緊急安全漏洞（2項關鍵漏洞）",
+    "date": "2026-10-20",
+    "url": "https://www.bleepingcomputer.com/news/security/php-warns-admins-of-two-critical-flaws-emergency-patches-coming-tomorrow/",
+    "first_seen": "2026-10-21"
+  },
+  {
     "category": "勒索病毒",
     "title": "Qilin 勒索軟體集團單月宣稱 11 個受害者",
     "date": "2026-10-14",
@@ -42,6 +137,13 @@
     "first_seen": "2026-10-15"
   },
   {
+    "category": "勒索病毒",
+    "title": "2026年上半期日本勒索軟體被害增加1.6倍，119個APT組織活躍",
+    "date": "2026-10-14",
+    "url": "https://prtimes.jp/main/html/rd/p/000000030.000131909.html",
+    "first_seen": "2026-10-21"
+  },
+  {
     "category": "零時差漏洞",
     "title": "Ivanti Connect Secure CVE-2026-104935 認證繞過漏洞遭利用",
     "date": "2026-10-13",
@@ -54,6 +156,20 @@
     "date": "2026-10-13",
     "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-october-2026-patch-tuesday-fixes-1,411-flaws-3-zero-days/",
     "first_seen": "2026-10-14"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "台灣多所大學遭Flax Typhoon等駭客組織攻擊（利用8個已知漏洞）",
+    "date": "2026-10-12",
+    "url": "https://www.ithome.com.tw/news/179381",
+    "first_seen": "2026-10-21"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "大阪公立大學遭勒索軟體攻擊 教學系統癱瘓",
+    "date": "2026-10-09",
+    "url": "https://rocket-boys.co.jp/security-measures-lab/2026-ransomware-attack-examples/",
+    "first_seen": "2026-10-21"
   },
   {
     "category": "勒索病毒",
@@ -140,6 +256,13 @@
     "url": "https://rocket-boys.co.jp/security-measures-lab/2026-ransomware-attack-examples/"
   },
   {
+    "category": "勒索病毒",
+    "title": "日本雲端服務商IDCフロンティア遭勒索軟體攻擊 495家客戶受影響",
+    "date": "2026-10-07",
+    "url": "https://rocket-boys.co.jp/security-measures-lab/2026-ransomware-attack-examples/",
+    "first_seen": "2026-10-21"
+  },
+  {
     "category": "APT攻擊",
     "title": "FortiGate VPN持續遭FortiBleed漏洞攻擊",
     "date": "2026-10-06",
@@ -208,6 +331,13 @@
     "date": "2026-10-02",
     "url": "https://moda.gov.tw/ACS/press/news/press/",
     "first_seen": "2026-10-15"
+  },
+  {
+    "category": "政府公告",
+    "title": "資安署警示GitLab重大漏洞遭駭客利用 籲儘速更新",
+    "date": "2026-10-02",
+    "url": "https://moda.gov.tw/ACS/press/news/press/820",
+    "first_seen": "2026-10-21"
   },
   {
     "category": "零時差漏洞",
@@ -438,152 +568,5 @@
     "title": "AUDIT TEAM對南韓組織進行資料敲詐攻擊",
     "date": "2026-09-17",
     "url": "https://asec.ahnlab.com/en/95450/"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "Cisco身份服務引擎特權API不當使用漏洞",
-    "date": "2026-09-16",
-    "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ise-rce-se7bYU57"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "Acronis備份外掛程式不當預設權限漏洞",
-    "date": "2026-09-16",
-    "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-fmc-static-cred-BET3Cjh"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "Google Pixel行動通訊晶片權限檢查繞過漏洞",
-    "date": "2026-09-16",
-    "url": "https://www.bleepingcomputer.com/news/security/google-fixes-actively-exploited-android-zero-day-on-pixel-devices/"
-  },
-  {
-    "category": "APT攻擊",
-    "title": "美國起訴五名中國駭客 與APT41駭客集團有關",
-    "date": "2026-09-16",
-    "url": "https://blog.trendmicro.com.tw/?p=65827"
-  },
-  {
-    "category": "政府公告",
-    "title": "因應先進AI資安新挑戰 資安署發布『政府因應先進AI資安風險政策』",
-    "date": "2026-09-16",
-    "url": "https://moda.gov.tw/ACS/"
-  },
-  {
-    "category": "APT攻擊",
-    "title": "APT41駭客集團遭美國司法部起訴",
-    "date": "2026-09-16",
-    "url": "https://blog.trendmicro.com.tw/?p=65827"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "Cisco Secure FMC滿分漏洞遭利用部署Qilin勒索軟體",
-    "date": "2026-09-15",
-    "url": "https://www.gm7.org/archives/156101"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "Citrix NetScaler零日漏洞遭實際攻擊",
-    "date": "2026-09-15",
-    "url": "https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-exploited-citrix-flaws-by-wednesday/"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "日本慶應大學遭勒索軟體攻擊",
-    "date": "2026-09-15",
-    "url": "https://www.bleepingcomputer.com/news/security/japans-keio-confirms-ransomware-attack-disrupted-business-systems/"
-  },
-  {
-    "category": "APT攻擊",
-    "title": "加密貨幣交易所Bitget遭駭損失3.875億美元",
-    "date": "2026-09-15",
-    "url": "https://www.bleepingcomputer.com/news/security/bitget-resumes-bitcoin-withdrawals-after-3875-million-crypto-heist/"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "思科郵件閘道SQL注入漏洞CVE-2026-76461",
-    "date": "2026-09-14",
-    "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-inj-2bLVGmhX"
-  },
-  {
-    "category": "政府公告",
-    "title": "GitLab修補CVSS滿分重大漏洞CVE-2026-85706",
-    "date": "2026-09-14"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "勒索軟體Everest攻擊晶睿通訊竊取236GB資料",
-    "date": "2026-09-14"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "勒索軟體Gentlemen攻擊醫療軟體服務商Veradigm",
-    "date": "2026-09-14"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "GitLab最高等級漏洞被駭客大規模利用",
-    "date": "2026-09-14",
-    "url": "https://www.bleepingcomputer.com/news/security/cisa-hackers-now-exploit-max-severity-gitlab-flaw-in-attacks/"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "The Gentlemen勒索軟體攻擊醫療產業",
-    "date": "2026-09-14",
-    "url": "https://www.ithome.com.tw/news/178935"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "LockBit 5勒索軟體集團維持高度活躍並宣稱多個新受害者",
-    "date": "2026-09-14",
-    "url": "https://www.ransomware.live/group/lockbit5",
-    "first_seen": "2026-10-15"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "VMware高風險RCE遭勒索軟體集團實際利用",
-    "date": "2026-09-12",
-    "url": "https://www.bleepingcomputer.com/news/security/cisa-critical-vmware-vcenter-rce-flaw-now-exploited-by-ransomware-gangs/"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "Vexy跨平台勒索軟體快速擴張",
-    "date": "2026-09-12",
-    "url": "https://www.gm7.org/archives/155016"
-  },
-  {
-    "category": "APT攻擊",
-    "title": "Acronis cPanel備份外掛程式遭積極利用",
-    "date": "2026-09-12",
-    "url": "https://www.bleepingcomputer.com/news/security/acronis-warns-of-actively-exploited-flaw-in-its-cpanel-backup-plugin/"
-  },
-  {
-    "category": "APT攻擊",
-    "title": "惡意WordPress外掛在1500個網站植入後門",
-    "date": "2026-09-12",
-    "url": "https://www.bleepingcomputer.com/news/security/malcious-admin-menu-editor-pro-plugin-backdoors-1-500-wordpress-sites/"
-  },
-  {
-    "category": "APT攻擊",
-    "title": "BambooToken跨平台惡意軟體透過MQTT控制系統",
-    "date": "2026-09-12",
-    "url": "https://www.bleepingcomputer.com/news/security/bambootoken-malware-controls-windows-and-linux-systems-via-mqtt/"
-  },
-  {
-    "category": "APT攻擊",
-    "title": "APT組織利用JFrog Artifactory漏洞部署Rust後門",
-    "date": "2026-09-11"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "晶睿通訊遭勒索軟體Everest攻擊，竊取236GB資料",
-    "date": "2026-09-11",
-    "url": "https://www.ithome.com.tw/news/178882"
-  },
-  {
-    "category": "政府公告",
-    "title": "勒索軟體威脅升溫，攻擊手法日趨複雜",
-    "date": "2026-09-11",
-    "url": "https://www.twcert.org.tw/tw/cp-104-10043-5f54b-1.html"
   }
 ]
