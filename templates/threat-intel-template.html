@@ -239,7 +239,7 @@
   .stat-modal-row-value{font-family:'JetBrains Mono',monospace;color:var(--text-dim);white-space:nowrap;}
 
   /* 分類統計字卡（色條風格） */
-  .stat-strip{display:grid;grid-template-columns:repeat(3,170px);gap:10px;flex-shrink:0;height:auto;}
+  .stat-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;flex:1 1 0;min-width:480px;height:auto;}
   .top-combined-row{display:flex;align-items:stretch;gap:14px;margin-bottom:18px;flex-wrap:wrap;}
   .trend-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;flex:1;min-width:320px;}
   @media (max-width:800px){.trend-card{flex-direction:column;align-items:flex-start;}.trend-items{gap:16px;}.stat-strip{grid-template-columns:repeat(2,1fr);width:100%;}}
@@ -254,9 +254,10 @@
   .trend-sub{font-size:10.5px;color:var(--text-faint);font-family:'JetBrains Mono',monospace;}
   .trend-items{display:flex;gap:26px;flex-wrap:wrap;flex:1;}
   .trend-item{display:flex;flex-direction:column;gap:3px;min-width:90px;}
+  #statusSummaryCard{flex:1.2 1 0;min-width:520px;}
   #statusSummaryCard .trend-items{justify-content:stretch;gap:16px;flex:1;flex-wrap:nowrap;}
   @media (max-width:800px){#statusSummaryCard .trend-items{flex-wrap:wrap;width:100%;}}
-  #statusSummaryCard .trend-group{flex:1;min-width:240px;height:75px;box-sizing:border-box;padding:0 18px;gap:26px;align-items:center;justify-content:center;}
+  #statusSummaryCard .trend-group{flex:1;min-width:150px;height:75px;box-sizing:border-box;padding:0 18px;gap:26px;align-items:center;justify-content:center;}
   #statusSummaryCard .trend-item-label{font-size:13px;}
   #statusSummaryCard .trend-item-pct{font-size:19px;}
   #statusSummaryCard .trend-item{gap:4px;min-width:90px;}
@@ -273,7 +274,7 @@
   .trend-item-pct.down{color:var(--sev-low);}
 
   @media (max-width:480px){.stat-strip{grid-template-columns:1fr;}}
-  .strip-card{background:var(--panel);border:1px solid var(--border);border-left-width:3px;border-radius:8px;padding:8px 12px;width:170px;height:110px;box-sizing:border-box;overflow:hidden;display:flex;flex-direction:column;justify-content:center;}
+  .strip-card{background:var(--panel);border:1px solid var(--border);border-left-width:3px;border-radius:8px;padding:8px 12px;width:auto;height:110px;box-sizing:border-box;overflow:hidden;display:flex;flex-direction:column;justify-content:center;}
   .strip-card.c-blue{border-left-color:#3B82F6;}
   .strip-card.c-green{border-left-color:#10B981;}
   .strip-card.c-orange{border-left-color:#F59E0B;}
