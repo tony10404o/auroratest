@@ -49,6 +49,52 @@
     "first_seen": "2026-10-21"
   },
   {
+    "category": "零時差漏洞",
+    "title": "SiteGuard Server Edition作業系統指令注入漏洞（CVE-2026-106931）",
+    "date": "2026-10-20",
+    "first_seen": "2026-10-21"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Plex Media Server檔案路徑外部控制漏洞（CVE-2026-96656）",
+    "date": "2026-10-20",
+    "first_seen": "2026-10-21"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Siemens Software Center搜尋路徑元素控制不當漏洞（CVE-2026-110936）",
+    "date": "2026-10-20",
+    "first_seen": "2026-10-21"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Microsoft Windows Shell遠端程式碼執行漏洞（CVE-2026-83782）",
+    "date": "2026-10-20",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-83782",
+    "first_seen": "2026-10-21"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Microsoft Exchange Server遠端程式碼執行漏洞（CVE-2026-62913）",
+    "date": "2026-10-20",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-62913",
+    "first_seen": "2026-10-21"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Microsoft PowerShell遠端程式碼執行漏洞（CVE-2026-70337）",
+    "date": "2026-10-20",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-70337",
+    "first_seen": "2026-10-21"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "PHP緊急安全漏洞（2項關鍵漏洞）",
+    "date": "2026-10-20",
+    "url": "https://www.bleepingcomputer.com/news/security/php-warns-admins-of-two-critical-flaws-emergency-patches-coming-tomorrow/",
+    "first_seen": "2026-10-21"
+  },
+  {
     "category": "勒索病毒",
     "title": "Qilin 勒索軟體集團單月宣稱 11 個受害者",
     "date": "2026-10-14",
@@ -91,6 +137,13 @@
     "first_seen": "2026-10-15"
   },
   {
+    "category": "勒索病毒",
+    "title": "2026年上半期日本勒索軟體被害增加1.6倍，119個APT組織活躍",
+    "date": "2026-10-14",
+    "url": "https://prtimes.jp/main/html/rd/p/000000030.000131909.html",
+    "first_seen": "2026-10-21"
+  },
+  {
     "category": "零時差漏洞",
     "title": "Ivanti Connect Secure CVE-2026-104935 認證繞過漏洞遭利用",
     "date": "2026-10-13",
@@ -103,6 +156,13 @@
     "date": "2026-10-13",
     "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-october-2026-patch-tuesday-fixes-1,411-flaws-3-zero-days/",
     "first_seen": "2026-10-14"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "台灣多所大學遭Flax Typhoon等駭客組織攻擊（利用8個已知漏洞）",
+    "date": "2026-10-12",
+    "url": "https://www.ithome.com.tw/news/179381",
+    "first_seen": "2026-10-21"
   },
   {
     "category": "勒索病毒",
