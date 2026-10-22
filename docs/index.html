@@ -342,133 +342,146 @@ const DATA = {
   "headlines": [
     {
       "icon": "🎯",
-      "title": "Microsoft緊急發布7項高風險漏洞修補",
-      "subtitle": "Windows Shell、Exchange、PowerShell等核心元件存在遠端程式碼執行風險",
+      "title": "Microsoft發布8個Windows高危漏洞 涉及遠端程式碼執行與權限提升",
+      "subtitle": "NTFS、Shell、Kernel等核心元件存在安全缺陷，需立即評估修補",
       "impact": "高",
       "stars": 5,
-      "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-83782"
+      "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-69902"
     },
     {
-      "icon": "🎯",
-      "title": "PHP發現2大關鍵漏洞，緊急修補程式即將發布",
-      "subtitle": "所有使用PHP的網站與應用需立即更新",
+      "icon": "🦠",
+      "title": "CrazyHunter勒索軟體鎖定台灣關鍵基礎設施 單筆勒索額80-250萬美元",
+      "subtitle": "中國駭客組織自2月起針對醫療、教育、製造產業大規模攻擊",
       "impact": "高",
       "stars": 5,
-      "url": "https://www.bleepingcomputer.com/news/security/php-warns-admins-of-two-critical-flaws-emergency-patches-coming-tomorrow/"
+      "url": "https://news.ltn.com.tw/news/politics/breakingnews/4999554"
     },
     {
       "icon": "🎯",
-      "title": "SiteGuard Server Edition遠端控制漏洞（CVE-2026-106931）",
-      "subtitle": "允許攻擊者以最高權限執行任意指令，CVSS 8.5",
+      "title": "PHP核心漏洞CVE-2026-109618及109619 影響Palo Alto、Fortinet、Cisco產品",
+      "subtitle": "PHP RCE漏洞已發布緊急修補程式，多廠商產品受波及",
       "impact": "高",
-      "stars": 5
+      "stars": 5,
+      "url": "https://www.bleepingcomputer.com/news/security/php-ships-emergency-patches-for-critical-php2shell-flaws/"
     },
     {
       "icon": "🎯",
-      "title": "Plex Media Server多個關鍵漏洞組成完整攻擊鏈",
-      "subtitle": "檔案寫入漏洞可與4個漏洞組合，CVSS最高8.6",
-      "impact": "高",
-      "stars": 5
-    },
-    {
-      "icon": "🎯",
-      "title": "Siemens Software Center程式碼執行漏洞（CVE-2026-110936）",
-      "subtitle": "DLL搜尋路徑控制不當，攻擊者可執行任意程式碼，CVSS 8.4",
-      "impact": "高",
-      "stars": 5
-    },
-    {
-      "icon": "🎯",
-      "title": "Cisco Unified Intelligence Center SQL隱碼攻擊漏洞",
-      "subtitle": "允許未授權攻擊者進行資料庫操作",
+      "title": "Cisco Unified Communications Manager不當存取控制漏洞",
+      "subtitle": "允許未授權存取，影響通訊系統安全",
       "impact": "高",
       "stars": 4,
-      "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cuic-sql-inject-2qbfWSm5"
+      "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cucm-access-PW9e8Jt2?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Unified%20Communications%20Manager%20Improper%20Access%20Control%20Vulnerability%26vs_k=1"
+    },
+    {
+      "icon": "🦠",
+      "title": "SafePay勒索軟體攻擊逾600個關鍵基礎設施單位",
+      "subtitle": "美國CISA與FBI聯合警告，關鍵設施廣泛受威脅",
+      "impact": "高",
+      "stars": 4,
+      "url": "https://www.bleepingcomputer.com/news/security/cisa-and-fbi-safepay-ransomware-has-hit-over-600-critical-infrastructure-organizations/"
     },
     {
       "icon": "🕵️",
-      "title": "2026年上半期勒索軟體被害激增，119個APT組織活躍",
-      "subtitle": "日本勒索軟體被害比較前年同期增加1.6倍，新興集團『The Gentlemen』被害最多",
+      "title": "Lazarus駭客採用後量子密碼學傳遞惡意軟體",
+      "subtitle": "北韓駭客組織使用抗量子密碼演算法隱藏惡意程式，檢測難度提升",
       "impact": "高",
       "stars": 4,
-      "url": "https://prtimes.jp/main/html/rd/p/000000030.000131909.html"
+      "url": "https://www.bleepingcomputer.com/news/security/lazarus-hackers-use-post-quantum-cryptography-for-malware-delivery/"
     },
     {
-      "icon": "🕵️",
-      "title": "台灣多所大學遭Flax Typhoon等中國駭客組織攻擊",
-      "subtitle": "美司法部查封駭客工具，揭露攻擊者利用8個已知漏洞發動滲透",
-      "impact": "高",
-      "stars": 4,
-      "url": "https://www.ithome.com.tw/news/179381"
-    },
-    {
-      "icon": "⚠️",
-      "title": "WordPress熱門工具遭竊取，數百萬網站面臨後門風險",
-      "subtitle": "UpdraftCentral與Rank Math金鑰被盜，已用於入侵網站植入後門",
-      "impact": "高",
-      "stars": 4,
-      "url": "https://www.bleepingcomputer.com/news/security/stolen-updraftcentral-keys-used-to-backdoor-wordpress-sites/"
-    },
-    {
-      "icon": "🔐",
-      "title": "eMudhra數位憑證機構遭入侵，三大瀏覽器廠商聯合封鎖",
-      "subtitle": "被盜憑證用於網路詐欺，Mozilla、Google、Apple已停用相關憑證",
-      "impact": "中",
-      "stars": 4,
-      "url": "https://www.bleepingcomputer.com/news/security/mozilla-google-apple-block-compromised-emudhra-ca-certificates/"
-    },
-    {
-      "icon": "⚠️",
-      "title": "美國DHS禁止聯邦機構使用DeepSeek產品",
-      "subtitle": "涉及國家安全與資料洩露風險考量",
+      "icon": "📰",
+      "title": "金管會公布詐騙通報激增至2萬件 與台股熱絡及AI技術提升有關",
+      "subtitle": "2026年前三季詐騙案件大幅增加，提醒強化員工資安意識",
       "impact": "中",
       "stars": 3,
-      "url": "https://www.bleepingcomputer.com/news/security/dhs-bans-deepseek-products-across-us-federal-civilian-agencies/"
+      "url": "https://www.setn.com/news/1925737"
     },
     {
-      "icon": "⚠️",
-      "title": "Zeabur雲端平台兩個月內遭駭兩次，宣布關閉服務",
-      "subtitle": "連續安全事件導致平台停止營運",
-      "impact": "低",
-      "stars": 2,
-      "url": "https://www.bleepingcomputer.com/news/security/zeabur-shutting-down-after-second-security-breach-in-two-months/"
+      "icon": "📰",
+      "title": "日本Onamae雲端桌面服務遭駭 27000台伺服器受影響",
+      "subtitle": "託管商安全事件，提醒檢查供應商資訊安全措施",
+      "impact": "中",
+      "stars": 3,
+      "url": "https://www.bleepingcomputer.com/news/security/japans-onamae-desktop-cloud-hacked-up-to-27-000-servers-affected/"
     },
     {
-      "icon": "⚠️",
-      "title": "日經新聞一個月內三度資料外洩，180萬筆記錄暴露",
-      "subtitle": "連續安全事件反映組織防護機制重大缺陷",
+      "icon": "📰",
+      "title": "ClickFix詐騙規模擴大 利用AI工具製作更逼真假冒頁面",
+      "subtitle": "犯罪分子利用AI製造高擬真詐騙內容，加強員工辨識培訓",
+      "impact": "中",
+      "stars": 3,
+      "url": "https://www.bleepingcomputer.com/news/security/clickfix-has-never-been-bigger-and-ai-tools-are-its-most-convincing-lure-yet/"
+    },
+    {
+      "icon": "🎯",
+      "title": "Cisco多款產品Snort 3阻斷服務漏洞",
+      "subtitle": "SMTP MIME、VBA緩衝區溢位等多個DoS漏洞影響防禦系統",
+      "impact": "中",
+      "stars": 3,
+      "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-misc-dos-6mB22qAK?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Denial%20of%20Service%20Vulnerabilities%26vs_k=1"
+    },
+    {
+      "icon": "📰",
+      "title": "金管會鼓勵銀行提供指定聯絡人服務防詐",
+      "subtitle": "24家銀行已開辦大額交易確認服務，建議評估導入相關防詐措施",
       "impact": "低",
       "stars": 2,
-      "url": "https://www.bleepingcomputer.com/news/security/nikkei-discloses-third-data-breach-in-a-month-18m-records-exposed/"
+      "url": ""
+    },
+    {
+      "icon": "📰",
+      "title": "Google Chrome導入AI詐騙偵測 警示ClickFix詐騙攻擊",
+      "subtitle": "瀏覽器層級詐騙防護增強，建議員工保持Chrome更新",
+      "impact": "低",
+      "stars": 2,
+      "url": "https://www.bleepingcomputer.com/news/google/google-chrome-adds-gemini-powered-scam-detection-warns-users-of-clickfix-attacks/"
     }
   ],
   "vendor_impact": [
     {
       "icon": "🪟",
       "vendor": "Microsoft",
+      "title": "CVE-2026-69902 Windows NTFS遠端程式碼執行漏洞",
+      "impact": "高",
+      "category": "作業系統核心",
+      "key_asset": "Windows NTFS檔案系統",
+      "ai_suggestion": "立即清查所有Windows Server及用戶端系統版本，優先評估NTFS相關服務是否暴露，準備修補程式部署計畫。"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
       "title": "CVE-2026-83782 Windows Shell遠端程式碼執行漏洞",
       "impact": "高",
       "category": "作業系統核心",
-      "key_asset": "Windows Shell",
-      "ai_suggestion": "立即評估公司Windows環境版本，優先部署Microsoft官方安全更新補檔"
+      "key_asset": "Windows Shell元件",
+      "ai_suggestion": "評估Shell功能在企業環境使用情況，檢查應用程式與系統是否依賴該元件，優先排程修補時程。"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-62913 Exchange Server遠端程式碼執行漏洞",
+      "title": "CVE-2026-61359 Windows Storage權限提升漏洞",
       "impact": "高",
-      "category": "郵件系統",
-      "key_asset": "Microsoft Exchange Server",
-      "ai_suggestion": "檢查所有Exchange伺服器版本，測試並部署官方修補程式，防止信箱系統被入侵"
+      "category": "作業系統核心",
+      "key_asset": "Windows Storage驅動程式",
+      "ai_suggestion": "評估存儲服務在伺服器環境暴露程度，針對權限提升風險進行風險評估與修補排程。"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-70337 PowerShell遠端程式碼執行漏洞",
+      "title": "CVE-2026-83709 Windows NTLM權限提升漏洞",
       "impact": "高",
-      "category": "系統管理工具",
-      "key_asset": "Windows PowerShell",
-      "ai_suggestion": "限制PowerShell執行權限，更新至最新版本，監控異常PowerShell活動"
+      "category": "身分驗證服務",
+      "key_asset": "Windows NTLM認證服務",
+      "ai_suggestion": "檢查NTLM在企業域環境使用情況，確認修補前後身分驗證系統可用性，準備應變方案。"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-85868 Windows Common Log File System Driver權限提升漏洞",
+      "impact": "高",
+      "category": "作業系統核心",
+      "key_asset": "CLFS驅動程式",
+      "ai_suggestion": "評估CLFS驅動在系統中的關鍵程度，排定修補測試與部署計畫，監控相關服務日誌。"
     },
     {
       "icon": "🪟",
@@ -476,17 +489,17 @@ const DATA = {
       "title": "CVE-2026-96913 Windows Kernel權限提升漏洞",
       "impact": "高",
       "category": "作業系統核心",
-      "key_asset": "Windows Kernel",
-      "ai_suggestion": "優先在伺服器與關鍵用戶端部署Kernel修補，防止本機權限提升攻擊"
+      "key_asset": "Windows Kernel核心",
+      "ai_suggestion": "優先級最高，Kernel漏洞影響深遠，立即進行環境清查，加速修補部署進度，必要時評估分批更新策略。"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-83839 Hyper-V權限提升漏洞",
+      "title": "CVE-2026-83839 Windows Hyper-V權限提升漏洞",
       "impact": "高",
       "category": "虛擬化平台",
-      "key_asset": "Windows Hyper-V",
-      "ai_suggestion": "檢查虛擬化基礎設施版本，部署Hyper-V修補程式，確保虛擬機隔離安全"
+      "key_asset": "Hyper-V虛擬機平台",
+      "ai_suggestion": "檢查虛擬化環境中的Hyper-V部署，評估租戶隔離風險，規劃修補時程並準備虛擬機遷移預案。"
     },
     {
       "icon": "🪟",
@@ -494,44 +507,107 @@ const DATA = {
       "title": "CVE-2026-102204 Windows Subsystem for Linux權限提升漏洞",
       "impact": "高",
       "category": "虛擬化平台",
-      "key_asset": "WSL(Windows Subsystem for Linux)",
-      "ai_suggestion": "評估WSL使用情況，更新至最新版本，限制WSL部署至必要系統"
+      "key_asset": "Windows Subsystem for Linux",
+      "ai_suggestion": "清查使用WSL的開發與測試環境，評估跨系統權限提升風險，建立修補與更新政策。"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "CVE-2026-80092 Identity Web權限提升漏洞",
+      "title": "CVE-2026-97783 Microsoft Office SharePoint詐騙漏洞",
       "impact": "中",
-      "category": "身分驗證服務",
-      "key_asset": "Microsoft Identity Web",
-      "ai_suggestion": "檢查應用程式是否使用Identity Web，更新NuGet套件至修補版本"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-70197 .NET遠端程式碼執行漏洞",
-      "impact": "高",
-      "category": "開發框架",
-      "key_asset": ".NET Framework",
-      "ai_suggestion": "盤點所有.NET應用程式，更新Runtime及SDK至安全版本，重新測試應用"
+      "category": "協作平台",
+      "key_asset": "SharePoint詐騙防護",
+      "ai_suggestion": "評估SharePoint內部與外部使用場景，檢查詐騙防護機制，進行使用者提醒與修補測試。"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
       "title": "CVE-2026-70074 Windows DNS資訊洩露漏洞",
       "impact": "中",
-      "category": "網路服務",
-      "key_asset": "Windows DNS Server",
-      "ai_suggestion": "檢查DNS伺服器日誌，部署修補程式，監控異常DNS查詢模式"
+      "category": "網域名稱系統",
+      "key_asset": "Windows DNS伺服器",
+      "ai_suggestion": "檢查內部DNS伺服器配置與存取控制，評估資訊洩露風險，進行修補與監控加強。"
+    },
+    {
+      "icon": "🔥",
+      "vendor": "Palo Alto",
+      "title": "CVE-2026-109618及CVE-2026-109619 PHP核心漏洞對Palo Alto Networks產品影響",
+      "impact": "高",
+      "category": "安全應用",
+      "key_asset": "Palo Alto防火牆與應用",
+      "ai_suggestion": "立即檢查Palo Alto產品中的PHP版本，評估RCE風險暴露，優先部署PHP緊急修補程式。"
+    },
+    {
+      "icon": "🛡️",
+      "vendor": "Fortinet",
+      "title": "PHP核心RCE漏洞修補 (CVE-2026-109618及CVE-2026-109619)",
+      "impact": "高",
+      "category": "安全應用",
+      "key_asset": "Fortinet防火牆與應用",
+      "ai_suggestion": "盤點FortiGate與相關產品的PHP依賴，優先測試與部署官方修補程式，監控C2流量。"
     },
     {
       "icon": "🔀",
       "vendor": "Cisco",
-      "title": "Unified Intelligence Center SQL隱碼攻擊漏洞",
+      "title": "影響Cisco產品的PHP漏洞 - 2026年10月",
       "impact": "高",
-      "category": "統一通訊系統",
-      "key_asset": "Cisco UIC",
-      "ai_suggestion": "檢查UIC部署版本，應用Cisco官方修補程式，加強資料庫存取控制"
+      "category": "網路設備",
+      "key_asset": "Cisco設備應用層",
+      "ai_suggestion": "檢查Cisco防火牆、路由器、IDS等設備的PHP環境，評估漏洞暴露風險，規劃緊急修補。"
+    },
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "Cisco Unified Communications Manager不當存取控制漏洞",
+      "impact": "高",
+      "category": "通訊系統",
+      "key_asset": "Cisco UCM通訊管理器",
+      "ai_suggestion": "立即檢查UCM存取控制清單與認證機制，評估未授權存取風險，優先部署安全更新。"
+    },
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "Cisco Expressway Series資訊洩露漏洞",
+      "impact": "中",
+      "category": "遠端存取設備",
+      "key_asset": "Cisco Expressway遠端存取",
+      "ai_suggestion": "檢查Expressway部署環境與敏感資訊流量，評估洩露風險，進行存取控制加強與修補。"
+    },
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "Cisco IOS XR Software ASR 9000路由器IPv4封包阻斷服務漏洞",
+      "impact": "中",
+      "category": "網路設備",
+      "key_asset": "Cisco ASR 9000路由器",
+      "ai_suggestion": "檢查ASR 9000路由器版本與IPv4流量處理，評估DoS風險，進行修補與流量監控。"
+    },
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "多款Cisco產品Snort 3 SMTP MIME阻斷服務漏洞",
+      "impact": "中",
+      "category": "防禦系統",
+      "key_asset": "Snort 3入侵防禦系統",
+      "ai_suggestion": "檢查Snort 3在郵件防護中的版本狀態，評估SMTP MIME處理的DoS風險，進行修補測試。"
+    },
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "多款Cisco產品Snort 3阻斷服務漏洞",
+      "impact": "中",
+      "category": "防禦系統",
+      "key_asset": "Snort 3入侵防禦系統",
+      "ai_suggestion": "評估Snort 3各類DoS漏洞對防禦效能的影響，進行修補優先序排定與部署計畫。"
+    },
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "多款Cisco產品Snort 3 VBA緩衝區溢位阻斷服務漏洞",
+      "impact": "中",
+      "category": "防禦系統",
+      "key_asset": "Snort 3入侵防禦系統",
+      "ai_suggestion": "檢查Snort 3對VBA內容檢查的版本，評估Office檔案防護風險，進行修補與規則更新。"
     }
   ],
   "global_events": [
@@ -631,6 +707,13 @@ const DATA = {
       "first_seen": "2026-10-21"
     },
     {
+      "category": "APT攻擊",
+      "title": "APT28入侵NATO海軍造船廠利用Hookedge後門",
+      "date": "2026-10-20",
+      "url": "https://cybersecuritynews.com/apt28-hackers/",
+      "first_seen": "2026-10-22"
+    },
+    {
       "category": "勒索病毒",
       "title": "Qilin 勒索軟體集團單月宣稱 11 個受害者",
       "date": "2026-10-14",
@@ -678,6 +761,13 @@ const DATA = {
       "date": "2026-10-14",
       "url": "https://prtimes.jp/main/html/rd/p/000000030.000131909.html",
       "first_seen": "2026-10-21"
+    },
+    {
+      "category": "APT攻擊",
+      "title": "Silent Lynx利用WinRAR漏洞針對CIS政府間諜活動",
+      "date": "2026-10-14",
+      "url": "https://thehackernews.com/2026/10/silent-lynx-exploits-winrar-flaw-to.html",
+      "first_seen": "2026-10-22"
     },
     {
       "category": "零時差漏洞",
@@ -799,6 +889,20 @@ const DATA = {
       "first_seen": "2026-10-21"
     },
     {
+      "category": "政府公告",
+      "title": "資安署公告F5 BIG-IP APM高風險漏洞CVE-2026-94127",
+      "date": "2026-10-07",
+      "url": "https://www.nics.nat.gov.tw/core_business/information_security_information_sharing/Vulnerability_Alert_Announcements/",
+      "first_seen": "2026-10-22"
+    },
+    {
+      "category": "政府公告",
+      "title": "資安署警告Citrix NetScaler ADC與Gateway漏洞CVE-2026-88771、CVE-2026-88772",
+      "date": "2026-10-07",
+      "url": "https://www.nics.nat.gov.tw/core_business/information_security_information_sharing/Vulnerability_Alert_Announcements/",
+      "first_seen": "2026-10-22"
+    },
+    {
       "category": "APT攻擊",
       "title": "FortiGate VPN持續遭FortiBleed漏洞攻擊",
       "date": "2026-10-06",
@@ -874,6 +978,20 @@ const DATA = {
       "date": "2026-10-02",
       "url": "https://moda.gov.tw/ACS/press/news/press/820",
       "first_seen": "2026-10-21"
+    },
+    {
+      "category": "政府公告",
+      "title": "資安署發布GitLab重大漏洞警示",
+      "date": "2026-10-02",
+      "url": "https://moda.gov.tw/ACS/",
+      "first_seen": "2026-10-22"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "Warlock勒索軟體利用SharePoint漏洞攻擊關鍵基礎設施",
+      "date": "2026-10-02",
+      "url": "https://industrialcyber.co/ransomware/symantec-reports-warlock-ransomware-group-targets-water-telecom-government-organizations-through-sharepoint-flaws/",
+      "first_seen": "2026-10-22"
     },
     {
       "category": "零時差漏洞",
@@ -1094,125 +1212,113 @@ const DATA = {
       "url": "https://www.infosecurity-magazine.com/news/settra-ransomware-retail/"
     },
     {
-      "category": "勒索病毒",
-      "title": "AUDIT TEAM對日本藥廠與南韓電商之勒索攻擊",
-      "date": "2026-09-17",
-      "url": "https://asec.ahnlab.com/en/95450/"
+      "category": "零時差漏洞",
+      "title": "PHP核心漏洞CVE-2026-109618、CVE-2026-109619遠端程式碼執行",
+      "date": "2026-10-00",
+      "url": "https://krebsonsecurity.com/2026/10/widespread-php-flaw-may-cause-many-site-outages-today/",
+      "first_seen": "2026-10-22"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "Plex軟體多個漏洞被鏈結利用攻擊伺服器",
+      "date": "2026-10-00",
+      "url": "https://www.bleepingcomputer.com/news/security/cisa-hackers-chain-plex-flaws-in-plex2shell-attacks-to-breach-servers/",
+      "first_seen": "2026-10-22"
+    },
+    {
+      "category": "政府公告",
+      "title": "金管會公布詐騙通報激增至2萬件 與台股熱絡及AI技術提升有關",
+      "date": "2026-10-21",
+      "url": "https://www.setn.com/news/1925737",
+      "first_seen": "2026-10-22"
+    },
+    {
+      "category": "政府公告",
+      "title": "金管會鼓勵銀行提供指定聯絡人服務防詐",
+      "date": "2026-10-21",
+      "url": "",
+      "first_seen": "2026-10-22"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "PHP發布緊急修補程式 修復CVE-2026-109618及CVE-2026-109619兩個關鍵漏洞",
+      "date": "2026-10-20",
+      "url": "https://www.bleepingcomputer.com/news/security/php-ships-emergency-patches-for-critical-php2shell-flaws/",
+      "first_seen": "2026-10-22"
+    },
+    {
+      "category": "APT攻擊",
+      "title": "Lazarus駭客採用後量子密碼學傳遞惡意軟體",
+      "date": "2026-10-20",
+      "url": "https://www.bleepingcomputer.com/news/security/lazarus-hackers-use-post-quantum-cryptography-for-malware-delivery/",
+      "first_seen": "2026-10-22"
     },
     {
       "category": "勒索病毒",
-      "title": "AUDIT TEAM對南韓組織進行資料敲詐攻擊",
-      "date": "2026-09-17",
-      "url": "https://asec.ahnlab.com/en/95450/"
+      "title": "SafePay勒索軟體攻擊逾600個關鍵基礎設施單位",
+      "date": "2026-10-20",
+      "url": "https://www.bleepingcomputer.com/news/security/cisa-and-fbi-safepay-ransomware-has-hit-over-600-critical-infrastructure-organizations/",
+      "first_seen": "2026-10-22"
     }
   ],
   "ai_analysis": [
-    "Microsoft緊急發布7項高風險漏洞（CVE-2026-83782、CVE-2026-62913、CVE-2026-70337等），涉及Windows Shell、Exchange、PowerShell等核心元件的遠端程式碼執行風險，建議立即評估公司環境版本並優先部署官方修補程式，防止被攻擊者遠端控制。",
-    "Plex Media Server存在多個高風險漏洞（CVE-2026-96656、CVE-2026-96655、CVE-2026-96654、CVE-2026-96652），可組成完整攻擊鏈導致伺服器被完全控制，若公司使用Plex應立即確認版本並套用安全更新，防止內部資料遭竊。",
-    "台灣多所大學遭駭客利用8個已知漏洞發動攻擊，提醒公司應盤點內部易受攻擊的系統版本，針對高風險漏洞（SiteGuard、Siemens Software Center等）採取即時修補或隔離措施，並加強APT攻擊監測。"
+    "Microsoft發布8個Windows高危漏洞涉及NTFS、Shell、Kernel等核心元件，其中Kernel與Hyper-V漏洞風險最高，建議立即進行系統清查並優先排程修補部署，特別是虛擬化環境需加速更新。",
+    "PHP核心漏洞CVE-2026-109618及109619已影響Palo Alto、Fortinet、Cisco等企業關鍵防禦產品，需緊急檢查各廠商產品版本並部署官方修補程式，以防止RCE風險。",
+    "台灣關鍵基礎設施遭CrazyHunter勒索軟體集團鎖定，單筆勒索額高達250萬美元，建議強化網路隔離、備份策略與入侵偵測機制，並加強員工資安意識培訓以防止初期入侵。"
   ],
-  "cve_radar": [
-    {
-      "cve_id": "CVE-2026-96656",
-      "title": "Plex Media Server 檔案路徑外部控制漏洞",
-      "cvss": 8.6,
-      "cvss_source": "NVD官方",
-      "exploited": true,
-      "action": "一週內更新",
-      "plain_title": "媒體播放伺服器軟體檔案寫入漏洞",
-      "plain_summary": "Plex 媒體伺服器軟體允許管理員寫入任何檔案位置，攻擊者可藉此植入惡意程式。該漏洞能與其他 4 個漏洞組合使用，形成完整的攻擊鏈，最終導致伺服器被完全控制，存儲的所有媒體和個人資料都會暴露風險中。"
-    },
-    {
-      "cve_id": "CVE-2026-106931",
-      "title": "SiteGuard Server Edition 作業系統指令注入漏洞",
-      "cvss": 8.5,
-      "cvss_source": "NVD官方",
-      "exploited": true,
-      "action": "一週內更新",
-      "plain_title": "網站防護軟體出現嚴重遠端控制漏洞",
-      "plain_summary": "SiteGuard Server Edition 被發現存在安全漏洞，等於說有人可以透過網路直接命令伺服器執行惡意程式，就像遠端控制一樣危險。因為這個軟體通常用來保護網站，若被攻擊者控制，會導致整個系統被完全接管，所有資料都可能被竊取或破壞。"
-    },
-    {
-      "cve_id": "CVE-2026-110936",
-      "title": "Siemens Software Center 搜尋路徑元素控制不當漏洞",
-      "cvss": 8.4,
-      "cvss_source": "NVD官方",
-      "exploited": true,
-      "action": "一週內更新",
-      "plain_title": "工業軟體中心程式碼執行漏洞",
-      "plain_summary": "Siemens Software Center 在尋找所需檔案時，會先檢查某些目錄，攻擊者可在這些位置放入假檔案。當軟體載入時，會執行駭客的惡意程式，導致系統完全被控制，對工業控制環境風險極高。"
-    },
-    {
-      "cve_id": "CVE-2026-96654",
-      "title": "Plex Media Server URI 編碼方案中性化不當漏洞",
-      "cvss": 6.9,
-      "cvss_source": "NVD官方",
-      "exploited": true,
-      "action": "持續觀察",
-      "plain_title": "媒體伺服器外掛程式被控制漏洞",
-      "plain_summary": "Plex 無法正確驗證網址參數，導致攻擊者能呼叫不該執行的功能。駭客可藉此繞過限制，逐步取得伺服器的各項功能控制權，最終達成完全接管目標。"
-    },
-    {
-      "cve_id": "CVE-2026-96655",
-      "title": "Plex Media Server 伺服器端請求偽造漏洞",
-      "cvss": 5.3,
-      "cvss_source": "NVD官方",
-      "exploited": true,
-      "action": "持續觀察",
-      "plain_title": "媒體伺服器網路請求欺騙漏洞",
-      "plain_summary": "Plex 伺服器被欺騙後，會代替攻擊者向內部網路或外部網站發送請求，等於幫攻擊者做壞事。駭客可藉此掃描公司內網、竊取其他系統資訊，或對外發動攻擊而不易被追蹤，隱蔽性很高。"
-    },
-    {
-      "cve_id": "CVE-2026-96652",
-      "title": "Plex Media Server 伺服器端請求偽造漏洞",
-      "cvss": 5.3,
-      "cvss_source": "NVD官方",
-      "exploited": true,
-      "action": "持續觀察",
-      "plain_title": "媒體伺服器認證令牌濫用漏洞",
-      "plain_summary": "只要掌握任何有效的存取令牌，攻擊者就能命令 Plex 伺服器向任意網址發送資料。這等於給了駭客一個『可信的代理人』身分，可以對外發動隱蔽攻擊，或將內部資訊洩露到攻擊者的伺服器。"
-    }
-  ],
+  "cve_radar": [],
   "tw_scam_events": [
     {
+      "date": "2026-10-21",
+      "type": "發票詐領、系統漏洞利用",
+      "title": "澎湖超商列印電子發票詐領案 涉及千萬獎項",
+      "summary": "澎湖發生利用未歸戶雲端電子發票證明聯詐領獎金案件，數名男子持多張大獎發票前往兌領，警檢查獲詐欺人士涉嫌利用系統驗證漏洞，已領走部分獎金。",
+      "source_name": "世界日報",
+      "source_url": "https://www.worldjournal.com/wj/story/121222/9828092",
+      "is_awareness_case": true
+    },
+    {
+      "date": "2026-10-21",
+      "type": "投資詐騙",
+      "title": "文山民眾接觸假冒師父投資詐騙遭警方攔阻",
+      "summary": "北市文山第二分局接獲銀行通報，一名婦人欲匯款10萬元予自稱投資理財師父的人士，警方與銀行人員即時察覺異常並成功阻止詐騙。",
+      "source_name": "台北市政府",
+      "source_url": "https://news.pchome.com.tw/public/taipei/20261021/index-79258370008687126016.html",
+      "is_awareness_case": true
+    },
+    {
+      "date": "2026-10-20",
+      "type": "釣魚簡訊、假冒商家",
+      "title": "八曜和茶蛞蝓事件衍生冒名折扣券釣魚詐騙",
+      "summary": "台中八曜和茶食安事件後，詐騙集團趁機冒充官方帳號發布假折扣券以竊取民眾個資，業者澄清未發放官方優惠活動。",
+      "source_name": "PChome新聞",
+      "source_url": "https://news.pchome.com.tw/living/cnews/20261020/index-79248783638131227009.html",
+      "is_awareness_case": true
+    },
+    {
       "date": "2026-10-18",
-      "type": "釣魚簡訊",
-      "title": "假停車費催繳簡訊詐騙猖獗",
-      "summary": "高雄警方揭露詐騙集團鎖定有車族，發送假停車費催繳簡訊，誘導點擊連結盜刷信用卡或轉帳至詐團帳戶",
-      "source_name": "自由時報",
-      "source_url": "https://news.ltn.com.tw/news/society/breakingnews/5610038"
-    },
-    {
-      "date": "2026-10-19",
-      "type": "個資外洩詐騙",
-      "title": "91APP遭駭客攻擊個資外洩",
-      "summary": "電商平台91APP資料庫遭攻擊，多家知名品牌客戶個資外洩，詐騙集團藉此發送假定期購詐騙信件，影響雙11購物安全",
-      "source_name": "今周刊",
-      "source_url": "https://www.businesstoday.com.tw/article/category/183030/post/202610190005/"
-    },
-    {
-      "date": "2026-10-14",
-      "type": "假冒客服詐騙",
-      "title": "假冒中華電信客服詐騙事件",
-      "summary": "詐騙集團假冒中華電信專員撥打電話，聲稱受害人名義遭冒用申請預付卡，企圖引導轉帳或提供個資",
-      "source_name": "ETtoday星光雲",
-      "source_url": "https://star.ettoday.net/news/3254502"
+      "type": "遊戲帳號詐騙",
+      "title": "天堂W遊戲帳號交易詐騙案",
+      "summary": "民眾在8591平台出售天堂W遊戲帳號，買家取得帳號與密碼後即盜帳，民眾損失21萬元。",
+      "source_name": "Yahoo新聞",
+      "source_url": "https://tw.news.yahoo.com/%E6%AF%8F%E6%97%A5%E6%8F%AD%E8%A9%90-%E5%A4%A9%E5%A0%82w-%E5%B8%B3%E8%99%9F%E8%AB%87%E5%A6%A521%E8%90%AC%E5%85%83%E4%BA%A4%E6%98%93-%E8%B3%A3%E5%AE%B6%E4%BA%A4%E5%87%BA%E5%AF%86%E7%A2%BC%E5%BE%8C%E9%81%AD%E7%9B%9C%E5%B8%B3-095158326.html",
+      "is_awareness_case": true
     }
   ],
   "risk_score": {
-    "total": 36,
+    "total": 32,
     "breakdown": [
       {
         "label": "漏洞風險",
-        "score": 100
+        "score": 96
       },
       {
         "label": "APT攻擊",
-        "score": 60
+        "score": 0
       },
       {
         "label": "勒索病毒",
-        "score": 0
+        "score": 22
       },
       {
         "label": "身份風險",
@@ -1220,11 +1326,17 @@ const DATA = {
       },
       {
         "label": "AI風險",
-        "score": 20
+        "score": 40
       }
     ]
   },
   "action_items": [
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-69902 Windows NTFS 遠端程式碼執行漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
     {
       "category": "公告確認",
       "title": "CVE-2026-83782 Windows Shell 遠端程式碼執行漏洞",
@@ -1233,13 +1345,19 @@ const DATA = {
     },
     {
       "category": "公告確認",
-      "title": "CVE-2026-62913 Microsoft Exchange Server 遠端程式碼執行漏洞",
+      "title": "CVE-2026-61359 Windows Storage 權限提升漏洞",
       "priority": "高",
       "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "CVE-2026-70337 Microsoft PowerShell 遠端程式碼執行漏洞",
+      "title": "CVE-2026-83709 Windows NTLM 權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-85868 Windows Common Log File System Driver 權限提升漏洞",
       "priority": "高",
       "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
@@ -1263,61 +1381,55 @@ const DATA = {
     },
     {
       "category": "公告確認",
-      "title": "CVE-2026-70197 .NET 遠端程式碼執行漏洞",
+      "title": "CVE-2026-109618 及 CVE-2026-109619 PHP 核心漏洞對 Palo Alto Networks 產品的影響",
       "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+      "detail": "Palo Alto Networks廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "Cisco Unified Intelligence Center SQL 隱碼攻擊漏洞",
+      "title": "PHP 核心 RCE 漏洞修補 (CVE-2026-109618 及 CVE-2026-109619)",
+      "priority": "高",
+      "detail": "Fortinet廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "影響 Cisco 產品的 PHP 漏洞 - 2026年10月",
       "priority": "高",
       "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
-      "category": "漏洞修補",
-      "title": "CVE-2026-96656：Plex Media Server 檔案路徑外部控制漏洞",
-      "priority": "中",
-      "detail": "CVSS 8.6（NVD官方），建議一週內更新"
+      "category": "公告確認",
+      "title": "Cisco Unified Communications Manager 不當存取控制漏洞",
+      "priority": "高",
+      "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
-      "category": "漏洞修補",
-      "title": "CVE-2026-106931：SiteGuard Server Edition 作業系統指令注入漏洞",
+      "category": "公告確認",
+      "title": "Google與Meta詐騙通報數達2萬件 與台股熱絡有關",
       "priority": "中",
-      "detail": "CVSS 8.5（NVD官方），建議一週內更新"
+      "detail": "來源：金管會。金管會公布2026年前三季詐騙通報激增至20,379件，推估與台股熱絡及AI爬蟲技術提升有關。"
     },
     {
-      "category": "漏洞修補",
-      "title": "CVE-2026-110936：Siemens Software Center 搜尋路徑元素控制不當漏洞",
+      "category": "公告確認",
+      "title": "金管會鼓勵銀行提供指定聯絡人服務防詐",
       "priority": "中",
-      "detail": "CVSS 8.4（NVD官方），建議一週內更新"
+      "detail": "來源：內政部警政署。金管會鼓勵銀行提供指定聯絡人服務，民眾於進行大額交易時可通知親友協助確認，目前已有24家銀行開辦此服務。"
     },
     {
       "category": "掃描比對",
-      "title": "銀狐（SilverFox）組織相關IOC比對",
+      "title": "Infostealer惡意程式活動相關IOC比對",
       "priority": "中",
-      "detail": "涉及類型：Domain、IP。建議比對內部防火牆/EDR日誌。"
-    },
-    {
-      "category": "教育宣導",
-      "title": "Mozilla、Google、Apple 聯合封鎖遭洩漏的 eMudhra 憑證",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
-    },
-    {
-      "category": "教育宣導",
-      "title": "WordPress 主機託管業者遭駭客植入後門，數百萬網站面臨風險",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
+      "detail": "涉及類型：IP、Domain。建議比對內部防火牆/EDR日誌。"
     }
   ],
   "category_counts": {
-    "kev": 6,
-    "vendor": 10,
-    "news": 13,
-    "ransomwareApt": 2
+    "kev": 0,
+    "vendor": 19,
+    "news": 12,
+    "ransomwareApt": 1
   }
 };
-const UPDATED_AT = "2026/10/21 09:28:29（台灣時間）";
+const UPDATED_AT = "2026/10/22 09:26:18（台灣時間）";
 document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
