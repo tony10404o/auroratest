@@ -612,5 +612,40 @@
     "date": "2026-10-00",
     "url": "https://www.bleepingcomputer.com/news/security/cisa-hackers-chain-plex-flaws-in-plex2shell-attacks-to-breach-servers/",
     "first_seen": "2026-10-22"
+  },
+  {
+    "category": "政府公告",
+    "title": "金管會公布詐騙通報激增至2萬件 與台股熱絡及AI技術提升有關",
+    "date": "2026-10-21",
+    "url": "https://www.setn.com/news/1925737",
+    "first_seen": "2026-10-22"
+  },
+  {
+    "category": "政府公告",
+    "title": "金管會鼓勵銀行提供指定聯絡人服務防詐",
+    "date": "2026-10-21",
+    "url": "",
+    "first_seen": "2026-10-22"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "PHP發布緊急修補程式 修復CVE-2026-109618及CVE-2026-109619兩個關鍵漏洞",
+    "date": "2026-10-20",
+    "url": "https://www.bleepingcomputer.com/news/security/php-ships-emergency-patches-for-critical-php2shell-flaws/",
+    "first_seen": "2026-10-22"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "Lazarus駭客採用後量子密碼學傳遞惡意軟體",
+    "date": "2026-10-20",
+    "url": "https://www.bleepingcomputer.com/news/security/lazarus-hackers-use-post-quantum-cryptography-for-malware-delivery/",
+    "first_seen": "2026-10-22"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "SafePay勒索軟體攻擊逾600個關鍵基礎設施單位",
+    "date": "2026-10-20",
+    "url": "https://www.bleepingcomputer.com/news/security/cisa-and-fbi-safepay-ransomware-has-hit-over-600-critical-infrastructure-organizations/",
+    "first_seen": "2026-10-22"
   }
 ]
