@@ -95,6 +95,13 @@
     "first_seen": "2026-10-21"
   },
   {
+    "category": "APT攻擊",
+    "title": "APT28入侵NATO海軍造船廠利用Hookedge後門",
+    "date": "2026-10-20",
+    "url": "https://cybersecuritynews.com/apt28-hackers/",
+    "first_seen": "2026-10-22"
+  },
+  {
     "category": "勒索病毒",
     "title": "Qilin 勒索軟體集團單月宣稱 11 個受害者",
     "date": "2026-10-14",
@@ -142,6 +149,13 @@
     "date": "2026-10-14",
     "url": "https://prtimes.jp/main/html/rd/p/000000030.000131909.html",
     "first_seen": "2026-10-21"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "Silent Lynx利用WinRAR漏洞針對CIS政府間諜活動",
+    "date": "2026-10-14",
+    "url": "https://thehackernews.com/2026/10/silent-lynx-exploits-winrar-flaw-to.html",
+    "first_seen": "2026-10-22"
   },
   {
     "category": "零時差漏洞",
@@ -263,6 +277,20 @@
     "first_seen": "2026-10-21"
   },
   {
+    "category": "政府公告",
+    "title": "資安署公告F5 BIG-IP APM高風險漏洞CVE-2026-94127",
+    "date": "2026-10-07",
+    "url": "https://www.nics.nat.gov.tw/core_business/information_security_information_sharing/Vulnerability_Alert_Announcements/",
+    "first_seen": "2026-10-22"
+  },
+  {
+    "category": "政府公告",
+    "title": "資安署警告Citrix NetScaler ADC與Gateway漏洞CVE-2026-88771、CVE-2026-88772",
+    "date": "2026-10-07",
+    "url": "https://www.nics.nat.gov.tw/core_business/information_security_information_sharing/Vulnerability_Alert_Announcements/",
+    "first_seen": "2026-10-22"
+  },
+  {
     "category": "APT攻擊",
     "title": "FortiGate VPN持續遭FortiBleed漏洞攻擊",
     "date": "2026-10-06",
@@ -338,6 +366,20 @@
     "date": "2026-10-02",
     "url": "https://moda.gov.tw/ACS/press/news/press/820",
     "first_seen": "2026-10-21"
+  },
+  {
+    "category": "政府公告",
+    "title": "資安署發布GitLab重大漏洞警示",
+    "date": "2026-10-02",
+    "url": "https://moda.gov.tw/ACS/",
+    "first_seen": "2026-10-22"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "Warlock勒索軟體利用SharePoint漏洞攻擊關鍵基礎設施",
+    "date": "2026-10-02",
+    "url": "https://industrialcyber.co/ransomware/symantec-reports-warlock-ransomware-group-targets-water-telecom-government-organizations-through-sharepoint-flaws/",
+    "first_seen": "2026-10-22"
   },
   {
     "category": "零時差漏洞",
@@ -558,15 +600,17 @@
     "url": "https://www.infosecurity-magazine.com/news/settra-ransomware-retail/"
   },
   {
-    "category": "勒索病毒",
-    "title": "AUDIT TEAM對日本藥廠與南韓電商之勒索攻擊",
-    "date": "2026-09-17",
-    "url": "https://asec.ahnlab.com/en/95450/"
+    "category": "零時差漏洞",
+    "title": "PHP核心漏洞CVE-2026-109618、CVE-2026-109619遠端程式碼執行",
+    "date": "2026-10-00",
+    "url": "https://krebsonsecurity.com/2026/10/widespread-php-flaw-may-cause-many-site-outages-today/",
+    "first_seen": "2026-10-22"
   },
   {
-    "category": "勒索病毒",
-    "title": "AUDIT TEAM對南韓組織進行資料敲詐攻擊",
-    "date": "2026-09-17",
-    "url": "https://asec.ahnlab.com/en/95450/"
+    "category": "零時差漏洞",
+    "title": "Plex軟體多個漏洞被鏈結利用攻擊伺服器",
+    "date": "2026-10-00",
+    "url": "https://www.bleepingcomputer.com/news/security/cisa-hackers-chain-plex-flaws-in-plex2shell-attacks-to-breach-servers/",
+    "first_seen": "2026-10-22"
   }
 ]
