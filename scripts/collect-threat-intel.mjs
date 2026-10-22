@@ -378,6 +378,7 @@ ${JSON.stringify(result, null, 2)}
 - headlines 要涵蓋原始資料中 international_news、gov_announcements、ransomware_apt 這三類新聞事件的「全部」項目（不限筆數、不要自行刪減，重複報導同一事件的可合併成一則），依重要程度（stars）由高到低排序；kev_vulnerabilities 與 vendor_advisories 各有專屬面板，不要放進 headlines
 - vendor_impact 從 vendor_advisories 轉換，保留原本筆數
 - global_events 從 kev_vulnerabilities（挑is_zero_day或known_ransomware_use的）、ransomware_apt、gov_announcements 轉換彙整，最多12則，依日期新到舊排序。這份清單是給IT人員「待處理」用的，只放需要我們實際評估/修補/應對的項目（漏洞修補、勒索軟體/APT威脅、政府資安公告），不要放純粹是「其他組織帳號或個資外洩」的新聞（例如某國政府機關VPN漏洞導致民眾個資外洩這類跟我們IT維運沒有直接行動關聯的外洩事件），這類資料外洩新聞如果重要可以放在headlines，但不要放進global_events
+- global_events 另外「不要放」以下類型，這些一律只放在 headlines：(1) 特定組織、企業、學校、供應商遭勒索軟體或駭客攻擊的受害事件（例如「某某公司/大學/供應商遭勒索軟體攻擊」「某某組織入侵某單位」）；(2) 勒索軟體集團或APT組織的活動統計、受害者數量、趨勢報告、組織介紹；(3) 與Aurora（台灣、使用Microsoft／Cisco／Fortinet／Palo Alto及一般企業常見軟體）無關、IT人員無法採取行動的國際事件。只放「IT人員需要實際動作」的項目：已遭利用或零時差的漏洞（需評估/修補）、與公司使用產品相關的威脅、台灣相關且有行動建議的威脅、TWCERT/資安署等政府公告。寧缺勿濫，沒有符合的就少放，甚至回傳空陣列
 - 所有評分（impact、stars）都是AI研判的參考值，請根據資料內容合理判斷，不要每個都給一樣的分數
 - 不需要回傳cve_radar欄位，這部分會用官方NVD資料另外處理
 - ai_analysis 是2-3項的重點清單（陣列，每項一個字串，不要自己加編號或符號），只挑「與公司有關」的重點：公司關注廠商（Microsoft、Cisco、Fortinet）的漏洞或公告、需要IT實際評估或修補的項目、台灣相關事件、待處理事項中最需要先處理的；與公司無關的國際新聞不要放進來。每項要具體寫出產品或漏洞名稱，並內容要能對應 headlines、vendor_impact、global_events 實際產生的項目，不要憑空提到資料中沒有的項目`;
@@ -487,6 +488,30 @@ function buildActionItems(result, cveRadar) {
   return items.slice(0, 15);
 }
 
+const REMOVED_EVENT_TITLES = new Set(
+  "Metaencryptor勒索軟體攻擊南韓相機及日本汽車供應商",
+  "大阪公立大學遭勒索軟體攻擊 教學系統癱瘓",
+  "大阪公立大學遭勒索軟體攻擊導致停課",
+  "大阪公立大學遭勒索軟體攻擊",
+  "日本軟銀子公司IDC Frontier遭勒索軟體攻擊",
+  "日本雲端服務商IDCフロンティア遭勒索軟體攻擊 495家客戶受影響",
+  "日本Keio大學遭勒索軟體攻擊業務系統中斷",
+  "JLR 遭勒索軟體攻擊損失創英國紀錄",
+  "Qilin 勒索軟體集團單月宣稱 11 個受害者",
+  "2026年上半期日本勒索軟體被害增加1.6倍，119個APT組織活躍",
+  "全球勒索軟體日報：10月7日新增24起攻擊事件",
+  "亞太地區勒索軟體事件急增27% 台灣排名全球第三",
+  "亞太地區勒索軟體事件月增近27%",
+  "SafePay勒索軟體攻擊逾600個關鍵基礎設施單位",
+  "APT28入侵NATO海軍造船廠利用Hookedge後門",
+  "ShinyHunters攻陷Cl0p勒索軟體集團網站",
+  "ShinyHunters聲稱入侵美國聯邦執法機構竊取敏感資料",
+  "Brevo行銷平臺遭駭客攻擊",
+  "Settra勒索軟體針對零售與製造業發動攻擊",
+  "APT-C-60 針對日本組織持續攻擊",
+  "IDCFクラウド遭勒索軟體攻擊導致495家企業受影響"
+);
+
 // ---------- 4. 主流程 ----------
 
 async function main() {
@@ -528,7 +553,8 @@ async function main() {
   };
 
   // 全球重大事件：累積歷史，讓「本週/本月」分頁能篩選出真正的歷史資料
-  const existingHistory = loadEventsHistory();
+  // 已人工審視、不該出現在「待處理事項」的歷史項目（受害事件／統計類新聞，僅留在新聞頭條）
+  const existingHistory = loadEventsHistory().filter((e) => !REMOVED_EVENT_TITLES.has(e.title));
   const todayTaipei = new Date().toLocaleDateString("sv-SE", { timeZone: "Asia/Taipei" }); // YYYY-MM-DD（台灣日期）
   const mergedHistory = mergeEventsHistory(existingHistory, dashboard.global_events || [], undefined, undefined, todayTaipei);
   saveEventsHistory(mergedHistory);
