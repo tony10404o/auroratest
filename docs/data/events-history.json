@@ -1,5 +1,12 @@
 [
   {
+    "category": "零時差漏洞",
+    "title": "PHP 核心 CVE-2026-109618、CVE-2026-109619 遠端程式碼執行漏洞",
+    "date": "2026-10-22",
+    "url": "https://krebsonsecurity.com/2026/10/widespread-php-flaw-may-cause-many-site-outages-today/",
+    "first_seen": "2026-10-23"
+  },
+  {
     "category": "APT攻擊",
     "title": "開源AI開發平台OpenCode遭入侵 API金鑰外洩風險",
     "date": "2026-10-21",
@@ -588,18 +595,6 @@
     "url": "https://www.ithome.com.tw/news/179189"
   },
   {
-    "category": "勒索病毒",
-    "title": "勒索軟體 Everest 攻擊晶睿通訊事件",
-    "date": "2026-09-18",
-    "url": "https://www.ithome.com.tw/tags/%E8%B3%87%E5%AE%89%E6%97%A5%E5%A0%B1"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "Settra勒索軟體針對零售與製造業發動攻擊",
-    "date": "2026-09-18",
-    "url": "https://www.infosecurity-magazine.com/news/settra-ransomware-retail/"
-  },
-  {
     "category": "零時差漏洞",
     "title": "PHP核心漏洞CVE-2026-109618、CVE-2026-109619遠端程式碼執行",
     "date": "2026-10-00",
@@ -612,6 +607,55 @@
     "date": "2026-10-00",
     "url": "https://www.bleepingcomputer.com/news/security/cisa-hackers-chain-plex-flaws-in-plex2shell-attacks-to-breach-servers/",
     "first_seen": "2026-10-22"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "GitLab 最高等級程式碼執行漏洞需立即更新",
+    "date": "2026-10-22",
+    "url": "https://www.bleepingcomputer.com/news/security/gitlab-warns-of-new-max-severity-code-execution-vulnerability/",
+    "first_seen": "2026-10-23"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Microsoft Azure Pipelines CVE-2026-105014 遠端程式碼執行漏洞",
+    "date": "2026-10-22",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-105014",
+    "first_seen": "2026-10-23"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Microsoft Exchange Online CVE-2026-96185 遠端程式碼執行漏洞",
+    "date": "2026-10-22",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-96185",
+    "first_seen": "2026-10-23"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Microsoft PowerShell 遠端程式碼執行及安全繞過漏洞",
+    "date": "2026-10-22",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-96251",
+    "first_seen": "2026-10-23"
+  },
+  {
+    "category": "政府公告",
+    "title": "資安署緊急公告 PHP 重大漏洞 CVE-2026-109618、CVE-2026-109619",
+    "date": "2026-10-22",
+    "url": "https://moda.gov.tw/ACS/press/news/press/",
+    "first_seen": "2026-10-23"
+  },
+  {
+    "category": "政府公告",
+    "title": "資安署緊急公告 Node.js 與 Go 安全更新",
+    "date": "2026-10-22",
+    "url": "https://moda.gov.tw/ACS/press/news/press/",
+    "first_seen": "2026-10-23"
+  },
+  {
+    "category": "政府公告",
+    "title": "TWCERT/CC 漏洞警訊：PHP 存在 CVE-2026-109618 和 CVE-2026-109619",
+    "date": "2026-10-22",
+    "url": "https://www.twcert.org.tw/tw/lp-169-1.html",
+    "first_seen": "2026-10-23"
   },
   {
     "category": "政府公告",
@@ -647,5 +691,26 @@
     "date": "2026-10-20",
     "url": "https://www.bleepingcomputer.com/news/security/cisa-and-fbi-safepay-ransomware-has-hit-over-600-critical-infrastructure-organizations/",
     "first_seen": "2026-10-22"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "Lazarus APT Operation FlashHole 間諜活動",
+    "date": "2026-10-20",
+    "url": "https://www.kaspersky.com/about/press-releases/kaspersky-identifies-new-lazarus-apt-campaign-utilizing-ai-and-post-quantum-encryption",
+    "first_seen": "2026-10-23"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "ARMORY CASTLE 利用 BeyondTrust 零時差漏洞入侵企業",
+    "date": "2026-10-19",
+    "url": "https://www.ithome.com.tw/news/",
+    "first_seen": "2026-10-23"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "Flax Typhoon 利用多個已知漏洞攻擊美國機構",
+    "date": "2026-10-12",
+    "url": "",
+    "first_seen": "2026-10-23"
   }
 ]
