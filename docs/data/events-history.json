@@ -1,5 +1,12 @@
 [
   {
+    "category": "勒索病毒",
+    "title": "SafePay勒索軟體集團活躍，全球已逾600個受害者",
+    "date": "2026-10-26",
+    "url": "https://www.ftvnews.com.tw/news/detail/2026A21W0109",
+    "first_seen": "2026-10-26"
+  },
+  {
     "category": "零時差漏洞",
     "title": "PHP 核心 CVE-2026-109618、CVE-2026-109619 遠端程式碼執行漏洞",
     "date": "2026-10-22",
@@ -547,54 +554,6 @@
     "url": "https://www.bleepingcomputer.com/news/security/new-windows-defender-zero-day-blocks-microsoft-antivirus-updates/"
   },
   {
-    "category": "APT攻擊",
-    "title": "中國駭客Red Heron利用Gitea漏洞攻擊多國",
-    "date": "2026-09-21",
-    "url": "https://www.ithome.com.tw/news/178932"
-  },
-  {
-    "category": "APT攻擊",
-    "title": "JFrog Artifactory漏洞遭駭客積極利用進行供應鏈攻擊",
-    "date": "2026-09-21",
-    "url": "https://www.ithome.com.tw/news/178902"
-  },
-  {
-    "category": "APT攻擊",
-    "title": "Chrome與Windows零時差漏洞遭中國駭客串連利用",
-    "date": "2026-09-21",
-    "url": "https://www.ithome.com.tw/news/178917"
-  },
-  {
-    "category": "APT攻擊",
-    "title": "FBI 遭駭客入侵竊取 PeopleSoft 零日漏洞",
-    "date": "2026-09-21",
-    "url": "https://www.bleepingcomputer.com/news/security/shinyhunters-claims-fbi-hack-data-theft-in-peoplesoft-zero-day-breach/"
-  },
-  {
-    "category": "APT攻擊",
-    "title": "中國駭客利用 WordPress 與 Zyxel 漏洞竊取政府資料",
-    "date": "2026-09-21",
-    "url": "https://www.bleepingcomputer.com/news/security/chinese-hackers-exploit-wordpress-zyxel-flaws-to-steal-govt-data/"
-  },
-  {
-    "category": "APT攻擊",
-    "title": "新型 Windows 惡意軟體使用 AI 決策進行攻擊",
-    "date": "2026-09-21",
-    "url": "https://www.bleepingcomputer.com/news/security/new-closedquorum-windows-malware-uses-ai-for-attack-decisions/"
-  },
-  {
-    "category": "政府公告",
-    "title": "台灣資安日倡議全民防範意識提升",
-    "date": "2026-09-21",
-    "url": "https://www.cna.com.tw/news/afe/202609210105.aspx"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "Brevo行銷平臺遭駭客攻擊",
-    "date": "2026-09-21",
-    "url": "https://www.ithome.com.tw/news/179189"
-  },
-  {
     "category": "零時差漏洞",
     "title": "PHP核心漏洞CVE-2026-109618、CVE-2026-109619遠端程式碼執行",
     "date": "2026-10-00",
@@ -656,6 +615,27 @@
     "date": "2026-10-22",
     "url": "https://www.twcert.org.tw/tw/lp-169-1.html",
     "first_seen": "2026-10-23"
+  },
+  {
+    "category": "政府公告",
+    "title": "PHP釋出緊急安全更新，修補CVE-2026-109618、CVE-2026-109619",
+    "date": "2026-10-22",
+    "url": "https://moda.gov.tw/ACS/",
+    "first_seen": "2026-10-26"
+  },
+  {
+    "category": "政府公告",
+    "title": "Node.js與Go緊急安全更新，資安署籲請加速修補遠端執行與憑證攔截風險",
+    "date": "2026-10-22",
+    "url": "https://moda.gov.tw/ACS/press/news/press/820",
+    "first_seen": "2026-10-26"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "俄羅斯APT28入侵北約成員國造船與防務企業",
+    "date": "2026-10-22",
+    "url": "https://www.ithome.com.tw/news/179889",
+    "first_seen": "2026-10-26"
   },
   {
     "category": "政府公告",
