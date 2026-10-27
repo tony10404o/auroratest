@@ -341,154 +341,221 @@
 const DATA = {
   "headlines": [
     {
-      "icon": "🦠",
-      "title": "SafePay勒索軟體全球逾600受害者，CISA聯合警告",
-      "subtitle": "美國官方聯合發布警告，SafePay集團透過外洩密碼與已知漏洞發動攻擊",
+      "icon": "🎯",
+      "title": "PHP雙重漏洞爆發已在野外被成功利用",
+      "subtitle": "CVSS 9.2關鍵等級，未認證遠端程式碼執行，需立即修補",
       "impact": "高",
       "stars": 5,
-      "url": "https://www.ftvnews.com.tw/news/detail/2026A21W0109"
+      "url": "https://www.bleepingcomputer.com/news/security/php2shell-security-flaws-now-sucessfully-exploited-in-the-wild/"
     },
     {
       "icon": "🎯",
-      "title": "Microsoft多個高危漏洞需緊急修補",
-      "subtitle": ".NET、ASP.NET Core、Brotli解碼器多個RCE與權限提升漏洞",
+      "title": "Brotli壓縮庫『HTTP2Shell』漏洞引發緊急修補",
+      "subtitle": "Web伺服器關鍵漏洞，HTTP/2請求可執行程式碼",
       "impact": "高",
       "stars": 5,
-      "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-70197"
-    },
-    {
-      "icon": "📢",
-      "title": "資安署緊急公告：Node.js、Go、PHP漏洞需加速修補",
-      "subtitle": "三項政府機構聯合發布，涵蓋RCE與憑證攔截風險",
-      "impact": "高",
-      "stars": 5
+      "url": "https://www.bleepingcomputer.com/news/security/critical-http2shell-brotli-vulnerability-triggers-emergency-patches/"
     },
     {
       "icon": "🕵️",
-      "title": "俄羅斯APT28針對北約防務企業發動間諜攻擊",
-      "subtitle": "瞄準造船、飛機製造等防務產業，竊取認證並建立後門",
-      "impact": "高",
-      "stars": 4,
-      "url": "https://www.ithome.com.tw/news/179889"
-    },
-    {
-      "icon": "🎯",
-      "title": "PHP關鍵漏洞CVE-2026-109618、109619遭積極利用",
-      "subtitle": "Palo Alto Networks警示PHP漏洞對其產品影響，已有攻擊活動",
+      "title": "91APP遭ARTEX AI自動化攻擊工具入侵",
+      "subtitle": "利用未修補Appsmith漏洞，盜取訂單資料，日韓美亦有類似案例",
       "impact": "高",
       "stars": 5,
-      "url": "https://security.paloaltonetworks.com/CVE-2026-109618"
-    },
-    {
-      "icon": "🦠",
-      "title": "91APP訂單資料庫遭AI自動化工具攻擊",
-      "subtitle": "內部Appsmith工具未更新導致入侵，11天後才完全阻斷",
-      "impact": "高",
-      "stars": 4,
-      "url": "https://technews.tw/2026/10/23/91app-ky-20261022/"
-    },
-    {
-      "icon": "🔐",
-      "title": "eMudhra根憑證遭撤銷，Cisco發布緊急通知",
-      "subtitle": "根憑證與中級CA緊急撤銷，可能影響企業通訊與驗證",
-      "impact": "高",
-      "stars": 4,
-      "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-emudhra-info-ScS22A1r?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Informational%20for%20Emergency%20Distrust%20of%20eMudhra%20Root%20and%20Intermediate%20Certificate%20Authorities%26vs_k=1"
-    },
-    {
-      "icon": "🦠",
-      "title": "ShinyHunters勒索組織與資安業者內鬼勾結",
-      "subtitle": "加拿大資安業者主管遭逮，涉嫌協助經營勒索談判網站",
-      "impact": "中",
-      "stars": 3,
-      "url": "https://www.ithome.com.tw/news/179889"
+      "url": "https://www.ithome.com.tw/news/179923"
     },
     {
       "icon": "⚠️",
-      "title": "AI編碼工具遭劫持，downloads資料夾成入侵點",
-      "subtitle": "新型AI工具安全威脅，駭客利用特殊設定檔案進行攻擊",
+      "title": "資安署：新型態AI攻擊來襲企業防護策略",
+      "subtitle": "呼籲企業穩紮資安基本功應對複雜威脅",
       "impact": "中",
-      "stars": 3,
-      "url": "https://www.bleepingcomputer.com/news/security/ai-coding-agents-hijacked-using-agentsmd-file-in-downloads-folder/"
-    },
-    {
-      "icon": "⚠️",
-      "title": "BlackX UEFI韌體惡意軟體繞過安全啟動",
-      "subtitle": "Baton Drop漏洞被利用破壞最底層安全機制",
-      "impact": "高",
       "stars": 4,
-      "url": "https://www.bleepingcomputer.com/news/security/blackx-uefi-bootkit-exploits-baton-drop-flaw-to-bypass-secure-boot/"
-    },
-    {
-      "icon": "📢",
-      "title": "資安署警示新型AI攻擊威脅，呼籲企業強化防護",
-      "subtitle": "政府提出具體防護策略，籲請企業強化資安基本功",
-      "impact": "中",
-      "stars": 3
+      "url": "https://moda.gov.tw/ACS/"
     },
     {
       "icon": "🎯",
-      "title": "Plex多漏洞攻擊鏈遭利用植入挖礦軟體與後門",
-      "subtitle": "四個CVE組成的攻擊鏈，目標影音串流平台",
+      "title": "TWCERT警訊：Go、Node.js、PHP發布安全性更新",
+      "subtitle": "三大開發環境發現重大漏洞，需儘速確認並進行修補",
+      "impact": "高",
+      "stars": 4,
+      "url": "https://www.twcert.org.tw/tw/lp-169-1.html"
+    },
+    {
+      "icon": "🦠",
+      "title": "前滲透測試人員用AI工具竊取800萬筆客戶資料",
+      "subtitle": "離職員工濫用ARTEX工具盜取公司資料庫，涉及大量個人隱私",
       "impact": "中",
       "stars": 3,
-      "url": "https://www.ithome.com.tw/news/179896"
+      "url": "https://www.bleepingcomputer.com/news/security/former-pentester-used-artex-ai-to-steal-82-million-data-records/"
+    },
+    {
+      "icon": "📰",
+      "title": "哥本哈根大學資料外洩影響52萬5千人",
+      "subtitle": "知名學術機構遭駭客入侵，大量師生個資被竊取",
+      "impact": "中",
+      "stars": 2,
+      "url": "https://www.bleepingcomputer.com/news/security/university-of-copenhagen-data-breach-exposes-data-of-525-000-people/"
+    },
+    {
+      "icon": "📰",
+      "title": "DreamHost虛擬主機平台發生安全事件強制重設密碼",
+      "subtitle": "內部憑證外洩，已強制用戶重設電郵及FTP帳號密碼",
+      "impact": "中",
+      "stars": 3,
+      "url": "https://www.bleepingcomputer.com/news/security/dreamhost-forces-email-ftp-sftp-password-resets-in-ongoing-incident/"
+    },
+    {
+      "icon": "🦠",
+      "title": "Zeabur雲端平台遭駭宣布年底停止營運",
+      "subtitle": "內部憑證外洩，Railway與OpenCode平台亦傳金鑰外洩問題",
+      "impact": "低",
+      "stars": 2,
+      "url": "https://klab.tw/2026/10/october-2026-security-incidents/"
+    },
+    {
+      "icon": "📰",
+      "title": "中國男子因3600萬美元加密貨幣詐騙案被引渡",
+      "subtitle": "涉重大虛擬貨幣詐騙案犯嫌被中國引渡至美國面臨司法",
+      "impact": "低",
+      "stars": 1,
+      "url": "https://www.bleepingcomputer.com/news/security/chinese-man-extradited-for-role-in-36-million-cryptocurrency-scam/"
     }
   ],
   "vendor_impact": [
     {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-70197 .NET 和 Visual Studio 遠端程式碼執行漏洞",
+      "icon": "🔥",
+      "vendor": "Palo Alto",
+      "title": "CVE-2026-111497 Brotli漏洞對Palo Alto Networks產品的影響",
       "impact": "高",
-      "category": "開發工具與框架",
-      "key_asset": ".NET、Visual Studio",
-      "ai_suggestion": "優先評估內部.NET與Visual Studio使用情況，盡速套用官方安全更新，檢查開發環境與生產伺服器版本"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-102870 ASP.NET Core 遠端程式碼執行漏洞",
-      "impact": "高",
-      "category": "網頁應用框架",
-      "key_asset": "ASP.NET Core",
-      "ai_suggestion": "立即清查ASP.NET Core應用版本，評估影響範圍並排程更新，檢查Web伺服器運行環境"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-114148 ASP.NET Core 權限提升漏洞",
-      "impact": "高",
-      "category": "網頁應用框架",
-      "key_asset": "ASP.NET Core",
-      "ai_suggestion": "評估ASP.NET Core應用的權限配置風險，與RCE漏洞一併規劃修補，強化身分驗證機制"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-111497 Brotli 解碼器緩衝區溢位漏洞",
-      "impact": "高",
-      "category": "系統元件",
-      "key_asset": "Brotli編碼庫",
-      "ai_suggestion": "檢查Windows與應用程式中的Brotli使用狀況，評估是否需更新受影響版本，特別關注Web伺服器"
-    },
-    {
-      "icon": "🔀",
-      "vendor": "Cisco",
-      "title": "eMudhra 根憑證及中級憑證授權單位緊急撤銷資訊通知",
-      "impact": "高",
-      "category": "身分驗證服務",
-      "key_asset": "eMudhra根憑證、中級CA",
-      "ai_suggestion": "立即清查企業系統中使用eMudhra憑證的應用，準備廢除並更換為信任的憑證，測試新憑證部署"
+      "category": "Web安全、防火牆",
+      "key_asset": "Palo Alto Networks防火牆及網關設備",
+      "ai_suggestion": "立即檢查防火牆版本並向Palo Alto申請緊急修補，評估是否需要臨時WAF規則防護HTTP/2請求攻擊"
     },
     {
       "icon": "🔥",
       "vendor": "Palo Alto",
-      "title": "CVE-2026-109618、CVE-2026-109619 PHP 關鍵漏洞對 Palo Alto Networks 產品的影響",
+      "title": "CVE-2026-109618/109619 PHP關鍵漏洞對Palo Alto產品的影響",
       "impact": "高",
-      "category": "應用防火牆與安全",
-      "key_asset": "Palo Alto Networks產品",
-      "ai_suggestion": "評估公司Palo Alto產品是否受PHP漏洞影響，聯繫廠商確認修補版本及部署計畫，優先修補"
+      "category": "應用程式安全",
+      "key_asset": "Palo Alto應用防火牆、威脅防護模組",
+      "ai_suggestion": "更新威脅簽章及IPS規則以檢測PHP攻擊模式，建議啟用嚴格的Application層防護政策"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-83519 Windows錯誤回報遠端程式碼執行漏洞",
+      "impact": "高",
+      "category": "作業系統核心",
+      "key_asset": "Windows Server、Windows用戶端系統",
+      "ai_suggestion": "優先級最高，立即部署Windows更新至最新版本，確保所有Server及Client端設備均已修補此漏洞"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-102870 ASP.NET Core遠端程式碼執行漏洞",
+      "impact": "高",
+      "category": "應用程式框架",
+      "key_asset": "ASP.NET Core應用伺服器",
+      "ai_suggestion": "檢查所有.NET應用伺服器版本，立即更新至安全版本，並重新部署託管應用程式"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-70197 .NET及Visual Studio遠端程式碼執行漏洞",
+      "impact": "高",
+      "category": "開發環境、應用框架",
+      "key_asset": ".NET Runtime、Visual Studio開發工具",
+      "ai_suggestion": "確保開發及生產環境.NET Runtime版本已更新，檢查使用此框架的所有應用程式"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-70338 PowerShell安全功能繞過漏洞",
+      "impact": "高",
+      "category": "系統管理、指令行工具",
+      "key_asset": "PowerShell引擎、遠端管理工具",
+      "ai_suggestion": "立即更新PowerShell至最新版本，加強PowerShell執行政策及日誌審核，防止攻擊者繞過安全機制"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-69923 Windows AI權限提升漏洞",
+      "impact": "中",
+      "category": "AI基礎設施、核心服務",
+      "key_asset": "Windows AI模組、本機權限驗證服務",
+      "ai_suggestion": "排程部署Windows累月更新，評估組織內Windows AI功能使用情形後進行修補"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-69926 Desktop Window Manager權限提升漏洞",
+      "impact": "中",
+      "category": "桌面環境、UI服務",
+      "key_asset": "Windows桌面環境、圖形渲染服務",
+      "ai_suggestion": "納入月度Windows Update排程，與其他中危漏洞一併評估修補優先級"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-70054 Windows NetBIOS權限提升漏洞",
+      "impact": "中",
+      "category": "網路服務、檔案共享",
+      "key_asset": "Windows檔案共享、NetBIOS服務",
+      "ai_suggestion": "確認內網使用NetBIOS的系統版本，評估後續更新排程，考慮禁用不必要的NetBIOS服務"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-96311 Windows網路清單服務竄改漏洞",
+      "impact": "中",
+      "category": "網路服務、系統設定",
+      "key_asset": "Windows網路清單服務、網路探索機制",
+      "ai_suggestion": "納入常規更新計畫，監控內網NetBIOS流量異常"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-96234 .NET資訊洩露漏洞",
+      "impact": "中",
+      "category": "應用程式框架",
+      "key_asset": ".NET應用程式、執行時期庫",
+      "ai_suggestion": "檢查應用程式日誌是否存在敏感資訊洩露跡象，更新.NET Runtime同時檢視應用程式記錄機制"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-105728 Dynamics Business Central資訊洩露漏洞",
+      "impact": "低",
+      "category": "ERP系統、商務應用",
+      "key_asset": "Dynamics Business Central雲端應用",
+      "ai_suggestion": "若有使用Dynamics Business Central，確認SaaS環境自動更新狀態，評估資訊存取控制"
+    },
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "PHP漏洞對Cisco產品的影響：2026年10月",
+      "impact": "高",
+      "category": "應用程式安全、管理平台",
+      "key_asset": "Cisco網管系統、PHP應用元件",
+      "ai_suggestion": "檢查Cisco設備是否使用PHP元件，申請廠商修補程式並評估臨時隔離策略"
+    },
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "Cisco安全公告：緊急停用eMudhra根憑證和中介憑證授權",
+      "impact": "中",
+      "category": "身分驗證服務、憑證管理",
+      "key_asset": "Cisco設備、PKI基礎設施",
+      "ai_suggestion": "檢查組織PKI系統是否信任eMudhra根憑證，進行憑證撤銷清單更新，重新簽發相關憑證"
+    },
+    {
+      "icon": "🛡️",
+      "vendor": "Fortinet",
+      "title": "多個Node.js安全漏洞",
+      "impact": "中",
+      "category": "應用程式框架、開發環境",
+      "key_asset": "Node.js執行時期、應用伺服器",
+      "ai_suggestion": "檢查生產環境Node.js版本，立即更新至安全版本，重新測試並部署基於Node.js的應用"
     }
   ],
   "global_events": [
@@ -1030,24 +1097,6 @@ const DATA = {
     },
     {
       "category": "零時差漏洞",
-      "title": "Check Point 安全管理伺服器路徑遍歷零日漏洞",
-      "date": "2026-09-22",
-      "url": "https://www.cna.com.tw"
-    },
-    {
-      "category": "零時差漏洞",
-      "title": "Check Point VPN 憑證驗證零日漏洞",
-      "date": "2026-09-22",
-      "url": "https://www.cna.com.tw"
-    },
-    {
-      "category": "零時差漏洞",
-      "title": "Windows Defender 零日漏洞阻止防毒更新",
-      "date": "2026-09-22",
-      "url": "https://www.bleepingcomputer.com/news/security/new-windows-defender-zero-day-blocks-microsoft-antivirus-updates/"
-    },
-    {
-      "category": "零時差漏洞",
       "title": "PHP核心漏洞CVE-2026-109618、CVE-2026-109619遠端程式碼執行",
       "date": "2026-10-00",
       "url": "https://krebsonsecurity.com/2026/10/widespread-php-flaw-may-cause-many-site-outages-today/",
@@ -1059,6 +1108,27 @@ const DATA = {
       "date": "2026-10-00",
       "url": "https://www.bleepingcomputer.com/news/security/cisa-hackers-chain-plex-flaws-in-plex2shell-attacks-to-breach-servers/",
       "first_seen": "2026-10-22"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "PHP2Shell漏洞已在野外被成功利用",
+      "date": "2026-10-26",
+      "url": "https://www.bleepingcomputer.com/news/security/php2shell-security-flaws-now-sucessfully-exploited-in-the-wild/",
+      "first_seen": "2026-10-27"
+    },
+    {
+      "category": "零時差漏洞",
+      "title": "Brotli『HTTP2Shell』漏洞引發緊急修補",
+      "date": "2026-10-26",
+      "url": "https://www.bleepingcomputer.com/news/security/critical-http2shell-brotli-vulnerability-triggers-emergency-patches/",
+      "first_seen": "2026-10-27"
+    },
+    {
+      "category": "APT攻擊",
+      "title": "91APP遭ARTEX AI自動化攻擊工具入侵",
+      "date": "2026-10-23",
+      "url": "https://www.ithome.com.tw/news/179923",
+      "first_seen": "2026-10-27"
     },
     {
       "category": "零時差漏洞",
@@ -1132,6 +1202,27 @@ const DATA = {
     },
     {
       "category": "政府公告",
+      "title": "TWCERT警訊：Go存在高風險安全漏洞",
+      "date": "2026-10-22",
+      "url": "https://www.twcert.org.tw/tw/lp-169-1.html",
+      "first_seen": "2026-10-27"
+    },
+    {
+      "category": "政府公告",
+      "title": "TWCERT警訊：Node.js發布安全性更新修補重大漏洞",
+      "date": "2026-10-22",
+      "url": "https://www.twcert.org.tw/tw/lp-169-1.html",
+      "first_seen": "2026-10-27"
+    },
+    {
+      "category": "政府公告",
+      "title": "TWCERT警訊：PHP發布安全性更新修補重大漏洞",
+      "date": "2026-10-22",
+      "url": "https://www.twcert.org.tw/tw/lp-169-1.html",
+      "first_seen": "2026-10-27"
+    },
+    {
+      "category": "政府公告",
       "title": "金管會公布詐騙通報激增至2萬件 與台股熱絡及AI技術提升有關",
       "date": "2026-10-21",
       "url": "https://www.setn.com/news/1925737",
@@ -1143,6 +1234,13 @@ const DATA = {
       "date": "2026-10-21",
       "url": "",
       "first_seen": "2026-10-22"
+    },
+    {
+      "category": "政府公告",
+      "title": "資安署：新型態AI攻擊來襲企業防護策略",
+      "date": "2026-10-21",
+      "url": "https://moda.gov.tw/ACS/",
+      "first_seen": "2026-10-27"
     },
     {
       "category": "零時差漏洞",
@@ -1188,43 +1286,56 @@ const DATA = {
     }
   ],
   "ai_analysis": [
-    "Microsoft ASP.NET Core與.NET框架多個高危RCE漏洞（CVE-2026-70197、CVE-2026-102870、CVE-2026-114148），需立即評估內部應用版本並排程修補，防止遠端攻擊入侵",
-    "資安署發布PHP、Node.js、Go三項政府緊急公告，涉及RCE與憑證攔截風險，建議優先盤點相關開發環境與伺服器版本，排程加速更新",
-    "SafePay勒索軟體全球逾600受害者，CISA聯合警告，主要透過外洩密碼與已知漏洞攻擊，需加強密碼管理、漏洞修補與入侵偵測以降低風險"
+    "PHP2Shell漏洞（CVE-2026-109618/109619）CVSS 9.2關鍵等級已在野外被利用，未認證攻擊者可直接執行遠端程式碼，WordPress等PHP網站面臨高風險，需立即檢查PHP版本並緊急部署修補程式。",
+    "Microsoft Windows、ASP.NET Core、PowerShell等多項關鍵元件發現遠端程式碼執行及權限提升漏洞，建議優先部署CVE-2026-83519及CVE-2026-102870修補，並加速推進11月月度Patch Tuesday更新排程。",
+    "Palo Alto Networks防火牆及Cisco網管系統均受Brotli『HTTP2Shell』漏洞影響，需立即聯繫廠商申請緊急修補並評估是否部署臨時WAF規則防護HTTP/2攻擊向量。"
   ],
-  "cve_radar": [],
+  "cve_radar": [
+    {
+      "cve_id": "CVE-2026-109618",
+      "title": "PHP記憶體損毀漏洞允許遠端程式碼執行",
+      "cvss": 9.2,
+      "cvss_source": "NVD官方",
+      "exploited": true,
+      "action": "立即更新",
+      "plain_title": "PHP網頁程式語言出現嚴重安全漏洞",
+      "plain_summary": "PHP是全球廣泛使用的網站程式語言，被發現有記憶體損毀的嚴重漏洞。攻擊者不需要登入帳號就能利用這個漏洞在伺服器上執行惡意程式，可能導致網站被竄改、資料被竊取或伺服器被控制。所有使用PHP的網站都需要儘快安裝修補程式。"
+    },
+    {
+      "cve_id": "CVE-2026-109619",
+      "title": "PHP過期請求狀態漏洞允許遠端程式碼執行",
+      "cvss": 9.2,
+      "cvss_source": "NVD官方",
+      "exploited": true,
+      "action": "立即更新",
+      "plain_title": "PHP又發現另一個危險漏洞",
+      "plain_summary": "PHP同日發現第二個嚴重漏洞，與第一個漏洞性質不同。同樣允許攻擊者在不需登入的情況下執行惡意程式。這表示PHP目前存在多個重大安全風險，使用者應立即檢查系統版本並更新至最新修補版本，以保護伺服器安全。"
+    }
+  ],
   "tw_scam_events": [
     {
-      "date": "2026-10-26",
-      "type": "假投資詐騙",
-      "title": "詐團利用「免費壽司餐券」與贈品進行放長線釣大魚詐騙",
-      "summary": "詐騙集團以「免費壽司餐券」廣告吸引民眾加入LINE群組，每日發放購物金與禮券降低被害人戒心，隨後推銷虛假投資計畫，盤點資產後誘騙被害人增貸與購買黃金，最後詐稱需繳稅金才可領收益而失聯。",
-      "source_name": "聯合新聞網",
-      "source_url": "https://udn.com/news/story/124490/9793881"
+      "date": "2026-10-23",
+      "type": "釣魚簡訊",
+      "title": "Threads社群現蝦皮假優惠釣魚詐騙",
+      "summary": "詐騙集團在Threads平台冒用蝦皮帳號，以「滿千折999」優惠吸引民眾，誘騙提供手機號碼及簡訊驗證碼進行詐騙。",
+      "source_name": "HakkaNews / MyGoPen",
+      "source_url": "https://hakkanews.tw/2026/10/23/308545/"
     },
     {
-      "date": "2026-10-26",
-      "type": "假網拍詐騙",
-      "title": "棒球周邊假網拍詐騙案，詐騙分子冒充賣家騙22名球迷",
-      "summary": "詐騙分子利用亞運棒球熱潮，在網路假冒棒球周邊商品賣家，實際進行詐欺，查獲2名嫌犯共騙得22名球迷約新台幣10萬元。",
-      "source_name": "聯合新聞網",
-      "source_url": "https://udn.com/news/story/124490/9833773"
-    },
-    {
-      "date": "2026-10-25",
-      "type": "eToro投資詐騙",
-      "summary": "詐騙集團假冒投資公司名義，透過LINE向被害人宣稱下載「eToro」投資APP進行面交儲值投資，製作假單據製造金流斷點，7名車手從中取款騙走被害人2000多萬元。",
-      "title": "車手取款詐騙案，被害人失逾2千萬",
-      "source_name": "中華民國全球資訊網",
-      "source_url": "https://cdns.com.tw/articles/1479333"
+      "date": "2026-10-21",
+      "type": "釣魚簡訊",
+      "title": "釣魚連結詐騙財損暴增317%",
+      "summary": "8月釣魚連結詐騙受理505件，財損5451萬元，較去年同期暴增317.7%，最常見為冒充電信及交通收費通知。",
+      "source_name": "刑事警察局",
+      "source_url": "https://udn.com/news/story/124490/9755672"
     }
   ],
   "risk_score": {
-    "total": 37,
+    "total": 43,
     "breakdown": [
       {
         "label": "漏洞風險",
-        "score": 48
+        "score": 80
       },
       {
         "label": "APT攻擊",
@@ -1232,7 +1343,7 @@ const DATA = {
       },
       {
         "label": "勒索病毒",
-        "score": 66
+        "score": 44
       },
       {
         "label": "身份風險",
@@ -1240,110 +1351,110 @@ const DATA = {
       },
       {
         "label": "AI風險",
-        "score": 40
+        "score": 60
       }
     ]
   },
   "action_items": [
     {
-      "category": "公告確認",
-      "title": "CVE-2026-70197 .NET 和 Visual Studio 遠端程式碼執行漏洞",
+      "category": "漏洞修補",
+      "title": "CVE-2026-109618：PHP記憶體損毀漏洞允許遠端程式碼執行",
       "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+      "detail": "CVSS 9.2（NVD官方），建議立即更新"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-109619：PHP過期請求狀態漏洞允許遠端程式碼執行",
+      "priority": "高",
+      "detail": "CVSS 9.2（NVD官方），建議立即更新"
     },
     {
       "category": "公告確認",
-      "title": "CVE-2026-102870 ASP.NET Core 遠端程式碼執行漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-114148 ASP.NET Core 權限提升漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-111497 Brotli 解碼器緩衝區溢位漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "eMudhra 根憑證及中級憑證授權單位緊急撤銷資訊通知",
-      "priority": "高",
-      "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-109618、CVE-2026-109619 PHP 關鍵漏洞對 Palo Alto Networks 產品的影響",
+      "title": "CVE-2026-111497 Brotli漏洞對Palo Alto Networks產品的影響（嚴重程度：關鍵）",
       "priority": "高",
       "detail": "Palo Alto Networks廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "Node.js 與 Go 釋出緊急安全更新，資安署籲請加速修補遠端執行與憑證攔截風險",
-      "priority": "中",
-      "detail": "來源：資安署。資安署發布緊急安全更新警訊，Node.js與Go程式語言修補重大漏洞，籲請政府與企業儘速更新以防範遠端程式碼執行攻擊。"
+      "title": "CVE-2026-109618 PHP關鍵漏洞（CVE-2026-109618、CVE-2026-109619）對Palo Alto Networks產品的影響（嚴重程度：高）",
+      "priority": "高",
+      "detail": "Palo Alto Networks廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "PHP釋出緊急安全更新，修補重大漏洞CVE-2026-109618、CVE-2026-109619",
-      "priority": "中",
-      "detail": "來源：資安署。資安署呼籲企業與開發人員儘速完成PHP版本更新，修補兩個可導致遠端程式碼執行的重大漏洞。"
+      "title": "CVE-2026-83519 Windows錯誤回報遠端程式碼執行漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "新型態 AI 攻擊來襲，資安署提出企業防護策略與行動",
+      "title": "CVE-2026-102870 ASP.NET Core遠端程式碼執行漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-70197 .NET及Visual Studio遠端程式碼執行漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-70338 PowerShell安全功能繞過漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "PHP漏洞對Cisco產品的影響：2026年10月",
+      "priority": "高",
+      "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "新型態AI攻擊來襲資安署提出企業防護策略",
       "priority": "中",
-      "detail": "來源：資安署。資安署警告企業面臨新型AI驅動攻擊威脅，呼籲企業穩紮「資安基本功」並提出具體防護策略與行動方案。"
+      "detail": "來源：資安署。資安署針對AI攻擊風險提出企業防護策略，呼籲穩紮「資安基本功」應對複雜威脅。"
+    },
+    {
+      "category": "公告確認",
+      "title": "Go存在高風險安全漏洞警訊",
+      "priority": "中",
+      "detail": "來源：TWCERT/CC。Go出現高風險漏洞CVE-2026-111943，需儘速確認並進行安全修補處置。"
+    },
+    {
+      "category": "公告確認",
+      "title": "Node.js發布安全性更新修補重大漏洞",
+      "priority": "中",
+      "detail": "來源：TWCERT/CC。Node.js修補4個重大資安漏洞，企業應儘速進行系統更新以降低風險。"
+    },
+    {
+      "category": "公告確認",
+      "title": "PHP發布安全性更新修補重大漏洞",
+      "priority": "中",
+      "detail": "來源：TWCERT/CC。PHP發現兩個重大漏洞可導致遠端程式碼執行，需立即更新至安全版本。"
     },
     {
       "category": "掃描比對",
-      "title": "PHP2Shell漏洞攻擊活動相關IOC比對",
+      "title": "PHP2Shell漏洞攻擊相關IOC比對",
       "priority": "中",
-      "detail": "涉及類型：URL、Domain。建議比對內部防火牆/EDR日誌。"
+      "detail": "涉及類型：IP。建議比對內部防火牆/EDR日誌。"
     },
     {
       "category": "掃描比對",
-      "title": "Plex2Shell漏洞攻擊鏈相關IOC比對",
+      "title": "PHP2Shell C2域名相關IOC比對",
       "priority": "中",
-      "detail": "涉及類型：CVE、Hash。建議比對內部防火牆/EDR日誌。"
-    },
-    {
-      "category": "教育宣導",
-      "title": "AI 程式碼編寫工具遭劫持，下載資料夾內惡意檔案是兇手",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
-    },
-    {
-      "category": "教育宣導",
-      "title": "Node.js 與 Go 釋出緊急安全更新，資安署籲請加速修補遠端執行與憑證攔截風險",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
-    },
-    {
-      "category": "教育宣導",
-      "title": "PHP釋出緊急安全更新，修補重大漏洞CVE-2026-109618、CVE-2026-109619",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
-    },
-    {
-      "category": "教育宣導",
-      "title": "新型態 AI 攻擊來襲，資安署提出企業防護策略與行動",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
+      "detail": "涉及類型：Domain。建議比對內部防火牆/EDR日誌。"
     }
   ],
   "category_counts": {
-    "kev": 0,
-    "vendor": 6,
-    "news": 12,
-    "ransomwareApt": 4
+    "kev": 2,
+    "vendor": 15,
+    "news": 10,
+    "ransomwareApt": 3
   }
 };
-const UPDATED_AT = "2026/10/26 09:06:20（台灣時間）";
+const UPDATED_AT = "2026/10/27 09:59:11（台灣時間）";
 document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
