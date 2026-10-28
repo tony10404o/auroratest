@@ -524,18 +524,6 @@
     "url": ""
   },
   {
-    "category": "勒索病毒",
-    "title": "Metaencryptor勒索軟體攻擊南韓相機及日本汽車供應商",
-    "date": "2026-09-23",
-    "url": "https://asec.ahnlab.com/en/95545/"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "ShinyHunters聲稱入侵美國聯邦執法機構竊取敏感資料",
-    "date": "2026-09-23",
-    "url": "https://asec.ahnlab.com/en/95545/"
-  },
-  {
     "category": "零時差漏洞",
     "title": "PHP核心漏洞CVE-2026-109618、CVE-2026-109619遠端程式碼執行",
     "date": "2026-10-00",
@@ -548,6 +536,48 @@
     "date": "2026-10-00",
     "url": "https://www.bleepingcomputer.com/news/security/cisa-hackers-chain-plex-flaws-in-plex2shell-attacks-to-breach-servers/",
     "first_seen": "2026-10-22"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "日本揭露ARTEX自動化攻擊工具整合AI大型語言模型",
+    "date": "2026-10-28",
+    "url": "https://n.yam.com/Article/20261028234168",
+    "first_seen": "2026-10-28"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Adobe Commerce/Magento檔案上傳RCE漏洞CVE-2026-48356",
+    "date": "2026-10-27",
+    "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48356",
+    "first_seen": "2026-10-28"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Google Brotli記憶體洩露與RCE漏洞CVE-2026-111497",
+    "date": "2026-10-27",
+    "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111497",
+    "first_seen": "2026-10-28"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "駭客大規模掃描RDP服務超過3萬IP位址參與",
+    "date": "2026-10-27",
+    "url": "https://blog.trendmicro.com.tw/?p=89344",
+    "first_seen": "2026-10-28"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Metabase SQL注入漏洞CVE-2026-72898遭大規模利用",
+    "date": "2026-10-27",
+    "url": "https://n.yam.com/Article/20261028234168",
+    "first_seen": "2026-10-28"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "PHP2Shell漏洞確認被駭客在實際攻擊中利用",
+    "date": "2026-10-27",
+    "url": "https://www.bleepingcomputer.com/news/security/cisa-confirms-php2shell-vulnerabilities-now-exploited-in-attacks/",
+    "first_seen": "2026-10-28"
   },
   {
     "category": "零時差漏洞",
@@ -660,6 +690,27 @@
     "date": "2026-10-22",
     "url": "https://www.twcert.org.tw/tw/lp-169-1.html",
     "first_seen": "2026-10-27"
+  },
+  {
+    "category": "政府公告",
+    "title": "台灣TWCERT/CC發布Node.js安全更新公告修補10項漏洞",
+    "date": "2026-10-22",
+    "url": "https://www.twcert.org.tw/tw/lp-104-1.html",
+    "first_seen": "2026-10-28"
+  },
+  {
+    "category": "政府公告",
+    "title": "台灣TWCERT/CC發布PHP安全更新修補遠端程式碼執行漏洞",
+    "date": "2026-10-22",
+    "url": "https://www.twcert.org.tw/tw/lp-104-1.html",
+    "first_seen": "2026-10-28"
+  },
+  {
+    "category": "政府公告",
+    "title": "台灣資安署籲加速修補Node.js及Go遠端執行風險",
+    "date": "2026-10-22",
+    "url": "https://moda.gov.tw/ACS/",
+    "first_seen": "2026-10-28"
   },
   {
     "category": "政府公告",
