@@ -1,5 +1,19 @@
 [
   {
+    "category": "零時差漏洞",
+    "title": "Linux核心變數初始化缺陷導致記憶體資料洩露與遠端執行",
+    "date": "2026-10-28",
+    "url": "",
+    "first_seen": "2026-10-29"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "Volt Typhoon駭客利用『沉默列車』框架隱蔽部署零日漏洞",
+    "date": "2026-10-28",
+    "url": "https://www.bleepingcomputer.com/news/security/volt-typhoon-hides-zero-day-attacks-using-silent-train-framework/",
+    "first_seen": "2026-10-29"
+  },
+  {
     "category": "勒索病毒",
     "title": "SafePay勒索軟體集團活躍，全球已逾600個受害者",
     "date": "2026-10-26",
@@ -506,24 +520,6 @@
     "first_seen": "2026-10-14"
   },
   {
-    "category": "勒索病毒",
-    "title": "TeamCity嚴重漏洞遭勒索軟體大規模利用",
-    "date": "2026-09-24",
-    "url": "https://www.bleepingcomputer.com/news/security/cisa-ransomware-gangs-now-exploiting-critical-teamcity-flaw/"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "WSO2 API產品路徑遍歷漏洞導致遠端程式碼執行",
-    "date": "2026-09-24",
-    "url": ""
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "Adobe Commerce授權驗證不當漏洞",
-    "date": "2026-09-24",
-    "url": ""
-  },
-  {
     "category": "零時差漏洞",
     "title": "PHP核心漏洞CVE-2026-109618、CVE-2026-109619遠端程式碼執行",
     "date": "2026-10-00",
@@ -714,6 +710,41 @@
   },
   {
     "category": "政府公告",
+    "title": "PHP釋出緊急安全更新 修補兩項嚴重漏洞CVE-2026-109618與CVE-2026-109619",
+    "date": "2026-10-22",
+    "url": "https://moda.gov.tw/ACS/press/news/press/21134",
+    "first_seen": "2026-10-29"
+  },
+  {
+    "category": "政府公告",
+    "title": "Node.js與Go釋出緊急安全更新 資安署籲加速修補",
+    "date": "2026-10-22",
+    "url": "https://moda.gov.tw/ACS/press/news/press/21134",
+    "first_seen": "2026-10-29"
+  },
+  {
+    "category": "政府公告",
+    "title": "Go存在高風險安全漏洞CVE-2026-111943",
+    "date": "2026-10-22",
+    "url": "https://www.twcert.org.tw/tw/lp-169-1.html",
+    "first_seen": "2026-10-29"
+  },
+  {
+    "category": "政府公告",
+    "title": "Oracle Java SE與Oracle GraalVM存在高風險安全漏洞",
+    "date": "2026-10-22",
+    "url": "https://www.twcert.org.tw/tw/lp-169-1.html",
+    "first_seen": "2026-10-29"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "PHP2Shell重大漏洞全球警戒 北韓駭客主動掃描利用",
+    "date": "2026-10-22",
+    "url": "https://www.ithome.com.tw/news/179889",
+    "first_seen": "2026-10-29"
+  },
+  {
+    "category": "政府公告",
     "title": "金管會公布詐騙通報激增至2萬件 與台股熱絡及AI技術提升有關",
     "date": "2026-10-21",
     "url": "https://www.setn.com/news/1925737",
@@ -732,6 +763,13 @@
     "date": "2026-10-21",
     "url": "https://moda.gov.tw/ACS/",
     "first_seen": "2026-10-27"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "新型態AI攻擊來襲 資安署提出企業防護策略",
+    "date": "2026-10-21",
+    "url": "https://n.yam.com/Article/20261022838132",
+    "first_seen": "2026-10-29"
   },
   {
     "category": "零時差漏洞",
