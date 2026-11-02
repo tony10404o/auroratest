@@ -1,5 +1,12 @@
 [
   {
+    "category": "政府公告",
+    "title": "2026台灣資安通報應變年會迎戰AI威脅強化智慧應變",
+    "date": "2026-11-03",
+    "url": "https://activity.twcert.org.tw/2026/index.htm",
+    "first_seen": "2026-11-02"
+  },
+  {
     "category": "零時差漏洞",
     "title": "GitLab整數溢出漏洞CVE-2026-97229允許未認證使用者執行任意程式碼",
     "date": "2026-10-29",
@@ -501,24 +508,6 @@
     "title": "Citrix NetScaler零時差漏洞遭駭客利用部署網頁後門",
     "date": "2026-09-29",
     "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-citrix-netscaler-zero-day-to-deploy-web-shells/"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "Citrix NetScaler 記憶體緩衝區越界漏洞",
-    "date": "2026-09-27",
-    "url": "https://www.bleepingcomputer.com/news/security/citrix-admins-warned-to-shut-down-netscalers-over-2-exploited-zero-days/"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "Citrix NetScaler 輸入驗證漏洞",
-    "date": "2026-09-27",
-    "url": "https://www.bleepingcomputer.com/news/security/citrix-admins-warned-to-shut-down-netscalers-over-2-exploited-zero-days/"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "DeadLock勒索軟體利用分散式基礎設施躲避追蹤",
-    "date": "2026-09-26",
-    "url": ""
   },
   {
     "category": "零時差漏洞",
