@@ -980,6 +980,8 @@ function setupVendorPillFilter(items){
 </script>
 
 <style>
+  .panel-wide{grid-column:span 2;}
+  @media (max-width:760px){.panel-wide{grid-column:auto;}}
   .tw-item{padding:10px 0;border-bottom:1px solid var(--border);}
   .tw-item:last-child{border-bottom:none;}
   .tw-item-top{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:11px;color:var(--text-dim);margin-bottom:3px;}
@@ -996,6 +998,7 @@ function setupVendorPillFilter(items){
   const items = Array.isArray(DATA.tw_scam_events) ? DATA.tw_scam_events : [];
   const body = document.getElementById('twScamBody');
   if (!body) return;
+  const wrap = body.closest('.panel'); if (wrap) wrap.classList.add('panel-wide');
   const safe = u => /^https?:\/\//i.test(u || '') ? u : '';
   body.innerHTML = (items.length ? items.map(e => {
     const u = safe(e.source_url);
