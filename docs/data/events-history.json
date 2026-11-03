@@ -7,6 +7,34 @@
     "first_seen": "2026-11-02"
   },
   {
+    "category": "政府公告",
+    "title": "TWCA中繼憑證序號熵不足須於11月6日前完成換證",
+    "date": "2026-11-03",
+    "url": "https://cyberq.tw/2026/11/03/twca-has-announced-that-it-will/",
+    "first_seen": "2026-11-03"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Ivanti Connect Secure 零時差漏洞遭鏈式利用攻擊",
+    "date": "2026-11-02",
+    "url": "https://www.bleepingcomputer.com/news/security/ivanti-patches-two-more-connect-secure-zero-days-chained-in-attacks/",
+    "first_seen": "2026-11-03"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "逾1,000台GitLab伺服器遭遠端程式碼執行攻擊",
+    "date": "2026-11-02",
+    "url": "https://www.bleepingcomputer.com/news/security/over-1-000-gitlab-servers-vulnerable-to-code-execution-attacks/",
+    "first_seen": "2026-11-03"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "台灣與日本遭APT活動Swan Vector針對性攻擊",
+    "date": "2026-10-30",
+    "url": "https://www.ithome.com.tw/news/169788",
+    "first_seen": "2026-11-03"
+  },
+  {
     "category": "零時差漏洞",
     "title": "GitLab整數溢出漏洞CVE-2026-97229允許未認證使用者執行任意程式碼",
     "date": "2026-10-29",
@@ -496,18 +524,6 @@
     "title": "日本Keio大學遭勒索軟體攻擊業務系統中斷",
     "date": "2026-09-30",
     "url": ""
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "Apple CoreGraphics零時差漏洞遭實際攻擊利用",
-    "date": "2026-09-29",
-    "url": "https://www.bleepingcomputer.com/news/security/apple-patches-coregraphics-zero-day-flaw-exploited-in-attacks/"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "Citrix NetScaler零時差漏洞遭駭客利用部署網頁後門",
-    "date": "2026-09-29",
-    "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-citrix-netscaler-zero-day-to-deploy-web-shells/"
   },
   {
     "category": "零時差漏洞",
