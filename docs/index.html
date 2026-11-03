@@ -260,6 +260,7 @@
   #statusSummaryCard .trend-group{flex:1;min-width:150px;height:75px;box-sizing:border-box;padding:0 18px;gap:26px;align-items:center;justify-content:center;}
   #statusSummaryCard .trend-item-label{font-size:13px;}
   #statusSummaryCard .trend-item-pct{font-size:19px;}
+  #statusSummaryCard .trend-item-den{font-size:13px;font-weight:500;color:var(--text-dim);}
   #statusSummaryCard .trend-item{gap:4px;min-width:90px;}
   .status-total{padding-right:20px;border-right:1px solid var(--border);}
   .status-total-label{font-size:13px;font-weight:700;color:#F59E0B;}
@@ -2036,10 +2037,11 @@ function renderStatusSummary(){
     if (counts[key] !== undefined) counts[key]++;
   });
   const colors = { '待處理':'var(--text)', '不處理':'var(--sev-high)', '處理中':'var(--sev-medium)', '已完成':'var(--sev-low)' };
+  const totalAll = counts['待處理'] + counts['處理中'] + counts['不處理'] + counts['已完成'];
   const itemHtml = k => `
     <div class="trend-item">
       <div class="trend-item-label">${k}</div>
-      <div class="trend-item-value"><span class="trend-item-pct" style="color:${colors[k]}">${counts[k]} 筆</span></div>
+      <div class="trend-item-value"><span class="trend-item-pct" style="color:${colors[k]}">${counts[k]}<span class="trend-item-den"> / ${totalAll}</span></span></div>
     </div>`;
   const rows = [['待處理','處理中'],['不處理','已完成']]
     .map(g => `<div class="trend-group">${g.map(itemHtml).join('')}</div>`).join('');
