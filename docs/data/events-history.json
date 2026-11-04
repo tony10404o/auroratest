@@ -15,6 +15,27 @@
   },
   {
     "category": "零時差漏洞",
+    "title": "WordPress核心競態條件漏洞允許RCE",
+    "date": "2026-11-03",
+    "url": "https://www.cve.org/",
+    "first_seen": "2026-11-04"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "Synology NAS設備遭C3rb3r勒索軟體攻擊",
+    "date": "2026-11-03",
+    "url": "https://thehackernews.com/2026/11/synology-nas-devices-targeted-in.html",
+    "first_seen": "2026-11-04"
+  },
+  {
+    "category": "政府公告",
+    "title": "數位發展部成立先進AI資安風險因應小組",
+    "date": "2026-11-03",
+    "url": "https://www.cna.com.tw/news/afe/202611030152.aspx",
+    "first_seen": "2026-11-04"
+  },
+  {
+    "category": "零時差漏洞",
     "title": "Ivanti Connect Secure 零時差漏洞遭鏈式利用攻擊",
     "date": "2026-11-02",
     "url": "https://www.bleepingcomputer.com/news/security/ivanti-patches-two-more-connect-secure-zero-days-chained-in-attacks/",
@@ -485,48 +506,6 @@
   },
   {
     "category": "零時差漏洞",
-    "title": "思科SD-WAN管理器十六進位編碼漏洞",
-    "date": "2026-09-30",
-    "url": ""
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "思科SD-WAN認證繞過漏洞遭實際利用攻擊",
-    "date": "2026-09-30",
-    "url": "https://www.bleepingcomputer.com/news/security/cisco-warns-of-new-sd-wan-authentication-bypass-zero-day-exploited-in-attacks/"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "亞太地區勒索軟體事件月增近27%",
-    "date": "2026-09-30",
-    "url": ""
-  },
-  {
-    "category": "政府公告",
-    "title": "TWCERT/CC 2026年9月份資安情資電子報",
-    "date": "2026-09-30",
-    "url": ""
-  },
-  {
-    "category": "政府公告",
-    "title": "CISA更新Medusa勒索軟體安全防護指引",
-    "date": "2026-09-30",
-    "url": ""
-  },
-  {
-    "category": "政府公告",
-    "title": "PostgreSQL潛藏12年高風險漏洞導致任意程式碼執行",
-    "date": "2026-09-30",
-    "url": ""
-  },
-  {
-    "category": "勒索病毒",
-    "title": "日本Keio大學遭勒索軟體攻擊業務系統中斷",
-    "date": "2026-09-30",
-    "url": ""
-  },
-  {
-    "category": "零時差漏洞",
     "title": "PHP核心漏洞CVE-2026-109618、CVE-2026-109619遠端程式碼執行",
     "date": "2026-10-00",
     "url": "https://krebsonsecurity.com/2026/10/widespread-php-flaw-may-cause-many-site-outages-today/",
@@ -769,6 +748,13 @@
     "date": "2026-10-22",
     "url": "https://www.twcert.org.tw/tw/mp-1.html",
     "first_seen": "2026-10-30"
+  },
+  {
+    "category": "政府公告",
+    "title": "TWCERT/CC發布多款軟體重大漏洞警訊",
+    "date": "2026-10-22",
+    "url": "https://www.twcert.org.tw/tw/lp-169-1.html",
+    "first_seen": "2026-11-04"
   },
   {
     "category": "政府公告",
