@@ -1,5 +1,33 @@
 [
   {
+    "category": "零時差漏洞",
+    "title": "Zyxel網路設備零時差漏洞已被實際利用",
+    "date": "2026-11-05",
+    "url": "https://www.bleepingcomputer.com/news/security/zyxel-fixes-zero-day-exploited-to-hack-nearly-1-000-network-switches/",
+    "first_seen": "2026-11-06"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "APT29傳播iOS/Android漏洞利用工具DarkSword與AndroSnitch",
+    "date": "2026-11-05",
+    "url": "https://chaincatcher.com/zh-tw/article/2301872",
+    "first_seen": "2026-11-06"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "OpenSSH驗證繞過漏洞允許入侵無密碼帳號",
+    "date": "2026-11-04",
+    "url": "https://www.bleepingcomputer.com/news/security/openssh-flaw-lets-attackers-log-into-password-disabled-linux-accounts/",
+    "first_seen": "2026-11-06"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "CWP網頁伺服器遭駭客後門植入攻擊Linux系統",
+    "date": "2026-11-04",
+    "url": "https://www.bleepingcomputer.com/news/security/hackers-backdoor-linux-servers-using-trojanized-cwp-web-server/",
+    "first_seen": "2026-11-06"
+  },
+  {
     "category": "政府公告",
     "title": "2026台灣資安通報應變年會迎戰AI威脅強化智慧應變",
     "date": "2026-11-03",
@@ -110,6 +138,13 @@
     "date": "2026-10-29",
     "url": "",
     "first_seen": "2026-10-30"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "Synology NAS遭C3RB3R勒索軟體攻擊利用舊版漏洞",
+    "date": "2026-10-29",
+    "url": "https://www.ithome.com.tw/news/180115",
+    "first_seen": "2026-11-06"
   },
   {
     "category": "零時差漏洞",
@@ -459,67 +494,6 @@
     "title": "大阪公立大學遭勒索軟體攻擊",
     "date": "2026-10-05",
     "url": "https://www.sbbit.jp/article/cont1/187311"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "GitLab滿分重大漏洞CVE-2026-85706遭駭客利用",
-    "date": "2026-10-02",
-    "url": "https://www.cna.com.tw/news/afe/202610020159.aspx"
-  },
-  {
-    "category": "政府公告",
-    "title": "GitLab重大漏洞CVE-2026-85706遭駭客利用",
-    "date": "2026-10-02",
-    "url": "https://www.cna.com.tw/news/afe/202610020159.aspx"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "GitLab重大漏洞CVE-2026-85706遭駭客利用",
-    "date": "2026-10-02",
-    "url": "https://udn.com/news/story/7238/9790612",
-    "first_seen": "2026-10-13"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "GitLab漏洞利用攻擊",
-    "date": "2026-10-02",
-    "url": "https://www.ithome.com.tw/news/179411",
-    "first_seen": "2026-10-13"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "GitLab CVE-2026-85706 無需身分驗證遠端檔案讀取漏洞",
-    "date": "2026-10-02",
-    "url": "https://udn.com/news/story/7238/9790612",
-    "first_seen": "2026-10-14"
-  },
-  {
-    "category": "政府公告",
-    "title": "資安署警告GitLab重大漏洞遭駭客利用籲儘速更新",
-    "date": "2026-10-02",
-    "url": "https://moda.gov.tw/ACS/press/news/press/",
-    "first_seen": "2026-10-15"
-  },
-  {
-    "category": "政府公告",
-    "title": "資安署警示GitLab重大漏洞遭駭客利用 籲儘速更新",
-    "date": "2026-10-02",
-    "url": "https://moda.gov.tw/ACS/press/news/press/820",
-    "first_seen": "2026-10-21"
-  },
-  {
-    "category": "政府公告",
-    "title": "資安署發布GitLab重大漏洞警示",
-    "date": "2026-10-02",
-    "url": "https://moda.gov.tw/ACS/",
-    "first_seen": "2026-10-22"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "Warlock勒索軟體利用SharePoint漏洞攻擊關鍵基礎設施",
-    "date": "2026-10-02",
-    "url": "https://industrialcyber.co/ransomware/symantec-reports-warlock-ransomware-group-targets-water-telecom-government-organizations-through-sharepoint-flaws/",
-    "first_seen": "2026-10-22"
   },
   {
     "category": "零時差漏洞",
