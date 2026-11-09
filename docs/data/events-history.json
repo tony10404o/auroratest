@@ -28,6 +28,34 @@
     "first_seen": "2026-11-06"
   },
   {
+    "category": "零時差漏洞",
+    "title": "CVE-2026-83844 Windows Paint遠端程式碼執行漏洞",
+    "date": "2026-11-04",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-83844",
+    "first_seen": "2026-11-09"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "群暉NAS遭C3RB3R勒索軟體攻擊",
+    "date": "2026-11-04",
+    "url": "https://www.ithome.com.tw/news/180291",
+    "first_seen": "2026-11-09"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "APT29發動大規模水坑式攻擊竊取行動裝置資訊",
+    "date": "2026-11-04",
+    "url": "https://www.ithome.com.tw/news/180250",
+    "first_seen": "2026-11-09"
+  },
+  {
+    "category": "政府公告",
+    "title": "歐洲超市冷凍設備遭駭凸顯連網設備風險",
+    "date": "2026-11-04",
+    "url": "https://www.twcert.org.tw/tw/mp-1.html",
+    "first_seen": "2026-11-09"
+  },
+  {
     "category": "政府公告",
     "title": "2026台灣資安通報應變年會迎戰AI威脅強化智慧應變",
     "date": "2026-11-03",
@@ -96,6 +124,13 @@
     "date": "2026-11-03",
     "url": "https://cyberq.tw/2026/11/03/twca-has-announced-that-it-will/",
     "first_seen": "2026-11-05"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "APT駭客利用NetamLoader框架攻擊亞洲政府機關",
+    "date": "2026-11-03",
+    "url": "https://www.ithome.com.tw/news/180179",
+    "first_seen": "2026-11-09"
   },
   {
     "category": "零時差漏洞",
@@ -488,12 +523,6 @@
     "title": "104人力銀行12萬筆履歷遭未授權讀取",
     "date": "2026-10-06",
     "url": "https://news.ltn.com.tw/news/life/breakingnews/5597618"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "大阪公立大學遭勒索軟體攻擊",
-    "date": "2026-10-05",
-    "url": "https://www.sbbit.jp/article/cont1/187311"
   },
   {
     "category": "零時差漏洞",
