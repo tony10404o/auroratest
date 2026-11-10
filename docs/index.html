@@ -341,122 +341,228 @@
 const DATA = {
   "headlines": [
     {
-      "icon": "🦠",
-      "title": "群暉NAS遭C3RB3R勒索軟體攻擊",
-      "subtitle": "利用舊版DSM漏洞加密檔案，建議立即更新至7.2.2-72806-1以上",
+      "icon": "🎯",
+      "title": "GPUStack認證機制缺陷允許未授權管理員存取",
+      "subtitle": "CVSS 9.8重大漏洞，攻擊者可繞過認證取得完全控制權",
       "impact": "高",
       "stars": 5,
-      "url": "https://www.ithome.com.tw/news/180291"
-    },
-    {
-      "icon": "🕵️",
-      "title": "APT29發動大規模水坑式攻擊竊取行動裝置資訊",
-      "subtitle": "入侵合法網站散布惡意代碼，竊取Cookie、密碼及通訊錄",
-      "impact": "高",
-      "stars": 5,
-      "url": "https://www.ithome.com.tw/news/180250"
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities"
     },
     {
       "icon": "🎯",
-      "title": "CVE-2026-83844 Windows Paint遠端程式碼執行漏洞",
-      "subtitle": "Microsoft高危漏洞，需評估企業環境風險並規劃修補",
+      "title": "FreeSwitch程式碼注入漏洞允許命令執行與認證洩露",
+      "subtitle": "CVSS 9.8重大漏洞，電話系統可被遠端接管與植入惡意程式碼",
       "impact": "高",
       "stars": 5,
-      "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-83844"
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities"
     },
     {
-      "icon": "🕵️",
-      "title": "APT駭客利用NetamLoader框架攻擊亞洲政府機關",
-      "subtitle": "專門針對Windows系統之多階段複雜攻擊，需警戒",
-      "impact": "中",
+      "icon": "🎯",
+      "title": "Aspera Faspex權限驗證缺陷導致已認證使用者權限提升",
+      "subtitle": "CVSS 9.8重大漏洞，普通員工可偽裝管理員存取機密資料",
+      "impact": "高",
+      "stars": 5,
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities"
+    },
+    {
+      "icon": "🎯",
+      "title": "OpenSSH狀態碼異常導致Linux系統認證繞過",
+      "subtitle": "CVSS 8.1高風險漏洞，駭客已開始主動利用攻擊Linux系統",
+      "impact": "高",
+      "stars": 5,
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-sshole-openssh-flaw-to-breach-linux-systems/"
+    },
+    {
+      "icon": "🎯",
+      "title": "SonicWall GMS存在重大資安漏洞CVE-2026-109593",
+      "subtitle": "台灣TWCERT/CC發布警訊，建議用戶儘速修補防火牆漏洞",
+      "impact": "高",
+      "stars": 5,
+      "url": "https://www.twcert.org.tw/tw/lp-169-1.html"
+    },
+    {
+      "icon": "🎯",
+      "title": "Linux APT套件管理工具漏洞CVE-2026-109518",
+      "subtitle": "台灣警訊，允許中間人攻擊者取得root權限，需即刻修補",
+      "impact": "高",
+      "stars": 5,
+      "url": "https://www.twcert.org.tw/tw/lp-169-1.html"
+    },
+    {
+      "icon": "🎯",
+      "title": "WatchGuard Fireware OS存在2項高風險安全漏洞",
+      "subtitle": "CVE-2026-112709與112710，台灣資安機構提醒優先修補受影響設備",
+      "impact": "高",
       "stars": 4,
-      "url": "https://www.ithome.com.tw/news/180179"
+      "url": "https://www.twcert.org.tw/tw/lp-169-1.html"
+    },
+    {
+      "icon": "🔥",
+      "title": "Palo Alto Networks產品受Brotli漏洞CVE-2026-111497影響",
+      "subtitle": "廠商釋出公告評估為高風險，需確認受影響產品版本並修補",
+      "impact": "高",
+      "stars": 4,
+      "url": "https://security.paloaltonetworks.com/CVE-2026-111497"
     },
     {
       "icon": "🦠",
-      "title": "紐約王后區圖書館遭勒索軟體攻擊66間分館中斷",
-      "subtitle": "公共設施遭勒索軟體癱瘓，提醒備份與復原計畫重要性",
+      "title": "皇后區公共圖書館遭勒索軟體攻擊導致系統癱瘓",
+      "subtitle": "勒索軟體攻擊導致圖書館系統全面癱瘓，警示組織應強化防護",
       "impact": "中",
       "stars": 4,
-      "url": "https://www.epochtimes.com/b5/26/11/6/n14884335.htm"
-    },
-    {
-      "icon": "📰",
-      "title": "大型家居用品公司雲端資料外洩770萬客戶資訊",
-      "subtitle": "雲端儲存系統遭入侵，提醒檢視供應商安全措施",
-      "impact": "中",
-      "stars": 3,
-      "url": "https://www.bleepingcomputer.com/news/security/iris-ohyama-data-cloud-breach-exposes-info-of-77-million-customers/"
-    },
-    {
-      "icon": "📰",
-      "title": "法國銀行遭駭客透過服務商供應鏈攻擊竊取1.33億美元",
-      "subtitle": "第三方供應商漏洞遭利用，凸顯供應鏈風險管理必要性",
-      "impact": "中",
-      "stars": 4,
-      "url": "https://www.bleepingcomputer.com/news/security/hackers-pull-off-133-million-french-bank-heist-via-service-provider/"
-    },
-    {
-      "icon": "📰",
-      "title": "詐騙集團冒充知名品牌販售虛假禮物卡詐騙消費者",
-      "subtitle": "大規模詐騙活動，應提醒員工防範釣魚與社交工程",
-      "impact": "低",
-      "stars": 2,
-      "url": "https://www.bleepingcomputer.com/news/security/ctm360-exposes-fake-gift-card-scams-exploiting-trusted-brands/"
-    },
-    {
-      "icon": "⚠️",
-      "title": "歐洲超市冷凍設備遭駭凸顯連網設備風險",
-      "subtitle": "TWCERT提醒檢視組織內連網設備預設密碼及外暴風險",
-      "impact": "中",
-      "stars": 4,
-      "url": "https://www.twcert.org.tw/tw/mp-1.html"
-    },
-    {
-      "icon": "⚠️",
-      "title": "2026台灣資安通報應變年會：迎戰AI威脅",
-      "subtitle": "TWCERT/CC召集資安專家討論AI時代風險與應變策略",
-      "impact": "低",
-      "stars": 2,
-      "url": "https://activity.twcert.org.tw/2026/index.htm"
-    },
-    {
-      "icon": "⚠️",
-      "title": "數發部舉辦前瞻資安探索會議強化供應鏈韌性",
-      "subtitle": "聚焦AI資安治理及供應鏈防護等新興課題",
-      "impact": "低",
-      "stars": 2,
-      "url": "https://moda.gov.tw/ACS/"
+      "url": "https://www.singtaousa.com/2026/11/09/news/usa/ransomware-attack-queens-library/"
     },
     {
       "icon": "🦠",
-      "title": "永豐銀行客戶異常轉帳確認涉及駭客攻擊",
-      "subtitle": "台灣電商ERP業者遭入侵導致銀行交易受影響",
-      "impact": "中",
+      "title": "Synology NAS遭C3RB3R勒索軟體攻擊",
+      "subtitle": "利用已修補漏洞攻擊舊版DSM系統，建議用戶盡速更新",
+      "impact": "高",
       "stars": 4,
       "url": "https://www.ithome.com.tw/news/180291"
     },
     {
-      "icon": "🦠",
-      "title": "NIKKE PC啟動器遭入侵散布惡意程式",
-      "subtitle": "遊戲啟動器域名被重新註冊，用戶下載器可能遭感染",
+      "icon": "🕵️",
+      "title": "俄羅斯APT29組織發動Poisoned Source水坑式攻擊",
+      "subtitle": "透過供應鏈散布惡意JavaScript針對iOS與Android用戶竊取帳密",
+      "impact": "中",
+      "stars": 4,
+      "url": "https://www.ithome.com.tw/news/180250"
+    },
+    {
+      "icon": "🕵️",
+      "title": "NetamLoader APT框架攻擊亞洲政府機關",
+      "subtitle": "APT利用惡意軟體框架對政府目標發動進階持續威脅攻擊",
       "impact": "中",
       "stars": 3,
-      "url": "https://gist.github.com/MotherSphere/b21b00095e367e208304967c0f081007"
+      "url": "https://www.ithome.com.tw/news/180291"
+    },
+    {
+      "icon": "🦠",
+      "title": "N-Able雲端平台因30多個零日漏洞被迫下線",
+      "subtitle": "遠端管理軟體發現大量零日漏洞，緊急關閉服務避免被濫用",
+      "impact": "高",
+      "stars": 4,
+      "url": "https://www.bleepingcomputer.com/news/security/n-able-takes-cloud-platform-offline-after-30-plus-zero-days-published/"
+    },
+    {
+      "icon": "📰",
+      "title": "法國指控伊朗駭客發動超市網攻引發火災事件",
+      "subtitle": "國家級資安威脅事件，駭客對關鍵基礎設施造成實體傷害",
+      "impact": "中",
+      "stars": 3,
+      "url": "https://www.bleepingcomputer.com/news/security/france-blames-iranian-hackers-for-supermarket-attacks-that-sparked-fires/"
+    },
+    {
+      "icon": "📰",
+      "title": "范德堡大學遭勒索軟體攻擊個人裝置導致資料竊取",
+      "subtitle": "BYOD計畫下個人裝置遭感染，提示員工裝置安全管理風險",
+      "impact": "中",
+      "stars": 3,
+      "url": "https://www.bleepingcomputer.com/news/security/vanderbilt-university-hit-in-byod-ransomware-attack-data-theft-claimed/"
+    },
+    {
+      "icon": "📰",
+      "title": "SEGA通訊錄資料外洩波及220萬個電子郵件地址",
+      "subtitle": "電子報系統被攻擊導致大量訂閱者個資外洩",
+      "impact": "低",
+      "stars": 2,
+      "url": "https://www.bleepingcomputer.com/news/security/sega-newsletter-data-breach-exposes-22-million-email-addresses/"
+    },
+    {
+      "icon": "📰",
+      "title": "約克大學舊系統洩露近20年來累積的使用者個資",
+      "subtitle": "加拿大大學資料外洩事件涵蓋2007年以來個人資訊",
+      "impact": "低",
+      "stars": 2,
+      "url": "https://www.bleepingcomputer.com/news/security/york-university-breach-exposed-personal-information-dating-to-2007/"
     }
   ],
   "vendor_impact": [
     {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-83844 Windows Paint遠端程式碼執行漏洞",
+      "icon": "🔥",
+      "vendor": "Palo Alto Networks",
+      "title": "CVE-2026-111497 Brotli漏洞影響產品組合",
       "impact": "高",
-      "category": "作業系統繪圖工具",
-      "key_asset": "Windows Paint應用程式",
-      "ai_suggestion": "立即評估企業內Windows版本與Paint使用情況，優先為桌面端與伺服器環境部署Microsoft官方修補程式，並監控相關威脅情資。"
+      "category": "多層次安全防護",
+      "key_asset": "Palo Alto Networks防火牆及安全應用程式",
+      "ai_suggestion": "檢視公司內Palo Alto產品清單，確認受影響版本並按廠商建議優先修補，重點檢查網路邊界及威脅防護設備。"
+    },
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "Node.js與Brotli漏洞影響Cisco產品",
+      "impact": "高",
+      "category": "網路基礎設施",
+      "key_asset": "Cisco網路設備及應用程式",
+      "ai_suggestion": "查詢使用Node.js相依套件的Cisco產品版本，檢視官方安全通告並規劃更新時程，優先評估關鍵網路設備。"
+    },
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "Meraki安全強化版本釋出",
+      "impact": "中",
+      "category": "網路管理設備",
+      "key_asset": "Cisco Meraki作業系統",
+      "ai_suggestion": "評估現有Meraki設備是否需升級，參考強化版本釋出清單，規劃逐批更新以強化安全態勢。"
     }
   ],
   "global_events": [
+    {
+      "category": "漏洞修補",
+      "title": "GPUStack認證機制缺陷CVE-2026-102895（CVSS 9.8）",
+      "date": "2026-11-09",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities",
+      "first_seen": "2026-11-10"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "FreeSwitch程式碼注入漏洞CVE-2026-116779（CVSS 9.8）",
+      "date": "2026-11-09",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities",
+      "first_seen": "2026-11-10"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "Aspera Faspex權限驗證缺陷CVE-2026-123218（CVSS 9.8）",
+      "date": "2026-11-09",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities",
+      "first_seen": "2026-11-10"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "OpenSSH狀態碼異常導致Linux系統認證繞過CVE-2026-123158（已遭利用）",
+      "date": "2026-11-09",
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-sshole-openssh-flaw-to-breach-linux-systems/",
+      "first_seen": "2026-11-10"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "SonicWall GMS存在重大資安漏洞CVE-2026-109593",
+      "date": "2026-11-06",
+      "url": "https://www.twcert.org.tw/tw/lp-169-1.html",
+      "first_seen": "2026-11-10"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "Linux APT套件管理工具漏洞CVE-2026-109518允許root權限提升",
+      "date": "2026-11-06",
+      "url": "https://www.twcert.org.tw/tw/lp-169-1.html",
+      "first_seen": "2026-11-10"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "WatchGuard Fireware OS存在2項高風險安全漏洞",
+      "date": "2026-11-06",
+      "url": "https://www.twcert.org.tw/tw/lp-169-1.html",
+      "first_seen": "2026-11-10"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "Synology NAS遭C3RB3R勒索軟體攻擊，利用已修補漏洞入侵舊版系統",
+      "date": "2026-11-06",
+      "url": "https://www.ithome.com.tw/news/180291",
+      "first_seen": "2026-11-10"
+    },
     {
       "category": "零時差漏洞",
       "title": "Zyxel網路設備零時差漏洞已被實際利用",
@@ -959,30 +1065,6 @@ const DATA = {
       "first_seen": "2026-10-22"
     },
     {
-      "category": "APT攻擊",
-      "title": "FortiGate VPN持續遭FortiBleed漏洞攻擊",
-      "date": "2026-10-06",
-      "url": "https://www.bleepingcomputer.com/news/security/fbi-ongoing-fortibleed-attacks-lock-out-fortigate-vpn-admins/"
-    },
-    {
-      "category": "零時差漏洞",
-      "title": "Atlassian Jira與Confluence關鍵漏洞已有公開利用程式碼",
-      "date": "2026-10-06",
-      "url": "https://www.bleepingcomputer.com/news/security/atlassian-warns-of-critical-file-access-flaw-in-jira-confluence/"
-    },
-    {
-      "category": "零時差漏洞",
-      "title": "SonicWall SMA1000閘道器最高等級SSRF漏洞",
-      "date": "2026-10-06",
-      "url": "https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-max-severity-ssrf-flaw-in-sma1000-gateways/"
-    },
-    {
-      "category": "政府公告",
-      "title": "104人力銀行12萬筆履歷遭未授權讀取",
-      "date": "2026-10-06",
-      "url": "https://news.ltn.com.tw/news/life/breakingnews/5597618"
-    },
-    {
       "category": "零時差漏洞",
       "title": "PHP核心漏洞CVE-2026-109618、CVE-2026-109619遠端程式碼執行",
       "date": "2026-10-00",
@@ -1327,63 +1409,104 @@ const DATA = {
     }
   ],
   "ai_analysis": [
-    "CVE-2026-83844 Windows Paint漏洞為Microsoft高危RCE漏洞，應立即評估企業Paint使用現況並部署修補程式，避免遠端攻擊風險。",
-    "Synology NAS遭C3RB3R勒索軟體利用舊版DSM漏洞攻擊，若公司使用NAS存儲應立即確認DSM版本並更新至7.2.2-72806-1以上，同時檢視備份與復原計畫完整性。",
-    "APT29水坑攻擊與永豐銀行駭客事件反映供應鏈風險升高，應檢視組織連網設備預設密碼、第三方服務商安全措施及員工網路安全意識訓練。"
+    "4項CVSS 9.8重大漏洞同日披露（GPUStack、FreeSwitch、Aspera Faspex），涉及認證繞過與遠端命令執行，需立即評估公司是否使用上述產品並緊急修補，特別是GPU計算叢集與檔案傳輸系統應優先檢視。",
+    "OpenSSH認證繞過漏洞CVE-2026-123158已遭駭客主動利用攻擊Linux系統，公司所有Linux伺服器（特別是遠端存取入口）需立即確認OpenSSH版本並按廠商建議緊急修補，同時加強SSH登入日誌監控。",
+    "台灣TWCERT/CC發布3項重大警訊（SonicWall GMS、Linux APT、WatchGuard Fireware），涉及防火牆與系統套件等關鍵基礎設施，建議IT立即調查公司內受影響設備清單並規劃修補優先順序，重點關注邊界防護設備。"
   ],
-  "cve_radar": [],
+  "cve_radar": [
+    {
+      "cve_id": "CVE-2026-102895",
+      "title": "GPUStack認證機制缺陷允許未授權管理員存取",
+      "cvss": 9.8,
+      "cvss_source": "NVD官方",
+      "exploited": true,
+      "action": "立即更新",
+      "plain_title": "GPU管理軟體爆嚴重漏洞可被任意接管",
+      "plain_summary": "GPUStack是一套管理顯示卡資源的工具，但它的安全驗證機制有問題。這意味著駭客可以不用密碼就假裝成管理員，進而控制整個系統、竊取重要密鑰、修改設定，甚至在伺服器上執行惡意命令。如同一把鑰匙壞了，任何人都能打開你的辦公室。"
+    },
+    {
+      "cve_id": "CVE-2026-116779",
+      "title": "FreeSwitch程式碼注入漏洞允許命令執行與認證洩露",
+      "cvss": 9.8,
+      "cvss_source": "NVD官方",
+      "exploited": true,
+      "action": "立即更新",
+      "plain_title": "電話系統軟體爆漏洞可被植入惡意指令",
+      "plain_summary": "FreeSwitch是處理IP電話通話的軟體。這個漏洞允許攻擊者注入惡意程式碼，結果是：能竊取密碼和設定、隨意接管電話轉接和通話控制、甚至在伺服器上遠端執行任意命令。等於有人能從遠端不經允許就改變你電話系統的運作方式。"
+    },
+    {
+      "cve_id": "CVE-2026-123218",
+      "title": "Faspex權限驗證缺陷導致已認證使用者權限提升",
+      "cvss": 9.8,
+      "cvss_source": "NVD官方",
+      "exploited": true,
+      "action": "立即更新",
+      "plain_title": "檔案傳輸工具權限驗證缺陷釀權限提升",
+      "plain_summary": "Aspera Faspex是企業檔案傳輸工具。漏洞在於雖然需要有效帳號登入，但登入後的權限檢查不夠嚴格。已登入的普通員工可以透過特殊技巧，偽造訊息讓系統誤認他們是管理員，從而存取不該看到的資料和功能。類似員工假冒主管向系統下達命令。"
+    },
+    {
+      "cve_id": "CVE-2026-123158",
+      "title": "OpenSSH狀態碼異常導致Linux系統認證繞過",
+      "cvss": 8.1,
+      "cvss_source": "NVD官方",
+      "exploited": true,
+      "action": "一週內更新",
+      "plain_title": "遠端登入工具漏洞可不輸密碼就進系統",
+      "plain_summary": "OpenSSH是讓管理員遠端安全登入伺服器的標準工具。這個漏洞使得登入驗證邏輯出錯，駭客可以利用異常的回應狀態碼，不需要正確密碼就能成功登入Linux伺服器。好比門禁卡系統誤判門卡失效時的狀態，有心人士因此可以長驅直入。"
+    }
+  ],
   "tw_scam_events": [
     {
-      "date": "2026-11-08",
-      "type": "假冒競選小物詐騙",
-      "title": "詐團搭選舉潮！競選小物運費40元...女教師中陷阱痛失165萬",
-      "summary": "詐騙集團假冒超商客服及金融專員，以帳戶凍結、金流驗證等話術誘騙民眾進行網銀操作或掃描QR Code，10月份共87件案件，財損金額高達2015萬元。",
-      "source_name": "ETtoday",
-      "source_url": "https://www.ettoday.net/news/20261108/3268558.htm"
+      "date": "2026-11-10",
+      "type": "個資外洩導致詐騙",
+      "title": "鼎泰豐購物商城個資外洩 詐騙信件精準掌握訂單",
+      "summary": "鼎泰豐購物商城客戶個資外洩，詐騙集團利用外洩訂單資訊冒充客服詐財，顧客收到可疑郵件要求加入假客服LINE處理退款。",
+      "source_name": "TVBS新聞",
+      "source_url": "https://news.tvbs.com.tw/local/4048360"
     },
     {
-      "date": "2026-11-07",
-      "type": "假網拍結合假客服詐騙",
-      "title": "刑事局示警假網拍新手法 假客服傳QR Code「驗證」實為跨境扣款",
-      "summary": "詐團謊稱需實名或金流驗證，傳送境外平臺付款QR Code誘騙民眾掃描，導致帳戶遭跨境扣款及洗錢人頭帳戶風險。",
-      "source_name": "新觀點",
-      "source_url": "https://www.worldviewnews.net/222352/"
+      "date": "2026-11-09",
+      "type": "個資外洩導致詐騙",
+      "title": "易遊網遭駭69萬人個資外洩 詐騙集團假冒客服騙取錢財",
+      "summary": "易遊網會員中心11月7日遭外部網路攻擊，超過69萬名消費者訂單個資包含姓名、電話、電郵等被不當取得，業者示警慎防詐騙集團冒充客服行騙。",
+      "source_name": "Newtalk新聞",
+      "source_url": "https://newtalk.tw/news/view/2026-11-09/1070164"
     },
     {
-      "date": "2026-11-08",
-      "type": "詐騙集團營運",
-      "title": "台詐騙犯在菲落網 逾200台灣人受騙",
-      "summary": "27歲台灣男子在菲律賓宿霧被逮捕，涉嫌經營詐騙集團詐騙超過200名台灣民眾，涉案金額超過1億元新台幣。",
-      "source_name": "on.cc東網",
-      "source_url": "https://hk.on.cc/hk/bkn/cnt/intnews/20261108/bkn-20261108041211522-1108_00992_001.html"
+      "date": "2026-11-09",
+      "type": "釣魚郵件",
+      "title": "衛福部長石崇良遭冒名發釣魚郵件 蒐集個資風險",
+      "summary": "詐騙份子冒名衛福部長石崇良發送釣魚郵件，要求收件者建立LINE群組並回傳QR Code，恐用於蒐集個資進行詐騙活動。",
+      "source_name": "中時新聞網",
+      "source_url": "https://www.chinatimes.com/realtimenews/20261109003992-260405"
     },
     {
-      "date": "2026-11-06",
-      "type": "假冒競選雨傘詐騙",
-      "title": "70多歲長者領競選雨傘遭詐92萬元",
-      "summary": "長者為領免費競選雨傘只需60元運費卻落入詐騙圈套，被誘導掃描支付寶QR Code及操作網銀，短短2天內發生31筆交易遭詐騙92萬元。",
-      "source_name": "TVBS",
-      "source_url": "https://news.tvbs.com.tw/local/4047539"
+      "date": "2026-11-09",
+      "type": "語音釣魚詐騙",
+      "title": "語音釣魚詐騙席捲全球 結合AI技術假冒高層直接盜取企業金庫",
+      "summary": "詐騙集團採用語音釣魚技術，透過假冒銀行、高層或律師的聲音，在通話中全程牽制員工操作網銀，結合AI技術進一步逼真，導致企業鉅款被盜轉走。",
+      "source_name": "聯合新聞網",
+      "source_url": "https://udn.com/news/story/6812/9866086"
     }
   ],
   "risk_score": {
-    "total": 22,
+    "total": 52,
     "breakdown": [
       {
         "label": "漏洞風險",
-        "score": 8
+        "score": 64
       },
       {
         "label": "APT攻擊",
-        "score": 60
+        "score": 30
       },
       {
         "label": "勒索病毒",
-        "score": 44
+        "score": 66
       },
       {
         "label": "身份風險",
-        "score": 0
+        "score": 100
       },
       {
         "label": "AI風險",
@@ -1393,40 +1516,70 @@ const DATA = {
   },
   "action_items": [
     {
-      "category": "公告確認",
-      "title": "CVE-2026-83844 Windows Paint 遠端程式碼執行漏洞",
+      "category": "漏洞修補",
+      "title": "CVE-2026-102895：GPUStack認證機制缺陷允許未授權管理員存取",
       "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+      "detail": "CVSS 9.8（NVD官方），建議立即更新"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-116779：FreeSwitch程式碼注入漏洞允許命令執行與認證洩露",
+      "priority": "高",
+      "detail": "CVSS 9.8（NVD官方），建議立即更新"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-123218：Faspex權限驗證缺陷導致已認證使用者權限提升",
+      "priority": "高",
+      "detail": "CVSS 9.8（NVD官方），建議立即更新"
     },
     {
       "category": "公告確認",
-      "title": "歐洲超市冷凍設備遭駭，凸顯連網設備對外暴露與預設密碼風險",
-      "priority": "中",
-      "detail": "來源：TWCERT/CC。TWCERT/CC揭露歐洲超市冷凍系統遭遠端操控的資安事件，提醒組織防範連網設備外暴與預設密碼風險。"
+      "title": "CVE-2026-111497 作品組合狀態：Brotli漏洞(CVE-2026-111497)對Palo Alto Networks產品的影響 [嚴重等級：關鍵]",
+      "priority": "高",
+      "detail": "Palo Alto Networks廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "2026 台灣資安通報應變年會：迎戰AI威脅 強化智慧應變",
+      "title": "影響Cisco產品的Node.js與Brotli漏洞：2026年10月",
+      "priority": "高",
+      "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "漏洞修補",
+      "title": "CVE-2026-123158：OpenSSH狀態碼異常導致Linux系統認證繞過",
       "priority": "中",
-      "detail": "來源：TWCERT/CC。TWCERT/CC舉辦年會探討AI資安治理議題，匯聚產官學資安專家討論AI時代資安風險與應變策略。"
+      "detail": "CVSS 8.1（NVD官方），建議一週內更新"
     },
     {
       "category": "公告確認",
-      "title": "數發部舉辦2026前瞻資安探索會議 攜手國際夥伴強化AI資安治理與供應鏈韌性",
+      "title": "SonicWall GMS存在重大資安漏洞CVE-2026-109593",
       "priority": "中",
-      "detail": "來源：資安署。數發部與國際夥伴合作舉辦前瞻資安會議，聚焦AI資安治理及供應鏈防護等新興課題。"
+      "detail": "來源：TWCERT/CC。TWCERT/CC發布漏洞警訊，SonicWall GMS產品存在重大資安漏洞，建議用戶儘速確認並進行修補。"
+    },
+    {
+      "category": "公告確認",
+      "title": "Linux APT套件管理工具漏洞CVE-2026-109518",
+      "priority": "中",
+      "detail": "來源：TWCERT/CC。APT漏洞允許中間人攻擊者替換已驗證套件並取得root權限，Debian與Ubuntu已發布安全更新，建議用戶儘速修補。"
+    },
+    {
+      "category": "公告確認",
+      "title": "WatchGuard Fireware OS存在2項高風險安全漏洞",
+      "priority": "中",
+      "detail": "來源：TWCERT/CC。WatchGuard防火牆產品漏洞CVE-2026-112709與CVE-2026-112710評估為高風險，建議企業優先確認受影響設備並儘速修補。"
+    },
+    {
+      "category": "公告確認",
+      "title": "2026前瞻資安探索會議舉辦 聚焦AI時代資安策略",
+      "priority": "中",
+      "detail": "來源：數位發展部資安署。資安署於11月4日舉辦前瞻資安探索會議，以『AI時代的新資安』為主題，邀請多國政府代表與資安專家交流，強化國家資安防護。"
     },
     {
       "category": "掃描比對",
-      "title": "NIKKE PC 啟動器遭入侵事件相關IOC比對",
+      "title": "C3RB3R勒索軟體攻擊Synology NAS相關IOC比對",
       "priority": "中",
-      "detail": "涉及類型：Domain、URL。建議比對內部防火牆/EDR日誌。"
-    },
-    {
-      "category": "掃描比對",
-      "title": "Synology NAS C3RB3R勒索軟體攻擊相關IOC比對",
-      "priority": "中",
-      "detail": "涉及類型：Hash。建議比對內部防火牆/EDR日誌。"
+      "detail": "涉及類型：IP。建議比對內部防火牆/EDR日誌。"
     },
     {
       "category": "掃描比對",
@@ -1435,62 +1588,32 @@ const DATA = {
       "detail": "涉及類型：Domain、URL。建議比對內部防火牆/EDR日誌。"
     },
     {
+      "category": "掃描比對",
+      "title": "NetamLoader APT框架攻擊亞洲政府相關IOC比對",
+      "priority": "中",
+      "detail": "涉及類型：URL、Hash。建議比對內部防火牆/EDR日誌。"
+    },
+    {
       "category": "教育宣導",
-      "title": "大型家居用品公司雲端資料外洩，逾770萬客戶資訊遭竊",
+      "title": "范德堡大學遭勒索軟體攻擊個人裝置導致資料竊取",
       "priority": "低",
       "detail": "建議納入員工資安宣導教育素材。"
     },
     {
       "category": "教育宣導",
-      "title": "詐騙集團冒充知名品牌販售虛假禮物卡進行詐騙",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
-    },
-    {
-      "category": "教育宣導",
-      "title": "歐洲超市冷凍設備遭駭，凸顯連網設備對外暴露與預設密碼風險",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
-    },
-    {
-      "category": "教育宣導",
-      "title": "2026 台灣資安通報應變年會：迎戰AI威脅 強化智慧應變",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
-    },
-    {
-      "category": "教育宣導",
-      "title": "數發部舉辦2026前瞻資安探索會議 攜手國際夥伴強化AI資安治理與供應鏈韌性",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
-    },
-    {
-      "category": "教育宣導",
-      "title": "群暉NAS遭C3RB3R勒索軟體攻擊",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
-    },
-    {
-      "category": "教育宣導",
-      "title": "俄羅斯駭客APT29發動大規模水坑式攻擊竊取iOS與Android裝置資訊",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
-    },
-    {
-      "category": "教育宣導",
-      "title": "APT駭客利用NetamLoader框架攻擊亞洲政府機關",
+      "title": "SonicWall GMS存在重大資安漏洞CVE-2026-109593",
       "priority": "低",
       "detail": "建議納入員工資安宣導教育素材。"
     }
   ],
   "category_counts": {
-    "kev": 0,
-    "vendor": 1,
-    "news": 13,
-    "ransomwareApt": 5
+    "kev": 4,
+    "vendor": 3,
+    "news": 17,
+    "ransomwareApt": 4
   }
 };
-const UPDATED_AT = "2026/11/9 10:32:47（台灣時間）";
+const UPDATED_AT = "2026/11/10 12:35:44（台灣時間）";
 document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }

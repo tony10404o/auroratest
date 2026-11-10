@@ -1,5 +1,61 @@
 [
   {
+    "category": "漏洞修補",
+    "title": "GPUStack認證機制缺陷CVE-2026-102895（CVSS 9.8）",
+    "date": "2026-11-09",
+    "url": "https://www.cisa.gov/known-exploited-vulnerabilities",
+    "first_seen": "2026-11-10"
+  },
+  {
+    "category": "漏洞修補",
+    "title": "FreeSwitch程式碼注入漏洞CVE-2026-116779（CVSS 9.8）",
+    "date": "2026-11-09",
+    "url": "https://www.cisa.gov/known-exploited-vulnerabilities",
+    "first_seen": "2026-11-10"
+  },
+  {
+    "category": "漏洞修補",
+    "title": "Aspera Faspex權限驗證缺陷CVE-2026-123218（CVSS 9.8）",
+    "date": "2026-11-09",
+    "url": "https://www.cisa.gov/known-exploited-vulnerabilities",
+    "first_seen": "2026-11-10"
+  },
+  {
+    "category": "漏洞修補",
+    "title": "OpenSSH狀態碼異常導致Linux系統認證繞過CVE-2026-123158（已遭利用）",
+    "date": "2026-11-09",
+    "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-sshole-openssh-flaw-to-breach-linux-systems/",
+    "first_seen": "2026-11-10"
+  },
+  {
+    "category": "漏洞修補",
+    "title": "SonicWall GMS存在重大資安漏洞CVE-2026-109593",
+    "date": "2026-11-06",
+    "url": "https://www.twcert.org.tw/tw/lp-169-1.html",
+    "first_seen": "2026-11-10"
+  },
+  {
+    "category": "漏洞修補",
+    "title": "Linux APT套件管理工具漏洞CVE-2026-109518允許root權限提升",
+    "date": "2026-11-06",
+    "url": "https://www.twcert.org.tw/tw/lp-169-1.html",
+    "first_seen": "2026-11-10"
+  },
+  {
+    "category": "漏洞修補",
+    "title": "WatchGuard Fireware OS存在2項高風險安全漏洞",
+    "date": "2026-11-06",
+    "url": "https://www.twcert.org.tw/tw/lp-169-1.html",
+    "first_seen": "2026-11-10"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "Synology NAS遭C3RB3R勒索軟體攻擊，利用已修補漏洞入侵舊版系統",
+    "date": "2026-11-06",
+    "url": "https://www.ithome.com.tw/news/180291",
+    "first_seen": "2026-11-10"
+  },
+  {
     "category": "零時差漏洞",
     "title": "Zyxel網路設備零時差漏洞已被實際利用",
     "date": "2026-11-05",
@@ -499,30 +555,6 @@
     "date": "2026-10-07",
     "url": "https://www.nics.nat.gov.tw/core_business/information_security_information_sharing/Vulnerability_Alert_Announcements/",
     "first_seen": "2026-10-22"
-  },
-  {
-    "category": "APT攻擊",
-    "title": "FortiGate VPN持續遭FortiBleed漏洞攻擊",
-    "date": "2026-10-06",
-    "url": "https://www.bleepingcomputer.com/news/security/fbi-ongoing-fortibleed-attacks-lock-out-fortigate-vpn-admins/"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "Atlassian Jira與Confluence關鍵漏洞已有公開利用程式碼",
-    "date": "2026-10-06",
-    "url": "https://www.bleepingcomputer.com/news/security/atlassian-warns-of-critical-file-access-flaw-in-jira-confluence/"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "SonicWall SMA1000閘道器最高等級SSRF漏洞",
-    "date": "2026-10-06",
-    "url": "https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-max-severity-ssrf-flaw-in-sma1000-gateways/"
-  },
-  {
-    "category": "政府公告",
-    "title": "104人力銀行12萬筆履歷遭未授權讀取",
-    "date": "2026-10-06",
-    "url": "https://news.ltn.com.tw/news/life/breakingnews/5597618"
   },
   {
     "category": "零時差漏洞",
