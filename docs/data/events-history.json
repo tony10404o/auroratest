@@ -1,5 +1,40 @@
 [
   {
+    "category": "零時差漏洞",
+    "title": "Barracuda ESG認證繞過漏洞（CVE-2026-116606）CVSS 9.3已遭實際利用",
+    "date": "2026-11-10",
+    "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-barracuda-email-security-gateway-flaws-to-get-root-access/",
+    "first_seen": "2026-11-11"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Barracuda Networks OS命令注入漏洞（CVE-2026-111560）CVSS 8.6",
+    "date": "2026-11-10",
+    "url": "",
+    "first_seen": "2026-11-11"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Cisco BroadWorks XML外部實體參考漏洞（CVE-2026-20320）CVSS 7.5",
+    "date": "2026-11-10",
+    "url": "",
+    "first_seen": "2026-11-11"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Microsoft Outlook詐騙漏洞（CVE-2026-124194）CVSS 6.5已修補",
+    "date": "2026-11-10",
+    "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-november-2026-patch-tuesday-fixes-1235-flaws-outlook-zero-day/",
+    "first_seen": "2026-11-11"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Google Chromium記憶體釋放後使用漏洞（CVE-2026-125350）CVSS 8.8",
+    "date": "2026-11-10",
+    "url": "",
+    "first_seen": "2026-11-11"
+  },
+  {
     "category": "漏洞修補",
     "title": "GPUStack認證機制缺陷CVE-2026-102895（CVSS 9.8）",
     "date": "2026-11-09",
@@ -56,6 +91,27 @@
     "first_seen": "2026-11-10"
   },
   {
+    "category": "勒索病毒",
+    "title": "C3RB3R勒索軟體大規模攻擊群暉NAS舊版DSM系統",
+    "date": "2026-11-06",
+    "url": "https://www.ithome.com.tw/news/180115",
+    "first_seen": "2026-11-11"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "Xen Orchestra認證繞過漏洞遭實際利用劫持VM伺服器",
+    "date": "2026-11-06",
+    "url": "https://www.bleepingcomputer.com/news/security/critical-xen-orchestra-auth-bypass-flaw-exploited-to-hijack-vm-servers/",
+    "first_seen": "2026-11-11"
+  },
+  {
+    "category": "政府公告",
+    "title": "TWCERT/CC發布11項重大漏洞警訊（SonicWall、Linux、Cisco等）",
+    "date": "2026-11-06",
+    "url": "https://www.twcert.org.tw/tw/lp-169-1.html",
+    "first_seen": "2026-11-11"
+  },
+  {
     "category": "零時差漏洞",
     "title": "Zyxel網路設備零時差漏洞已被實際利用",
     "date": "2026-11-05",
@@ -110,6 +166,27 @@
     "date": "2026-11-04",
     "url": "https://www.twcert.org.tw/tw/mp-1.html",
     "first_seen": "2026-11-09"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "APT29 Poisoned Source水坑攻擊散布惡意JavaScript竊取個資",
+    "date": "2026-11-04",
+    "url": "https://www.ithome.com.tw/news/180250",
+    "first_seen": "2026-11-11"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Debian與Ubuntu APT套件驗證繞過漏洞（CVE-2026-109518）",
+    "date": "2026-11-04",
+    "url": "https://klab.tw/2026/11/apt-cve-2026-109518/",
+    "first_seen": "2026-11-11"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Microsoft Windows多項權限提升漏洞（11月補丁星期二共1235項）",
+    "date": "2026-11-04",
+    "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-november-2026-patch-tuesday-fixes-1235-flaws-outlook-zero-day/",
+    "first_seen": "2026-11-11"
   },
   {
     "category": "政府公告",
@@ -492,69 +569,6 @@
     "title": "Atlassian CVE-2026-21589漏洞遭駭客積極利用",
     "date": "2026-10-08",
     "url": "https://www.ithome.com.tw/security"
-  },
-  {
-    "category": "政府公告",
-    "title": "GitLab重大漏洞遭駭客利用",
-    "date": "2026-10-07",
-    "url": ""
-  },
-  {
-    "category": "政府公告",
-    "title": "Citrix NetScaler ADC與Gateway高風險漏洞",
-    "date": "2026-10-07",
-    "url": "https://www.nics.nat.gov.tw/core_business/information_security_information_sharing/Vulnerability_Alert_Announcements/"
-  },
-  {
-    "category": "政府公告",
-    "title": "Microsoft Office SharePoint高風險漏洞",
-    "date": "2026-10-07",
-    "url": "https://www.nics.nat.gov.tw/core_business/information_security_information_sharing/Vulnerability_Alert_Announcements/"
-  },
-  {
-    "category": "政府公告",
-    "title": "pgAdmin 4高風險漏洞",
-    "date": "2026-10-07",
-    "url": "https://www.nics.nat.gov.tw/core_business/information_security_information_sharing/Vulnerability_Alert_Announcements/"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "全球勒索軟體日報：10月7日新增24起攻擊事件",
-    "date": "2026-10-07",
-    "url": "https://cn-sec.com/archives/5479633.html"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "IDCFクラウド遭勒索軟體攻擊導致495家企業受影響",
-    "date": "2026-10-07",
-    "url": "https://rocket-boys.co.jp/security-measures-lab/2026-ransomware-attack-examples/"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "大阪公立大學遭勒索軟體攻擊導致停課",
-    "date": "2026-10-07",
-    "url": "https://rocket-boys.co.jp/security-measures-lab/2026-ransomware-attack-examples/"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "日本雲端服務商IDCフロンティア遭勒索軟體攻擊 495家客戶受影響",
-    "date": "2026-10-07",
-    "url": "https://rocket-boys.co.jp/security-measures-lab/2026-ransomware-attack-examples/",
-    "first_seen": "2026-10-21"
-  },
-  {
-    "category": "政府公告",
-    "title": "資安署公告F5 BIG-IP APM高風險漏洞CVE-2026-94127",
-    "date": "2026-10-07",
-    "url": "https://www.nics.nat.gov.tw/core_business/information_security_information_sharing/Vulnerability_Alert_Announcements/",
-    "first_seen": "2026-10-22"
-  },
-  {
-    "category": "政府公告",
-    "title": "資安署警告Citrix NetScaler ADC與Gateway漏洞CVE-2026-88771、CVE-2026-88772",
-    "date": "2026-10-07",
-    "url": "https://www.nics.nat.gov.tw/core_business/information_security_information_sharing/Vulnerability_Alert_Announcements/",
-    "first_seen": "2026-10-22"
   },
   {
     "category": "零時差漏洞",
