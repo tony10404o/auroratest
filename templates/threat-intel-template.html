@@ -941,7 +941,7 @@ grid.innerHTML =
       <button class="tab-btn" data-days="1">今天</button>
       <button class="tab-btn active" data-days="30">本月</button>
     </div>`, '', todayWinCount, 'windowsUpdateBadge') +
-  panelShell('⑤', '🚨', '台灣詐騙資安事件', null, `<div id="twScamBody"></div>`, '', '#DC2626', (DATA.tw_scam_events||[]).length);
+  panelShell('⑤', '🚨', '安全宣導', null, `<div id="twScamBody"></div>`, '', '#DC2626', (DATA.tw_scam_events||[]).length);
 
 setupGlobalEventsPanel(DATA.global_events);
 setupVendorPillFilter(DATA.vendor_impact);
@@ -991,12 +991,6 @@ function setupVendorPillFilter(items){
   .tw-item-title a:hover{text-decoration:underline;color:#2563EB;}
   .tw-item-sum{font-size:12px;color:var(--text-dim);line-height:1.5;}
   .tw-empty{padding:18px 0;font-size:12.5px;color:var(--text-faint);text-align:center;}
-  .tw-row{font-size:12px;line-height:1.5;margin-top:4px;padding:5px 9px;border-radius:6px;}
-  .tw-risk{background:rgba(220,38,38,.07);color:var(--text);}
-  .tw-advice{background:rgba(5,150,105,.09);color:var(--text);}
-  .tw-row b{margin-right:4px;}
-  .tw-risk b{color:#DC2626;}
-  .tw-advice b{color:#059669;}
   .tw-note{padding-top:8px;font-size:10.5px;color:var(--text-faint);}
 </style>
 <script>
@@ -1013,8 +1007,6 @@ function setupVendorPillFilter(items){
       <div class="tw-item-top"><span class="tw-tag">${escapeHtml(e.type || '詐騙')}</span><span>${escapeHtml(e.date || '')}</span><span>${escapeHtml(e.source_name || '')}</span></div>
       <div class="tw-item-title">${u ? `<a href="${escapeHtml(u)}" target="_blank" rel="noopener noreferrer">${title}</a>` : title}</div>
       <div class="tw-item-sum">${escapeHtml(e.summary || '')}</div>
-      ${e.risk ? `<div class="tw-row tw-risk"><b>⚠️ 可能風險</b>${escapeHtml(String(e.risk).replace(/^可能風險[:：]\s*/, ''))}</div>` : ''}
-      ${e.advice ? `<div class="tw-row tw-advice"><b>✅ 正確做法</b>${escapeHtml(String(e.advice).replace(/^正確做法[:：]\s*/, ''))}</div>` : ''}
     </div>`;
   }).join('') : '<div class="tw-empty">目前沒有資料，下次自動更新後會顯示</div>')
   + '<div class="tw-note">由AI於資料產生當下搜尋彙整，非即時資訊，僅供參考</div>';
