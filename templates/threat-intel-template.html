@@ -566,6 +566,30 @@ async function syncStatusFromCloud(){
   }
 }
 
+// 到期日：事件被抓到的日期（first_seen，沒有就用事件日期）＋ 依類別的處理期限（天）
+const DUE_DAYS = { '零時差漏洞': 3, '勒索病毒': 3, 'APT攻擊': 7, '政府公告': 7 };
+function dueInfoFor(e, saved){
+  let due = null;
+  if (e.due_date && /^\d{4}-\d{2}-\d{2}$/.test(e.due_date)) {
+    due = new Date(e.due_date + 'T00:00:00Z');
+  } else {
+    const base = e.first_seen || e.date;
+    if (!base) return '';
+    const b = new Date(base);
+    if (isNaN(b)) return '';
+    due = new Date(Date.UTC(b.getUTCFullYear(), b.getUTCMonth(), b.getUTCDate() + (DUE_DAYS[e.category] ?? 7)));
+  }
+  const now = new Date();
+  const today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+  const left = Math.round((due.getTime() - today) / 86400000);
+  const mm = String(due.getUTCMonth() + 1).padStart(2, '0'), dd = String(due.getUTCDate()).padStart(2, '0');
+  const label = `${due.getUTCFullYear()}/${mm}/${dd}`;
+  if (saved === '已完成' || saved === '不處理') return `<div class="update-due done">到期日：${label}</div>`;
+  if (left < 0) return `<div class="update-due over">到期日：${label}（已逾期 ${-left} 天）</div>`;
+  if (left === 0) return `<div class="update-due soon">到期日：${label}（今天到期）</div>`;
+  return `<div class="update-due${left <= 2 ? ' soon' : ''}">到期日：${label}（剩 ${left} 天）</div>`;
+}
+
 function renderGlobalEvents(items, rangeDays){
   const filtered = (items || []).filter(e => {
     if (!eventInRange(e, rangeDays)) return false;
@@ -590,6 +614,7 @@ function renderGlobalEvents(items, rangeDays){
         </select>
       </div>
       ${cve ? `<div class="update-cve-line"><b>CVE：</b>${escapeHtml(cve)}</div>` : ''}
+      ${dueInfoFor(e, saved)}
     </div>`;
   });
   return withShowMore(rows);
@@ -982,6 +1007,10 @@ function setupVendorPillFilter(items){
 <style>
   .panel-wide{grid-column:span 2;}
   @media (max-width:760px){.panel-wide{grid-column:auto;}}
+  .update-due{font-size:11px;color:var(--text-dim);margin-top:4px;}
+  .update-due.soon{color:#D97706;font-weight:600;}
+  .update-due.over{color:#DC2626;font-weight:700;}
+  .update-due.done{color:var(--text-faint);}
   .tw-item{padding:10px 0;border-bottom:1px solid var(--border);}
   .tw-item:last-child{border-bottom:none;}
   .tw-item-top{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:11px;color:var(--text-dim);margin-bottom:3px;}
