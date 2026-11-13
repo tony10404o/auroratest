@@ -341,358 +341,330 @@
 const DATA = {
   "headlines": [
     {
-      "icon": "🎯",
-      "title": "Microsoft 連發四項高風險漏洞威脅 Visual Studio、ASP.NET Core、.NET 需緊急修補",
-      "subtitle": "涉及遠端程式碼執行及權限提升，影響開發及網應平台",
-      "impact": "高",
-      "stars": 5,
-      "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-114151"
-    },
-    {
       "icon": "🕵️",
-      "title": "俄羅斯 APT29 發動大規模水坑攻擊 Poisoned Source 竊取行動裝置個資",
-      "subtitle": "透過偽冒網站及供應鏈散布漏洞利用鏈，竊取密碼及個人資訊",
+      "title": "APT29發動大規模水坑式攻擊竊取行動裝置帳密",
+      "subtitle": "俄羅斯駭客透過供應鏈投遞漏洞利用鏈，針對iOS與Android用戶",
       "impact": "高",
       "stars": 5,
       "url": "https://www.ithome.com.tw/news/180250"
     },
     {
-      "icon": "🎯",
-      "title": "Palo Alto Networks 爆發 PAN-OS 遠端執行漏洞及 Chromium 月度更新",
-      "subtitle": "Panorama 認證 RCE 及瀏覽器漏洞需立即評估修補",
-      "impact": "高",
-      "stars": 5,
-      "url": "https://security.paloaltonetworks.com/CVE-2026-0330"
-    },
-    {
-      "icon": "🎯",
-      "title": "Fortinet 多項認證授權略過及檔案寫入漏洞現身",
-      "subtitle": "涉及 FortiGate 及 JSON API 的高危權限提升與任意檔案操作",
-      "impact": "高",
-      "stars": 5,
-      "url": "https://fortiguard.fortinet.com/psirt/FG-IR-26-271"
-    },
-    {
-      "icon": "🎯",
-      "title": "Cisco 身分驗證服務爆發認證略過漏洞",
-      "subtitle": "Identity Services Engine 認證授權防護失效",
-      "impact": "高",
-      "stars": 5,
-      "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ise-auth-bypass-1-MxcTNgwx?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Identity%20Services%20Engine%20Authorization%20Bypass%20Vulnerabilities%26vs_k=1"
-    },
-    {
-      "icon": "📋",
-      "title": "資安署示警 AI 網路攻擊升溫 已波及十餘家台灣企業百萬個資外洩",
-      "subtitle": "促請落實漏洞修補、客戶通知及個資最小化防護",
+      "icon": "⚠️",
+      "title": "台灣資安署籲企業緊急應對AI駭客攻擊",
+      "subtitle": "超過10家企業遭AI攻擊影響800萬筆個資，呼籲72小時內通報",
       "impact": "高",
       "stars": 5,
       "url": "https://moda.gov.tw/ACS/"
     },
     {
-      "icon": "🕵️",
-      "title": "APT 駭客利用 NetamLoader 攻擊亞洲政府機關 多層.NET 隱蔽手法",
-      "subtitle": "使用反序列化漏洞及 XAML 隱藏技術進行多階段攻擊",
+      "icon": "🦠",
+      "title": "勒索軟體攻擊創新高 單日新增100起涉21個團伙",
+      "subtitle": "11月9日攻擊數量暴增426%，新興團伙CuriousWorm發動連鎖攻擊",
       "impact": "高",
+      "stars": 5
+    },
+    {
+      "icon": "🛡️",
+      "title": "台灣電商供應鏈資安事件延燒",
+      "subtitle": "1shop、Cyberbiz等電商ERP業者遭攻擊，群暉NAS遭勒索軟體入侵",
+      "impact": "高",
+      "stars": 5,
+      "url": "https://www.ithome.com.tw/news/180291"
+    },
+    {
+      "icon": "🦠",
+      "title": "新型SCKit蠕蟲專門鎖定託管服務商",
+      "subtitle": "利用ScreenConnect遠端工具入侵MSP進行二次攻擊",
+      "impact": "高",
+      "stars": 5,
+      "url": "https://www.bleepingcomputer.com/news/security/new-worm-like-sckit-malware-targets-msps-in-screenconnect-attacks/"
+    },
+    {
+      "icon": "💻",
+      "title": "駭客入侵4800個GitHub帳戶竊取雲端憑證",
+      "subtitle": "開發者帳號洩露導致API金鑰與企業雲端基礎設施暴露",
+      "impact": "高",
+      "stars": 4,
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-compromise-4-800-github-accounts-to-steal-cloud-credentials/"
+    },
+    {
+      "icon": "🔓",
+      "title": "Windows SignDrop零日漏洞允許權限提升",
+      "subtitle": "未修補漏洞可從限制帳戶升級至系統管理員權限",
+      "impact": "高",
+      "stars": 4,
+      "url": "https://www.bleepingcomputer.com/news/security/new-windows-signdrop-zero-day-gives-hackers-system-privileges/"
+    },
+    {
+      "icon": "🕵️",
+      "title": "APT駭客利用NetamLoader攻擊亞洲政府機關",
+      "subtitle": "通過.NET多階段載入機制投遞定製化惡意軟體",
+      "impact": "中",
       "stars": 4,
       "url": "https://www.ithome.com.tw/news/180179"
     },
     {
-      "icon": "📋",
-      "title": "TWCERT/CC 緊急公布 Ivanti 及 Cisco 重大遠端執行漏洞需立即修補",
-      "subtitle": "CVE-2026-18851、CVE-2026-76461 允許任意程式碼執行",
-      "impact": "高",
-      "stars": 5,
-      "url": "https://www.twcert.org.tw/tw/lp-169-1.html"
-    },
-    {
-      "icon": "🦠",
-      "title": "日本家具大廠宜得利遭駭 3762 萬筆會員個資外洩 駭客利用 AI 自動化攻擊",
-      "subtitle": "利用代理式 AI 自主判斷執行任務，企業面臨複雜智慧型威脅",
-      "impact": "高",
-      "stars": 4,
-      "url": "https://tw.news.yahoo.com/2026-11-12-rti%E7%B2%BE%E9%81%B8%E6%96%B0%E8%81%9E-003006641.html"
-    },
-    {
-      "icon": "🦠",
-      "title": "ScreenConnect 漏洞遭大規模利用 MSP 商業被侵入威脅下游客戶",
-      "subtitle": "遠端存取工具淪陷導致供應鏈風險擴大",
-      "impact": "高",
-      "stars": 4,
-      "url": "https://www.bleepingcomputer.com/news/security/active-screenconnect-attacks-breach-msps-impact-dozens-of-organizations/"
-    },
-    {
-      "icon": "🦠",
-      "title": "馬士基航運遭 WhiteArmor 勒索軟體攻擊 索要 500 萬美元贖金",
-      "subtitle": "全球運輸物流巨頭遭勒索軟體集團攻擊",
+      "icon": "⚠️",
+      "title": "eMudhra吊銷8張CA憑證因私密金鑰洩露",
+      "subtitle": "數位憑證供應商遭入侵，多張根憑證與中繼憑證失效",
       "impact": "中",
       "stars": 4,
-      "url": "https://www.bleepingcomputer.com/news/security/maersk-confirms-data-breach-as-whitearmor-ransomware-demands-5-million/"
+      "url": "https://www.bleepingcomputer.com/news/security/emudhra-revokes-8-more-ca-certificates-after-private-key-mishap/"
+    },
+    {
+      "icon": "🎣",
+      "title": "186個仿冒AI品牌釣魚域名用於詐騙攻擊",
+      "subtitle": "偽造ChatGPT、Claude等品牌進行釣魚，導向惡意應用程式",
+      "impact": "中",
+      "stars": 4
     },
     {
       "icon": "🦠",
-      "title": "群暉 NAS 設備遭 C3RB3R 勒索軟體自動化攻擊",
-      "subtitle": "針對特定 NAS 系統漏洞進行掃描與加密",
+      "title": "銀狐木馬專項傳播Gh0st後門病毒",
+      "subtitle": "黑產團伙透過軟體下載站與釣魚郵件分發，多個C2伺服器遭曝光",
+      "impact": "中",
+      "stars": 3
+    },
+    {
+      "icon": "🎭",
+      "title": "2026世界杯期間1500餘惡意域名分發惡意軟體",
+      "subtitle": "非法轉播平台誘導用戶下載仿冒VPN與流媒體工具",
+      "impact": "中",
+      "stars": 3
+    },
+    {
+      "icon": "🚨",
+      "title": "執法部門瓦解Gootloader、CastleRAT和StealC惡意基礎設施",
+      "subtitle": "國際聯合行動關閉三大惡意軟體分發網路",
       "impact": "中",
       "stars": 3,
-      "url": "https://www.ithome.com.tw/news/180291"
+      "url": "https://www.bleepingcomputer.com/news/security/police-dismantles-gootloader-castlerat-stealc-malware-infrastructure/"
     },
     {
-      "icon": "🎯",
-      "title": "Cisco 產品中 Node.js 及 Brotli 漏洞 2026 年 10 月月度更新",
-      "subtitle": "第三方元件漏洞需評估及修補",
+      "icon": "🦠",
+      "title": "全球勒索軟體日報11月11日新增36起案例",
+      "subtitle": "14個團伙活躍，N0n與Osiris等老牌集團擴大受害範圍",
       "impact": "中",
-      "stars": 3,
-      "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-oct2026-node-js-Jj3SQ19u?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Vulnerabilities%20in%20Node.js%20and%20Brotli%20Affecting%20Cisco%20Products:%20October%202026%26vs_k=1"
-    },
-    {
-      "icon": "📡",
-      "title": "駭客濫用 AWS 雲端憑證進行大規模認證詐竊 利用 AntiFox AI 代理程式",
-      "subtitle": "雲端環境認證竊取威脅企業雲端資源控制權",
-      "impact": "中",
-      "stars": 3,
-      "url": "https://www.bleepingcomputer.com/news/security/hackers-use-antifox-ai-agents-in-aws-credential-theft-attacks/"
-    },
-    {
-      "icon": "📋",
-      "title": "CISA 示警 Cisco BroadWorks 漏洞已遭駭客積極利用",
-      "subtitle": "國際資安機構列為已遭攻擊利用的漏洞",
-      "impact": "中",
-      "stars": 3,
-      "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-cisco-broadworks-flaw-as-actively-exploited-in-attacks/"
-    },
-    {
-      "icon": "📰",
-      "title": "Baker Tilly 會計事務所第三方供應商資料外洩 影響多家企業客戶",
-      "subtitle": "供應商管理風險導致客戶資料被竊",
-      "impact": "中",
-      "stars": 2,
-      "url": "https://www.bleepingcomputer.com/news/security/baker-tilly-notifies-clients-of-data-breach-at-third-party-provider/"
-    },
-    {
-      "icon": "🎯",
-      "title": "Microsoft ASP.NET Core 及 .NET 多項中危漏洞 資訊洩露與服務阻斷",
-      "subtitle": "共 6 項中危漏洞涉及網應平台穩定性與資料安全",
-      "impact": "中",
-      "stars": 3,
-      "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-109476"
-    },
-    {
-      "icon": "🎯",
-      "title": "Palo Alto Networks 多項中危漏洞 緩衝區溢位及敏感資訊洩露",
-      "subtitle": "PAN-OS 及 GlobalProtect 需評估修補",
-      "impact": "中",
-      "stars": 2,
-      "url": "https://security.paloaltonetworks.com/CVE-2026-0329"
-    },
-    {
-      "icon": "🎯",
-      "title": "Fortinet fastapi 資源無限制配置漏洞 服務阻斷風險",
-      "subtitle": "中危漏洞可能導致系統資源耗盡",
-      "impact": "中",
-      "stars": 2,
-      "url": "https://fortiguard.fortinet.com/psirt/FG-IR-26-258"
-    },
-    {
-      "icon": "📋",
-      "title": "Cisco eMudhra 根憑證及中間憑證機構信任撤銷通知",
-      "subtitle": "憑證信任基礎設施更新需評估影響",
-      "impact": "中",
-      "stars": 2,
-      "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-emudhra-info-ScS22A1r?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Informational%20for%20Emergency%20Distrust%20of%20eMudhra%20Root%20and%20Intermediate%20Certificate%20Authorities%26vs_k=1"
+      "stars": 3
     }
   ],
   "vendor_impact": [
     {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-114151 Visual Studio 遠端程式碼執行漏洞",
+      "icon": "🔥",
+      "vendor": "Palo Alto",
+      "title": "PAN-SA-2026-0014 Chromium月度漏洞更新",
       "impact": "高",
-      "category": "開發工具",
-      "key_asset": "Visual Studio",
-      "ai_suggestion": "立即檢查內部開發環境是否使用 Visual Studio，評估升級至最新修復版本的時程與影響"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-109481 ASP.NET Core 權限提升漏洞",
-      "impact": "高",
-      "category": "網應平台",
-      "key_asset": "ASP.NET Core",
-      "ai_suggestion": "檢視生產環境中 ASP.NET Core 版本並制定修補計畫，評估服務重啟對業務的影響"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-114146 ASP.NET Core 權限提升漏洞",
-      "impact": "高",
-      "category": "網應平台",
-      "key_asset": "ASP.NET Core",
-      "ai_suggestion": "與 CVE-2026-109481 一同評估修補，優先排程受影響版本的升級"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-105544 .NET 權限提升漏洞",
-      "impact": "高",
-      "category": "應用框架",
-      "key_asset": ".NET Framework/.NET Core",
-      "ai_suggestion": "清查所有依賴 .NET 的應用系統版本，優先在測試環境驗證修補相容性"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-109476 ASP.NET Core 資訊洩露漏洞",
-      "impact": "中",
-      "category": "網應平台",
-      "key_asset": "ASP.NET Core",
-      "ai_suggestion": "評估應用程式是否暴露敏感資訊，確認修補優先級是否高於其他中危漏洞"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-114150 ASP.NET Core 資訊洩露漏洞",
-      "impact": "中",
-      "category": "網應平台",
-      "key_asset": "ASP.NET Core",
-      "ai_suggestion": "與其他 ASP.NET Core 漏洞合併評估，統一規劃升級時程"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-109475 .NET 服務阻斷漏洞",
-      "impact": "中",
-      "category": "應用框架",
-      "key_asset": ".NET Framework/.NET Core",
-      "ai_suggestion": "評估應用對 DoS 的敏感程度，制定修補排程"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-109478 ASP.NET Core 服務阻斷漏洞",
-      "impact": "中",
-      "category": "網應平台",
-      "key_asset": "ASP.NET Core",
-      "ai_suggestion": "評估線上服務可用性影響，視 SLA 需求決定修補優先級"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-114147 ASP.NET Core 服務阻斷漏洞",
-      "impact": "中",
-      "category": "網應平台",
-      "key_asset": "ASP.NET Core",
-      "ai_suggestion": "與其他 DoS 漏洞合併處理，制定統一的修補計畫"
-    },
-    {
-      "icon": "🪟",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-114149 ASP.NET Core 服務阻斷漏洞",
-      "impact": "中",
-      "category": "網應平台",
-      "key_asset": "ASP.NET Core",
-      "ai_suggestion": "納入 ASP.NET Core 修補計畫，評估與其他漏洞的關聯性"
-    },
-    {
-      "icon": "🔀",
-      "vendor": "Cisco",
-      "title": "Cisco Identity Services Engine 認證授權略過漏洞",
-      "impact": "高",
-      "category": "身分驗證服務",
-      "key_asset": "Cisco ISE",
-      "ai_suggestion": "立即評估 ISE 部署版本與修補狀態，考慮在測試環境先行驗證更新"
-    },
-    {
-      "icon": "🔀",
-      "vendor": "Cisco",
-      "title": "Cisco 產品中 Node.js 和 Brotli 漏洞（2026年10月）",
-      "impact": "中",
-      "category": "第三方元件",
-      "key_asset": "Cisco 各類產品",
-      "ai_suggestion": "檢查內部使用的 Cisco 產品是否涉及，評估第三方元件更新風險"
-    },
-    {
-      "icon": "🔀",
-      "vendor": "Cisco",
-      "title": "Cisco 針對 eMudhra 根憑證及中間憑證機構信任撤銷通知",
-      "impact": "中",
-      "category": "憑證基礎設施",
-      "key_asset": "Cisco 憑證系統",
-      "ai_suggestion": "評估是否使用 eMudhra 簽署的憑證，確認撤銷對服務的影響程度"
-    },
-    {
-      "icon": "🛡️",
-      "vendor": "Fortinet",
-      "title": "Fortinet 多項認證授權略過及繞過漏洞",
-      "impact": "高",
-      "category": "防火牆安全",
-      "key_asset": "FortiGate 防火牆",
-      "ai_suggestion": "優先檢查 FortiGate 版本與授權狀態，規劃升級至修復版本的時程"
-    },
-    {
-      "icon": "🛡️",
-      "vendor": "Fortinet",
-      "title": "Fortinet JSON API 任意檔案寫入及刪除漏洞",
-      "impact": "高",
-      "category": "防火牆安全",
-      "key_asset": "Fortinet 系統",
-      "ai_suggestion": "立即評估是否開放 JSON API，限制存取範圍並規劃緊急修補"
-    },
-    {
-      "icon": "🛡️",
-      "vendor": "Fortinet",
-      "title": "Fortinet fastapi 資源無限制配置漏洞",
-      "impact": "中",
-      "category": "應用平台",
-      "key_asset": "Fortinet 產品",
-      "ai_suggestion": "檢查是否使用受影響的 fastapi 版本，評估 DoS 風險與修補時程"
+      "category": "瀏覽器元件",
+      "key_asset": "PAN-OS Chromium",
+      "ai_suggestion": "評估受影響的PAN-OS版本並排程更新測試，檢查內部Chromium相依性"
     },
     {
       "icon": "🔥",
       "vendor": "Palo Alto",
-      "title": "CVE-2026-0330 PAN-OS Panorama 認證遠端程式碼執行漏洞",
+      "title": "CVE-2026-0330 PAN-OS Panorama遠端程式碼執行漏洞",
       "impact": "高",
       "category": "防火牆管理",
-      "key_asset": "Palo Alto Panorama",
-      "ai_suggestion": "立即確認 Panorama 版本，制定緊急修補計畫並評估對管理平面的風險"
+      "key_asset": "Panorama管理平台",
+      "ai_suggestion": "Panorama RCE屬高危，立即檢查受影響版本並制定緊急修補計畫"
     },
     {
-      "icon": "🔥",
-      "vendor": "Palo Alto",
-      "title": "PAN-SA-2026-0014 Chromium 2026年11月月度漏洞更新",
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-105544 .NET權限提升漏洞",
       "impact": "高",
-      "category": "瀏覽器",
-      "key_asset": "Chromium 相關產品",
-      "ai_suggestion": "檢查 Palo Alto 產品中 Chromium 元件版本，規劃升級至修復版本"
+      "category": "應用開發框架",
+      "key_asset": ".NET Runtime",
+      "ai_suggestion": "評估內部.NET應用程式使用版本，優先修補生產環境與開發環境"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-109481 ASP.NET Core權限提升漏洞",
+      "impact": "高",
+      "category": "Web框架",
+      "key_asset": "ASP.NET Core",
+      "ai_suggestion": "清查ASP.NET Core Web應用程式版本並規劃修補時程，注意開發環境依賴"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-114146 ASP.NET Core權限提升漏洞",
+      "impact": "高",
+      "category": "Web框架",
+      "key_asset": "ASP.NET Core",
+      "ai_suggestion": "同CVE-2026-109481，建議併同規劃修補以提升效率"
     },
     {
       "icon": "🔥",
       "vendor": "Palo Alto",
-      "title": "CVE-2026-0329 PAN-OS 緩衝區溢位漏洞",
+      "title": "CVE-2026-0329 PAN-OS緩衝區溢位漏洞",
       "impact": "中",
-      "category": "防火牆作業系統",
-      "key_asset": "PAN-OS",
-      "ai_suggestion": "評估緩衝區溢位風險，納入定期修補計畫中"
+      "category": "防火牆引擎",
+      "key_asset": "PAN-OS核心",
+      "ai_suggestion": "評估防火牆版本，納入季度修補計畫，監控相關利用代碼洩露"
     },
     {
       "icon": "🔥",
       "vendor": "Palo Alto",
-      "title": "CVE-2026-0331 PAN-OS 敏感資訊洩露漏洞",
+      "title": "CVE-2026-0331 PAN-OS敏感資訊洩露漏洞",
       "impact": "中",
-      "category": "防火牆作業系統",
-      "key_asset": "PAN-OS",
-      "ai_suggestion": "確認是否可能暴露敏感日誌或設定資訊，評估修補優先級"
+      "category": "防火牆引擎",
+      "key_asset": "PAN-OS配置管理",
+      "ai_suggestion": "檢查PAN-OS日誌與配置是否存在敏感資訊暴露風險，規劃修補"
     },
     {
       "icon": "🔥",
       "vendor": "Palo Alto",
-      "title": "CVE-2026-0324 GlobalProtect App OPSWAT MetaDefender Windows 權限管理漏洞",
+      "title": "CVE-2026-0324 GlobalProtect App OPSWAT SDK權限管理不當",
       "impact": "中",
-      "category": "遠端存取工具",
-      "key_asset": "Palo Alto GlobalProtect",
-      "ai_suggestion": "檢查 GlobalProtect 用戶端版本與 OPSWAT 整合狀態，評估權限提升風險"
+      "category": "遠端存取",
+      "key_asset": "GlobalProtect用戶端",
+      "ai_suggestion": "檢查GlobalProtect部署版本，對遠端員工進行客戶端更新推送"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-109475 .NET阻斷服務漏洞",
+      "impact": "中",
+      "category": "應用開發框架",
+      "key_asset": ".NET Runtime",
+      "ai_suggestion": "評估DoS風險容忍度，.NET應用程式需納入修補計畫優先序"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-109476 ASP.NET Core資訊洩露漏洞",
+      "impact": "中",
+      "category": "Web框架",
+      "key_asset": "ASP.NET Core",
+      "ai_suggestion": "檢查Web應用程式是否存在敏感資訊洩露風險，制定修補計畫"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-109478 ASP.NET Core阻斷服務漏洞",
+      "impact": "中",
+      "category": "Web框架",
+      "key_asset": "ASP.NET Core",
+      "ai_suggestion": "評估服務可用性影響，納入Web應用修補周期"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-114147 ASP.NET Core阻斷服務漏洞",
+      "impact": "中",
+      "category": "Web框架",
+      "key_asset": "ASP.NET Core",
+      "ai_suggestion": "與其他ASP.NET Core漏洞併同評估，安排集中測試與部署"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-114149 ASP.NET Core阻斷服務漏洞",
+      "impact": "中",
+      "category": "Web框架",
+      "key_asset": "ASP.NET Core",
+      "ai_suggestion": "同上，多個DoS漏洞應列為高優先修補清單"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-114150 ASP.NET Core資訊洩露漏洞",
+      "impact": "中",
+      "category": "Web框架",
+      "key_asset": "ASP.NET Core",
+      "ai_suggestion": "資訊洩露風險需納入安全審查，檢查應用程式日誌與回應"
+    },
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "Cisco BroadWorks XML外部實體注入漏洞",
+      "impact": "高",
+      "category": "通訊平台",
+      "key_asset": "Cisco BroadWorks",
+      "ai_suggestion": "BroadWorks XXE漏洞屬高危，立即檢查受影響版本並評估修補時程"
+    },
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "Cisco Node.js及Brotli漏洞影響產品安全",
+      "impact": "中",
+      "category": "運行時環境",
+      "key_asset": "Cisco產品Node.js依賴",
+      "ai_suggestion": "檢查Cisco產品中Node.js與Brotli版本，評估漏洞影響範圍並修補"
+    },
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "Cisco eMudhra根憑證及中繼憑證緊急不信任通知",
+      "impact": "中",
+      "category": "憑證管理",
+      "key_asset": "eMudhra簽發憑證",
+      "ai_suggestion": "檢查組織內使用的eMudhra憑證，評估更新或替換計畫"
+    },
+    {
+      "icon": "🔥",
+      "vendor": "Palo Alto",
+      "title": "CVE-2026-0327 PAN-OS GlobalProtect權限提升漏洞",
+      "impact": "低",
+      "category": "遠端存取",
+      "key_asset": "GlobalProtect",
+      "ai_suggestion": "低危漏洞，納入常規修補周期監控"
+    },
+    {
+      "icon": "🔥",
+      "vendor": "Palo Alto",
+      "title": "CVE-2026-0325 PAN-OS GlobalProtect授權繞過漏洞",
+      "impact": "低",
+      "category": "遠端存取",
+      "key_asset": "GlobalProtect",
+      "ai_suggestion": "授權繞過需納入存取控制審查清單，建議納入修補計畫"
+    },
+    {
+      "icon": "🔥",
+      "vendor": "Palo Alto",
+      "title": "CVE-2026-0323 Checkov伺服器端請求偽造漏洞",
+      "impact": "低",
+      "category": "開發工具",
+      "key_asset": "Checkov by Prisma Cloud",
+      "ai_suggestion": "檢查內部Checkov使用情況，必要時進行版本更新"
+    },
+    {
+      "icon": "🔥",
+      "vendor": "Palo Alto",
+      "title": "CVE-2026-0328 PAN-OS GlobalProtect Portal使用者冒充漏洞",
+      "impact": "低",
+      "category": "遠端存取",
+      "key_asset": "GlobalProtect Portal",
+      "ai_suggestion": "監控遠端存取日誌，低危漏洞納入常規修補"
+    },
+    {
+      "icon": "🔥",
+      "vendor": "Palo Alto",
+      "title": "CVE-2026-0326 PAN-OS通訊協定處理緩衝區溢位漏洞",
+      "impact": "低",
+      "category": "防火牆引擎",
+      "key_asset": "PAN-OS通訊協定堆疊",
+      "ai_suggestion": "低危漏洞，納入定期修補計畫"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-111497 Google Brotli解碼器緩衝區溢位",
+      "impact": "中",
+      "category": "壓縮引擎",
+      "key_asset": "Brotli解碼器",
+      "ai_suggestion": "評估Microsoft產品中Brotli依賴，與Cisco Brotli漏洞一併修補"
     }
   ],
   "global_events": [
+    {
+      "category": "政府公告",
+      "title": "資安署籲企業緊急應對AI駭客攻擊 72小時內通報個資外洩",
+      "date": "2026-11-12",
+      "url": "https://moda.gov.tw/ACS/",
+      "first_seen": "2026-11-13"
+    },
     {
       "category": "政府公告",
       "title": "資安署示警 AI 網路攻擊升溫 已波及十餘家台灣企業百萬個資外洩",
@@ -762,6 +734,12 @@ const DATA = {
       "date": "2026-11-09",
       "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-sshole-openssh-flaw-to-breach-linux-systems/",
       "first_seen": "2026-11-10"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "全球勒索軟體攻擊單日創新高 新增100起涉21個團伙",
+      "date": "2026-11-09",
+      "first_seen": "2026-11-13"
     },
     {
       "category": "漏洞修補",
@@ -904,6 +882,20 @@ const DATA = {
       "first_seen": "2026-11-12"
     },
     {
+      "category": "APT攻擊",
+      "title": "APT29發動水坑式攻擊竊取行動裝置帳密資料",
+      "date": "2026-11-04",
+      "url": "https://www.ithome.com.tw/news/180250",
+      "first_seen": "2026-11-13"
+    },
+    {
+      "category": "政府公告",
+      "title": "台灣資安署舉辦2026前瞻資安探索會議應對AI威脅",
+      "date": "2026-11-04",
+      "url": "https://www.twcert.org.tw/tw/mp-1.html",
+      "first_seen": "2026-11-13"
+    },
+    {
       "category": "政府公告",
       "title": "2026台灣資安通報應變年會迎戰AI威脅強化智慧應變",
       "date": "2026-11-03",
@@ -986,6 +978,13 @@ const DATA = {
       "date": "2026-11-03",
       "url": "https://www.ithome.com.tw/news/180179",
       "first_seen": "2026-11-12"
+    },
+    {
+      "category": "APT攻擊",
+      "title": "APT駭客利用NetamLoader惡意軟體攻擊亞洲政府機關",
+      "date": "2026-11-03",
+      "url": "https://www.ithome.com.tw/news/180179",
+      "first_seen": "2026-11-13"
     },
     {
       "category": "零時差漏洞",
@@ -1241,13 +1240,6 @@ const DATA = {
       "title": "台灣多所大學遭Flax Typhoon等駭客組織攻擊（利用8個已知漏洞）",
       "date": "2026-10-12",
       "url": "https://www.ithome.com.tw/news/179381",
-      "first_seen": "2026-10-21"
-    },
-    {
-      "category": "勒索病毒",
-      "title": "大阪公立大學遭勒索軟體攻擊 教學系統癱瘓",
-      "date": "2026-10-09",
-      "url": "https://rocket-boys.co.jp/security-measures-lab/2026-ransomware-attack-examples/",
       "first_seen": "2026-10-21"
     },
     {
@@ -1595,69 +1587,69 @@ const DATA = {
     }
   ],
   "ai_analysis": [
-    "Microsoft 連發四項高風險漏洞（CVE-2026-114151、CVE-2026-109481、CVE-2026-114146、CVE-2026-105544）涉及 Visual Studio、ASP.NET Core、.NET 框架，若組織依賴這些開發與網應平台，需立即評估版本、制定修補計畫並在測試環境驗證相容性，優先處理遠端執行與權限提升漏洞。",
-    "Fortinet、Cisco、Palo Alto 等重點廠商共發布 8 項高危漏洞，其中 FortiGate 認證略過（FG-IR-26-271）、Cisco ISE 認證略過、PAN-OS Panorama RCE（CVE-2026-0330）皆為邊界安全關鍵，需立即盤點現有部署版本並優先在測試環境驗證修復。",
-    "台灣資安署於 11 月 11 日警示 AI 自動化網攻已波及十餘家企業，結合國際 APT29 Poisoned Source 大規模攻擊、駭客利用 ARTEX 工具於 AWS 進行認證詐竊等趨勢，組織應加強雲端認證管理、威脅監測及員工資安意識教育。"
+    "Microsoft .NET與ASP.NET Core爆發多個權限提升漏洞（CVE-2026-105544、109481、114146），涉及應用開發框架核心元件，企業內部應用程式面臨高危風險，建議立即清查版本並排定緊急修補優先序。",
+    "台灣面臨AI驅動駭客攻擊升溫，資安署已接獲10多家企業通報超過800萬筆個資外洩，業者應按資安署指引補漏洞、72小時通報、落實個資最小化原則，評估現有漏洞修補流程是否足以應對高速攻擊節奏。",
+    "APT29水坑式攻擊與全球勒索軟體活動激增顯示威脅加劇，企業應加強供應鏈風險管理、行動裝置安全政策、遠端存取控制（尤其Palo Alto GlobalProtect相關漏洞CVE-2026-0330），同時強化端點偵測與回應(EDR)能力。"
   ],
   "cve_radar": [],
   "tw_scam_events": [
     {
       "date": "2026-11-12",
-      "type": "個資外洩與釣魚郵件詐騙",
-      "title": "電商及平台資料連環外洩，多家知名業者受波及",
-      "summary": "91APP、鼎泰豐、易遊網等多家電商平台與ERP系統遭駭，數百萬筆消費者個資外洩。詐騙集團利用真實訂單資訊發送釣魚郵件，誘導點擊假客服連結進行詐騙，已造成大量精準詐騙案件。",
-      "risk": "員工或公司若在這些平台消費，個資可能被賣給詐騙集團。詐騙分子掌握真實訂單和姓名，精準度極高，員工容易信以為真。購物帳號若被綁定電子支付，可能無故被扣款或作為洗錢工具。",
-      "advice": "收到訂單異常郵件，勿直接點擊連結。改用官方App或官網查詢訂單狀態。撥打官方客服號碼（自行查詢，勿用郵件裡的號碼）或165反詐騙專線確認。若已點擊連結輸入個資，立即更改所有相關帳號密碼並聯繫銀行。",
-      "source_name": "今周刊、民視新聞、中時新聞網",
-      "source_url": "https://businesstoday.com.tw/article/category/183027/post/202611110031"
+      "type": "假投資詐騙",
+      "title": "詐團蹭AI熱潮推假投資收款還求合照 刑事局逮捕20人",
+      "summary": "詐團利用AI投資熱潮營造飢餓行銷，透過假投資話術吸引民眾，收款時甚至要求合照取得信任，刑事局查獲並逮捕20人。",
+      "risk": "員工可能被社群媒體投資廣告誘騙投入資金，落入假投資陷阱，損失金額龐大。詐團利用小額出金製造假象，讓被害人誤認有獲利就容易繼續投入。",
+      "advice": "任何非政府監管的投資管道勿信任；收到投資邀請先透過官方渠道查證；下載官方授權APP投資，避免經由第三方連結；有疑慮立即撥打165反詐騙諮詢專線查證；提醒同事勿點不明投資連結。",
+      "source_name": "蕃新聞",
+      "source_url": ""
     },
     {
-      "date": "2026-11-12",
-      "type": "投資詐騙（假客服、到府收款）",
-      "title": "女子遭假投資顧問誘騙234萬，銀行員警聯手攔阻",
-      "summary": "婦人透過LINE認識自稱投資顧問的網友，被誘騙購買股票並準備投入234萬元。詐騙集團承諾人員上門收款，銀行行員察覺異狀立即通報警方成功阻止。",
-      "risk": "員工若透過社群平台投資推薦，容易被精心包裝的假投資計畫騙走大筆資金。詐騙集團到府收款手法讓受害人覺得「實體交易」更可信，實際上是詐騙高手。",
-      "advice": "任何投資機會都應向官方投資管道或銀行求證，勿信陌生網友推薦。聲稱「上門收款」的投資方式異常。銀行大額提款時會詢問用途，若有疑慮要配合查證。遇到投資詐騙立即撥165。",
-      "source_name": "匯流新聞網",
-      "source_url": "https://cnews.com.tw/204261111a07/"
+      "date": "2026-11-11",
+      "type": "假網拍釣魚詐騙",
+      "title": "投30萬月領7200元吸金逾70億 新莊投信非法吸金案4人羈押",
+      "summary": "新莊投信公司以保本高配息名義詐騙民眾投資，承諾每月1.2%-2.4%收益，年化報酬率最高28.8%，實際進行非法吸金，涉及金額逾70億元。",
+      "risk": "員工看到高報酬保證容易被吸引，一旦投入小額款項後被詐團誘導追加投資，難以挽回；投資詐團通常承諾本金保障卻實為非法集資。",
+      "advice": "任何投資都不應承諾固定高報酬或本金保障；真正投資須透過政府核准的平臺或銀行；高報酬通常對應高風險；不確定先撥165查詢投資平臺是否合法；投資前先向親友或同事查證。",
+      "source_name": "鮮新聞",
+      "source_url": "https://ftnn.com.tw/news/594437"
     },
     {
-      "date": "2026-11-10",
-      "type": "釣魚郵件與假客服詐騙",
-      "title": "鼎泰豐購物網爆個資外洩，消費者收詐騙郵件險中招",
-      "summary": "鼎泰豐購物網遭駭，數千名消費者收到署名「goodday」的釣魚郵件，謊稱訂單重複並列出真實購買資訊，誘導加入假冒官方LINE客服辦理退款。",
-      "risk": "郵件內容與實際訂單相符，員工難以立刻判斷真假。詐騙分子掌握真實個資，信任度高，容易被騙進假客服群。若被導入假客服，可能遭要求提供銀行帳號、信用卡資訊。",
-      "advice": "官方客服不會主動發信要求匯款或提供帳號。接到訂單異常郵件，直接進入鼎泰豐官方app或官網查詢，勿點郵件連結。有疑問先撥165或業者客服電話確認。",
-      "source_name": "民視新聞、東森新聞",
-      "source_url": "https://www.ftvnews.com.tw/news/detail/2026B10W0509"
+      "date": "2026-11-11",
+      "type": "假冒網購客服詐騙",
+      "title": "假冒黑貓宅急便客服騙個資+驗證碼 女遭盜綁電子支付成洗錢帳戶",
+      "summary": "詐團假冒黑貓宅急便以帳戶凍結名義引導被害人點擊假網頁，騙取身分證號、銀行帳號及簡訊驗證碼，遭綁定多個電子支付帳戶淪為洗錢工具。",
+      "risk": "員工在社群平臺購物若不慎填入釣魚網站資料，個人銀行帳戶會被詐團盜用綁定電子支付，帳戶淪為洗錢工具面臨法律風險；被害人本人會被當共犯通報。",
+      "advice": "網購收到宅配通知先上宮方網站或App查詢，勿點陌生連結；任何客服要求提供身分證字號、銀行帳號、驗證碼都是詐騙；出現帳戶異常問題先撥官方客服電話確認；網購務必用官方購物平臺與App。",
+      "source_name": "聯合新聞網",
+      "source_url": "https://udn.com/news/story/124490/9868203"
     },
     {
-      "date": "2026-11-09",
-      "type": "釣魚簡訊（電波干擾+釣魚SMS）",
-      "title": "豆漿業者爆300人個資外洩，詐騙訂單狂發",
-      "summary": "知名豆漿業者因電商平台遭駭，超過300名消費者收到虛假的高額訂單郵件（訂單金額達萬元），宣稱須分期扣款。詐騙集團混亂組合資料來自A、B、C不同來源製造恐慌。",
-      "risk": "消費者看到鉅額扣款提醒會立即驚慌點擊，詐騙集團藉機誘導進入假客服。若提供個資和驗證碼，帳號會被綁定多個電子支付工具，成為洗錢帳戶。",
-      "advice": "突然收到異常訂單提醒，先冷靜查證。登入官方app查詢交易紀錄，勿直接點郵件或簡訊連結。若確認是詐騙立即撥165報案。檢視電子支付是否遭未經授權綁定，並馬上解除。",
-      "source_name": "壹蘋新聞網、TVBS新聞",
-      "source_url": "https://news.tvbs.com.tw/local/4048670"
+      "date": "2026-11-07",
+      "type": "假網拍跨境詐騙",
+      "title": "刑事局揭網購假客服騙局 掃碼慘遭跨境扣款成人頭帳戶",
+      "summary": "詐團假冒網購客服以未實名認證名義，要求被害人掃描QR碼進行『驗證』，實際上帳戶遭跨境扣款且淪為洗錢帳戶。",
+      "risk": "員工掃描陌生QR碼就等同同意付款扣款，可能被扣數百到數萬元；帳戶被盜用進行跨境消費，員工本人會被當人頭帳戶嫌疑人而遭調查。",
+      "advice": "使用金融App掃碼等於同意付款，切勿掃陌生來源的QR碼；接到客服要求掃碼驗證先掛電話自行撥官方客服確認；懷疑詐騙立即撥165或110查證；網銀App若收到驗證碼未曾操作應立即通報銀行。",
+      "source_name": "樂聯網",
+      "source_url": "https://leho.com.tw/archives/421692"
     },
     {
-      "date": "2026-11-01",
-      "type": "釣魚郵件與電子支付詐騙",
-      "title": "詐團洗錢手法升級，釣魚網頁騙個資+綁電子支付",
-      "summary": "受害者收到假快遞連結，被誘導填寫個資後，詐騙集團以「帳戶遭凍結」為由誘導提供身分證、銀行帳號及簡訊驗證碼。詐騙分子在後台直接綁定街口、愛金卡等電子支付，進行洗錢。",
-      "risk": "員工若購物時提供個資，詐騙分子能利用驗證碼在背後綁定支付工具，變成無故扣款或被用於洗錢。受害者可能在不知情下淪為共犯。損失不只是金錢，還涉及法律責任。",
-      "advice": "快遞簡訊若要求填資料，應進入官方app確認。勿提供身分證字號、銀行帳戶給陌生人。收到驗證碼簡訊前，確認自己是否真的在操作該交易。若被騙進假客服群，立即退群並撥165。",
-      "source_name": "壹蘋新聞網（NOWNEWS）",
-      "source_url": "https://news.nextapple.com/local/20261101/E5C09835D27A8F1DCFA33BA5F60D8E6C"
+      "date": "2026-11-08",
+      "type": "假客服詐騙",
+      "title": "大雅警識破假客服詐騙 婦人在ATM操作時被攔阻保住2.9萬元",
+      "summary": "民眾收到假冒保健食品客服來電，聲稱誤設定期購需解除，引導民眾操作ATM轉帳，警員在現場成功識破並阻止。",
+      "risk": "員工若曾在電商平臺購物，詐團可能取得交易紀錄後假冒原購物平臺客服詐騙；被引導操作ATM轉帳會直接損失金錢；詐團話術精準容易取得信任。",
+      "advice": "接到客服電話要求操作ATM轉帳就是詐騙，掛電話後自行撥官方客服確認；真正的客服絕不會要求操作ATM或提供驗證碼；購物發現異常問題應主動登入官方帳戶查詢而非信任陌生來電；有疑慮立即撥165或至派出所查詢。",
+      "source_name": "蕃新聞",
+      "source_url": "https://n.yam.com/Article/20261110605850"
     }
   ],
   "risk_score": {
-    "total": 39,
+    "total": 35,
     "breakdown": [
       {
         "label": "漏洞風險",
-        "score": 72
+        "score": 48
       },
       {
         "label": "APT攻擊",
@@ -1665,7 +1657,7 @@ const DATA = {
       },
       {
         "label": "勒索病毒",
-        "score": 22
+        "score": 66
       },
       {
         "label": "身份風險",
@@ -1673,14 +1665,26 @@ const DATA = {
       },
       {
         "label": "AI風險",
-        "score": 40
+        "score": 0
       }
     ]
   },
   "action_items": [
     {
       "category": "公告確認",
-      "title": "CVE-2026-114151 Visual Studio 遠端程式碼執行漏洞",
+      "title": "PAN-SA-2026-0014 Chromium：2026年11月月度漏洞更新（嚴重性：高）",
+      "priority": "高",
+      "detail": "Palo Alto Networks廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-0330 PAN-OS：Panorama遠端程式碼執行漏洞（嚴重性：中）",
+      "priority": "高",
+      "detail": "Palo Alto Networks廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-105544 .NET 權限提升漏洞",
       "priority": "高",
       "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
@@ -1698,85 +1702,73 @@ const DATA = {
     },
     {
       "category": "公告確認",
-      "title": "CVE-2026-105544 .NET 權限提升漏洞",
-      "priority": "高",
-      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "Cisco Identity Services Engine 認證授權略過漏洞",
+      "title": "Cisco BroadWorks XML 外部實體注入漏洞",
       "priority": "高",
       "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "Fortinet 多項認證授權略過及繞過漏洞",
-      "priority": "高",
-      "detail": "Fortinet廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "Fortinet JSON API 任意檔案寫入及刪除漏洞",
-      "priority": "高",
-      "detail": "Fortinet廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "CVE-2026-0330 PAN-OS Panorama 認證遠端程式碼執行漏洞",
-      "priority": "高",
-      "detail": "Palo Alto Networks廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "PAN-SA-2026-0014 Chromium 2026年11月月度漏洞更新",
-      "priority": "高",
-      "detail": "Palo Alto Networks廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
-    },
-    {
-      "category": "公告確認",
-      "title": "AI網路攻擊升溫，資安署示警企業防護三大作為",
+      "title": "因應國際AI網攻威脅 資安署籲企業『補漏洞、快通知、個資最小化』",
       "priority": "中",
-      "detail": "來源：數位發展部資安署。資安署於11日緊急召開記者會，指出近期AI自動化網攻已波及十餘家台灣企業及網路平台，累計逾百萬筆個資外洩。促請業者落實補漏洞、通知客戶、個資最小化三大作為。"
+      "detail": "來源：資安署。數發部公布近期超過10家企業遭AI駭客攻擊，約800萬筆個資受影響，呼籲企業緊急修補漏洞、72小時內通報個資外洩、落實資訊最小化原則。"
     },
     {
       "category": "公告確認",
-      "title": "Ivanti與Cisco等廠商發布重大漏洞警訊",
+      "title": "AI資安攻擊升溫 數發部：已接獲10多家企業通報受害",
       "priority": "中",
-      "detail": "來源：TWCERT/CC。TWCERT/CC公布Ivanti Endpoint Manager Mobile（CVE-2026-18851）及Cisco Secure Email Gateway（CVE-2026-76461）等重大漏洞，均為允許遠端執行任意程式碼的高風險漏洞，需立即修補。"
+      "detail": "來源：資安署。數發部長林宜敬指出近期AI攻擊具兩大特性：攻擊速度快且依不同漏洞產生不同手法、目標集中於個資再轉賣詐騙集團，呼籲企業發現外洩72小時內通報。"
+    },
+    {
+      "category": "公告確認",
+      "title": "數發部舉辦2026前瞻資安探索會議 攜手國際夥伴強化AI資安治理",
+      "priority": "中",
+      "detail": "來源：TWCERT/CC。TWCERT/CC舉辦2026台灣資安通報應變年會，以『迎戰AI威脅 強化智慧應變』為主題，數發部成立先進AI資安風險因應小組應對新威脅。"
     },
     {
       "category": "掃描比對",
-      "title": "APT29 水坑式攻擊活動（Poisoned Source）相關IOC比對",
+      "title": "假AI品牌釣魚域名攻擊相關IOC比對",
       "priority": "中",
       "detail": "涉及類型：Domain、URL。建議比對內部防火牆/EDR日誌。"
     },
     {
       "category": "掃描比對",
-      "title": "NetamLoader APT攻擊亞洲政府機關相關IOC比對",
+      "title": "銀狐木馬專項（中國互聯網安全聯盟CCTGA）相關IOC比對",
       "priority": "中",
-      "detail": "涉及類型：IP、Domain。建議比對內部防火牆/EDR日誌。"
+      "detail": "涉及類型：IP、Domain、Hash。建議比對內部防火牆/EDR日誌。"
     },
     {
       "category": "掃描比對",
-      "title": "C3RB3R勒索軟體攻擊群暉NAS相關IOC比對",
+      "title": "2026世界杯期間非法轉播與惡意軟體分發相關IOC比對",
       "priority": "中",
-      "detail": "涉及類型：IP。建議比對內部防火牆/EDR日誌。"
+      "detail": "涉及類型：Domain、IP、URL。建議比對內部防火牆/EDR日誌。"
     },
     {
       "category": "掃描比對",
-      "title": "ARTEX滲透測試工具結合AI自動化攻擊相關IOC比對",
+      "title": "APT29 Poisoned Source大規模水坑式攻擊相關IOC比對",
       "priority": "中",
-      "detail": "涉及類型：IP。建議比對內部防火牆/EDR日誌。"
+      "detail": "涉及類型：Domain、IP。建議比對內部防火牆/EDR日誌。"
+    },
+    {
+      "category": "教育宣導",
+      "title": "因應國際AI網攻威脅 資安署籲企業『補漏洞、快通知、個資最小化』",
+      "priority": "低",
+      "detail": "建議納入員工資安宣導教育素材。"
+    },
+    {
+      "category": "教育宣導",
+      "title": "AI資安攻擊升溫 數發部：已接獲10多家企業通報受害",
+      "priority": "低",
+      "detail": "建議納入員工資安宣導教育素材。"
     }
   ],
   "category_counts": {
     "kev": 0,
-    "vendor": 21,
-    "news": 20,
-    "ransomwareApt": 3
+    "vendor": 23,
+    "news": 14,
+    "ransomwareApt": 5
   }
 };
-const UPDATED_AT = "2026/11/12 11:45:32（台灣時間）";
+const UPDATED_AT = "2026/11/13 11:22:48（台灣時間）";
 document.getElementById('updatedAt').textContent = UPDATED_AT;
 
 function escapeHtml(s){ const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }

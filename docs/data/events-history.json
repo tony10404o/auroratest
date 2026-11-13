@@ -1,6 +1,13 @@
 [
   {
     "category": "政府公告",
+    "title": "資安署籲企業緊急應對AI駭客攻擊 72小時內通報個資外洩",
+    "date": "2026-11-12",
+    "url": "https://moda.gov.tw/ACS/",
+    "first_seen": "2026-11-13"
+  },
+  {
+    "category": "政府公告",
     "title": "資安署示警 AI 網路攻擊升溫 已波及十餘家台灣企業百萬個資外洩",
     "date": "2026-11-11",
     "url": "https://moda.gov.tw/ACS/",
@@ -68,6 +75,12 @@
     "date": "2026-11-09",
     "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-sshole-openssh-flaw-to-breach-linux-systems/",
     "first_seen": "2026-11-10"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "全球勒索軟體攻擊單日創新高 新增100起涉21個團伙",
+    "date": "2026-11-09",
+    "first_seen": "2026-11-13"
   },
   {
     "category": "漏洞修補",
@@ -210,6 +223,20 @@
     "first_seen": "2026-11-12"
   },
   {
+    "category": "APT攻擊",
+    "title": "APT29發動水坑式攻擊竊取行動裝置帳密資料",
+    "date": "2026-11-04",
+    "url": "https://www.ithome.com.tw/news/180250",
+    "first_seen": "2026-11-13"
+  },
+  {
+    "category": "政府公告",
+    "title": "台灣資安署舉辦2026前瞻資安探索會議應對AI威脅",
+    "date": "2026-11-04",
+    "url": "https://www.twcert.org.tw/tw/mp-1.html",
+    "first_seen": "2026-11-13"
+  },
+  {
     "category": "政府公告",
     "title": "2026台灣資安通報應變年會迎戰AI威脅強化智慧應變",
     "date": "2026-11-03",
@@ -292,6 +319,13 @@
     "date": "2026-11-03",
     "url": "https://www.ithome.com.tw/news/180179",
     "first_seen": "2026-11-12"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "APT駭客利用NetamLoader惡意軟體攻擊亞洲政府機關",
+    "date": "2026-11-03",
+    "url": "https://www.ithome.com.tw/news/180179",
+    "first_seen": "2026-11-13"
   },
   {
     "category": "零時差漏洞",
@@ -547,13 +581,6 @@
     "title": "台灣多所大學遭Flax Typhoon等駭客組織攻擊（利用8個已知漏洞）",
     "date": "2026-10-12",
     "url": "https://www.ithome.com.tw/news/179381",
-    "first_seen": "2026-10-21"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "大阪公立大學遭勒索軟體攻擊 教學系統癱瘓",
-    "date": "2026-10-09",
-    "url": "https://rocket-boys.co.jp/security-measures-lab/2026-ransomware-attack-examples/",
     "first_seen": "2026-10-21"
   },
   {
