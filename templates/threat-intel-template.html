@@ -1005,8 +1005,7 @@ function setupVendorPillFilter(items){
 </script>
 
 <style>
-  .panel-wide{grid-column:span 2;}
-  @media (max-width:760px){.panel-wide{grid-column:auto;}}
+  .panel-wide{grid-column:1 / -1;}
   .update-due{font-size:11px;color:var(--text-dim);margin-top:4px;}
   .update-due.soon{color:#D97706;font-weight:600;}
   .update-due.over{color:#DC2626;font-weight:700;}
@@ -1020,8 +1019,11 @@ function setupVendorPillFilter(items){
   .tw-item-title a:hover{text-decoration:underline;color:#2563EB;}
   .tw-item-sum{font-size:12px;color:var(--text-dim);line-height:1.5;}
   .tw-empty{padding:18px 0;font-size:12.5px;color:var(--text-faint);text-align:center;}
-  .tw-cols{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px;}
-  @media (max-width:640px){.tw-cols{grid-template-columns:1fr;}}
+  /* 每則事件橫向並排：左＝事件資訊，中＝可能風險，右＝正確做法 */
+  .tw-item{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);gap:12px;align-items:stretch;}
+  .tw-cols{display:contents;}
+  .tw-row{margin:0;}
+  @media (max-width:760px){.tw-item{grid-template-columns:1fr;gap:6px;}.tw-row{margin-top:2px;}}
   .tw-row{font-size:12px;line-height:1.5;padding:7px 10px;border-radius:6px;}
   .tw-row b{display:block;margin:0 0 2px;}
   .tw-risk{background:rgba(220,38,38,.07);color:var(--text);}
@@ -1041,9 +1043,11 @@ function setupVendorPillFilter(items){
     const u = safe(e.source_url);
     const title = escapeHtml(e.title || '');
     return `<div class="tw-item">
+      <div class="tw-main">
       <div class="tw-item-top"><span class="tw-tag">${escapeHtml(e.type || '詐騙')}</span><span>${escapeHtml(e.date || '')}</span><span>${escapeHtml(e.source_name || '')}</span></div>
       <div class="tw-item-title">${u ? `<a href="${escapeHtml(u)}" target="_blank" rel="noopener noreferrer">${title}</a>` : title}</div>
       <div class="tw-item-sum">${escapeHtml(e.summary || '')}</div>
+      </div>
       <div class="tw-cols">
       ${e.risk ? `<div class="tw-row tw-risk"><b>⚠️ 可能風險</b>${escapeHtml(String(e.risk).replace(/^可能風險[:：]\s*/, ''))}</div>` : ''}
       ${e.advice ? `<div class="tw-row tw-advice"><b>✅ 正確做法</b>${escapeHtml(String(e.advice).replace(/^正確做法[:：]\s*/, ''))}</div>` : ''}
