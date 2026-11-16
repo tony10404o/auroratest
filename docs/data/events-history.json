@@ -1,6 +1,13 @@
 [
   {
     "category": "政府公告",
+    "title": "TWCERT發布多件重大漏洞警訊（Barracuda、SAP、Fortinet、Ivanti等）",
+    "date": "2026-11-13",
+    "url": "",
+    "first_seen": "2026-11-16"
+  },
+  {
+    "category": "政府公告",
     "title": "資安署籲企業緊急應對AI駭客攻擊 72小時內通報個資外洩",
     "date": "2026-11-12",
     "url": "https://moda.gov.tw/ACS/",
@@ -12,6 +19,13 @@
     "date": "2026-11-11",
     "url": "https://moda.gov.tw/ACS/",
     "first_seen": "2026-11-12"
+  },
+  {
+    "category": "政府公告",
+    "title": "資安署因應國際AI網攻威脅，籲企業「補漏洞、快通知、個資最小化」",
+    "date": "2026-11-11",
+    "url": "https://moda.gov.tw/ACS/",
+    "first_seen": "2026-11-16"
   },
   {
     "category": "零時差漏洞",
@@ -235,6 +249,13 @@
     "date": "2026-11-04",
     "url": "https://www.twcert.org.tw/tw/mp-1.html",
     "first_seen": "2026-11-13"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "CVE-2026-109518 Debian/Ubuntu APT驗證繞過漏洞",
+    "date": "2026-11-04",
+    "url": "https://www.ithome.com.tw/news/180291",
+    "first_seen": "2026-11-16"
   },
   {
     "category": "政府公告",
@@ -577,13 +598,6 @@
     "first_seen": "2026-10-14"
   },
   {
-    "category": "APT攻擊",
-    "title": "台灣多所大學遭Flax Typhoon等駭客組織攻擊（利用8個已知漏洞）",
-    "date": "2026-10-12",
-    "url": "https://www.ithome.com.tw/news/179381",
-    "first_seen": "2026-10-21"
-  },
-  {
     "category": "零時差漏洞",
     "title": "PHP核心漏洞CVE-2026-109618、CVE-2026-109619遠端程式碼執行",
     "date": "2026-10-00",
@@ -918,12 +932,5 @@
     "date": "2026-10-16",
     "url": "https://deepstrike.io/blog/lockbit-ransomware",
     "first_seen": "2026-10-30"
-  },
-  {
-    "category": "APT攻擊",
-    "title": "Flax Typhoon 利用多個已知漏洞攻擊美國機構",
-    "date": "2026-10-12",
-    "url": "",
-    "first_seen": "2026-10-23"
   }
 ]
