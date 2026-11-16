@@ -134,6 +134,7 @@
   .exploited-status-badge.is-watch{color:var(--text-dim);background:var(--panel);}
   .cve-plain-summary{font-size:12.5px;color:var(--text-dim);line-height:1.7;margin-bottom:8px;}
   .cve-plain-meta{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+  .cve-date-tag{font-size:10.5px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;}
   .cve-id-small{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-faint);}
   .cve-severity-tag{font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;color:var(--accent);background:rgba(37,99,235,0.08);padding:2px 8px;border-radius:20px;}
   .cve-kev-tag{font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;color:var(--sev-high);background:var(--sev-high-bg);padding:2px 8px;border-radius:20px;}
@@ -683,6 +684,7 @@ function renderCveRadar(items){
       <div class="cve-plain-summary">${escapeHtml(v.plain_summary || v.title || '')}</div>
       <div class="cve-plain-meta">
         <span class="cve-id-small">${escapeHtml(v.cve_id || '')}</span>
+        ${v.date_added ? `<span class="cve-date-tag">新增 ${escapeHtml(String(v.date_added).replace(/-/g, '/'))}</span>` : ''}
         <span class="cve-severity-tag">嚴重度 ${v.cvss ?? '—'}／10</span>
         <span class="cve-kev-tag">KEV：是</span>
       </div>
@@ -904,7 +906,7 @@ function renderStatStrip(counts, pendingCount){
   if (!counts) { el.style.display = 'none'; return; }
   const cards = [
     { color:'red', label:'今日新聞事件', number: (DATA.headlines || []).length, desc:'國內/全球新聞', range:'近2天資料' },
-    { color:'blue', label:'今日漏洞雷達', number: counts.kev ?? 0, desc:'KEV新增筆數', range:'近2天資料' },
+    { color:'blue', label:'漏洞雷達', number: (DATA.cve_radar || []).length, desc:'KEV累積筆數', range:'近15天資料' },
     { color:'green', label:'公司關注廠商情報', number: counts.vendor ?? 0, desc:'Microsoft／Cisco／Fortinet／Palo Alto', range:'近2天資料' },
   ];
   el.innerHTML = cards.map(c => `
@@ -958,7 +960,7 @@ const todayWinCount = (DATA.global_events || []).filter(e => eventInRange(e, 1))
 
 grid.innerHTML =
   panelShell('①', '📰', '今日新聞事件', null, renderHeadlines(DATA.headlines), '', '#D97706', (DATA.headlines||[]).length) +
-  panelShell('②', '🎯', '今日漏洞雷達 (CVE)', null, renderCveRadar(DATA.cve_radar), '', '#2563EB', (DATA.cve_radar||[]).length) +
+  panelShell('②', '🎯', '漏洞雷達 (CVE)', null, renderCveRadar(DATA.cve_radar), '', '#2563EB', (DATA.cve_radar||[]).length) +
   panelShell('③', '🏢', '公司關注廠商情報', null, `<div id="vendorImpactBody"></div>`, `<div id="vendorPillRow"></div>`, '#059669', (DATA.vendor_impact||[]).length) +
   panelShell('④', '🪟', '待處理事項', null,
     `<div id="globalEventsBody"></div>`,

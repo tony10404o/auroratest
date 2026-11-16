@@ -60,3 +60,40 @@ export function saveEventsHistory(history, path = HISTORY_PATH) {
   fs.mkdirSync("docs/data", { recursive: true });
   fs.writeFileSync(path, JSON.stringify(history, null, 2), "utf-8");
 }
+
+
+// ---------- 漏洞雷達（CVE）歷史：保留近15天，以 CVE 編號去重 ----------
+const CVE_HISTORY_PATH = "docs/data/cve-radar-history.json";
+const CVE_HISTORY_DAYS = 15;
+
+export function loadCveHistory(path = CVE_HISTORY_PATH) {
+  try {
+    if (!fs.existsSync(path)) return [];
+    const data = JSON.parse(fs.readFileSync(path, "utf-8"));
+    return Array.isArray(data) ? data : [];
+  } catch (err) {
+    console.error(`  ✗ 讀取漏洞雷達歷史檔案失敗（將視為空歷史）：${err.message}`);
+    return [];
+  }
+}
+
+// 以「CISA 新增日期（date_added）」的日曆日計算保留天數；已存在的 CVE 保留舊資料不覆蓋
+export function mergeCveHistory(existing, newItems, maxDays = CVE_HISTORY_DAYS) {
+  const seen = new Map();
+  for (const item of existing || []) if (item.cve_id && !seen.has(item.cve_id)) seen.set(item.cve_id, item);
+  for (const item of newItems || []) if (item.cve_id && !seen.has(item.cve_id)) seen.set(item.cve_id, item);
+  const now = new Date();
+  const todayUtc = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+  return Array.from(seen.values())
+    .filter((item) => {
+      const d = new Date(item.date_added);
+      if (isNaN(d.getTime())) return true;
+      return Math.round((todayUtc - d.getTime()) / 86400000) < maxDays;
+    })
+    .sort((a, b) => String(b.date_added || "").localeCompare(String(a.date_added || "")) || (b.cvss ?? 0) - (a.cvss ?? 0));
+}
+
+export function saveCveHistory(history, path = CVE_HISTORY_PATH) {
+  fs.mkdirSync("docs/data", { recursive: true });
+  fs.writeFileSync(path, JSON.stringify(history, null, 2), "utf-8");
+}

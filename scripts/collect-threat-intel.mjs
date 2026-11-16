@@ -2,7 +2,7 @@ import Anthropic from "@anthropic-ai/sdk";
 import fs from "node:fs";
 import path from "node:path";
 import { fetchFeed } from "./lib/rss-utils.mjs";
-import { loadEventsHistory, mergeEventsHistory, saveEventsHistory } from "./lib/history-store.mjs";
+import { loadEventsHistory, mergeEventsHistory, saveEventsHistory, loadCveHistory, mergeCveHistory, saveCveHistory } from "./lib/history-store.mjs";
 
 const apiKey = process.env.ANTHROPIC_API_KEY;
 if (!apiKey) {
@@ -12,6 +12,7 @@ if (!apiKey) {
 const anthropic = new Anthropic({ apiKey });
 
 const DAYS_BACK = 2;
+const KEV_DAYS_BACK = 5; // KEV 抓近5天（排程偶爾漏跑或週末沒更新時仍能補上），雷達會累積保留15天
 
 function daysAgo(n) {
   const d = new Date();
@@ -39,7 +40,7 @@ async function fetchCisaKev() {
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
-    const cutoff = daysAgo(DAYS_BACK);
+    const cutoff = daysAgo(KEV_DAYS_BACK);
     const recent = (data.vulnerabilities || [])
       .filter((v) => new Date(v.dateAdded) >= cutoff)
       .slice(0, 10)
@@ -52,7 +53,7 @@ async function fetchCisaKev() {
         description: v.shortDescription,
         known_ransomware_use: v.knownRansomwareCampaignUse === "Known",
       }));
-    console.log(`  ✓ CISA KEV：近${DAYS_BACK}天內新增 ${recent.length} 筆`);
+    console.log(`  ✓ CISA KEV：近${KEV_DAYS_BACK}天內新增 ${recent.length} 筆`);
     return recent;
   } catch (err) {
     console.error(`  ✗ CISA KEV 抓取失敗：${err.message}`);
@@ -169,6 +170,7 @@ function buildCveRadar(kevItems) {
       const cvss = hasOfficial ? v.nvd_cvss : v.cvss_estimate ?? 5.0;
       return {
         cve_id: v.cve_id,
+        date_added: v.date_added,
         title: v.title,
         cvss: Math.round(cvss * 10) / 10,
         cvss_source: hasOfficial ? "NVD官方" : "AI推估",
@@ -541,12 +543,14 @@ async function main() {
   await enrichKevWithNvdCvss(result.kev_vulnerabilities);
 
   const dashboard = await buildDashboard(result);
-  dashboard.cve_radar = buildCveRadar(result.kev_vulnerabilities);
+  // 漏洞雷達：累積歷史、保留近15天（以 CISA 新增日期計）
+  dashboard.cve_radar = mergeCveHistory(loadCveHistory(), buildCveRadar(result.kev_vulnerabilities));
+  saveCveHistory(dashboard.cve_radar);
   dashboard.tw_scam_events = twScamEvents;
   dashboard.risk_score = computeRiskScore(result);
   dashboard.action_items = buildActionItems(result, dashboard.cve_radar);
   dashboard.category_counts = {
-    kev: result.kev_vulnerabilities.length,
+    kev: (dashboard.cve_radar || []).length, // 上方卡片＝漏洞雷達累積筆數（近15天）
     vendor: result.vendor_advisories.length,
     news: (dashboard.headlines || []).length,
     ransomwareApt: result.ransomware_apt.length,
