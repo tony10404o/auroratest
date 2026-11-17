@@ -669,6 +669,14 @@ function setupVendorPillFilter(items){
   if (!body) return;
   const wrap = body.closest('.panel'); if (wrap) wrap.classList.add('panel-wide');
   const safe = u => /^https?:\/\//i.test(u || '') ? u : '';
+  // 風險／做法：AI 回傳陣列就直接用；舊資料是一段話，就依「；」「。」拆成多點，統一以 1. 2. 3. 條列
+  const toList = v => (Array.isArray(v) ? v : String(v || '').split(/[；;。]/))
+    .map(s => String(s).trim().replace(/^(可能風險|正確做法)[:：]\s*/, '').replace(/^\d+[\.、）)]\s*/, ''))
+    .filter(Boolean);
+  const twRow = (cls, label, v) => {
+    const list = toList(v);
+    return list.length ? `<div class="tw-row ${cls}"><b>${label}</b><ol class="tw-ol">${list.map(x => `<li>${escapeHtml(x)}</li>`).join('')}</ol></div>` : '';
+  };
   body.innerHTML = (items.length ? items.map(e => {
     const u = safe(e.source_url);
     const title = escapeHtml(e.title || '');
@@ -679,8 +687,8 @@ function setupVendorPillFilter(items){
       <div class="tw-item-sum">${escapeHtml(e.summary || '')}</div>
       </div>
       <div class="tw-cols">
-      ${e.risk ? `<div class="tw-row tw-risk"><b>⚠️ 可能風險</b>${escapeHtml(String(e.risk).replace(/^可能風險[:：]\s*/, ''))}</div>` : ''}
-      ${e.advice ? `<div class="tw-row tw-advice"><b>✅ 正確做法</b>${escapeHtml(String(e.advice).replace(/^正確做法[:：]\s*/, ''))}</div>` : ''}
+      ${twRow('tw-risk', '⚠️ 可能風險', e.risk)}
+      ${twRow('tw-advice', '✅ 正確做法', e.advice)}
       </div>
     </div>`;
   }).join('') : '<div class="tw-empty">目前沒有資料，下次自動更新後會顯示</div>')

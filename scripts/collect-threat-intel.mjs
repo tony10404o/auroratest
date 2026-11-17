@@ -308,7 +308,7 @@ async function searchRemainingCategories() {
 回傳格式：
 {
   "tw_scam_events": [
-    { "date": "YYYY-MM-DD", "type": "詐騙手法類型，例如 釣魚簡訊、投資詐騙、假冒客服、個資外洩", "title": "事件標題", "summary": "50字以內摘要，用自己的話改寫", "risk": "可能風險：針對這類手法，說明員工或公司可能遭遇的損失或風險，50字以內", "advice": "正確做法：具體、員工可立即照做的防範步驟（例如不點不明連結、撥165或向官方管道查證、改用官方App、啟用多因素驗證、通報IT），60字以內", "source_name": "來源名稱", "source_url": "來源網址" }
+    { "date": "YYYY-MM-DD", "type": "詐騙手法類型，例如 釣魚簡訊、投資詐騙、假冒客服、個資外洩", "title": "事件標題", "summary": "50字以內摘要，用自己的話改寫", "risk": ["可能風險1：一句話，25字以內", "可能風險2", "可能風險3（總共2-3項）"], "advice": ["正確做法1：具體、員工可立即照做，30字以內（例如不點不明連結、撥165或向官方管道查證、改用官方App、啟用多因素驗證、通報IT）", "正確做法2", "正確做法3（總共2-3項）"], "source_name": "來源名稱", "source_url": "來源網址" }
   ],
   "gov_announcements": [
     { "date": "YYYY-MM-DD", "source": "TWCERT/CC 或 資安署", "title": "公告標題", "summary": "40字以內摘要", "url": "來源網址", "is_awareness_case": true或false（是否適合做員工資安宣導教育） }

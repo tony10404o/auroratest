@@ -313,6 +313,9 @@
   .tw-row b{display:block;margin:0 0 2px;}
   .tw-risk{background:rgba(220,38,38,.07);color:var(--text);}
   .tw-advice{background:rgba(5,150,105,.09);color:var(--text);}
+  .tw-ol{margin:0;padding-left:18px;}
+  .tw-ol li{margin:0 0 3px;padding-left:2px;}
+  .tw-ol li:last-child{margin-bottom:0;}
   .tw-risk b{color:#DC2626;}
   .tw-advice b{color:#059669;}
   .tw-note{padding-top:8px;font-size:10.5px;color:var(--text-faint);}
