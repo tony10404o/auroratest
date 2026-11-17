@@ -14,6 +14,13 @@
     "first_seen": "2026-11-13"
   },
   {
+    "category": "勒索病毒",
+    "title": "全球勒索軟體攻擊新增99起 Incransom單日50起重創MSP供應鏈",
+    "date": "2026-11-12",
+    "url": "https://cn-sec.com/archives/5584120.html",
+    "first_seen": "2026-11-17"
+  },
+  {
     "category": "政府公告",
     "title": "資安署示警 AI 網路攻擊升溫 已波及十餘家台灣企業百萬個資外洩",
     "date": "2026-11-11",
@@ -26,6 +33,13 @@
     "date": "2026-11-11",
     "url": "https://moda.gov.tw/ACS/",
     "first_seen": "2026-11-16"
+  },
+  {
+    "category": "政府公告",
+    "title": "資安署警示：因應國際AI網攻威脅籲企業『補漏洞、快通知、個資最小化』",
+    "date": "2026-11-11",
+    "url": "https://moda.gov.tw/ACS/",
+    "first_seen": "2026-11-17"
   },
   {
     "category": "零時差漏洞",
@@ -95,6 +109,13 @@
     "title": "全球勒索軟體攻擊單日創新高 新增100起涉21個團伙",
     "date": "2026-11-09",
     "first_seen": "2026-11-13"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "全球勒索軟體攻擊單日創紀錄 100起受害者、21個團伙",
+    "date": "2026-11-09",
+    "url": "https://cn-sec.com/archives/5571520.html",
+    "first_seen": "2026-11-17"
   },
   {
     "category": "漏洞修補",
@@ -349,6 +370,13 @@
     "first_seen": "2026-11-13"
   },
   {
+    "category": "APT攻擊",
+    "title": "APT駭客利用惡意軟體框架NetamLoader攻擊亞洲政府機關",
+    "date": "2026-11-03",
+    "url": "https://www.ithome.com.tw/news/180179",
+    "first_seen": "2026-11-17"
+  },
+  {
     "category": "零時差漏洞",
     "title": "Ivanti Connect Secure 零時差漏洞遭鏈式利用攻擊",
     "date": "2026-11-02",
@@ -368,6 +396,13 @@
     "date": "2026-11-02",
     "url": "https://vocus.cc/article/6ae98889fd8978000123cedd",
     "first_seen": "2026-11-05"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "Synology NAS因舊版DSM漏洞遭C3RB3R勒索軟體攻擊",
+    "date": "2026-11-02",
+    "url": "https://vocus.cc/article/6ae98889fd8978000123cedd",
+    "first_seen": "2026-11-17"
   },
   {
     "category": "APT攻擊",
@@ -582,20 +617,6 @@
     "date": "2026-10-14",
     "url": "https://thehackernews.com/2026/10/silent-lynx-exploits-winrar-flaw-to.html",
     "first_seen": "2026-10-22"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "Ivanti Connect Secure CVE-2026-104935 認證繞過漏洞遭利用",
-    "date": "2026-10-13",
-    "url": "https://www.bleepingcomputer.com/news/security/ivanti-warns-of-connect-secure-zero-day-exploited-in-attacks/",
-    "first_seen": "2026-10-14"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "微軟十月修補 1411 個漏洞含 3 個零時差",
-    "date": "2026-10-13",
-    "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-october-2026-patch-tuesday-fixes-1,411-flaws-3-zero-days/",
-    "first_seen": "2026-10-14"
   },
   {
     "category": "零時差漏洞",
