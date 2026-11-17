@@ -573,8 +573,11 @@ async function main() {
 
   const updatedAt = new Date().toLocaleString("zh-TW", { timeZone: "Asia/Taipei", hour12: false });
 
-  html = html.replace("__DASHBOARD_JSON__", JSON.stringify(dashboard, null, 2));
-  html = html.replace("__UPDATED_AT__", updatedAt + "（台灣時間）");
+  // 用函式當取代內容，避免資料裡的 $& 之類字元被 String.replace 當成特殊符號處理
+  const assetVer = new Date().toISOString().slice(0, 16).replace(/\D/g, ""); // 例如 202611171119，讓瀏覽器在更新後重新載入 CSS/JS
+  html = html.replace("__DASHBOARD_JSON__", () => JSON.stringify(dashboard, null, 2));
+  html = html.replace("__UPDATED_AT__", () => updatedAt + "（台灣時間）");
+  html = html.replaceAll("__ASSET_VER__", assetVer);
 
   fs.mkdirSync("docs", { recursive: true });
   fs.writeFileSync(path.join("docs", "index.html"), html, "utf-8");
