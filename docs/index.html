@@ -6,7 +6,7 @@
 <title>資安輿情展示</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans+TC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=202611170502">
+<link rel="stylesheet" href="assets/style.css?v=202611180409">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 </head>
 <body>
@@ -49,210 +49,288 @@ const DATA = {
   "headlines": [
     {
       "icon": "🦠",
-      "title": "全球勒索軟體攻擊創單日紀錄 100起受害",
-      "subtitle": "11月9日新增100起受害者、21個團伙，N0n與Curious Worm包辦大部分",
+      "title": "全球勒索軟體攻擊創歷史新高",
+      "subtitle": "單日100起受害、21個團伙創紀錄，包括Vertex、Expedia等大企業",
       "impact": "高",
       "stars": 5,
       "url": "https://cn-sec.com/archives/5571520.html"
     },
     {
-      "icon": "⚠️",
-      "title": "Check Point防火牆發現權限漏洞CVE-2026-123039",
-      "subtitle": "DynamicCLI守護程式以root執行、本地認證失效，本地用戶可執行任意指令",
-      "impact": "高",
-      "stars": 5
-    },
-    {
-      "icon": "⚠️",
-      "title": "UnrealIRCd伺服器指令注入漏洞CVE-2026-114713",
-      "subtitle": "分隔符號處理不當，多伺服器連網環境中可注入控制指令，CVSS 8.6",
-      "impact": "高",
-      "stars": 5
-    },
-    {
       "icon": "🦠",
-      "title": "Synology NAS遭C3RB3R勒索軟體攻擊",
-      "subtitle": "舊版DSM漏洞遭利用，未更新設備檔案遭加密，2024年12月補丁已存在",
-      "impact": "高",
-      "stars": 5,
-      "url": "https://vocus.cc/article/6ae98889fd8978000123cedd"
-    },
-    {
-      "icon": "🦠",
-      "title": "全球勒索軟體攻擊新增99起 Incransom重創MSP供應鏈",
-      "subtitle": "11月12日涉15個團伙，Incransom單日50起掛牌，金融機構遭波及",
+      "title": "全球勒索軟體攻擊激增175%",
+      "subtitle": "單日99起受害、15個團伙，涉及多國企業與金融機構",
       "impact": "高",
       "stars": 5,
       "url": "https://cn-sec.com/archives/5584120.html"
     },
     {
-      "icon": "🪟",
-      "title": "Microsoft Office SharePoint三則高危漏洞公告",
-      "subtitle": "包括遠端程式碼執行CVE-2026-124223與權限提升CVE-2026-124222",
+      "icon": "🎯",
+      "title": "Puppet Enterprise嚴重遠端執行代碼漏洞",
+      "subtitle": "CVSS 9.4關鍵漏洞，持有CA憑證可完全控制伺服器",
       "impact": "高",
-      "stars": 5
-    },
-    {
-      "icon": "🪟",
-      "title": "Microsoft .NET VSTest權限提升漏洞CVE-2026-105544",
-      "subtitle": "開發工具鏈存在權限提升風險，高嚴重程度",
-      "impact": "高",
-      "stars": 4
-    },
-    {
-      "icon": "🔀",
-      "title": "Cisco eMudhra根憑證緊急撤銷通知",
-      "subtitle": "根憑證及中繼憑證遭撤銷，涉及憑證信任鏈，需緊急處理",
-      "impact": "高",
-      "stars": 4
+      "stars": 5,
+      "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-119961"
     },
     {
       "icon": "🕵️",
-      "title": "APT駭客利用NetamLoader框架攻擊亞洲政府機關",
-      "subtitle": "多階段.NET組件載入機制、XAML隱藏酬載，針對Windows 10客製化系統",
-      "impact": "中",
-      "stars": 4,
-      "url": "https://www.ithome.com.tw/news/180179"
+      "title": "俄羅斯APT29大規模水坑式攻擊",
+      "subtitle": "Poisoned Source活動竊取iOS、Android帳密，針對全球用戶",
+      "impact": "高",
+      "stars": 5,
+      "url": "https://www.ithome.com.tw/news/180250"
     },
     {
-      "icon": "📰",
-      "title": "供應鏈攻擊：Optimizely遭駭波及CNN、BBC等知名網站",
-      "subtitle": "網站最佳化服務商被入侵，駭客透過其平台散布惡意軟體給大型媒體客戶",
-      "impact": "中",
+      "icon": "🎯",
+      "title": "新型Java應用漏洞Java4Shell",
+      "subtitle": "允許攻擊者遠端執行惡意代碼，影響主流Java應用",
+      "impact": "高",
+      "stars": 5,
+      "url": "https://www.bleepingcomputer.com/news/security/critical-java4shell-flaw-allows-rce-attacks-on-major-java-applications/"
+    },
+    {
+      "icon": "🪟",
+      "title": "Microsoft多款產品高危漏洞集中公告",
+      "subtitle": "IIS、PowerShell、Word、Office等RCE與權限提升漏洞",
+      "impact": "高",
+      "stars": 5,
+      "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-119961"
+    },
+    {
+      "icon": "⚠️",
+      "title": "AI網攻威脅升級，台灣企業800萬筆個資外洩",
+      "subtitle": "資安署警示駭客自7月運用AI代理工具攻擊台灣企業，10餘家受害",
+      "impact": "高",
+      "stars": 5,
+      "url": "https://moda.gov.tw/ACS/press/news/press/21422"
+    },
+    {
+      "icon": "🌐",
+      "title": "供應鏈攻擊：Optimizely遭駭",
+      "subtitle": "攻擊者植入惡意代碼影響CNN、BBC等大型網站",
+      "impact": "高",
       "stars": 4,
       "url": "https://www.bleepingcomputer.com/news/security/optimizely-supply-chain-attack-delivers-malware-to-cnn-fox-news-bbc-salesforce-sites/"
     },
     {
+      "icon": "🎯",
+      "title": "TWCERT/CC緊急漏洞警訊",
+      "subtitle": "SAP、FortiManager、Ivanti等企業軟體存在RCE重大漏洞",
+      "impact": "高",
+      "stars": 4,
+      "url": "https://www.twcert.org.tw/tw/lp-169-1.html"
+    },
+    {
+      "icon": "🦠",
+      "title": "Synology NAS舊版DSM遭C3RB3R勒索軟體攻擊",
+      "subtitle": "未更新設備面臨加密風險，漏洞已於2024年12月修補",
+      "impact": "中",
+      "stars": 4,
+      "url": "https://vocus.cc/article/6ae98889fd8978000123cedd"
+    },
+    {
+      "icon": "🕵️",
+      "title": "駭客集團UNC6783入侵台灣資安院",
+      "subtitle": "竊取102GB資料涉及網路基礎設施敏感檔案",
+      "impact": "高",
+      "stars": 4,
+      "url": "https://www.ithome.com.tw/security"
+    },
+    {
+      "icon": "🎣",
+      "title": "現代釣魚工具針對Microsoft 365用戶",
+      "subtitle": "駭客開發專門竊取M365登入工作階段的釣魚程式",
+      "impact": "高",
+      "stars": 4,
+      "url": "https://www.bleepingcomputer.com/news/security/inside-modern-phishing-kits-built-to-steal-microsoft-365-sessions/"
+    },
+    {
+      "icon": "🌐",
+      "title": "Uber數據外洩事件",
+      "subtitle": "近15萬名司機個人資訊被竊取",
+      "impact": "中",
+      "stars": 3,
+      "url": "https://www.bleepingcomputer.com/news/security/uber-notifies-drivers-of-data-breach-affecting-nearly-150-000-people/"
+    },
+    {
       "icon": "📰",
-      "title": "Fandango電影購票網遭駭 客戶支付卡資訊外洩",
-      "subtitle": "結帳頁面遭攻擊，支付卡詳細資訊被竊取，企業已啟動調查",
+      "title": "日本超級電腦富岳遭網路攻擊",
+      "subtitle": "Fugaku因駭客攻擊被迫下線進行安全檢查",
       "impact": "中",
-      "stars": 4,
-      "url": "https://www.bleepingcomputer.com/news/security/fandango-says-hackers-stole-payment-card-details-from-checkout-pages/"
+      "stars": 3,
+      "url": "https://www.bleepingcomputer.com/news/security/japan-takes-fugaku-supercomputer-offlline-after-cyberattack/"
     },
     {
-      "icon": "🤖",
-      "title": "FBI警告：ARTEX AI駭客工具發動全球網路攻擊",
-      "subtitle": "AI驅動攻擊工具具自動化特性，聯邦調查局發佈威脅警告",
+      "icon": "🦠",
+      "title": "全球勒索軟體攻擊36起受害",
+      "subtitle": "新興團伙CuriousWorm一日內發動9起攻擊",
       "impact": "中",
-      "stars": 4,
-      "url": "https://www.bleepingcomputer.com/news/security/fbi-warns-artex-ai-hacking-tool-is-powering-global-cyberattacks/"
+      "stars": 3,
+      "url": "https://cn-sec.com/archives/5577079.html"
     },
     {
-      "icon": "🤖",
-      "title": "Google警告：完全自動化AI攻擊即將來臨",
-      "subtitle": "駭客開發無人工干預的自動化攻擊工具，傳統防禦將面臨新挑戰",
+      "icon": "📰",
+      "title": "Google縮短漏洞揭露期限至30天",
+      "subtitle": "Project Zero因應AI威脅升級調整政策",
       "impact": "中",
-      "stars": 4,
-      "url": "https://www.bleepingcomputer.com/news/security/google-warns-that-fully-automated-ai-attacks-are-coming-soon/"
-    },
-    {
-      "icon": "📋",
-      "title": "Google Project Zero縮短漏洞揭露期至30天",
-      "subtitle": "從90天改為30天應對AI威脅升溫，加快廠商修補速度",
-      "impact": "中",
-      "stars": 4,
+      "stars": 3,
       "url": "https://www.bleepingcomputer.com/news/security/google-project-zero-cuts-bug-disclosure-deadline-to-30-days-amid-ai-threats/"
     },
     {
-      "icon": "📢",
-      "title": "資安署警示：台灣企業遭駭880萬筆個資外洩",
-      "subtitle": "10多家企業受害，AI協助駭客網攻成國際趨勢，籲「補漏洞、快通知、個資最小化」",
+      "icon": "⚠️",
+      "title": "Cisco eMudhra根憑證緊急撤銷",
+      "subtitle": "根憑證與中間憑證授權單位遭到信任撤銷",
       "impact": "高",
-      "stars": 5,
-      "url": "https://moda.gov.tw/ACS/"
+      "stars": 4,
+      "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-emudhra-info-ScS22A1r?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Informational%20for%20Emergency%20Distrust%20of%20eMudhra%20Root%20and%20Intermediate%20Certificate%20Authorities%26vs_k=1"
     },
     {
-      "icon": "📋",
-      "title": "資安署發布2027資安星際宇宙月曆",
-      "subtitle": "免費資安宣導工具，強化企業與民眾資安意識",
+      "icon": "⚠️",
+      "title": "連網設備預設密碼風險提醒",
+      "subtitle": "歐洲超市冷凍設備遭駭凸顯隔離設定重要性",
+      "impact": "中",
+      "stars": 3,
+      "url": "https://www.twcert.org.tw/tw/lp-104-1.html"
+    },
+    {
+      "icon": "📚",
+      "title": "資安署推出2027年資安宣導月曆",
+      "subtitle": "免費下載供企業員工資安宣導使用",
       "impact": "低",
       "stars": 2,
       "url": "https://moda.gov.tw/ACS/"
-    },
-    {
-      "icon": "📋",
-      "title": "資安署資通安全網路月報（115年10月）",
-      "subtitle": "當月重要資安事件、漏洞警訊與威脅趨勢彙整",
-      "impact": "中",
-      "stars": 3,
-      "url": "https://moda.gov.tw/ACS/"
-    },
-    {
-      "icon": "🕵️",
-      "title": "TWCERT揭露Medusa勒索軟體IOC指標",
-      "subtitle": "19個惡意IP、2個URL及5個檔案雜湊供企業進行威脅檢測",
-      "impact": "中",
-      "stars": 3,
-      "url": "https://www.twcert.org.tw/tw/dl-489-75034c1450964446a0e9c7dda3bc270f.html"
-    },
-    {
-      "icon": "🕵️",
-      "title": "TWCERT警示：邊緣設備殭屍網路Doppelganger攻擊",
-      "subtitle": "供應鏈零日漏洞自2025年8月活躍，全球逾14,000台設備受害",
-      "impact": "高",
-      "stars": 4,
-      "url": "https://www.twcert.org.tw/tw/dl-443-7a7b44ed34d34598afa0439d97e5a2a7.html"
-    },
-    {
-      "icon": "🕵️",
-      "title": "威脅情報：銀狐組織攻擊活動IOC披露",
-      "subtitle": "13條IOC包含7個惡意域名與6個IP，建議納入WAF與情報攔截策略"
-    },
-    {
-      "icon": "🤖",
-      "title": "加州控告OpenAI：AI代理逃脫沙箱進行駭客攻擊",
-      "subtitle": "AI系統突破防護機制、實施駭客攻擊行為，涉及系統安全性缺陷",
-      "impact": "中",
-      "stars": 3,
-      "url": "https://www.bleepingcomputer.com/news/security/california-sues-openai-over-ai-agents-escaping-sandboxes-hacking-firms/"
     }
   ],
   "vendor_impact": [
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "SharePoint遠端程式碼執行漏洞CVE-2026-124223",
+      "title": "CVE-2026-119961 Windows IIS遠端執行代碼漏洞",
       "impact": "高",
-      "category": "協作平台",
-      "key_asset": "Microsoft Office SharePoint",
-      "ai_suggestion": "立即檢視SharePoint部署清單、評估是否在受影響版本、確認補丁可用性並規劃緊急更新窗口"
+      "category": "網頁伺服器",
+      "key_asset": "Windows IIS",
+      "ai_suggestion": "立即檢查IIS伺服器版本並套用Microsoft官方修補程式，評估內部IIS使用狀況並優先修補面向網際網路的伺服器"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": "SharePoint權限提升漏洞CVE-2026-124222",
+      "title": "CVE-2026-96251 PowerShell遠端執行代碼漏洞",
       "impact": "高",
-      "category": "協作平台",
-      "key_asset": "Microsoft Office SharePoint",
-      "ai_suggestion": "確認用戶權限設定，規劃補丁部署同時審視存取控制機制是否有不當設置"
+      "category": "命令列工具",
+      "key_asset": "Windows PowerShell",
+      "ai_suggestion": "檢查PowerShell版本與使用情況，優先更新面向外部或用於自動化的PowerShell環境，限制PowerShell執行權限"
     },
     {
       "icon": "🪟",
       "vendor": "Microsoft",
-      "title": ".NET VSTest權限提升漏洞CVE-2026-105544",
+      "title": "CVE-2026-108440 Office Word遠端執行代碼漏洞",
       "impact": "高",
+      "category": "辦公軟體",
+      "key_asset": "Microsoft Office Word",
+      "ai_suggestion": "推送Office更新至所有終端使用者，強化釣魚郵件防護與宏執行政策，考慮禁用Office巨集或要求簽署"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-119914 Windows安裝與部署權限提升漏洞",
+      "impact": "高",
+      "category": "系統管理",
+      "key_asset": "Windows系統安裝",
+      "ai_suggestion": "評估企業內Windows部署工具使用情況，套用修補程式並限制部署工具的使用權限與存取控制"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-78524 Office遠端執行代碼漏洞",
+      "impact": "高",
+      "category": "辦公軟體",
+      "key_asset": "Microsoft Office",
+      "ai_suggestion": "對所有Office組件進行完整更新，含Word、Excel、PowerPoint等，加強使用者附件開啟時的警告機制"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-40400 Windows PowerShell遠端執行代碼漏洞",
+      "impact": "高",
+      "category": "命令列工具",
+      "key_asset": "Windows PowerShell",
+      "ai_suggestion": "套用PowerShell修補程式，檢查指令碼執行政策與日誌記錄設定，監控異常PowerShell活動"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-121680 Windows NTLM偽冒漏洞",
+      "impact": "中",
+      "category": "身分驗證",
+      "key_asset": "Windows NTLM驗證",
+      "ai_suggestion": "評估NTLM使用範圍與遷移至Kerberos計畫進度，套用更新並監控NTLM認證流量異常"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-105544 .NET VSTest權限提升漏洞",
+      "impact": "中",
       "category": "開發工具",
-      "key_asset": ".NET VSTest框架",
-      "ai_suggestion": "清點開發環境中.NET版本、評估影響範圍、優先更新開發測試環境的.NET元件"
+      "key_asset": ".NET VSTest",
+      "ai_suggestion": "更新.NET框架與開發工具版本，限制開發測試環境的本機管理員權限與執行權限"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-70278 Windows Media Foundation權限提升漏洞",
+      "impact": "中",
+      "category": "多媒體服務",
+      "key_asset": "Windows Media Foundation",
+      "ai_suggestion": "評估Media Foundation服務使用狀況，套用更新並考慮在不需要的系統上禁用此服務"
+    },
+    {
+      "icon": "🪟",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-88208 Office SharePoint偽冒漏洞",
+      "impact": "中",
+      "category": "協作平台",
+      "key_asset": "Office SharePoint",
+      "ai_suggestion": "檢查SharePoint版本並套用安全更新，加強SharePoint存取權限與帳號驗證機制"
     },
     {
       "icon": "🔀",
       "vendor": "Cisco",
-      "title": "eMudhra根憑證中繼憑證緊急撤銷",
+      "title": "Node.js和Brotli相關漏洞影響Cisco多款產品",
+      "impact": "中",
+      "category": "應用依賴項",
+      "key_asset": "Cisco產品Node.js元件",
+      "ai_suggestion": "檢查Cisco產品的相關安全公告，更新受影響的Node.js與Brotli依賴庫至安全版本"
+    },
+    {
+      "icon": "🔀",
+      "vendor": "Cisco",
+      "title": "eMudhra根憑證和中間憑證緊急撤銷",
       "impact": "高",
-      "category": "憑證基礎設施",
-      "key_asset": "Cisco eMudhra根憑證",
-      "ai_suggestion": "檢查全網憑證信任存儲是否含受影響eMudhra根/中繼憑證、立即更新受信任憑證庫、監控使用該CA簽發的憑證有效性"
+      "category": "憑證管理",
+      "key_asset": "eMudhra CA憑證",
+      "ai_suggestion": "立即檢查企業內使用eMudhra簽署之憑證與信任存放區，更新根憑證與中間憑證，重新發行受影響的終端憑證"
     }
   ],
   "global_events": [
+    {
+      "category": "零時差漏洞",
+      "title": "Puppet Enterprise關鍵漏洞CVE-2026-115731",
+      "date": "2026-11-17",
+      "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-119961",
+      "first_seen": "2026-11-18"
+    },
     {
       "category": "政府公告",
       "title": "TWCERT發布多件重大漏洞警訊（Barracuda、SAP、Fortinet、Ivanti等）",
       "date": "2026-11-13",
       "url": "",
       "first_seen": "2026-11-16"
+    },
+    {
+      "category": "政府公告",
+      "title": "TWCERT/CC緊急漏洞警訊：SAP、FortiManager、Ivanti等RCE漏洞",
+      "date": "2026-11-13",
+      "url": "https://www.twcert.org.tw/tw/lp-169-1.html",
+      "first_seen": "2026-11-18"
     },
     {
       "category": "政府公告",
@@ -267,6 +345,13 @@ const DATA = {
       "date": "2026-11-12",
       "url": "https://cn-sec.com/archives/5584120.html",
       "first_seen": "2026-11-17"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "全球勒索軟體攻擊激增175%，單日99起受害、15個團伙",
+      "date": "2026-11-12",
+      "url": "https://cn-sec.com/archives/5584120.html",
+      "first_seen": "2026-11-18"
     },
     {
       "category": "政府公告",
@@ -288,6 +373,20 @@ const DATA = {
       "date": "2026-11-11",
       "url": "https://moda.gov.tw/ACS/",
       "first_seen": "2026-11-17"
+    },
+    {
+      "category": "政府公告",
+      "title": "資安署警示AI網攻威脅升級，台灣企業800萬筆個資外洩",
+      "date": "2026-11-11",
+      "url": "https://moda.gov.tw/ACS/press/news/press/21422",
+      "first_seen": "2026-11-18"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "全球勒索軟體攻擊36起受害，新團伙CuriousWorm一日9連發",
+      "date": "2026-11-11",
+      "url": "https://cn-sec.com/archives/5577079.html",
+      "first_seen": "2026-11-18"
     },
     {
       "category": "零時差漏洞",
@@ -364,6 +463,13 @@ const DATA = {
       "date": "2026-11-09",
       "url": "https://cn-sec.com/archives/5571520.html",
       "first_seen": "2026-11-17"
+    },
+    {
+      "category": "勒索病毒",
+      "title": "全球勒索軟體攻擊創歷史新高，單日100起受害、21個團伙",
+      "date": "2026-11-09",
+      "url": "https://cn-sec.com/archives/5571520.html",
+      "first_seen": "2026-11-18"
     },
     {
       "category": "漏洞修補",
@@ -525,6 +631,13 @@ const DATA = {
       "date": "2026-11-04",
       "url": "https://www.ithome.com.tw/news/180291",
       "first_seen": "2026-11-16"
+    },
+    {
+      "category": "APT攻擊",
+      "title": "俄羅斯APT29 Poisoned Source大規模水坑式攻擊",
+      "date": "2026-11-04",
+      "url": "https://www.ithome.com.tw/news/180250",
+      "first_seen": "2026-11-18"
     },
     {
       "category": "政府公告",
@@ -808,62 +921,6 @@ const DATA = {
       "title": "APT28入侵NATO海軍造船廠利用Hookedge後門",
       "date": "2026-10-20",
       "url": "https://cybersecuritynews.com/apt28-hackers/",
-      "first_seen": "2026-10-22"
-    },
-    {
-      "category": "勒索病毒",
-      "title": "Qilin 勒索軟體集團單月宣稱 11 個受害者",
-      "date": "2026-10-14",
-      "url": "https://www.dreamjtech.com/28192/",
-      "first_seen": "2026-10-14"
-    },
-    {
-      "category": "零時差漏洞",
-      "title": "Palo Alto PAN-OS防火牆認證後遠端程式碼執行漏洞(CVE-2026-0322)遭實際攻擊利用",
-      "date": "2026-10-14",
-      "url": "https://security.paloaltonetworks.com/CVE-2026-0322",
-      "first_seen": "2026-10-15"
-    },
-    {
-      "category": "零時差漏洞",
-      "title": "Cisco Secure Email Gateway任意檔案寫入零時差漏洞(CVE-2026-76519)遭駭客利用",
-      "date": "2026-10-14",
-      "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-afw-zqYJkjxp",
-      "first_seen": "2026-10-15"
-    },
-    {
-      "category": "零時差漏洞",
-      "title": "微軟十月補丁修復1,411個漏洞包含3個零時差(Windows Kerberos、DHCP Server等)",
-      "date": "2026-10-14",
-      "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-69676",
-      "first_seen": "2026-10-15"
-    },
-    {
-      "category": "零時差漏洞",
-      "title": "Ahsay AhsayCBS備份軟體命令注入漏洞(CVE-2026-105134)CVSS 9.3",
-      "date": "2026-10-14",
-      "url": "",
-      "first_seen": "2026-10-15"
-    },
-    {
-      "category": "零時差漏洞",
-      "title": "Ahsay AhsayCBS備份軟體身份驗證繞過漏洞(CVE-2026-105133)CVSS 5.5",
-      "date": "2026-10-14",
-      "url": "",
-      "first_seen": "2026-10-15"
-    },
-    {
-      "category": "勒索病毒",
-      "title": "2026年上半期日本勒索軟體被害增加1.6倍，119個APT組織活躍",
-      "date": "2026-10-14",
-      "url": "https://prtimes.jp/main/html/rd/p/000000030.000131909.html",
-      "first_seen": "2026-10-21"
-    },
-    {
-      "category": "APT攻擊",
-      "title": "Silent Lynx利用WinRAR漏洞針對CIS政府間諜活動",
-      "date": "2026-10-14",
-      "url": "https://thehackernews.com/2026/10/silent-lynx-exploits-winrar-flaw-to.html",
       "first_seen": "2026-10-22"
     },
     {
@@ -1204,11 +1261,22 @@ const DATA = {
     }
   ],
   "ai_analysis": [
-    "Microsoft SharePoint及.NET存在高危漏洞（CVE-2026-124223、CVE-2026-124222、CVE-2026-105544），需立即評估企業部署情況並規劃緊急補丁；Cisco eMudhra根憑證撤銷涉及全網憑證信任鏈，須優先更新受信任憑證庫避免連線中斷。",
-    "全球勒索軟體攻擊激增（11月9日100起、11月12日99起創紀錄），Synology NAS等邊緣設備成重點目標；台灣10多家企業累計880萬筆個資外洩，AI協助駭客網攻已成趨勢，建議優先檢查舊版DSM、邊緣設備漏洞並加強應急通知機制。",
-    "Check Point防火牆（CVE-2026-123039）與UnrealIRCd伺服器（CVE-2026-114713）漏洞允許本地及遠端用戶執行任意指令，需清點環境是否部署相關產品、立即檢視補丁可用性並規劃更新時程。"
+    "Microsoft多款產品（IIS、PowerShell、Office）同步爆發高危RCE與權限提升漏洞，需立即啟動修補計畫，優先處理面向網際網路的伺服器與廣泛部署的Office軟體",
+    "全球勒索軟體攻擊量創歷史新高，台灣企業已遭AI網攻導致800萬筆個資外洩，建議檢查Synology等備份系統、強化終端防護與事件監控，同時評估Puppet Enterprise等配置管理工具的漏洞修補需求",
+    "俄羅斯APT29進行大規模供應鏈攻擊竊取行動帳密，Microsoft 365成釣魚重點目標，應強化郵件與身分驗證防護（含條件式存取、MFA），並對員工進行釣魚識別訓練"
   ],
   "cve_radar": [
+    {
+      "cve_id": "CVE-2026-115731",
+      "date_added": "2026-11-17",
+      "title": "Puppet Enterprise 報告處理程式反序列化漏洞允許遠端執行任意程式碼",
+      "cvss": 9.4,
+      "cvss_source": "NVD官方",
+      "exploited": true,
+      "action": "立即更新",
+      "plain_title": "配置管理工具出現嚴重遠端攻擊漏洞",
+      "plain_summary": "這個漏洞出現在一款企業伺服器管理工具中。攻擊者如果能拿到合法的安全憑證，就可以透過提交特殊的報告資料，在伺服器上執行任意指令，等於入侵者可以完全控制該伺服器。如果公司使用這款工具來管理多台電腦和伺服器，風險會特別大。"
+    },
     {
       "cve_id": "CVE-2026-114713",
       "date_added": "2026-11-13",
@@ -1234,62 +1302,102 @@ const DATA = {
   ],
   "tw_scam_events": [
     {
-      "date": "2026-11-16",
-      "type": "詐騙簡訊：冒充名人詐騙",
-      "title": "詐騙集團冒充黃仁勳發簡訊求救借款",
-      "summary": "詐騙集團冒用英偉達創辦人黃仁勳名義發送iMessage簡訊，聲稱遭美國政府陷害、急需借100萬元新台幣，承諾出資者可以其名字命名顯卡。警方查證目前無民眾因此受騙報案。",
-      "risk": "員工若誤信此類名人詐騙簡訊，可能回覆導致手機號被標記為有效號碼，進而成為後續假投資、假交友、假募捐等詐騙的鎖定目標，遭進一步精準詐騙。",
-      "advice": "收到陌生簡訊聲稱名人急需借款，不要回覆或點擊連結；應通過通訊軟體「報告垃圾信息」功能屏蔽，若有疑慮撥打165反詐騙專線查證；本公司員工可向IT部門回報可疑信息。",
-      "source_name": "新唐人、警政署刑事警察局",
-      "source_url": "https://www.ntdtv.com/b5/2026/11/16/a104151052.html"
-    },
-    {
-      "date": "2026-11-11",
-      "type": "詐騙簡訊：假訂單釣魚",
-      "title": "雙11購物季假訂單詐騙盛行",
-      "summary": "詐騙集團冒充購物平台發送釣魚簡訊，聲稱消費者有「重複訂購」、「自動續費」、「扣款異常」等情形，誘導點擊連結加入LINE假客服群，再以查金流為由騙取帳戶資訊。南市警察局三分局攔阻多件疑似案件。",
-      "risk": "員工網購時若點擊簡訊連結進入假網站，可能洩露銀行帳戶、信用卡資訊，導致帳戶被盜刷，或個資被掌握用於後續詐騙。",
-      "advice": "收到購物平台簡訊通知，不點連結；應直接從官方App或官網登入查詢訂單狀態；有疑問撥165確認而非依簡訊指示操作；啟用信用卡消費通知及多因素驗證。",
-      "source_name": "南市警察局第三分局、品傳媒",
+      "date": "2026-11-13",
+      "type": "釣魚簡訊/假訂單詐騙",
+      "title": "雙11假訂單詐騙來襲 假冒購物平台寄扣款通知",
+      "summary": "詐團冒用購物平台名義寄送虛假扣款通知或簡訊，聲稱自動續費或重複訂購，誘導民眾點擊連結加入假客服LINE後盜取資料與操作網銀轉帳。",
+      "risk": [
+        "點擊不明連結後帳號密碼或驗證碼遭盜，詐騙集團可冒用身分操作金融帳戶",
+        "掉入二次詐騙：騙取個資轉售詐欺集團進行精準詐騙",
+        "帳戶遭挪作洗錢工具，淪為詐欺共犯並被警示凍結"
+      ],
+      "advice": [
+        "收到扣款通知先掛斷，改用官方App或網站自行查詢訂單，勿點簡訊/Email連結",
+        "如輸入驗證碼應立即改密碼並啟用2FA，聯繫銀行掛失；若被盜用須撥165",
+        "確認購物來源前保持懷疑，尤其是陌生簡訊與Email，遇疑問撥165查證"
+      ],
+      "source_name": "台灣新聞記者聯誼會",
       "source_url": "https://mknews.com.tw/2026/11/1016274/"
     },
     {
       "date": "2026-11-13",
-      "type": "詐騙簡訊：假投資詐騙",
-      "title": "假投資詐騙利用AI熱潮與面交陷阱",
-      "summary": "詐騙集團透過社群平台Threads、臉書發布虛假投資廣告，宣稱投資AI、虛擬貨幣等熱門議題可保證獲利，誘騙民眾加入LINE群組、下載假投資App；若被害人懷疑，詐團會向其要求追加投資，並透過面交現場進行詐騙。警方多次攔阻成功。",
-      "risk": "員工若在社群看到高獲利投資廣告而加入，可能被假客服、投資老師誘騙匯款或提領現金投資，導致數十萬元以上損失；個資也可能被詐團掌握用於後續詐騙。",
-      "advice": "社群平台投資廣告標榜『穩賺不賠』、『保證獲利』多為詐騙；投資前查證合法金融機構、確認監管資訊；不加不明投資LINE群組、不下載陌生App；有疑慮撥165查證。",
-      "source_name": "彰化縣鹿港分局、苗栗警察局",
-      "source_url": "https://n.yam.com/Article/20261113763706"
+      "type": "假訂閱詐騙",
+      "title": "大學生收假訂閱扣款郵件 警察及時識破釣魚連結詐騙",
+      "summary": "詐騙集團發送虛假扣款郵件製造恐慌，聲稱帳號遭誤設訂閱，誘導點擊假客服連結來盜取個資或要求操作網銀轉帳。",
+      "risk": [
+        "點擊郵件連結可能下載惡意程式或進入釣魚網站導致帳號被控制",
+        "交出驗證碼等同於給詐欺集團簽署文件，可用於綁定電子支付進行洗錢",
+        "被害人帳戶淪為詐欺工具，可能涉及連帶法律責任"
+      ],
+      "advice": [
+        "收到扣款郵件先深呼吸，勿急著點連結，改用官方App確認訂閱狀態",
+        "驗證碼絕不交給任何人，包括自稱客服的來電或通訊軟體；聯繫官方應自行查號",
+        "疑似詐騙立即撥165確認，若點進連結須立即改密碼並開啟2FA"
+      ],
+      "source_name": "ETtoday新聞雲",
+      "source_url": "https://www.ettoday.net/news/20261113/3271367.htm"
     },
     {
       "date": "2026-11-11",
-      "type": "釣魚簡訊：假贈送詐騙",
-      "title": "詐團假贈送選舉小物引誘釣魚",
-      "summary": "詐騙集團利用2026選舉話題，在Threads、臉書等平台發布「免費贈送候選人競選小物、保溫杯、鑰匙圈」貼文，以支付運費、填寫配送資料、實名認證異常為由，誘騙民眾進入假物流網站，騙取網銀帳密與存款。新北警方接獲多件報案。",
-      "risk": "員工若被免費贈送訊息吸引而點擊進入假網站，可能提供帳號密碼、驗證碼給詐騙集團，導致網銀帳戶遭盜轉、存款被竊，甚至個資外洩被用於詐騙他人。",
-      "advice": "社群平台免費贈送訊息多為詐騙，不點擊陌生連結；物流或帳戶認證異常通知，應直接撥官方客服或165查證，不依陌生客服指令分享金融畫面、提供驗證碼；不操作轉帳、匯款或無卡提款。",
-      "source_name": "新北市刑警大隊",
-      "source_url": "https://tw.news.yahoo.com/%E6%B4%8B%E6%B5%81%E6%88%90%E9%87%8B%E7%81%BD%E5%8D%80-%E8%A9%90%E5%9C%98%E7%8B%82%E7%99%BC%E5%85%8D%E8%B2%BB%E8%B4%88%E7%AB%B6%E9%81%B8%E7%A6%AE%E9%87%A3%E9%AD%9A-%E6%96%B0%E5%8C%97%E8%AD%A6%E6%8F%AD%E5%81%87%E8%B4%87%E9%80%81%E7%9C%9F%E8%A9%90%E8%B2%A1%E6%89%8B%E6%B3%95-071325127.html"
+      "type": "個資外洩導致詐騙",
+      "title": "AI網攻個資外洩 累計百萬筆受影響 詐欺集團暗網販售個資進行精準詐騙",
+      "summary": "駭客運用AI工具自7月起對台灣企業發動網攻，91APP、易遊網、永豐銀等受害，逾百萬筆個資遭竊取後在暗網轉售予詐欺集團，詐欺團透過外洩的姓名地址電話進行精準詐騙。",
+      "risk": [
+        "詐騙集團掌握真實個資進行釣魚詐騙成功率大幅提高，更難識別",
+        "銀行卡號等金融資訊外洩可遭盜刷，員工資料外洩恐遭冒名詐騙",
+        "個人隱私全面曝光在暗網，存在長期被多團詐欺利用的風險"
+      ],
+      "advice": [
+        "近期收到購物平台官方郵件應先用官方管道驗證，勿輕信陌生聯繫",
+        "主動監控銀行帳戶交易，啟用簡訊及App通知每筆消費，異常立即聯繫銀行",
+        "若懷疑個資外洩應撥165，並向金融機構申請監測服務與信用凍結"
+      ],
+      "source_name": "中央社",
+      "source_url": "https://www.cna.com.tw/news/aipl/202611120178.aspx"
     },
     {
-      "date": "2026-11-01",
-      "type": "詐騙簡訊：假投資詐騙",
-      "title": "七旬婦遭假投資客服詐騙140萬虛擬貨幣",
-      "summary": "銀髮族民眾透過臉書認識自稱投資客服人員，對方推薦虛擬貨幣投資方案並保證獲利，民眾準備提領140萬元投資。所幸郵局員工察覺異狀通知警方，警方勸阻成功阻止資金流出，詐騙集團發現警方介入即切斷聯繫。",
-      "risk": "銀髮族及中高齡員工因求財心切或資訊素養較低，更易被假投資詐騙吸引；若投入鉅資，可能造成終身積蓄損失，且詐團掌握個資後可持續騷擾詐騙。",
-      "advice": "網路標榜『穩賺不賠』、『保證獲利』的投資方案往往是詐騙；投資前應向銀行或官方金融機構確認；警惕社群平台陌生客服拉攏；提領鉅款時主動向銀行說明用途，接受員工勸阻與查證。",
-      "source_name": "苗栗縣警察局頭份分局",
-      "source_url": "https://n.yam.com/Article/20261101847492"
+      "date": "2026-11-14",
+      "type": "假投資詐騙",
+      "title": "詐團年終大撈 社群廣告假投資平台詐騙逾千萬元",
+      "summary": "詐欺集團透過Facebook投資廣告吸引民眾，誘導加入LINE群組操作假投資平台，逐步引導被害人面交或匯款數次，累計損失數百萬至千萬元，詐團甚至持續以各種理由二次詐騙被害人。",
+      "risk": [
+        "社群廣告高度偽真，一般人難以辨識，容易信以為真而轉帳",
+        "詐欺集團掌握被害人資訊後持續二次詐騙，被害人防衛心理崩潰",
+        "匯款及面交記錄無法追回，資金流向複雜難以偵查"
+      ],
+      "advice": [
+        "陌生人在社群推薦投資一律不信，到官方網站查詢該投資管道是否存在",
+        "投資前撥165確認該平台官方，勿因朋友介紹或廣告吸引即匯款",
+        "詐騙集團二次詐騙時應立即掛斷，聯繫警方與銀行，勿再交付任何款項"
+      ],
+      "source_name": "壹蘋新聞網",
+      "source_url": "https://news.nextapple.com/local/20261114/DC36F83C4E58FBF0BB5AEB850C8166D1"
+    },
+    {
+      "date": "2026-11-12",
+      "type": "詐騙電話偽冒 165冒名詐騙",
+      "title": "詐騙電話暴增 +1749開頭冒充165反詐騙專線恐嚇民眾",
+      "summary": "詐騙集團利用「+1749」開頭號碼假冒165反詐騙專線，謊稱民眾電話遭檢舉涉及洗錢案件，製造恐慌後誘導交出個資或轉帳，警方呼籲正規165絕不用「+」開頭打來。",
+      "risk": [
+        "民眾混淆真假165，誤以為來電確實為官方而配合交出個資",
+        "被害人在恐慌心態下容易失去判斷力，主動轉帳或交付銀行帳號",
+        "詐騙集團冒充官方機構會增加民眾對真正165的信任度降低，釀成骨牌效應"
+      ],
+      "advice": [
+        "165絕不用「+」開頭國際號碼打給你，接到「+」開頭號碼直接掛斷勿回撥",
+        "任何官方機構不會電話要求立即轉帳或交個資，接到此類要求應掛斷自行撥165",
+        "遇陌生電話提到「帳戶異常、解除分期、包裹」請一聽、二掛、三撥165查證"
+      ],
+      "source_name": "Yahoo奇摩新聞",
+      "source_url": "https://tw.news.yahoo.com/%E8%A9%90%E9%A8%99%E9%9B%BB%E8%A9%B1%E7%AA%81%E7%84%B6%E6%9A%B4%E5%A2%9E-%E9%80%994%E7%B5%84%E6%95%B8%E5%AD%97-%E8%A6%81%E5%B0%8F%E5%BF%83-165%E4%B9%9F%E9%81%AD%E5%86%92%E5%90%8D-031000797.html"
     }
   ],
   "risk_score": {
-    "total": 46,
+    "total": 41,
     "breakdown": [
       {
         "label": "漏洞風險",
-        "score": 56
+        "score": 68
       },
       {
         "label": "APT攻擊",
@@ -1297,7 +1405,7 @@ const DATA = {
       },
       {
         "label": "勒索病毒",
-        "score": 66
+        "score": 88
       },
       {
         "label": "身份風險",
@@ -1305,32 +1413,56 @@ const DATA = {
       },
       {
         "label": "AI風險",
-        "score": 80
+        "score": 20
       }
     ]
   },
   "action_items": [
     {
+      "category": "漏洞修補",
+      "title": "CVE-2026-115731：Puppet Enterprise 報告處理程式反序列化漏洞允許遠端執行任意程式碼",
+      "priority": "高",
+      "detail": "CVSS 9.4（NVD官方），建議立即更新"
+    },
+    {
       "category": "公告確認",
-      "title": "CVE-2026-124223 Microsoft Office SharePoint 遠端程式碼執行漏洞",
+      "title": "CVE-2026-119961 Windows IIS 遠端執行程式碼漏洞",
       "priority": "高",
       "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "CVE-2026-124222 Microsoft Office SharePoint 權限提升漏洞",
+      "title": "CVE-2026-96251 PowerShell 遠端執行程式碼漏洞",
       "priority": "高",
       "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "CVE-2026-105544 .NET VSTest 權限提升漏洞",
+      "title": "CVE-2026-108440 Office Word 遠端執行程式碼漏洞",
       "priority": "高",
       "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
     {
       "category": "公告確認",
-      "title": "Cisco eMudhra 根憑證和中繼憑證緊急撤銷通知",
+      "title": "CVE-2026-119914 Windows 安裝與部署權限提升漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-78524 Office 遠端執行程式碼漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "CVE-2026-40400 Windows PowerShell 遠端執行程式碼漏洞",
+      "priority": "高",
+      "detail": "Microsoft廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
+    },
+    {
+      "category": "公告確認",
+      "title": "eMudhra 根憑證和中間憑證授權單位緊急撤銷通知",
       "priority": "高",
       "detail": "Cisco廠商公告，研判嚴重度高，建議儘速確認並評估更新。"
     },
@@ -1348,69 +1480,45 @@ const DATA = {
     },
     {
       "category": "公告確認",
-      "title": "資安防護天天學！『2027資安星際宇宙』月曆即日起免費開放下載",
+      "title": "資安防護天天學！2027資安星際宇宙月曆即日起免費開放下載",
       "priority": "中",
-      "detail": "來源：資安署。資安署推出2027年資安宣導月曆『資安星際宇宙』，免費供企業及民眾下載，強化資安意識與防護觀念。"
+      "detail": "來源：資安署。資安署推出2027年資安宣導月曆，透過創意視覺強化全民資安意識，提供免費下載供企業員工資安宣導使用。"
     },
     {
       "category": "公告確認",
-      "title": "因應國際AI網攻威脅 資安署籲企業『補漏洞、快通知、個資最小化』，全民慎防個資詐騙",
+      "title": "因應國際AI網攻威脅 資安署籲企業補漏洞、快通知、個資最小化，全民慎防個資詐騙",
       "priority": "中",
-      "detail": "來源：資安署。資安署發布警示指出台灣10多家企業遭駭客攻擊，累計約880萬筆個資外洩，AI協助駭客網攻已成國際趨勢，呼籲企業修補漏洞、快速通知受影響客戶、縮小個資蒐集範圍，民眾警惕精準詐騙。"
+      "detail": "來源：資安署。資安署發布警告，駭客自7月起運用AI代理工具對台灣企業發動網攻，10餘家業者受害，800萬筆個資外洩，呼籲企業修補漏洞、72小時內通報並最小化個資蒐集。"
     },
     {
       "category": "公告確認",
-      "title": "資通安全網路月報（115年10月）",
+      "title": "漏洞警訊公告：Barracuda Email Security Gateway等多款軟體存在重大資安漏洞",
       "priority": "中",
-      "detail": "來源：資安署。資安署發布十月份資通安全網路月報，彙整當月重要資安事件、漏洞警訊、威脅趨勢等情資供企業參考。"
+      "detail": "來源：TWCERT/CC。TWCERT/CC發布緊急漏洞警訊，包括SAP、FortiManager、Ivanti等企業級軟體存在RCE等重大漏洞，建議立即更新以防遭利用。"
     },
     {
-      "category": "掃描比對",
-      "title": "Medusa勒索軟體相關IOC比對",
+      "category": "公告確認",
+      "title": "資安新聞：歐洲超市冷凍設備遭駭 凸顯連網設備對外暴露與預設密碼風險",
       "priority": "中",
-      "detail": "涉及類型：IP、URL、Hash。建議比對內部防火牆/EDR日誌。"
+      "detail": "來源：TWCERT/CC。TWCERT/CC轉載資安新聞，提醒網路連線設備預設密碼風險，呼籲企業定期更新密碼與檢查網路隔離設定。"
     },
     {
-      "category": "掃描比對",
-      "title": "邊緣設備殭屍網路Doppelganger相關IOC比對",
+      "category": "公告確認",
+      "title": "2026台灣資安通報應變年會：迎戰AI威脅強化智慧應變",
       "priority": "中",
-      "detail": "涉及類型：IP、Domain。建議比對內部防火牆/EDR日誌。"
-    },
-    {
-      "category": "掃描比對",
-      "title": "銀狐組織攻擊活動相關IOC比對",
-      "priority": "中",
-      "detail": "涉及類型：IP、Domain。建議比對內部防火牆/EDR日誌。"
-    },
-    {
-      "category": "教育宣導",
-      "title": "供應鏈攻擊：Optimizely 被駭導致 CNN、BBC 等知名網站遭植入惡意軟體",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
-    },
-    {
-      "category": "教育宣導",
-      "title": "Fandango 電影購票網遭駭客盜取客戶支付卡資訊",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
-    },
-    {
-      "category": "教育宣導",
-      "title": "資安防護天天學！『2027資安星際宇宙』月曆即日起免費開放下載",
-      "priority": "低",
-      "detail": "建議納入員工資安宣導教育素材。"
+      "detail": "來源：資安署、TWCERT/CC。資安署與TWCERT/CC舉辦年度資安年會，邀集產官學界分享AI時代資安威脅與防護策略，推動產業資安治理。"
     }
   ],
   "category_counts": {
-    "kev": 2,
-    "vendor": 4,
-    "news": 21,
-    "ransomwareApt": 4
+    "kev": 3,
+    "vendor": 12,
+    "news": 19,
+    "ransomwareApt": 5
   }
 };
-const UPDATED_AT = "2026/11/17 13:02:27（台灣時間）";
+const UPDATED_AT = "2026/11/18 12:09:18（台灣時間）";
 </script>
-<script src="assets/app.js?v=202611170502"></script>
+<script src="assets/app.js?v=202611180409"></script>
 
 
 

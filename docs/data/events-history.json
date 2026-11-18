@@ -1,10 +1,24 @@
 [
   {
+    "category": "零時差漏洞",
+    "title": "Puppet Enterprise關鍵漏洞CVE-2026-115731",
+    "date": "2026-11-17",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-119961",
+    "first_seen": "2026-11-18"
+  },
+  {
     "category": "政府公告",
     "title": "TWCERT發布多件重大漏洞警訊（Barracuda、SAP、Fortinet、Ivanti等）",
     "date": "2026-11-13",
     "url": "",
     "first_seen": "2026-11-16"
+  },
+  {
+    "category": "政府公告",
+    "title": "TWCERT/CC緊急漏洞警訊：SAP、FortiManager、Ivanti等RCE漏洞",
+    "date": "2026-11-13",
+    "url": "https://www.twcert.org.tw/tw/lp-169-1.html",
+    "first_seen": "2026-11-18"
   },
   {
     "category": "政府公告",
@@ -19,6 +33,13 @@
     "date": "2026-11-12",
     "url": "https://cn-sec.com/archives/5584120.html",
     "first_seen": "2026-11-17"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "全球勒索軟體攻擊激增175%，單日99起受害、15個團伙",
+    "date": "2026-11-12",
+    "url": "https://cn-sec.com/archives/5584120.html",
+    "first_seen": "2026-11-18"
   },
   {
     "category": "政府公告",
@@ -40,6 +61,20 @@
     "date": "2026-11-11",
     "url": "https://moda.gov.tw/ACS/",
     "first_seen": "2026-11-17"
+  },
+  {
+    "category": "政府公告",
+    "title": "資安署警示AI網攻威脅升級，台灣企業800萬筆個資外洩",
+    "date": "2026-11-11",
+    "url": "https://moda.gov.tw/ACS/press/news/press/21422",
+    "first_seen": "2026-11-18"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "全球勒索軟體攻擊36起受害，新團伙CuriousWorm一日9連發",
+    "date": "2026-11-11",
+    "url": "https://cn-sec.com/archives/5577079.html",
+    "first_seen": "2026-11-18"
   },
   {
     "category": "零時差漏洞",
@@ -116,6 +151,13 @@
     "date": "2026-11-09",
     "url": "https://cn-sec.com/archives/5571520.html",
     "first_seen": "2026-11-17"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "全球勒索軟體攻擊創歷史新高，單日100起受害、21個團伙",
+    "date": "2026-11-09",
+    "url": "https://cn-sec.com/archives/5571520.html",
+    "first_seen": "2026-11-18"
   },
   {
     "category": "漏洞修補",
@@ -277,6 +319,13 @@
     "date": "2026-11-04",
     "url": "https://www.ithome.com.tw/news/180291",
     "first_seen": "2026-11-16"
+  },
+  {
+    "category": "APT攻擊",
+    "title": "俄羅斯APT29 Poisoned Source大規模水坑式攻擊",
+    "date": "2026-11-04",
+    "url": "https://www.ithome.com.tw/news/180250",
+    "first_seen": "2026-11-18"
   },
   {
     "category": "政府公告",
@@ -560,62 +609,6 @@
     "title": "APT28入侵NATO海軍造船廠利用Hookedge後門",
     "date": "2026-10-20",
     "url": "https://cybersecuritynews.com/apt28-hackers/",
-    "first_seen": "2026-10-22"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "Qilin 勒索軟體集團單月宣稱 11 個受害者",
-    "date": "2026-10-14",
-    "url": "https://www.dreamjtech.com/28192/",
-    "first_seen": "2026-10-14"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "Palo Alto PAN-OS防火牆認證後遠端程式碼執行漏洞(CVE-2026-0322)遭實際攻擊利用",
-    "date": "2026-10-14",
-    "url": "https://security.paloaltonetworks.com/CVE-2026-0322",
-    "first_seen": "2026-10-15"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "Cisco Secure Email Gateway任意檔案寫入零時差漏洞(CVE-2026-76519)遭駭客利用",
-    "date": "2026-10-14",
-    "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-afw-zqYJkjxp",
-    "first_seen": "2026-10-15"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "微軟十月補丁修復1,411個漏洞包含3個零時差(Windows Kerberos、DHCP Server等)",
-    "date": "2026-10-14",
-    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-69676",
-    "first_seen": "2026-10-15"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "Ahsay AhsayCBS備份軟體命令注入漏洞(CVE-2026-105134)CVSS 9.3",
-    "date": "2026-10-14",
-    "url": "",
-    "first_seen": "2026-10-15"
-  },
-  {
-    "category": "零時差漏洞",
-    "title": "Ahsay AhsayCBS備份軟體身份驗證繞過漏洞(CVE-2026-105133)CVSS 5.5",
-    "date": "2026-10-14",
-    "url": "",
-    "first_seen": "2026-10-15"
-  },
-  {
-    "category": "勒索病毒",
-    "title": "2026年上半期日本勒索軟體被害增加1.6倍，119個APT組織活躍",
-    "date": "2026-10-14",
-    "url": "https://prtimes.jp/main/html/rd/p/000000030.000131909.html",
-    "first_seen": "2026-10-21"
-  },
-  {
-    "category": "APT攻擊",
-    "title": "Silent Lynx利用WinRAR漏洞針對CIS政府間諜活動",
-    "date": "2026-10-14",
-    "url": "https://thehackernews.com/2026/10/silent-lynx-exploits-winrar-flaw-to.html",
     "first_seen": "2026-10-22"
   },
   {
