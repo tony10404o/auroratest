@@ -1,10 +1,66 @@
 [
   {
+    "category": "政府公告",
+    "title": "AI代理網攻延燒企業平台，資安署籲『補漏洞、快通知、個資最小化』",
+    "date": "2026-11-19",
+    "url": "https://netmag.tw/2026/11/19/ministry-outlines-cyber-response-measures",
+    "first_seen": "2026-11-19"
+  },
+  {
+    "category": "政府公告",
+    "title": "資安署擬推『政府機關AI資通安全參考指引』，明年初發布",
+    "date": "2026-11-19",
+    "url": "https://ec.ltn.com.tw/article/breakingnews/5646038",
+    "first_seen": "2026-11-19"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "REDCap代碼注入漏洞（CVE-2026-90817），CVSS 9.8關鍵",
+    "date": "2026-11-18",
+    "url": "",
+    "first_seen": "2026-11-19"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Synology DSM遠端執行程式碼漏洞（CVE-2024-10441），CVSS 9.8",
+    "date": "2026-11-18",
+    "url": "",
+    "first_seen": "2026-11-19"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Apache Axis不安全反射漏洞（CVE-2026-90436），CVSS 9.8",
+    "date": "2026-11-18",
+    "url": "",
+    "first_seen": "2026-11-19"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "BerriAI LiteLLM未受保護備用通道漏洞（CVE-2026-40217），CVSS 8.8",
+    "date": "2026-11-18",
+    "url": "",
+    "first_seen": "2026-11-19"
+  },
+  {
+    "category": "政府公告",
+    "title": "行政院要求企業立即通知個資外洩當事人，並提醒民眾防範詐騙",
+    "date": "2026-11-18",
+    "url": "https://www.ey.gov.tw/Page/9277F759E41CCD91/e425f55c-4435-41cf-8e17-16412c780e51",
+    "first_seen": "2026-11-19"
+  },
+  {
     "category": "零時差漏洞",
     "title": "Puppet Enterprise關鍵漏洞CVE-2026-115731",
     "date": "2026-11-17",
     "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-119961",
     "first_seen": "2026-11-18"
+  },
+  {
+    "category": "零時差漏洞",
+    "title": "Puppet Enterprise反序列化漏洞（CVE-2026-115731），CVSS 9.4",
+    "date": "2026-11-17",
+    "url": "",
+    "first_seen": "2026-11-19"
   },
   {
     "category": "政府公告",
@@ -40,6 +96,13 @@
     "date": "2026-11-12",
     "url": "https://cn-sec.com/archives/5584120.html",
     "first_seen": "2026-11-18"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "全球勒索軟體攻擊激增，11月12日單日99起事件創歷史高位",
+    "date": "2026-11-12",
+    "url": "https://cn-sec.com/archives/5584120.html",
+    "first_seen": "2026-11-19"
   },
   {
     "category": "政府公告",
@@ -158,6 +221,13 @@
     "date": "2026-11-09",
     "url": "https://cn-sec.com/archives/5571520.html",
     "first_seen": "2026-11-18"
+  },
+  {
+    "category": "勒索病毒",
+    "title": "全球勒索軟體泄露站創紀錄，11月9日單日100起新增受害",
+    "date": "2026-11-09",
+    "url": "https://cn-sec.com/archives/5571520.html",
+    "first_seen": "2026-11-19"
   },
   {
     "category": "漏洞修補",
